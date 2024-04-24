@@ -1,0 +1,89 @@
+# frozen_string_literal: true
+
+module ModernTreasury
+  module Resources
+    class LedgerEventHandlers
+      def initialize(client:)
+        @client = client
+      end
+
+      # create ledger_event_handler
+      #
+      # @param params [Hash] Attributes to send in this request.
+      # @option params [LedgerTransactionTemplate] :ledger_transaction_template
+      # @option params [String] :name Name of the ledger event handler.
+      # @option params [Conditions] :conditions
+      # @option params [String] :description An optional description.
+      # @option params [String] :ledger_id The id of the ledger that this account belongs to.
+      # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @option params [Hash] :variables
+      #
+      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      #
+      # @return [ModernTreasury::Models::LedgerEventHandler]
+      def create(params = {}, opts = {})
+        req = {}
+        req[:method] = :post
+        req[:path] = "/api/ledger_event_handlers"
+        req[:body] = params
+        req[:model] = ModernTreasury::Models::LedgerEventHandler
+        @client.request(req, opts)
+      end
+
+      # Get details on a single ledger event handler.
+      #
+      # @param id [String] id
+      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      #
+      # @return [ModernTreasury::Models::LedgerEventHandler]
+      def retrieve(id, opts = {})
+        req = {}
+        req[:method] = :get
+        req[:path] = "/api/ledger_event_handlers/#{id}"
+        req[:model] = ModernTreasury::Models::LedgerEventHandler
+        @client.request(req, opts)
+      end
+
+      # Get a list of ledger event handlers.
+      #
+      # @param params [Hash] Attributes to send in this request.
+      # @option params [String] :after_cursor
+      # @option params [Hash] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
+      # @option params [String] :name
+      # @option params [Integer] :per_page
+      #
+      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      #
+      # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
+      def list(params = {}, opts = {})
+        req = {}
+        req[:method] = :get
+        req[:path] = "/api/ledger_event_handlers"
+        req[:query] = params
+        req[:page] = ModernTreasury::Page
+        req[:model] = ModernTreasury::Models::LedgerEventHandler
+        @client.request(req, opts)
+      end
+
+      # Archive a ledger event handler.
+      #
+      # @param id [String] id
+      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      #
+      # @return [ModernTreasury::Models::LedgerEventHandler]
+      def delete(id, opts = {})
+        req = {}
+        req[:method] = :delete
+        req[:path] = "/api/ledger_event_handlers/#{id}"
+        req[:model] = ModernTreasury::Models::LedgerEventHandler
+        @client.request(req, opts)
+      end
+    end
+  end
+end
