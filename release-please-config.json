@@ -64,8 +64,5 @@
     "chen-annie"
   ],
   "release-type": "ruby",
-  "extra-files": [
-    "lib/modern_treasury/version.rb",
-    "README.md"
-  ]
+  "version-file": "lib/modern_treasury/version.rb"
 }
