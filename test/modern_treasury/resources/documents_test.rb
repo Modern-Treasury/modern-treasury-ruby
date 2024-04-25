@@ -13,14 +13,11 @@ class ModernTreasury::Test::Resources::DocumentsTest < Test::Unit::TestCase
 
   def test_retrieve
     response = @modern_treasury.documents.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::Document, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::Document, response)
   end
 
   def test_list
     response = @modern_treasury.documents.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 end

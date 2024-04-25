@@ -13,12 +13,6 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < Test::Unit:
 
   def test_retrieve
     response = @modern_treasury.ledger_account_statements.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(
-        ModernTreasury::Models::LedgerAccountStatementRetrieveResponse,
-        response
-      ),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse, response)
   end
 end

@@ -27,30 +27,21 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Test::Unit::Tes
         name: "string"
       }
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerEventHandler, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
   end
 
   def test_retrieve
     response = @modern_treasury.ledger_event_handlers.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerEventHandler, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
   end
 
   def test_list
     response = @modern_treasury.ledger_event_handlers.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_delete
     response = @modern_treasury.ledger_event_handlers.delete("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerEventHandler, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
   end
 end

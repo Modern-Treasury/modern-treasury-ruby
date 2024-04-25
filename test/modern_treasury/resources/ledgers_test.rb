@@ -13,38 +13,26 @@ class ModernTreasury::Test::Resources::LedgersTest < Test::Unit::TestCase
 
   def test_create_required_params
     response = @modern_treasury.ledgers.create({name: "string"})
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::Ledger, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 
   def test_retrieve
     response = @modern_treasury.ledgers.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::Ledger, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 
   def test_update
     response = @modern_treasury.ledgers.update("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::Ledger, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 
   def test_list
     response = @modern_treasury.ledgers.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_delete
     response = @modern_treasury.ledgers.delete("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::Ledger, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 end

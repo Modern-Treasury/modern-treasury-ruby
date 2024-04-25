@@ -13,22 +13,16 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < Test::Unit::TestCase
 
   def test_retrieve
     response = @modern_treasury.ledger_entries.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerEntry, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerEntry, response)
   end
 
   def test_update
     response = @modern_treasury.ledger_entries.update("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerEntry, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerEntry, response)
   end
 
   def test_list
     response = @modern_treasury.ledger_entries.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 end

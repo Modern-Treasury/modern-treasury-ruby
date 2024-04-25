@@ -33,38 +33,26 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < Test::Unit::Test
         ]
       }
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerTransaction, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
   end
 
   def test_retrieve
     response = @modern_treasury.ledger_transactions.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerTransaction, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
   end
 
   def test_update
     response = @modern_treasury.ledger_transactions.update("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerTransaction, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
   end
 
   def test_list
     response = @modern_treasury.ledger_transactions.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_create_reversal
     response = @modern_treasury.ledger_transactions.create_reversal("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerTransaction, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
   end
 end

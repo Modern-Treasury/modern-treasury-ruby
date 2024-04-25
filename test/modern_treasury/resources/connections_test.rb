@@ -13,6 +13,6 @@ class ModernTreasury::Test::Resources::ConnectionsTest < Test::Unit::TestCase
 
   def test_list
     response = @modern_treasury.connections.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 end

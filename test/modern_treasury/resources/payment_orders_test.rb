@@ -20,31 +20,22 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < Test::Unit::TestCase
         type: "ach"
       }
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::PaymentOrder, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::PaymentOrder, response)
   end
 
   def test_retrieve
     response = @modern_treasury.payment_orders.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::PaymentOrder, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::PaymentOrder, response)
   end
 
   def test_update
     response = @modern_treasury.payment_orders.update("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::PaymentOrder, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::PaymentOrder, response)
   end
 
   def test_list
     response = @modern_treasury.payment_orders.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_create_async_required_params
@@ -56,9 +47,6 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < Test::Unit::TestCase
         type: "ach"
       }
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::AsyncResponse, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::AsyncResponse, response)
   end
 end

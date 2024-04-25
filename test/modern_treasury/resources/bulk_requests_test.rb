@@ -13,14 +13,11 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < Test::Unit::TestCase
 
   def test_retrieve
     response = @modern_treasury.bulk_requests.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::BulkRequest, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::BulkRequest, response)
   end
 
   def test_list
     response = @modern_treasury.bulk_requests.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 end

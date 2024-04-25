@@ -22,35 +22,26 @@ class ModernTreasury::Test::Resources::TransactionsTest < Test::Unit::TestCase
         vendor_code_type: "string"
       }
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::Transaction, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::Transaction, response)
   end
 
   def test_retrieve
     response = @modern_treasury.transactions.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::Transaction, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::Transaction, response)
   end
 
   def test_update
     response = @modern_treasury.transactions.update("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::Transaction, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::Transaction, response)
   end
 
   def test_list
     response = @modern_treasury.transactions.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_delete
     response = @modern_treasury.transactions.delete("string")
-    assert(ModernTreasury::Converter.same_type?(NilClass, response), response.class.to_s)
+    assert_nil(response)
   end
 end
