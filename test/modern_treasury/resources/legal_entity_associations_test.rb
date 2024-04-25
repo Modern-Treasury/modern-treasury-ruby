@@ -15,9 +15,6 @@ class ModernTreasury::Test::Resources::LegalEntityAssociationsTest < Test::Unit:
     response = @modern_treasury.legal_entity_associations.create(
       {relationship_types: %w[beneficial_owner control_person]}
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LegalEntityAssociation, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LegalEntityAssociation, response)
   end
 end

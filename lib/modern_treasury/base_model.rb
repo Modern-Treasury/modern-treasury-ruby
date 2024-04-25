@@ -30,16 +30,6 @@ module ModernTreasury
         raise StandardError, "can't coerce #{value.class} to #{type}"
       end
     end
-
-    # Returns true iff the given `value` conforms to `type` (in the sense of OpenAPI types,
-    # not necessarily Ruby types).
-    def self.same_type?(type, value)
-      if type.is_a?(Converter) || type.include?(Converter)
-        type.same_type?(value)
-      else
-        value.is_a?(type)
-      end
-    end
   end
 
   # @!visibility private
@@ -49,10 +39,6 @@ module ModernTreasury
     def self.convert(value)
       value
     end
-
-    def self.same_type?(_value)
-      true
-    end
   end
 
   # Ruby has no Boolean class; this is something for models to refer to.
@@ -61,10 +47,6 @@ module ModernTreasury
 
     def self.convert(value)
       value
-    end
-
-    def self.same_type?(value)
-      [true, false].include?(value)
     end
   end
 
@@ -85,10 +67,6 @@ module ModernTreasury
         value
       end
     end
-
-    def same_type?(value)
-      options.include?(value)
-    end
   end
 
   # Array of items of a given type.
@@ -102,15 +80,6 @@ module ModernTreasury
     def convert(value)
       items_type = @items_type_fn.call
       value.map { |item| Converter.convert(items_type, item) }
-    end
-
-    def same_type?(value)
-      if value.is_a?(Array)
-        items_type = @items_type_fn.call
-        value.all? { |item| Converter.same_type?(items_type, item) }
-      else
-        false
-      end
     end
   end
 
@@ -149,11 +118,6 @@ module ModernTreasury
       model = new
       model.convert(data)
       model
-    end
-
-    # @!visibility private
-    def self.same_type?(value)
-      value.is_a?(self)
     end
 
     # @!visibility private

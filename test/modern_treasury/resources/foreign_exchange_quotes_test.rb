@@ -15,22 +15,16 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < Test::Unit::T
     response = @modern_treasury.foreign_exchange_quotes.create(
       {internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", target_currency: "AED"}
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::ForeignExchangeQuote, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::ForeignExchangeQuote, response)
   end
 
   def test_retrieve
     response = @modern_treasury.foreign_exchange_quotes.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::ForeignExchangeQuote, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::ForeignExchangeQuote, response)
   end
 
   def test_list
     response = @modern_treasury.foreign_exchange_quotes.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 end
