@@ -13,17 +13,11 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < Test::Unit::TestCa
 
   def test_create_required_params
     response = @modern_treasury.ledgerable_events.create({name: "string"})
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerableEvent, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerableEvent, response)
   end
 
   def test_retrieve
     response = @modern_treasury.ledgerable_events.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerableEvent, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerableEvent, response)
   end
 end

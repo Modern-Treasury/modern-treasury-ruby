@@ -18,38 +18,26 @@ class ModernTreasury::Test::Resources::LedgerAccountPayoutsTest < Test::Unit::Te
         payout_ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
       }
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerAccountPayout, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerAccountPayout, response)
   end
 
   def test_retrieve
     response = @modern_treasury.ledger_account_payouts.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerAccountPayout, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerAccountPayout, response)
   end
 
   def test_update
     response = @modern_treasury.ledger_account_payouts.update("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerAccountPayout, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerAccountPayout, response)
   end
 
   def test_list
     response = @modern_treasury.ledger_account_payouts.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_retireve
     response = @modern_treasury.ledger_account_payouts.retireve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LedgerAccountPayout, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LedgerAccountPayout, response)
   end
 end

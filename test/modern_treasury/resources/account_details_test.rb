@@ -17,27 +17,21 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Test::Unit::TestCase
       "string",
       {account_number: "string"}
     )
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::AccountDetail, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::AccountDetail, response)
   end
 
   def test_retrieve
     response = @modern_treasury.account_details.retrieve("external_accounts", "string", "string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::AccountDetail, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::AccountDetail, response)
   end
 
   def test_list
     response = @modern_treasury.account_details.list("external_accounts", "string")
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_delete
     response = @modern_treasury.account_details.delete("external_accounts", "string", "string")
-    assert(ModernTreasury::Converter.same_type?(NilClass, response), response.class.to_s)
+    assert_nil(response)
   end
 end

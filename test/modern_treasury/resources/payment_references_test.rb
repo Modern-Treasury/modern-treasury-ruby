@@ -13,22 +13,16 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < Test::Unit::TestC
 
   def test_retrieve
     response = @modern_treasury.payment_references.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::PaymentReference, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::PaymentReference, response)
   end
 
   def test_list
     response = @modern_treasury.payment_references.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_retireve
     response = @modern_treasury.payment_references.retireve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::PaymentReference, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::PaymentReference, response)
   end
 end
