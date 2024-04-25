@@ -13,17 +13,11 @@ class ModernTreasury::Test::Resources::LineItemsTest < Test::Unit::TestCase
 
   def test_retrieve
     response = @modern_treasury.line_items.retrieve("expected_payments", "string", "string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LineItem, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LineItem, response)
   end
 
   def test_update
     response = @modern_treasury.line_items.update("expected_payments", "string", "string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::LineItem, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::LineItem, response)
   end
 end

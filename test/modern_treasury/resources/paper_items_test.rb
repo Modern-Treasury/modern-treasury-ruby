@@ -13,14 +13,11 @@ class ModernTreasury::Test::Resources::PaperItemsTest < Test::Unit::TestCase
 
   def test_retrieve
     response = @modern_treasury.paper_items.retrieve("string")
-    assert(
-      ModernTreasury::Converter.same_type?(ModernTreasury::Models::PaperItem, response),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::PaperItem, response)
   end
 
   def test_list
     response = @modern_treasury.paper_items.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 end

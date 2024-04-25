@@ -15,12 +15,6 @@ class ModernTreasury::Test::Resources::ValidationsTest < Test::Unit::TestCase
     response = @modern_treasury.validations.validate_routing_number(
       {routing_number: "string", routing_number_type: "aba"}
     )
-    assert(
-      ModernTreasury::Converter.same_type?(
-        ModernTreasury::Models::RoutingNumberLookupRequest,
-        response
-      ),
-      response.class.to_s
-    )
+    assert_kind_of(ModernTreasury::Models::RoutingNumberLookupRequest, response)
   end
 end

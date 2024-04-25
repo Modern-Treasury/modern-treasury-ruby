@@ -13,11 +13,11 @@ class ModernTreasury::Test::Resources::EventsTest < Test::Unit::TestCase
 
   def test_retrieve
     response = @modern_treasury.events.retrieve("string")
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Models::Event, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Models::Event, response)
   end
 
   def test_list
     response = @modern_treasury.events.list
-    assert(ModernTreasury::Converter.same_type?(ModernTreasury::Page, response), response.class.to_s)
+    assert_kind_of(ModernTreasury::Page, response)
   end
 end
