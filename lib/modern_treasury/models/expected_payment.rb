@@ -297,7 +297,7 @@ module ModernTreasury
       required :statement_descriptor, String
 
       # @!attribute [rw] status
-      #   One of unreconciled, reconciled, or archived.
+      #   One of unreconciled, partially_reconciled, reconciled, or archived.
       #   @return [Symbol]
       required :status, ModernTreasury::Enum.new(:archived, :partially_reconciled, :reconciled, :unreconciled)
 

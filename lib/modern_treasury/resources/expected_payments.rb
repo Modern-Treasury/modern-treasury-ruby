@@ -101,6 +101,8 @@ module ModernTreasury
       #   payments, this will be the full line item passed from the bank. For wire
       #   payments, this will be the OBI field on the wire. For check payments, this will
       #   be the memo field.
+      # @option params [Symbol] :status The Expected Payment's status can be updated from partially_reconciled to
+      #   reconciled.
       # @option params [Symbol] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet, wire.
       #

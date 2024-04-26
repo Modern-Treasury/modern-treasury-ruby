@@ -61,14 +61,10 @@ module ModernTreasury
       #   @return [Symbol]
       required :ledgerable_type,
                ModernTreasury::Enum.new(
-                 :counterparty,
                  :expected_payment,
                  :incoming_payment_detail,
-                 :internal_account,
-                 :line_item,
                  :paper_item,
                  :payment_order,
-                 :payment_order_attempt,
                  :return,
                  :reversal
                )
