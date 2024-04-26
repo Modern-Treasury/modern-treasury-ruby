@@ -25,7 +25,8 @@ module ModernTreasury
       #   Treasury, the id will be populated here, otherwise null.
       # @option params [Symbol] :ledgerable_type If the ledger transaction can be reconciled to another object in Modern
       #   Treasury, the type will be populated here, otherwise null. This can be one of
-      #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
+      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      #   reversal.
       # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       # @option params [Symbol] :status To post a ledger transaction at creation, use `posted`.
@@ -65,6 +66,12 @@ module ModernTreasury
       # @option params [String] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   reporting purposes.
       # @option params [Array<LedgerEntry>] :ledger_entries An array of ledger entry objects.
+      # @option params [String] :ledgerable_id If the ledger transaction can be reconciled to another object in Modern
+      #   Treasury, the id will be populated here, otherwise null.
+      # @option params [Symbol] :ledgerable_type If the ledger transaction can be reconciled to another object in Modern
+      #   Treasury, the type will be populated here, otherwise null. This can be one of
+      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      #   reversal.
       # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       # @option params [Symbol] :status To post a ledger transaction at creation, use `posted`.
