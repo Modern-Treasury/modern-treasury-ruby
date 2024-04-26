@@ -266,7 +266,7 @@ module ModernTreasury
       required :reconciled, ModernTreasury::BooleanModel
 
       # @!attribute [rw] type
-      #   The type of the transaction. Can be one of `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      #   The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #   @return [Symbol]
       required :type,
                ModernTreasury::Enum.new(
@@ -336,7 +336,8 @@ module ModernTreasury
                  :signet,
                  :silvergate,
                  :swift,
-                 :us_bank
+                 :us_bank,
+                 :user
                )
 
       # @!attribute [rw] vendor_customer_id

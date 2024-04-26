@@ -26,6 +26,9 @@ module ModernTreasury
       # @option params [Boolean] :ingest_ledger_entries Whether to ingest the ledger_entries to populate the invoice line items. If this
       #   is false, then a line item must be provided. If this is true, line_items must be
       #   empty. Ignored if ledger_account_settlement_id is empty.
+      # @option params [Array<InvoiceLineItem>] :invoice_line_items An array of invoice line items. The API supports a maximum of 50 invoice line
+      #   items per invoice. If a greater number of invoice line items is required, please
+      #   contact support.
       # @option params [InvoicerAddress] :invoicer_address The invoice issuer's business address.
       # @option params [String] :ledger_account_settlement_id The ID of the virtual account the invoice should be paid to.
       # @option params [Array<String>] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
@@ -95,6 +98,9 @@ module ModernTreasury
       # @option params [Boolean] :ingest_ledger_entries Whether to ingest the ledger_entries to populate the invoice line items. If this
       #   is false, then a line item must be provided. If this is true, line_items must be
       #   empty. Ignored if ledger_account_settlement_id is empty.
+      # @option params [Array<InvoiceLineItem>] :invoice_line_items An array of invoice line items. The API supports a maximum of 50 invoice line
+      #   items per invoice. If a greater number of invoice line items is required, please
+      #   contact support.
       # @option params [InvoicerAddress] :invoicer_address The invoice issuer's business address.
       # @option params [String] :ledger_account_settlement_id The ID of the virtual account the invoice should be paid to.
       # @option params [Array<String>] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
