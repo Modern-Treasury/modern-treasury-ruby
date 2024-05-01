@@ -83,6 +83,7 @@ module ModernTreasury
       # @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       # @option params [String] :after_cursor
+      # @option params [String] :ledger_id
       # @option params [String] :ledger_transaction_id
       # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
