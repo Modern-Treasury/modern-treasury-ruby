@@ -3,35 +3,35 @@
 module ModernTreasury
   # @!visibility private
   module Converter
-    # Returns a value that conforms to `type`, if possible: either the given `value` if it
-    # conforms, or otherwise a new one derived from `value`.
+    # Based on `value`, returns a value that conforms to `type`, to the extent possible:
+    # - If the given `value` conforms to `type` already, the given `value`.
+    # - If it's possible and safe to convert the given `value` to `type`, such a converted value.
+    # - Otherwise, the given `value` unaltered.
     def self.convert(type, value)
-      # If `type.is_a?(Converter)`, `type` is instance of a class that mixes in
-      # Converter, indicating that the type should define .convert on the class.
-      # Covers most cases including models, enums, arrays.
-      # If `type.include?(Converter)`, `type` is a class that mixes in Converter.
-      # Currently Unknown and BooleanModel, because we don't make instances of
-      # those, as they dont need to be parameterized (as e.g. enums do with
-      # possible values).
+      # If `type.is_a?(Converter)`, `type` is an instance of a class that mixes
+      # in `Converter`, indicating that the type should define `#convert` on this
+      # instance. This is used for Enums and ArrayOfs, which are parameterized.
+      # If `type.include?(Converter)`, `type` is a class that mixes in `Converter`
+      # which we use to signal that the class should define `.convert`. This is
+      # used where the class itself fully specifies the type, like model classes.
+      # We don't monkey-patch Ruby-native types, so those need to be handled
+      # directly.
       if type.is_a?(Converter) || type.include?(Converter)
         type.convert(value)
-      # String, Integer, Float, NilClass, Hash.
-      elsif type.is_a?(Class)
-        if type == NilClass
-          nil
-        elsif type == Float && value.is_a?(Numeric)
-          value.to_f
-        elsif [Integer, String, Hash].include?(type)
-          value
-        else
-          raise StandardError, "can't coerce #{value.class} to #{type}"
-        end
+
+      elsif type == NilClass
+        nil
+      elsif type == Float
+        value.is_a?(Numeric) ? value.to_f : value
+      elsif [Object, Integer, String, Hash].include?(type)
+        value
       else
-        raise StandardError, "can't coerce #{value.class} to #{type}"
+        raise StandardError, "Unexpected type #{type}"
       end
     end
   end
 
+  # When we don't know what to expect for the value.
   # @!visibility private
   class Unknown
     include Converter
@@ -42,6 +42,7 @@ module ModernTreasury
   end
 
   # Ruby has no Boolean class; this is something for models to refer to.
+  # @!visibility private
   class BooleanModel
     include Converter
 
@@ -50,7 +51,15 @@ module ModernTreasury
     end
   end
 
-  # A Symbol from among a specified list of options.
+  # A value from among a specified list of options. OpenAPI enum values map to
+  # Ruby values in the SDK as follows:
+  # boolean => true|false
+  # integer => Integer
+  # float => Float
+  # string => Symbol
+  # We can therefore convert string values to Symbols, but can't convert other
+  # values safely.
+  # @!visibility private
   class Enum
     include Converter
 
@@ -70,6 +79,7 @@ module ModernTreasury
   end
 
   # Array of items of a given type.
+  # @!visibility private
   class ArrayOf
     include Converter
 
