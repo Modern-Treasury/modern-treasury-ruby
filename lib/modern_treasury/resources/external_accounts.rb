@@ -113,7 +113,7 @@ module ModernTreasury
       # @param id [String] external account id
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [NilClass]
+      # @return [nil]
       def delete(id, opts = {})
         req = {}
         req[:method] = :delete
