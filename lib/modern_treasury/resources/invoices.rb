@@ -179,7 +179,7 @@ module ModernTreasury
       # @param payment_order_id [String] payment_order_id
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [NilClass]
+      # @return [nil]
       def add_payment_order(id, payment_order_id, opts = {})
         req = {}
         req[:method] = :put

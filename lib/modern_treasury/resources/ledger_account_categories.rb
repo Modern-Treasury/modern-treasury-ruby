@@ -126,7 +126,7 @@ module ModernTreasury
       # @param ledger_account_id [String] ledger_account_id
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [NilClass]
+      # @return [nil]
       def add_ledger_account(id, ledger_account_id, opts = {})
         req = {}
         req[:method] = :put
@@ -141,7 +141,7 @@ module ModernTreasury
       # @param sub_category_id [String] sub_category_id
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [NilClass]
+      # @return [nil]
       def add_nested_category(id, sub_category_id, opts = {})
         req = {}
         req[:method] = :put
@@ -156,7 +156,7 @@ module ModernTreasury
       # @param ledger_account_id [String] ledger_account_id
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [NilClass]
+      # @return [nil]
       def remove_ledger_account(id, ledger_account_id, opts = {})
         req = {}
         req[:method] = :delete
@@ -171,7 +171,7 @@ module ModernTreasury
       # @param sub_category_id [String] sub_category_id
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [NilClass]
+      # @return [nil]
       def remove_nested_category(id, sub_category_id, opts = {})
         req = {}
         req[:method] = :delete

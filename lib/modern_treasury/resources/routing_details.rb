@@ -79,7 +79,7 @@ module ModernTreasury
       # @param id [String] The ID of the routing detail.
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [NilClass]
+      # @return [nil]
       def delete(accounts_type, account_id, id, opts = {})
         req = {}
         req[:method] = :delete
