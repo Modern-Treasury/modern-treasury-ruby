@@ -12,7 +12,7 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [Symbol] :action_type One of create, or update.
       # @option params [Symbol] :resource_type One of payment_order, expected_payment, or ledger_transaction.
-      # @option params [Array<Resource::UnnamedTypeWithunionParent1,Resource::UnnamedTypeWithunionParent2,Resource::UnnamedTypeWithunionParent3,Resource::UnnamedTypeWithunionParent4,Resource::UnnamedTypeWithunionParent5,Resource::UnnamedTypeWithunionParent6,Resource::UnnamedTypeWithunionParent7,Resource::UnnamedTypeWithunionParent8,Resource::UnnamedTypeWithunionParent9>] :resources An array of objects where each object contains the input params for a single
+      # @option params [Array<Resource::UnnamedTypeWithunionParent1|Resource::UnnamedTypeWithunionParent2|Resource::UnnamedTypeWithunionParent3|Resource::UnnamedTypeWithunionParent4|Resource::UnnamedTypeWithunionParent5|Resource::UnnamedTypeWithunionParent6|Resource::UnnamedTypeWithunionParent7|Resource::UnnamedTypeWithunionParent8|Resource::UnnamedTypeWithunionParent9>] :resources An array of objects where each object contains the input params for a single
       #   `action_type` request on a `resource_type` resource
       # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
