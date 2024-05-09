@@ -8,45 +8,119 @@ module ModernTreasury
     # Client options.
     attr_reader :api_key, :organization_id
 
-    # Resources.
-    attr_reader :connections,
-                :counterparties,
-                :events,
-                :expected_payments,
-                :external_accounts,
-                :incoming_payment_details,
-                :invoices,
-                :documents,
-                :account_collection_flows,
-                :account_details,
-                :routing_details,
-                :internal_accounts,
-                :ledgers,
-                :ledgerable_events,
-                :ledger_account_categories,
-                :ledger_accounts,
-                :ledger_account_balance_monitors,
-                :ledger_account_payouts,
-                :ledger_account_statements,
-                :ledger_entries,
-                :ledger_event_handlers,
-                :ledger_transactions,
-                :line_items,
-                :payment_flows,
-                :payment_orders,
-                :payment_references,
-                :returns,
-                :transactions,
-                :validations,
-                :paper_items,
-                :virtual_accounts,
-                :bulk_requests,
-                :bulk_results,
-                :ledger_account_settlements,
-                :foreign_exchange_quotes,
-                :connection_legal_entities,
-                :legal_entities,
-                :legal_entity_associations
+    # @return [ModernTreasury::Resources::Connections]
+    attr_reader :connections
+
+    # @return [ModernTreasury::Resources::Counterparties]
+    attr_reader :counterparties
+
+    # @return [ModernTreasury::Resources::Events]
+    attr_reader :events
+
+    # @return [ModernTreasury::Resources::ExpectedPayments]
+    attr_reader :expected_payments
+
+    # @return [ModernTreasury::Resources::ExternalAccounts]
+    attr_reader :external_accounts
+
+    # @return [ModernTreasury::Resources::IncomingPaymentDetails]
+    attr_reader :incoming_payment_details
+
+    # @return [ModernTreasury::Resources::Invoices]
+    attr_reader :invoices
+
+    # @return [ModernTreasury::Resources::Documents]
+    attr_reader :documents
+
+    # @return [ModernTreasury::Resources::AccountCollectionFlows]
+    attr_reader :account_collection_flows
+
+    # @return [ModernTreasury::Resources::AccountDetails]
+    attr_reader :account_details
+
+    # @return [ModernTreasury::Resources::RoutingDetails]
+    attr_reader :routing_details
+
+    # @return [ModernTreasury::Resources::InternalAccounts]
+    attr_reader :internal_accounts
+
+    # @return [ModernTreasury::Resources::Ledgers]
+    attr_reader :ledgers
+
+    # @return [ModernTreasury::Resources::LedgerableEvents]
+    attr_reader :ledgerable_events
+
+    # @return [ModernTreasury::Resources::LedgerAccountCategories]
+    attr_reader :ledger_account_categories
+
+    # @return [ModernTreasury::Resources::LedgerAccounts]
+    attr_reader :ledger_accounts
+
+    # @return [ModernTreasury::Resources::LedgerAccountBalanceMonitors]
+    attr_reader :ledger_account_balance_monitors
+
+    # @return [ModernTreasury::Resources::LedgerAccountPayouts]
+    attr_reader :ledger_account_payouts
+
+    # @return [ModernTreasury::Resources::LedgerAccountStatements]
+    attr_reader :ledger_account_statements
+
+    # @return [ModernTreasury::Resources::LedgerEntries]
+    attr_reader :ledger_entries
+
+    # @return [ModernTreasury::Resources::LedgerEventHandlers]
+    attr_reader :ledger_event_handlers
+
+    # @return [ModernTreasury::Resources::LedgerTransactions]
+    attr_reader :ledger_transactions
+
+    # @return [ModernTreasury::Resources::LineItems]
+    attr_reader :line_items
+
+    # @return [ModernTreasury::Resources::PaymentFlows]
+    attr_reader :payment_flows
+
+    # @return [ModernTreasury::Resources::PaymentOrders]
+    attr_reader :payment_orders
+
+    # @return [ModernTreasury::Resources::PaymentReferences]
+    attr_reader :payment_references
+
+    # @return [ModernTreasury::Resources::Returns]
+    attr_reader :returns
+
+    # @return [ModernTreasury::Resources::Transactions]
+    attr_reader :transactions
+
+    # @return [ModernTreasury::Resources::Validations]
+    attr_reader :validations
+
+    # @return [ModernTreasury::Resources::PaperItems]
+    attr_reader :paper_items
+
+    # @return [ModernTreasury::Resources::VirtualAccounts]
+    attr_reader :virtual_accounts
+
+    # @return [ModernTreasury::Resources::BulkRequests]
+    attr_reader :bulk_requests
+
+    # @return [ModernTreasury::Resources::BulkResults]
+    attr_reader :bulk_results
+
+    # @return [ModernTreasury::Resources::LedgerAccountSettlements]
+    attr_reader :ledger_account_settlements
+
+    # @return [ModernTreasury::Resources::ForeignExchangeQuotes]
+    attr_reader :foreign_exchange_quotes
+
+    # @return [ModernTreasury::Resources::ConnectionLegalEntities]
+    attr_reader :connection_legal_entities
+
+    # @return [ModernTreasury::Resources::LegalEntities]
+    attr_reader :legal_entities
+
+    # @return [ModernTreasury::Resources::LegalEntityAssociations]
+    attr_reader :legal_entity_associations
 
     # @!visibility private
     def auth_headers
