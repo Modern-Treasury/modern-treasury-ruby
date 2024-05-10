@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Invoices
+      # @return [ModernTreasury::Resources::Invoices::LineItems]
       attr_reader :line_items
 
       def initialize(client:)
