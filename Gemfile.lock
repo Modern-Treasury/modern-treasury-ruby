@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    modern_treasury (0.0.1.pre.alpha.1)
+    modern_treasury (0.0.1.pre.alpha.0)
       connection_pool
 
 GEM
