@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class PaymentOrders
+      # @return [ModernTreasury::Resources::PaymentOrders::Reversals]
       attr_reader :reversals
 
       def initialize(client:)
