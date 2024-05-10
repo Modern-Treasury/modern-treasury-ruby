@@ -74,9 +74,8 @@ module ModernTreasury
       #   earliest possible sending date after `process_after`. Format is ISO8601
       #   timestamp.
       # @option params [String] :purpose For `wire`, this is usually the purpose which is transmitted via the
-      #   "InstrForDbtrAgt" field in the ISO20022 file. If you are using Currencycloud,
-      #   this is the `payment.purpose_code` field. For `eft`, this field is the 3 digit
-      #   CPA Code that will be attached to the payment.
+      #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
+      #   digit CPA Code that will be attached to the payment.
       # @option params [ReceivingAccount] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
       #   `receiving_account_id`, you may pass the id of an external account or an
       #   internal account.
@@ -184,9 +183,8 @@ module ModernTreasury
       #   earliest possible sending date after `process_after`. Format is ISO8601
       #   timestamp.
       # @option params [String] :purpose For `wire`, this is usually the purpose which is transmitted via the
-      #   "InstrForDbtrAgt" field in the ISO20022 file. If you are using Currencycloud,
-      #   this is the `payment.purpose_code` field. For `eft`, this field is the 3 digit
-      #   CPA Code that will be attached to the payment.
+      #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
+      #   digit CPA Code that will be attached to the payment.
       # @option params [ReceivingAccount] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
       #   `receiving_account_id`, you may pass the id of an external account or an
       #   internal account.
@@ -338,9 +336,8 @@ module ModernTreasury
       #   earliest possible sending date after `process_after`. Format is ISO8601
       #   timestamp.
       # @option params [String] :purpose For `wire`, this is usually the purpose which is transmitted via the
-      #   "InstrForDbtrAgt" field in the ISO20022 file. If you are using Currencycloud,
-      #   this is the `payment.purpose_code` field. For `eft`, this field is the 3 digit
-      #   CPA Code that will be attached to the payment.
+      #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
+      #   digit CPA Code that will be attached to the payment.
       # @option params [ReceivingAccount] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
       #   `receiving_account_id`, you may pass the id of an external account or an
       #   internal account.
