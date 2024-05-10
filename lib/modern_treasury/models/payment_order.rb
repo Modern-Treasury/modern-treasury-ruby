@@ -331,7 +331,7 @@ module ModernTreasury
       required :process_after, String
 
       # @!attribute [rw] purpose
-      #   For `wire`, this is usually the purpose which is transmitted via the "InstrForDbtrAgt" field in the ISO20022 file. If you are using Currencycloud, this is the `payment.purpose_code` field. For `eft`, this field is the 3 digit CPA Code that will be attached to the payment.
+      #   For `wire`, this is usually the purpose which is transmitted via the "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3 digit CPA Code that will be attached to the payment.
       #   @return [String]
       required :purpose, String
 
@@ -473,7 +473,7 @@ module ModernTreasury
       required :updated_at, String
 
       # @!attribute [rw] vendor_failure_reason
-      #   This field will be populated if a vendor (e.g. Currencycloud) failure occurs. Logic shouldn't be built on its value as it is free-form.
+      #   This field will be populated if a vendor failure occurs. Logic shouldn't be built on its value as it is free-form.
       #   @return [String]
       required :vendor_failure_reason, String
 
