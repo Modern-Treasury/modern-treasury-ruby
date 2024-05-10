@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LedgerTransactions
+      # @return [ModernTreasury::Resources::LedgerTransactions::Versions]
       attr_reader :versions
 
       def initialize(client:)

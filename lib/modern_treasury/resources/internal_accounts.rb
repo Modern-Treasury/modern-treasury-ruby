@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class InternalAccounts
+      # @return [ModernTreasury::Resources::InternalAccounts::BalanceReports]
       attr_reader :balance_reports
 
       def initialize(client:)

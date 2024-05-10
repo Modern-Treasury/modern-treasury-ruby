@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Transactions
+      # @return [ModernTreasury::Resources::Transactions::LineItems]
       attr_reader :line_items
 
       def initialize(client:)
