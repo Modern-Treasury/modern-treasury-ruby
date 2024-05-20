@@ -83,6 +83,7 @@ module ModernTreasury
       # @option params [Balances] :balances For example, if you want the balances as of a particular time (ISO8601), the
       #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #   The balances as of a time are inclusive of entries with that exact time.
+      # @option params [String] :currency
       # @option params [String] :ledger_account_id Query categories which contain a ledger account directly or through child
       #   categories.
       # @option params [String] :ledger_id
