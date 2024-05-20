@@ -472,6 +472,11 @@ module ModernTreasury
       #   @return [String]
       required :updated_at, String
 
+      # @!attribute [rw] vendor_attributes
+      #   Additional vendor specific fields for this payment. Data must be represented as key-value pairs.
+      #   @return [Object]
+      required :vendor_attributes, ModernTreasury::Unknown
+
       # @!attribute [rw] vendor_failure_reason
       #   This field will be populated if a vendor failure occurs. Logic shouldn't be built on its value as it is free-form.
       #   @return [String]
