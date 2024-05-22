@@ -104,7 +104,6 @@ module ModernTreasury
       # @option params [String] :external_id
       # @option params [String] :ledger_account_category_id
       # @option params [String] :ledger_account_id
-      # @option params [String] :ledger_account_payout_id
       # @option params [String] :ledger_account_settlement_id
       # @option params [String] :ledger_id
       # @option params [String] :ledgerable_id
