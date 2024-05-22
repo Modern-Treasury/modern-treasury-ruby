@@ -54,6 +54,8 @@ module ModernTreasury
       #   fallback to using the counterparty's name.
       # @option params [String] :recipient_name The name of the recipient of the invoice. Leaving this value as null will
       #   fallback to using the counterparty's name.
+      # @option params [Array<Integer>] :remind_after_overdue_days Number of days after due date when overdue reminder emails will be sent out to
+      #   invoice recipients.
       # @option params [String] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
@@ -127,6 +129,8 @@ module ModernTreasury
       #   fallback to using the counterparty's name.
       # @option params [String] :recipient_name The name of the recipient of the invoice. Leaving this value as null will
       #   fallback to using the counterparty's name.
+      # @option params [Array<Integer>] :remind_after_overdue_days Number of days after due date when overdue reminder emails will be sent out to
+      #   invoice recipients.
       # @option params [String] :status Invoice status must be updated in a `PATCH` request that does not modify any
       #   other invoice attributes. Valid state transitions are `draft` to `unpaid`,
       #   `draft` or `unpaid` to `voided`, and `draft` or `unpaid` to `paid`.

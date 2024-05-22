@@ -351,6 +351,11 @@ module ModernTreasury
       #   @return [String]
       required :recipient_name, String
 
+      # @!attribute [rw] remind_after_overdue_days
+      #   Number of days after due date when overdue reminder emails will be sent out to invoice recipients.
+      #   @return [Array<Integer>]
+      required :remind_after_overdue_days, ModernTreasury::ArrayOf.new(Integer)
+
       # @!attribute [rw] status
       #   The status of the invoice.
       #   @return [Symbol]
