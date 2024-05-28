@@ -5,76 +5,76 @@ module ModernTreasury
     class LegalEntity < BaseModel
       # @!attribute [rw] id
       #   @return [String]
-      optional :id, String
+      required :id, String
 
       # @!attribute [rw] addresses
       #   A list of addresses for the entity.
       #   @return [Array<ModernTreasury::Models::LegalEntity::Address>]
-      optional :addresses, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::LegalEntity::Address })
+      required :addresses, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::LegalEntity::Address })
 
       # @!attribute [rw] business_name
       #   The business's legal business name.
       #   @return [String]
-      optional :business_name, String
+      required :business_name, String
 
       # @!attribute [rw] created_at
       #   @return [String]
-      optional :created_at, String
+      required :created_at, String
 
       # @!attribute [rw] date_formed
       #   A business's formation date (YYYY-MM-DD).
       #   @return [String]
-      optional :date_formed, String
+      required :date_formed, String
 
       # @!attribute [rw] date_of_birth
       #   An individual's date of birth (YYYY-MM-DD).
       #   @return [String]
-      optional :date_of_birth, String
+      required :date_of_birth, String
 
       # @!attribute [rw] discarded_at
       #   @return [String]
-      optional :discarded_at, String
+      required :discarded_at, String
 
       # @!attribute [rw] doing_business_as_names
       #   @return [Array<String>]
-      optional :doing_business_as_names, ModernTreasury::ArrayOf.new(String)
+      required :doing_business_as_names, ModernTreasury::ArrayOf.new(String)
 
       # @!attribute [rw] email
       #   The entity's primary email.
       #   @return [String]
-      optional :email, String
+      required :email, String
 
       # @!attribute [rw] first_name
       #   An individual's first name.
       #   @return [String]
-      optional :first_name, String
+      required :first_name, String
 
       # @!attribute [rw] identifications
       #   A list of identifications for the legal entity.
       #   @return [Array<ModernTreasury::Models::LegalEntity::Identification>]
-      optional :identifications,
+      required :identifications,
                ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::LegalEntity::Identification })
 
       # @!attribute [rw] last_name
       #   An individual's last name.
       #   @return [String]
-      optional :last_name, String
+      required :last_name, String
 
       # @!attribute [rw] legal_entity_associations
       #   The legal entity associations and its child legal entities.
       #   @return [Array<ModernTreasury::Models::LegalEntityAssociation>]
-      optional :legal_entity_associations,
+      required :legal_entity_associations,
                ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::LegalEntityAssociation })
 
       # @!attribute [rw] legal_entity_type
       #   The type of legal entity.
       #   @return [Symbol]
-      optional :legal_entity_type, ModernTreasury::Enum.new(:business, :individual, :joint)
+      required :legal_entity_type, ModernTreasury::Enum.new(:business, :individual, :joint)
 
       # @!attribute [rw] legal_structure
       #   The business's legal structure.
       #   @return [Symbol]
-      optional :legal_structure,
+      required :legal_structure,
                ModernTreasury::Enum.new(
                  :corporation,
                  :llc,
@@ -87,30 +87,30 @@ module ModernTreasury
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
-      optional :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute [rw] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
-      optional :metadata, Hash
+      required :metadata, Hash
 
       # @!attribute [rw] object
       #   @return [String]
-      optional :object, String
+      required :object, String
 
       # @!attribute [rw] phone_numbers
       #   @return [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
-      optional :phone_numbers,
+      required :phone_numbers,
                ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::LegalEntity::PhoneNumber })
 
       # @!attribute [rw] updated_at
       #   @return [String]
-      optional :updated_at, String
+      required :updated_at, String
 
       # @!attribute [rw] website
       #   The entity's primary website URL.
       #   @return [String]
-      optional :website, String
+      required :website, String
 
       class Address < BaseModel
         # @!attribute [rw] id
