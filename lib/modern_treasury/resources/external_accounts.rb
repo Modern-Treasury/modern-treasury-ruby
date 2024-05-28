@@ -148,8 +148,13 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :originating_account_id The ID of the internal account where the micro-deposits originate from. Both
       #   credit and debit capabilities must be enabled.
-      # @option params [Symbol] :payment_type Both ach and eft are supported payment types.
+      # @option params [Symbol] :payment_type Can be `ach`, `eft`, or `rtp`.
       # @option params [Symbol] :currency Defaults to the currency of the originating account.
+      # @option params [Symbol] :fallback_type A payment type to fallback to if the original type is not valid for the
+      #   receiving account. Currently, this only supports falling back from RTP to ACH
+      #   (payment_type=rtp and fallback_type=ach)
+      # @option params [Symbol] :priority Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
+      #   transfer. This will apply to both `payment_type` and `fallback_type`.
       #
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
