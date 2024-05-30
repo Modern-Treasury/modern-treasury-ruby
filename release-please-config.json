@@ -61,7 +61,8 @@
   ],
   "reviewers": [
     "cleb11",
-    "chen-annie"
+    "chen-annie",
+    "samridh90"
   ],
   "release-type": "ruby",
   "version-file": "lib/modern_treasury/version.rb"
