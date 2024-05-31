@@ -161,6 +161,11 @@ module ModernTreasury
                    }
                  )
 
+        # @!attribute [rw] risk_rating
+        #   Translation missing: en.openapi.descriptions.legal_entity.schema.risk_rating
+        #   @return [Symbol]
+        required :risk_rating, ModernTreasury::Enum.new(:low, :medium, :high)
+
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
