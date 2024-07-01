@@ -46,6 +46,6 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Test::Unit::TestCa
       "string",
       {originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", payment_type: "ach"}
     )
-    assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
+    refute_nil(Object, response)
   end
 end

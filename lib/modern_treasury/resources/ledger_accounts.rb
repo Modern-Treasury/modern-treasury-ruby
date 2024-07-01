@@ -106,7 +106,8 @@ module ModernTreasury
       # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
-      # @option params [String] :name
+      # @option params [Array<String>] :name If you have specific names to retrieve in bulk, you can pass them as query
+      #   parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       # @option params [PendingBalanceAmount] :pending_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   filter by balance amount.
       # @option params [Integer] :per_page
