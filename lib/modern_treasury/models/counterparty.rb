@@ -152,6 +152,10 @@ module ModernTreasury
         #   @return [String]
         optional :updated_at, String
 
+        # @!attribute [rw] verification_source
+        #   @return [Symbol]
+        optional :verification_source, ModernTreasury::Enum.new(:ach_prenote, :microdeposits, :plaid)
+
         # @!attribute [rw] verification_status
         #   @return [Symbol]
         optional :verification_status, ModernTreasury::Enum.new(:pending_verification, :unverified, :verified)
