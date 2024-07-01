@@ -386,7 +386,38 @@ module ModernTreasury
       #   An additional layer of classification for the type of payment order you are doing. This field is only used for `ach` payment orders currently. For `ach`  payment orders, the `subtype`  represents the SEC code. We currently support `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
       #   @return [Symbol]
       required :subtype,
-               ModernTreasury::Enum.new(:"0C", :"0N", :"0S", :CCD, :CIE, :CTX, :IAT, :PPD, :TEL, :WEB)
+               ModernTreasury::Enum.new(
+                 :"0C",
+                 :"0N",
+                 :"0S",
+                 :CCD,
+                 :CIE,
+                 :CTX,
+                 :IAT,
+                 :PPD,
+                 :TEL,
+                 :WEB,
+                 :au_becs,
+                 :bacs,
+                 :chats,
+                 :dk_nets,
+                 :eft,
+                 :hu_ics,
+                 :interac,
+                 :masav,
+                 :mx_ccen,
+                 :neft,
+                 :nics,
+                 :nz_becs,
+                 :pl_elixir,
+                 :ro_sent,
+                 :se_bankgirot,
+                 :sepa,
+                 :sg_giro,
+                 :sic,
+                 :sknbi,
+                 :zengin
+               )
 
       # @!attribute [rw] transaction_ids
       #   The IDs of all the transactions associated to this payment order. Usually, you will only have a single transaction ID. However, if a payment order initially results in a Return, but gets redrafted and is later successfully completed, it can have many transactions.

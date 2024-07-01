@@ -332,6 +332,7 @@ module ModernTreasury
                  :jpmc,
                  :mx,
                  :plaid,
+                 :pnc,
                  :rspec_vendor,
                  :signet,
                  :silvergate,

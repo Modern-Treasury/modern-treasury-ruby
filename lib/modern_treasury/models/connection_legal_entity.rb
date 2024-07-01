@@ -42,6 +42,11 @@ module ModernTreasury
       # @!attribute [rw] updated_at
       #   @return [String]
       required :updated_at, String
+
+      # @!attribute [rw] vendor_id
+      #   The ID of the legal entity at the vendor.
+      #   @return [String]
+      required :vendor_id, String
     end
   end
 end

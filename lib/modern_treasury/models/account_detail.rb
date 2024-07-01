@@ -16,7 +16,18 @@ module ModernTreasury
       #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
       #   @return [Symbol]
       required :account_number_type,
-               ModernTreasury::Enum.new(:clabe, :hk_number, :iban, :nz_number, :other, :pan, :wallet_address)
+               ModernTreasury::Enum.new(
+                 :au_number,
+                 :clabe,
+                 :hk_number,
+                 :iban,
+                 :id_number,
+                 :nz_number,
+                 :other,
+                 :pan,
+                 :sg_number,
+                 :wallet_address
+               )
 
       # @!attribute [rw] created_at
       #   @return [String]
