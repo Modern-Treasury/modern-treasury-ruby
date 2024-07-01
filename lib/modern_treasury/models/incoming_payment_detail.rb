@@ -260,7 +260,18 @@ module ModernTreasury
       #   The type of the originating account number for the incoming payment detail.
       #   @return [Symbol]
       required :originating_account_number_type,
-               ModernTreasury::Enum.new(:clabe, :hk_number, :iban, :nz_number, :other, :pan, :wallet_address)
+               ModernTreasury::Enum.new(
+                 :au_number,
+                 :clabe,
+                 :hk_number,
+                 :iban,
+                 :id_number,
+                 :nz_number,
+                 :other,
+                 :pan,
+                 :sg_number,
+                 :wallet_address
+               )
 
       # @!attribute [rw] originating_routing_number
       #   The routing number of the originating account for the incoming payment detail.

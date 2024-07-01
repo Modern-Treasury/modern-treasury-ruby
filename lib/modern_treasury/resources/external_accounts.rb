@@ -158,13 +158,13 @@ module ModernTreasury
       #
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [ModernTreasury::Models::ExternalAccount]
+      # @return [ModernTreasury::Models::ExternalAccount|ModernTreasury::Models::ExternalAccountVerifyResponse::UnnamedTypeWithunionParent1]
       def verify(id, params = {}, opts = {})
         req = {}
         req[:method] = :post
         req[:path] = "/api/external_accounts/#{id}/verify"
         req[:body] = params
-        req[:model] = ModernTreasury::Models::ExternalAccount
+        req[:model] = ModernTreasury::Unknown
         @client.request(req, opts)
       end
     end
