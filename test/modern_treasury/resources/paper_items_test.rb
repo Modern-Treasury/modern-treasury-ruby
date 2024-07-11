@@ -12,7 +12,7 @@ class ModernTreasury::Test::Resources::PaperItemsTest < Test::Unit::TestCase
   end
 
   def test_retrieve
-    response = @modern_treasury.paper_items.retrieve("string")
+    response = @modern_treasury.paper_items.retrieve("id")
     assert_kind_of(ModernTreasury::Models::PaperItem, response)
   end
 

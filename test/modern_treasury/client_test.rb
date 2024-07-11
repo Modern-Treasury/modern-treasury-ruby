@@ -44,7 +44,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
     requester = MockRequester.new(500, {})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
-      modern_treasury.counterparties.create({name: "string"})
+      modern_treasury.counterparties.create({name: "name"})
     end
     assert_equal(3, requester.attempts.length)
   end
@@ -59,7 +59,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
     requester = MockRequester.new(500, {})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
-      modern_treasury.counterparties.create({name: "string"})
+      modern_treasury.counterparties.create({name: "name"})
     end
     assert_equal(4, requester.attempts.length)
   end
@@ -73,7 +73,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
     requester = MockRequester.new(500, {})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
-      modern_treasury.counterparties.create({name: "string"}, max_retries: 3)
+      modern_treasury.counterparties.create({name: "name"}, max_retries: 3)
     end
     assert_equal(4, requester.attempts.length)
   end
@@ -88,7 +88,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
     requester = MockRequester.new(500, {})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
-      modern_treasury.counterparties.create({name: "string"}, max_retries: 4)
+      modern_treasury.counterparties.create({name: "name"}, max_retries: 4)
     end
     assert_equal(5, requester.attempts.length)
   end
@@ -102,7 +102,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
     requester = MockRequester.new(500, {})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
-      modern_treasury.counterparties.create({name: "string"}, max_retries: 1)
+      modern_treasury.counterparties.create({name: "name"}, max_retries: 1)
     end
     idempotency_headers = requester.attempts.map { |a| a[:headers]["Idempotency-Key"] }
     assert_kind_of(String, idempotency_headers[0])
@@ -120,7 +120,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
       modern_treasury.counterparties.create(
-        {name: "string"},
+        {name: "name"},
         max_retries: 1,
         idempotency_key: "user-supplied-key"
       )
@@ -136,7 +136,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
     )
     requester = MockRequester.new(200, {})
     modern_treasury.requester = requester
-    modern_treasury.counterparties.create({name: "string"})
+    modern_treasury.counterparties.create({name: "name"})
     headers = requester.attempts[0][:headers]
     assert_not_empty(headers["X-Stainless-Lang"])
     assert_not_empty(headers["X-Stainless-Package-Version"])

@@ -12,17 +12,17 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < Test::Unit:
   end
 
   def test_create_required_params
-    response = @modern_treasury.connection_legal_entities.create({connection_id: "string"})
+    response = @modern_treasury.connection_legal_entities.create({connection_id: "connection_id"})
     assert_kind_of(ModernTreasury::Models::ConnectionLegalEntity, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.connection_legal_entities.retrieve("string")
+    response = @modern_treasury.connection_legal_entities.retrieve("id")
     assert_kind_of(ModernTreasury::Models::ConnectionLegalEntity, response)
   end
 
   def test_update
-    response = @modern_treasury.connection_legal_entities.update("string")
+    response = @modern_treasury.connection_legal_entities.update("id")
     assert_kind_of(ModernTreasury::Models::ConnectionLegalEntity, response)
   end
 

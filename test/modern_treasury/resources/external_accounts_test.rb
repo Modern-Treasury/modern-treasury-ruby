@@ -17,12 +17,12 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Test::Unit::TestCa
   end
 
   def test_retrieve
-    response = @modern_treasury.external_accounts.retrieve("string")
+    response = @modern_treasury.external_accounts.retrieve("id")
     assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
   end
 
   def test_update
-    response = @modern_treasury.external_accounts.update("string")
+    response = @modern_treasury.external_accounts.update("id")
     assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
   end
 
@@ -32,18 +32,18 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Test::Unit::TestCa
   end
 
   def test_delete
-    response = @modern_treasury.external_accounts.delete("string")
+    response = @modern_treasury.external_accounts.delete("id")
     assert_nil(response)
   end
 
   def test_complete_verification
-    response = @modern_treasury.external_accounts.complete_verification("string")
+    response = @modern_treasury.external_accounts.complete_verification("id")
     assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
   end
 
   def test_verify_required_params
     response = @modern_treasury.external_accounts.verify(
-      "string",
+      "id",
       {originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", payment_type: "ach"}
     )
     refute_nil(Object, response)

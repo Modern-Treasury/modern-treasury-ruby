@@ -14,9 +14,9 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Test::Unit:
   def test_create_required_params
     response = @modern_treasury.ledger_account_categories.create(
       {
-        currency: "string",
+        currency: "currency",
         ledger_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        name: "string",
+        name: "name",
         normal_balance: "credit"
       }
     )
@@ -24,12 +24,12 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Test::Unit:
   end
 
   def test_retrieve
-    response = @modern_treasury.ledger_account_categories.retrieve("string")
+    response = @modern_treasury.ledger_account_categories.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountCategory, response)
   end
 
   def test_update
-    response = @modern_treasury.ledger_account_categories.update("string")
+    response = @modern_treasury.ledger_account_categories.update("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountCategory, response)
   end
 
@@ -39,27 +39,27 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Test::Unit:
   end
 
   def test_delete
-    response = @modern_treasury.ledger_account_categories.delete("string")
+    response = @modern_treasury.ledger_account_categories.delete("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountCategory, response)
   end
 
   def test_add_ledger_account
-    response = @modern_treasury.ledger_account_categories.add_ledger_account("string", "string")
+    response = @modern_treasury.ledger_account_categories.add_ledger_account("id", "ledger_account_id")
     assert_nil(response)
   end
 
   def test_add_nested_category
-    response = @modern_treasury.ledger_account_categories.add_nested_category("string", "string")
+    response = @modern_treasury.ledger_account_categories.add_nested_category("id", "sub_category_id")
     assert_nil(response)
   end
 
   def test_remove_ledger_account
-    response = @modern_treasury.ledger_account_categories.remove_ledger_account("string", "string")
+    response = @modern_treasury.ledger_account_categories.remove_ledger_account("id", "ledger_account_id")
     assert_nil(response)
   end
 
   def test_remove_nested_category
-    response = @modern_treasury.ledger_account_categories.remove_nested_category("string", "string")
+    response = @modern_treasury.ledger_account_categories.remove_nested_category("id", "sub_category_id")
     assert_nil(response)
   end
 end

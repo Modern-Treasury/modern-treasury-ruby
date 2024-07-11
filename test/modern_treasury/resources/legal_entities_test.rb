@@ -17,12 +17,12 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < Test::Unit::TestCase
   end
 
   def test_retrieve
-    response = @modern_treasury.legal_entities.retrieve("string")
+    response = @modern_treasury.legal_entities.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LegalEntity, response)
   end
 
   def test_update
-    response = @modern_treasury.legal_entities.update("string")
+    response = @modern_treasury.legal_entities.update("id")
     assert_kind_of(ModernTreasury::Models::LegalEntity, response)
   end
 

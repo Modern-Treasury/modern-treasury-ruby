@@ -19,12 +19,12 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < Test::Unit::
   end
 
   def test_retrieve
-    response = @modern_treasury.account_collection_flows.retrieve("string")
+    response = @modern_treasury.account_collection_flows.retrieve("id")
     assert_kind_of(ModernTreasury::Models::AccountCollectionFlow, response)
   end
 
   def test_update_required_params
-    response = @modern_treasury.account_collection_flows.update("string", {status: "cancelled"})
+    response = @modern_treasury.account_collection_flows.update("id", {status: "cancelled"})
     assert_kind_of(ModernTreasury::Models::AccountCollectionFlow, response)
   end
 
