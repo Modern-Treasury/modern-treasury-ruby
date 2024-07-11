@@ -12,12 +12,12 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < Test::Unit::TestCase
   end
 
   def test_retrieve
-    response = @modern_treasury.ledger_entries.retrieve("string")
+    response = @modern_treasury.ledger_entries.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerEntry, response)
   end
 
   def test_update
-    response = @modern_treasury.ledger_entries.update("string")
+    response = @modern_treasury.ledger_entries.update("id")
     assert_kind_of(ModernTreasury::Models::LedgerEntry, response)
   end
 

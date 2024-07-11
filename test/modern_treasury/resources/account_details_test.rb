@@ -14,24 +14,24 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Test::Unit::TestCase
   def test_create_required_params
     response = @modern_treasury.account_details.create(
       "external_accounts",
-      "string",
-      {account_number: "string"}
+      "account_id",
+      {account_number: "account_number"}
     )
     assert_kind_of(ModernTreasury::Models::AccountDetail, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.account_details.retrieve("external_accounts", "string", "string")
+    response = @modern_treasury.account_details.retrieve("external_accounts", "account_id", "id")
     assert_kind_of(ModernTreasury::Models::AccountDetail, response)
   end
 
   def test_list
-    response = @modern_treasury.account_details.list("external_accounts", "string")
+    response = @modern_treasury.account_details.list("external_accounts", "account_id")
     assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_delete
-    response = @modern_treasury.account_details.delete("external_accounts", "string", "string")
+    response = @modern_treasury.account_details.delete("external_accounts", "account_id", "id")
     assert_nil(response)
   end
 end

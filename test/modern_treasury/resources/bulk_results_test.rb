@@ -12,7 +12,7 @@ class ModernTreasury::Test::Resources::BulkResultsTest < Test::Unit::TestCase
   end
 
   def test_retrieve
-    response = @modern_treasury.bulk_results.retrieve("string")
+    response = @modern_treasury.bulk_results.retrieve("id")
     assert_kind_of(ModernTreasury::Models::BulkResult, response)
   end
 

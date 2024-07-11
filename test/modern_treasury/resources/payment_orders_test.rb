@@ -24,12 +24,12 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < Test::Unit::TestCase
   end
 
   def test_retrieve
-    response = @modern_treasury.payment_orders.retrieve("string")
+    response = @modern_treasury.payment_orders.retrieve("id")
     assert_kind_of(ModernTreasury::Models::PaymentOrder, response)
   end
 
   def test_update
-    response = @modern_treasury.payment_orders.update("string")
+    response = @modern_treasury.payment_orders.update("id")
     assert_kind_of(ModernTreasury::Models::PaymentOrder, response)
   end
 

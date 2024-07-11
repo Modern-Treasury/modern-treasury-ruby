@@ -13,18 +13,18 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < Test::Unit::TestCa
 
   def test_create_required_params
     response = @modern_treasury.internal_accounts.create(
-      {connection_id: "string", currency: "USD", name: "string", party_name: "string"}
+      {connection_id: "connection_id", currency: "USD", name: "name", party_name: "party_name"}
     )
     assert_kind_of(ModernTreasury::Models::InternalAccount, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.internal_accounts.retrieve("string")
+    response = @modern_treasury.internal_accounts.retrieve("id")
     assert_kind_of(ModernTreasury::Models::InternalAccount, response)
   end
 
   def test_update
-    response = @modern_treasury.internal_accounts.update("string")
+    response = @modern_treasury.internal_accounts.update("id")
     assert_kind_of(ModernTreasury::Models::InternalAccount, response)
   end
 

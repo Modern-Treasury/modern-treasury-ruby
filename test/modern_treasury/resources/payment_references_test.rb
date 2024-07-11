@@ -12,7 +12,7 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < Test::Unit::TestC
   end
 
   def test_retrieve
-    response = @modern_treasury.payment_references.retrieve("string")
+    response = @modern_treasury.payment_references.retrieve("id")
     assert_kind_of(ModernTreasury::Models::PaymentReference, response)
   end
 
@@ -22,7 +22,7 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < Test::Unit::TestC
   end
 
   def test_retireve
-    response = @modern_treasury.payment_references.retireve("string")
+    response = @modern_treasury.payment_references.retireve("id")
     assert_kind_of(ModernTreasury::Models::PaymentReference, response)
   end
 end

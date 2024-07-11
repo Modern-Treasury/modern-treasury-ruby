@@ -12,12 +12,12 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < Test::Unit::TestCa
   end
 
   def test_create_required_params
-    response = @modern_treasury.ledgerable_events.create({name: "string"})
+    response = @modern_treasury.ledgerable_events.create({name: "name"})
     assert_kind_of(ModernTreasury::Models::LedgerableEvent, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.ledgerable_events.retrieve("string")
+    response = @modern_treasury.ledgerable_events.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerableEvent, response)
   end
 end

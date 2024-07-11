@@ -14,20 +14,20 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Test::
   def test_create_required_params
     response = @modern_treasury.ledger_account_balance_monitors.create(
       {
-        alert_condition: {"field" => "string", "operator" => "string", "value" => 0},
-        ledger_account_id: "string"
+        alert_condition: {"field" => "field", "operator" => "operator", "value" => 0},
+        ledger_account_id: "ledger_account_id"
       }
     )
     assert_kind_of(ModernTreasury::Models::LedgerAccountBalanceMonitor, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.ledger_account_balance_monitors.retrieve("string")
+    response = @modern_treasury.ledger_account_balance_monitors.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountBalanceMonitor, response)
   end
 
   def test_update
-    response = @modern_treasury.ledger_account_balance_monitors.update("string")
+    response = @modern_treasury.ledger_account_balance_monitors.update("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountBalanceMonitor, response)
   end
 
@@ -37,7 +37,7 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Test::
   end
 
   def test_delete
-    response = @modern_treasury.ledger_account_balance_monitors.delete("string")
+    response = @modern_treasury.ledger_account_balance_monitors.delete("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountBalanceMonitor, response)
   end
 end

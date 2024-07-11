@@ -14,9 +14,9 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < Test::Unit::TestCase
   def test_create_required_params
     response = @modern_treasury.ledger_accounts.create(
       {
-        currency: "string",
+        currency: "currency",
         ledger_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        name: "string",
+        name: "name",
         normal_balance: "credit"
       }
     )
@@ -24,12 +24,12 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < Test::Unit::TestCase
   end
 
   def test_retrieve
-    response = @modern_treasury.ledger_accounts.retrieve("string")
+    response = @modern_treasury.ledger_accounts.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccount, response)
   end
 
   def test_update
-    response = @modern_treasury.ledger_accounts.update("string")
+    response = @modern_treasury.ledger_accounts.update("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccount, response)
   end
 
@@ -39,7 +39,7 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < Test::Unit::TestCase
   end
 
   def test_delete
-    response = @modern_treasury.ledger_accounts.delete("string")
+    response = @modern_treasury.ledger_accounts.delete("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccount, response)
   end
 end

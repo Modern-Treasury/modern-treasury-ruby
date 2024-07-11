@@ -12,17 +12,17 @@ class ModernTreasury::Test::Resources::LedgersTest < Test::Unit::TestCase
   end
 
   def test_create_required_params
-    response = @modern_treasury.ledgers.create({name: "string"})
+    response = @modern_treasury.ledgers.create({name: "name"})
     assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.ledgers.retrieve("string")
+    response = @modern_treasury.ledgers.retrieve("id")
     assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 
   def test_update
-    response = @modern_treasury.ledgers.update("string")
+    response = @modern_treasury.ledgers.update("id")
     assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 
@@ -32,7 +32,7 @@ class ModernTreasury::Test::Resources::LedgersTest < Test::Unit::TestCase
   end
 
   def test_delete
-    response = @modern_treasury.ledgers.delete("string")
+    response = @modern_treasury.ledgers.delete("id")
     assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 end

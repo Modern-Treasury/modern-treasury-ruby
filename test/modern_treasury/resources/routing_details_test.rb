@@ -14,24 +14,24 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Test::Unit::TestCase
   def test_create_required_params
     response = @modern_treasury.routing_details.create(
       "external_accounts",
-      "string",
-      {routing_number: "string", routing_number_type: "aba"}
+      "account_id",
+      {routing_number: "routing_number", routing_number_type: "aba"}
     )
     assert_kind_of(ModernTreasury::Models::RoutingDetail, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.routing_details.retrieve("external_accounts", "string", "string")
+    response = @modern_treasury.routing_details.retrieve("external_accounts", "account_id", "id")
     assert_kind_of(ModernTreasury::Models::RoutingDetail, response)
   end
 
   def test_list
-    response = @modern_treasury.routing_details.list("external_accounts", "string")
+    response = @modern_treasury.routing_details.list("external_accounts", "account_id")
     assert_kind_of(ModernTreasury::Page, response)
   end
 
   def test_delete
-    response = @modern_treasury.routing_details.delete("external_accounts", "string", "string")
+    response = @modern_treasury.routing_details.delete("external_accounts", "account_id", "id")
     assert_nil(response)
   end
 end
