@@ -22,12 +22,12 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < Test::Unit
   end
 
   def test_retrieve
-    response = @modern_treasury.ledger_account_settlements.retrieve("string")
+    response = @modern_treasury.ledger_account_settlements.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountSettlement, response)
   end
 
   def test_update
-    response = @modern_treasury.ledger_account_settlements.update("string")
+    response = @modern_treasury.ledger_account_settlements.update("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountSettlement, response)
   end
 

@@ -13,18 +13,18 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < Test::Unit::TestCas
 
   def test_create_required_params
     response = @modern_treasury.virtual_accounts.create(
-      {internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", name: "string"}
+      {internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", name: "name"}
     )
     assert_kind_of(ModernTreasury::Models::VirtualAccount, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.virtual_accounts.retrieve("string")
+    response = @modern_treasury.virtual_accounts.retrieve("id")
     assert_kind_of(ModernTreasury::Models::VirtualAccount, response)
   end
 
   def test_update
-    response = @modern_treasury.virtual_accounts.update("string")
+    response = @modern_treasury.virtual_accounts.update("id")
     assert_kind_of(ModernTreasury::Models::VirtualAccount, response)
   end
 
@@ -34,7 +34,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < Test::Unit::TestCas
   end
 
   def test_delete
-    response = @modern_treasury.virtual_accounts.delete("string")
+    response = @modern_treasury.virtual_accounts.delete("id")
     assert_kind_of(ModernTreasury::Models::VirtualAccount, response)
   end
 end

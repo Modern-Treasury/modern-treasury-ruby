@@ -19,7 +19,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < Test::Unit::T
   end
 
   def test_retrieve
-    response = @modern_treasury.foreign_exchange_quotes.retrieve("string")
+    response = @modern_treasury.foreign_exchange_quotes.retrieve("id")
     assert_kind_of(ModernTreasury::Models::ForeignExchangeQuote, response)
   end
 

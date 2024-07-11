@@ -19,19 +19,23 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Test::Unit::Tes
           "effective_at" => "{{ledgerable_event.custom_data.effective_at}}",
           "status" => "posted",
           "ledger_entries" => [
-            {"amount" => "string", "direction" => "string", "ledger_account_id" => "string"},
-            {"amount" => "string", "direction" => "string", "ledger_account_id" => "string"},
-            {"amount" => "string", "direction" => "string", "ledger_account_id" => "string"}
+            {
+              "amount" => "amount",
+              "direction" => "direction",
+              "ledger_account_id" => "ledger_account_id"
+            },
+            {"amount" => "amount", "direction" => "direction", "ledger_account_id" => "ledger_account_id"},
+            {"amount" => "amount", "direction" => "direction", "ledger_account_id" => "ledger_account_id"}
           ]
         },
-        name: "string"
+        name: "name"
       }
     )
     assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.ledger_event_handlers.retrieve("string")
+    response = @modern_treasury.ledger_event_handlers.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
   end
 
@@ -41,7 +45,7 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Test::Unit::Tes
   end
 
   def test_delete
-    response = @modern_treasury.ledger_event_handlers.delete("string")
+    response = @modern_treasury.ledger_event_handlers.delete("id")
     assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
   end
 end

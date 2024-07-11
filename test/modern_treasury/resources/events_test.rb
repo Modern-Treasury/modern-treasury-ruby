@@ -12,7 +12,7 @@ class ModernTreasury::Test::Resources::EventsTest < Test::Unit::TestCase
   end
 
   def test_retrieve
-    response = @modern_treasury.events.retrieve("string")
+    response = @modern_treasury.events.retrieve("id")
     assert_kind_of(ModernTreasury::Models::Event, response)
   end
 

@@ -16,22 +16,22 @@ class ModernTreasury::Test::Resources::TransactionsTest < Test::Unit::TestCase
       {
         amount: 0,
         as_of_date: "2019-12-27",
-        direction: "string",
+        direction: "direction",
         internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        vendor_code: "string",
-        vendor_code_type: "string"
+        vendor_code: "vendor_code",
+        vendor_code_type: "vendor_code_type"
       }
     )
     assert_kind_of(ModernTreasury::Models::Transaction, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.transactions.retrieve("string")
+    response = @modern_treasury.transactions.retrieve("id")
     assert_kind_of(ModernTreasury::Models::Transaction, response)
   end
 
   def test_update
-    response = @modern_treasury.transactions.update("string")
+    response = @modern_treasury.transactions.update("id")
     assert_kind_of(ModernTreasury::Models::Transaction, response)
   end
 
@@ -41,7 +41,7 @@ class ModernTreasury::Test::Resources::TransactionsTest < Test::Unit::TestCase
   end
 
   def test_delete
-    response = @modern_treasury.transactions.delete("string")
+    response = @modern_treasury.transactions.delete("id")
     assert_nil(response)
   end
 end

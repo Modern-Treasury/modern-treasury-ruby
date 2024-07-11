@@ -12,12 +12,12 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < Test::Unit::
   end
 
   def test_retrieve
-    response = @modern_treasury.incoming_payment_details.retrieve("string")
+    response = @modern_treasury.incoming_payment_details.retrieve("id")
     assert_kind_of(ModernTreasury::Models::IncomingPaymentDetail, response)
   end
 
   def test_update
-    response = @modern_treasury.incoming_payment_details.update("string")
+    response = @modern_treasury.incoming_payment_details.update("id")
     assert_kind_of(ModernTreasury::Models::IncomingPaymentDetail, response)
   end
 
