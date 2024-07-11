@@ -13,7 +13,10 @@ class ModernTreasury::Test::Resources::LegalEntityAssociationsTest < Test::Unit:
 
   def test_create_required_params
     response = @modern_treasury.legal_entity_associations.create(
-      {parent_legal_entity_id: "string", relationship_types: %w[beneficial_owner control_person]}
+      {
+        parent_legal_entity_id: "parent_legal_entity_id",
+        relationship_types: %w[beneficial_owner control_person]
+      }
     )
     assert_kind_of(ModernTreasury::Models::LegalEntityAssociation, response)
   end

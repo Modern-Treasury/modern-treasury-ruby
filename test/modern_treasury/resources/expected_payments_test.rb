@@ -24,12 +24,12 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < Test::Unit::TestCa
   end
 
   def test_retrieve
-    response = @modern_treasury.expected_payments.retrieve("string")
+    response = @modern_treasury.expected_payments.retrieve("id")
     assert_kind_of(ModernTreasury::Models::ExpectedPayment, response)
   end
 
   def test_update
-    response = @modern_treasury.expected_payments.update("string")
+    response = @modern_treasury.expected_payments.update("id")
     assert_kind_of(ModernTreasury::Models::ExpectedPayment, response)
   end
 
@@ -39,7 +39,7 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < Test::Unit::TestCa
   end
 
   def test_delete
-    response = @modern_treasury.expected_payments.delete("string")
+    response = @modern_treasury.expected_payments.delete("id")
     assert_kind_of(ModernTreasury::Models::ExpectedPayment, response)
   end
 end

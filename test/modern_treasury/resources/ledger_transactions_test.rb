@@ -37,12 +37,12 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < Test::Unit::Test
   end
 
   def test_retrieve
-    response = @modern_treasury.ledger_transactions.retrieve("string")
+    response = @modern_treasury.ledger_transactions.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
   end
 
   def test_update
-    response = @modern_treasury.ledger_transactions.update("string")
+    response = @modern_treasury.ledger_transactions.update("id")
     assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
   end
 
@@ -52,7 +52,7 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < Test::Unit::Test
   end
 
   def test_create_reversal
-    response = @modern_treasury.ledger_transactions.create_reversal("string")
+    response = @modern_treasury.ledger_transactions.create_reversal("id")
     assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
   end
 end

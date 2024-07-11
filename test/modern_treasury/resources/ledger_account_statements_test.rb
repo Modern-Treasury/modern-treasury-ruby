@@ -12,7 +12,7 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < Test::Unit:
   end
 
   def test_retrieve
-    response = @modern_treasury.ledger_account_statements.retrieve("string")
+    response = @modern_treasury.ledger_account_statements.retrieve("id")
     assert_kind_of(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse, response)
   end
 end

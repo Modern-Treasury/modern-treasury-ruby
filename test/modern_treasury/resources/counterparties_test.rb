@@ -12,17 +12,17 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Test::Unit::TestCase
   end
 
   def test_create_required_params
-    response = @modern_treasury.counterparties.create({name: "string"})
+    response = @modern_treasury.counterparties.create({name: "name"})
     assert_kind_of(ModernTreasury::Models::Counterparty, response)
   end
 
   def test_retrieve
-    response = @modern_treasury.counterparties.retrieve("string")
+    response = @modern_treasury.counterparties.retrieve("id")
     assert_kind_of(ModernTreasury::Models::Counterparty, response)
   end
 
   def test_update
-    response = @modern_treasury.counterparties.update("string")
+    response = @modern_treasury.counterparties.update("id")
     assert_kind_of(ModernTreasury::Models::Counterparty, response)
   end
 
@@ -32,12 +32,12 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Test::Unit::TestCase
   end
 
   def test_delete
-    response = @modern_treasury.counterparties.delete("string")
+    response = @modern_treasury.counterparties.delete("id")
     assert_nil(response)
   end
 
   def test_collect_account_required_params
-    response = @modern_treasury.counterparties.collect_account("string", {direction: "credit"})
+    response = @modern_treasury.counterparties.collect_account("id", {direction: "credit"})
     assert_kind_of(ModernTreasury::Models::CounterpartyCollectAccountResponse, response)
   end
 end
