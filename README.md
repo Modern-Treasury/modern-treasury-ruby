@@ -7,7 +7,7 @@ application.
 
 Documentation for the most recent version of this gem can be found [on RubyDoc](https://rubydoc.info/github/Modern-Treasury/modern-treasury-ruby).
 
-The underlying REST API documentation can be found [on docs.moderntreasury.com](https://docs.moderntreasury.com).
+The underlying REST API documentation can be found on [docs.moderntreasury.com](https://docs.moderntreasury.com).
 
 ## Installation
 
