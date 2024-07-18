@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2024-07-18)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Chores
+
+* **ci:** limit release doctor target branches ([#36](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/36)) ([27e8594](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/27e85941837a7518eabb16ee7ac28370cf8ae13e))
+* updates ([#34](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/34)) ([9c62823](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9c62823399f4e8884368c3ee1dac61e7b05815c1))
+
 ## 0.1.0-alpha.3 (2024-07-15)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
