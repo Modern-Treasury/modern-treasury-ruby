@@ -83,6 +83,9 @@ module ModernTreasury
       # @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       # @option params [String] :after_cursor
+      # @option params [Hash] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       # @option params [String] :ledger_id
       # @option params [String] :ledger_transaction_id
       # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
@@ -91,6 +94,9 @@ module ModernTreasury
       # @option params [Integer] :per_page
       # @option params [String] :settled_ledger_account_id
       # @option params [String] :settlement_entry_direction
+      # @option params [Hash] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
       #

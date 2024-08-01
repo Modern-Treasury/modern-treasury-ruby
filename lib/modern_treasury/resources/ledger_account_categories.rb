@@ -16,6 +16,8 @@ module ModernTreasury
       # @option params [Symbol] :normal_balance The normal balance of the ledger account category.
       # @option params [Integer] :currency_exponent The currency exponent of the ledger account category.
       # @option params [String] :description The description of the ledger account category.
+      # @option params [Array<String>] :ledger_account_category_ids The array of ledger account category ids that this ledger account category
+      #   should be a child of.
       # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
