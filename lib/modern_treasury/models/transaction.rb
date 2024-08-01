@@ -222,6 +222,11 @@ module ModernTreasury
                  :ZWR
                )
 
+      # @!attribute [rw] custom_identifiers
+      #   An object containing key-value pairs, each with a custom identifier as the key and a string value.
+      #   @return [Hash]
+      required :custom_identifiers, Hash
+
       # @!attribute [rw] direction
       #   Either `credit` or `debit`.
       #   @return [String]
