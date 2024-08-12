@@ -17,7 +17,6 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Test::Unit::Tes
         ledger_transaction_template: {
           "description" => "My Ledger Transaction Template Description",
           "effective_at" => "{{ledgerable_event.custom_data.effective_at}}",
-          "status" => "posted",
           "ledger_entries" => [
             {
               "amount" => "amount",
@@ -26,7 +25,8 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Test::Unit::Tes
             },
             {"amount" => "amount", "direction" => "direction", "ledger_account_id" => "ledger_account_id"},
             {"amount" => "amount", "direction" => "direction", "ledger_account_id" => "ledger_account_id"}
-          ]
+          ],
+          "status" => "posted"
         },
         name: "name"
       }
