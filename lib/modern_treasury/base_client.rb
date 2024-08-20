@@ -71,7 +71,7 @@ module ModernTreasury
             host: uri.host,
             scheme: uri.scheme,
             path: uri.path,
-            query: CGI.parse(uri.query),
+            query: CGI.parse(uri.query || ""),
             port: uri.port
           }
         else
@@ -198,16 +198,59 @@ module ModernTreasury
     rescue StandardError # rubocop:disable Lint/SuppressedException
     end
 
-    def with_retry(request, max_retries:)
+    def send_request(request, max_retries:, redirect_count:)
       delay = 0.5
       max_delay = 8.0
       retries = 0
       request_max_retries = max_retries || @max_retries
-      loop do
+      loop do # rubocop:disable Metrics/BlockLength
         begin
           response = @requester.execute(request)
-          is_ok = response.code.to_i < 400
-          return response if is_ok
+          status = response.code.to_i
+
+          if status < 300
+            return response
+          elsif status < 400
+            begin
+              prev_uri = URI.parse(ModernTreasury::Util.uri_from_req(request, absolute: true))
+              location = URI.join(prev_uri, response.header["Location"])
+            rescue ArgumentError
+              message = "server responded with status #{status} but no valid location header"
+              raise HTTP::APIConnectionError.new(message: message, request: request)
+            end
+            # from whatwg fetch spec
+            if redirect_count == 20
+              message = "failed to complete the request within 20 redirects"
+              raise HTTP::APIConnectionError.new(message: message, request: request)
+            end
+            if location.scheme != "http" && location.scheme != "https"
+              message = "tried to redirect to a non-http URL"
+              raise HTTP::APIConnectionError.new(message: message, request: request)
+            end
+            request = request.merge(resolve_uri_elements({url: location}))
+            # from whatwg fetch spec
+            if ([301, 302].include?(status) && request[:method] == :post) ||
+               (status == 303 && request[:method] != :get && request[:method] != :head)
+              request[:method] = :get
+              request[:body] = nil
+              request[:headers].reject! do |k|
+                %w[content-encoding content-language content-location content-type].include?(k.downcase)
+              end
+            end
+            # from undici
+            if prev_uri.host != request[:hostname] ||
+               prev_uri.port != request[:port] ||
+               prev_uri.scheme != request[:scheme]
+              request[:headers].reject! do |k|
+                %w[authorization cookie proxy-authorization host].include?(k.downcase)
+              end
+            end
+            return send_request(
+              request,
+              max_retries: max_retries,
+              redirect_count: redirect_count + 1
+            )
+          end
         rescue Net::HTTPBadResponse
           if retries >= request_max_retries
             message = "failed to complete the request within #{request_max_retries} retries"
@@ -240,7 +283,7 @@ module ModernTreasury
       validate_request(req, opts)
       options = req.merge(opts)
       request_args = prep_request(options)
-      response = with_retry(request_args, max_retries: opts[:max_retries])
+      response = send_request(request_args, max_retries: opts[:max_retries], redirect_count: 0)
       raw_data =
         case response.content_type
         when "application/json"
