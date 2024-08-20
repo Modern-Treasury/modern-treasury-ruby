@@ -54,5 +54,17 @@ module ModernTreasury
         input
       end
     end
+
+    def self.uri_from_req(req, absolute:)
+      query_string = ("?#{URI.encode_www_form(req[:query])}" if req[:query])
+      uri = String.new
+      if absolute
+        uri << "#{req[:scheme]}://#{req[:host]}"
+        if req[:port]
+          uri << ":#{req[:port]}"
+        end
+      end
+      uri << ((req[:path] || "/") + (query_string || ""))
+    end
   end
 end
