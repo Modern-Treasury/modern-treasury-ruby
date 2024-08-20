@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2024-08-20)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Features
+
+* **client:** follow redirects ([#49](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/49)) ([4b60d06](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4b60d0696596f82223e94a6a0220c7e58111b54d))
+
+
+### Chores
+
+* fix typo in comment ([#46](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/46)) ([09997c9](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/09997c9675ff78935ffe234cc468dbe095374a04))
+
 ## 0.1.0-alpha.4 (2024-07-18)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
