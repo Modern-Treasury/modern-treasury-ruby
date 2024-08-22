@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "time"
+
 require_relative "test_helper"
 
 class ModernTreasuryTest < Test::Unit::TestCase
@@ -12,26 +14,27 @@ class ModernTreasuryTest < Test::Unit::TestCase
   class MockResponse
     attr_accessor :code, :header, :body, :content_type
 
-    def initialize(code, data)
+    def initialize(code, data, headers)
       self.code = code
-      self.header = {}
+      self.header = headers
       self.body = JSON.generate(data)
       self.content_type = "application/json"
     end
   end
 
   class MockRequester
-    attr_accessor :response_code, :response_data, :attempts
+    attr_accessor :response_code, :response_data, :response_headers, :attempts
 
-    def initialize(response_code, response_data)
+    def initialize(response_code, response_data, response_headers)
       self.response_code = response_code
       self.response_data = response_data
+      self.response_headers = response_headers
       self.attempts = []
     end
 
     def execute(req)
       attempts.push(req)
-      MockResponse.new(response_code, response_data)
+      MockResponse.new(response_code, response_data, response_headers)
     end
   end
 
@@ -41,7 +44,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {})
+    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"})
@@ -56,7 +59,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
       organization_id: "my-organization-ID",
       max_retries: 3
     )
-    requester = MockRequester.new(500, {})
+    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"})
@@ -70,7 +73,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {})
+    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"}, max_retries: 3)
@@ -85,12 +88,68 @@ class ModernTreasuryTest < Test::Unit::TestCase
       organization_id: "my-organization-ID",
       max_retries: 3
     )
-    requester = MockRequester.new(500, {})
+    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"}, max_retries: 4)
     end
     assert_equal(5, requester.attempts.length)
+  end
+
+  def test_client_retry_after_seconds
+    modern_treasury = ModernTreasury::Client.new(
+      base_url: "http://localhost:4010",
+      api_key: "My API Key",
+      organization_id: "my-organization-ID",
+      max_retries: 1
+    )
+    requester = MockRequester.new(500, {}, {"retry-after" => "1.3", "x-stainless-mock-sleep" => "true"})
+    modern_treasury.requester = requester
+    assert_raise(ModernTreasury::HTTP::InternalServerError) do
+      modern_treasury.counterparties.create({name: "name"})
+    end
+    assert_equal(2, requester.attempts.length)
+    assert_equal(requester.attempts.last[:headers]["X-Stainless-Mock-Slept"], 1.3)
+  end
+
+  def test_client_retry_after_date
+    modern_treasury = ModernTreasury::Client.new(
+      base_url: "http://localhost:4010",
+      api_key: "My API Key",
+      organization_id: "my-organization-ID",
+      max_retries: 1
+    )
+    requester = MockRequester.new(
+      500,
+      {},
+      {
+        "retry-after" => (Time.now + 2).httpdate,
+        "x-stainless-mock-sleep" => "true",
+        "x-stainless-mock-sleep-base" => Time.now.httpdate
+      }
+    )
+    modern_treasury.requester = requester
+    assert_raise(ModernTreasury::HTTP::InternalServerError) do
+      modern_treasury.counterparties.create({name: "name"})
+    end
+    assert_equal(2, requester.attempts.length)
+    assert_equal(requester.attempts.last[:headers]["X-Stainless-Mock-Slept"], 2)
+  end
+
+  def test_client_retry_after_ms
+    modern_treasury = ModernTreasury::Client.new(
+      base_url: "http://localhost:4010",
+      api_key: "My API Key",
+      organization_id: "my-organization-ID",
+      max_retries: 1
+    )
+    requester = MockRequester.new(500, {}, {"retry-after-ms" => "1300", "x-stainless-mock-sleep" => "true"})
+    modern_treasury.requester = requester
+    assert_raise(ModernTreasury::HTTP::InternalServerError) do
+      modern_treasury.counterparties.create({name: "name"})
+    end
+    assert_equal(2, requester.attempts.length)
+    assert_equal(requester.attempts.last[:headers]["X-Stainless-Mock-Slept"], 1.3)
   end
 
   def test_client_default_idempotency_key_on_writes
@@ -99,7 +158,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {})
+    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"}, max_retries: 1)
@@ -116,7 +175,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {})
+    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
     assert_raise(ModernTreasury::HTTP::InternalServerError) do
       modern_treasury.counterparties.create(
@@ -134,7 +193,7 @@ class ModernTreasuryTest < Test::Unit::TestCase
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(200, {})
+    requester = MockRequester.new(200, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
     modern_treasury.counterparties.create({name: "name"})
     headers = requester.attempts[0][:headers]
