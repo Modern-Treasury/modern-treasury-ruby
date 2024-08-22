@@ -171,30 +171,25 @@ module ModernTreasury
       make_status_error(message: message, body: err_body, response: response)
     end
 
-    # About the Retry-After header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
-    #
-    # <http-date>". See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After#syntax for
-    # details.
     def header_based_retry(response)
-      # TODO(STA-3371): accept retry-after-ms.
-      retry_after = response.header["retry-after"]
-      retry_after
-        .split(",")
-        .map do |element|
-          as_int =
-            begin
-              Float(element)
-            rescue StandardError # rubocop:disable Lint/SuppressedException
+      # Note the `retry-after-ms` header may not be standard, but is a good idea and we'd like proactive support for it.
+      retry_after_millis = Float(response.header["retry-after-ms"], exception: false)
+      if retry_after_millis
+        retry_after = retry_after_millis / 1000.0
+      elsif response.header["retry-after"]
+        retry_after = Float(response.header["retry-after"], exception: false)
+        if retry_after.nil?
+          begin
+            base = Time.now
+            if response.header["x-stainless-mock-sleep-base"]
+              base = Time.httpdate(response.header["x-stainless-mock-sleep-base"])
             end
-
-          as_datetime =
-            begin
-              Time.httpdate(element) - Time.now
-            rescue StandardError # rubocop:disable Lint/SuppressedException
-            end
-
-          [as_int, as_datetime].filter { |x| x }.max
+            retry_after = Time.httpdate(response.header["retry-after"]) - base
+          rescue StandardError # rubocop:disable Lint/SuppressedException
+          end
         end
+      end
+      retry_after
     rescue StandardError # rubocop:disable Lint/SuppressedException
     end
 
@@ -268,10 +263,20 @@ module ModernTreasury
         end
 
         retries += 1
-        sleep delay
-        base_delay = header_based_retry(response) || (delay * (2**retries))
-        jitter_factor = 1 - (0.25 * rand)
-        (base_delay * jitter_factor).clamp(0, max_delay)
+        base_delay = header_based_retry(response)
+        if base_delay
+          delay = base_delay
+        else
+          base_delay = (delay * (2**retries))
+          jitter_factor = 1 - (0.25 * rand)
+          delay = (base_delay * jitter_factor).clamp(0, max_delay)
+        end
+
+        if response.header["x-stainless-mock-sleep"]
+          request[:headers]["X-Stainless-Mock-Slept"] = delay
+        else
+          sleep delay
+        end
       end
     end
 
