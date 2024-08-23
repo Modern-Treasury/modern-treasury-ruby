@@ -66,5 +66,13 @@ module ModernTreasury
       end
       uri << ((req[:path] || "/") + (query_string || ""))
     end
+
+    def self.uri_origin(uri)
+      if uri.respond_to?(:origin)
+        uri.origin
+      else
+        "#{uri.scheme}://#{uri.host}#{uri.port == uri.default_port ? '' : ":#{uri.port}"}"
+      end
+    end
   end
 end
