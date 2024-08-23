@@ -208,7 +208,7 @@ module ModernTreasury
           elsif status < 400
             begin
               prev_uri = URI.parse(ModernTreasury::Util.uri_from_req(request, absolute: true))
-              location = URI.join(prev_uri, response.header["Location"])
+              location = URI.join(prev_uri, response.header["location"])
             rescue ArgumentError
               message = "server responded with status #{status} but no valid location header"
               raise HTTP::APIConnectionError.new(message: message, request: request)
@@ -228,15 +228,13 @@ module ModernTreasury
                (status == 303 && request[:method] != :get && request[:method] != :head)
               request[:method] = :get
               request[:body] = nil
-              request[:headers].reject! do |k|
-                %w[content-encoding content-language content-location content-type].include?(k.downcase)
+              request[:headers] = request[:headers].reject do |k|
+                %w[content-encoding content-language content-location content-type content-length].include?(k.downcase)
               end
             end
             # from undici
-            if prev_uri.host != request[:hostname] ||
-               prev_uri.port != request[:port] ||
-               prev_uri.scheme != request[:scheme]
-              request[:headers].reject! do |k|
+            if ModernTreasury::Util.uri_origin(prev_uri) != ModernTreasury::Util.uri_origin(location)
+              request[:headers] = request[:headers].reject do |k|
                 %w[authorization cookie proxy-authorization host].include?(k.downcase)
               end
             end
