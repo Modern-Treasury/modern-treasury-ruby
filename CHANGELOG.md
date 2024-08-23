@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2024-08-23)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Bug Fixes
+
+* **client:** keep authorization headers on same-origin redirects ([#52](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/52)) ([b6f81e5](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b6f81e5179a3bc9df9755c8483ed044f2dc63c06))
+
+
+### Chores
+
+* **client:** follow standards for retry-after; retry-after-ms support ([#50](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/50)) ([f11cf4d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f11cf4d1386c95bb716aab00a5db69e404918c8c))
+
 ## 0.1.0-alpha.5 (2024-08-20)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
