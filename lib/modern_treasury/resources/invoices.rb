@@ -46,9 +46,9 @@ module ModernTreasury
       #   the automatically initiated payment order's direction will be debit. If the
       #   invoice amount is negative, the automatically initiated payment order's
       #   direction will be credit. One of `manual`, `ui`, or `automatic`.
-      # @option params [Symbol] :payment_type One of `ach`, `bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sepa`,
-      #   `bacs`, `au_becs`, `interac`, `neft`, `nics`, `nz_national_clearing_code`,
-      #   `sic`, `signet`, `provexchange`, `zengin`.
+      # @option params [Symbol] :payment_type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       # @option params [String] :receiving_account_id The receiving account ID. Can be an `external_account`.
       # @option params [String] :recipient_email The email of the recipient of the invoice. Leaving this value as null will
       #   fallback to using the counterparty's name.
@@ -121,9 +121,9 @@ module ModernTreasury
       #   the automatically initiated payment order's direction will be debit. If the
       #   invoice amount is negative, the automatically initiated payment order's
       #   direction will be credit. One of `manual`, `ui`, or `automatic`.
-      # @option params [Symbol] :payment_type One of `ach`, `bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sepa`,
-      #   `bacs`, `au_becs`, `interac`, `neft`, `nics`, `nz_national_clearing_code`,
-      #   `sic`, `signet`, `provexchange`, `zengin`.
+      # @option params [Symbol] :payment_type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       # @option params [String] :receiving_account_id The receiving account ID. Can be an `external_account`.
       # @option params [String] :recipient_email The email of the recipient of the invoice. Leaving this value as null will
       #   fallback to using the counterparty's name.
