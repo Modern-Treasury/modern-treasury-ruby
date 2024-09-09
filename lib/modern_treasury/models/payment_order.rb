@@ -429,7 +429,7 @@ module ModernTreasury
       required :transaction_monitoring_enabled, ModernTreasury::BooleanModel
 
       # @!attribute [rw] type
-      #   One of `ach`, `bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #   @return [Symbol]
       required :type,
                ModernTreasury::Enum.new(
