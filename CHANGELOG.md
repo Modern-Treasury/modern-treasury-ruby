@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2024-09-09)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Chores
+
+* **internal:** bump dependencies ([#56](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/56)) ([45c204f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/45c204f5991646eadb2a65eb8f505d024596f858))
+* **internal:** dependency updates ([#57](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/57)) ([273d43f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/273d43fb6db204eefdfdddb5a5b317e425cd4550))
+* **internal:** update dependencies ([#55](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/55)) ([9b6e02f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9b6e02f76aab9213fafd1c8236c1dba3f1e847d9))
+* **tests:** add tests for all resources ([#59](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/59)) ([52370ca](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/52370ca5d4ca4d14bfad6a4d34d85079aa23fe14))
+
+
+### Documentation
+
+* minor examples improvement ([#53](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/53)) ([d3275c7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d3275c749b5fe7c72d4af40f007f768b6b15ef7b))
+
 ## 0.1.0-alpha.6 (2024-08-23)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
