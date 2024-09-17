@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2024-09-17)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Features
+
+* **client:** public model initializer ([#62](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/62)) ([18c4881](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/18c488131e6dacc30169e7bae1653468b2eb234e))
+
 ## 0.1.0-alpha.7 (2024-09-09)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
