@@ -13,18 +13,9 @@ module ModernTreasury
 
       # @!attribute [rw] account_type
       #   Can be `checking`, `savings` or `other`.
+      #   One of the constants defined in {ModernTreasury::Models::ExternalAccountType}
       #   @return [Symbol]
-      required :account_type,
-               ModernTreasury::Enum.new(
-                 :cash,
-                 :checking,
-                 :general_ledger,
-                 :loan,
-                 :non_resident,
-                 :other,
-                 :overdraft,
-                 :savings
-               )
+      required :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
 
       # @!attribute [rw] contact_details
       #   @return [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
@@ -79,8 +70,9 @@ module ModernTreasury
 
       # @!attribute [rw] party_type
       #   Either `individual` or `business`.
+      #   One of the constants defined in {ModernTreasury::Models::ExternalAccount::PartyType}
       #   @return [Symbol]
-      required :party_type, ModernTreasury::Enum.new(:business, :individual)
+      required :party_type, enum: -> { ModernTreasury::Models::ExternalAccount::PartyType }
 
       # @!attribute [rw] routing_details
       #   @return [Array<ModernTreasury::Models::RoutingDetail>]
@@ -91,12 +83,14 @@ module ModernTreasury
       required :updated_at, String
 
       # @!attribute [rw] verification_source
+      #   One of the constants defined in {ModernTreasury::Models::ExternalAccount::VerificationSource}
       #   @return [Symbol]
-      required :verification_source, ModernTreasury::Enum.new(:ach_prenote, :microdeposits, :plaid)
+      required :verification_source, enum: -> { ModernTreasury::Models::ExternalAccount::VerificationSource }
 
       # @!attribute [rw] verification_status
+      #   One of the constants defined in {ModernTreasury::Models::ExternalAccount::VerificationStatus}
       #   @return [Symbol]
-      required :verification_status, ModernTreasury::Enum.new(:pending_verification, :unverified, :verified)
+      required :verification_status, enum: -> { ModernTreasury::Models::ExternalAccount::VerificationStatus }
 
       class ContactDetail < BaseModel
         # @!attribute [rw] id
@@ -108,8 +102,10 @@ module ModernTreasury
         required :contact_identifier, String
 
         # @!attribute [rw] contact_identifier_type
+        #   One of the constants defined in {ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType}
         #   @return [Symbol]
-        required :contact_identifier_type, ModernTreasury::Enum.new(:email, :phone_number, :website)
+        required :contact_identifier_type,
+                 enum: -> { ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType }
 
         # @!attribute [rw] created_at
         #   @return [String]
@@ -131,6 +127,12 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
+
+        class ContactIdentifierType < ModernTreasury::Enum
+          EMAIL = :email
+          PHONE_NUMBER = :phone_number
+          WEBSITE = :website
+        end
       end
 
       class PartyAddress < BaseModel
@@ -182,6 +184,24 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
+      end
+
+      # Either `individual` or `business`.
+      class PartyType < ModernTreasury::Enum
+        BUSINESS = :business
+        INDIVIDUAL = :individual
+      end
+
+      class VerificationSource < ModernTreasury::Enum
+        ACH_PRENOTE = :ach_prenote
+        MICRODEPOSITS = :microdeposits
+        PLAID = :plaid
+      end
+
+      class VerificationStatus < ModernTreasury::Enum
+        PENDING_VERIFICATION = :pending_verification
+        UNVERIFIED = :unverified
+        VERIFIED = :verified
       end
     end
   end

@@ -42,8 +42,9 @@ module ModernTreasury
 
       # @!attribute [rw] itemizable_type
       #   One of `payment_orders` or `expected_payments`.
+      #   One of the constants defined in {ModernTreasury::Models::LineItem::ItemizableType}
       #   @return [Symbol]
-      required :itemizable_type, ModernTreasury::Enum.new(:ExpectedPayment, :PaymentOrder)
+      required :itemizable_type, enum: -> { ModernTreasury::Models::LineItem::ItemizableType }
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -73,6 +74,12 @@ module ModernTreasury
         #   The ID of one of the class objects in your accounting system. Class objects track segments of your business independent of client or project. Note that these will only be accessible if your accounting system has been connected.
         #   @return [String]
         optional :class_id, String
+      end
+
+      # One of `payment_orders` or `expected_payments`.
+      class ItemizableType < ModernTreasury::Enum
+        EXPECTED_PAYMENT = :ExpectedPayment
+        PAYMENT_ORDER = :PaymentOrder
       end
     end
   end

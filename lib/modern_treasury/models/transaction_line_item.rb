@@ -56,16 +56,9 @@ module ModernTreasury
 
       # @!attribute [rw] transactable_type
       #   If a matching object exists in Modern Treasury, the type will be populated here, otherwise `null`.
+      #   One of the constants defined in {ModernTreasury::Models::TransactionLineItem::TransactableType}
       #   @return [Symbol]
-      required :transactable_type,
-               ModernTreasury::Enum.new(
-                 :incoming_payment_detail,
-                 :paper_item,
-                 :payment_order,
-                 :payment_order_attempt,
-                 :return,
-                 :reversal
-               )
+      required :transactable_type, enum: -> { ModernTreasury::Models::TransactionLineItem::TransactableType }
 
       # @!attribute [rw] transaction_id
       #   The ID of the parent transaction.
@@ -74,12 +67,29 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   Indicates whether the line item is `originating` or `receiving` (see https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
+      #   One of the constants defined in {ModernTreasury::Models::TransactionLineItem::Type}
       #   @return [Symbol]
-      required :type, ModernTreasury::Enum.new(:originating, :receiving)
+      required :type, enum: -> { ModernTreasury::Models::TransactionLineItem::Type }
 
       # @!attribute [rw] updated_at
       #   @return [String]
       required :updated_at, String
+
+      # If a matching object exists in Modern Treasury, the type will be populated here, otherwise `null`.
+      class TransactableType < ModernTreasury::Enum
+        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+        PAPER_ITEM = :paper_item
+        PAYMENT_ORDER = :payment_order
+        PAYMENT_ORDER_ATTEMPT = :payment_order_attempt
+        RETURN = :return
+        REVERSAL = :reversal
+      end
+
+      # Indicates whether the line item is `originating` or `receiving` (see https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
+      class Type < ModernTreasury::Enum
+        ORIGINATING = :originating
+        RECEIVING = :receiving
+      end
     end
   end
 end

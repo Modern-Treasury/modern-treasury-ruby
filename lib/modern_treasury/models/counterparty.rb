@@ -60,9 +60,9 @@ module ModernTreasury
 
       # @!attribute [rw] verification_status
       #   The verification status of the counterparty.
+      #   One of the constants defined in {ModernTreasury::Models::Counterparty::VerificationStatus}
       #   @return [Symbol]
-      required :verification_status,
-               ModernTreasury::Enum.new(:denied, :needs_approval, :unverified, :verified)
+      required :verification_status, enum: -> { ModernTreasury::Models::Counterparty::VerificationStatus }
 
       class Account < BaseModel
         # @!attribute [rw] id
@@ -75,18 +75,9 @@ module ModernTreasury
 
         # @!attribute [rw] account_type
         #   Can be `checking`, `savings` or `other`.
+        #   One of the constants defined in {ModernTreasury::Models::ExternalAccountType}
         #   @return [Symbol]
-        optional :account_type,
-                 ModernTreasury::Enum.new(
-                   :cash,
-                   :checking,
-                   :general_ledger,
-                   :loan,
-                   :non_resident,
-                   :other,
-                   :overdraft,
-                   :savings
-                 )
+        optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
 
         # @!attribute [rw] contact_details
         #   @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
@@ -141,8 +132,9 @@ module ModernTreasury
 
         # @!attribute [rw] party_type
         #   Either `individual` or `business`.
+        #   One of the constants defined in {ModernTreasury::Models::Counterparty::Account::PartyType}
         #   @return [Symbol]
-        optional :party_type, ModernTreasury::Enum.new(:business, :individual)
+        optional :party_type, enum: -> { ModernTreasury::Models::Counterparty::Account::PartyType }
 
         # @!attribute [rw] routing_details
         #   @return [Array<ModernTreasury::Models::RoutingDetail>]
@@ -153,12 +145,16 @@ module ModernTreasury
         optional :updated_at, String
 
         # @!attribute [rw] verification_source
+        #   One of the constants defined in {ModernTreasury::Models::Counterparty::Account::VerificationSource}
         #   @return [Symbol]
-        optional :verification_source, ModernTreasury::Enum.new(:ach_prenote, :microdeposits, :plaid)
+        optional :verification_source,
+                 enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationSource }
 
         # @!attribute [rw] verification_status
+        #   One of the constants defined in {ModernTreasury::Models::Counterparty::Account::VerificationStatus}
         #   @return [Symbol]
-        optional :verification_status, ModernTreasury::Enum.new(:pending_verification, :unverified, :verified)
+        optional :verification_status,
+                 enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationStatus }
 
         class ContactDetail < BaseModel
           # @!attribute [rw] id
@@ -170,8 +166,12 @@ module ModernTreasury
           required :contact_identifier, String
 
           # @!attribute [rw] contact_identifier_type
+          #   One of the constants defined in {ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType}
           #   @return [Symbol]
-          required :contact_identifier_type, ModernTreasury::Enum.new(:email, :phone_number, :website)
+          required :contact_identifier_type,
+                   enum: lambda {
+                     ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType
+                   }
 
           # @!attribute [rw] created_at
           #   @return [String]
@@ -193,6 +193,12 @@ module ModernTreasury
           # @!attribute [rw] updated_at
           #   @return [String]
           required :updated_at, String
+
+          class ContactIdentifierType < ModernTreasury::Enum
+            EMAIL = :email
+            PHONE_NUMBER = :phone_number
+            WEBSITE = :website
+          end
         end
 
         class PartyAddress < BaseModel
@@ -245,6 +251,32 @@ module ModernTreasury
           #   @return [String]
           required :updated_at, String
         end
+
+        # Either `individual` or `business`.
+        class PartyType < ModernTreasury::Enum
+          BUSINESS = :business
+          INDIVIDUAL = :individual
+        end
+
+        class VerificationSource < ModernTreasury::Enum
+          ACH_PRENOTE = :ach_prenote
+          MICRODEPOSITS = :microdeposits
+          PLAID = :plaid
+        end
+
+        class VerificationStatus < ModernTreasury::Enum
+          PENDING_VERIFICATION = :pending_verification
+          UNVERIFIED = :unverified
+          VERIFIED = :verified
+        end
+      end
+
+      # The verification status of the counterparty.
+      class VerificationStatus < ModernTreasury::Enum
+        DENIED = :denied
+        NEEDS_APPROVAL = :needs_approval
+        UNVERIFIED = :unverified
+        VERIFIED = :verified
       end
     end
   end

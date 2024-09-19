@@ -33,8 +33,9 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   Describes the direction money is flowing in the transaction. Can only be `debit`. A `debit` pulls money from someone else's account to your own.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentFlow::Direction}
       #   @return [Symbol]
-      optional :direction, ModernTreasury::Enum.new(:credit, :debit)
+      optional :direction, enum: -> { ModernTreasury::Models::PaymentFlow::Direction }
 
       # @!attribute [rw] due_date
       #   The due date for the flow. Can only be passed in when `effective_date_selection_enabled` is `true`.
@@ -48,13 +49,17 @@ module ModernTreasury
 
       # @!attribute [rw] existing_external_accounts_filter
       #   When `verified` and `external_account_collection` is `enabled`, filters the list of external accounts your end-user can select to those with a `verification_status` of `verified`.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter}
       #   @return [Symbol]
-      optional :existing_external_accounts_filter, ModernTreasury::Enum.new(:verified)
+      optional :existing_external_accounts_filter,
+               enum: -> { ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter }
 
       # @!attribute [rw] external_account_collection
       #   When `enabled`, your end-user can select from an existing external account when completing the flow. When `disabled`, your end-user must add new payment details when completing the flow.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentFlow::ExternalAccountCollection}
       #   @return [Symbol]
-      optional :external_account_collection, ModernTreasury::Enum.new(:disabled, :enabled)
+      optional :external_account_collection,
+               enum: -> { ModernTreasury::Models::PaymentFlow::ExternalAccountCollection }
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -87,12 +92,38 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The current status of the payment flow. One of `pending`, `completed`, `expired`, or `cancelled`.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentFlow::Status}
       #   @return [Symbol]
-      optional :status, ModernTreasury::Enum.new(:cancelled, :completed, :expired, :pending)
+      optional :status, enum: -> { ModernTreasury::Models::PaymentFlow::Status }
 
       # @!attribute [rw] updated_at
       #   @return [String]
       optional :updated_at, String
+
+      # Describes the direction money is flowing in the transaction. Can only be `debit`. A `debit` pulls money from someone else's account to your own.
+      class Direction < ModernTreasury::Enum
+        CREDIT = :credit
+        DEBIT = :debit
+      end
+
+      # When `verified` and `external_account_collection` is `enabled`, filters the list of external accounts your end-user can select to those with a `verification_status` of `verified`.
+      class ExistingExternalAccountsFilter < ModernTreasury::Enum
+        VERIFIED = :verified
+      end
+
+      # When `enabled`, your end-user can select from an existing external account when completing the flow. When `disabled`, your end-user must add new payment details when completing the flow.
+      class ExternalAccountCollection < ModernTreasury::Enum
+        DISABLED = :disabled
+        ENABLED = :enabled
+      end
+
+      # The current status of the payment flow. One of `pending`, `completed`, `expired`, or `cancelled`.
+      class Status < ModernTreasury::Enum
+        CANCELLED = :cancelled
+        COMPLETED = :completed
+        EXPIRED = :expired
+        PENDING = :pending
+      end
     end
   end
 end

@@ -23,199 +23,9 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   The currency of the incoming payment detail.
+      #   One of the constants defined in {ModernTreasury::Models::Currency}
       #   @return [Symbol]
-      required :currency,
-               ModernTreasury::Enum.new(
-                 :AED,
-                 :AFN,
-                 :ALL,
-                 :AMD,
-                 :ANG,
-                 :AOA,
-                 :ARS,
-                 :AUD,
-                 :AWG,
-                 :AZN,
-                 :BAM,
-                 :BBD,
-                 :BCH,
-                 :BDT,
-                 :BGN,
-                 :BHD,
-                 :BIF,
-                 :BMD,
-                 :BND,
-                 :BOB,
-                 :BRL,
-                 :BSD,
-                 :BTC,
-                 :BTN,
-                 :BWP,
-                 :BYN,
-                 :BYR,
-                 :BZD,
-                 :CAD,
-                 :CDF,
-                 :CHF,
-                 :CLF,
-                 :CLP,
-                 :CNH,
-                 :CNY,
-                 :COP,
-                 :CRC,
-                 :CUC,
-                 :CUP,
-                 :CVE,
-                 :CZK,
-                 :DJF,
-                 :DKK,
-                 :DOP,
-                 :DZD,
-                 :EEK,
-                 :EGP,
-                 :ERN,
-                 :ETB,
-                 :EUR,
-                 :FJD,
-                 :FKP,
-                 :GBP,
-                 :GBX,
-                 :GEL,
-                 :GGP,
-                 :GHS,
-                 :GIP,
-                 :GMD,
-                 :GNF,
-                 :GTQ,
-                 :GYD,
-                 :HKD,
-                 :HNL,
-                 :HRK,
-                 :HTG,
-                 :HUF,
-                 :IDR,
-                 :ILS,
-                 :IMP,
-                 :INR,
-                 :IQD,
-                 :IRR,
-                 :ISK,
-                 :JEP,
-                 :JMD,
-                 :JOD,
-                 :JPY,
-                 :KES,
-                 :KGS,
-                 :KHR,
-                 :KMF,
-                 :KPW,
-                 :KRW,
-                 :KWD,
-                 :KYD,
-                 :KZT,
-                 :LAK,
-                 :LBP,
-                 :LKR,
-                 :LRD,
-                 :LSL,
-                 :LTL,
-                 :LVL,
-                 :LYD,
-                 :MAD,
-                 :MDL,
-                 :MGA,
-                 :MKD,
-                 :MMK,
-                 :MNT,
-                 :MOP,
-                 :MRO,
-                 :MRU,
-                 :MTL,
-                 :MUR,
-                 :MVR,
-                 :MWK,
-                 :MXN,
-                 :MYR,
-                 :MZN,
-                 :NAD,
-                 :NGN,
-                 :NIO,
-                 :NOK,
-                 :NPR,
-                 :NZD,
-                 :OMR,
-                 :PAB,
-                 :PEN,
-                 :PGK,
-                 :PHP,
-                 :PKR,
-                 :PLN,
-                 :PYG,
-                 :QAR,
-                 :RON,
-                 :RSD,
-                 :RUB,
-                 :RWF,
-                 :SAR,
-                 :SBD,
-                 :SCR,
-                 :SDG,
-                 :SEK,
-                 :SGD,
-                 :SHP,
-                 :SKK,
-                 :SLL,
-                 :SOS,
-                 :SRD,
-                 :SSP,
-                 :STD,
-                 :SVC,
-                 :SYP,
-                 :SZL,
-                 :THB,
-                 :TJS,
-                 :TMM,
-                 :TMT,
-                 :TND,
-                 :TOP,
-                 :TRY,
-                 :TTD,
-                 :TWD,
-                 :TZS,
-                 :UAH,
-                 :UGX,
-                 :USD,
-                 :UYU,
-                 :UZS,
-                 :VEF,
-                 :VES,
-                 :VND,
-                 :VUV,
-                 :WST,
-                 :XAF,
-                 :XAG,
-                 :XAU,
-                 :XBA,
-                 :XBB,
-                 :XBC,
-                 :XBD,
-                 :XCD,
-                 :XDR,
-                 :XFU,
-                 :XOF,
-                 :XPD,
-                 :XPF,
-                 :XPT,
-                 :XTS,
-                 :YER,
-                 :ZAR,
-                 :ZMK,
-                 :ZMW,
-                 :ZWD,
-                 :ZWL,
-                 :ZWN,
-                 :ZWR
-               )
+      required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] data
       #   The raw data from the payment pre-notification file that we get from the bank.
@@ -224,8 +34,9 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   One of `credit` or `debit`.
+      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
       #   @return [Symbol]
-      required :direction, ModernTreasury::Enum.new(:credit, :debit)
+      required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] internal_account_id
       #   The ID of the Internal Account for the incoming payment detail. This is always present.
@@ -258,20 +69,10 @@ module ModernTreasury
 
       # @!attribute [rw] originating_account_number_type
       #   The type of the originating account number for the incoming payment detail.
+      #   One of the constants defined in {ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType}
       #   @return [Symbol]
       required :originating_account_number_type,
-               ModernTreasury::Enum.new(
-                 :au_number,
-                 :clabe,
-                 :hk_number,
-                 :iban,
-                 :id_number,
-                 :nz_number,
-                 :other,
-                 :pan,
-                 :sg_number,
-                 :wallet_address
-               )
+               enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType }
 
       # @!attribute [rw] originating_routing_number
       #   The routing number of the originating account for the incoming payment detail.
@@ -280,35 +81,16 @@ module ModernTreasury
 
       # @!attribute [rw] originating_routing_number_type
       #   The type of the originating routing number for the incoming payment detail.
+      #   One of the constants defined in {ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType}
       #   @return [Symbol]
       required :originating_routing_number_type,
-               ModernTreasury::Enum.new(
-                 :aba,
-                 :au_bsb,
-                 :br_codigo,
-                 :ca_cpa,
-                 :chips,
-                 :cnaps,
-                 :dk_interbank_clearing_code,
-                 :gb_sort_code,
-                 :hk_interbank_clearing_code,
-                 :hu_interbank_clearing_code,
-                 :id_sknbi_code,
-                 :in_ifsc,
-                 :jp_zengin_code,
-                 :mx_bank_identifier,
-                 :my_branch_code,
-                 :nz_national_clearing_code,
-                 :pl_national_clearing_code,
-                 :se_bankgiro_clearing_code,
-                 :swift,
-                 :za_national_clearing_code
-               )
+               enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType }
 
       # @!attribute [rw] status
       #   The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
+      #   One of the constants defined in {ModernTreasury::Models::IncomingPaymentDetail::Status}
       #   @return [Symbol]
-      required :status, ModernTreasury::Enum.new(:completed, :pending, :returned)
+      required :status, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Status }
 
       # @!attribute [rw] transaction_id
       #   The ID of the reconciled Transaction or `null`.
@@ -322,9 +104,9 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
+      #   One of the constants defined in {ModernTreasury::Models::IncomingPaymentDetail::Type}
       #   @return [Symbol]
-      required :type,
-               ModernTreasury::Enum.new(:ach, :book, :check, :eft, :interac, :rtp, :sepa, :signet, :wire)
+      required :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Type }
 
       # @!attribute [rw] updated_at
       #   @return [String]
@@ -349,6 +131,64 @@ module ModernTreasury
       #   The account number of the originating account for the incoming payment detail.
       #   @return [String]
       optional :originating_account_number, String
+
+      # The type of the originating account number for the incoming payment detail.
+      class OriginatingAccountNumberType < ModernTreasury::Enum
+        AU_NUMBER = :au_number
+        CLABE = :clabe
+        HK_NUMBER = :hk_number
+        IBAN = :iban
+        ID_NUMBER = :id_number
+        NZ_NUMBER = :nz_number
+        OTHER = :other
+        PAN = :pan
+        SG_NUMBER = :sg_number
+        WALLET_ADDRESS = :wallet_address
+      end
+
+      # The type of the originating routing number for the incoming payment detail.
+      class OriginatingRoutingNumberType < ModernTreasury::Enum
+        ABA = :aba
+        AU_BSB = :au_bsb
+        BR_CODIGO = :br_codigo
+        CA_CPA = :ca_cpa
+        CHIPS = :chips
+        CNAPS = :cnaps
+        DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
+        GB_SORT_CODE = :gb_sort_code
+        HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
+        HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
+        ID_SKNBI_CODE = :id_sknbi_code
+        IN_IFSC = :in_ifsc
+        JP_ZENGIN_CODE = :jp_zengin_code
+        MX_BANK_IDENTIFIER = :mx_bank_identifier
+        MY_BRANCH_CODE = :my_branch_code
+        NZ_NATIONAL_CLEARING_CODE = :nz_national_clearing_code
+        PL_NATIONAL_CLEARING_CODE = :pl_national_clearing_code
+        SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
+        SWIFT = :swift
+        ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+      end
+
+      # The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
+      class Status < ModernTreasury::Enum
+        COMPLETED = :completed
+        PENDING = :pending
+        RETURNED = :returned
+      end
+
+      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
+      class Type < ModernTreasury::Enum
+        ACH = :ach
+        BOOK = :book
+        CHECK = :check
+        EFT = :eft
+        INTERAC = :interac
+        RTP = :rtp
+        SEPA = :sepa
+        SIGNET = :signet
+        WIRE = :wire
+      end
     end
   end
 end

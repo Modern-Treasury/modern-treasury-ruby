@@ -14,20 +14,9 @@ module ModernTreasury
 
       # @!attribute [rw] account_number_type
       #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
+      #   One of the constants defined in {ModernTreasury::Models::AccountDetail::AccountNumberType}
       #   @return [Symbol]
-      required :account_number_type,
-               ModernTreasury::Enum.new(
-                 :au_number,
-                 :clabe,
-                 :hk_number,
-                 :iban,
-                 :id_number,
-                 :nz_number,
-                 :other,
-                 :pan,
-                 :sg_number,
-                 :wallet_address
-               )
+      required :account_number_type, enum: -> { ModernTreasury::Models::AccountDetail::AccountNumberType }
 
       # @!attribute [rw] created_at
       #   @return [String]
@@ -54,6 +43,20 @@ module ModernTreasury
       #   The account number for the bank account.
       #   @return [String]
       optional :account_number, String
+
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
+      class AccountNumberType < ModernTreasury::Enum
+        AU_NUMBER = :au_number
+        CLABE = :clabe
+        HK_NUMBER = :hk_number
+        IBAN = :iban
+        ID_NUMBER = :id_number
+        NZ_NUMBER = :nz_number
+        OTHER = :other
+        PAN = :pan
+        SG_NUMBER = :sg_number
+        WALLET_ADDRESS = :wallet_address
+      end
     end
   end
 end

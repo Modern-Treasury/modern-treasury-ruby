@@ -28,8 +28,9 @@ module ModernTreasury
 
       # @!attribute [rw] charge_bearer
       #   The party that will pay the fees for the payment order. Only applies to wire payment orders. Can be one of shared, sender, or receiver, which correspond respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::ChargeBearer}
       #   @return [Symbol]
-      required :charge_bearer, ModernTreasury::Enum.new(:shared, :sender, :receiver)
+      required :charge_bearer, enum: -> { ModernTreasury::Models::PaymentOrder::ChargeBearer }
 
       # @!attribute [rw] compliance_rule_metadata
       #   Custom key-value pair for usage in compliance rules. Please contact support before making changes to this field.
@@ -47,199 +48,9 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   Defaults to the currency of the originating account.
+      #   One of the constants defined in {ModernTreasury::Models::Currency}
       #   @return [Symbol]
-      required :currency,
-               ModernTreasury::Enum.new(
-                 :AED,
-                 :AFN,
-                 :ALL,
-                 :AMD,
-                 :ANG,
-                 :AOA,
-                 :ARS,
-                 :AUD,
-                 :AWG,
-                 :AZN,
-                 :BAM,
-                 :BBD,
-                 :BCH,
-                 :BDT,
-                 :BGN,
-                 :BHD,
-                 :BIF,
-                 :BMD,
-                 :BND,
-                 :BOB,
-                 :BRL,
-                 :BSD,
-                 :BTC,
-                 :BTN,
-                 :BWP,
-                 :BYN,
-                 :BYR,
-                 :BZD,
-                 :CAD,
-                 :CDF,
-                 :CHF,
-                 :CLF,
-                 :CLP,
-                 :CNH,
-                 :CNY,
-                 :COP,
-                 :CRC,
-                 :CUC,
-                 :CUP,
-                 :CVE,
-                 :CZK,
-                 :DJF,
-                 :DKK,
-                 :DOP,
-                 :DZD,
-                 :EEK,
-                 :EGP,
-                 :ERN,
-                 :ETB,
-                 :EUR,
-                 :FJD,
-                 :FKP,
-                 :GBP,
-                 :GBX,
-                 :GEL,
-                 :GGP,
-                 :GHS,
-                 :GIP,
-                 :GMD,
-                 :GNF,
-                 :GTQ,
-                 :GYD,
-                 :HKD,
-                 :HNL,
-                 :HRK,
-                 :HTG,
-                 :HUF,
-                 :IDR,
-                 :ILS,
-                 :IMP,
-                 :INR,
-                 :IQD,
-                 :IRR,
-                 :ISK,
-                 :JEP,
-                 :JMD,
-                 :JOD,
-                 :JPY,
-                 :KES,
-                 :KGS,
-                 :KHR,
-                 :KMF,
-                 :KPW,
-                 :KRW,
-                 :KWD,
-                 :KYD,
-                 :KZT,
-                 :LAK,
-                 :LBP,
-                 :LKR,
-                 :LRD,
-                 :LSL,
-                 :LTL,
-                 :LVL,
-                 :LYD,
-                 :MAD,
-                 :MDL,
-                 :MGA,
-                 :MKD,
-                 :MMK,
-                 :MNT,
-                 :MOP,
-                 :MRO,
-                 :MRU,
-                 :MTL,
-                 :MUR,
-                 :MVR,
-                 :MWK,
-                 :MXN,
-                 :MYR,
-                 :MZN,
-                 :NAD,
-                 :NGN,
-                 :NIO,
-                 :NOK,
-                 :NPR,
-                 :NZD,
-                 :OMR,
-                 :PAB,
-                 :PEN,
-                 :PGK,
-                 :PHP,
-                 :PKR,
-                 :PLN,
-                 :PYG,
-                 :QAR,
-                 :RON,
-                 :RSD,
-                 :RUB,
-                 :RWF,
-                 :SAR,
-                 :SBD,
-                 :SCR,
-                 :SDG,
-                 :SEK,
-                 :SGD,
-                 :SHP,
-                 :SKK,
-                 :SLL,
-                 :SOS,
-                 :SRD,
-                 :SSP,
-                 :STD,
-                 :SVC,
-                 :SYP,
-                 :SZL,
-                 :THB,
-                 :TJS,
-                 :TMM,
-                 :TMT,
-                 :TND,
-                 :TOP,
-                 :TRY,
-                 :TTD,
-                 :TWD,
-                 :TZS,
-                 :UAH,
-                 :UGX,
-                 :USD,
-                 :UYU,
-                 :UZS,
-                 :VEF,
-                 :VES,
-                 :VND,
-                 :VUV,
-                 :WST,
-                 :XAF,
-                 :XAG,
-                 :XAU,
-                 :XBA,
-                 :XBB,
-                 :XBC,
-                 :XBD,
-                 :XCD,
-                 :XDR,
-                 :XFU,
-                 :XOF,
-                 :XPD,
-                 :XPF,
-                 :XPT,
-                 :XTS,
-                 :YER,
-                 :ZAR,
-                 :ZMK,
-                 :ZMW,
-                 :ZWD,
-                 :ZWL,
-                 :ZWN,
-                 :ZWR
-               )
+      required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] current_return
       #   If the payment order's status is `returned`, this will include the return object's data.
@@ -258,8 +69,9 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::Direction}
       #   @return [Symbol]
-      required :direction, ModernTreasury::Enum.new(:credit, :debit)
+      required :direction, enum: -> { ModernTreasury::Models::PaymentOrder::Direction }
 
       # @!attribute [rw] effective_date
       #   Date transactions are to be posted to the participants' account. Defaults to the current business day or the next business day if the current day is a bank holiday or weekend. Format: yyyy-mm-dd.
@@ -278,8 +90,10 @@ module ModernTreasury
 
       # @!attribute [rw] foreign_exchange_indicator
       #   Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator}
       #   @return [Symbol]
-      required :foreign_exchange_indicator, ModernTreasury::Enum.new(:fixed_to_variable, :variable_to_fixed)
+      required :foreign_exchange_indicator,
+               enum: -> { ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator }
 
       # @!attribute [rw] foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
@@ -322,8 +136,9 @@ module ModernTreasury
 
       # @!attribute [rw] priority
       #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::Priority}
       #   @return [Symbol]
-      required :priority, ModernTreasury::Enum.new(:high, :normal)
+      required :priority, enum: -> { ModernTreasury::Models::PaymentOrder::Priority }
 
       # @!attribute [rw] process_after
       #   If present, Modern Treasury will not process the payment until after this time. If `process_after` is past the cutoff for `effective_date`, `process_after` will take precedence and `effective_date` will automatically update to reflect the earliest possible sending date after `process_after`. Format is ISO8601 timestamp.
@@ -341,8 +156,12 @@ module ModernTreasury
       required :receiving_account_id, String
 
       # @!attribute [rw] receiving_account_type
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::ReceivingAccountType}
       #   @return [Symbol]
-      required :receiving_account_type, ModernTreasury::Enum.new(:internal_account, :external_account)
+      required :receiving_account_type,
+               enum: lambda {
+                 ModernTreasury::Models::PaymentOrder::ReceivingAccountType
+               }
 
       # @!attribute [rw] reference_numbers
       #   @return [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
@@ -366,57 +185,15 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The current status of the payment order.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::Status}
       #   @return [Symbol]
-      required :status,
-               ModernTreasury::Enum.new(
-                 :approved,
-                 :cancelled,
-                 :completed,
-                 :denied,
-                 :failed,
-                 :needs_approval,
-                 :pending,
-                 :processing,
-                 :returned,
-                 :reversed,
-                 :sent
-               )
+      required :status, enum: -> { ModernTreasury::Models::PaymentOrder::Status }
 
       # @!attribute [rw] subtype
       #   An additional layer of classification for the type of payment order you are doing. This field is only used for `ach` payment orders currently. For `ach`  payment orders, the `subtype`  represents the SEC code. We currently support `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrderSubtype}
       #   @return [Symbol]
-      required :subtype,
-               ModernTreasury::Enum.new(
-                 :"0C",
-                 :"0N",
-                 :"0S",
-                 :CCD,
-                 :CIE,
-                 :CTX,
-                 :IAT,
-                 :PPD,
-                 :TEL,
-                 :WEB,
-                 :au_becs,
-                 :bacs,
-                 :chats,
-                 :dk_nets,
-                 :eft,
-                 :hu_ics,
-                 :masav,
-                 :mx_ccen,
-                 :neft,
-                 :nics,
-                 :nz_becs,
-                 :pl_elixir,
-                 :ro_sent,
-                 :se_bankgirot,
-                 :sepa,
-                 :sg_giro,
-                 :sic,
-                 :sknbi,
-                 :zengin
-               )
+      required :subtype, enum: -> { ModernTreasury::Models::PaymentOrderSubtype }
 
       # @!attribute [rw] transaction_ids
       #   The IDs of all the transactions associated to this payment order. Usually, you will only have a single transaction ID. However, if a payment order initially results in a Return, but gets redrafted and is later successfully completed, it can have many transactions.
@@ -430,40 +207,9 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrderType}
       #   @return [Symbol]
-      required :type,
-               ModernTreasury::Enum.new(
-                 :ach,
-                 :au_becs,
-                 :bacs,
-                 :book,
-                 :card,
-                 :chats,
-                 :check,
-                 :cross_border,
-                 :dk_nets,
-                 :eft,
-                 :hu_ics,
-                 :interac,
-                 :masav,
-                 :mx_ccen,
-                 :neft,
-                 :nics,
-                 :nz_becs,
-                 :pl_elixir,
-                 :provxchange,
-                 :ro_sent,
-                 :rtp,
-                 :se_bankgirot,
-                 :sen,
-                 :sepa,
-                 :sg_giro,
-                 :sic,
-                 :signet,
-                 :sknbi,
-                 :wire,
-                 :zengin
-               )
+      required :type, enum: -> { ModernTreasury::Models::PaymentOrderType }
 
       # @!attribute [rw] ultimate_originating_account
       #   The account to which the originating of this payment should be attributed to. Can be a `virtual_account` or `internal_account`.
@@ -476,9 +222,10 @@ module ModernTreasury
       required :ultimate_originating_account_id, String
 
       # @!attribute [rw] ultimate_originating_account_type
+      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType}
       #   @return [Symbol]
       required :ultimate_originating_account_type,
-               ModernTreasury::Enum.new(:internal_account, :virtual_account)
+               enum: -> { ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType }
 
       # @!attribute [rw] ultimate_originating_party_identifier
       #   Identifier of the ultimate originator of the payment order.
@@ -524,6 +271,25 @@ module ModernTreasury
         optional :class_id, String
       end
 
+      # The party that will pay the fees for the payment order. Only applies to wire payment orders. Can be one of shared, sender, or receiver, which correspond respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      class ChargeBearer < ModernTreasury::Enum
+        SHARED = :shared
+        SENDER = :sender
+        RECEIVER = :receiver
+      end
+
+      # One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
+      class Direction < ModernTreasury::Enum
+        CREDIT = :credit
+        DEBIT = :debit
+      end
+
+      # Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
+      class ForeignExchangeIndicator < ModernTreasury::Enum
+        FIXED_TO_VARIABLE = :fixed_to_variable
+        VARIABLE_TO_FIXED = :variable_to_fixed
+      end
+
       class ForeignExchangeRate < BaseModel
         # @!attribute [rw] base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
@@ -532,199 +298,9 @@ module ModernTreasury
 
         # @!attribute [rw] base_currency
         #   Currency to convert, often called the "sell" currency.
+        #   One of the constants defined in {ModernTreasury::Models::Currency}
         #   @return [Symbol]
-        required :base_currency,
-                 ModernTreasury::Enum.new(
-                   :AED,
-                   :AFN,
-                   :ALL,
-                   :AMD,
-                   :ANG,
-                   :AOA,
-                   :ARS,
-                   :AUD,
-                   :AWG,
-                   :AZN,
-                   :BAM,
-                   :BBD,
-                   :BCH,
-                   :BDT,
-                   :BGN,
-                   :BHD,
-                   :BIF,
-                   :BMD,
-                   :BND,
-                   :BOB,
-                   :BRL,
-                   :BSD,
-                   :BTC,
-                   :BTN,
-                   :BWP,
-                   :BYN,
-                   :BYR,
-                   :BZD,
-                   :CAD,
-                   :CDF,
-                   :CHF,
-                   :CLF,
-                   :CLP,
-                   :CNH,
-                   :CNY,
-                   :COP,
-                   :CRC,
-                   :CUC,
-                   :CUP,
-                   :CVE,
-                   :CZK,
-                   :DJF,
-                   :DKK,
-                   :DOP,
-                   :DZD,
-                   :EEK,
-                   :EGP,
-                   :ERN,
-                   :ETB,
-                   :EUR,
-                   :FJD,
-                   :FKP,
-                   :GBP,
-                   :GBX,
-                   :GEL,
-                   :GGP,
-                   :GHS,
-                   :GIP,
-                   :GMD,
-                   :GNF,
-                   :GTQ,
-                   :GYD,
-                   :HKD,
-                   :HNL,
-                   :HRK,
-                   :HTG,
-                   :HUF,
-                   :IDR,
-                   :ILS,
-                   :IMP,
-                   :INR,
-                   :IQD,
-                   :IRR,
-                   :ISK,
-                   :JEP,
-                   :JMD,
-                   :JOD,
-                   :JPY,
-                   :KES,
-                   :KGS,
-                   :KHR,
-                   :KMF,
-                   :KPW,
-                   :KRW,
-                   :KWD,
-                   :KYD,
-                   :KZT,
-                   :LAK,
-                   :LBP,
-                   :LKR,
-                   :LRD,
-                   :LSL,
-                   :LTL,
-                   :LVL,
-                   :LYD,
-                   :MAD,
-                   :MDL,
-                   :MGA,
-                   :MKD,
-                   :MMK,
-                   :MNT,
-                   :MOP,
-                   :MRO,
-                   :MRU,
-                   :MTL,
-                   :MUR,
-                   :MVR,
-                   :MWK,
-                   :MXN,
-                   :MYR,
-                   :MZN,
-                   :NAD,
-                   :NGN,
-                   :NIO,
-                   :NOK,
-                   :NPR,
-                   :NZD,
-                   :OMR,
-                   :PAB,
-                   :PEN,
-                   :PGK,
-                   :PHP,
-                   :PKR,
-                   :PLN,
-                   :PYG,
-                   :QAR,
-                   :RON,
-                   :RSD,
-                   :RUB,
-                   :RWF,
-                   :SAR,
-                   :SBD,
-                   :SCR,
-                   :SDG,
-                   :SEK,
-                   :SGD,
-                   :SHP,
-                   :SKK,
-                   :SLL,
-                   :SOS,
-                   :SRD,
-                   :SSP,
-                   :STD,
-                   :SVC,
-                   :SYP,
-                   :SZL,
-                   :THB,
-                   :TJS,
-                   :TMM,
-                   :TMT,
-                   :TND,
-                   :TOP,
-                   :TRY,
-                   :TTD,
-                   :TWD,
-                   :TZS,
-                   :UAH,
-                   :UGX,
-                   :USD,
-                   :UYU,
-                   :UZS,
-                   :VEF,
-                   :VES,
-                   :VND,
-                   :VUV,
-                   :WST,
-                   :XAF,
-                   :XAG,
-                   :XAU,
-                   :XBA,
-                   :XBB,
-                   :XBC,
-                   :XBD,
-                   :XCD,
-                   :XDR,
-                   :XFU,
-                   :XOF,
-                   :XPD,
-                   :XPF,
-                   :XPT,
-                   :XTS,
-                   :YER,
-                   :ZAR,
-                   :ZMK,
-                   :ZMW,
-                   :ZWD,
-                   :ZWL,
-                   :ZWN,
-                   :ZWR
-                 )
+        required :base_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] exponent
         #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
@@ -743,204 +319,25 @@ module ModernTreasury
 
         # @!attribute [rw] target_currency
         #   Currency to convert the `base_currency` to, often called the "buy" currency.
+        #   One of the constants defined in {ModernTreasury::Models::Currency}
         #   @return [Symbol]
-        required :target_currency,
-                 ModernTreasury::Enum.new(
-                   :AED,
-                   :AFN,
-                   :ALL,
-                   :AMD,
-                   :ANG,
-                   :AOA,
-                   :ARS,
-                   :AUD,
-                   :AWG,
-                   :AZN,
-                   :BAM,
-                   :BBD,
-                   :BCH,
-                   :BDT,
-                   :BGN,
-                   :BHD,
-                   :BIF,
-                   :BMD,
-                   :BND,
-                   :BOB,
-                   :BRL,
-                   :BSD,
-                   :BTC,
-                   :BTN,
-                   :BWP,
-                   :BYN,
-                   :BYR,
-                   :BZD,
-                   :CAD,
-                   :CDF,
-                   :CHF,
-                   :CLF,
-                   :CLP,
-                   :CNH,
-                   :CNY,
-                   :COP,
-                   :CRC,
-                   :CUC,
-                   :CUP,
-                   :CVE,
-                   :CZK,
-                   :DJF,
-                   :DKK,
-                   :DOP,
-                   :DZD,
-                   :EEK,
-                   :EGP,
-                   :ERN,
-                   :ETB,
-                   :EUR,
-                   :FJD,
-                   :FKP,
-                   :GBP,
-                   :GBX,
-                   :GEL,
-                   :GGP,
-                   :GHS,
-                   :GIP,
-                   :GMD,
-                   :GNF,
-                   :GTQ,
-                   :GYD,
-                   :HKD,
-                   :HNL,
-                   :HRK,
-                   :HTG,
-                   :HUF,
-                   :IDR,
-                   :ILS,
-                   :IMP,
-                   :INR,
-                   :IQD,
-                   :IRR,
-                   :ISK,
-                   :JEP,
-                   :JMD,
-                   :JOD,
-                   :JPY,
-                   :KES,
-                   :KGS,
-                   :KHR,
-                   :KMF,
-                   :KPW,
-                   :KRW,
-                   :KWD,
-                   :KYD,
-                   :KZT,
-                   :LAK,
-                   :LBP,
-                   :LKR,
-                   :LRD,
-                   :LSL,
-                   :LTL,
-                   :LVL,
-                   :LYD,
-                   :MAD,
-                   :MDL,
-                   :MGA,
-                   :MKD,
-                   :MMK,
-                   :MNT,
-                   :MOP,
-                   :MRO,
-                   :MRU,
-                   :MTL,
-                   :MUR,
-                   :MVR,
-                   :MWK,
-                   :MXN,
-                   :MYR,
-                   :MZN,
-                   :NAD,
-                   :NGN,
-                   :NIO,
-                   :NOK,
-                   :NPR,
-                   :NZD,
-                   :OMR,
-                   :PAB,
-                   :PEN,
-                   :PGK,
-                   :PHP,
-                   :PKR,
-                   :PLN,
-                   :PYG,
-                   :QAR,
-                   :RON,
-                   :RSD,
-                   :RUB,
-                   :RWF,
-                   :SAR,
-                   :SBD,
-                   :SCR,
-                   :SDG,
-                   :SEK,
-                   :SGD,
-                   :SHP,
-                   :SKK,
-                   :SLL,
-                   :SOS,
-                   :SRD,
-                   :SSP,
-                   :STD,
-                   :SVC,
-                   :SYP,
-                   :SZL,
-                   :THB,
-                   :TJS,
-                   :TMM,
-                   :TMT,
-                   :TND,
-                   :TOP,
-                   :TRY,
-                   :TTD,
-                   :TWD,
-                   :TZS,
-                   :UAH,
-                   :UGX,
-                   :USD,
-                   :UYU,
-                   :UZS,
-                   :VEF,
-                   :VES,
-                   :VND,
-                   :VUV,
-                   :WST,
-                   :XAF,
-                   :XAG,
-                   :XAU,
-                   :XBA,
-                   :XBB,
-                   :XBC,
-                   :XBD,
-                   :XCD,
-                   :XDR,
-                   :XFU,
-                   :XOF,
-                   :XPD,
-                   :XPF,
-                   :XPT,
-                   :XTS,
-                   :YER,
-                   :ZAR,
-                   :ZMK,
-                   :ZMW,
-                   :ZWD,
-                   :ZWL,
-                   :ZWN,
-                   :ZWR
-                 )
+        required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] value
         #   The whole number component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
         #   @return [Integer]
         required :value, Integer
+      end
+
+      # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
+      class Priority < ModernTreasury::Enum
+        HIGH = :high
+        NORMAL = :normal
+      end
+
+      class ReceivingAccountType < ModernTreasury::Enum
+        INTERNAL_ACCOUNT = :internal_account
+        EXTERNAL_ACCOUNT = :external_account
       end
 
       class ReferenceNumber < BaseModel
@@ -968,84 +365,108 @@ module ModernTreasury
 
         # @!attribute [rw] reference_number_type
         #   The type of the reference number. Referring to the vendor payment id.
+        #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType}
         #   @return [Symbol]
         required :reference_number_type,
-                 ModernTreasury::Enum.new(
-                   :ach_original_trace_number,
-                   :ach_trace_number,
-                   :bankprov_payment_activity_date,
-                   :bankprov_payment_id,
-                   :bnk_dev_prenotification_id,
-                   :bnk_dev_transfer_id,
-                   :bofa_end_to_end_id,
-                   :bofa_transaction_id,
-                   :check_number,
-                   :citibank_reference_number,
-                   :citibank_worldlink_clearing_system_reference_number,
-                   :column_fx_quote_id,
-                   :column_reversal_pair_transfer_id,
-                   :column_transfer_id,
-                   :cross_river_payment_id,
-                   :cross_river_service_message,
-                   :cross_river_transaction_id,
-                   :currencycloud_conversion_id,
-                   :currencycloud_payment_id,
-                   :dc_bank_transaction_id,
-                   :dwolla_transaction_id,
-                   :eft_trace_number,
-                   :evolve_transaction_id,
-                   :fedwire_imad,
-                   :fedwire_omad,
-                   :first_republic_internal_id,
-                   :goldman_sachs_collection_request_id,
-                   :goldman_sachs_end_to_end_id,
-                   :goldman_sachs_payment_request_id,
-                   :goldman_sachs_request_id,
-                   :goldman_sachs_unique_payment_id,
-                   :interac_message_id,
-                   :jpmc_ccn,
-                   :jpmc_clearing_system_reference,
-                   :jpmc_customer_reference_id,
-                   :jpmc_end_to_end_id,
-                   :jpmc_firm_root_id,
-                   :jpmc_fx_trn_id,
-                   :jpmc_p3_id,
-                   :jpmc_payment_batch_id,
-                   :jpmc_payment_information_id,
-                   :jpmc_payment_returned_datetime,
-                   :lob_check_id,
-                   :other,
-                   :partial_swift_mir,
-                   :pnc_clearing_reference,
-                   :pnc_instruction_id,
-                   :pnc_multipayment_id,
-                   :pnc_payment_trace_id,
-                   :rspec_vendor_payment_id,
-                   :rtp_instruction_id,
-                   :signet_api_reference_id,
-                   :signet_confirmation_id,
-                   :signet_request_id,
-                   :silvergate_payment_id,
-                   :svb_end_to_end_id,
-                   :svb_payment_id,
-                   :svb_transaction_cleared_for_sanctions_review,
-                   :svb_transaction_held_for_sanctions_review,
-                   :swift_mir,
-                   :swift_uetr,
-                   :umb_product_partner_account_number,
-                   :usbank_payment_application_reference_id,
-                   :usbank_payment_id,
-                   :usbank_pending_rtp_payment_id,
-                   :usbank_posted_rtp_payment_id,
-                   :wells_fargo_end_to_end_id,
-                   :wells_fargo_payment_id,
-                   :wells_fargo_trace_number,
-                   :wells_fargo_uetr
-                 )
+                 enum: -> { ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType }
 
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
+
+        # The type of the reference number. Referring to the vendor payment id.
+        class ReferenceNumberType < ModernTreasury::Enum
+          ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
+          ACH_TRACE_NUMBER = :ach_trace_number
+          BANKPROV_PAYMENT_ACTIVITY_DATE = :bankprov_payment_activity_date
+          BANKPROV_PAYMENT_ID = :bankprov_payment_id
+          BNK_DEV_PRENOTIFICATION_ID = :bnk_dev_prenotification_id
+          BNK_DEV_TRANSFER_ID = :bnk_dev_transfer_id
+          BOFA_END_TO_END_ID = :bofa_end_to_end_id
+          BOFA_TRANSACTION_ID = :bofa_transaction_id
+          CHECK_NUMBER = :check_number
+          CITIBANK_REFERENCE_NUMBER = :citibank_reference_number
+          CITIBANK_WORLDLINK_CLEARING_SYSTEM_REFERENCE_NUMBER = :citibank_worldlink_clearing_system_reference_number
+          COLUMN_FX_QUOTE_ID = :column_fx_quote_id
+          COLUMN_REVERSAL_PAIR_TRANSFER_ID = :column_reversal_pair_transfer_id
+          COLUMN_TRANSFER_ID = :column_transfer_id
+          CROSS_RIVER_PAYMENT_ID = :cross_river_payment_id
+          CROSS_RIVER_SERVICE_MESSAGE = :cross_river_service_message
+          CROSS_RIVER_TRANSACTION_ID = :cross_river_transaction_id
+          CURRENCYCLOUD_CONVERSION_ID = :currencycloud_conversion_id
+          CURRENCYCLOUD_PAYMENT_ID = :currencycloud_payment_id
+          DC_BANK_TRANSACTION_ID = :dc_bank_transaction_id
+          DWOLLA_TRANSACTION_ID = :dwolla_transaction_id
+          EFT_TRACE_NUMBER = :eft_trace_number
+          EVOLVE_TRANSACTION_ID = :evolve_transaction_id
+          FEDWIRE_IMAD = :fedwire_imad
+          FEDWIRE_OMAD = :fedwire_omad
+          FIRST_REPUBLIC_INTERNAL_ID = :first_republic_internal_id
+          GOLDMAN_SACHS_COLLECTION_REQUEST_ID = :goldman_sachs_collection_request_id
+          GOLDMAN_SACHS_END_TO_END_ID = :goldman_sachs_end_to_end_id
+          GOLDMAN_SACHS_PAYMENT_REQUEST_ID = :goldman_sachs_payment_request_id
+          GOLDMAN_SACHS_REQUEST_ID = :goldman_sachs_request_id
+          GOLDMAN_SACHS_UNIQUE_PAYMENT_ID = :goldman_sachs_unique_payment_id
+          INTERAC_MESSAGE_ID = :interac_message_id
+          JPMC_CCN = :jpmc_ccn
+          JPMC_CLEARING_SYSTEM_REFERENCE = :jpmc_clearing_system_reference
+          JPMC_CUSTOMER_REFERENCE_ID = :jpmc_customer_reference_id
+          JPMC_END_TO_END_ID = :jpmc_end_to_end_id
+          JPMC_FIRM_ROOT_ID = :jpmc_firm_root_id
+          JPMC_FX_TRN_ID = :jpmc_fx_trn_id
+          JPMC_P3_ID = :jpmc_p3_id
+          JPMC_PAYMENT_BATCH_ID = :jpmc_payment_batch_id
+          JPMC_PAYMENT_INFORMATION_ID = :jpmc_payment_information_id
+          JPMC_PAYMENT_RETURNED_DATETIME = :jpmc_payment_returned_datetime
+          LOB_CHECK_ID = :lob_check_id
+          OTHER = :other
+          PARTIAL_SWIFT_MIR = :partial_swift_mir
+          PNC_CLEARING_REFERENCE = :pnc_clearing_reference
+          PNC_INSTRUCTION_ID = :pnc_instruction_id
+          PNC_MULTIPAYMENT_ID = :pnc_multipayment_id
+          PNC_PAYMENT_TRACE_ID = :pnc_payment_trace_id
+          RSPEC_VENDOR_PAYMENT_ID = :rspec_vendor_payment_id
+          RTP_INSTRUCTION_ID = :rtp_instruction_id
+          SIGNET_API_REFERENCE_ID = :signet_api_reference_id
+          SIGNET_CONFIRMATION_ID = :signet_confirmation_id
+          SIGNET_REQUEST_ID = :signet_request_id
+          SILVERGATE_PAYMENT_ID = :silvergate_payment_id
+          SVB_END_TO_END_ID = :svb_end_to_end_id
+          SVB_PAYMENT_ID = :svb_payment_id
+          SVB_TRANSACTION_CLEARED_FOR_SANCTIONS_REVIEW = :svb_transaction_cleared_for_sanctions_review
+          SVB_TRANSACTION_HELD_FOR_SANCTIONS_REVIEW = :svb_transaction_held_for_sanctions_review
+          SWIFT_MIR = :swift_mir
+          SWIFT_UETR = :swift_uetr
+          UMB_PRODUCT_PARTNER_ACCOUNT_NUMBER = :umb_product_partner_account_number
+          USBANK_PAYMENT_APPLICATION_REFERENCE_ID = :usbank_payment_application_reference_id
+          USBANK_PAYMENT_ID = :usbank_payment_id
+          USBANK_PENDING_RTP_PAYMENT_ID = :usbank_pending_rtp_payment_id
+          USBANK_POSTED_RTP_PAYMENT_ID = :usbank_posted_rtp_payment_id
+          WELLS_FARGO_END_TO_END_ID = :wells_fargo_end_to_end_id
+          WELLS_FARGO_PAYMENT_ID = :wells_fargo_payment_id
+          WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
+          WELLS_FARGO_UETR = :wells_fargo_uetr
+        end
+      end
+
+      # The current status of the payment order.
+      class Status < ModernTreasury::Enum
+        APPROVED = :approved
+        CANCELLED = :cancelled
+        COMPLETED = :completed
+        DENIED = :denied
+        FAILED = :failed
+        NEEDS_APPROVAL = :needs_approval
+        PENDING = :pending
+        PROCESSING = :processing
+        RETURNED = :returned
+        REVERSED = :reversed
+        SENT = :sent
+      end
+
+      class UltimateOriginatingAccountType < ModernTreasury::Enum
+        INTERNAL_ACCOUNT = :internal_account
+        VIRTUAL_ACCOUNT = :virtual_account
       end
     end
   end
