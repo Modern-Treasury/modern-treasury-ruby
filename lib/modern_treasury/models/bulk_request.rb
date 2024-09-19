@@ -9,8 +9,9 @@ module ModernTreasury
 
       # @!attribute [rw] action_type
       #   One of create, or update.
+      #   One of the constants defined in {ModernTreasury::Models::BulkRequest::ActionType}
       #   @return [Symbol]
-      required :action_type, ModernTreasury::Enum.new(:create, :update)
+      required :action_type, enum: -> { ModernTreasury::Models::BulkRequest::ActionType }
 
       # @!attribute [rw] created_at
       #   @return [String]
@@ -37,14 +38,15 @@ module ModernTreasury
 
       # @!attribute [rw] resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
+      #   One of the constants defined in {ModernTreasury::Models::BulkRequest::ResourceType}
       #   @return [Symbol]
-      required :resource_type,
-               ModernTreasury::Enum.new(:payment_order, :ledger_transaction, :transaction, :expected_payment)
+      required :resource_type, enum: -> { ModernTreasury::Models::BulkRequest::ResourceType }
 
       # @!attribute [rw] status
       #   One of pending, processing, or completed.
+      #   One of the constants defined in {ModernTreasury::Models::BulkRequest::Status}
       #   @return [Symbol]
-      required :status, ModernTreasury::Enum.new(:pending, :processing, :completed)
+      required :status, enum: -> { ModernTreasury::Models::BulkRequest::Status }
 
       # @!attribute [rw] success_result_count
       #   Total number of successful bulk results so far for this request
@@ -59,6 +61,27 @@ module ModernTreasury
       # @!attribute [rw] updated_at
       #   @return [String]
       required :updated_at, String
+
+      # One of create, or update.
+      class ActionType < ModernTreasury::Enum
+        CREATE = :create
+        UPDATE = :update
+      end
+
+      # One of payment_order, expected_payment, or ledger_transaction.
+      class ResourceType < ModernTreasury::Enum
+        PAYMENT_ORDER = :payment_order
+        LEDGER_TRANSACTION = :ledger_transaction
+        TRANSACTION = :transaction
+        EXPECTED_PAYMENT = :expected_payment
+      end
+
+      # One of pending, processing, or completed.
+      class Status < ModernTreasury::Enum
+        PENDING = :pending
+        PROCESSING = :processing
+        COMPLETED = :completed
+      end
     end
   end
 end

@@ -37,24 +37,38 @@ module ModernTreasury
 
       # @!attribute [rw] reason
       #   The reason for the reversal.
+      #   One of the constants defined in {ModernTreasury::Models::Reversal::Reason}
       #   @return [Symbol]
-      required :reason,
-               ModernTreasury::Enum.new(
-                 :duplicate,
-                 :incorrect_amount,
-                 :incorrect_receiving_account,
-                 :date_earlier_than_intended,
-                 :date_later_than_intended
-               )
+      required :reason, enum: -> { ModernTreasury::Models::Reversal::Reason }
 
       # @!attribute [rw] status
       #   The current status of the reversal.
+      #   One of the constants defined in {ModernTreasury::Models::Reversal::Status}
       #   @return [Symbol]
-      required :status, ModernTreasury::Enum.new(:completed, :failed, :pending, :processing, :returned, :sent)
+      required :status, enum: -> { ModernTreasury::Models::Reversal::Status }
 
       # @!attribute [rw] updated_at
       #   @return [String]
       required :updated_at, String
+
+      # The reason for the reversal.
+      class Reason < ModernTreasury::Enum
+        DUPLICATE = :duplicate
+        INCORRECT_AMOUNT = :incorrect_amount
+        INCORRECT_RECEIVING_ACCOUNT = :incorrect_receiving_account
+        DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
+        DATE_LATER_THAN_INTENDED = :date_later_than_intended
+      end
+
+      # The current status of the reversal.
+      class Status < ModernTreasury::Enum
+        COMPLETED = :completed
+        FAILED = :failed
+        PENDING = :pending
+        PROCESSING = :processing
+        RETURNED = :returned
+        SENT = :sent
+      end
     end
   end
 end

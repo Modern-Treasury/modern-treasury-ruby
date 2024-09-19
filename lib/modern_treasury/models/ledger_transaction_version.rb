@@ -58,16 +58,9 @@ module ModernTreasury
 
       # @!attribute [rw] ledgerable_type
       #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, or reversal.
+      #   One of the constants defined in {ModernTreasury::Models::LedgerTransactionVersion::LedgerableType}
       #   @return [Symbol]
-      required :ledgerable_type,
-               ModernTreasury::Enum.new(
-                 :expected_payment,
-                 :incoming_payment_detail,
-                 :paper_item,
-                 :payment_order,
-                 :return,
-                 :reversal
-               )
+      required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerTransactionVersion::LedgerableType }
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -100,8 +93,9 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   One of `pending`, `posted`, or `archived`.
+      #   One of the constants defined in {ModernTreasury::Models::LedgerTransactionVersion::Status}
       #   @return [Symbol]
-      required :status, ModernTreasury::Enum.new(:archived, :pending, :posted)
+      required :status, enum: -> { ModernTreasury::Models::LedgerTransactionVersion::Status }
 
       # @!attribute [rw] version
       #   Version number of the ledger transaction.
@@ -124,8 +118,9 @@ module ModernTreasury
 
         # @!attribute [rw] direction
         #   One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
+        #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
         #   @return [Symbol]
-        required :direction, ModernTreasury::Enum.new(:credit, :debit)
+        required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
         # @!attribute [rw] ledger_account_currency
         #   The currency of the ledger account.
@@ -174,8 +169,9 @@ module ModernTreasury
 
         # @!attribute [rw] status
         #   Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
+        #   One of the constants defined in {ModernTreasury::Models::LedgerTransactionVersion::LedgerEntry::Status}
         #   @return [Symbol]
-        required :status, ModernTreasury::Enum.new(:archived, :pending, :posted)
+        required :status, enum: -> { ModernTreasury::Models::LedgerTransactionVersion::LedgerEntry::Status }
 
         class ResultingLedgerAccountBalances < BaseModel
           # @!attribute [rw] available_balance
@@ -268,6 +264,30 @@ module ModernTreasury
             required :debits, Integer
           end
         end
+
+        # Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
+        class Status < ModernTreasury::Enum
+          ARCHIVED = :archived
+          PENDING = :pending
+          POSTED = :posted
+        end
+      end
+
+      # If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, or reversal.
+      class LedgerableType < ModernTreasury::Enum
+        EXPECTED_PAYMENT = :expected_payment
+        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+        PAPER_ITEM = :paper_item
+        PAYMENT_ORDER = :payment_order
+        RETURN = :return
+        REVERSAL = :reversal
+      end
+
+      # One of `pending`, `posted`, or `archived`.
+      class Status < ModernTreasury::Enum
+        ARCHIVED = :archived
+        PENDING = :pending
+        POSTED = :posted
       end
     end
   end

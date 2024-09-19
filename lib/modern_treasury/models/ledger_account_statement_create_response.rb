@@ -44,8 +44,9 @@ module ModernTreasury
 
       # @!attribute [rw] ledger_account_normal_balance
       #   The normal balance of the ledger account.
+      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
       #   @return [Symbol]
-      required :ledger_account_normal_balance, ModernTreasury::Enum.new(:credit, :debit)
+      required :ledger_account_normal_balance, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] ledger_id
       #   The id of the ledger that this ledger account statement belongs to.
