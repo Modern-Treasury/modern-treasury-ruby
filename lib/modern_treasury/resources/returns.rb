@@ -16,7 +16,7 @@ module ModernTreasury
       # @option params [String] :additional_information Some returns may include additional information from the bank. In these cases,
       #   this string will be present.
       # @option params [Symbol] :code The return code. For ACH returns, this is the required ACH return code.
-      # @option params [String] :date_of_death If the return code is `R14` or `R15` this is the date the deceased counterparty
+      # @option params [Date] :date_of_death If the return code is `R14` or `R15` this is the date the deceased counterparty
       #   passed away.
       # @option params [String] :reason An optional description of the reason for the return. This is for internal usage
       #   and will not be transmitted to the bank.”

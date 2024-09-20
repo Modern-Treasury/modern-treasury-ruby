@@ -43,8 +43,8 @@ module ModernTreasury
                -> { ModernTreasury::Models::Invoice::CounterpartyShippingAddress }
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] currency
       #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
@@ -59,8 +59,8 @@ module ModernTreasury
 
       # @!attribute [rw] due_date
       #   A future date by when the invoice needs to be paid.
-      #   @return [String]
-      required :due_date, String
+      #   @return [DateTime]
+      required :due_date, DateTime
 
       # @!attribute [rw] expected_payments
       #   The expected payments created for an unpaid invoice.
@@ -123,8 +123,8 @@ module ModernTreasury
 
       # @!attribute [rw] payment_effective_date
       #   Date transactions are to be posted to the participants' account. Defaults to the current business day or the next business day if the current day is a bank holiday or weekend. Format: yyyy-mm-dd.
-      #   @return [String]
-      required :payment_effective_date, String
+      #   @return [Date]
+      required :payment_effective_date, Date
 
       # @!attribute [rw] payment_method
       #   When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
@@ -185,8 +185,8 @@ module ModernTreasury
       required :transaction_line_item_ids, ModernTreasury::ArrayOf.new(String)
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # @!attribute [rw] virtual_account_id
       #   The ID of the virtual account the invoice should be paid to.
@@ -209,12 +209,12 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType }
 
         # @!attribute [rw] created_at
-        #   @return [String]
-        required :created_at, String
+        #   @return [DateTime]
+        required :created_at, DateTime
 
         # @!attribute [rw] discarded_at
-        #   @return [String]
-        required :discarded_at, String
+        #   @return [DateTime]
+        required :discarded_at, DateTime
 
         # @!attribute [rw] live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -226,8 +226,8 @@ module ModernTreasury
         required :object, String
 
         # @!attribute [rw] updated_at
-        #   @return [String]
-        required :updated_at, String
+        #   @return [DateTime]
+        required :updated_at, DateTime
 
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email

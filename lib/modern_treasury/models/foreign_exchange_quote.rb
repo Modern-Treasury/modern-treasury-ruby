@@ -8,18 +8,18 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] effective_at
       #   The timestamp until when the quoted rate is valid.
-      #   @return [String]
-      required :effective_at, String
+      #   @return [DateTime]
+      required :effective_at, DateTime
 
       # @!attribute [rw] expires_at
       #   The timestamp until which the quote must be booked by.
-      #   @return [String]
-      required :expires_at, String
+      #   @return [DateTime]
+      required :expires_at, DateTime
 
       # @!attribute [rw] foreign_exchange_indicator
       #   Either `fixed_to_variable` if the `base_amount` was specified, or `variable_to_fixed` if the `target_amount` was specified when requesting the quote.
@@ -54,8 +54,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # @!attribute [rw] vendor_id
       #   This vendor assigned ID for this quote.

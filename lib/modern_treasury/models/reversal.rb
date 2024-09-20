@@ -8,8 +8,8 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] ledger_transaction_id
       #   The ID of the ledger transaction linked to the reversal.
@@ -48,8 +48,8 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::Reversal::Status }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # The reason for the reversal.
       class Reason < ModernTreasury::Enum

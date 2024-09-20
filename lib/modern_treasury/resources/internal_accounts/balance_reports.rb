@@ -13,7 +13,7 @@ module ModernTreasury
         # @param internal_account_id [String]
         #
         # @param params [Hash] Attributes to send in this request.
-        # @option params [String] :as_of_date The date of the balance report in local time.
+        # @option params [Date] :as_of_date The date of the balance report in local time.
         # @option params [String] :as_of_time The time (24-hour clock) of the balance report in local time.
         # @option params [Symbol] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
@@ -53,7 +53,7 @@ module ModernTreasury
         #
         # @param params [Hash] Attributes to send in this request.
         # @option params [String] :after_cursor
-        # @option params [String] :as_of_date The date of the balance report in local time.
+        # @option params [Date] :as_of_date The date of the balance report in local time.
         # @option params [Symbol] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         # @option params [Integer] :per_page

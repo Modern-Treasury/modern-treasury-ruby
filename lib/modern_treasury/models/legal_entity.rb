@@ -18,22 +18,22 @@ module ModernTreasury
       required :business_name, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] date_formed
       #   A business's formation date (YYYY-MM-DD).
-      #   @return [String]
-      required :date_formed, String
+      #   @return [Date]
+      required :date_formed, Date
 
       # @!attribute [rw] date_of_birth
       #   An individual's date of birth (YYYY-MM-DD).
-      #   @return [String]
-      required :date_of_birth, String
+      #   @return [Date]
+      required :date_of_birth, Date
 
       # @!attribute [rw] discarded_at
-      #   @return [String]
-      required :discarded_at, String
+      #   @return [DateTime]
+      required :discarded_at, DateTime
 
       # @!attribute [rw] doing_business_as_names
       #   @return [Array<String>]
@@ -104,8 +104,8 @@ module ModernTreasury
       required :risk_rating, enum: -> { ModernTreasury::Models::LegalEntity::RiskRating }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # @!attribute [rw] website
       #   The entity's primary website URL.
@@ -133,12 +133,12 @@ module ModernTreasury
         required :country, String
 
         # @!attribute [rw] created_at
-        #   @return [String]
-        required :created_at, String
+        #   @return [DateTime]
+        required :created_at, DateTime
 
         # @!attribute [rw] discarded_at
-        #   @return [String]
-        required :discarded_at, String
+        #   @return [DateTime]
+        required :discarded_at, DateTime
 
         # @!attribute [rw] line1
         #   @return [String]
@@ -173,8 +173,8 @@ module ModernTreasury
         required :region, String
 
         # @!attribute [rw] updated_at
-        #   @return [String]
-        required :updated_at, String
+        #   @return [DateTime]
+        required :updated_at, DateTime
 
         class AddressType < ModernTreasury::Enum
           BUSINESS = :business
@@ -191,12 +191,12 @@ module ModernTreasury
         required :id, String
 
         # @!attribute [rw] created_at
-        #   @return [String]
-        required :created_at, String
+        #   @return [DateTime]
+        required :created_at, DateTime
 
         # @!attribute [rw] discarded_at
-        #   @return [String]
-        required :discarded_at, String
+        #   @return [DateTime]
+        required :discarded_at, DateTime
 
         # @!attribute [rw] id_type
         #   The type of ID number.
@@ -219,8 +219,8 @@ module ModernTreasury
         required :object, String
 
         # @!attribute [rw] updated_at
-        #   @return [String]
-        required :updated_at, String
+        #   @return [DateTime]
+        required :updated_at, DateTime
 
         # The type of ID number.
         class IDType < ModernTreasury::Enum

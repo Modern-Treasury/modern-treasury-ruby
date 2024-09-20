@@ -27,8 +27,8 @@ module ModernTreasury
       # @option params [String] :after_cursor
       # @option params [String] :entity_id
       # @option params [String] :event_name
-      # @option params [String] :event_time_end An inclusive upper bound for when the event occurred
-      # @option params [String] :event_time_start An inclusive lower bound for when the event occurred
+      # @option params [DateTime] :event_time_end An inclusive upper bound for when the event occurred
+      # @option params [DateTime] :event_time_start An inclusive lower bound for when the event occurred
       # @option params [Integer] :per_page
       # @option params [String] :resource
       #

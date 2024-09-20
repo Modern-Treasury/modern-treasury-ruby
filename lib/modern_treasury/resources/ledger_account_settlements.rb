@@ -18,7 +18,7 @@ module ModernTreasury
       #   settlement ledger account's balance closer to zero, even if the balance is
       #   negative.
       # @option params [String] :description The description of the ledger account settlement.
-      # @option params [String] :effective_at_upper_bound The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      # @option params [DateTime] :effective_at_upper_bound The exclusive upper bound of the effective_at timestamp of the ledger entries to
       #   be included in the ledger account settlement. The default value is the
       #   created_at timestamp of the ledger account settlement.
       # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
