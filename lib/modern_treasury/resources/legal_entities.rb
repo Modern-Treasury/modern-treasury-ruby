@@ -13,8 +13,8 @@ module ModernTreasury
       # @option params [Symbol] :legal_entity_type The type of legal entity.
       # @option params [Array<Address>] :addresses A list of addresses for the entity.
       # @option params [String] :business_name The business's legal business name.
-      # @option params [String] :date_formed A business's formation date (YYYY-MM-DD).
-      # @option params [String] :date_of_birth An individual's date of birth (YYYY-MM-DD).
+      # @option params [Date] :date_formed A business's formation date (YYYY-MM-DD).
+      # @option params [Date] :date_of_birth An individual's date of birth (YYYY-MM-DD).
       # @option params [Array<String>] :doing_business_as_names
       # @option params [String] :email The entity's primary email.
       # @option params [String] :first_name An individual's first name.
@@ -60,8 +60,8 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :business_name The business's legal business name.
-      # @option params [String] :date_formed A business's formation date (YYYY-MM-DD).
-      # @option params [String] :date_of_birth An individual's date of birth (YYYY-MM-DD).
+      # @option params [Date] :date_formed A business's formation date (YYYY-MM-DD).
+      # @option params [Date] :date_of_birth An individual's date of birth (YYYY-MM-DD).
       # @option params [Array<String>] :doing_business_as_names
       # @option params [String] :email The entity's primary email.
       # @option params [String] :first_name An individual's first name.

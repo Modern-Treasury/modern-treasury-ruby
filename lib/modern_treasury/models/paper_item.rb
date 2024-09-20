@@ -28,8 +28,8 @@ module ModernTreasury
       required :check_number, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] currency
       #   The currency of the paper item.
@@ -39,8 +39,8 @@ module ModernTreasury
 
       # @!attribute [rw] deposit_date
       #   The date the paper item was deposited into your organization's bank account.
-      #   @return [String]
-      required :deposit_date, String
+      #   @return [Date]
+      required :deposit_date, Date
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -88,8 +88,8 @@ module ModernTreasury
       required :transaction_line_item_id, String
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # The current status of the paper item. One of `pending`, `completed`, or `returned`.
       class Status < ModernTreasury::Enum

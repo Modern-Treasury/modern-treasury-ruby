@@ -19,8 +19,8 @@ module ModernTreasury
       required :code, enum: -> { ModernTreasury::Models::ReturnObject::Code }
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] currency
       #   Currency that this transaction is denominated in.
@@ -35,8 +35,8 @@ module ModernTreasury
 
       # @!attribute [rw] date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty passed away.
-      #   @return [String]
-      required :date_of_death, String
+      #   @return [Date]
+      required :date_of_death, Date
 
       # @!attribute [rw] failure_reason
       #   If an originating return failed to be processed by the bank, a description of the failure reason will be available.
@@ -113,8 +113,8 @@ module ModernTreasury
       required :type, enum: -> { ModernTreasury::Models::ReturnObject::Type }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # @!attribute [rw] additional_information
       #   Some returns may include additional information from the bank. In these cases, this string will be present.
@@ -184,8 +184,8 @@ module ModernTreasury
         required :id, String
 
         # @!attribute [rw] created_at
-        #   @return [String]
-        required :created_at, String
+        #   @return [DateTime]
+        required :created_at, DateTime
 
         # @!attribute [rw] live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -209,8 +209,8 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType }
 
         # @!attribute [rw] updated_at
-        #   @return [String]
-        required :updated_at, String
+        #   @return [DateTime]
+        required :updated_at, DateTime
 
         # The type of the reference number. Referring to the vendor payment id.
         class ReferenceNumberType < ModernTreasury::Enum

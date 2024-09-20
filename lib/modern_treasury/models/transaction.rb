@@ -14,8 +14,8 @@ module ModernTreasury
 
       # @!attribute [rw] as_of_date
       #   The date on which the transaction occurred.
-      #   @return [String]
-      required :as_of_date, String
+      #   @return [Date]
+      required :as_of_date, Date
 
       # @!attribute [rw] as_of_time
       #   The time on which the transaction occurred. Depending on the granularity of the timestamp information received from the bank, it may be `null`.
@@ -23,8 +23,8 @@ module ModernTreasury
       required :as_of_time, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] currency
       #   Currency that this transaction is denominated in.
@@ -38,8 +38,8 @@ module ModernTreasury
       required :direction, String
 
       # @!attribute [rw] discarded_at
-      #   @return [String]
-      required :discarded_at, String
+      #   @return [DateTime]
+      required :discarded_at, DateTime
 
       # @!attribute [rw] foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
@@ -82,8 +82,8 @@ module ModernTreasury
       required :type, enum: -> { ModernTreasury::Models::Transaction::Type }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # @!attribute [rw] vendor_code
       #   When applicable, the bank-given code that determines the transaction's category. For most banks this is the BAI2/BTRS transaction code.

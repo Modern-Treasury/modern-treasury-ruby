@@ -23,8 +23,8 @@ module ModernTreasury
       optional :counterparty_id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      optional :created_at, String
+      #   @return [DateTime]
+      optional :created_at, DateTime
 
       # @!attribute [rw] currency
       #   The currency of the payment.
@@ -39,8 +39,8 @@ module ModernTreasury
 
       # @!attribute [rw] due_date
       #   The due date for the flow. Can only be passed in when `effective_date_selection_enabled` is `true`.
-      #   @return [String]
-      optional :due_date, String
+      #   @return [Date]
+      optional :due_date, Date
 
       # @!attribute [rw] effective_date_selection_enabled
       #   When `true`, your end-user can schedule the payment `effective_date` while completing the pre-built UI.
@@ -87,8 +87,8 @@ module ModernTreasury
 
       # @!attribute [rw] selected_effective_date
       #   This field is set after your end-user selects a payment date while completing the pre-built UI. This field is always `null` unless `effective_date_selection_enabled` is `true`.
-      #   @return [String]
-      optional :selected_effective_date, String
+      #   @return [Date]
+      optional :selected_effective_date, Date
 
       # @!attribute [rw] status
       #   The current status of the payment flow. One of `pending`, `completed`, `expired`, or `cancelled`.
@@ -97,8 +97,8 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::PaymentFlow::Status }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      optional :updated_at, String
+      #   @return [DateTime]
+      optional :updated_at, DateTime
 
       # Describes the direction money is flowing in the transaction. Can only be `debit`. A `debit` pulls money from someone else's account to your own.
       class Direction < ModernTreasury::Enum

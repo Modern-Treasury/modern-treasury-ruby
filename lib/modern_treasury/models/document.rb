@@ -8,12 +8,12 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] discarded_at
-      #   @return [String]
-      required :discarded_at, String
+      #   @return [DateTime]
+      required :discarded_at, DateTime
 
       # @!attribute [rw] document_details
       #   @return [Array<ModernTreasury::Models::Document::DocumentDetail>]
@@ -55,8 +55,8 @@ module ModernTreasury
       required :source, String
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       class DocumentDetail < BaseModel
         # @!attribute [rw] id
@@ -64,12 +64,12 @@ module ModernTreasury
         required :id, String
 
         # @!attribute [rw] created_at
-        #   @return [String]
-        required :created_at, String
+        #   @return [DateTime]
+        required :created_at, DateTime
 
         # @!attribute [rw] discarded_at
-        #   @return [String]
-        required :discarded_at, String
+        #   @return [DateTime]
+        required :discarded_at, DateTime
 
         # @!attribute [rw] document_identifier
         #   @return [String]
@@ -89,8 +89,8 @@ module ModernTreasury
         required :object, String
 
         # @!attribute [rw] updated_at
-        #   @return [String]
-        required :updated_at, String
+        #   @return [DateTime]
+        required :updated_at, DateTime
       end
 
       # The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.

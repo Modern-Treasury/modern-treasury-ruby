@@ -15,7 +15,7 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :counterparty_id The ID of the counterparty receiving the invoice.
-      # @option params [String] :due_date A future date by when the invoice needs to be paid.
+      # @option params [DateTime] :due_date A future date by when the invoice needs to be paid.
       # @option params [String] :originating_account_id The ID of the internal account the invoice should be paid to.
       # @option params [Array<ContactDetail>] :contact_details The invoicer's contact details displayed at the top of the invoice.
       # @option params [CounterpartyBillingAddress] :counterparty_billing_address The counterparty's billing address.
@@ -37,7 +37,7 @@ module ModernTreasury
       #   and the counterparty doesn't have an email.
       # @option params [Boolean] :notifications_enabled If true, the invoice will send email notifications to the invoice recipients
       #   about invoice status changes.
-      # @option params [String] :payment_effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      # @option params [Date] :payment_effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #   current business day or the next business day if the current day is a bank
       #   holiday or weekend. Format: yyyy-mm-dd.
       # @option params [Symbol] :payment_method The method by which the invoice can be paid. `ui` will show the embedded payment
@@ -95,7 +95,7 @@ module ModernTreasury
       # @option params [CounterpartyShippingAddress] :counterparty_shipping_address The counterparty's shipping address where physical goods should be delivered.
       # @option params [Symbol] :currency Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       # @option params [String] :description A free-form description of the invoice.
-      # @option params [String] :due_date A future date by when the invoice needs to be paid.
+      # @option params [DateTime] :due_date A future date by when the invoice needs to be paid.
       # @option params [String] :fallback_payment_method When payment_method is automatic, the fallback payment method to use when an
       #   automatic payment fails. One of `manual` or `ui`.
       # @option params [Boolean] :ingest_ledger_entries Whether to ingest the ledger_entries to populate the invoice line items. If this
@@ -112,7 +112,7 @@ module ModernTreasury
       # @option params [Boolean] :notifications_enabled If true, the invoice will send email notifications to the invoice recipients
       #   about invoice status changes.
       # @option params [String] :originating_account_id The ID of the internal account the invoice should be paid to.
-      # @option params [String] :payment_effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      # @option params [Date] :payment_effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #   current business day or the next business day if the current day is a bank
       #   holiday or weekend. Format: yyyy-mm-dd.
       # @option params [Symbol] :payment_method The method by which the invoice can be paid. `ui` will show the embedded payment
@@ -153,8 +153,8 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :after_cursor
       # @option params [String] :counterparty_id
-      # @option params [String] :due_date_end An inclusive upper bound for searching due_date
-      # @option params [String] :due_date_start An inclusive lower bound for searching due_date
+      # @option params [Date] :due_date_end An inclusive upper bound for searching due_date
+      # @option params [Date] :due_date_start An inclusive lower bound for searching due_date
       # @option params [String] :expected_payment_id
       # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
