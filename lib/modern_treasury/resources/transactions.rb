@@ -16,7 +16,7 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
-      # @option params [String] :as_of_date The date on which the transaction occurred.
+      # @option params [Date] :as_of_date The date on which the transaction occurred.
       # @option params [String] :direction Either `credit` or `debit`.
       # @option params [String] :internal_account_id The ID of the relevant Internal Account.
       # @option params [String] :vendor_code When applicable, the bank-given code that determines the transaction's category.
@@ -83,9 +83,9 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :after_cursor
-      # @option params [String] :as_of_date_end Filters transactions with an `as_of_date` starting on or before the specified
+      # @option params [Date] :as_of_date_end Filters transactions with an `as_of_date` starting on or before the specified
       #   date (YYYY-MM-DD).
-      # @option params [String] :as_of_date_start Filters transactions with an `as_of_date` starting on or after the specified
+      # @option params [Date] :as_of_date_start Filters transactions with an `as_of_date` starting on or after the specified
       #   date (YYYY-MM-DD).
       # @option params [String] :counterparty_id
       # @option params [String] :description Filters for transactions including the queried string in the description.

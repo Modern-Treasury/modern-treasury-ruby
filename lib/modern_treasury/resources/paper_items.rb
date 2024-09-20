@@ -25,8 +25,8 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :after_cursor
-      # @option params [String] :deposit_date_end Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
-      # @option params [String] :deposit_date_start Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
+      # @option params [Date] :deposit_date_end Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
+      # @option params [Date] :deposit_date_start Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
       # @option params [String] :lockbox_number Specify `lockbox_number` if you wish to see paper items that are associated with
       #   a specific lockbox number.
       # @option params [Integer] :per_page

@@ -19,8 +19,8 @@ module ModernTreasury
       # @option params [String] :internal_account_id The ID of the Internal Account for the expected payment.
       # @option params [String] :counterparty_id The ID of the counterparty you expect for this payment.
       # @option params [Symbol] :currency Must conform to ISO 4217. Defaults to the currency of the internal account.
-      # @option params [String] :date_lower_bound The earliest date the payment may come in. Format: yyyy-mm-dd
-      # @option params [String] :date_upper_bound The latest date the payment may come in. Format: yyyy-mm-dd
+      # @option params [Date] :date_lower_bound The earliest date the payment may come in. Format: yyyy-mm-dd
+      # @option params [Date] :date_upper_bound The latest date the payment may come in. Format: yyyy-mm-dd
       # @option params [String] :description An optional description for internal use.
       # @option params [LedgerTransaction] :ledger_transaction Specifies a ledger transaction object that will be created with the expected
       #   payment. If the ledger transaction cannot be created, then the expected payment
@@ -83,8 +83,8 @@ module ModernTreasury
       #   currency's smallest unit. e.g. $10 would be represented as 1000.
       # @option params [String] :counterparty_id The ID of the counterparty you expect for this payment.
       # @option params [Symbol] :currency Must conform to ISO 4217. Defaults to the currency of the internal account.
-      # @option params [String] :date_lower_bound The earliest date the payment may come in. Format: yyyy-mm-dd
-      # @option params [String] :date_upper_bound The latest date the payment may come in. Format: yyyy-mm-dd
+      # @option params [Date] :date_lower_bound The earliest date the payment may come in. Format: yyyy-mm-dd
+      # @option params [Date] :date_upper_bound The latest date the payment may come in. Format: yyyy-mm-dd
       # @option params [String] :description An optional description for internal use.
       # @option params [Symbol] :direction One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
@@ -123,8 +123,8 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :after_cursor
       # @option params [String] :counterparty_id Specify counterparty_id to see expected_payments for a specific account.
-      # @option params [String] :created_at_lower_bound Used to return expected payments created after some datetime
-      # @option params [String] :created_at_upper_bound Used to return expected payments created before some datetime
+      # @option params [DateTime] :created_at_lower_bound Used to return expected payments created after some datetime
+      # @option params [DateTime] :created_at_upper_bound Used to return expected payments created before some datetime
       # @option params [Symbol] :direction One of credit, debit
       # @option params [String] :internal_account_id Specify internal_account_id to see expected_payments for a specific account.
       # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value

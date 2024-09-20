@@ -14,8 +14,8 @@ module ModernTreasury
       required :action_type, enum: -> { ModernTreasury::Models::BulkRequest::ActionType }
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] failed_result_count
       #   Total number of failed bulk results so far for this request
@@ -59,8 +59,8 @@ module ModernTreasury
       required :total_resource_count, Integer
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # One of create, or update.
       class ActionType < ModernTreasury::Enum

@@ -15,7 +15,7 @@ module ModernTreasury
       # @option params [Integer] :base_amount Amount in the lowest denomination of the `base_currency` to convert, often
       #   called the "sell" amount.
       # @option params [Symbol] :base_currency Currency to convert, often called the "sell" currency.
-      # @option params [String] :effective_at The timestamp until when the quoted rate is valid.
+      # @option params [DateTime] :effective_at The timestamp until when the quoted rate is valid.
       # @option params [Integer] :target_amount Amount in the lowest denomination of the `target_currency`, often called the
       #   "buy" amount.
       #
@@ -50,9 +50,9 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :after_cursor
       # @option params [String] :base_currency Currency to convert, often called the "sell" currency.
-      # @option params [String] :effective_at_end An inclusive upper bound for searching effective_at
-      # @option params [String] :effective_at_start An inclusive lower bound for searching effective_at
-      # @option params [String] :expires_at The timestamp until which the quote must be booked by.
+      # @option params [Date] :effective_at_end An inclusive upper bound for searching effective_at
+      # @option params [Date] :effective_at_start An inclusive lower bound for searching effective_at
+      # @option params [DateTime] :expires_at The timestamp until which the quote must be booked by.
       # @option params [String] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
       # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query

@@ -8,8 +8,8 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] description
       #   The description of the ledger account statement.
@@ -18,13 +18,13 @@ module ModernTreasury
 
       # @!attribute [rw] effective_at_lower_bound
       #   The inclusive lower bound of the effective_at timestamp of the ledger entries to be included in the ledger account statement.
-      #   @return [String]
-      required :effective_at_lower_bound, String
+      #   @return [DateTime]
+      required :effective_at_lower_bound, DateTime
 
       # @!attribute [rw] effective_at_upper_bound
       #   The exclusive upper bound of the effective_at timestamp of the ledger entries to be included in the ledger account statement.
-      #   @return [String]
-      required :effective_at_upper_bound, String
+      #   @return [DateTime]
+      required :effective_at_upper_bound, DateTime
 
       # @!attribute [rw] ending_balance
       #   The pending, posted, and available balances for this ledger account at the `effective_at_upper_bound`. The posted balance is the sum of all posted entries on the account. The pending balance is the sum of all pending and posted entries on the account. The available balance is the posted incoming entries minus the sum of the pending and posted outgoing amounts.
@@ -74,8 +74,8 @@ module ModernTreasury
                -> { ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       class EndingBalance < BaseModel
         # @!attribute [rw] available_balance

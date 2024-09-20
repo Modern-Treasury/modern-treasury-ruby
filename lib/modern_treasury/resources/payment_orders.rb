@@ -36,10 +36,10 @@ module ModernTreasury
       # @option params [String] :description An optional description for internal use.
       # @option params [Array<Document>] :documents An array of documents to be attached to the payment order. Note that if you
       #   attach documents, the request's content type must be `multipart/form-data`.
-      # @option params [String] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      # @option params [Date] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #   current business day or the next business day if the current day is a bank
       #   holiday or weekend. Format: yyyy-mm-dd.
-      # @option params [String] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
+      # @option params [DateTime] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
       # @option params [Symbol] :fallback_type A payment type to fallback to if the original type is not valid for the
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (type=rtp and fallback_type=ach)
@@ -68,7 +68,7 @@ module ModernTreasury
       # @option params [Symbol] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
-      # @option params [String] :process_after If present, Modern Treasury will not process the payment until after this time.
+      # @option params [DateTime] :process_after If present, Modern Treasury will not process the payment until after this time.
       #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
       #   take precedence and `effective_date` will automatically update to reflect the
       #   earliest possible sending date after `process_after`. Format is ISO8601
@@ -152,10 +152,10 @@ module ModernTreasury
       #   transaction. A `credit` moves money from your account to someone else's. A
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
-      # @option params [String] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      # @option params [Date] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #   current business day or the next business day if the current day is a bank
       #   holiday or weekend. Format: yyyy-mm-dd.
-      # @option params [String] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
+      # @option params [DateTime] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
       # @option params [Symbol] :fallback_type A payment type to fallback to if the original type is not valid for the
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (type=rtp and fallback_type=ach)
@@ -177,7 +177,7 @@ module ModernTreasury
       # @option params [Symbol] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
-      # @option params [String] :process_after If present, Modern Treasury will not process the payment until after this time.
+      # @option params [DateTime] :process_after If present, Modern Treasury will not process the payment until after this time.
       #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
       #   take precedence and `effective_date` will automatically update to reflect the
       #   earliest possible sending date after `process_after`. Format is ISO8601
@@ -242,11 +242,11 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :after_cursor
       # @option params [String] :counterparty_id
-      # @option params [String] :created_at_end An inclusive upper bound for searching created_at
-      # @option params [String] :created_at_start An inclusive lower bound for searching created_at
+      # @option params [Date] :created_at_end An inclusive upper bound for searching created_at
+      # @option params [Date] :created_at_start An inclusive lower bound for searching created_at
       # @option params [Symbol] :direction
-      # @option params [String] :effective_date_end An inclusive upper bound for searching effective_date
-      # @option params [String] :effective_date_start An inclusive lower bound for searching effective_date
+      # @option params [Date] :effective_date_end An inclusive upper bound for searching effective_date
+      # @option params [Date] :effective_date_start An inclusive lower bound for searching effective_date
       # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
@@ -255,8 +255,8 @@ module ModernTreasury
       # @option params [Symbol] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
-      # @option params [String] :process_after_end An inclusive upper bound for searching process_after
-      # @option params [String] :process_after_start An inclusive lower bound for searching process_after
+      # @option params [DateTime] :process_after_end An inclusive upper bound for searching process_after
+      # @option params [DateTime] :process_after_start An inclusive lower bound for searching process_after
       # @option params [String] :reference_number Query for records with the provided reference number
       # @option params [Symbol] :status
       # @option params [String] :transaction_id The ID of a transaction that the payment order has been reconciled to.
@@ -298,10 +298,10 @@ module ModernTreasury
       #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       # @option params [Symbol] :currency Defaults to the currency of the originating account.
       # @option params [String] :description An optional description for internal use.
-      # @option params [String] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      # @option params [Date] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #   current business day or the next business day if the current day is a bank
       #   holiday or weekend. Format: yyyy-mm-dd.
-      # @option params [String] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
+      # @option params [DateTime] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
       # @option params [Symbol] :fallback_type A payment type to fallback to if the original type is not valid for the
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (type=rtp and fallback_type=ach)
@@ -330,7 +330,7 @@ module ModernTreasury
       # @option params [Symbol] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
-      # @option params [String] :process_after If present, Modern Treasury will not process the payment until after this time.
+      # @option params [DateTime] :process_after If present, Modern Treasury will not process the payment until after this time.
       #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
       #   take precedence and `effective_date` will automatically update to reflect the
       #   earliest possible sending date after `process_after`. Format is ISO8601

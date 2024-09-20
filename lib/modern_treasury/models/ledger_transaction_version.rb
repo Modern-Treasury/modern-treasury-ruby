@@ -8,8 +8,8 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] description
       #   An optional description for internal use.
@@ -18,13 +18,13 @@ module ModernTreasury
 
       # @!attribute [rw] effective_at
       #   The timestamp (ISO8601 format) at which the ledger transaction happened for reporting purposes.
-      #   @return [String]
-      required :effective_at, String
+      #   @return [DateTime]
+      required :effective_at, DateTime
 
       # @!attribute [rw] effective_date
       #   The date (YYYY-MM-DD) on which the ledger transaction happened for reporting purposes.
-      #   @return [String]
-      required :effective_date, String
+      #   @return [Date]
+      required :effective_date, Date
 
       # @!attribute [rw] external_id
       #   A unique string to represent the ledger transaction. Only one pending or posted ledger transaction may have this ID in the ledger.
@@ -78,8 +78,8 @@ module ModernTreasury
 
       # @!attribute [rw] posted_at
       #   The time on which the ledger transaction posted. This is null if the ledger transaction is pending.
-      #   @return [String]
-      required :posted_at, String
+      #   @return [DateTime]
+      required :posted_at, DateTime
 
       # @!attribute [rw] reversed_by_ledger_transaction_id
       #   The ID of the ledger transaction that reversed this ledger transaction.
@@ -113,8 +113,8 @@ module ModernTreasury
         required :amount, Integer
 
         # @!attribute [rw] created_at
-        #   @return [String]
-        required :created_at, String
+        #   @return [DateTime]
+        required :created_at, DateTime
 
         # @!attribute [rw] direction
         #   One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.

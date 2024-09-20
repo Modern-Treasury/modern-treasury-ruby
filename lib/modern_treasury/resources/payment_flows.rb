@@ -18,7 +18,7 @@ module ModernTreasury
       # @option params [Symbol] :direction Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
       # @option params [String] :originating_account_id Required. The ID of one of your organization's internal accounts.
-      # @option params [String] :due_date Optional. Can only be passed in when `effective_date_selection_enabled` is
+      # @option params [Date] :due_date Optional. Can only be passed in when `effective_date_selection_enabled` is
       #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #   they are selecting a payment `effective_date`.
       #

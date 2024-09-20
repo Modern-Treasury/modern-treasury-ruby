@@ -16,9 +16,9 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [Array<LedgerEntry>] :ledger_entries An array of ledger entry objects.
       # @option params [String] :description An optional description for internal use.
-      # @option params [String] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
+      # @option params [DateTime] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   reporting purposes.
-      # @option params [String] :effective_date The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+      # @option params [Date] :effective_date The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
       #   purposes.
       # @option params [String] :external_id A unique string to represent the ledger transaction. Only one pending or posted
       #   ledger transaction may have this ID in the ledger.
@@ -64,7 +64,7 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :description An optional description for internal use.
-      # @option params [String] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
+      # @option params [DateTime] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   reporting purposes.
       # @option params [Array<LedgerEntry>] :ledger_entries An array of ledger entry objects.
       # @option params [String] :ledgerable_id If the ledger transaction can be reconciled to another object in Modern
@@ -144,7 +144,7 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :description An optional free-form description for the reversal ledger transaction. Maximum
       #   of 1000 characters allowed.
-      # @option params [String] :effective_at The timestamp (ISO8601 format) at which the reversal ledger transaction happened
+      # @option params [DateTime] :effective_at The timestamp (ISO8601 format) at which the reversal ledger transaction happened
       #   for reporting purposes. It defaults to the `effective_at` of the original ledger
       #   transaction if not provided.
       # @option params [String] :external_id Must be unique within the ledger.
