@@ -18,8 +18,8 @@ module ModernTreasury
       required :counterparty_id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] credit_ledger_account_id
       #   The ID of a credit normal ledger account. When money enters the virtual account, this ledger account will be credited. Must be accompanied by a debit_ledger_account_id if present.
@@ -37,8 +37,8 @@ module ModernTreasury
       required :description, String
 
       # @!attribute [rw] discarded_at
-      #   @return [String]
-      required :discarded_at, String
+      #   @return [DateTime]
+      required :discarded_at, DateTime
 
       # @!attribute [rw] internal_account_id
       #   The ID of the internal account that the virtual account is in.
@@ -75,8 +75,8 @@ module ModernTreasury
       required :routing_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::RoutingDetail })
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
     end
   end
 end

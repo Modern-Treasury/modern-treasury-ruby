@@ -10,9 +10,9 @@ module ModernTreasury
       # Create a ledger account statement.
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String] :effective_at_lower_bound The inclusive lower bound of the effective_at timestamp of the ledger entries to
+      # @option params [DateTime] :effective_at_lower_bound The inclusive lower bound of the effective_at timestamp of the ledger entries to
       #   be included in the ledger account statement.
-      # @option params [String] :effective_at_upper_bound The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      # @option params [DateTime] :effective_at_upper_bound The exclusive upper bound of the effective_at timestamp of the ledger entries to
       #   be included in the ledger account statement.
       # @option params [String] :ledger_account_id The id of the ledger account whose ledger entries are queried against, and its
       #   balances are computed as a result.

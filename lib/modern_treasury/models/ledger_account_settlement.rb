@@ -18,8 +18,8 @@ module ModernTreasury
       required :contra_ledger_account_id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] currency
       #   The currency of the ledger account settlement.
@@ -38,8 +38,8 @@ module ModernTreasury
 
       # @!attribute [rw] effective_at_upper_bound
       #   The exclusive upper bound of the effective_at timestamp of the ledger entries to be included in the ledger account settlement. The default value is the created_at timestamp of the ledger account settlement.
-      #   @return [String]
-      required :effective_at_upper_bound, String
+      #   @return [DateTime]
+      required :effective_at_upper_bound, DateTime
 
       # @!attribute [rw] ledger_id
       #   The id of the ledger that this ledger account settlement belongs to.
@@ -82,8 +82,8 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlement::Status }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # The status of the ledger account settlement. One of `processing`, `pending`, `posted`, `archiving` or `archived`.
       class Status < ModernTreasury::Enum

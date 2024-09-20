@@ -23,8 +23,8 @@ module ModernTreasury
       required :counterparty_id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account.
@@ -34,13 +34,13 @@ module ModernTreasury
 
       # @!attribute [rw] date_lower_bound
       #   The earliest date the payment may come in. Format: yyyy-mm-dd
-      #   @return [String]
-      required :date_lower_bound, String
+      #   @return [Date]
+      required :date_lower_bound, Date
 
       # @!attribute [rw] date_upper_bound
       #   The latest date the payment may come in. Format: yyyy-mm-dd
-      #   @return [String]
-      required :date_upper_bound, String
+      #   @return [Date]
+      required :date_upper_bound, Date
 
       # @!attribute [rw] description
       #   An optional description for internal use.
@@ -132,8 +132,8 @@ module ModernTreasury
       required :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
       class ReconciliationMethod < ModernTreasury::Enum

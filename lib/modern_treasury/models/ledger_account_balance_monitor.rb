@@ -13,8 +13,8 @@ module ModernTreasury
       required :alert_condition, -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition }
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] current_ledger_account_balance_state
       #   The ledger account's balances and the monitor state as of the current ledger account lock version.
@@ -28,8 +28,8 @@ module ModernTreasury
       required :description, String
 
       # @!attribute [rw] discarded_at
-      #   @return [String]
-      required :discarded_at, String
+      #   @return [DateTime]
+      required :discarded_at, DateTime
 
       # @!attribute [rw] ledger_account_id
       #   The ledger account associated with this balance monitor.
@@ -51,8 +51,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       class AlertCondition < BaseModel
         # @!attribute [rw] field

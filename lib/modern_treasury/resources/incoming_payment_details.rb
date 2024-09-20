@@ -45,9 +45,9 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :after_cursor
-      # @option params [String] :as_of_date_end Filters incoming payment details with an as_of_date starting on or before the
+      # @option params [Date] :as_of_date_end Filters incoming payment details with an as_of_date starting on or before the
       #   specified date (YYYY-MM-DD).
-      # @option params [String] :as_of_date_start Filters incoming payment details with an as_of_date starting on or after the
+      # @option params [Date] :as_of_date_start Filters incoming payment details with an as_of_date starting on or after the
       #   specified date (YYYY-MM-DD).
       # @option params [Symbol] :direction One of `credit` or `debit`.
       # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
@@ -79,7 +79,7 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
-      # @option params [String] :as_of_date Defaults to today.
+      # @option params [Date] :as_of_date Defaults to today.
       # @option params [Symbol] :currency Defaults to the currency of the originating account.
       # @option params [String] :description Defaults to a random description.
       # @option params [Symbol] :direction One of `credit`, `debit`.

@@ -8,8 +8,8 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [String]
-      required :created_at, String
+      #   @return [DateTime]
+      required :created_at, DateTime
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -44,8 +44,8 @@ module ModernTreasury
       required :referenceable_type, enum: -> { ModernTreasury::Models::PaymentReference::ReferenceableType }
 
       # @!attribute [rw] updated_at
-      #   @return [String]
-      required :updated_at, String
+      #   @return [DateTime]
+      required :updated_at, DateTime
 
       # The type of reference number.
       class ReferenceNumberType < ModernTreasury::Enum
