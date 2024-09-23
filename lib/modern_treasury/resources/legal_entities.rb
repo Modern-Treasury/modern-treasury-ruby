@@ -25,7 +25,7 @@ module ModernTreasury
       # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       # @option params [Array<PhoneNumber>] :phone_numbers
-      # @option params [Symbol] :risk_rating Translation missing: en.openapi.descriptions.legal_entity.schema.risk_rating
+      # @option params [Symbol] :risk_rating The risk rating of the legal entity. One of low, medium, high.
       # @option params [String] :website The entity's primary website URL.
       #
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
@@ -70,7 +70,7 @@ module ModernTreasury
       # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       # @option params [Array<PhoneNumber>] :phone_numbers
-      # @option params [Symbol] :risk_rating Translation missing: en.openapi.descriptions.legal_entity.schema.risk_rating
+      # @option params [Symbol] :risk_rating The risk rating of the legal entity. One of low, medium, high.
       # @option params [String] :website The entity's primary website URL.
       #
       # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.

@@ -22,6 +22,11 @@ module ModernTreasury
       #   @return [String]
       required :as_of_time, String
 
+      # @!attribute [rw] as_of_timezone
+      #   The timezone in which the `as_of_time` is represented. Can be `null` if the bank does not provide timezone info.
+      #   @return [String]
+      required :as_of_timezone, String
+
       # @!attribute [rw] created_at
       #   @return [DateTime]
       required :created_at, DateTime

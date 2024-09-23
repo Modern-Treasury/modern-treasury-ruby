@@ -66,6 +66,7 @@ module ModernTreasury
       class ActionType < ModernTreasury::Enum
         CREATE = :create
         UPDATE = :update
+        DELETE = :delete
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
