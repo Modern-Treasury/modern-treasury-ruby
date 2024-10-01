@@ -77,8 +77,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The status of the ledger account settlement. One of `processing`, `pending`, `posted`, `archiving` or `archived`.
-      #   One of the constants defined in {ModernTreasury::Models::LedgerAccountSettlement::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status]
       required :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlement::Status }
 
       # @!attribute [rw] updated_at

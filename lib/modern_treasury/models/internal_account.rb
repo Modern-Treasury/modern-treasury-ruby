@@ -14,8 +14,7 @@ module ModernTreasury
 
       # @!attribute [rw] account_type
       #   Can be checking, savings or other.
-      #   One of the constants defined in {ModernTreasury::Models::InternalAccount::AccountType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::InternalAccount::AccountType]
       required :account_type, enum: -> { ModernTreasury::Models::InternalAccount::AccountType }
 
       # @!attribute [rw] connection
@@ -34,8 +33,7 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   The currency of the account.
-      #   One of the constants defined in {ModernTreasury::Models::Currency}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] ledger_account_id
@@ -84,8 +82,7 @@ module ModernTreasury
 
       # @!attribute [rw] party_type
       #   Either individual or business.
-      #   One of the constants defined in {ModernTreasury::Models::InternalAccount::PartyType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::InternalAccount::PartyType]
       required :party_type, enum: -> { ModernTreasury::Models::InternalAccount::PartyType }
 
       # @!attribute [rw] routing_details

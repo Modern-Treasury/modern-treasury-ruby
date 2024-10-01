@@ -13,8 +13,7 @@ module ModernTreasury
 
       # @!attribute [rw] account_type
       #   Can be `checking`, `savings` or `other`.
-      #   One of the constants defined in {ModernTreasury::Models::ExternalAccountType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ExternalAccountType]
       required :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
 
       # @!attribute [rw] contact_details
@@ -70,8 +69,7 @@ module ModernTreasury
 
       # @!attribute [rw] party_type
       #   Either `individual` or `business`.
-      #   One of the constants defined in {ModernTreasury::Models::ExternalAccount::PartyType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ExternalAccount::PartyType]
       required :party_type, enum: -> { ModernTreasury::Models::ExternalAccount::PartyType }
 
       # @!attribute [rw] routing_details
@@ -83,13 +81,11 @@ module ModernTreasury
       required :updated_at, DateTime
 
       # @!attribute [rw] verification_source
-      #   One of the constants defined in {ModernTreasury::Models::ExternalAccount::VerificationSource}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource]
       required :verification_source, enum: -> { ModernTreasury::Models::ExternalAccount::VerificationSource }
 
       # @!attribute [rw] verification_status
-      #   One of the constants defined in {ModernTreasury::Models::ExternalAccount::VerificationStatus}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
       required :verification_status, enum: -> { ModernTreasury::Models::ExternalAccount::VerificationStatus }
 
       class ContactDetail < BaseModel
@@ -102,8 +98,7 @@ module ModernTreasury
         required :contact_identifier, String
 
         # @!attribute [rw] contact_identifier_type
-        #   One of the constants defined in {ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType]
         required :contact_identifier_type,
                  enum: -> { ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType }
 

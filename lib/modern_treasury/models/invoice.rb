@@ -48,8 +48,7 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
-      #   One of the constants defined in {ModernTreasury::Models::Currency}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] description
@@ -128,8 +127,7 @@ module ModernTreasury
 
       # @!attribute [rw] payment_method
       #   When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
-      #   One of the constants defined in {ModernTreasury::Models::Invoice::PaymentMethod}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Invoice::PaymentMethod]
       required :payment_method, enum: -> { ModernTreasury::Models::Invoice::PaymentMethod }
 
       # @!attribute [rw] payment_orders
@@ -139,8 +137,7 @@ module ModernTreasury
 
       # @!attribute [rw] payment_type
       #   One of `ach` or `eft`.
-      #   One of the constants defined in {ModernTreasury::Models::Invoice::PaymentType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Invoice::PaymentType]
       required :payment_type, enum: -> { ModernTreasury::Models::Invoice::PaymentType }
 
       # @!attribute [rw] pdf_url
@@ -170,8 +167,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The status of the invoice.
-      #   One of the constants defined in {ModernTreasury::Models::Invoice::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Invoice::Status]
       required :status, enum: -> { ModernTreasury::Models::Invoice::Status }
 
       # @!attribute [rw] total_amount
@@ -203,8 +199,7 @@ module ModernTreasury
         required :contact_identifier, String
 
         # @!attribute [rw] contact_identifier_type
-        #   One of the constants defined in {ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType]
         required :contact_identifier_type,
                  enum: -> { ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType }
 

@@ -36,8 +36,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The status of the connection legal entity.
-      #   One of the constants defined in {ModernTreasury::Models::ConnectionLegalEntity::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status]
       required :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntity::Status }
 
       # @!attribute [rw] updated_at

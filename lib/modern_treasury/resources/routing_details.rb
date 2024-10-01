@@ -9,19 +9,19 @@ module ModernTreasury
 
       # Create a routing detail for a single external account.
       #
-      # @param accounts_type [Symbol]
+      # @param accounts_type [Symbol, AccountsType]
       #
       # @param account_id [String] The ID of the account.
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :routing_number The routing number of the bank.
-      # @option params [Symbol] :routing_number_type The type of routing number. See
+      # @option params [Symbol, RoutingNumberType] :routing_number_type The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
-      # @option params [Symbol] :payment_type If the routing detail is to be used for a specific payment type this field will
+      # @option params [Symbol, PaymentType, nil] :payment_type If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       #
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::RoutingDetail]
       def create(accounts_type, account_id, params = {}, opts = {})
@@ -35,10 +35,10 @@ module ModernTreasury
 
       # Get a single routing detail for a single internal or external account.
       #
-      # @param accounts_type [Symbol]
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
       # @param account_id [String] The ID of the account.
       # @param id [String] The ID of the routing detail.
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::RoutingDetail]
       def retrieve(accounts_type, account_id, id, opts = {})
@@ -51,15 +51,15 @@ module ModernTreasury
 
       # Get a list of routing details for a single internal or external account.
       #
-      # @param accounts_type [Symbol]
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
       #
       # @param account_id [String] The ID of the account.
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String] :after_cursor
-      # @option params [Integer] :per_page
+      # @option params [String, nil] :after_cursor
+      # @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::RoutingDetail>]
       def list(accounts_type, account_id, params = {}, opts = {})
@@ -74,10 +74,10 @@ module ModernTreasury
 
       # Delete a routing detail for a single external account.
       #
-      # @param accounts_type [Symbol]
+      # @param accounts_type [Symbol, AccountsType]
       # @param account_id [String] The ID of the account.
       # @param id [String] The ID of the routing detail.
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def delete(accounts_type, account_id, id, opts = {})

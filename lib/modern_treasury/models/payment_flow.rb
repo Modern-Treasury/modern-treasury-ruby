@@ -33,8 +33,7 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   Describes the direction money is flowing in the transaction. Can only be `debit`. A `debit` pulls money from someone else's account to your own.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentFlow::Direction}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::Direction]
       optional :direction, enum: -> { ModernTreasury::Models::PaymentFlow::Direction }
 
       # @!attribute [rw] due_date
@@ -49,15 +48,13 @@ module ModernTreasury
 
       # @!attribute [rw] existing_external_accounts_filter
       #   When `verified` and `external_account_collection` is `enabled`, filters the list of external accounts your end-user can select to those with a `verification_status` of `verified`.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter]
       optional :existing_external_accounts_filter,
                enum: -> { ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter }
 
       # @!attribute [rw] external_account_collection
       #   When `enabled`, your end-user can select from an existing external account when completing the flow. When `disabled`, your end-user must add new payment details when completing the flow.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentFlow::ExternalAccountCollection}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection]
       optional :external_account_collection,
                enum: -> { ModernTreasury::Models::PaymentFlow::ExternalAccountCollection }
 
@@ -92,8 +89,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The current status of the payment flow. One of `pending`, `completed`, `expired`, or `cancelled`.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentFlow::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::Status]
       optional :status, enum: -> { ModernTreasury::Models::PaymentFlow::Status }
 
       # @!attribute [rw] updated_at

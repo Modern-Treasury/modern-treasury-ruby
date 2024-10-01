@@ -19,8 +19,7 @@ module ModernTreasury
 
       # @!attribute [rw] balance_report_type
       #   The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
-      #   One of the constants defined in {ModernTreasury::Models::BalanceReport::BalanceReportType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::BalanceReport::BalanceReportType]
       required :balance_report_type, enum: -> { ModernTreasury::Models::BalanceReport::BalanceReportType }
 
       # @!attribute [rw] balances
@@ -70,8 +69,7 @@ module ModernTreasury
 
         # @!attribute [rw] balance_type
         #   The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
-        #   One of the constants defined in {ModernTreasury::Models::BalanceReport::Balance::BalanceType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::BalanceReport::Balance::BalanceType]
         required :balance_type, enum: -> { ModernTreasury::Models::BalanceReport::Balance::BalanceType }
 
         # @!attribute [rw] created_at
@@ -80,8 +78,7 @@ module ModernTreasury
 
         # @!attribute [rw] currency
         #   The currency of the balance.
-        #   One of the constants defined in {ModernTreasury::Models::Currency}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] live_mode

@@ -5,8 +5,13 @@ module ModernTreasury
     # Default max number of retries to attempt after a failed retryable request.
     DEFAULT_MAX_RETRIES = 2
 
-    # Client options.
-    attr_reader :api_key, :organization_id
+    # Client option
+    # @return [String]
+    attr_reader :api_key
+
+    # Client option
+    # @return [String]
+    attr_reader :organization_id
 
     # @return [ModernTreasury::Resources::Connections]
     attr_reader :connections
@@ -127,10 +132,16 @@ module ModernTreasury
     end
 
     # Creates and returns a new client for interacting with the API.
-    def initialize(base_url: nil, api_key: nil, organization_id: nil, max_retries: nil)
+    #
+    # @param base_url [String, nil] Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
+    # @param api_key [String, nil] Defaults to `ENV["MODERN_TREASURY_API_KEY"]`
+    # @param organization_id [String, nil] Defaults to `ENV["MODERN_TREASURY_ORGANIZATION_ID"]`
+    # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
+    #
+    # @return [ModernTreasury::Client]
+    def initialize(base_url: nil, api_key: nil, organization_id: nil, max_retries: DEFAULT_MAX_RETRIES)
       base_url ||= "https://app.moderntreasury.com"
 
-      max_retries ||= DEFAULT_MAX_RETRIES
       idempotency_header = "Idempotency-Key"
 
       @api_key = [api_key, ENV["MODERN_TREASURY_API_KEY"]].find { |v| !v.nil? }
