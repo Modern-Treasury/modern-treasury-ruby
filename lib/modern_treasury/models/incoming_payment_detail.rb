@@ -23,8 +23,7 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   The currency of the incoming payment detail.
-      #   One of the constants defined in {ModernTreasury::Models::Currency}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] data
@@ -34,8 +33,7 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   One of `credit` or `debit`.
-      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] internal_account_id
@@ -69,8 +67,7 @@ module ModernTreasury
 
       # @!attribute [rw] originating_account_number_type
       #   The type of the originating account number for the incoming payment detail.
-      #   One of the constants defined in {ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType]
       required :originating_account_number_type,
                enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType }
 
@@ -81,15 +78,13 @@ module ModernTreasury
 
       # @!attribute [rw] originating_routing_number_type
       #   The type of the originating routing number for the incoming payment detail.
-      #   One of the constants defined in {ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType]
       required :originating_routing_number_type,
                enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType }
 
       # @!attribute [rw] status
       #   The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
-      #   One of the constants defined in {ModernTreasury::Models::IncomingPaymentDetail::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status]
       required :status, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Status }
 
       # @!attribute [rw] transaction_id
@@ -104,8 +99,7 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
-      #   One of the constants defined in {ModernTreasury::Models::IncomingPaymentDetail::Type}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type]
       required :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Type }
 
       # @!attribute [rw] updated_at

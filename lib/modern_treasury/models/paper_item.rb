@@ -33,8 +33,7 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   The currency of the paper item.
-      #   One of the constants defined in {ModernTreasury::Models::Currency}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] deposit_date
@@ -73,8 +72,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The current status of the paper item. One of `pending`, `completed`, or `returned`.
-      #   One of the constants defined in {ModernTreasury::Models::PaperItem::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaperItem::Status]
       required :status, enum: -> { ModernTreasury::Models::PaperItem::Status }
 
       # @!attribute [rw] transaction_id

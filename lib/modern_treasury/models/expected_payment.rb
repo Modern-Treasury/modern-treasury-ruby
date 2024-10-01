@@ -28,8 +28,7 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account.
-      #   One of the constants defined in {ModernTreasury::Models::Currency}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] date_lower_bound
@@ -49,8 +48,7 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
-      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] internal_account_id
@@ -89,8 +87,7 @@ module ModernTreasury
 
       # @!attribute [rw] reconciliation_method
       #   One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
-      #   One of the constants defined in {ModernTreasury::Models::ExpectedPayment::ReconciliationMethod}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod]
       required :reconciliation_method,
                enum: -> { ModernTreasury::Models::ExpectedPayment::ReconciliationMethod }
 
@@ -111,8 +108,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   One of unreconciled, partially_reconciled, reconciled, or archived.
-      #   One of the constants defined in {ModernTreasury::Models::ExpectedPayment::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPayment::Status]
       required :status, enum: -> { ModernTreasury::Models::ExpectedPayment::Status }
 
       # @!attribute [rw] transaction_id
@@ -127,8 +123,7 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sepa, signet, wire.
-      #   One of the constants defined in {ModernTreasury::Models::ExpectedPaymentType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType]
       required :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }
 
       # @!attribute [rw] updated_at

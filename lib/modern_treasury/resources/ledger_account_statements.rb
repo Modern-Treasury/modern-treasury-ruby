@@ -16,11 +16,11 @@ module ModernTreasury
       #   be included in the ledger account statement.
       # @option params [String] :ledger_account_id The id of the ledger account whose ledger entries are queried against, and its
       #   balances are computed as a result.
-      # @option params [String] :description The description of the ledger account statement.
-      # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      # @option params [String, nil] :description The description of the ledger account statement.
+      # @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse]
       def create(params = {}, opts = {})
@@ -35,7 +35,7 @@ module ModernTreasury
       # Get details on a single ledger account statement.
       #
       # @param id [String] id
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse]
       def retrieve(id, opts = {})

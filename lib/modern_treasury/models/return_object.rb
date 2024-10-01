@@ -14,8 +14,7 @@ module ModernTreasury
 
       # @!attribute [rw] code
       #   The return code. For ACH returns, this is the required ACH return code.
-      #   One of the constants defined in {ModernTreasury::Models::ReturnObject::Code}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Code]
       required :code, enum: -> { ModernTreasury::Models::ReturnObject::Code }
 
       # @!attribute [rw] created_at
@@ -24,8 +23,7 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   Currency that this transaction is denominated in.
-      #   One of the constants defined in {ModernTreasury::Models::Currency}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] current_return
@@ -80,20 +78,17 @@ module ModernTreasury
 
       # @!attribute [rw] returnable_type
       #   The type of object being returned or `null`.
-      #   One of the constants defined in {ModernTreasury::Models::ReturnObject::ReturnableType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType]
       required :returnable_type, enum: -> { ModernTreasury::Models::ReturnObject::ReturnableType }
 
       # @!attribute [rw] role
       #   The role of the return, can be `originating` or `receiving`.
-      #   One of the constants defined in {ModernTreasury::Models::ReturnObject::Role}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Role]
       required :role, enum: -> { ModernTreasury::Models::ReturnObject::Role }
 
       # @!attribute [rw] status
       #   The current status of the return.
-      #   One of the constants defined in {ModernTreasury::Models::ReturnObject::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Status]
       required :status, enum: -> { ModernTreasury::Models::ReturnObject::Status }
 
       # @!attribute [rw] transaction_id
@@ -108,8 +103,7 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `interac`, `manual`, `paper_item`, `wire`.
-      #   One of the constants defined in {ModernTreasury::Models::ReturnObject::Type}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Type]
       required :type, enum: -> { ModernTreasury::Models::ReturnObject::Type }
 
       # @!attribute [rw] updated_at
@@ -203,8 +197,7 @@ module ModernTreasury
 
         # @!attribute [rw] reference_number_type
         #   The type of the reference number. Referring to the vendor payment id.
-        #   One of the constants defined in {ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType]
         required :reference_number_type,
                  enum: -> { ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType }
 

@@ -33,8 +33,7 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   Currency that this transaction is denominated in.
-      #   One of the constants defined in {ModernTreasury::Models::Currency}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] custom_identifiers
@@ -87,8 +86,7 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      #   One of the constants defined in {ModernTreasury::Models::Transaction::Type}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Transaction::Type]
       required :type, enum: -> { ModernTreasury::Models::Transaction::Type }
 
       # @!attribute [rw] updated_at
@@ -102,8 +100,7 @@ module ModernTreasury
 
       # @!attribute [rw] vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, `us_bank`, or others.
-      #   One of the constants defined in {ModernTreasury::Models::Transaction::VendorCodeType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType]
       required :vendor_code_type, enum: -> { ModernTreasury::Models::Transaction::VendorCodeType }
 
       # @!attribute [rw] vendor_customer_id
@@ -134,8 +131,7 @@ module ModernTreasury
 
         # @!attribute [rw] base_currency
         #   Currency to convert, often called the "sell" currency.
-        #   One of the constants defined in {ModernTreasury::Models::Currency}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :base_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] exponent
@@ -155,8 +151,7 @@ module ModernTreasury
 
         # @!attribute [rw] target_currency
         #   Currency to convert the `base_currency` to, often called the "buy" currency.
-        #   One of the constants defined in {ModernTreasury::Models::Currency}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] value

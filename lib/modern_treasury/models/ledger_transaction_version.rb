@@ -58,8 +58,7 @@ module ModernTreasury
 
       # @!attribute [rw] ledgerable_type
       #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, or reversal.
-      #   One of the constants defined in {ModernTreasury::Models::LedgerTransactionVersion::LedgerableType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LedgerTransactionVersion::LedgerableType]
       required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerTransactionVersion::LedgerableType }
 
       # @!attribute [rw] live_mode
@@ -93,8 +92,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   One of `pending`, `posted`, or `archived`.
-      #   One of the constants defined in {ModernTreasury::Models::LedgerTransactionVersion::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LedgerTransactionVersion::Status]
       required :status, enum: -> { ModernTreasury::Models::LedgerTransactionVersion::Status }
 
       # @!attribute [rw] version
@@ -118,8 +116,7 @@ module ModernTreasury
 
         # @!attribute [rw] direction
         #   One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
-        #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
         required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
         # @!attribute [rw] ledger_account_currency
@@ -169,8 +166,7 @@ module ModernTreasury
 
         # @!attribute [rw] status
         #   Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
-        #   One of the constants defined in {ModernTreasury::Models::LedgerTransactionVersion::LedgerEntry::Status}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::LedgerTransactionVersion::LedgerEntry::Status]
         required :status, enum: -> { ModernTreasury::Models::LedgerTransactionVersion::LedgerEntry::Status }
 
         class ResultingLedgerAccountBalances < BaseModel
