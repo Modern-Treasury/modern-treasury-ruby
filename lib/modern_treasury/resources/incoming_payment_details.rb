@@ -14,10 +14,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/incoming_payment_details/#{id}"
-        req[:model] = ModernTreasury::Models::IncomingPaymentDetail
+        req = {
+          method: :get,
+          path: "/api/incoming_payment_details/#{id}",
+          model: ModernTreasury::Models::IncomingPaymentDetail
+        }
         @client.request(req, opts)
       end
 
@@ -33,11 +34,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/incoming_payment_details/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::IncomingPaymentDetail
+        req = {
+          method: :patch,
+          path: "/api/incoming_payment_details/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::IncomingPaymentDetail
+        }
         @client.request(req, opts)
       end
 
@@ -65,12 +68,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::IncomingPaymentDetail>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/incoming_payment_details"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::IncomingPaymentDetail
+        req = {
+          method: :get,
+          path: "/api/incoming_payment_details",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::IncomingPaymentDetail
+        }
         @client.request(req, opts)
       end
 
@@ -92,11 +96,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       def create_async(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/simulations/incoming_payment_details/create_async"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::AsyncResponse
+        req = {
+          method: :post,
+          path: "/api/simulations/incoming_payment_details/create_async",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::AsyncResponse
+        }
         @client.request(req, opts)
       end
     end

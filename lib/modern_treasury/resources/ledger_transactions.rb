@@ -36,11 +36,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledger_transactions"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerTransaction
+        req = {
+          method: :post,
+          path: "/api/ledger_transactions",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerTransaction
+        }
         @client.request(req, opts)
       end
 
@@ -51,10 +53,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_transactions/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerTransaction
+        req = {
+          method: :get,
+          path: "/api/ledger_transactions/#{id}",
+          model: ModernTreasury::Models::LedgerTransaction
+        }
         @client.request(req, opts)
       end
 
@@ -81,11 +84,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/ledger_transactions/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerTransaction
+        req = {
+          method: :patch,
+          path: "/api/ledger_transactions/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerTransaction
+        }
         @client.request(req, opts)
       end
 
@@ -128,12 +133,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransaction>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_transactions"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::LedgerTransaction
+        req = {
+          method: :get,
+          path: "/api/ledger_transactions",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LedgerTransaction
+        }
         @client.request(req, opts)
       end
 
@@ -161,11 +167,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def create_reversal(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledger_transactions/#{id}/reversal"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerTransaction
+        req = {
+          method: :post,
+          path: "/api/ledger_transactions/#{id}/reversal",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerTransaction
+        }
         @client.request(req, opts)
       end
     end

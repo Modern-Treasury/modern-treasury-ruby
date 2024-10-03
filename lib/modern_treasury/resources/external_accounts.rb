@@ -35,11 +35,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/external_accounts"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ExternalAccount
+        req = {
+          method: :post,
+          path: "/api/external_accounts",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ExternalAccount
+        }
         @client.request(req, opts)
       end
 
@@ -50,10 +52,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/external_accounts/#{id}"
-        req[:model] = ModernTreasury::Models::ExternalAccount
+        req = {
+          method: :get,
+          path: "/api/external_accounts/#{id}",
+          model: ModernTreasury::Models::ExternalAccount
+        }
         @client.request(req, opts)
       end
 
@@ -76,11 +79,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/external_accounts/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ExternalAccount
+        req = {
+          method: :patch,
+          path: "/api/external_accounts/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ExternalAccount
+        }
         @client.request(req, opts)
       end
 
@@ -99,12 +104,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExternalAccount>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/external_accounts"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::ExternalAccount
+        req = {
+          method: :get,
+          path: "/api/external_accounts",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::ExternalAccount
+        }
         @client.request(req, opts)
       end
 
@@ -115,10 +121,11 @@ module ModernTreasury
       #
       # @return [nil]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/external_accounts/#{id}"
-        req[:model] = NilClass
+        req = {
+          method: :delete,
+          path: "/api/external_accounts/#{id}",
+          model: NilClass
+        }
         @client.request(req, opts)
       end
 
@@ -133,11 +140,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def complete_verification(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/external_accounts/#{id}/complete_verification"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ExternalAccount
+        req = {
+          method: :post,
+          path: "/api/external_accounts/#{id}/complete_verification",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ExternalAccount
+        }
         @client.request(req, opts)
       end
 
@@ -160,11 +169,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::UnnamedTypeWithunionParent1]
       def verify(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/external_accounts/#{id}/verify"
-        req[:body] = params
-        req[:model] = ModernTreasury::Unknown
+        req = {
+          method: :post,
+          path: "/api/external_accounts/#{id}/verify",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Unknown
+        }
         @client.request(req, opts)
       end
     end

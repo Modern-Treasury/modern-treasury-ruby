@@ -14,10 +14,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::BulkResult]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/bulk_results/#{id}"
-        req[:model] = ModernTreasury::Models::BulkResult
+        req = {
+          method: :get,
+          path: "/api/bulk_results/#{id}",
+          model: ModernTreasury::Models::BulkResult
+        }
         @client.request(req, opts)
       end
 
@@ -39,12 +40,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkResult>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/bulk_results"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::BulkResult
+        req = {
+          method: :get,
+          path: "/api/bulk_results",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::BulkResult
+        }
         @client.request(req, opts)
       end
     end

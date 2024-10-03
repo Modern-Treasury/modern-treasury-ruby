@@ -25,11 +25,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ReturnObject]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/returns"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ReturnObject
+        req = {
+          method: :post,
+          path: "/api/returns",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ReturnObject
+        }
         @client.request(req, opts)
       end
 
@@ -40,10 +42,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ReturnObject]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/returns/#{id}"
-        req[:model] = ModernTreasury::Models::ReturnObject
+        req = {
+          method: :get,
+          path: "/api/returns/#{id}",
+          model: ModernTreasury::Models::ReturnObject
+        }
         @client.request(req, opts)
       end
 
@@ -64,12 +67,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/returns"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::ReturnObject
+        req = {
+          method: :get,
+          path: "/api/returns",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::ReturnObject
+        }
         @client.request(req, opts)
       end
     end

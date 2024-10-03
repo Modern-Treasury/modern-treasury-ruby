@@ -18,11 +18,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/account_collection_flows"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::AccountCollectionFlow
+        req = {
+          method: :post,
+          path: "/api/account_collection_flows",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::AccountCollectionFlow
+        }
         @client.request(req, opts)
       end
 
@@ -33,10 +35,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/account_collection_flows/#{id}"
-        req[:model] = ModernTreasury::Models::AccountCollectionFlow
+        req = {
+          method: :get,
+          path: "/api/account_collection_flows/#{id}",
+          model: ModernTreasury::Models::AccountCollectionFlow
+        }
         @client.request(req, opts)
       end
 
@@ -52,11 +55,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/account_collection_flows/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::AccountCollectionFlow
+        req = {
+          method: :patch,
+          path: "/api/account_collection_flows/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::AccountCollectionFlow
+        }
         @client.request(req, opts)
       end
 
@@ -74,12 +79,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountCollectionFlow>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/account_collection_flows"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::AccountCollectionFlow
+        req = {
+          method: :get,
+          path: "/api/account_collection_flows",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::AccountCollectionFlow
+        }
         @client.request(req, opts)
       end
     end

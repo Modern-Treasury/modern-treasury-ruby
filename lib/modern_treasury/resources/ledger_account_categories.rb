@@ -25,11 +25,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledger_account_categories"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerAccountCategory
+        req = {
+          method: :post,
+          path: "/api/ledger_account_categories",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerAccountCategory
+        }
         @client.request(req, opts)
       end
 
@@ -46,11 +48,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def retrieve(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_account_categories/#{id}"
-        req[:query] = params
-        req[:model] = ModernTreasury::Models::LedgerAccountCategory
+        req = {
+          method: :get,
+          path: "/api/ledger_account_categories/#{id}",
+          query: params,
+          model: ModernTreasury::Models::LedgerAccountCategory
+        }
         @client.request(req, opts)
       end
 
@@ -68,11 +71,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/ledger_account_categories/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerAccountCategory
+        req = {
+          method: :patch,
+          path: "/api/ledger_account_categories/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerAccountCategory
+        }
         @client.request(req, opts)
       end
 
@@ -100,12 +105,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountCategory>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_account_categories"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::LedgerAccountCategory
+        req = {
+          method: :get,
+          path: "/api/ledger_account_categories",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LedgerAccountCategory
+        }
         @client.request(req, opts)
       end
 
@@ -116,10 +122,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/ledger_account_categories/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerAccountCategory
+        req = {
+          method: :delete,
+          path: "/api/ledger_account_categories/#{id}",
+          model: ModernTreasury::Models::LedgerAccountCategory
+        }
         @client.request(req, opts)
       end
 
@@ -131,10 +138,11 @@ module ModernTreasury
       #
       # @return [nil]
       def add_ledger_account(id, ledger_account_id, opts = {})
-        req = {}
-        req[:method] = :put
-        req[:path] = "/api/ledger_account_categories/#{id}/ledger_accounts/#{ledger_account_id}"
-        req[:model] = NilClass
+        req = {
+          method: :put,
+          path: "/api/ledger_account_categories/#{id}/ledger_accounts/#{ledger_account_id}",
+          model: NilClass
+        }
         @client.request(req, opts)
       end
 
@@ -146,10 +154,11 @@ module ModernTreasury
       #
       # @return [nil]
       def add_nested_category(id, sub_category_id, opts = {})
-        req = {}
-        req[:method] = :put
-        req[:path] = "/api/ledger_account_categories/#{id}/ledger_account_categories/#{sub_category_id}"
-        req[:model] = NilClass
+        req = {
+          method: :put,
+          path: "/api/ledger_account_categories/#{id}/ledger_account_categories/#{sub_category_id}",
+          model: NilClass
+        }
         @client.request(req, opts)
       end
 
@@ -161,10 +170,11 @@ module ModernTreasury
       #
       # @return [nil]
       def remove_ledger_account(id, ledger_account_id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/ledger_account_categories/#{id}/ledger_accounts/#{ledger_account_id}"
-        req[:model] = NilClass
+        req = {
+          method: :delete,
+          path: "/api/ledger_account_categories/#{id}/ledger_accounts/#{ledger_account_id}",
+          model: NilClass
+        }
         @client.request(req, opts)
       end
 
@@ -176,10 +186,11 @@ module ModernTreasury
       #
       # @return [nil]
       def remove_nested_category(id, sub_category_id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/ledger_account_categories/#{id}/ledger_account_categories/#{sub_category_id}"
-        req[:model] = NilClass
+        req = {
+          method: :delete,
+          path: "/api/ledger_account_categories/#{id}/ledger_account_categories/#{sub_category_id}",
+          model: NilClass
+        }
         @client.request(req, opts)
       end
     end

@@ -21,11 +21,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::BulkRequest]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/bulk_requests"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::BulkRequest
+        req = {
+          method: :post,
+          path: "/api/bulk_requests",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::BulkRequest
+        }
         @client.request(req, opts)
       end
 
@@ -36,10 +38,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::BulkRequest]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/bulk_requests/#{id}"
-        req[:model] = ModernTreasury::Models::BulkRequest
+        req = {
+          method: :get,
+          path: "/api/bulk_requests/#{id}",
+          model: ModernTreasury::Models::BulkRequest
+        }
         @client.request(req, opts)
       end
 
@@ -59,12 +62,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkRequest>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/bulk_requests"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::BulkRequest
+        req = {
+          method: :get,
+          path: "/api/bulk_requests",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::BulkRequest
+        }
         @client.request(req, opts)
       end
     end

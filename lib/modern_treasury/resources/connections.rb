@@ -19,12 +19,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Connection>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/connections"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::Connection
+        req = {
+          method: :get,
+          path: "/api/connections",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::Connection
+        }
         @client.request(req, opts)
       end
     end

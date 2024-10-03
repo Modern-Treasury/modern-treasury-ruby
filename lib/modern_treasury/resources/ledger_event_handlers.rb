@@ -23,11 +23,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledger_event_handlers"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerEventHandler
+        req = {
+          method: :post,
+          path: "/api/ledger_event_handlers",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerEventHandler
+        }
         @client.request(req, opts)
       end
 
@@ -38,10 +40,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_event_handlers/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerEventHandler
+        req = {
+          method: :get,
+          path: "/api/ledger_event_handlers/#{id}",
+          model: ModernTreasury::Models::LedgerEventHandler
+        }
         @client.request(req, opts)
       end
 
@@ -62,12 +65,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_event_handlers"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::LedgerEventHandler
+        req = {
+          method: :get,
+          path: "/api/ledger_event_handlers",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LedgerEventHandler
+        }
         @client.request(req, opts)
       end
 
@@ -78,10 +82,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/ledger_event_handlers/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerEventHandler
+        req = {
+          method: :delete,
+          path: "/api/ledger_event_handlers/#{id}",
+          model: ModernTreasury::Models::LedgerEventHandler
+        }
         @client.request(req, opts)
       end
     end

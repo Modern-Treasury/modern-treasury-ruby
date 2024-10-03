@@ -19,11 +19,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Ledger]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledgers"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::Ledger
+        req = {
+          method: :post,
+          path: "/api/ledgers",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::Ledger
+        }
         @client.request(req, opts)
       end
 
@@ -34,10 +36,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Ledger]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledgers/#{id}"
-        req[:model] = ModernTreasury::Models::Ledger
+        req = {
+          method: :get,
+          path: "/api/ledgers/#{id}",
+          model: ModernTreasury::Models::Ledger
+        }
         @client.request(req, opts)
       end
 
@@ -55,11 +58,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Ledger]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/ledgers/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::Ledger
+        req = {
+          method: :patch,
+          path: "/api/ledgers/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::Ledger
+        }
         @client.request(req, opts)
       end
 
@@ -81,12 +86,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Ledger>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledgers"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::Ledger
+        req = {
+          method: :get,
+          path: "/api/ledgers",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::Ledger
+        }
         @client.request(req, opts)
       end
 
@@ -97,10 +103,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Ledger]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/ledgers/#{id}"
-        req[:model] = ModernTreasury::Models::Ledger
+        req = {
+          method: :delete,
+          path: "/api/ledgers/#{id}",
+          model: ModernTreasury::Models::Ledger
+        }
         @client.request(req, opts)
       end
     end

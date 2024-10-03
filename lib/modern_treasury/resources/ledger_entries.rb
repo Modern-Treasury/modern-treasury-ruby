@@ -19,11 +19,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerEntry]
       def retrieve(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_entries/#{id}"
-        req[:query] = params
-        req[:model] = ModernTreasury::Models::LedgerEntry
+        req = {
+          method: :get,
+          path: "/api/ledger_entries/#{id}",
+          query: params,
+          model: ModernTreasury::Models::LedgerEntry
+        }
         @client.request(req, opts)
       end
 
@@ -39,11 +40,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerEntry]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/ledger_entries/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerEntry
+        req = {
+          method: :patch,
+          path: "/api/ledger_entries/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerEntry
+        }
         @client.request(req, opts)
       end
 
@@ -95,12 +98,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEntry>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_entries"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::LedgerEntry
+        req = {
+          method: :get,
+          path: "/api/ledger_entries",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LedgerEntry
+        }
         @client.request(req, opts)
       end
     end

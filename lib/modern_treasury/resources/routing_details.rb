@@ -25,11 +25,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::RoutingDetail]
       def create(accounts_type, account_id, params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/#{accounts_type}/#{account_id}/routing_details"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::RoutingDetail
+        req = {
+          method: :post,
+          path: "/api/#{accounts_type}/#{account_id}/routing_details",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::RoutingDetail
+        }
         @client.request(req, opts)
       end
 
@@ -42,10 +44,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::RoutingDetail]
       def retrieve(accounts_type, account_id, id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/#{accounts_type}/#{account_id}/routing_details/#{id}"
-        req[:model] = ModernTreasury::Models::RoutingDetail
+        req = {
+          method: :get,
+          path: "/api/#{accounts_type}/#{account_id}/routing_details/#{id}",
+          model: ModernTreasury::Models::RoutingDetail
+        }
         @client.request(req, opts)
       end
 
@@ -63,12 +66,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::RoutingDetail>]
       def list(accounts_type, account_id, params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/#{accounts_type}/#{account_id}/routing_details"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::RoutingDetail
+        req = {
+          method: :get,
+          path: "/api/#{accounts_type}/#{account_id}/routing_details",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::RoutingDetail
+        }
         @client.request(req, opts)
       end
 
@@ -81,10 +85,11 @@ module ModernTreasury
       #
       # @return [nil]
       def delete(accounts_type, account_id, id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/#{accounts_type}/#{account_id}/routing_details/#{id}"
-        req[:model] = NilClass
+        req = {
+          method: :delete,
+          path: "/api/#{accounts_type}/#{account_id}/routing_details/#{id}",
+          model: NilClass
+        }
         @client.request(req, opts)
       end
     end

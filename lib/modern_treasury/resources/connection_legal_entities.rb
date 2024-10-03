@@ -18,11 +18,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/connection_legal_entities"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ConnectionLegalEntity
+        req = {
+          method: :post,
+          path: "/api/connection_legal_entities",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ConnectionLegalEntity
+        }
         @client.request(req, opts)
       end
 
@@ -33,10 +35,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/connection_legal_entities/#{id}"
-        req[:model] = ModernTreasury::Models::ConnectionLegalEntity
+        req = {
+          method: :get,
+          path: "/api/connection_legal_entities/#{id}",
+          model: ModernTreasury::Models::ConnectionLegalEntity
+        }
         @client.request(req, opts)
       end
 
@@ -51,11 +54,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/connection_legal_entities/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ConnectionLegalEntity
+        req = {
+          method: :patch,
+          path: "/api/connection_legal_entities/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ConnectionLegalEntity
+        }
         @client.request(req, opts)
       end
 
@@ -72,12 +77,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ConnectionLegalEntity>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/connection_legal_entities"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::ConnectionLegalEntity
+        req = {
+          method: :get,
+          path: "/api/connection_legal_entities",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::ConnectionLegalEntity
+        }
         @client.request(req, opts)
       end
     end
