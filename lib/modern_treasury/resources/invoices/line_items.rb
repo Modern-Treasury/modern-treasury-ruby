@@ -32,11 +32,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def create(invoice_id, params = {}, opts = {})
-          req = {}
-          req[:method] = :post
-          req[:path] = "/api/invoices/#{invoice_id}/invoice_line_items"
-          req[:body] = params
-          req[:model] = ModernTreasury::Models::InvoiceLineItem
+          req = {
+            method: :post,
+            path: "/api/invoices/#{invoice_id}/invoice_line_items",
+            body: params,
+            headers: {"Content-Type" => "application/json"},
+            model: ModernTreasury::Models::InvoiceLineItem
+          }
           @client.request(req, opts)
         end
 
@@ -48,10 +50,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def retrieve(invoice_id, id, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/invoices/#{invoice_id}/invoice_line_items/#{id}"
-          req[:model] = ModernTreasury::Models::InvoiceLineItem
+          req = {
+            method: :get,
+            path: "/api/invoices/#{invoice_id}/invoice_line_items/#{id}",
+            model: ModernTreasury::Models::InvoiceLineItem
+          }
           @client.request(req, opts)
         end
 
@@ -81,11 +84,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def update(invoice_id, id, params = {}, opts = {})
-          req = {}
-          req[:method] = :patch
-          req[:path] = "/api/invoices/#{invoice_id}/invoice_line_items/#{id}"
-          req[:body] = params
-          req[:model] = ModernTreasury::Models::InvoiceLineItem
+          req = {
+            method: :patch,
+            path: "/api/invoices/#{invoice_id}/invoice_line_items/#{id}",
+            body: params,
+            headers: {"Content-Type" => "application/json"},
+            model: ModernTreasury::Models::InvoiceLineItem
+          }
           @client.request(req, opts)
         end
 
@@ -101,12 +106,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InvoiceLineItem>]
         def list(invoice_id, params = {}, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/invoices/#{invoice_id}/invoice_line_items"
-          req[:query] = params
-          req[:page] = ModernTreasury::Page
-          req[:model] = ModernTreasury::Models::InvoiceLineItem
+          req = {
+            method: :get,
+            path: "/api/invoices/#{invoice_id}/invoice_line_items",
+            query: params,
+            page: ModernTreasury::Page,
+            model: ModernTreasury::Models::InvoiceLineItem
+          }
           @client.request(req, opts)
         end
 
@@ -118,10 +124,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def delete(invoice_id, id, opts = {})
-          req = {}
-          req[:method] = :delete
-          req[:path] = "/api/invoices/#{invoice_id}/invoice_line_items/#{id}"
-          req[:model] = ModernTreasury::Models::InvoiceLineItem
+          req = {
+            method: :delete,
+            path: "/api/invoices/#{invoice_id}/invoice_line_items/#{id}",
+            model: ModernTreasury::Models::InvoiceLineItem
+          }
           @client.request(req, opts)
         end
       end

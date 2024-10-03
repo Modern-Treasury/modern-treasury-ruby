@@ -20,11 +20,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledgerable_events"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerableEvent
+        req = {
+          method: :post,
+          path: "/api/ledgerable_events",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerableEvent
+        }
         @client.request(req, opts)
       end
 
@@ -35,10 +37,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledgerable_events/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerableEvent
+        req = {
+          method: :get,
+          path: "/api/ledgerable_events/#{id}",
+          model: ModernTreasury::Models::LedgerableEvent
+        }
         @client.request(req, opts)
       end
     end

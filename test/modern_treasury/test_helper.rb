@@ -9,6 +9,7 @@
 require "modern_treasury"
 
 require "test/unit"
+require "stringio"
 
 module ModernTreasury
   module Test

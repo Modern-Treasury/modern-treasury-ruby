@@ -32,11 +32,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LegalEntity]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/legal_entities"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LegalEntity
+        req = {
+          method: :post,
+          path: "/api/legal_entities",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LegalEntity
+        }
         @client.request(req, opts)
       end
 
@@ -47,10 +49,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LegalEntity]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/legal_entities/#{id}"
-        req[:model] = ModernTreasury::Models::LegalEntity
+        req = {
+          method: :get,
+          path: "/api/legal_entities/#{id}",
+          model: ModernTreasury::Models::LegalEntity
+        }
         @client.request(req, opts)
       end
 
@@ -77,11 +80,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LegalEntity]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/legal_entities/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LegalEntity
+        req = {
+          method: :patch,
+          path: "/api/legal_entities/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LegalEntity
+        }
         @client.request(req, opts)
       end
 
@@ -100,12 +105,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/legal_entities"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::LegalEntity
+        req = {
+          method: :get,
+          path: "/api/legal_entities",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LegalEntity
+        }
         @client.request(req, opts)
       end
     end

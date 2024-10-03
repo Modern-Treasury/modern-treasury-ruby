@@ -29,11 +29,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Counterparty]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/counterparties"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::Counterparty
+        req = {
+          method: :post,
+          path: "/api/counterparties",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::Counterparty
+        }
         @client.request(req, opts)
       end
 
@@ -44,10 +46,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Counterparty]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/counterparties/#{id}"
-        req[:model] = ModernTreasury::Models::Counterparty
+        req = {
+          method: :get,
+          path: "/api/counterparties/#{id}",
+          model: ModernTreasury::Models::Counterparty
+        }
         @client.request(req, opts)
       end
 
@@ -69,11 +72,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Counterparty]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/counterparties/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::Counterparty
+        req = {
+          method: :patch,
+          path: "/api/counterparties/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::Counterparty
+        }
         @client.request(req, opts)
       end
 
@@ -97,12 +102,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/counterparties"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::Counterparty
+        req = {
+          method: :get,
+          path: "/api/counterparties",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::Counterparty
+        }
         @client.request(req, opts)
       end
 
@@ -113,10 +119,11 @@ module ModernTreasury
       #
       # @return [nil]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/counterparties/#{id}"
-        req[:model] = NilClass
+        req = {
+          method: :delete,
+          path: "/api/counterparties/#{id}",
+          model: NilClass
+        }
         @client.request(req, opts)
       end
 
@@ -145,11 +152,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
       def collect_account(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/counterparties/#{id}/collect_account"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::CounterpartyCollectAccountResponse
+        req = {
+          method: :post,
+          path: "/api/counterparties/#{id}/collect_account",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::CounterpartyCollectAccountResponse
+        }
         @client.request(req, opts)
       end
     end

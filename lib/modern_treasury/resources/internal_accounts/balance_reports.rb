@@ -23,11 +23,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::BalanceReport]
         def create(internal_account_id, params = {}, opts = {})
-          req = {}
-          req[:method] = :post
-          req[:path] = "/api/internal_accounts/#{internal_account_id}/balance_reports"
-          req[:body] = params
-          req[:model] = ModernTreasury::Models::BalanceReport
+          req = {
+            method: :post,
+            path: "/api/internal_accounts/#{internal_account_id}/balance_reports",
+            body: params,
+            headers: {"Content-Type" => "application/json"},
+            model: ModernTreasury::Models::BalanceReport
+          }
           @client.request(req, opts)
         end
 
@@ -40,10 +42,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::BalanceReport]
         def retrieve(internal_account_id, id, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/internal_accounts/#{internal_account_id}/balance_reports/#{id}"
-          req[:model] = ModernTreasury::Models::BalanceReport
+          req = {
+            method: :get,
+            path: "/api/internal_accounts/#{internal_account_id}/balance_reports/#{id}",
+            model: ModernTreasury::Models::BalanceReport
+          }
           @client.request(req, opts)
         end
 
@@ -62,12 +65,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::BalanceReport>]
         def list(internal_account_id, params = {}, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/internal_accounts/#{internal_account_id}/balance_reports"
-          req[:query] = params
-          req[:page] = ModernTreasury::Page
-          req[:model] = ModernTreasury::Models::BalanceReport
+          req = {
+            method: :get,
+            path: "/api/internal_accounts/#{internal_account_id}/balance_reports",
+            query: params,
+            page: ModernTreasury::Page,
+            model: ModernTreasury::Models::BalanceReport
+          }
           @client.request(req, opts)
         end
 
@@ -80,10 +84,11 @@ module ModernTreasury
         #
         # @return [nil]
         def delete(internal_account_id, id, opts = {})
-          req = {}
-          req[:method] = :delete
-          req[:path] = "/api/internal_accounts/#{internal_account_id}/balance_reports/#{id}"
-          req[:model] = NilClass
+          req = {
+            method: :delete,
+            path: "/api/internal_accounts/#{internal_account_id}/balance_reports/#{id}",
+            model: NilClass
+          }
           @client.request(req, opts)
         end
       end

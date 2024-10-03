@@ -32,11 +32,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledger_account_settlements"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerAccountSettlement
+        req = {
+          method: :post,
+          path: "/api/ledger_account_settlements",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerAccountSettlement
+        }
         @client.request(req, opts)
       end
 
@@ -47,10 +49,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_account_settlements/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerAccountSettlement
+        req = {
+          method: :get,
+          path: "/api/ledger_account_settlements/#{id}",
+          model: ModernTreasury::Models::LedgerAccountSettlement
+        }
         @client.request(req, opts)
       end
 
@@ -69,11 +72,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/ledger_account_settlements/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerAccountSettlement
+        req = {
+          method: :patch,
+          path: "/api/ledger_account_settlements/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerAccountSettlement
+        }
         @client.request(req, opts)
       end
 
@@ -102,12 +107,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountSettlement>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_account_settlements"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::LedgerAccountSettlement
+        req = {
+          method: :get,
+          path: "/api/ledger_account_settlements",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LedgerAccountSettlement
+        }
         @client.request(req, opts)
       end
     end

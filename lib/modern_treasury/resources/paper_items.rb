@@ -14,10 +14,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::PaperItem]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/paper_items/#{id}"
-        req[:model] = ModernTreasury::Models::PaperItem
+        req = {
+          method: :get,
+          path: "/api/paper_items/#{id}",
+          model: ModernTreasury::Models::PaperItem
+        }
         @client.request(req, opts)
       end
 
@@ -35,12 +36,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaperItem>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/paper_items"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::PaperItem
+        req = {
+          method: :get,
+          path: "/api/paper_items",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::PaperItem
+        }
         @client.request(req, opts)
       end
     end

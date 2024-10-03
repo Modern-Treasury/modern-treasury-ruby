@@ -21,11 +21,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::RoutingNumberLookupRequest]
       def validate_routing_number(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/validations/routing_numbers"
-        req[:query] = params
-        req[:model] = ModernTreasury::Models::RoutingNumberLookupRequest
+        req = {
+          method: :get,
+          path: "/api/validations/routing_numbers",
+          query: params,
+          model: ModernTreasury::Models::RoutingNumberLookupRequest
+        }
         @client.request(req, opts)
       end
     end
