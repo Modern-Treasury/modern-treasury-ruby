@@ -13,12 +13,12 @@ module ModernTreasury
       required :connection_id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] legal_entity_id
       #   The ID of the legal entity.
@@ -40,8 +40,8 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntity::Status }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # @!attribute [rw] vendor_id
       #   The ID of the legal entity at the vendor.

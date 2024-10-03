@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "date"
+require "time"
 
 module ModernTreasury
   # @!visibility private
@@ -22,8 +23,8 @@ module ModernTreasury
         type.convert(value)
       elsif type == Date
         Date.parse(value)
-      elsif type == DateTime
-        DateTime.parse(value)
+      elsif type == Time
+        Time.parse(value)
       elsif type == NilClass
         nil
       elsif type == Float

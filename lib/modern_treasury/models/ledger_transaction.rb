@@ -8,8 +8,8 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] description
       #   An optional description for internal use.
@@ -18,8 +18,8 @@ module ModernTreasury
 
       # @!attribute [rw] effective_at
       #   The timestamp (ISO8601 format) at which the ledger transaction happened for reporting purposes.
-      #   @return [DateTime]
-      required :effective_at, DateTime
+      #   @return [Time]
+      required :effective_at, Time
 
       # @!attribute [rw] effective_date
       #   The date (YYYY-MM-DD) on which the ledger transaction happened for reporting purposes.
@@ -67,8 +67,8 @@ module ModernTreasury
 
       # @!attribute [rw] posted_at
       #   The time on which the ledger transaction posted. This is null if the ledger transaction is pending.
-      #   @return [DateTime]
-      required :posted_at, DateTime
+      #   @return [Time]
+      required :posted_at, Time
 
       # @!attribute [rw] reversed_by_ledger_transaction_id
       #   The ID of the ledger transaction that reversed this ledger transaction.
@@ -86,8 +86,8 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::LedgerTransaction::Status }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
       class LedgerableType < ModernTreasury::Enum

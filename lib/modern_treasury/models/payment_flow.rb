@@ -23,8 +23,8 @@ module ModernTreasury
       optional :counterparty_id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      optional :created_at, DateTime
+      #   @return [Time]
+      optional :created_at, Time
 
       # @!attribute [rw] currency
       #   The currency of the payment.
@@ -93,8 +93,8 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::PaymentFlow::Status }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      optional :updated_at, DateTime
+      #   @return [Time]
+      optional :updated_at, Time
 
       # Describes the direction money is flowing in the transaction. Can only be `debit`. A `debit` pulls money from someone else's account to your own.
       class Direction < ModernTreasury::Enum

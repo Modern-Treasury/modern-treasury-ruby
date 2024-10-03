@@ -28,8 +28,8 @@ module ModernTreasury
       required :check_number, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] currency
       #   The currency of the paper item.
@@ -86,8 +86,8 @@ module ModernTreasury
       required :transaction_line_item_id, String
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # The current status of the paper item. One of `pending`, `completed`, or `returned`.
       class Status < ModernTreasury::Enum

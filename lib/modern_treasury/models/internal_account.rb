@@ -28,8 +28,8 @@ module ModernTreasury
       required :counterparty_id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] currency
       #   The currency of the account.
@@ -91,8 +91,8 @@ module ModernTreasury
       required :routing_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::RoutingDetail })
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # Can be checking, savings or other.
       class AccountType < ModernTreasury::Enum
@@ -117,8 +117,8 @@ module ModernTreasury
         required :country, String
 
         # @!attribute [rw] created_at
-        #   @return [DateTime]
-        required :created_at, DateTime
+        #   @return [Time]
+        required :created_at, Time
 
         # @!attribute [rw] line1
         #   @return [String]
@@ -153,8 +153,8 @@ module ModernTreasury
         required :region, String
 
         # @!attribute [rw] updated_at
-        #   @return [DateTime]
-        required :updated_at, DateTime
+        #   @return [Time]
+        required :updated_at, Time
       end
 
       # Either individual or business.
