@@ -37,11 +37,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Transaction]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/transactions"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::Transaction
+        req = {
+          method: :post,
+          path: "/api/transactions",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::Transaction
+        }
         @client.request(req, opts)
       end
 
@@ -52,10 +54,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Transaction]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/transactions/#{id}"
-        req[:model] = ModernTreasury::Models::Transaction
+        req = {
+          method: :get,
+          path: "/api/transactions/#{id}",
+          model: ModernTreasury::Models::Transaction
+        }
         @client.request(req, opts)
       end
 
@@ -71,11 +74,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Transaction]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/transactions/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::Transaction
+        req = {
+          method: :patch,
+          path: "/api/transactions/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::Transaction
+        }
         @client.request(req, opts)
       end
 
@@ -107,12 +112,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Transaction>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/transactions"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::Transaction
+        req = {
+          method: :get,
+          path: "/api/transactions",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::Transaction
+        }
         @client.request(req, opts)
       end
 
@@ -123,10 +129,11 @@ module ModernTreasury
       #
       # @return [nil]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/transactions/#{id}"
-        req[:model] = NilClass
+        req = {
+          method: :delete,
+          path: "/api/transactions/#{id}",
+          model: NilClass
+        }
         @client.request(req, opts)
       end
     end

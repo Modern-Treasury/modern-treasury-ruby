@@ -22,11 +22,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LegalEntityAssociation]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/legal_entity_associations"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LegalEntityAssociation
+        req = {
+          method: :post,
+          path: "/api/legal_entity_associations",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LegalEntityAssociation
+        }
         @client.request(req, opts)
       end
     end

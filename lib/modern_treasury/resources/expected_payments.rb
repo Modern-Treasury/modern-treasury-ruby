@@ -50,11 +50,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/expected_payments"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ExpectedPayment
+        req = {
+          method: :post,
+          path: "/api/expected_payments",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ExpectedPayment
+        }
         @client.request(req, opts)
       end
 
@@ -65,10 +67,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/expected_payments/#{id}"
-        req[:model] = ModernTreasury::Models::ExpectedPayment
+        req = {
+          method: :get,
+          path: "/api/expected_payments/#{id}",
+          model: ModernTreasury::Models::ExpectedPayment
+        }
         @client.request(req, opts)
       end
 
@@ -110,11 +113,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/expected_payments/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ExpectedPayment
+        req = {
+          method: :patch,
+          path: "/api/expected_payments/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ExpectedPayment
+        }
         @client.request(req, opts)
       end
 
@@ -139,12 +144,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/expected_payments"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::ExpectedPayment
+        req = {
+          method: :get,
+          path: "/api/expected_payments",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::ExpectedPayment
+        }
         @client.request(req, opts)
       end
 
@@ -155,10 +161,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/expected_payments/#{id}"
-        req[:model] = ModernTreasury::Models::ExpectedPayment
+        req = {
+          method: :delete,
+          path: "/api/expected_payments/#{id}",
+          model: ModernTreasury::Models::ExpectedPayment
+        }
         @client.request(req, opts)
       end
     end

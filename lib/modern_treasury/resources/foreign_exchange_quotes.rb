@@ -23,11 +23,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/foreign_exchange_quotes"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::ForeignExchangeQuote
+        req = {
+          method: :post,
+          path: "/api/foreign_exchange_quotes",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::ForeignExchangeQuote
+        }
         @client.request(req, opts)
       end
 
@@ -38,10 +40,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/foreign_exchange_quotes/#{id}"
-        req[:model] = ModernTreasury::Models::ForeignExchangeQuote
+        req = {
+          method: :get,
+          path: "/api/foreign_exchange_quotes/#{id}",
+          model: ModernTreasury::Models::ForeignExchangeQuote
+        }
         @client.request(req, opts)
       end
 
@@ -64,12 +67,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/foreign_exchange_quotes"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::ForeignExchangeQuote
+        req = {
+          method: :get,
+          path: "/api/foreign_exchange_quotes",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::ForeignExchangeQuote
+        }
         @client.request(req, opts)
       end
     end

@@ -26,11 +26,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::Reversal]
         def create(payment_order_id, params = {}, opts = {})
-          req = {}
-          req[:method] = :post
-          req[:path] = "/api/payment_orders/#{payment_order_id}/reversals"
-          req[:body] = params
-          req[:model] = ModernTreasury::Models::Reversal
+          req = {
+            method: :post,
+            path: "/api/payment_orders/#{payment_order_id}/reversals",
+            body: params,
+            headers: {"Content-Type" => "application/json"},
+            model: ModernTreasury::Models::Reversal
+          }
           @client.request(req, opts)
         end
 
@@ -42,10 +44,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::Reversal]
         def retrieve(payment_order_id, reversal_id, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/payment_orders/#{payment_order_id}/reversals/#{reversal_id}"
-          req[:model] = ModernTreasury::Models::Reversal
+          req = {
+            method: :get,
+            path: "/api/payment_orders/#{payment_order_id}/reversals/#{reversal_id}",
+            model: ModernTreasury::Models::Reversal
+          }
           @client.request(req, opts)
         end
 
@@ -61,12 +64,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Reversal>]
         def list(payment_order_id, params = {}, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/payment_orders/#{payment_order_id}/reversals"
-          req[:query] = params
-          req[:page] = ModernTreasury::Page
-          req[:model] = ModernTreasury::Models::Reversal
+          req = {
+            method: :get,
+            path: "/api/payment_orders/#{payment_order_id}/reversals",
+            query: params,
+            page: ModernTreasury::Page,
+            model: ModernTreasury::Models::Reversal
+          }
           @client.request(req, opts)
         end
       end

@@ -16,10 +16,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LineItem]
       def retrieve(itemizable_type, itemizable_id, id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}"
-        req[:model] = ModernTreasury::Models::LineItem
+        req = {
+          method: :get,
+          path: "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}",
+          model: ModernTreasury::Models::LineItem
+        }
         @client.request(req, opts)
       end
 
@@ -39,11 +40,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LineItem]
       def update(itemizable_type, itemizable_id, id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LineItem
+        req = {
+          method: :patch,
+          path: "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LineItem
+        }
         @client.request(req, opts)
       end
 
@@ -61,12 +64,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LineItem>]
       def list(itemizable_type, itemizable_id, params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/#{itemizable_type}/#{itemizable_id}/line_items"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::LineItem
+        req = {
+          method: :get,
+          path: "/api/#{itemizable_type}/#{itemizable_id}/line_items",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LineItem
+        }
         @client.request(req, opts)
       end
     end

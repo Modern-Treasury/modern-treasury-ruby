@@ -18,7 +18,6 @@ module ModernTreasury
         "X-Stainless-Package-Version" => ModernTreasury::VERSION,
         "X-Stainless-Runtime" => RUBY_ENGINE,
         "X-Stainless-Runtime-Version" => RUBY_ENGINE_VERSION,
-        "Content-Type" => "application/json",
         "Accept" => "application/json"
       }
       @headers = base_headers.merge(headers || {})
@@ -292,7 +291,7 @@ module ModernTreasury
     # validate opts as it was given to us by the user.
     def request(req, opts)
       validate_request(req, opts)
-      options = req.merge(opts)
+      options = Util.deep_merge(req, opts)
       request_args = prep_request(options)
       response = send_request(request_args, max_retries: opts[:max_retries], redirect_count: 0)
       raw_data =

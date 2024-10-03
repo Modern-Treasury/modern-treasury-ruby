@@ -19,11 +19,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Document]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/documents"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::Document
+        req = {
+          method: :post,
+          path: "/api/documents",
+          body: params,
+          headers: {"Content-Type" => "multipart/form-data"},
+          model: ModernTreasury::Models::Document
+        }
         @client.request(req, opts)
       end
 
@@ -34,10 +36,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Document]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/documents/#{id}"
-        req[:model] = ModernTreasury::Models::Document
+        req = {
+          method: :get,
+          path: "/api/documents/#{id}",
+          model: ModernTreasury::Models::Document
+        }
         @client.request(req, opts)
       end
 
@@ -55,12 +58,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Document>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/documents"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::Document
+        req = {
+          method: :get,
+          path: "/api/documents",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::Document
+        }
         @client.request(req, opts)
       end
     end
