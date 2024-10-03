@@ -28,8 +28,8 @@ module ModernTreasury
       required :balances, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::BalanceReport::Balance })
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] internal_account_id
       #   The ID of one of your organization's Internal Accounts.
@@ -46,8 +46,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
       class BalanceReportType < ModernTreasury::Enum
@@ -73,8 +73,8 @@ module ModernTreasury
         required :balance_type, enum: -> { ModernTreasury::Models::BalanceReport::Balance::BalanceType }
 
         # @!attribute [rw] created_at
-        #   @return [DateTime]
-        required :created_at, DateTime
+        #   @return [Time]
+        required :created_at, Time
 
         # @!attribute [rw] currency
         #   The currency of the balance.
@@ -91,8 +91,8 @@ module ModernTreasury
         required :object, String
 
         # @!attribute [rw] updated_at
-        #   @return [DateTime]
-        required :updated_at, DateTime
+        #   @return [Time]
+        required :updated_at, Time
 
         # @!attribute [rw] vendor_code
         #   The code used by the bank when reporting this specific balance.

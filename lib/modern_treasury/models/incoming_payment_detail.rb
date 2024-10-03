@@ -18,8 +18,8 @@ module ModernTreasury
       required :as_of_date, Date
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] currency
       #   The currency of the incoming payment detail.
@@ -103,8 +103,8 @@ module ModernTreasury
       required :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Type }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # @!attribute [rw] vendor_id
       #   The identifier of the vendor bank.

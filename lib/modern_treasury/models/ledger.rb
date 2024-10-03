@@ -8,8 +8,8 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] description
       #   An optional free-form description for internal use.
@@ -17,8 +17,8 @@ module ModernTreasury
       required :description, String
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -40,8 +40,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
     end
   end
 end

@@ -13,8 +13,8 @@ module ModernTreasury
       required :amount, Integer
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] description
       #   An optional free-form description of the line item.
@@ -61,8 +61,8 @@ module ModernTreasury
       required :unit_amount_decimal, String
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
     end
   end
 end

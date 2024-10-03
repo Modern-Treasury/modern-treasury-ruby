@@ -13,8 +13,8 @@ module ModernTreasury
       required :amount, Integer
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] direction
       #   One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
@@ -22,8 +22,8 @@ module ModernTreasury
       required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] ledger_account_currency
       #   The currency of the ledger account.
@@ -76,8 +76,8 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::LedgerEntry::Status }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       class ResultingLedgerAccountBalances < BaseModel
         # @!attribute [rw] available_balance

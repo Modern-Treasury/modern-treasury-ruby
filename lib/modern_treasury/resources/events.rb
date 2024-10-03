@@ -28,8 +28,8 @@ module ModernTreasury
       # @option params [String, nil] :after_cursor
       # @option params [String, nil] :entity_id
       # @option params [String, nil] :event_name
-      # @option params [DateTime, nil] :event_time_end An inclusive upper bound for when the event occurred
-      # @option params [DateTime, nil] :event_time_start An inclusive lower bound for when the event occurred
+      # @option params [Time, nil] :event_time_end An inclusive upper bound for when the event occurred
+      # @option params [Time, nil] :event_time_start An inclusive lower bound for when the event occurred
       # @option params [Integer, nil] :per_page
       # @option params [String, nil] :resource
       #

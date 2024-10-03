@@ -12,8 +12,8 @@ module ModernTreasury
       required :conditions, -> { ModernTreasury::Models::LedgerEventHandler::Conditions }
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] description
       #   An optional description.
@@ -21,8 +21,8 @@ module ModernTreasury
       required :description, String
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] ledger_id
       #   The id of the ledger that this event handler belongs to.
@@ -54,8 +54,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # @!attribute [rw] variables
       #   @return [Hash]

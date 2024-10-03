@@ -86,8 +86,8 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String, nil] :after_cursor
-      # @option params [DateTime, nil] :created_at_lower_bound Used to return counterparties created after some datetime.
-      # @option params [DateTime, nil] :created_at_upper_bound Used to return counterparties created before some datetime.
+      # @option params [Time, nil] :created_at_lower_bound Used to return counterparties created after some datetime.
+      # @option params [Time, nil] :created_at_upper_bound Used to return counterparties created before some datetime.
       # @option params [String, nil] :email Performs a partial string match of the email field. This is also case
       #   insensitive.
       # @option params [String, nil] :legal_entity_id Filters for counterparties with the given legal entity ID.

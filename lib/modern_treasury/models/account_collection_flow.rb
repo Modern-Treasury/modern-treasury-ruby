@@ -27,8 +27,8 @@ module ModernTreasury
       optional :client_token, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      optional :created_at, DateTime
+      #   @return [Time]
+      optional :created_at, Time
 
       # @!attribute [rw] external_account_id
       #   If present, the ID of the external account created using this flow.
@@ -59,8 +59,8 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::AccountCollectionFlow::Status }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      optional :updated_at, DateTime
+      #   @return [Time]
+      optional :updated_at, Time
 
       # An account created with this flow will support payments of one of these types.
       class PaymentType < ModernTreasury::Enum

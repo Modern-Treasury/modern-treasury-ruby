@@ -13,8 +13,8 @@ module ModernTreasury
       required :balances, -> { ModernTreasury::Models::LedgerAccountCategory::Balances }
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] description
       #   The description of the ledger account category.
@@ -22,8 +22,8 @@ module ModernTreasury
       required :description, String
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] ledger_id
       #   The id of the ledger that this account category belongs to.
@@ -55,8 +55,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       class Balances < BaseModel
         # @!attribute [rw] available_balance
