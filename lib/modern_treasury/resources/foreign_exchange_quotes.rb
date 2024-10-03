@@ -15,7 +15,7 @@ module ModernTreasury
       # @option params [Integer, nil] :base_amount Amount in the lowest denomination of the `base_currency` to convert, often
       #   called the "sell" amount.
       # @option params [Symbol, ModernTreasury::Models::Currency, nil] :base_currency Currency to convert, often called the "sell" currency.
-      # @option params [DateTime, nil] :effective_at The timestamp until when the quoted rate is valid.
+      # @option params [Time, nil] :effective_at The timestamp until when the quoted rate is valid.
       # @option params [Integer, nil] :target_amount Amount in the lowest denomination of the `target_currency`, often called the
       #   "buy" amount.
       #
@@ -55,7 +55,7 @@ module ModernTreasury
       # @option params [String, nil] :base_currency Currency to convert, often called the "sell" currency.
       # @option params [Date, nil] :effective_at_end An inclusive upper bound for searching effective_at
       # @option params [Date, nil] :effective_at_start An inclusive lower bound for searching effective_at
-      # @option params [DateTime, nil] :expires_at The timestamp until which the quote must be booked by.
+      # @option params [Time, nil] :expires_at The timestamp until which the quote must be booked by.
       # @option params [String, nil] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
       # @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query

@@ -16,7 +16,7 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [Array<LedgerEntry>] :ledger_entries An array of ledger entry objects.
       # @option params [String, nil] :description An optional description for internal use.
-      # @option params [DateTime, nil] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
+      # @option params [Time, nil] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   reporting purposes.
       # @option params [Date, nil] :effective_date The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
       #   purposes.
@@ -67,7 +67,7 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String, nil] :description An optional description for internal use.
-      # @option params [DateTime, nil] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
+      # @option params [Time, nil] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   reporting purposes.
       # @option params [Array<LedgerEntry>, nil] :ledger_entries An array of ledger entry objects.
       # @option params [String, nil] :ledgerable_id If the ledger transaction can be reconciled to another object in Modern
@@ -150,7 +150,7 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [String, nil] :description An optional free-form description for the reversal ledger transaction. Maximum
       #   of 1000 characters allowed.
-      # @option params [DateTime, nil] :effective_at The timestamp (ISO8601 format) at which the reversal ledger transaction happened
+      # @option params [Time, nil] :effective_at The timestamp (ISO8601 format) at which the reversal ledger transaction happened
       #   for reporting purposes. It defaults to the `effective_at` of the original ledger
       #   transaction if not provided.
       # @option params [String, nil] :external_id Must be unique within the ledger.
