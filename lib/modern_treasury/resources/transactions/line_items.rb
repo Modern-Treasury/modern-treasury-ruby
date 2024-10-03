@@ -20,11 +20,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::TransactionLineItem]
         def create(params = {}, opts = {})
-          req = {}
-          req[:method] = :post
-          req[:path] = "/api/transaction_line_items"
-          req[:body] = params
-          req[:model] = ModernTreasury::Models::TransactionLineItem
+          req = {
+            method: :post,
+            path: "/api/transaction_line_items",
+            body: params,
+            headers: {"Content-Type" => "application/json"},
+            model: ModernTreasury::Models::TransactionLineItem
+          }
           @client.request(req, opts)
         end
 
@@ -35,10 +37,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::TransactionLineItem]
         def retrieve(id, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/transaction_line_items/#{id}"
-          req[:model] = ModernTreasury::Models::TransactionLineItem
+          req = {
+            method: :get,
+            path: "/api/transaction_line_items/#{id}",
+            model: ModernTreasury::Models::TransactionLineItem
+          }
           @client.request(req, opts)
         end
 
@@ -55,12 +58,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::TransactionLineItem>]
         def list(params = {}, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/transaction_line_items"
-          req[:query] = params
-          req[:page] = ModernTreasury::Page
-          req[:model] = ModernTreasury::Models::TransactionLineItem
+          req = {
+            method: :get,
+            path: "/api/transaction_line_items",
+            query: params,
+            page: ModernTreasury::Page,
+            model: ModernTreasury::Models::TransactionLineItem
+          }
           @client.request(req, opts)
         end
 
@@ -71,10 +75,11 @@ module ModernTreasury
         #
         # @return [nil]
         def delete(id, opts = {})
-          req = {}
-          req[:method] = :delete
-          req[:path] = "/api/transaction_line_items/#{id}"
-          req[:model] = NilClass
+          req = {
+            method: :delete,
+            path: "/api/transaction_line_items/#{id}",
+            model: NilClass
+          }
           @client.request(req, opts)
         end
       end

@@ -30,11 +30,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::InternalAccount]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/internal_accounts"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::InternalAccount
+        req = {
+          method: :post,
+          path: "/api/internal_accounts",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::InternalAccount
+        }
         @client.request(req, opts)
       end
 
@@ -45,10 +47,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::InternalAccount]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/internal_accounts/#{id}"
-        req[:model] = ModernTreasury::Models::InternalAccount
+        req = {
+          method: :get,
+          path: "/api/internal_accounts/#{id}",
+          model: ModernTreasury::Models::InternalAccount
+        }
         @client.request(req, opts)
       end
 
@@ -68,11 +71,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::InternalAccount]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/internal_accounts/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::InternalAccount
+        req = {
+          method: :patch,
+          path: "/api/internal_accounts/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::InternalAccount
+        }
         @client.request(req, opts)
       end
 
@@ -94,12 +99,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/internal_accounts"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::InternalAccount
+        req = {
+          method: :get,
+          path: "/api/internal_accounts",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::InternalAccount
+        }
         @client.request(req, opts)
       end
     end

@@ -14,10 +14,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Event]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/events/#{id}"
-        req[:model] = ModernTreasury::Models::Event
+        req = {
+          method: :get,
+          path: "/api/events/#{id}",
+          model: ModernTreasury::Models::Event
+        }
         @client.request(req, opts)
       end
 
@@ -36,12 +37,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Event>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/events"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::Event
+        req = {
+          method: :get,
+          path: "/api/events",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::Event
+        }
         @client.request(req, opts)
       end
     end

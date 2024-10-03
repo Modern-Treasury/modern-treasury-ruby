@@ -27,12 +27,13 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactionVersion>]
         def list(params = {}, opts = {})
-          req = {}
-          req[:method] = :get
-          req[:path] = "/api/ledger_transaction_versions"
-          req[:query] = params
-          req[:page] = ModernTreasury::Page
-          req[:model] = ModernTreasury::Models::LedgerTransactionVersion
+          req = {
+            method: :get,
+            path: "/api/ledger_transaction_versions",
+            query: params,
+            page: ModernTreasury::Page,
+            model: ModernTreasury::Models::LedgerTransactionVersion
+          }
           @client.request(req, opts)
         end
       end

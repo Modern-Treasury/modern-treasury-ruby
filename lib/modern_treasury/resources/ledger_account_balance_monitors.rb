@@ -20,11 +20,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledger_account_balance_monitors"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerAccountBalanceMonitor
+        req = {
+          method: :post,
+          path: "/api/ledger_account_balance_monitors",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerAccountBalanceMonitor
+        }
         @client.request(req, opts)
       end
 
@@ -35,10 +37,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_account_balance_monitors/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerAccountBalanceMonitor
+        req = {
+          method: :get,
+          path: "/api/ledger_account_balance_monitors/#{id}",
+          model: ModernTreasury::Models::LedgerAccountBalanceMonitor
+        }
         @client.request(req, opts)
       end
 
@@ -55,11 +58,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/ledger_account_balance_monitors/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerAccountBalanceMonitor
+        req = {
+          method: :patch,
+          path: "/api/ledger_account_balance_monitors/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerAccountBalanceMonitor
+        }
         @client.request(req, opts)
       end
 
@@ -79,12 +84,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_account_balance_monitors"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::LedgerAccountBalanceMonitor
+        req = {
+          method: :get,
+          path: "/api/ledger_account_balance_monitors",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LedgerAccountBalanceMonitor
+        }
         @client.request(req, opts)
       end
 
@@ -95,10 +101,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/ledger_account_balance_monitors/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerAccountBalanceMonitor
+        req = {
+          method: :delete,
+          path: "/api/ledger_account_balance_monitors/#{id}",
+          model: ModernTreasury::Models::LedgerAccountBalanceMonitor
+        }
         @client.request(req, opts)
       end
     end

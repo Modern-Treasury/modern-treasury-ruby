@@ -32,11 +32,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/virtual_accounts"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::VirtualAccount
+        req = {
+          method: :post,
+          path: "/api/virtual_accounts",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::VirtualAccount
+        }
         @client.request(req, opts)
       end
 
@@ -47,10 +49,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/virtual_accounts/#{id}"
-        req[:model] = ModernTreasury::Models::VirtualAccount
+        req = {
+          method: :get,
+          path: "/api/virtual_accounts/#{id}",
+          model: ModernTreasury::Models::VirtualAccount
+        }
         @client.request(req, opts)
       end
 
@@ -68,11 +71,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def update(id, params = {}, opts = {})
-        req = {}
-        req[:method] = :patch
-        req[:path] = "/api/virtual_accounts/#{id}"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::VirtualAccount
+        req = {
+          method: :patch,
+          path: "/api/virtual_accounts/#{id}",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::VirtualAccount
+        }
         @client.request(req, opts)
       end
 
@@ -91,12 +96,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::VirtualAccount>]
       def list(params = {}, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/virtual_accounts"
-        req[:query] = params
-        req[:page] = ModernTreasury::Page
-        req[:model] = ModernTreasury::Models::VirtualAccount
+        req = {
+          method: :get,
+          path: "/api/virtual_accounts",
+          query: params,
+          page: ModernTreasury::Page,
+          model: ModernTreasury::Models::VirtualAccount
+        }
         @client.request(req, opts)
       end
 
@@ -107,10 +113,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def delete(id, opts = {})
-        req = {}
-        req[:method] = :delete
-        req[:path] = "/api/virtual_accounts/#{id}"
-        req[:model] = ModernTreasury::Models::VirtualAccount
+        req = {
+          method: :delete,
+          path: "/api/virtual_accounts/#{id}",
+          model: ModernTreasury::Models::VirtualAccount
+        }
         @client.request(req, opts)
       end
     end

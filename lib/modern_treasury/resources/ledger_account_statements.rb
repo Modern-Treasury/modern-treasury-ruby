@@ -24,11 +24,13 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse]
       def create(params = {}, opts = {})
-        req = {}
-        req[:method] = :post
-        req[:path] = "/api/ledger_account_statements"
-        req[:body] = params
-        req[:model] = ModernTreasury::Models::LedgerAccountStatementCreateResponse
+        req = {
+          method: :post,
+          path: "/api/ledger_account_statements",
+          body: params,
+          headers: {"Content-Type" => "application/json"},
+          model: ModernTreasury::Models::LedgerAccountStatementCreateResponse
+        }
         @client.request(req, opts)
       end
 
@@ -39,10 +41,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse]
       def retrieve(id, opts = {})
-        req = {}
-        req[:method] = :get
-        req[:path] = "/api/ledger_account_statements/#{id}"
-        req[:model] = ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
+        req = {
+          method: :get,
+          path: "/api/ledger_account_statements/#{id}",
+          model: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
+        }
         @client.request(req, opts)
       end
     end
