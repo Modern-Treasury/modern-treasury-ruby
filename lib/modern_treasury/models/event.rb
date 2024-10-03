@@ -8,8 +8,8 @@ module ModernTreasury
       required :id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] data
       #   The body of the event.
@@ -28,8 +28,8 @@ module ModernTreasury
 
       # @!attribute [rw] event_time
       #   The time of the event.
-      #   @return [DateTime]
-      required :event_time, DateTime
+      #   @return [Time]
+      required :event_time, Time
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -46,8 +46,8 @@ module ModernTreasury
       required :resource, String
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
     end
   end
 end

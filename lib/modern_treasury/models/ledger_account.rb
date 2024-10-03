@@ -13,8 +13,8 @@ module ModernTreasury
       required :balances, -> { ModernTreasury::Models::LedgerAccount::Balances }
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] description
       #   The description of the ledger account.
@@ -22,8 +22,8 @@ module ModernTreasury
       required :description, String
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] ledger_id
       #   The id of the ledger that this account belongs to.
@@ -70,8 +70,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       class Balances < BaseModel
         # @!attribute [rw] available_balance
@@ -81,13 +81,13 @@ module ModernTreasury
 
         # @!attribute [rw] effective_at_lower_bound
         #   The inclusive lower bound of the effective_at timestamp for the returned balances.
-        #   @return [DateTime]
-        required :effective_at_lower_bound, DateTime
+        #   @return [Time]
+        required :effective_at_lower_bound, Time
 
         # @!attribute [rw] effective_at_upper_bound
         #   The exclusive upper bound of the effective_at timestamp for the returned balances.
-        #   @return [DateTime]
-        required :effective_at_upper_bound, DateTime
+        #   @return [Time]
+        required :effective_at_upper_bound, Time
 
         # @!attribute [rw] pending_balance
         #   The pending_balance is the sum of all pending and posted entries.

@@ -17,12 +17,12 @@ module ModernTreasury
       required :bank_name, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -49,8 +49,8 @@ module ModernTreasury
       required :routing_number_type, enum: -> { ModernTreasury::Models::RoutingDetail::RoutingNumberType }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       class BankAddress < BaseModel
         # @!attribute [rw] id
@@ -63,8 +63,8 @@ module ModernTreasury
         required :country, String
 
         # @!attribute [rw] created_at
-        #   @return [DateTime]
-        required :created_at, DateTime
+        #   @return [Time]
+        required :created_at, Time
 
         # @!attribute [rw] line1
         #   @return [String]
@@ -99,8 +99,8 @@ module ModernTreasury
         required :region, String
 
         # @!attribute [rw] updated_at
-        #   @return [DateTime]
-        required :updated_at, DateTime
+        #   @return [Time]
+        required :updated_at, Time
       end
 
       # If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.

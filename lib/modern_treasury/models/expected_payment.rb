@@ -23,8 +23,8 @@ module ModernTreasury
       required :counterparty_id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account.
@@ -127,8 +127,8 @@ module ModernTreasury
       required :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
       class ReconciliationMethod < ModernTreasury::Enum

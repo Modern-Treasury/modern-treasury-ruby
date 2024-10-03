@@ -18,8 +18,8 @@ module ModernTreasury
       required :counterparty_id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] description
       #   If no matching object is found, `description` will be a free-form text field describing the line item. This field may contain personally identifiable information (PII) and is not included in API responses by default. Learn more about changing your settings at https://docs.moderntreasury.com/reference/personally-identifiable-information.
@@ -27,8 +27,8 @@ module ModernTreasury
       required :description, String
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] expected_payment_id
       #   The ID of the reconciled Expected Payment, otherwise `null`.
@@ -70,8 +70,8 @@ module ModernTreasury
       required :type, enum: -> { ModernTreasury::Models::TransactionLineItem::Type }
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # If a matching object exists in Modern Treasury, the type will be populated here, otherwise `null`.
       class TransactableType < ModernTreasury::Enum

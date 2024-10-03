@@ -7,8 +7,8 @@ module ModernTreasury
 
     def initialize(
       base_url:,
-      headers: nil,
-      max_retries: nil,
+      headers: {},
+      max_retries: 0,
       idempotency_header: nil
     )
       self.requester = PooledNetRequester.new
@@ -20,12 +20,12 @@ module ModernTreasury
         "X-Stainless-Runtime-Version" => RUBY_ENGINE_VERSION,
         "Accept" => "application/json"
       }
-      @headers = base_headers.merge(headers || {})
+      @headers = base_headers.merge(headers)
       @host = base_url_parsed.host
       @scheme = base_url_parsed.scheme
       @port = base_url_parsed.port
       @base_path = self.class.normalize_path(base_url_parsed.path)
-      @max_retries = max_retries || 0
+      @max_retries = max_retries
       @idempotency_header = idempotency_header
     end
 
@@ -104,7 +104,7 @@ module ModernTreasury
       if !headers.key?("X-Stainless-Retry-Count")
         headers["X-Stainless-Retry-Count"] = "0"
       end
-      headers.reject! { |_k, v| v.nil? }
+      headers.compact!
       headers.transform_values!(&:to_s)
 
       body =

@@ -43,8 +43,8 @@ module ModernTreasury
                -> { ModernTreasury::Models::Invoice::CounterpartyShippingAddress }
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] currency
       #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
@@ -58,8 +58,8 @@ module ModernTreasury
 
       # @!attribute [rw] due_date
       #   A future date by when the invoice needs to be paid.
-      #   @return [DateTime]
-      required :due_date, DateTime
+      #   @return [Time]
+      required :due_date, Time
 
       # @!attribute [rw] expected_payments
       #   The expected payments created for an unpaid invoice.
@@ -181,8 +181,8 @@ module ModernTreasury
       required :transaction_line_item_ids, ModernTreasury::ArrayOf.new(String)
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # @!attribute [rw] virtual_account_id
       #   The ID of the virtual account the invoice should be paid to.
@@ -204,12 +204,12 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType }
 
         # @!attribute [rw] created_at
-        #   @return [DateTime]
-        required :created_at, DateTime
+        #   @return [Time]
+        required :created_at, Time
 
         # @!attribute [rw] discarded_at
-        #   @return [DateTime]
-        required :discarded_at, DateTime
+        #   @return [Time]
+        required :discarded_at, Time
 
         # @!attribute [rw] live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -221,8 +221,8 @@ module ModernTreasury
         required :object, String
 
         # @!attribute [rw] updated_at
-        #   @return [DateTime]
-        required :updated_at, DateTime
+        #   @return [Time]
+        required :updated_at, Time
 
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email

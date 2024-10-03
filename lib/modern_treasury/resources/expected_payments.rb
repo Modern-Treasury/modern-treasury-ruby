@@ -128,8 +128,8 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [String, nil] :after_cursor
       # @option params [String, nil] :counterparty_id Specify counterparty_id to see expected_payments for a specific account.
-      # @option params [DateTime, nil] :created_at_lower_bound Used to return expected payments created after some datetime
-      # @option params [DateTime, nil] :created_at_upper_bound Used to return expected payments created before some datetime
+      # @option params [Time, nil] :created_at_lower_bound Used to return expected payments created after some datetime
+      # @option params [Time, nil] :created_at_upper_bound Used to return expected payments created before some datetime
       # @option params [Symbol, ModernTreasury::Models::TransactionDirection, nil] :direction One of credit, debit
       # @option params [String, nil] :internal_account_id Specify internal_account_id to see expected_payments for a specific account.
       # @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value

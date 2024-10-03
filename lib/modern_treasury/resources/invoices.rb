@@ -15,7 +15,7 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :counterparty_id The ID of the counterparty receiving the invoice.
-      # @option params [DateTime] :due_date A future date by when the invoice needs to be paid.
+      # @option params [Time] :due_date A future date by when the invoice needs to be paid.
       # @option params [String] :originating_account_id The ID of the internal account the invoice should be paid to.
       # @option params [Boolean, nil] :auto_advance When true, the invoice will progress to unpaid automatically and cannot be
       #   edited after entering that state. If the invoice fails to progress to unpaid,
@@ -103,7 +103,7 @@ module ModernTreasury
       # @option params [CounterpartyShippingAddress, nil] :counterparty_shipping_address The counterparty's shipping address where physical goods should be delivered.
       # @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       # @option params [String, nil] :description A free-form description of the invoice.
-      # @option params [DateTime, nil] :due_date A future date by when the invoice needs to be paid.
+      # @option params [Time, nil] :due_date A future date by when the invoice needs to be paid.
       # @option params [String, nil] :fallback_payment_method When payment_method is automatic, the fallback payment method to use when an
       #   automatic payment fails. One of `manual` or `ui`.
       # @option params [Boolean, nil] :ingest_ledger_entries Whether to ingest the ledger_entries to populate the invoice line items. If this

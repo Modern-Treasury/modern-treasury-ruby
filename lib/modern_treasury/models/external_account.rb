@@ -26,12 +26,12 @@ module ModernTreasury
       required :counterparty_id, String
 
       # @!attribute [rw] created_at
-      #   @return [DateTime]
-      required :created_at, DateTime
+      #   @return [Time]
+      required :created_at, Time
 
       # @!attribute [rw] discarded_at
-      #   @return [DateTime]
-      required :discarded_at, DateTime
+      #   @return [Time]
+      required :discarded_at, Time
 
       # @!attribute [rw] ledger_account_id
       #   If the external account links to a ledger account in Modern Treasury, the id of the ledger account will be populated here.
@@ -77,8 +77,8 @@ module ModernTreasury
       required :routing_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::RoutingDetail })
 
       # @!attribute [rw] updated_at
-      #   @return [DateTime]
-      required :updated_at, DateTime
+      #   @return [Time]
+      required :updated_at, Time
 
       # @!attribute [rw] verification_source
       #   @return [Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource]
@@ -103,12 +103,12 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType }
 
         # @!attribute [rw] created_at
-        #   @return [DateTime]
-        required :created_at, DateTime
+        #   @return [Time]
+        required :created_at, Time
 
         # @!attribute [rw] discarded_at
-        #   @return [DateTime]
-        required :discarded_at, DateTime
+        #   @return [Time]
+        required :discarded_at, Time
 
         # @!attribute [rw] live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -120,8 +120,8 @@ module ModernTreasury
         required :object, String
 
         # @!attribute [rw] updated_at
-        #   @return [DateTime]
-        required :updated_at, DateTime
+        #   @return [Time]
+        required :updated_at, Time
 
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
@@ -141,8 +141,8 @@ module ModernTreasury
         required :country, String
 
         # @!attribute [rw] created_at
-        #   @return [DateTime]
-        required :created_at, DateTime
+        #   @return [Time]
+        required :created_at, Time
 
         # @!attribute [rw] line1
         #   @return [String]
@@ -177,8 +177,8 @@ module ModernTreasury
         required :region, String
 
         # @!attribute [rw] updated_at
-        #   @return [DateTime]
-        required :updated_at, DateTime
+        #   @return [Time]
+        required :updated_at, Time
       end
 
       # Either `individual` or `business`.
