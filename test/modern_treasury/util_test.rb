@@ -2,9 +2,9 @@
 
 require_relative "test_helper"
 
-class ModernTreasury::Test::UtilTest < Test::Unit::TestCase
+class ModernTreasury::Test::UtilTest < Minitest::Test
   def test_left_map
-    assert_equal(ModernTreasury::Util.deep_merge({a: 1}, nil), nil)
+    assert_nil(ModernTreasury::Util.deep_merge({a: 1}, nil))
   end
 
   def test_right_map
