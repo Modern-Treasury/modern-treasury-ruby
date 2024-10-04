@@ -2,7 +2,9 @@
 
 require_relative "../test_helper"
 
-class ModernTreasury::Test::Resources::BulkRequestsTest < Test::Unit::TestCase
+class ModernTreasury::Test::Resources::BulkRequestsTest < Minitest::Test
+  parallelize_me!
+
   def setup
     @modern_treasury = ModernTreasury::Client.new(
       base_url: "http://localhost:4010",
@@ -12,7 +14,7 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < Test::Unit::TestCase
   end
 
   def test_create_required_params
-    omit("Multipart documents aren't constructed properly yet")
+    skip("Multipart documents aren't constructed properly yet")
     response = @modern_treasury.bulk_requests.create(
       {
         action_type: "create",
