@@ -11,6 +11,37 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < Test::Unit::TestCase
     )
   end
 
+  def test_create_required_params
+    omit("Multipart documents aren't constructed properly yet")
+    response = @modern_treasury.bulk_requests.create(
+      {
+        action_type: "create",
+        resource_type: "payment_order",
+        resources: [
+          {
+            "amount" => 0,
+            "direction" => "credit",
+            "originating_account_id" => "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+            "type" => "ach"
+          },
+          {
+            "amount" => 0,
+            "direction" => "credit",
+            "originating_account_id" => "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+            "type" => "ach"
+          },
+          {
+            "amount" => 0,
+            "direction" => "credit",
+            "originating_account_id" => "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+            "type" => "ach"
+          }
+        ]
+      }
+    )
+    assert_kind_of(ModernTreasury::Models::BulkRequest, response)
+  end
+
   def test_retrieve
     response = @modern_treasury.bulk_requests.retrieve("id")
     assert_kind_of(ModernTreasury::Models::BulkRequest, response)
