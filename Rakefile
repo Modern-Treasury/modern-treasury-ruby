@@ -8,11 +8,20 @@ task(default: [:test, :format])
 Minitest::TestTask.create
 
 RuboCop::RakeTask.new(:rubocop) do |t|
-  t.options = ["-a", "--fail-level", "E"]
+  t.options = %w[--fail-level E --autocorrect]
+  if ENV.key?("CI")
+    t.options += %w[--format github]
+  end
 end
 
-task(format: [:rubocop])
+RuboCop::RakeTask.new(:format) do |t|
+  t.options = %w[--fail-level F --autocorrect --format offenses]
+end
 
-task(:build) { sh(*%w[gem build -- modern_treasury.gemspec]) }
+task(:build) do
+  sh(*%w[gem build -- modern_treasury.gemspec])
+end
 
-task(release: [:build]) { sh(*%w[gem push], *FileList["modern_treasury-*.gem"]) }
+task(release: [:build]) do
+  sh(*%w[gem push], *FileList["modern_treasury-*.gem"])
+end
