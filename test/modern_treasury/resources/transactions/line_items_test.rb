@@ -2,7 +2,7 @@
 
 require_relative "../../test_helper"
 
-class ModernTreasury::Test::Resources::LineItemsTest < Test::Unit::TestCase
+class ModernTreasury::Test::Resources::Transactions::LineItemsTest < Test::Unit::TestCase
   def setup
     @modern_treasury = ModernTreasury::Client.new(
       base_url: "http://localhost:4010",
