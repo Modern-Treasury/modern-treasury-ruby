@@ -11,6 +11,18 @@ class ModernTreasury::Test::Resources::DocumentsTest < Test::Unit::TestCase
     )
   end
 
+  def test_create_required_params
+    omit("multipart/form-data not yet supported")
+    response = @modern_treasury.documents.create(
+      {
+        documentable_id: "documentable_id",
+        documentable_type: "cases",
+        file: [StringIO.new("some file contents"), {filename: "file.txt"}]
+      }
+    )
+    assert_kind_of(ModernTreasury::Models::Document, response)
+  end
+
   def test_retrieve
     response = @modern_treasury.documents.retrieve("id")
     assert_kind_of(ModernTreasury::Models::Document, response)

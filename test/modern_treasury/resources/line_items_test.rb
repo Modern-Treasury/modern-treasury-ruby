@@ -20,4 +20,10 @@ class ModernTreasury::Test::Resources::LineItemsTest < Test::Unit::TestCase
     response = @modern_treasury.line_items.update("expected_payments", "itemizable_id", "id")
     assert_kind_of(ModernTreasury::Models::LineItem, response)
   end
+
+  def test_list
+    omit("Prism is broken in this case")
+    response = @modern_treasury.line_items.list("expected_payments", "itemizable_id")
+    assert_kind_of(ModernTreasury::Page, response)
+  end
 end
