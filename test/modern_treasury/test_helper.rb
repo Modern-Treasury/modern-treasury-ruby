@@ -9,5 +9,5 @@
 require "modern_treasury"
 require_relative "test_namespaces"
 
-require "test/unit"
+require "minitest"
 require "stringio"

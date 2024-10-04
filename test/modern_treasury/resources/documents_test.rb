@@ -2,7 +2,9 @@
 
 require_relative "../test_helper"
 
-class ModernTreasury::Test::Resources::DocumentsTest < Test::Unit::TestCase
+class ModernTreasury::Test::Resources::DocumentsTest < Minitest::Test
+  parallelize_me!
+
   def setup
     @modern_treasury = ModernTreasury::Client.new(
       base_url: "http://localhost:4010",
@@ -12,7 +14,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < Test::Unit::TestCase
   end
 
   def test_create_required_params
-    omit("multipart/form-data not yet supported")
+    skip("multipart/form-data not yet supported")
     response = @modern_treasury.documents.create(
       {
         documentable_id: "documentable_id",

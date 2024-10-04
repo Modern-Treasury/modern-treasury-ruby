@@ -2,7 +2,9 @@
 
 require_relative "../test_helper"
 
-class ModernTreasury::Test::Resources::LineItemsTest < Test::Unit::TestCase
+class ModernTreasury::Test::Resources::LineItemsTest < Minitest::Test
+  parallelize_me!
+
   def setup
     @modern_treasury = ModernTreasury::Client.new(
       base_url: "http://localhost:4010",
@@ -22,7 +24,7 @@ class ModernTreasury::Test::Resources::LineItemsTest < Test::Unit::TestCase
   end
 
   def test_list
-    omit("Prism is broken in this case")
+    skip("Prism is broken in this case")
     response = @modern_treasury.line_items.list("expected_payments", "itemizable_id")
     assert_kind_of(ModernTreasury::Page, response)
   end

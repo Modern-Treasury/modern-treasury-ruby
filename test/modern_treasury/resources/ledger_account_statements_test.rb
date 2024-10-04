@@ -2,7 +2,9 @@
 
 require_relative "../test_helper"
 
-class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < Test::Unit::TestCase
+class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < Minitest::Test
+  parallelize_me!
+
   def setup
     @modern_treasury = ModernTreasury::Client.new(
       base_url: "http://localhost:4010",
@@ -12,7 +14,7 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < Test::Unit:
   end
 
   def test_create_required_params
-    omit("Prism is broken in this case")
+    skip("Prism is broken in this case")
     response = @modern_treasury.ledger_account_statements.create(
       {
         effective_at_lower_bound: "2019-12-27T18:11:19.117Z",
