@@ -6,6 +6,7 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::LedgerTransactions::Versions]
       attr_reader :versions
 
+      # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client
         @versions = ModernTreasury::Resources::LedgerTransactions::Versions.new(client: client)

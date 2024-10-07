@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerTransactions
       class Versions
+        # @param client [ModernTreasury::Client]
         def initialize(client:)
           @client = client
         end
