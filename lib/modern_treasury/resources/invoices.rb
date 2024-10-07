@@ -6,6 +6,7 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::Invoices::LineItems]
       attr_reader :line_items
 
+      # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client
         @line_items = ModernTreasury::Resources::Invoices::LineItems.new(client: client)

@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Transactions
       class LineItems
+        # @param client [ModernTreasury::Client]
         def initialize(client:)
           @client = client
         end
