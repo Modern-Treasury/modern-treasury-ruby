@@ -6,6 +6,7 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::PaymentOrders::Reversals]
       attr_reader :reversals
 
+      # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client
         @reversals = ModernTreasury::Resources::PaymentOrders::Reversals.new(client: client)

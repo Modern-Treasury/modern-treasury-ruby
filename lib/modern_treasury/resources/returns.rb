@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Returns
+      # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client
       end

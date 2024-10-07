@@ -6,6 +6,7 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::InternalAccounts::BalanceReports]
       attr_reader :balance_reports
 
+      # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client
         @balance_reports = ModernTreasury::Resources::InternalAccounts::BalanceReports.new(client: client)
