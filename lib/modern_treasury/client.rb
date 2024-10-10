@@ -139,7 +139,13 @@ module ModernTreasury
     # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
     #
     # @return [ModernTreasury::Client]
-    def initialize(base_url: nil, api_key: nil, organization_id: nil, max_retries: DEFAULT_MAX_RETRIES)
+    def initialize(
+      base_url: nil,
+      api_key: nil,
+      organization_id: nil,
+      max_retries: DEFAULT_MAX_RETRIES,
+      timeout: 60
+    )
       base_url ||= "https://app.moderntreasury.com"
 
       idempotency_header = "Idempotency-Key"
@@ -153,7 +159,12 @@ module ModernTreasury
         raise ArgumentError, "organization_id is required"
       end
 
-      super(base_url: base_url, max_retries: max_retries, idempotency_header: idempotency_header)
+      super(
+        base_url: base_url,
+        max_retries: max_retries,
+        timeout: timeout,
+        idempotency_header: idempotency_header
+      )
 
       @connections = ModernTreasury::Resources::Connections.new(client: self)
       @counterparties = ModernTreasury::Resources::Counterparties.new(client: self)
