@@ -120,6 +120,46 @@ module ModernTreasury
         EXPIRED = :expired
         PENDING = :pending
       end
+
+      # Create a new instance of PaymentFlow from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, amount: nil, client_token: nil, counterparty_id: nil, created_at: nil, currency: nil, direction: nil, due_date: nil, effective_date_selection_enabled: nil, existing_external_accounts_filter: nil, external_account_collection: nil, live_mode: nil, object: nil, originating_account_id: nil, payment_order_id: nil, receiving_account_id: nil, selected_effective_date: nil, status: nil, updated_at: nil)
+      # @param id [String]
+      # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000. Can be any integer up to 36 digits.
+      # @param client_token [String] The client token of the payment flow. This token can be used to embed a payment
+      #   workflow in your client-side application.
+      # @param counterparty_id [String] The ID of a counterparty associated with the payment. As part of the payment
+      #   workflow an external account will be associated with this counterparty.
+      # @param created_at [String]
+      # @param currency [String] The currency of the payment.
+      # @param direction [String] Describes the direction money is flowing in the transaction. Can only be
+      #   `debit`. A `debit` pulls money from someone else's account to your own.
+      # @param due_date [String] The due date for the flow. Can only be passed in when
+      #   `effective_date_selection_enabled` is `true`.
+      # @param effective_date_selection_enabled [Hash] When `true`, your end-user can schedule the payment `effective_date` while
+      #   completing the pre-built UI.
+      # @param existing_external_accounts_filter [String] When `verified` and `external_account_collection` is `enabled`, filters the list
+      #   of external accounts your end-user can select to those with a
+      #   `verification_status` of `verified`.
+      # @param external_account_collection [String] When `enabled`, your end-user can select from an existing external account when
+      #   completing the flow. When `disabled`, your end-user must add new payment details
+      #   when completing the flow.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param object [String]
+      # @param originating_account_id [String] The ID of one of your organization's internal accounts.
+      # @param payment_order_id [String] If present, the ID of the payment order created using this flow.
+      # @param receiving_account_id [String] If present, the ID of the external account created using this flow.
+      # @param selected_effective_date [String] This field is set after your end-user selects a payment date while completing
+      #   the pre-built UI. This field is always `null` unless
+      #   `effective_date_selection_enabled` is `true`.
+      # @param status [String] The current status of the payment flow. One of `pending`, `completed`,
+      #   `expired`, or `cancelled`.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
+      end
     end
   end
 end

@@ -56,6 +56,24 @@ module ModernTreasury
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
       end
+
+      # Create a new instance of AccountDetail from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, account_number_safe: nil, account_number_type: nil, created_at: nil, discarded_at: nil, live_mode: nil, object: nil, updated_at: nil, account_number: nil)
+      # @param id [String]
+      # @param account_number_safe [String] The last 4 digits of the account_number.
+      # @param account_number_type [String] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   account number is in a generic format.
+      # @param created_at [String]
+      # @param discarded_at [String]
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param object [String]
+      # @param updated_at [String]
+      # @param account_number [String] The account number for the bank account.
+      def initialize(data = {})
+        super
+      end
     end
   end
 end

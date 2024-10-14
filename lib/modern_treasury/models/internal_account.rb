@@ -155,12 +155,60 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [Time]
         required :updated_at, Time
+
+        # Create a new instance of PartyAddress from a Hash of raw data.
+        #
+        # @overload initialize(id: nil, country: nil, created_at: nil, line1: nil, line2: nil, live_mode: nil, locality: nil, object: nil, postal_code: nil, region: nil, updated_at: nil)
+        # @param id [String]
+        # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        # @param created_at [String]
+        # @param line1 [String]
+        # @param line2 [String]
+        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
+        # @param locality [String] Locality or City.
+        # @param object [String]
+        # @param postal_code [String] The postal code of the address.
+        # @param region [String] Region or State.
+        # @param updated_at [String]
+        def initialize(data = {})
+          super
+        end
       end
 
       # Either individual or business.
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
+      end
+
+      # Create a new instance of InternalAccount from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, account_details: nil, account_type: nil, connection: nil, counterparty_id: nil, created_at: nil, currency: nil, ledger_account_id: nil, legal_entity_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, parent_account_id: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil)
+      # @param id [String]
+      # @param account_details [Array<Object>] An array of account detail objects.
+      # @param account_type [String] Can be checking, savings or other.
+      # @param connection [Object] Specifies which financial institution the accounts belong to.
+      # @param counterparty_id [String] The Counterparty associated to this account.
+      # @param created_at [String]
+      # @param currency [String] The currency of the account.
+      # @param ledger_account_id [String] If the internal account links to a ledger account in Modern Treasury, the id of
+      #   the ledger account will be populated here.
+      # @param legal_entity_id [String] The Legal Entity associated to this account
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @param name [String] A nickname for the account.
+      # @param object [String]
+      # @param parent_account_id [String] The parent InternalAccount of this account.
+      # @param party_address [Object] The address associated with the owner or null.
+      # @param party_name [String] The legal name of the entity which owns the account.
+      # @param party_type [String] Either individual or business.
+      # @param routing_details [Array<Object>] An array of routing detail objects.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
       end
     end
   end

@@ -97,6 +97,47 @@ module ModernTreasury
         #   The whole number component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
         #   @return [Integer]
         required :value, Integer
+
+        # Create a new instance of ForeignExchangeRate from a Hash of raw data.
+        #
+        # @overload initialize(base_amount: nil, base_currency: nil, exponent: nil, rate_string: nil, target_amount: nil, target_currency: nil, value: nil)
+        # @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often
+        #   called the "sell" amount.
+        # @param base_currency [String] Currency to convert, often called the "sell" currency.
+        # @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
+        #   `exponent`).
+        # @param rate_string [String] A string representation of the rate.
+        # @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the
+        #   "buy" amount.
+        # @param target_currency [String] Currency to convert the `base_currency` to, often called the "buy" currency.
+        # @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` /
+        #   (10 ^ `exponent`).
+        def initialize(data = {})
+          super
+        end
+      end
+
+      # Create a new instance of ForeignExchangeQuote from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, created_at: nil, effective_at: nil, expires_at: nil, foreign_exchange_indicator: nil, foreign_exchange_rate: nil, internal_account_id: nil, live_mode: nil, metadata: nil, object: nil, updated_at: nil, vendor_id: nil)
+      # @param id [String]
+      # @param created_at [String]
+      # @param effective_at [String] The timestamp until when the quoted rate is valid.
+      # @param expires_at [String] The timestamp until which the quote must be booked by.
+      # @param foreign_exchange_indicator [String] Either `fixed_to_variable` if the `base_amount` was specified, or
+      #   `variable_to_fixed` if the `target_amount` was specified when requesting the
+      #   quote.
+      # @param foreign_exchange_rate [Object] The serialized rate information represented by this quote.
+      # @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @param object [String]
+      # @param updated_at [String]
+      # @param vendor_id [String] This vendor assigned ID for this quote.
+      def initialize(data = {})
+        super
       end
     end
   end
