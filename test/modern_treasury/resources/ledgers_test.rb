@@ -7,7 +7,7 @@ class ModernTreasury::Test::Resources::LedgersTest < Minitest::Test
 
   def setup
     @modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
+      base_url: ENV.fetch("TEST_API_BASE_URL", "http://localhost:4010"),
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
