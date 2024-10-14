@@ -90,6 +90,22 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [Time]
         required :updated_at, Time
+
+        # Create a new instance of DocumentDetail from a Hash of raw data.
+        #
+        # @overload initialize(id: nil, created_at: nil, discarded_at: nil, document_identifier: nil, document_identifier_type: nil, live_mode: nil, object: nil, updated_at: nil)
+        # @param id [String]
+        # @param created_at [String]
+        # @param discarded_at [String]
+        # @param document_identifier [String]
+        # @param document_identifier_type [String]
+        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
+        # @param object [String]
+        # @param updated_at [String]
+        def initialize(data = {})
+          super
+        end
       end
 
       # The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
@@ -123,6 +139,38 @@ module ModernTreasury
         #   The size of the document in bytes.
         #   @return [Integer]
         optional :size, Integer
+
+        # Create a new instance of File from a Hash of raw data.
+        #
+        # @overload initialize(content_type: nil, filename: nil, size: nil)
+        # @param content_type [String] The MIME content type of the document.
+        # @param filename [String] The original filename of the document.
+        # @param size [Integer] The size of the document in bytes.
+        def initialize(data = {})
+          super
+        end
+      end
+
+      # Create a new instance of Document from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, created_at: nil, discarded_at: nil, document_details: nil, document_type: nil, documentable_id: nil, documentable_type: nil, file: nil, live_mode: nil, object: nil, source: nil, updated_at: nil)
+      # @param id [String]
+      # @param created_at [String]
+      # @param discarded_at [String]
+      # @param document_details [Array<Object>]
+      # @param document_type [String] A category given to the document, can be `null`.
+      # @param documentable_id [String] The unique identifier for the associated object.
+      # @param documentable_type [String] The type of the associated object. Currently can be one of `payment_order`,
+      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #   `case`, `internal_account`, `decision`, or `external_account`.
+      # @param file [Object]
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param object [String]
+      # @param source [String] The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
       end
     end
   end

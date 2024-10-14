@@ -95,6 +95,33 @@ module ModernTreasury
         PENDING = :pending
         RETURNED = :returned
       end
+
+      # Create a new instance of PaperItem from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, account_number: nil, account_number_safe: nil, amount: nil, check_number: nil, created_at: nil, currency: nil, deposit_date: nil, live_mode: nil, lockbox_number: nil, memo_field: nil, object: nil, remitter_name: nil, routing_number: nil, status: nil, transaction_id: nil, transaction_line_item_id: nil, updated_at: nil)
+      # @param id [String]
+      # @param account_number [String] The account number on the paper item.
+      # @param account_number_safe [String] The last 4 digits of the account_number.
+      # @param amount [Integer] The amount of the paper item.
+      # @param check_number [String] The check number on the paper item.
+      # @param created_at [String]
+      # @param currency [String] The currency of the paper item.
+      # @param deposit_date [String] The date the paper item was deposited into your organization's bank account.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param lockbox_number [String] The identifier for the lockbox assigned by the bank.
+      # @param memo_field [String] The memo field on the paper item.
+      # @param object [String]
+      # @param remitter_name [String] The name of the remitter on the paper item.
+      # @param routing_number [String] The routing number on the paper item.
+      # @param status [String] The current status of the paper item. One of `pending`, `completed`, or
+      #   `returned`.
+      # @param transaction_id [String] The ID of the reconciled Transaction or `null`.
+      # @param transaction_line_item_id [String] The ID of the reconciled Transaction Line Item or `null`.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
+      end
     end
   end
 end

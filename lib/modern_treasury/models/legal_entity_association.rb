@@ -247,6 +247,27 @@ module ModernTreasury
             PO_BOX = :po_box
             RESIDENTIAL = :residential
           end
+
+          # Create a new instance of Address from a Hash of raw data.
+          #
+          # @overload initialize(id: nil, address_types: nil, country: nil, created_at: nil, discarded_at: nil, line1: nil, line2: nil, live_mode: nil, locality: nil, object: nil, postal_code: nil, region: nil, updated_at: nil)
+          # @param id [String]
+          # @param address_types [Array<String>] The types of this address.
+          # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+          # @param created_at [String]
+          # @param discarded_at [String]
+          # @param line1 [String]
+          # @param line2 [String]
+          # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+          #   if it exists in the test environment.
+          # @param locality [String] Locality or City.
+          # @param object [String]
+          # @param postal_code [String] The postal code of the address.
+          # @param region [String] Region or State.
+          # @param updated_at [String]
+          def initialize(data = {})
+            super
+          end
         end
 
         class Identification < BaseModel
@@ -312,6 +333,23 @@ module ModernTreasury
             US_SSN = :us_ssn
             VN_TIN = :vn_tin
           end
+
+          # Create a new instance of Identification from a Hash of raw data.
+          #
+          # @overload initialize(id: nil, created_at: nil, discarded_at: nil, id_type: nil, issuing_country: nil, live_mode: nil, object: nil, updated_at: nil)
+          # @param id [String]
+          # @param created_at [String]
+          # @param discarded_at [String]
+          # @param id_type [String] The type of ID number.
+          # @param issuing_country [String] The ISO 3166-1 alpha-2 country code of the country that issued the
+          #   identification
+          # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+          #   if it exists in the test environment.
+          # @param object [String]
+          # @param updated_at [String]
+          def initialize(data = {})
+            super
+          end
         end
 
         # The type of legal entity.
@@ -335,6 +373,14 @@ module ModernTreasury
           # @!attribute [rw] phone_number
           #   @return [String]
           optional :phone_number, String
+
+          # Create a new instance of PhoneNumber from a Hash of raw data.
+          #
+          # @overload initialize(phone_number: nil)
+          # @param phone_number [String]
+          def initialize(data = {})
+            super
+          end
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
@@ -343,12 +389,62 @@ module ModernTreasury
           MEDIUM = :medium
           HIGH = :high
         end
+
+        # Create a new instance of ChildLegalEntity from a Hash of raw data.
+        #
+        # @overload initialize(id: nil, addresses: nil, business_name: nil, created_at: nil, date_formed: nil, date_of_birth: nil, discarded_at: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, last_name: nil, legal_entity_type: nil, legal_structure: nil, live_mode: nil, metadata: nil, object: nil, phone_numbers: nil, risk_rating: nil, updated_at: nil, website: nil)
+        # @param id [String]
+        # @param addresses [Array<Object>] A list of addresses for the entity.
+        # @param business_name [String] The business's legal business name.
+        # @param created_at [String]
+        # @param date_formed [String] A business's formation date (YYYY-MM-DD).
+        # @param date_of_birth [String] An individual's date of birth (YYYY-MM-DD).
+        # @param discarded_at [String]
+        # @param doing_business_as_names [Array<String>]
+        # @param email [String] The entity's primary email.
+        # @param first_name [String] An individual's first name.
+        # @param identifications [Array<Object>] A list of identifications for the legal entity.
+        # @param last_name [String] An individual's last name.
+        # @param legal_entity_type [String] The type of legal entity.
+        # @param legal_structure [String] The business's legal structure.
+        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
+        # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
+        # @param object [String]
+        # @param phone_numbers [Array<Object>]
+        # @param risk_rating [String] The risk rating of the legal entity. One of low, medium, high.
+        # @param updated_at [String]
+        # @param website [String] The entity's primary website URL.
+        def initialize(data = {})
+          super
+        end
       end
 
       # A list of relationship types for how the child entity relates to parent entity.
       class RelationshipType < ModernTreasury::Enum
         BENEFICIAL_OWNER = :beneficial_owner
         CONTROL_PERSON = :control_person
+      end
+
+      # Create a new instance of LegalEntityAssociation from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, child_legal_entity: nil, created_at: nil, discarded_at: nil, live_mode: nil, object: nil, ownership_percentage: nil, parent_legal_entity_id: nil, relationship_types: nil, title: nil, updated_at: nil)
+      # @param id [String]
+      # @param child_legal_entity [Object] The child legal entity.
+      # @param created_at [String]
+      # @param discarded_at [String]
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param object [String]
+      # @param ownership_percentage [Integer] The child entity's ownership percentage iff they are a beneficial owner.
+      # @param parent_legal_entity_id [String] The ID of the parent legal entity. This must be a business or joint legal
+      #   entity.
+      # @param relationship_types [Array<String>]
+      # @param title [String] The job title of the child entity at the parent entity.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
       end
     end
   end

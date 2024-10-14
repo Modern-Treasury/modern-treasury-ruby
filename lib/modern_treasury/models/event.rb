@@ -48,6 +48,24 @@ module ModernTreasury
       # @!attribute [rw] updated_at
       #   @return [Time]
       required :updated_at, Time
+
+      # Create a new instance of Event from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, created_at: nil, data: nil, entity_id: nil, event_name: nil, event_time: nil, live_mode: nil, object: nil, resource: nil, updated_at: nil)
+      # @param id [String]
+      # @param created_at [String]
+      # @param data [Hash] The body of the event.
+      # @param entity_id [String] The ID of the entity for the event.
+      # @param event_name [String] The name of the event.
+      # @param event_time [String] The time of the event.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param object [String]
+      # @param resource [String] The type of resource for the event.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
+      end
     end
   end
 end

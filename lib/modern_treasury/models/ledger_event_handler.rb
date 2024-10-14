@@ -76,6 +76,16 @@ module ModernTreasury
         #   The RHS of the conditional.
         #   @return [String]
         required :value, String
+
+        # Create a new instance of Conditions from a Hash of raw data.
+        #
+        # @overload initialize(field: nil, operator: nil, value: nil)
+        # @param field [String] The LHS of the conditional.
+        # @param operator [String] What the operator between the `field` and `value` is.
+        # @param value [String] The RHS of the conditional.
+        def initialize(data = {})
+          super
+        end
       end
 
       class LedgerTransactionTemplate < BaseModel
@@ -119,7 +129,51 @@ module ModernTreasury
           #   The RHS of the conditional.
           #   @return [String]
           required :ledger_account_id, String
+
+          # Create a new instance of LedgerEntry from a Hash of raw data.
+          #
+          # @overload initialize(amount: nil, direction: nil, ledger_account_id: nil)
+          # @param amount [String] The LHS of the conditional.
+          # @param direction [String] What the operator between the `field` and `value` is.
+          # @param ledger_account_id [String] The RHS of the conditional.
+          def initialize(data = {})
+            super
+          end
         end
+
+        # Create a new instance of LedgerTransactionTemplate from a Hash of raw data.
+        #
+        # @overload initialize(description: nil, effective_at: nil, ledger_entries: nil, status: nil)
+        # @param description [String] An optional description for internal use.
+        # @param effective_at [String] The timestamp (ISO8601 format) at which the ledger transaction happened for
+        #   reporting purposes.
+        # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+        # @param status [String] To post a ledger transaction at creation, use `posted`.
+        def initialize(data = {})
+          super
+        end
+      end
+
+      # Create a new instance of LedgerEventHandler from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, conditions: nil, created_at: nil, description: nil, discarded_at: nil, ledger_id: nil, ledger_transaction_template: nil, live_mode: nil, metadata: nil, name: nil, object: nil, updated_at: nil, variables: nil)
+      # @param id [String]
+      # @param conditions [Object]
+      # @param created_at [String]
+      # @param description [String] An optional description.
+      # @param discarded_at [String]
+      # @param ledger_id [String] The id of the ledger that this event handler belongs to.
+      # @param ledger_transaction_template [Object]
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @param name [String] Name of the ledger event handler.
+      # @param object [String]
+      # @param updated_at [String]
+      # @param variables [Hash]
+      def initialize(data = {})
+        super
       end
     end
   end
