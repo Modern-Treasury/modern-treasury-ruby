@@ -48,6 +48,25 @@ module ModernTreasury
       # @!attribute [rw] updated_at
       #   @return [Time]
       required :updated_at, Time
+
+      # Create a new instance of LedgerableEvent from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, created_at: nil, custom_data: nil, description: nil, ledger_event_handler_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, updated_at: nil)
+      # @param id [String]
+      # @param created_at [String]
+      # @param custom_data [Object] Additionally data to be used by the Ledger Event Handler.
+      # @param description [String] Description of the ledgerable event.
+      # @param ledger_event_handler_id [String] Id of the ledger event handler that is used to create a ledger transaction.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @param name [String] Name of the ledgerable event.
+      # @param object [String]
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
+      end
     end
   end
 end

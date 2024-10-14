@@ -97,6 +97,28 @@ module ModernTreasury
         EXPIRED = :expired
         PENDING = :pending
       end
+
+      # Create a new instance of AccountCollectionFlow from a Hash of raw data.
+      #
+      # @overload initialize(counterparty_id: nil, payment_types: nil, id: nil, client_token: nil, created_at: nil, external_account_id: nil, live_mode: nil, object: nil, receiving_countries: nil, status: nil, updated_at: nil)
+      # @param counterparty_id [String] The ID of a counterparty. An external account created with this flow will be
+      #   associated with this counterparty.
+      # @param payment_types [Array<String>]
+      # @param id [String]
+      # @param client_token [String] The client token of the account collection flow. This token can be used to embed
+      #   account collection in your client-side application.
+      # @param created_at [String]
+      # @param external_account_id [String] If present, the ID of the external account created using this flow.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param object [String]
+      # @param receiving_countries [Array<String>]
+      # @param status [String] The current status of the account collection flow. One of `pending`,
+      #   `completed`, `expired`, or `cancelled`.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
+      end
     end
   end
 end

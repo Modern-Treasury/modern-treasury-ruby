@@ -63,6 +63,35 @@ module ModernTreasury
       # @!attribute [rw] updated_at
       #   @return [Time]
       required :updated_at, Time
+
+      # Create a new instance of InvoiceLineItem from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, amount: nil, created_at: nil, description: nil, direction: nil, live_mode: nil, metadata: nil, name: nil, object: nil, quantity: nil, unit_amount: nil, unit_amount_decimal: nil, updated_at: nil)
+      # @param id [String]
+      # @param amount [Integer] The total amount for this line item specified in the invoice currency's smallest
+      #   unit.
+      # @param created_at [String]
+      # @param description [String] An optional free-form description of the line item.
+      # @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business
+      #   money and increases the invoice's `total_amount` due. `credit` has the opposite
+      #   intention and effect.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @param name [String] The name of the line item, typically a product or SKU name.
+      # @param object [String]
+      # @param quantity [Integer] The number of units of a product or service that this line item is for. Must be
+      #   a whole number. Defaults to 1 if not provided.
+      # @param unit_amount [Integer] The cost per unit of the product or service that this line item is for,
+      #   specified in the invoice currency's smallest unit.
+      # @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for,
+      #   specified in the invoice currency's smallest unit. Accepts decimal strings with
+      #   up to 12 decimals
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
+      end
     end
   end
 end

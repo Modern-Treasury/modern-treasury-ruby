@@ -105,6 +105,41 @@ module ModernTreasury
         PENDING = :pending
         POSTED = :posted
       end
+
+      # Create a new instance of LedgerTransaction from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, created_at: nil, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledger_entries: nil, ledger_id: nil, ledgerable_id: nil, ledgerable_type: nil, live_mode: nil, metadata: nil, object: nil, posted_at: nil, reversed_by_ledger_transaction_id: nil, reverses_ledger_transaction_id: nil, status: nil, updated_at: nil)
+      # @param id [String]
+      # @param created_at [String]
+      # @param description [String] An optional description for internal use.
+      # @param effective_at [String] The timestamp (ISO8601 format) at which the ledger transaction happened for
+      #   reporting purposes.
+      # @param effective_date [String] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+      #   purposes.
+      # @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
+      #   ledger transaction may have this ID in the ledger.
+      # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+      # @param ledger_id [String] The ID of the ledger this ledger transaction belongs to.
+      # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern
+      #   Treasury, the id will be populated here, otherwise null.
+      # @param ledgerable_type [String] If the ledger transaction can be reconciled to another object in Modern
+      #   Treasury, the type will be populated here, otherwise null. This can be one of
+      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      #   reversal.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @param object [String]
+      # @param posted_at [String] The time on which the ledger transaction posted. This is null if the ledger
+      #   transaction is pending.
+      # @param reversed_by_ledger_transaction_id [String] The ID of the ledger transaction that reversed this ledger transaction.
+      # @param reverses_ledger_transaction_id [String] The ID of the original ledger transaction that this ledger transaction reverses.
+      # @param status [String] To post a ledger transaction at creation, use `posted`.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
+      end
     end
   end
 end

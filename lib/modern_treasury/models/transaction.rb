@@ -158,6 +158,24 @@ module ModernTreasury
         #   The whole number component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
         #   @return [Integer]
         required :value, Integer
+
+        # Create a new instance of ForeignExchangeRate from a Hash of raw data.
+        #
+        # @overload initialize(base_amount: nil, base_currency: nil, exponent: nil, rate_string: nil, target_amount: nil, target_currency: nil, value: nil)
+        # @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often
+        #   called the "sell" amount.
+        # @param base_currency [String] Currency to convert, often called the "sell" currency.
+        # @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
+        #   `exponent`).
+        # @param rate_string [String] A string representation of the rate.
+        # @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the
+        #   "buy" amount.
+        # @param target_currency [String] Currency to convert the `base_currency` to, often called the "buy" currency.
+        # @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` /
+        #   (10 ^ `exponent`).
+        def initialize(data = {})
+          super
+        end
       end
 
       # The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
@@ -219,6 +237,58 @@ module ModernTreasury
         SWIFT = :swift
         US_BANK = :us_bank
         USER = :user
+      end
+
+      # Create a new instance of Transaction from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, amount: nil, as_of_date: nil, as_of_time: nil, as_of_timezone: nil, created_at: nil, currency: nil, custom_identifiers: nil, direction: nil, discarded_at: nil, foreign_exchange_rate: nil, internal_account_id: nil, live_mode: nil, metadata: nil, object: nil, posted: nil, reconciled: nil, type: nil, updated_at: nil, vendor_code: nil, vendor_code_type: nil, vendor_customer_id: nil, vendor_id: nil, details: nil, vendor_description: nil)
+      # @param id [String]
+      # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000.
+      # @param as_of_date [String] The date on which the transaction occurred.
+      # @param as_of_time [String] The time on which the transaction occurred. Depending on the granularity of the
+      #   timestamp information received from the bank, it may be `null`.
+      # @param as_of_timezone [String] The timezone in which the `as_of_time` is represented. Can be `null` if the bank
+      #   does not provide timezone info.
+      # @param created_at [String]
+      # @param currency [String] Currency that this transaction is denominated in.
+      # @param custom_identifiers [Hash] An object containing key-value pairs, each with a custom identifier as the key
+      #   and a string value.
+      # @param direction [String] Either `credit` or `debit`.
+      # @param discarded_at [String]
+      # @param foreign_exchange_rate [Object] Associated serialized foreign exchange rate information.
+      # @param internal_account_id [String] The ID of the relevant Internal Account.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @param object [String]
+      # @param posted [Hash] This field will be `true` if the transaction has posted to the account.
+      # @param reconciled [Hash] This field will be `true` if a transaction is reconciled by the Modern Treasury
+      #   system. This means that it has transaction line items that sum up to the
+      #   transaction's amount.
+      # @param type [String] The type of the transaction. Examples could be
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      # @param updated_at [String]
+      # @param vendor_code [String] When applicable, the bank-given code that determines the transaction's category.
+      #   For most banks this is the BAI2/BTRS transaction code.
+      # @param vendor_code_type [String] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   `swift`, `us_bank`, or others.
+      # @param vendor_customer_id [String] An identifier given to this transaction by the bank, often `null`.
+      # @param vendor_id [String] An identifier given to this transaction by the bank.
+      # @param details [Hash] This field contains additional information that the bank provided about the
+      #   transaction. This is structured data. Some of the data in here might overlap
+      #   with what is in the `vendor_description`. For example, the OBI could be a part
+      #   of the vendor description, and it would also be included in here. The attributes
+      #   that are passed through the details field will vary based on your banking
+      #   partner. Currently, the following keys may be in the details object:
+      #   `originator_name`, `originator_to_beneficiary_information`.
+      # @param vendor_description [String] The transaction detail text that often appears in on your bank statement and in
+      #   your banking portal.
+      def initialize(data = {})
+        super
       end
     end
   end
