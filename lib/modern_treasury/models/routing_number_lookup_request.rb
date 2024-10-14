@@ -67,6 +67,19 @@ module ModernTreasury
         #   Region or State.
         #   @return [String]
         optional :region, String
+
+        # Create a new instance of BankAddress from a Hash of raw data.
+        #
+        # @overload initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+        # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        # @param line1 [String]
+        # @param line2 [String]
+        # @param locality [String] Locality or City.
+        # @param postal_code [String] The postal code of the address.
+        # @param region [String] Region or State.
+        def initialize(data = {})
+          super
+        end
       end
 
       # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details. In sandbox mode we currently only support `aba` and `swift` with routing numbers '123456789' and 'GRINUST0XXX' respectively.
@@ -112,6 +125,25 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
+      end
+
+      # Create a new instance of RoutingNumberLookupRequest from a Hash of raw data.
+      #
+      # @overload initialize(bank_address: nil, bank_name: nil, routing_number: nil, routing_number_type: nil, sanctions: nil, supported_payment_types: nil)
+      # @param bank_address [Object] The address of the bank.
+      # @param bank_name [String] The name of the bank.
+      # @param routing_number [String] The routing number of the bank.
+      # @param routing_number_type [String] The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details. In sandbox mode we currently only support `aba` and `swift` with
+      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      # @param sanctions [Hash] An object containing key-value pairs, each with a sanctions list as the key and
+      #   a boolean value representing whether the bank is on that particular sanctions
+      #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
+      # @param supported_payment_types [Array<String>] An array of payment types that are supported for this routing number. This can
+      #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs` currently.
+      def initialize(data = {})
+        super
       end
     end
   end

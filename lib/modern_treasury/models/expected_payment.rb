@@ -143,6 +143,52 @@ module ModernTreasury
         RECONCILED = :reconciled
         UNRECONCILED = :unreconciled
       end
+
+      # Create a new instance of ExpectedPayment from a Hash of raw data.
+      #
+      # @overload initialize(id: nil, amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, created_at: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, ledger_transaction_id: nil, live_mode: nil, metadata: nil, object: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_method: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, transaction_id: nil, transaction_line_item_id: nil, type: nil, updated_at: nil)
+      # @param id [String]
+      # @param amount_lower_bound [Integer] The lowest amount this expected payment may be equal to. Value in specified
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # @param amount_upper_bound [Integer] The highest amount this expected payment may be equal to. Value in specified
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
+      # @param counterparty_id [String] The ID of the counterparty you expect for this payment.
+      # @param created_at [String]
+      # @param currency [String] Must conform to ISO 4217. Defaults to the currency of the internal account.
+      # @param date_lower_bound [String] The earliest date the payment may come in. Format: yyyy-mm-dd
+      # @param date_upper_bound [String] The latest date the payment may come in. Format: yyyy-mm-dd
+      # @param description [String] An optional description for internal use.
+      # @param direction [String] One of credit or debit. When you are receiving money, use credit. When you are
+      #   being charged, use debit.
+      # @param internal_account_id [String] The ID of the Internal Account for the expected payment.
+      # @param ledger_transaction_id [String] The ID of the ledger transaction linked to the expected payment.
+      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
+      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
+      # @param object [String]
+      # @param reconciliation_filters [Object] The reconciliation filters you have for this payment.
+      # @param reconciliation_groups [Object] The reconciliation groups you have for this payment.
+      # @param reconciliation_method [String] One of manual if this expected payment was manually reconciled in the dashboard,
+      #   automatic if it was automatically reconciled by Modern Treasury, or null if it
+      #   is unreconciled.
+      # @param reconciliation_rule_variables [Array<Hash>] An array of reconciliation rule variables for this payment.
+      # @param remittance_information [String] For `ach`, this field will be passed through on an addenda record. For `wire`
+      #   payments the field will be passed through as the "Originator to Beneficiary
+      #   Information", also known as OBI or Fedwire tag 6000.
+      # @param statement_descriptor [String] The statement description you expect to see on the transaction. For ACH
+      #   payments, this will be the full line item passed from the bank. For wire
+      #   payments, this will be the OBI field on the wire. For check payments, this will
+      #   be the memo field.
+      # @param status [String] One of unreconciled, partially_reconciled, reconciled, or archived.
+      # @param transaction_id [String] The ID of the Transaction this expected payment object has been matched to.
+      # @param transaction_line_item_id [String] The ID of the Transaction Line Item this expected payment has been matched to.
+      # @param type [String] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+      #   sepa, signet, wire.
+      # @param updated_at [String]
+      def initialize(data = {})
+        super
+      end
     end
   end
 end
