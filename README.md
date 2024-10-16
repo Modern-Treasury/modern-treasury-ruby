@@ -43,7 +43,7 @@ modern_treasury = ModernTreasury::Client.new(
 
 counterparty = modern_treasury.counterparties.create(name: "my first counterparty")
 
-puts counterparty.id
+puts(counterparty.id)
 ```
 
 ### Errors
@@ -56,7 +56,7 @@ non-success status code (i.e., 4xx or 5xx response), a subclass of
 begin
   modern_treasury.external_accounts.create(counterparty_id: "missing")
 rescue ModernTreasury::HTTP::Error => e
-  puts e.code # 400
+  puts(e.code) # 400
 end
 ```
 
