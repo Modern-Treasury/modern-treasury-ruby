@@ -194,21 +194,20 @@ module ModernTreasury
             WEBSITE = :website
           end
 
-          # Create a new instance of ContactDetail from a Hash of raw data.
-          #
-          # @overload initialize(id: nil, contact_identifier: nil, contact_identifier_type: nil, created_at: nil, discarded_at: nil, live_mode: nil, object: nil, updated_at: nil)
-          # @param id [String]
-          # @param contact_identifier [String]
-          # @param contact_identifier_type [String]
-          # @param created_at [String]
-          # @param discarded_at [String]
-          # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-          #   if it exists in the test environment.
-          # @param object [String]
-          # @param updated_at [String]
-          def initialize(data = {})
-            super
-          end
+          # @!parse
+          #   # Create a new instance of ContactDetail from a Hash of raw data.
+          #   #
+          #   # @param data [Hash{Symbol => Object}] .
+          #   #   @option data [String] :id
+          #   #   @option data [String] :contact_identifier
+          #   #   @option data [String] :contact_identifier_type
+          #   #   @option data [String] :created_at
+          #   #   @option data [String] :discarded_at
+          #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+          #   #     if it exists in the test environment.
+          #   #   @option data [String] :object
+          #   #   @option data [String] :updated_at
+          #   def initialize(data = {}) = super
         end
 
         class PartyAddress < BaseModel
@@ -261,24 +260,23 @@ module ModernTreasury
           #   @return [Time]
           required :updated_at, Time
 
-          # Create a new instance of PartyAddress from a Hash of raw data.
-          #
-          # @overload initialize(id: nil, country: nil, created_at: nil, line1: nil, line2: nil, live_mode: nil, locality: nil, object: nil, postal_code: nil, region: nil, updated_at: nil)
-          # @param id [String]
-          # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
-          # @param created_at [String]
-          # @param line1 [String]
-          # @param line2 [String]
-          # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-          #   if it exists in the test environment.
-          # @param locality [String] Locality or City.
-          # @param object [String]
-          # @param postal_code [String] The postal code of the address.
-          # @param region [String] Region or State.
-          # @param updated_at [String]
-          def initialize(data = {})
-            super
-          end
+          # @!parse
+          #   # Create a new instance of PartyAddress from a Hash of raw data.
+          #   #
+          #   # @param data [Hash{Symbol => Object}] .
+          #   #   @option data [String] :id
+          #   #   @option data [String] :country Country code conforms to [ISO 3166-1 alpha-2]
+          #   #   @option data [String] :created_at
+          #   #   @option data [String] :line1
+          #   #   @option data [String] :line2
+          #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+          #   #     if it exists in the test environment.
+          #   #   @option data [String] :locality Locality or City.
+          #   #   @option data [String] :object
+          #   #   @option data [String] :postal_code The postal code of the address.
+          #   #   @option data [String] :region Region or State.
+          #   #   @option data [String] :updated_at
+          #   def initialize(data = {}) = super
         end
 
         # Either `individual` or `business`.
@@ -299,34 +297,33 @@ module ModernTreasury
           VERIFIED = :verified
         end
 
-        # Create a new instance of Account from a Hash of raw data.
-        #
-        # @overload initialize(id: nil, account_details: nil, account_type: nil, contact_details: nil, created_at: nil, discarded_at: nil, ledger_account_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, party_address: nil, party_name: nil, party_type: nil, routing_details: nil, updated_at: nil, verification_source: nil, verification_status: nil)
-        # @param id [String]
-        # @param account_details [Array<Object>]
-        # @param account_type [String] Can be `checking`, `savings` or `other`.
-        # @param contact_details [Array<Object>]
-        # @param created_at [String]
-        # @param discarded_at [String]
-        # @param ledger_account_id [String] If the external account links to a ledger account in Modern Treasury, the id of
-        #   the ledger account will be populated here.
-        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
-        # @param name [String] A nickname for the external account. This is only for internal usage and won't
-        #   affect any payments
-        # @param object [String]
-        # @param party_address [Object] The address associated with the owner or `null`.
-        # @param party_name [String] The legal name of the entity which owns the account.
-        # @param party_type [String] Either `individual` or `business`.
-        # @param routing_details [Array<Object>]
-        # @param updated_at [String]
-        # @param verification_source [String]
-        # @param verification_status [String]
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of Account from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String, nil] :id
+        #   #   @option data [Array<Object>, nil] :account_details
+        #   #   @option data [String, nil] :account_type Can be `checking`, `savings` or `other`.
+        #   #   @option data [Array<Object>, nil] :contact_details
+        #   #   @option data [String, nil] :created_at
+        #   #   @option data [String, nil] :discarded_at
+        #   #   @option data [String, nil] :ledger_account_id If the external account links to a ledger account in Modern Treasury, the id of
+        #   #     the ledger account will be populated here.
+        #   #   @option data [Hash, nil] :live_mode This field will be true if this object exists in the live environment or false
+        #   #     if it exists in the test environment.
+        #   #   @option data [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+        #   #     strings.
+        #   #   @option data [String, nil] :name A nickname for the external account. This is only for internal usage and won't
+        #   #     affect any payments
+        #   #   @option data [String, nil] :object
+        #   #   @option data [Object, nil] :party_address The address associated with the owner or `null`.
+        #   #   @option data [String, nil] :party_name The legal name of the entity which owns the account.
+        #   #   @option data [String, nil] :party_type Either `individual` or `business`.
+        #   #   @option data [Array<Object>, nil] :routing_details
+        #   #   @option data [String, nil] :updated_at
+        #   #   @option data [String, nil] :verification_source
+        #   #   @option data [String, nil] :verification_status
+        #   def initialize(data = {}) = super
       end
 
       # The verification status of the counterparty.
@@ -337,28 +334,27 @@ module ModernTreasury
         VERIFIED = :verified
       end
 
-      # Create a new instance of Counterparty from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, accounts: nil, created_at: nil, discarded_at: nil, email: nil, legal_entity_id: nil, live_mode: nil, metadata: nil, name: nil, object: nil, send_remittance_advice: nil, updated_at: nil, verification_status: nil)
-      # @param id [String]
-      # @param accounts [Array<Object>] The accounts for this counterparty.
-      # @param created_at [String]
-      # @param discarded_at [String]
-      # @param email [String] The counterparty's email.
-      # @param legal_entity_id [String] The id of the legal entity.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param name [String] A human friendly name for this counterparty.
-      # @param object [String]
-      # @param send_remittance_advice [Hash] Send an email to the counterparty whenever an associated payment order is sent
-      #   to the bank.
-      # @param updated_at [String]
-      # @param verification_status [String] The verification status of the counterparty.
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of Counterparty from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [Array<Object>] :accounts The accounts for this counterparty.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :discarded_at
+      #   #   @option data [String] :email The counterparty's email.
+      #   #   @option data [String] :legal_entity_id The id of the legal entity.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [String] :name A human friendly name for this counterparty.
+      #   #   @option data [String] :object
+      #   #   @option data [Hash] :send_remittance_advice Send an email to the counterparty whenever an associated payment order is sent
+      #   #     to the bank.
+      #   #   @option data [String] :updated_at
+      #   #   @option data [String] :verification_status The verification status of the counterparty.
+      #   def initialize(data = {}) = super
     end
   end
 end

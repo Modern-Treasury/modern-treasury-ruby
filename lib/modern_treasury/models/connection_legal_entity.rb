@@ -56,23 +56,22 @@ module ModernTreasury
         PROCESSING = :processing
       end
 
-      # Create a new instance of ConnectionLegalEntity from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, connection_id: nil, created_at: nil, discarded_at: nil, legal_entity_id: nil, live_mode: nil, object: nil, status: nil, updated_at: nil, vendor_id: nil)
-      # @param id [String]
-      # @param connection_id [String] The ID of the connection.
-      # @param created_at [String]
-      # @param discarded_at [String]
-      # @param legal_entity_id [String] The ID of the legal entity.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param object [String]
-      # @param status [String] The status of the connection legal entity.
-      # @param updated_at [String]
-      # @param vendor_id [String] The ID of the legal entity at the vendor.
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of ConnectionLegalEntity from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [String] :connection_id The ID of the connection.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :discarded_at
+      #   #   @option data [String] :legal_entity_id The ID of the legal entity.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :status The status of the connection legal entity.
+      #   #   @option data [String] :updated_at
+      #   #   @option data [String] :vendor_id The ID of the legal entity at the vendor.
+      #   def initialize(data = {}) = super
     end
   end
 end

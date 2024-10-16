@@ -96,32 +96,31 @@ module ModernTreasury
         RETURNED = :returned
       end
 
-      # Create a new instance of PaperItem from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, account_number: nil, account_number_safe: nil, amount: nil, check_number: nil, created_at: nil, currency: nil, deposit_date: nil, live_mode: nil, lockbox_number: nil, memo_field: nil, object: nil, remitter_name: nil, routing_number: nil, status: nil, transaction_id: nil, transaction_line_item_id: nil, updated_at: nil)
-      # @param id [String]
-      # @param account_number [String] The account number on the paper item.
-      # @param account_number_safe [String] The last 4 digits of the account_number.
-      # @param amount [Integer] The amount of the paper item.
-      # @param check_number [String] The check number on the paper item.
-      # @param created_at [String]
-      # @param currency [String] The currency of the paper item.
-      # @param deposit_date [String] The date the paper item was deposited into your organization's bank account.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param lockbox_number [String] The identifier for the lockbox assigned by the bank.
-      # @param memo_field [String] The memo field on the paper item.
-      # @param object [String]
-      # @param remitter_name [String] The name of the remitter on the paper item.
-      # @param routing_number [String] The routing number on the paper item.
-      # @param status [String] The current status of the paper item. One of `pending`, `completed`, or
-      #   `returned`.
-      # @param transaction_id [String] The ID of the reconciled Transaction or `null`.
-      # @param transaction_line_item_id [String] The ID of the reconciled Transaction Line Item or `null`.
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of PaperItem from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [String] :account_number The account number on the paper item.
+      #   #   @option data [String] :account_number_safe The last 4 digits of the account_number.
+      #   #   @option data [Integer] :amount The amount of the paper item.
+      #   #   @option data [String] :check_number The check number on the paper item.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :currency The currency of the paper item.
+      #   #   @option data [String] :deposit_date The date the paper item was deposited into your organization's bank account.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [String] :lockbox_number The identifier for the lockbox assigned by the bank.
+      #   #   @option data [String] :memo_field The memo field on the paper item.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :remitter_name The name of the remitter on the paper item.
+      #   #   @option data [String] :routing_number The routing number on the paper item.
+      #   #   @option data [String] :status The current status of the paper item. One of `pending`, `completed`, or
+      #   #     `returned`.
+      #   #   @option data [String] :transaction_id The ID of the reconciled Transaction or `null`.
+      #   #   @option data [String] :transaction_line_item_id The ID of the reconciled Transaction Line Item or `null`.
+      #   #   @option data [String] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end
