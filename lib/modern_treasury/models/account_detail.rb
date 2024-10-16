@@ -57,23 +57,22 @@ module ModernTreasury
         WALLET_ADDRESS = :wallet_address
       end
 
-      # Create a new instance of AccountDetail from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, account_number_safe: nil, account_number_type: nil, created_at: nil, discarded_at: nil, live_mode: nil, object: nil, updated_at: nil, account_number: nil)
-      # @param id [String]
-      # @param account_number_safe [String] The last 4 digits of the account_number.
-      # @param account_number_type [String] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   account number is in a generic format.
-      # @param created_at [String]
-      # @param discarded_at [String]
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param object [String]
-      # @param updated_at [String]
-      # @param account_number [String] The account number for the bank account.
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of AccountDetail from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [String] :account_number_safe The last 4 digits of the account_number.
+      #   #   @option data [String] :account_number_type One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   #     account number is in a generic format.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :discarded_at
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :updated_at
+      #   #   @option data [String, nil] :account_number The account number for the bank account.
+      #   def initialize(data = {}) = super
     end
   end
 end

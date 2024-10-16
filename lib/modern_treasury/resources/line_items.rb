@@ -34,8 +34,8 @@ module ModernTreasury
       # @param id [String] The ID of the line item.
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
+      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -58,8 +58,8 @@ module ModernTreasury
       # @param itemizable_id [String] The ID of the payment order or expected payment.
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String, nil] :after_cursor
-      # @option params [Integer, nil] :per_page
+      #   @option params [String, nil] :after_cursor
+      #   @option params [Integer, nil] :per_page
       #
       # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

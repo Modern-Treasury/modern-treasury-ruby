@@ -81,28 +81,27 @@ module ModernTreasury
         COMPLETED = :completed
       end
 
-      # Create a new instance of BulkRequest from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, action_type: nil, created_at: nil, failed_result_count: nil, live_mode: nil, metadata: nil, object: nil, resource_type: nil, status: nil, success_result_count: nil, total_resource_count: nil, updated_at: nil)
-      # @param id [String]
-      # @param action_type [String] One of create, or update.
-      # @param created_at [String]
-      # @param failed_result_count [Integer] Total number of failed bulk results so far for this request
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param object [String]
-      # @param resource_type [String] One of payment_order, expected_payment, or ledger_transaction.
-      # @param status [String] One of pending, processing, or completed.
-      # @param success_result_count [Integer] Total number of successful bulk results so far for this request
-      # @param total_resource_count [Integer] Total number of items in the `resources` array. Once a bulk request is
-      #   completed, `success_result_count` + `failed_result_count` will be equal to
-      #   `total_result_count`.
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of BulkRequest from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [String] :action_type One of create, or update.
+      #   #   @option data [String] :created_at
+      #   #   @option data [Integer] :failed_result_count Total number of failed bulk results so far for this request
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :resource_type One of payment_order, expected_payment, or ledger_transaction.
+      #   #   @option data [String] :status One of pending, processing, or completed.
+      #   #   @option data [Integer] :success_result_count Total number of successful bulk results so far for this request
+      #   #   @option data [Integer] :total_resource_count Total number of items in the `resources` array. Once a bulk request is
+      #   #     completed, `success_result_count` + `failed_result_count` will be equal to
+      #   #     `total_result_count`.
+      #   #   @option data [String] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end

@@ -116,49 +116,47 @@ module ModernTreasury
           OTHER = :other
         end
 
-        # Create a new instance of Balance from a Hash of raw data.
-        #
-        # @overload initialize(id: nil, amount: nil, balance_type: nil, created_at: nil, currency: nil, live_mode: nil, object: nil, updated_at: nil, vendor_code: nil, vendor_code_type: nil)
-        # @param id [String]
-        # @param amount [Integer] The balance amount.
-        # @param balance_type [String] The specific type of balance reported. One of `opening_ledger`,
-        #   `closing_ledger`, `current_ledger`, `opening_available`,
-        #   `opening_available_next_business_day`, `closing_available`, `current_available`,
-        #   or `other`.
-        # @param created_at [String]
-        # @param currency [String] The currency of the balance.
-        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        # @param object [String]
-        # @param updated_at [String]
-        # @param vendor_code [String] The code used by the bank when reporting this specific balance.
-        # @param vendor_code_type [String] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-        #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-        #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-        #   `swift`, or `us_bank`.
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of Balance from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String] :id
+        #   #   @option data [Integer] :amount The balance amount.
+        #   #   @option data [String] :balance_type The specific type of balance reported. One of `opening_ledger`,
+        #   #     `closing_ledger`, `current_ledger`, `opening_available`,
+        #   #     `opening_available_next_business_day`, `closing_available`, `current_available`,
+        #   #     or `other`.
+        #   #   @option data [String] :created_at
+        #   #   @option data [String] :currency The currency of the balance.
+        #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+        #   #     if it exists in the test environment.
+        #   #   @option data [String] :object
+        #   #   @option data [String] :updated_at
+        #   #   @option data [String] :vendor_code The code used by the bank when reporting this specific balance.
+        #   #   @option data [String] :vendor_code_type The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+        #   #     `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+        #   #     `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+        #   #     `swift`, or `us_bank`.
+        #   def initialize(data = {}) = super
       end
 
-      # Create a new instance of BalanceReport from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, as_of_date: nil, as_of_time: nil, balance_report_type: nil, balances: nil, created_at: nil, internal_account_id: nil, live_mode: nil, object: nil, updated_at: nil)
-      # @param id [String]
-      # @param as_of_date [String] The date of the balance report in local time.
-      # @param as_of_time [String] The time (24-hour clock) of the balance report in local time.
-      # @param balance_report_type [String] The specific type of balance report. One of `intraday`, `previous_day`,
-      #   `real_time`, or `other`.
-      # @param balances [Array<Object>] An array of `Balance` objects.
-      # @param created_at [String]
-      # @param internal_account_id [String] The ID of one of your organization's Internal Accounts.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param object [String]
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of BalanceReport from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [String] :as_of_date The date of the balance report in local time.
+      #   #   @option data [String] :as_of_time The time (24-hour clock) of the balance report in local time.
+      #   #   @option data [String] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
+      #   #     `real_time`, or `other`.
+      #   #   @option data [Array<Object>] :balances An array of `Balance` objects.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :internal_account_id The ID of one of your organization's Internal Accounts.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end

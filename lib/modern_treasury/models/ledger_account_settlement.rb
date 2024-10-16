@@ -93,36 +93,35 @@ module ModernTreasury
         PROCESSING = :processing
       end
 
-      # Create a new instance of LedgerAccountSettlement from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, amount: nil, contra_ledger_account_id: nil, created_at: nil, currency: nil, currency_exponent: nil, description: nil, effective_at_upper_bound: nil, ledger_id: nil, ledger_transaction_id: nil, live_mode: nil, metadata: nil, object: nil, settled_ledger_account_id: nil, settlement_entry_direction: nil, status: nil, updated_at: nil)
-      # @param id [String]
-      # @param amount [Integer] The amount of the ledger account settlement.
-      # @param contra_ledger_account_id [String] The id of the contra ledger account that sends to or receives funds from the
-      #   settled ledger account.
-      # @param created_at [String]
-      # @param currency [String] The currency of the ledger account settlement.
-      # @param currency_exponent [Integer] The currency exponent of the ledger account settlement.
-      # @param description [String] The description of the ledger account settlement.
-      # @param effective_at_upper_bound [String] The exclusive upper bound of the effective_at timestamp of the ledger entries to
-      #   be included in the ledger account settlement. The default value is the
-      #   created_at timestamp of the ledger account settlement.
-      # @param ledger_id [String] The id of the ledger that this ledger account settlement belongs to.
-      # @param ledger_transaction_id [String] The id of the ledger transaction that this settlement is associated with.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param object [String]
-      # @param settled_ledger_account_id [String] The id of the settled ledger account whose ledger entries are queried against,
-      #   and its balance is reduced as a result.
-      # @param settlement_entry_direction [String] The direction of the ledger entry with the settlement_ledger_account.
-      # @param status [String] The status of the ledger account settlement. One of `processing`, `pending`,
-      #   `posted`, `archiving` or `archived`.
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of LedgerAccountSettlement from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [Integer] :amount The amount of the ledger account settlement.
+      #   #   @option data [String] :contra_ledger_account_id The id of the contra ledger account that sends to or receives funds from the
+      #   #     settled ledger account.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :currency The currency of the ledger account settlement.
+      #   #   @option data [Integer] :currency_exponent The currency exponent of the ledger account settlement.
+      #   #   @option data [String] :description The description of the ledger account settlement.
+      #   #   @option data [String] :effective_at_upper_bound The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      #   #     be included in the ledger account settlement. The default value is the
+      #   #     created_at timestamp of the ledger account settlement.
+      #   #   @option data [String] :ledger_id The id of the ledger that this ledger account settlement belongs to.
+      #   #   @option data [String] :ledger_transaction_id The id of the ledger transaction that this settlement is associated with.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :settled_ledger_account_id The id of the settled ledger account whose ledger entries are queried against,
+      #   #     and its balance is reduced as a result.
+      #   #   @option data [String] :settlement_entry_direction The direction of the ledger entry with the settlement_ledger_account.
+      #   #   @option data [String] :status The status of the ledger account settlement. One of `processing`, `pending`,
+      #   #     `posted`, `archiving` or `archived`.
+      #   #   @option data [String] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end

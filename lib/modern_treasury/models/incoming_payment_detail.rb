@@ -184,47 +184,46 @@ module ModernTreasury
         WIRE = :wire
       end
 
-      # Create a new instance of IncomingPaymentDetail from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, amount: nil, as_of_date: nil, created_at: nil, currency: nil, data: nil, direction: nil, internal_account_id: nil, ledger_transaction_id: nil, live_mode: nil, metadata: nil, object: nil, originating_account_number_safe: nil, originating_account_number_type: nil, originating_routing_number: nil, originating_routing_number_type: nil, status: nil, transaction_id: nil, transaction_line_item_id: nil, type: nil, updated_at: nil, vendor_id: nil, virtual_account: nil, virtual_account_id: nil, originating_account_number: nil)
-      # @param id [String]
-      # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   as 1000.
-      # @param as_of_date [String] The date on which the corresponding transaction will occur.
-      # @param created_at [String]
-      # @param currency [String] The currency of the incoming payment detail.
-      # @param data [Hash] The raw data from the payment pre-notification file that we get from the bank.
-      # @param direction [String] One of `credit` or `debit`.
-      # @param internal_account_id [String] The ID of the Internal Account for the incoming payment detail. This is always
-      #   present.
-      # @param ledger_transaction_id [String] The ID of the ledger transaction linked to the incoming payment detail or
-      #   `null`.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param object [String]
-      # @param originating_account_number_safe [String] The last 4 digits of the originating account_number for the incoming payment
-      #   detail.
-      # @param originating_account_number_type [String] The type of the originating account number for the incoming payment detail.
-      # @param originating_routing_number [String] The routing number of the originating account for the incoming payment detail.
-      # @param originating_routing_number_type [String] The type of the originating routing number for the incoming payment detail.
-      # @param status [String] The current status of the incoming payment order. One of `pending`, `completed`,
-      #   or `returned`.
-      # @param transaction_id [String] The ID of the reconciled Transaction or `null`.
-      # @param transaction_line_item_id [String] The ID of the reconciled Transaction Line Item or `null`.
-      # @param type [String] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
-      #   `wire`.
-      # @param updated_at [String]
-      # @param vendor_id [String] The identifier of the vendor bank.
-      # @param virtual_account [Object] If the incoming payment detail is in a virtual account, the serialized virtual
-      #   account object.
-      # @param virtual_account_id [String] If the incoming payment detail is in a virtual account, the ID of the Virtual
-      #   Account.
-      # @param originating_account_number [String] The account number of the originating account for the incoming payment detail.
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of IncomingPaymentDetail from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   #     as 1000.
+      #   #   @option data [String] :as_of_date The date on which the corresponding transaction will occur.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :currency The currency of the incoming payment detail.
+      #   #   @option data [Hash] :data The raw data from the payment pre-notification file that we get from the bank.
+      #   #   @option data [String] :direction One of `credit` or `debit`.
+      #   #   @option data [String] :internal_account_id The ID of the Internal Account for the incoming payment detail. This is always
+      #   #     present.
+      #   #   @option data [String] :ledger_transaction_id The ID of the ledger transaction linked to the incoming payment detail or
+      #   #     `null`.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :originating_account_number_safe The last 4 digits of the originating account_number for the incoming payment
+      #   #     detail.
+      #   #   @option data [String] :originating_account_number_type The type of the originating account number for the incoming payment detail.
+      #   #   @option data [String] :originating_routing_number The routing number of the originating account for the incoming payment detail.
+      #   #   @option data [String] :originating_routing_number_type The type of the originating routing number for the incoming payment detail.
+      #   #   @option data [String] :status The current status of the incoming payment order. One of `pending`, `completed`,
+      #   #     or `returned`.
+      #   #   @option data [String] :transaction_id The ID of the reconciled Transaction or `null`.
+      #   #   @option data [String] :transaction_line_item_id The ID of the reconciled Transaction Line Item or `null`.
+      #   #   @option data [String] :type One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   #     `wire`.
+      #   #   @option data [String] :updated_at
+      #   #   @option data [String] :vendor_id The identifier of the vendor bank.
+      #   #   @option data [Object] :virtual_account If the incoming payment detail is in a virtual account, the serialized virtual
+      #   #     account object.
+      #   #   @option data [String] :virtual_account_id If the incoming payment detail is in a virtual account, the ID of the Virtual
+      #   #     Account.
+      #   #   @option data [String, nil] :originating_account_number The account number of the originating account for the incoming payment detail.
+      #   def initialize(data = {}) = super
     end
   end
 end

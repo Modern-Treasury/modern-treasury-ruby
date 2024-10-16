@@ -260,17 +260,16 @@ module ModernTreasury
         #   @return [String]
         optional :class_id, String
 
-        # Create a new instance of Accounting from a Hash of raw data.
-        #
-        # @overload initialize(account_id: nil, class_id: nil)
-        # @param account_id [String] The ID of one of your accounting categories. Note that these will only be
-        #   accessible if your accounting system has been connected.
-        # @param class_id [String] The ID of one of the class objects in your accounting system. Class objects
-        #   track segments of your business independent of client or project. Note that
-        #   these will only be accessible if your accounting system has been connected.
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of Accounting from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String, nil] :account_id The ID of one of your accounting categories. Note that these will only be
+        #   #     accessible if your accounting system has been connected.
+        #   #   @option data [String, nil] :class_id The ID of one of the class objects in your accounting system. Class objects
+        #   #     track segments of your business independent of client or project. Note that
+        #   #     these will only be accessible if your accounting system has been connected.
+        #   def initialize(data = {}) = super
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire payment orders. Can be one of shared, sender, or receiver, which correspond respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
@@ -328,23 +327,22 @@ module ModernTreasury
         #   @return [Integer]
         required :value, Integer
 
-        # Create a new instance of ForeignExchangeRate from a Hash of raw data.
-        #
-        # @overload initialize(base_amount: nil, base_currency: nil, exponent: nil, rate_string: nil, target_amount: nil, target_currency: nil, value: nil)
-        # @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often
-        #   called the "sell" amount.
-        # @param base_currency [String] Currency to convert, often called the "sell" currency.
-        # @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #   `exponent`).
-        # @param rate_string [String] A string representation of the rate.
-        # @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the
-        #   "buy" amount.
-        # @param target_currency [String] Currency to convert the `base_currency` to, often called the "buy" currency.
-        # @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` /
-        #   (10 ^ `exponent`).
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of ForeignExchangeRate from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [Integer] :base_amount Amount in the lowest denomination of the `base_currency` to convert, often
+        #   #     called the "sell" amount.
+        #   #   @option data [String] :base_currency Currency to convert, often called the "sell" currency.
+        #   #   @option data [Integer] :exponent The exponent component of the rate. The decimal is calculated as `value` / (10 ^
+        #   #     `exponent`).
+        #   #   @option data [String] :rate_string A string representation of the rate.
+        #   #   @option data [Integer] :target_amount Amount in the lowest denomination of the `target_currency`, often called the
+        #   #     "buy" amount.
+        #   #   @option data [String] :target_currency Currency to convert the `base_currency` to, often called the "buy" currency.
+        #   #   @option data [Integer] :value The whole number component of the rate. The decimal is calculated as `value` /
+        #   #     (10 ^ `exponent`).
+        #   def initialize(data = {}) = super
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
@@ -465,20 +463,19 @@ module ModernTreasury
           WELLS_FARGO_UETR = :wells_fargo_uetr
         end
 
-        # Create a new instance of ReferenceNumber from a Hash of raw data.
-        #
-        # @overload initialize(id: nil, created_at: nil, live_mode: nil, object: nil, reference_number: nil, reference_number_type: nil, updated_at: nil)
-        # @param id [String]
-        # @param created_at [String]
-        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        # @param object [String]
-        # @param reference_number [String] The vendor reference number.
-        # @param reference_number_type [String] The type of the reference number. Referring to the vendor payment id.
-        # @param updated_at [String]
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of ReferenceNumber from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String] :id
+        #   #   @option data [String] :created_at
+        #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+        #   #     if it exists in the test environment.
+        #   #   @option data [String] :object
+        #   #   @option data [String] :reference_number The vendor reference number.
+        #   #   @option data [String] :reference_number_type The type of the reference number. Referring to the vendor payment id.
+        #   #   @option data [String] :updated_at
+        #   def initialize(data = {}) = super
       end
 
       # The current status of the payment order.
@@ -501,114 +498,113 @@ module ModernTreasury
         VIRTUAL_ACCOUNT = :virtual_account
       end
 
-      # Create a new instance of PaymentOrder from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, accounting: nil, accounting_category_id: nil, accounting_ledger_class_id: nil, amount: nil, charge_bearer: nil, compliance_rule_metadata: nil, counterparty_id: nil, created_at: nil, currency: nil, current_return: nil, decision_id: nil, description: nil, direction: nil, effective_date: nil, expires_at: nil, foreign_exchange_contract: nil, foreign_exchange_indicator: nil, foreign_exchange_rate: nil, ledger_transaction_id: nil, live_mode: nil, metadata: nil, nsf_protected: nil, object: nil, originating_account_id: nil, originating_party_name: nil, priority: nil, process_after: nil, purpose: nil, receiving_account_id: nil, receiving_account_type: nil, reference_numbers: nil, remittance_information: nil, send_remittance_advice: nil, statement_descriptor: nil, status: nil, subtype: nil, transaction_ids: nil, transaction_monitoring_enabled: nil, type: nil, ultimate_originating_account: nil, ultimate_originating_account_id: nil, ultimate_originating_account_type: nil, ultimate_originating_party_identifier: nil, ultimate_originating_party_name: nil, ultimate_receiving_party_identifier: nil, ultimate_receiving_party_name: nil, updated_at: nil, vendor_attributes: nil, vendor_failure_reason: nil)
-      # @param id [String]
-      # @param accounting [Object]
-      # @param accounting_category_id [String] The ID of one of your accounting categories. Note that these will only be
-      #   accessible if your accounting system has been connected.
-      # @param accounting_ledger_class_id [String] The ID of one of your accounting ledger classes. Note that these will only be
-      #   accessible if your accounting system has been connected.
-      # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as
-      #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
-      # @param charge_bearer [String] The party that will pay the fees for the payment order. Only applies to wire
-      #   payment orders. Can be one of shared, sender, or receiver, which correspond
-      #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
-      # @param compliance_rule_metadata [Hash] Custom key-value pair for usage in compliance rules. Please contact support
-      #   before making changes to this field.
-      # @param counterparty_id [String] If the payment order is tied to a specific Counterparty, their id will appear,
-      #   otherwise `null`.
-      # @param created_at [String]
-      # @param currency [String] Defaults to the currency of the originating account.
-      # @param current_return [Object] If the payment order's status is `returned`, this will include the return
-      #   object's data.
-      # @param decision_id [String] The ID of the compliance decision for the payment order, if transaction
-      #   monitoring is enabled.
-      # @param description [String] An optional description for internal use.
-      # @param direction [String] One of `credit`, `debit`. Describes the direction money is flowing in the
-      #   transaction. A `credit` moves money from your account to someone else's. A
-      #   `debit` pulls money from someone else's account to your own. Note that wire,
-      #   rtp, and check payments will always be `credit`.
-      # @param effective_date [String] Date transactions are to be posted to the participants' account. Defaults to the
-      #   current business day or the next business day if the current day is a bank
-      #   holiday or weekend. Format: yyyy-mm-dd.
-      # @param expires_at [String] RFP payments require an expires_at. This value must be past the effective_date.
-      # @param foreign_exchange_contract [String] If present, indicates a specific foreign exchange contract number that has been
-      #   generated by your financial institution.
-      # @param foreign_exchange_indicator [String] Indicates the type of FX transfer to initiate, can be either
-      #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
-      #   currency matches the originating account currency.
-      # @param foreign_exchange_rate [Object] Associated serialized foreign exchange rate information.
-      # @param ledger_transaction_id [String] The ID of the ledger transaction linked to the payment order.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param nsf_protected [Hash] A boolean to determine if NSF Protection is enabled for this payment order. Note
-      #   that this setting must also be turned on in your organization settings page.
-      # @param object [String]
-      # @param originating_account_id [String] The ID of one of your organization's internal accounts.
-      # @param originating_party_name [String] If present, this will replace your default company name on receiver's bank
-      #   statement. This field can only be used for ACH payments currently. For ACH, only
-      #   the first 16 characters of this string will be used. Any additional characters
-      #   will be truncated.
-      # @param priority [String] Either `normal` or `high`. For ACH and EFT payments, `high` represents a
-      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
-      #   an overnight check rather than standard mail.
-      # @param process_after [String] If present, Modern Treasury will not process the payment until after this time.
-      #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
-      #   take precedence and `effective_date` will automatically update to reflect the
-      #   earliest possible sending date after `process_after`. Format is ISO8601
-      #   timestamp.
-      # @param purpose [String] For `wire`, this is usually the purpose which is transmitted via the
-      #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
-      #   digit CPA Code that will be attached to the payment.
-      # @param receiving_account_id [String] The receiving account ID. Can be an `external_account` or `internal_account`.
-      # @param receiving_account_type [String]
-      # @param reference_numbers [Array<Object>]
-      # @param remittance_information [String] For `ach`, this field will be passed through on an addenda record. For `wire`
-      #   payments the field will be passed through as the "Originator to Beneficiary
-      #   Information", also known as OBI or Fedwire tag 6000.
-      # @param send_remittance_advice [Hash] Send an email to the counterparty when the payment order is sent to the bank. If
-      #   `null`, `send_remittance_advice` on the Counterparty is used.
-      # @param statement_descriptor [String] An optional descriptor which will appear in the receiver's statement. For
-      #   `check` payments this field will be used as the memo line. For `ach` the maximum
-      #   length is 10 characters. Note that for ACH payments, the name on your bank
-      #   account will be included automatically by the bank, so you can use the
-      #   characters for other useful information. For `eft` the maximum length is 15
-      #   characters.
-      # @param status [String] The current status of the payment order.
-      # @param subtype [String] An additional layer of classification for the type of payment order you are
-      #   doing. This field is only used for `ach` payment orders currently. For `ach`
-      #   payment orders, the `subtype` represents the SEC code. We currently support
-      #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
-      # @param transaction_ids [Array<String>] The IDs of all the transactions associated to this payment order. Usually, you
-      #   will only have a single transaction ID. However, if a payment order initially
-      #   results in a Return, but gets redrafted and is later successfully completed, it
-      #   can have many transactions.
-      # @param transaction_monitoring_enabled [Hash] A flag that determines whether a payment order should go through transaction
-      #   monitoring.
-      # @param type [String] One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
-      #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
-      #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
-      # @param ultimate_originating_account [Object] The account to which the originating of this payment should be attributed to.
-      #   Can be a `virtual_account` or `internal_account`.
-      # @param ultimate_originating_account_id [String] The ultimate originating account ID. Can be a `virtual_account` or
-      #   `internal_account`.
-      # @param ultimate_originating_account_type [String]
-      # @param ultimate_originating_party_identifier [String] Identifier of the ultimate originator of the payment order.
-      # @param ultimate_originating_party_name [String] Name of the ultimate originator of the payment order.
-      # @param ultimate_receiving_party_identifier [String]
-      # @param ultimate_receiving_party_name [String]
-      # @param updated_at [String]
-      # @param vendor_attributes [Object] Additional vendor specific fields for this payment. Data must be represented as
-      #   key-value pairs.
-      # @param vendor_failure_reason [String] This field will be populated if a vendor failure occurs. Logic shouldn't be
-      #   built on its value as it is free-form.
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of PaymentOrder from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [Object] :accounting
+      #   #   @option data [String] :accounting_category_id The ID of one of your accounting categories. Note that these will only be
+      #   #     accessible if your accounting system has been connected.
+      #   #   @option data [String] :accounting_ledger_class_id The ID of one of your accounting ledger classes. Note that these will only be
+      #   #     accessible if your accounting system has been connected.
+      #   #   @option data [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
+      #   #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
+      #   #   @option data [String] :charge_bearer The party that will pay the fees for the payment order. Only applies to wire
+      #   #     payment orders. Can be one of shared, sender, or receiver, which correspond
+      #   #     respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      #   #   @option data [Hash] :compliance_rule_metadata Custom key-value pair for usage in compliance rules. Please contact support
+      #   #     before making changes to this field.
+      #   #   @option data [String] :counterparty_id If the payment order is tied to a specific Counterparty, their id will appear,
+      #   #     otherwise `null`.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :currency Defaults to the currency of the originating account.
+      #   #   @option data [Object] :current_return If the payment order's status is `returned`, this will include the return
+      #   #     object's data.
+      #   #   @option data [String] :decision_id The ID of the compliance decision for the payment order, if transaction
+      #   #     monitoring is enabled.
+      #   #   @option data [String] :description An optional description for internal use.
+      #   #   @option data [String] :direction One of `credit`, `debit`. Describes the direction money is flowing in the
+      #   #     transaction. A `credit` moves money from your account to someone else's. A
+      #   #     `debit` pulls money from someone else's account to your own. Note that wire,
+      #   #     rtp, and check payments will always be `credit`.
+      #   #   @option data [String] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      #   #     current business day or the next business day if the current day is a bank
+      #   #     holiday or weekend. Format: yyyy-mm-dd.
+      #   #   @option data [String] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
+      #   #   @option data [String] :foreign_exchange_contract If present, indicates a specific foreign exchange contract number that has been
+      #   #     generated by your financial institution.
+      #   #   @option data [String] :foreign_exchange_indicator Indicates the type of FX transfer to initiate, can be either
+      #   #     `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
+      #   #     currency matches the originating account currency.
+      #   #   @option data [Object] :foreign_exchange_rate Associated serialized foreign exchange rate information.
+      #   #   @option data [String] :ledger_transaction_id The ID of the ledger transaction linked to the payment order.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [Hash] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
+      #   #     that this setting must also be turned on in your organization settings page.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :originating_account_id The ID of one of your organization's internal accounts.
+      #   #   @option data [String] :originating_party_name If present, this will replace your default company name on receiver's bank
+      #   #     statement. This field can only be used for ACH payments currently. For ACH, only
+      #   #     the first 16 characters of this string will be used. Any additional characters
+      #   #     will be truncated.
+      #   #   @option data [String] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   #     same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      #   #     an overnight check rather than standard mail.
+      #   #   @option data [String] :process_after If present, Modern Treasury will not process the payment until after this time.
+      #   #     If `process_after` is past the cutoff for `effective_date`, `process_after` will
+      #   #     take precedence and `effective_date` will automatically update to reflect the
+      #   #     earliest possible sending date after `process_after`. Format is ISO8601
+      #   #     timestamp.
+      #   #   @option data [String] :purpose For `wire`, this is usually the purpose which is transmitted via the
+      #   #     "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
+      #   #     digit CPA Code that will be attached to the payment.
+      #   #   @option data [String] :receiving_account_id The receiving account ID. Can be an `external_account` or `internal_account`.
+      #   #   @option data [String] :receiving_account_type
+      #   #   @option data [Array<Object>] :reference_numbers
+      #   #   @option data [String] :remittance_information For `ach`, this field will be passed through on an addenda record. For `wire`
+      #   #     payments the field will be passed through as the "Originator to Beneficiary
+      #   #     Information", also known as OBI or Fedwire tag 6000.
+      #   #   @option data [Hash] :send_remittance_advice Send an email to the counterparty when the payment order is sent to the bank. If
+      #   #     `null`, `send_remittance_advice` on the Counterparty is used.
+      #   #   @option data [String] :statement_descriptor An optional descriptor which will appear in the receiver's statement. For
+      #   #     `check` payments this field will be used as the memo line. For `ach` the maximum
+      #   #     length is 10 characters. Note that for ACH payments, the name on your bank
+      #   #     account will be included automatically by the bank, so you can use the
+      #   #     characters for other useful information. For `eft` the maximum length is 15
+      #   #     characters.
+      #   #   @option data [String] :status The current status of the payment order.
+      #   #   @option data [String] :subtype An additional layer of classification for the type of payment order you are
+      #   #     doing. This field is only used for `ach` payment orders currently. For `ach`
+      #   #     payment orders, the `subtype` represents the SEC code. We currently support
+      #   #     `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
+      #   #   @option data [Array<String>] :transaction_ids The IDs of all the transactions associated to this payment order. Usually, you
+      #   #     will only have a single transaction ID. However, if a payment order initially
+      #   #     results in a Return, but gets redrafted and is later successfully completed, it
+      #   #     can have many transactions.
+      #   #   @option data [Hash] :transaction_monitoring_enabled A flag that determines whether a payment order should go through transaction
+      #   #     monitoring.
+      #   #   @option data [String] :type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      #   #     `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+      #   #     `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
+      #   #   @option data [Object] :ultimate_originating_account The account to which the originating of this payment should be attributed to.
+      #   #     Can be a `virtual_account` or `internal_account`.
+      #   #   @option data [String] :ultimate_originating_account_id The ultimate originating account ID. Can be a `virtual_account` or
+      #   #     `internal_account`.
+      #   #   @option data [String] :ultimate_originating_account_type
+      #   #   @option data [String] :ultimate_originating_party_identifier Identifier of the ultimate originator of the payment order.
+      #   #   @option data [String] :ultimate_originating_party_name Name of the ultimate originator of the payment order.
+      #   #   @option data [String] :ultimate_receiving_party_identifier
+      #   #   @option data [String] :ultimate_receiving_party_name
+      #   #   @option data [String] :updated_at
+      #   #   @option data [Object] :vendor_attributes Additional vendor specific fields for this payment. Data must be represented as
+      #   #     key-value pairs.
+      #   #   @option data [String] :vendor_failure_reason This field will be populated if a vendor failure occurs. Logic shouldn't be
+      #   #     built on its value as it is free-form.
+      #   def initialize(data = {}) = super
     end
   end
 end
