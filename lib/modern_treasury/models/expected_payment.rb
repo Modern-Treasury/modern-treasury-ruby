@@ -48,8 +48,8 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
-      required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPayment::Direction]
+      required :direction, enum: -> { ModernTreasury::Models::ExpectedPayment::Direction }
 
       # @!attribute [rw] internal_account_id
       #   The ID of the Internal Account for the expected payment.
@@ -93,8 +93,9 @@ module ModernTreasury
 
       # @!attribute [rw] reconciliation_rule_variables
       #   An array of reconciliation rule variables for this payment.
-      #   @return [Array<Hash>]
-      required :reconciliation_rule_variables, ModernTreasury::ArrayOf.new(Hash)
+      #   @return [Array<ModernTreasury::Models::ReconciliationRule>]
+      required :reconciliation_rule_variables,
+               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::ReconciliationRule })
 
       # @!attribute [rw] remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire` payments the field will be passed through as the "Originator to Beneficiary Information", also known as OBI or Fedwire tag 6000.
@@ -129,6 +130,12 @@ module ModernTreasury
       # @!attribute [rw] updated_at
       #   @return [Time]
       required :updated_at, Time
+
+      # One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
+      class Direction < ModernTreasury::Enum
+        CREDIT = :credit
+        DEBIT = :debit
+      end
 
       # One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
       class ReconciliationMethod < ModernTreasury::Enum
@@ -173,7 +180,7 @@ module ModernTreasury
       #   #   @option data [String] :reconciliation_method One of manual if this expected payment was manually reconciled in the dashboard,
       #   #     automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   #     is unreconciled.
-      #   #   @option data [Array<Hash>] :reconciliation_rule_variables An array of reconciliation rule variables for this payment.
+      #   #   @option data [Array<Object>] :reconciliation_rule_variables An array of reconciliation rule variables for this payment.
       #   #   @option data [String] :remittance_information For `ach`, this field will be passed through on an addenda record. For `wire`
       #   #     payments the field will be passed through as the "Originator to Beneficiary
       #   #     Information", also known as OBI or Fedwire tag 6000.
