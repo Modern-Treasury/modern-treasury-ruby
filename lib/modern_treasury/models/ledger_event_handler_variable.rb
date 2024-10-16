@@ -28,26 +28,24 @@ module ModernTreasury
         #   @return [String]
         required :value, String
 
-        # Create a new instance of Query from a Hash of raw data.
-        #
-        # @overload initialize(field: nil, operator: nil, value: nil)
-        # @param field [String] The LHS of the conditional.
-        # @param operator [String] What the operator between the `field` and `value` is.
-        # @param value [String] The RHS of the conditional.
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of Query from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String] :field The LHS of the conditional.
+        #   #   @option data [String] :operator What the operator between the `field` and `value` is.
+        #   #   @option data [String] :value The RHS of the conditional.
+        #   def initialize(data = {}) = super
       end
 
-      # Create a new instance of LedgerEventHandlerVariable from a Hash of raw data.
-      #
-      # @overload initialize(query: nil, type: nil)
-      # @param query [Object]
-      # @param type [String] The type of object this variable is. Currently, only "ledger_account" is
-      #   supported.
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of LedgerEventHandlerVariable from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [Object] :query
+      #   #   @option data [String] :type The type of object this variable is. Currently, only "ledger_account" is
+      #   #     supported.
+      #   def initialize(data = {}) = super
     end
   end
 end

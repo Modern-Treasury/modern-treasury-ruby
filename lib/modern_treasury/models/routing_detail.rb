@@ -102,24 +102,23 @@ module ModernTreasury
         #   @return [Time]
         required :updated_at, Time
 
-        # Create a new instance of BankAddress from a Hash of raw data.
-        #
-        # @overload initialize(id: nil, country: nil, created_at: nil, line1: nil, line2: nil, live_mode: nil, locality: nil, object: nil, postal_code: nil, region: nil, updated_at: nil)
-        # @param id [String]
-        # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
-        # @param created_at [String]
-        # @param line1 [String]
-        # @param line2 [String]
-        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        # @param locality [String] Locality or City.
-        # @param object [String]
-        # @param postal_code [String] The postal code of the address.
-        # @param region [String] Region or State.
-        # @param updated_at [String]
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of BankAddress from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String] :id
+        #   #   @option data [String] :country Country code conforms to [ISO 3166-1 alpha-2]
+        #   #   @option data [String] :created_at
+        #   #   @option data [String] :line1
+        #   #   @option data [String] :line2
+        #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+        #   #     if it exists in the test environment.
+        #   #   @option data [String] :locality Locality or City.
+        #   #   @option data [String] :object
+        #   #   @option data [String] :postal_code The postal code of the address.
+        #   #   @option data [String] :region Region or State.
+        #   #   @option data [String] :updated_at
+        #   def initialize(data = {}) = super
       end
 
       # If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
@@ -180,27 +179,26 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
       end
 
-      # Create a new instance of RoutingDetail from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, bank_address: nil, bank_name: nil, created_at: nil, discarded_at: nil, live_mode: nil, object: nil, payment_type: nil, routing_number: nil, routing_number_type: nil, updated_at: nil)
-      # @param id [String]
-      # @param bank_address [Object]
-      # @param bank_name [String] The name of the bank.
-      # @param created_at [String]
-      # @param discarded_at [String]
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param object [String]
-      # @param payment_type [String] If the routing detail is to be used for a specific payment type this field will
-      #   be populated, otherwise null.
-      # @param routing_number [String] The routing number of the bank.
-      # @param routing_number_type [String] The type of routing number. See
-      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   more details.
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of RoutingDetail from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [Object] :bank_address
+      #   #   @option data [String] :bank_name The name of the bank.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :discarded_at
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :payment_type If the routing detail is to be used for a specific payment type this field will
+      #   #     be populated, otherwise null.
+      #   #   @option data [String] :routing_number The routing number of the bank.
+      #   #   @option data [String] :routing_number_type The type of routing number. See
+      #   #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   #     more details.
+      #   #   @option data [String] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end

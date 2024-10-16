@@ -11,9 +11,9 @@ module ModernTreasury
       # create account_collection_flow
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String] :counterparty_id Required.
-      # @option params [Array<String>] :payment_types
-      # @option params [Array<Symbol, ReceivingCountry>, nil] :receiving_countries
+      #   @option params [String] :counterparty_id Required.
+      #   @option params [Array<String>] :payment_types
+      #   @option params [Array<Symbol, ReceivingCountry>, nil] :receiving_countries
       #
       # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -49,8 +49,8 @@ module ModernTreasury
       # @param id [String] id
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [Symbol, Status] :status Required. The updated status of the account collection flow. Can only be used to
-      #   mark a flow as `cancelled`.
+      #   @option params [Symbol, Status] :status Required. The updated status of the account collection flow. Can only be used to
+      #     mark a flow as `cancelled`.
       #
       # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -69,12 +69,12 @@ module ModernTreasury
       # list account_collection_flows
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String, nil] :after_cursor
-      # @option params [String, nil] :client_token
-      # @option params [String, nil] :counterparty_id
-      # @option params [String, nil] :external_account_id
-      # @option params [Integer, nil] :per_page
-      # @option params [String, nil] :status
+      #   @option params [String, nil] :after_cursor
+      #   @option params [String, nil] :client_token
+      #   @option params [String, nil] :counterparty_id
+      #   @option params [String, nil] :external_account_id
+      #   @option params [Integer, nil] :per_page
+      #   @option params [String, nil] :status
       #
       # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

@@ -43,23 +43,22 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # Create a new instance of Ledger from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, created_at: nil, description: nil, discarded_at: nil, live_mode: nil, metadata: nil, name: nil, object: nil, updated_at: nil)
-      # @param id [String]
-      # @param created_at [String]
-      # @param description [String] An optional free-form description for internal use.
-      # @param discarded_at [String]
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param name [String] The name of the ledger.
-      # @param object [String]
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of Ledger from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :description An optional free-form description for internal use.
+      #   #   @option data [String] :discarded_at
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [String] :name The name of the ledger.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end

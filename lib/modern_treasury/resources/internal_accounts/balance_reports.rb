@@ -14,11 +14,11 @@ module ModernTreasury
         # @param internal_account_id [String]
         #
         # @param params [Hash] Attributes to send in this request.
-        # @option params [Date] :as_of_date The date of the balance report in local time.
-        # @option params [String] :as_of_time The time (24-hour clock) of the balance report in local time.
-        # @option params [Symbol, BalanceReportType] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
-        #   `real_time`, or `other`.
-        # @option params [Array<Balance>] :balances An array of `Balance` objects.
+        #   @option params [Date] :as_of_date The date of the balance report in local time.
+        #   @option params [String] :as_of_time The time (24-hour clock) of the balance report in local time.
+        #   @option params [Symbol, BalanceReportType] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
+        #     `real_time`, or `other`.
+        #   @option params [Array<Balance>] :balances An array of `Balance` objects.
         #
         # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
@@ -56,11 +56,11 @@ module ModernTreasury
         # @param internal_account_id [String]
         #
         # @param params [Hash] Attributes to send in this request.
-        # @option params [String, nil] :after_cursor
-        # @option params [Date, nil] :as_of_date The date of the balance report in local time.
-        # @option params [Symbol, BalanceReportType, nil] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
-        #   `real_time`, or `other`.
-        # @option params [Integer, nil] :per_page
+        #   @option params [String, nil] :after_cursor
+        #   @option params [Date, nil] :as_of_date The date of the balance report in local time.
+        #   @option params [Symbol, BalanceReportType, nil] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
+        #     `real_time`, or `other`.
+        #   @option params [Integer, nil] :per_page
         #
         # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #

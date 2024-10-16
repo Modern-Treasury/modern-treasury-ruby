@@ -11,9 +11,9 @@ module ModernTreasury
       # Create a connection legal entity.
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String] :connection_id The ID of the connection.
-      # @option params [LegalEntity, nil] :legal_entity The legal entity.
-      # @option params [String, nil] :legal_entity_id The ID of the legal entity.
+      #   @option params [String] :connection_id The ID of the connection.
+      #   @option params [LegalEntity, nil] :legal_entity The legal entity.
+      #   @option params [String, nil] :legal_entity_id The ID of the legal entity.
       #
       # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -49,7 +49,7 @@ module ModernTreasury
       # @param id [String] The id of an existing connection legal entity.
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [Symbol, Status, nil] :status The status of the connection legal entity.
+      #   @option params [Symbol, Status, nil] :status The status of the connection legal entity.
       #
       # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -68,11 +68,11 @@ module ModernTreasury
       # Get a list of all connection legal entities.
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String, nil] :after_cursor
-      # @option params [String, nil] :connection_id
-      # @option params [String, nil] :legal_entity_id
-      # @option params [Integer, nil] :per_page
-      # @option params [Symbol, Status, nil] :status
+      #   @option params [String, nil] :after_cursor
+      #   @option params [String, nil] :connection_id
+      #   @option params [String, nil] :legal_entity_id
+      #   @option params [Integer, nil] :per_page
+      #   @option params [Symbol, Status, nil] :status
       #
       # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

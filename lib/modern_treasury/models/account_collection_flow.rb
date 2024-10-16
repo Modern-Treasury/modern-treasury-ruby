@@ -98,27 +98,26 @@ module ModernTreasury
         PENDING = :pending
       end
 
-      # Create a new instance of AccountCollectionFlow from a Hash of raw data.
-      #
-      # @overload initialize(counterparty_id: nil, payment_types: nil, id: nil, client_token: nil, created_at: nil, external_account_id: nil, live_mode: nil, object: nil, receiving_countries: nil, status: nil, updated_at: nil)
-      # @param counterparty_id [String] The ID of a counterparty. An external account created with this flow will be
-      #   associated with this counterparty.
-      # @param payment_types [Array<String>]
-      # @param id [String]
-      # @param client_token [String] The client token of the account collection flow. This token can be used to embed
-      #   account collection in your client-side application.
-      # @param created_at [String]
-      # @param external_account_id [String] If present, the ID of the external account created using this flow.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param object [String]
-      # @param receiving_countries [Array<String>]
-      # @param status [String] The current status of the account collection flow. One of `pending`,
-      #   `completed`, `expired`, or `cancelled`.
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of AccountCollectionFlow from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :counterparty_id The ID of a counterparty. An external account created with this flow will be
+      #   #     associated with this counterparty.
+      #   #   @option data [Array<String>] :payment_types
+      #   #   @option data [String, nil] :id
+      #   #   @option data [String, nil] :client_token The client token of the account collection flow. This token can be used to embed
+      #   #     account collection in your client-side application.
+      #   #   @option data [String, nil] :created_at
+      #   #   @option data [String, nil] :external_account_id If present, the ID of the external account created using this flow.
+      #   #   @option data [Hash, nil] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [String, nil] :object
+      #   #   @option data [Array<String>, nil] :receiving_countries
+      #   #   @option data [String, nil] :status The current status of the account collection flow. One of `pending`,
+      #   #     `completed`, `expired`, or `cancelled`.
+      #   #   @option data [String, nil] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end
