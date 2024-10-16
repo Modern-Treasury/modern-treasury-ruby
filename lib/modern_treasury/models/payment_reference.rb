@@ -126,24 +126,23 @@ module ModernTreasury
         RETURN = :return
       end
 
-      # Create a new instance of PaymentReference from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, created_at: nil, live_mode: nil, object: nil, reference_number: nil, reference_number_type: nil, referenceable_id: nil, referenceable_type: nil, updated_at: nil)
-      # @param id [String]
-      # @param created_at [String]
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param object [String]
-      # @param reference_number [String] The actual reference number assigned by the bank.
-      # @param reference_number_type [String] The type of reference number.
-      # @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the
-      #   referenceable_type or will return an error.
-      # @param referenceable_type [String] One of the referenceable types. This must be accompanied by the id of the
-      #   referenceable or will return an error.
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of PaymentReference from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [String] :created_at
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :reference_number The actual reference number assigned by the bank.
+      #   #   @option data [String] :reference_number_type The type of reference number.
+      #   #   @option data [String] :referenceable_id The id of the referenceable to search for. Must be accompanied by the
+      #   #     referenceable_type or will return an error.
+      #   #   @option data [String] :referenceable_type One of the referenceable types. This must be accompanied by the id of the
+      #   #     referenceable or will return an error.
+      #   #   @option data [String] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end

@@ -104,17 +104,16 @@ module ModernTreasury
           #   @return [Integer]
           required :debits, Integer
 
-          # Create a new instance of AvailableBalance from a Hash of raw data.
-          #
-          # @overload initialize(amount: nil, credits: nil, currency: nil, currency_exponent: nil, debits: nil)
-          # @param amount [Integer]
-          # @param credits [Integer]
-          # @param currency [String] The currency of the ledger account.
-          # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          # @param debits [Integer]
-          def initialize(data = {})
-            super
-          end
+          # @!parse
+          #   # Create a new instance of AvailableBalance from a Hash of raw data.
+          #   #
+          #   # @param data [Hash{Symbol => Object}] .
+          #   #   @option data [Integer] :amount
+          #   #   @option data [Integer] :credits
+          #   #   @option data [String] :currency The currency of the ledger account.
+          #   #   @option data [Integer] :currency_exponent The currency exponent of the ledger account.
+          #   #   @option data [Integer] :debits
+          #   def initialize(data = {}) = super
         end
 
         class PendingBalance < BaseModel
@@ -140,17 +139,16 @@ module ModernTreasury
           #   @return [Integer]
           required :debits, Integer
 
-          # Create a new instance of PendingBalance from a Hash of raw data.
-          #
-          # @overload initialize(amount: nil, credits: nil, currency: nil, currency_exponent: nil, debits: nil)
-          # @param amount [Integer]
-          # @param credits [Integer]
-          # @param currency [String] The currency of the ledger account.
-          # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          # @param debits [Integer]
-          def initialize(data = {})
-            super
-          end
+          # @!parse
+          #   # Create a new instance of PendingBalance from a Hash of raw data.
+          #   #
+          #   # @param data [Hash{Symbol => Object}] .
+          #   #   @option data [Integer] :amount
+          #   #   @option data [Integer] :credits
+          #   #   @option data [String] :currency The currency of the ledger account.
+          #   #   @option data [Integer] :currency_exponent The currency exponent of the ledger account.
+          #   #   @option data [Integer] :debits
+          #   def initialize(data = {}) = super
         end
 
         class PostedBalance < BaseModel
@@ -176,57 +174,54 @@ module ModernTreasury
           #   @return [Integer]
           required :debits, Integer
 
-          # Create a new instance of PostedBalance from a Hash of raw data.
-          #
-          # @overload initialize(amount: nil, credits: nil, currency: nil, currency_exponent: nil, debits: nil)
-          # @param amount [Integer]
-          # @param credits [Integer]
-          # @param currency [String] The currency of the ledger account.
-          # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          # @param debits [Integer]
-          def initialize(data = {})
-            super
-          end
+          # @!parse
+          #   # Create a new instance of PostedBalance from a Hash of raw data.
+          #   #
+          #   # @param data [Hash{Symbol => Object}] .
+          #   #   @option data [Integer] :amount
+          #   #   @option data [Integer] :credits
+          #   #   @option data [String] :currency The currency of the ledger account.
+          #   #   @option data [Integer] :currency_exponent The currency exponent of the ledger account.
+          #   #   @option data [Integer] :debits
+          #   def initialize(data = {}) = super
         end
 
-        # Create a new instance of Balances from a Hash of raw data.
-        #
-        # @overload initialize(available_balance: nil, pending_balance: nil, posted_balance: nil)
-        # @param available_balance [Object] The available_balance is the sum of all posted inbound entries and pending
-        #   outbound entries. For credit normal, available_amount = posted_credits -
-        #   pending_debits; for debit normal, available_amount = posted_debits -
-        #   pending_credits.
-        # @param pending_balance [Object] The pending_balance is the sum of all pending and posted entries.
-        # @param posted_balance [Object] The posted_balance is the sum of all posted entries.
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of Balances from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [Object] :available_balance The available_balance is the sum of all posted inbound entries and pending
+        #   #     outbound entries. For credit normal, available_amount = posted_credits -
+        #   #     pending_debits; for debit normal, available_amount = posted_debits -
+        #   #     pending_credits.
+        #   #   @option data [Object] :pending_balance The pending_balance is the sum of all pending and posted entries.
+        #   #   @option data [Object] :posted_balance The posted_balance is the sum of all posted entries.
+        #   def initialize(data = {}) = super
       end
 
-      # Create a new instance of LedgerAccountCategory from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, balances: nil, created_at: nil, description: nil, discarded_at: nil, ledger_id: nil, live_mode: nil, metadata: nil, name: nil, normal_balance: nil, object: nil, updated_at: nil)
-      # @param id [String]
-      # @param balances [Object] The pending, posted, and available balances for this ledger account category.
-      #   The posted balance is the sum of all posted entries on the account. The pending
-      #   balance is the sum of all pending and posted entries on the account. The
-      #   available balance is the posted incoming entries minus the sum of the pending
-      #   and posted outgoing amounts.
-      # @param created_at [String]
-      # @param description [String] The description of the ledger account category.
-      # @param discarded_at [String]
-      # @param ledger_id [String] The id of the ledger that this account category belongs to.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param name [String] The name of the ledger account category.
-      # @param normal_balance [String] The normal balance of the ledger account category.
-      # @param object [String]
-      # @param updated_at [String]
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of LedgerAccountCategory from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [Object] :balances The pending, posted, and available balances for this ledger account category.
+      #   #     The posted balance is the sum of all posted entries on the account. The pending
+      #   #     balance is the sum of all pending and posted entries on the account. The
+      #   #     available balance is the posted incoming entries minus the sum of the pending
+      #   #     and posted outgoing amounts.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :description The description of the ledger account category.
+      #   #   @option data [String] :discarded_at
+      #   #   @option data [String] :ledger_id The id of the ledger that this account category belongs to.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [String] :name The name of the ledger account category.
+      #   #   @option data [String] :normal_balance The normal balance of the ledger account category.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :updated_at
+      #   def initialize(data = {}) = super
     end
   end
 end

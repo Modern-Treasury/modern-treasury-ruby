@@ -211,17 +211,16 @@ module ModernTreasury
             #   @return [Integer]
             required :debits, Integer
 
-            # Create a new instance of AvailableBalance from a Hash of raw data.
-            #
-            # @overload initialize(amount: nil, credits: nil, currency: nil, currency_exponent: nil, debits: nil)
-            # @param amount [Integer]
-            # @param credits [Integer]
-            # @param currency [String] The currency of the ledger account.
-            # @param currency_exponent [Integer] The currency exponent of the ledger account.
-            # @param debits [Integer]
-            def initialize(data = {})
-              super
-            end
+            # @!parse
+            #   # Create a new instance of AvailableBalance from a Hash of raw data.
+            #   #
+            #   # @param data [Hash{Symbol => Object}] .
+            #   #   @option data [Integer] :amount
+            #   #   @option data [Integer] :credits
+            #   #   @option data [String] :currency The currency of the ledger account.
+            #   #   @option data [Integer] :currency_exponent The currency exponent of the ledger account.
+            #   #   @option data [Integer] :debits
+            #   def initialize(data = {}) = super
           end
 
           class PendingBalance < BaseModel
@@ -247,17 +246,16 @@ module ModernTreasury
             #   @return [Integer]
             required :debits, Integer
 
-            # Create a new instance of PendingBalance from a Hash of raw data.
-            #
-            # @overload initialize(amount: nil, credits: nil, currency: nil, currency_exponent: nil, debits: nil)
-            # @param amount [Integer]
-            # @param credits [Integer]
-            # @param currency [String] The currency of the ledger account.
-            # @param currency_exponent [Integer] The currency exponent of the ledger account.
-            # @param debits [Integer]
-            def initialize(data = {})
-              super
-            end
+            # @!parse
+            #   # Create a new instance of PendingBalance from a Hash of raw data.
+            #   #
+            #   # @param data [Hash{Symbol => Object}] .
+            #   #   @option data [Integer] :amount
+            #   #   @option data [Integer] :credits
+            #   #   @option data [String] :currency The currency of the ledger account.
+            #   #   @option data [Integer] :currency_exponent The currency exponent of the ledger account.
+            #   #   @option data [Integer] :debits
+            #   def initialize(data = {}) = super
           end
 
           class PostedBalance < BaseModel
@@ -283,31 +281,29 @@ module ModernTreasury
             #   @return [Integer]
             required :debits, Integer
 
-            # Create a new instance of PostedBalance from a Hash of raw data.
-            #
-            # @overload initialize(amount: nil, credits: nil, currency: nil, currency_exponent: nil, debits: nil)
-            # @param amount [Integer]
-            # @param credits [Integer]
-            # @param currency [String] The currency of the ledger account.
-            # @param currency_exponent [Integer] The currency exponent of the ledger account.
-            # @param debits [Integer]
-            def initialize(data = {})
-              super
-            end
+            # @!parse
+            #   # Create a new instance of PostedBalance from a Hash of raw data.
+            #   #
+            #   # @param data [Hash{Symbol => Object}] .
+            #   #   @option data [Integer] :amount
+            #   #   @option data [Integer] :credits
+            #   #   @option data [String] :currency The currency of the ledger account.
+            #   #   @option data [Integer] :currency_exponent The currency exponent of the ledger account.
+            #   #   @option data [Integer] :debits
+            #   def initialize(data = {}) = super
           end
 
-          # Create a new instance of ResultingLedgerAccountBalances from a Hash of raw data.
-          #
-          # @overload initialize(available_balance: nil, pending_balance: nil, posted_balance: nil)
-          # @param available_balance [Object] The available_balance is the sum of all posted inbound entries and pending
-          #   outbound entries. For credit normal, available_amount = posted_credits -
-          #   pending_debits; for debit normal, available_amount = posted_debits -
-          #   pending_credits.
-          # @param pending_balance [Object] The pending_balance is the sum of all pending and posted entries.
-          # @param posted_balance [Object] The posted_balance is the sum of all posted entries.
-          def initialize(data = {})
-            super
-          end
+          # @!parse
+          #   # Create a new instance of ResultingLedgerAccountBalances from a Hash of raw data.
+          #   #
+          #   # @param data [Hash{Symbol => Object}] .
+          #   #   @option data [Object] :available_balance The available_balance is the sum of all posted inbound entries and pending
+          #   #     outbound entries. For credit normal, available_amount = posted_credits -
+          #   #     pending_debits; for debit normal, available_amount = posted_debits -
+          #   #     pending_credits.
+          #   #   @option data [Object] :pending_balance The pending_balance is the sum of all pending and posted entries.
+          #   #   @option data [Object] :posted_balance The posted_balance is the sum of all posted entries.
+          #   def initialize(data = {}) = super
         end
 
         # Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
@@ -317,42 +313,41 @@ module ModernTreasury
           POSTED = :posted
         end
 
-        # Create a new instance of LedgerEntry from a Hash of raw data.
-        #
-        # @overload initialize(id: nil, amount: nil, created_at: nil, direction: nil, ledger_account_currency: nil, ledger_account_currency_exponent: nil, ledger_account_id: nil, ledger_account_lock_version: nil, ledger_transaction_id: nil, live_mode: nil, metadata: nil, object: nil, resulting_ledger_account_balances: nil, status: nil)
-        # @param id [String]
-        # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
-        #   as 1000. Can be any integer up to 36 digits.
-        # @param created_at [String]
-        # @param direction [String] One of `credit`, `debit`. Describes the direction money is flowing in the
-        #   transaction. A `credit` moves money from your account to someone else's. A
-        #   `debit` pulls money from someone else's account to your own. Note that wire,
-        #   rtp, and check payments will always be `credit`.
-        # @param ledger_account_currency [String] The currency of the ledger account.
-        # @param ledger_account_currency_exponent [Integer] The currency exponent of the ledger account.
-        # @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
-        # @param ledger_account_lock_version [Integer] Lock version of the ledger account. This can be passed when creating a ledger
-        #   transaction to only succeed if no ledger transactions have posted since the
-        #   given version. See our post about Designing the Ledgers API with Optimistic
-        #   Locking for more details.
-        # @param ledger_transaction_id [String] The ledger transaction that this ledger entry is associated with.
-        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-        #   strings.
-        # @param object [String]
-        # @param resulting_ledger_account_balances [Object] The pending, posted, and available balances for this ledger entry's ledger
-        #   account. The posted balance is the sum of all posted entries on the account. The
-        #   pending balance is the sum of all pending and posted entries on the account. The
-        #   available balance is the posted incoming entries minus the sum of the pending
-        #   and posted outgoing amounts. Please see
-        #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
-        #   details.
-        # @param status [String] Equal to the state of the ledger transaction when the ledger entry was created.
-        #   One of `pending`, `posted`, or `archived`.
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of LedgerEntry from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String] :id
+        #   #   @option data [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
+        #   #     as 1000. Can be any integer up to 36 digits.
+        #   #   @option data [String] :created_at
+        #   #   @option data [String] :direction One of `credit`, `debit`. Describes the direction money is flowing in the
+        #   #     transaction. A `credit` moves money from your account to someone else's. A
+        #   #     `debit` pulls money from someone else's account to your own. Note that wire,
+        #   #     rtp, and check payments will always be `credit`.
+        #   #   @option data [String] :ledger_account_currency The currency of the ledger account.
+        #   #   @option data [Integer] :ledger_account_currency_exponent The currency exponent of the ledger account.
+        #   #   @option data [String] :ledger_account_id The ledger account that this ledger entry is associated with.
+        #   #   @option data [Integer] :ledger_account_lock_version Lock version of the ledger account. This can be passed when creating a ledger
+        #   #     transaction to only succeed if no ledger transactions have posted since the
+        #   #     given version. See our post about Designing the Ledgers API with Optimistic
+        #   #     Locking for more details.
+        #   #   @option data [String] :ledger_transaction_id The ledger transaction that this ledger entry is associated with.
+        #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+        #   #     if it exists in the test environment.
+        #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+        #   #     strings.
+        #   #   @option data [String] :object
+        #   #   @option data [Object] :resulting_ledger_account_balances The pending, posted, and available balances for this ledger entry's ledger
+        #   #     account. The posted balance is the sum of all posted entries on the account. The
+        #   #     pending balance is the sum of all pending and posted entries on the account. The
+        #   #     available balance is the posted incoming entries minus the sum of the pending
+        #   #     and posted outgoing amounts. Please see
+        #   #     https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
+        #   #     details.
+        #   #   @option data [String] :status Equal to the state of the ledger transaction when the ledger entry was created.
+        #   #     One of `pending`, `posted`, or `archived`.
+        #   def initialize(data = {}) = super
       end
 
       # If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, or reversal.
@@ -372,41 +367,40 @@ module ModernTreasury
         POSTED = :posted
       end
 
-      # Create a new instance of LedgerTransactionVersion from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, created_at: nil, description: nil, effective_at: nil, effective_date: nil, external_id: nil, ledger_entries: nil, ledger_id: nil, ledger_transaction_id: nil, ledgerable_id: nil, ledgerable_type: nil, live_mode: nil, metadata: nil, object: nil, posted_at: nil, reversed_by_ledger_transaction_id: nil, reverses_ledger_transaction_id: nil, status: nil, version: nil)
-      # @param id [String]
-      # @param created_at [String]
-      # @param description [String] An optional description for internal use.
-      # @param effective_at [String] The timestamp (ISO8601 format) at which the ledger transaction happened for
-      #   reporting purposes.
-      # @param effective_date [String] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
-      #   purposes.
-      # @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
-      #   ledger transaction may have this ID in the ledger.
-      # @param ledger_entries [Array<Object>] An array of ledger entry objects.
-      # @param ledger_id [String] The ID of the ledger this ledger transaction belongs to.
-      # @param ledger_transaction_id [String] The ID of the ledger transaction
-      # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the id will be populated here, otherwise null.
-      # @param ledgerable_type [String] If the ledger transaction can be reconciled to another object in Modern
-      #   Treasury, the type will be populated here, otherwise null. This can be one of
-      #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param object [String]
-      # @param posted_at [String] The time on which the ledger transaction posted. This is null if the ledger
-      #   transaction is pending.
-      # @param reversed_by_ledger_transaction_id [String] The ID of the ledger transaction that reversed this ledger transaction.
-      # @param reverses_ledger_transaction_id [String] The ID of the original ledger transaction. that this ledger transaction
-      #   reverses.
-      # @param status [String] One of `pending`, `posted`, or `archived`.
-      # @param version [Integer] Version number of the ledger transaction.
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of LedgerTransactionVersion from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :description An optional description for internal use.
+      #   #   @option data [String] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
+      #   #     reporting purposes.
+      #   #   @option data [String] :effective_date The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+      #   #     purposes.
+      #   #   @option data [String] :external_id A unique string to represent the ledger transaction. Only one pending or posted
+      #   #     ledger transaction may have this ID in the ledger.
+      #   #   @option data [Array<Object>] :ledger_entries An array of ledger entry objects.
+      #   #   @option data [String] :ledger_id The ID of the ledger this ledger transaction belongs to.
+      #   #   @option data [String] :ledger_transaction_id The ID of the ledger transaction
+      #   #   @option data [String] :ledgerable_id If the ledger transaction can be reconciled to another object in Modern
+      #   #     Treasury, the id will be populated here, otherwise null.
+      #   #   @option data [String] :ledgerable_type If the ledger transaction can be reconciled to another object in Modern
+      #   #     Treasury, the type will be populated here, otherwise null. This can be one of
+      #   #     payment_order, incoming_payment_detail, expected_payment, return, or reversal.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [String] :object
+      #   #   @option data [String] :posted_at The time on which the ledger transaction posted. This is null if the ledger
+      #   #     transaction is pending.
+      #   #   @option data [String] :reversed_by_ledger_transaction_id The ID of the ledger transaction that reversed this ledger transaction.
+      #   #   @option data [String] :reverses_ledger_transaction_id The ID of the original ledger transaction. that this ledger transaction
+      #   #     reverses.
+      #   #   @option data [String] :status One of `pending`, `posted`, or `archived`.
+      #   #   @option data [Integer] :version Version number of the ledger transaction.
+      #   def initialize(data = {}) = super
     end
   end
 end

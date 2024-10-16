@@ -181,26 +181,25 @@ module ModernTreasury
           RESIDENTIAL = :residential
         end
 
-        # Create a new instance of Address from a Hash of raw data.
-        #
-        # @overload initialize(id: nil, address_types: nil, country: nil, created_at: nil, discarded_at: nil, line1: nil, line2: nil, live_mode: nil, locality: nil, object: nil, postal_code: nil, region: nil, updated_at: nil)
-        # @param id [String]
-        # @param address_types [Array<String>] The types of this address.
-        # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
-        # @param created_at [String]
-        # @param discarded_at [String]
-        # @param line1 [String]
-        # @param line2 [String]
-        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        # @param locality [String] Locality or City.
-        # @param object [String]
-        # @param postal_code [String] The postal code of the address.
-        # @param region [String] Region or State.
-        # @param updated_at [String]
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of Address from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String] :id
+        #   #   @option data [Array<String>] :address_types The types of this address.
+        #   #   @option data [String] :country Country code conforms to [ISO 3166-1 alpha-2]
+        #   #   @option data [String] :created_at
+        #   #   @option data [String] :discarded_at
+        #   #   @option data [String] :line1
+        #   #   @option data [String] :line2
+        #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+        #   #     if it exists in the test environment.
+        #   #   @option data [String] :locality Locality or City.
+        #   #   @option data [String] :object
+        #   #   @option data [String] :postal_code The postal code of the address.
+        #   #   @option data [String] :region Region or State.
+        #   #   @option data [String] :updated_at
+        #   def initialize(data = {}) = super
       end
 
       class Identification < BaseModel
@@ -264,22 +263,21 @@ module ModernTreasury
           VN_TIN = :vn_tin
         end
 
-        # Create a new instance of Identification from a Hash of raw data.
-        #
-        # @overload initialize(id: nil, created_at: nil, discarded_at: nil, id_type: nil, issuing_country: nil, live_mode: nil, object: nil, updated_at: nil)
-        # @param id [String]
-        # @param created_at [String]
-        # @param discarded_at [String]
-        # @param id_type [String] The type of ID number.
-        # @param issuing_country [String] The ISO 3166-1 alpha-2 country code of the country that issued the
-        #   identification
-        # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-        #   if it exists in the test environment.
-        # @param object [String]
-        # @param updated_at [String]
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of Identification from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String] :id
+        #   #   @option data [String] :created_at
+        #   #   @option data [String] :discarded_at
+        #   #   @option data [String] :id_type The type of ID number.
+        #   #   @option data [String] :issuing_country The ISO 3166-1 alpha-2 country code of the country that issued the
+        #   #     identification
+        #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+        #   #     if it exists in the test environment.
+        #   #   @option data [String] :object
+        #   #   @option data [String] :updated_at
+        #   def initialize(data = {}) = super
       end
 
       # The type of legal entity.
@@ -304,13 +302,12 @@ module ModernTreasury
         #   @return [String]
         optional :phone_number, String
 
-        # Create a new instance of PhoneNumber from a Hash of raw data.
-        #
-        # @overload initialize(phone_number: nil)
-        # @param phone_number [String]
-        def initialize(data = {})
-          super
-        end
+        # @!parse
+        #   # Create a new instance of PhoneNumber from a Hash of raw data.
+        #   #
+        #   # @param data [Hash{Symbol => Object}] .
+        #   #   @option data [String, nil] :phone_number
+        #   def initialize(data = {}) = super
       end
 
       # The risk rating of the legal entity. One of low, medium, high.
@@ -320,36 +317,35 @@ module ModernTreasury
         HIGH = :high
       end
 
-      # Create a new instance of LegalEntity from a Hash of raw data.
-      #
-      # @overload initialize(id: nil, addresses: nil, business_name: nil, created_at: nil, date_formed: nil, date_of_birth: nil, discarded_at: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, last_name: nil, legal_entity_associations: nil, legal_entity_type: nil, legal_structure: nil, live_mode: nil, metadata: nil, object: nil, phone_numbers: nil, risk_rating: nil, updated_at: nil, website: nil)
-      # @param id [String]
-      # @param addresses [Array<Object>] A list of addresses for the entity.
-      # @param business_name [String] The business's legal business name.
-      # @param created_at [String]
-      # @param date_formed [String] A business's formation date (YYYY-MM-DD).
-      # @param date_of_birth [String] An individual's date of birth (YYYY-MM-DD).
-      # @param discarded_at [String]
-      # @param doing_business_as_names [Array<String>]
-      # @param email [String] The entity's primary email.
-      # @param first_name [String] An individual's first name.
-      # @param identifications [Array<Object>] A list of identifications for the legal entity.
-      # @param last_name [String] An individual's last name.
-      # @param legal_entity_associations [Array<Object>] The legal entity associations and its child legal entities.
-      # @param legal_entity_type [String] The type of legal entity.
-      # @param legal_structure [String] The business's legal structure.
-      # @param live_mode [Hash] This field will be true if this object exists in the live environment or false
-      #   if it exists in the test environment.
-      # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
-      #   strings.
-      # @param object [String]
-      # @param phone_numbers [Array<Object>]
-      # @param risk_rating [String] The risk rating of the legal entity. One of low, medium, high.
-      # @param updated_at [String]
-      # @param website [String] The entity's primary website URL.
-      def initialize(data = {})
-        super
-      end
+      # @!parse
+      #   # Create a new instance of LegalEntity from a Hash of raw data.
+      #   #
+      #   # @param data [Hash{Symbol => Object}] .
+      #   #   @option data [String] :id
+      #   #   @option data [Array<Object>] :addresses A list of addresses for the entity.
+      #   #   @option data [String] :business_name The business's legal business name.
+      #   #   @option data [String] :created_at
+      #   #   @option data [String] :date_formed A business's formation date (YYYY-MM-DD).
+      #   #   @option data [String] :date_of_birth An individual's date of birth (YYYY-MM-DD).
+      #   #   @option data [String] :discarded_at
+      #   #   @option data [Array<String>] :doing_business_as_names
+      #   #   @option data [String] :email The entity's primary email.
+      #   #   @option data [String] :first_name An individual's first name.
+      #   #   @option data [Array<Object>] :identifications A list of identifications for the legal entity.
+      #   #   @option data [String] :last_name An individual's last name.
+      #   #   @option data [Array<Object>] :legal_entity_associations The legal entity associations and its child legal entities.
+      #   #   @option data [String] :legal_entity_type The type of legal entity.
+      #   #   @option data [String] :legal_structure The business's legal structure.
+      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
+      #   #     if it exists in the test environment.
+      #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   #     strings.
+      #   #   @option data [String] :object
+      #   #   @option data [Array<Object>] :phone_numbers
+      #   #   @option data [String] :risk_rating The risk rating of the legal entity. One of low, medium, high.
+      #   #   @option data [String] :updated_at
+      #   #   @option data [String] :website The entity's primary website URL.
+      #   def initialize(data = {}) = super
     end
   end
 end
