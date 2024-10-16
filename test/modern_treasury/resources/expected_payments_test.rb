@@ -13,15 +13,8 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < Minitest::Test
     )
   end
 
-  def test_create_required_params
-    response = @modern_treasury.expected_payments.create(
-      {
-        amount_lower_bound: 0,
-        amount_upper_bound: 0,
-        direction: "credit",
-        internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-      }
-    )
+  def test_create
+    response = @modern_treasury.expected_payments.create
     assert_kind_of(ModernTreasury::Models::ExpectedPayment, response)
   end
 
