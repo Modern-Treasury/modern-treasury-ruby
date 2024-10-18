@@ -39,7 +39,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   Name of the ledgerable event.
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] object
       #   @return [String]

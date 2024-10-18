@@ -43,7 +43,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   A human friendly name for this counterparty.
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] object
       #   @return [String]
@@ -81,7 +81,7 @@ module ModernTreasury
         #   @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
         optional :contact_details,
                  ModernTreasury::ArrayOf.new(
-                   lambda {
+                   -> {
                      ModernTreasury::Models::Counterparty::Account::ContactDetail
                    }
                  )
@@ -112,7 +112,7 @@ module ModernTreasury
         # @!attribute [rw] name_
         #   A nickname for the external account. This is only for internal usage and won't affect any payments
         #   @return [String]
-        optional :name_, String
+        optional :name_, String, api_name: :name
 
         # @!attribute [rw] object
         #   @return [String]
@@ -163,7 +163,7 @@ module ModernTreasury
           # @!attribute [rw] contact_identifier_type
           #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType]
           required :contact_identifier_type,
-                   enum: lambda {
+                   enum: -> {
                      ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType
                    }
 

@@ -36,7 +36,7 @@ module ModernTreasury
       #   @return [Array<ModernTreasury::Models::LedgerTransactionVersion::LedgerEntry>]
       required :ledger_entries,
                ModernTreasury::ArrayOf.new(
-                 lambda {
+                 -> {
                    ModernTreasury::Models::LedgerTransactionVersion::LedgerEntry
                  }
                )

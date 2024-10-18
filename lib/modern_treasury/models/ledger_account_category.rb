@@ -43,7 +43,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   The name of the ledger account category.
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] normal_balance
       #   The normal balance of the ledger account category.
@@ -69,7 +69,7 @@ module ModernTreasury
         #   The pending_balance is the sum of all pending and posted entries.
         #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance]
         required :pending_balance,
-                 lambda {
+                 -> {
                    ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance
                  }
 
@@ -77,7 +77,7 @@ module ModernTreasury
         #   The posted_balance is the sum of all posted entries.
         #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance]
         required :posted_balance,
-                 lambda {
+                 -> {
                    ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance
                  }
 
