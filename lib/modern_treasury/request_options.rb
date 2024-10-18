@@ -78,7 +78,7 @@ module ModernTreasury
 
     # @return [String]
     def inspect
-      "#<ModernTreasury::RequestOptions:0x#{object_id.to_s(16)} #{@_values.inspect}>"
+      "#<#{self.class}:0x#{object_id.to_s(16)} #{@_values.inspect}>"
     end
 
     # @return [String]

@@ -119,7 +119,7 @@ module ModernTreasury
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType>]
         required :address_types,
                  ModernTreasury::ArrayOf.new(
-                   enum: lambda {
+                   enum: -> {
                      ModernTreasury::Models::LegalEntity::Address::AddressType
                    }
                  )

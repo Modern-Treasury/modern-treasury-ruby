@@ -43,7 +43,7 @@ module ModernTreasury
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType>]
       required :relationship_types,
                ModernTreasury::ArrayOf.new(
-                 enum: lambda {
+                 enum: -> {
                    ModernTreasury::Models::LegalEntityAssociation::RelationshipType
                  }
                )
@@ -67,7 +67,7 @@ module ModernTreasury
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address>]
         required :addresses,
                  ModernTreasury::ArrayOf.new(
-                   lambda {
+                   -> {
                      ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address
                    }
                  )
@@ -114,7 +114,7 @@ module ModernTreasury
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification>]
         required :identifications,
                  ModernTreasury::ArrayOf.new(
-                   lambda {
+                   -> {
                      ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification
                    }
                  )
@@ -128,7 +128,7 @@ module ModernTreasury
         #   The type of legal entity.
         #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
         required :legal_entity_type,
-                 enum: lambda {
+                 enum: -> {
                    ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType
                  }
 
@@ -156,7 +156,7 @@ module ModernTreasury
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
         required :phone_numbers,
                  ModernTreasury::ArrayOf.new(
-                   lambda {
+                   -> {
                      ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
                    }
                  )
@@ -186,7 +186,7 @@ module ModernTreasury
           #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
           required :address_types,
                    ModernTreasury::ArrayOf.new(
-                     enum: lambda {
+                     enum: -> {
                        ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
                      }
                    )
@@ -286,7 +286,7 @@ module ModernTreasury
           #   The type of ID number.
           #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
           required :id_type,
-                   enum: lambda {
+                   enum: -> {
                      ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType
                    }
 

@@ -51,7 +51,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   A nickname for the external account. This is only for internal usage and won't affect any payments
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] object
       #   @return [String]

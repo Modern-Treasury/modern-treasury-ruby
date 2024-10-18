@@ -47,7 +47,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   Name of the ledger event handler.
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] object
       #   @return [String]
@@ -103,7 +103,7 @@ module ModernTreasury
         #   @return [Array<ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry>]
         required :ledger_entries,
                  ModernTreasury::ArrayOf.new(
-                   lambda {
+                   -> {
                      ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry
                    }
                  )

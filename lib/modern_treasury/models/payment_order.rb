@@ -153,7 +153,7 @@ module ModernTreasury
       # @!attribute [rw] receiving_account_type
       #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType]
       required :receiving_account_type,
-               enum: lambda {
+               enum: -> {
                  ModernTreasury::Models::PaymentOrder::ReceivingAccountType
                }
 

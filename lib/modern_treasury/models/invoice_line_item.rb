@@ -39,7 +39,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   The name of the line item, typically a product or SKU name.
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] object
       #   @return [String]
