@@ -59,7 +59,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   A nickname for the account.
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] object
       #   @return [String]

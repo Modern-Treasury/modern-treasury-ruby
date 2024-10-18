@@ -30,7 +30,7 @@ module ModernTreasury
       #   The serialized rate information represented by this quote.
       #   @return [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate]
       required :foreign_exchange_rate,
-               lambda {
+               -> {
                  ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate
                }
 

@@ -33,7 +33,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   The name of the ledger.
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] object
       #   @return [String]

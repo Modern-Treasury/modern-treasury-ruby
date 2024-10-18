@@ -27,7 +27,7 @@ module ModernTreasury
       #   The counterparty's billing address.
       #   @return [ModernTreasury::Models::Invoice::CounterpartyBillingAddress]
       required :counterparty_billing_address,
-               lambda {
+               -> {
                  ModernTreasury::Models::Invoice::CounterpartyBillingAddress
                }
 
