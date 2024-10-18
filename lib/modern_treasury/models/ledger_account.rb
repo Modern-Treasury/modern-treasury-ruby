@@ -58,7 +58,7 @@ module ModernTreasury
       # @!attribute [rw] name_
       #   The name of the ledger account.
       #   @return [String]
-      required :name_, String
+      required :name_, String, api_name: :name
 
       # @!attribute [rw] normal_balance
       #   The normal balance of the ledger account.

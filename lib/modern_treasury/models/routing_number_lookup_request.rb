@@ -34,7 +34,7 @@ module ModernTreasury
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
       optional :supported_payment_types,
                ModernTreasury::ArrayOf.new(
-                 enum: lambda {
+                 enum: -> {
                    ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType
                  }
                )

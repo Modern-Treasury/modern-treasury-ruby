@@ -5,6 +5,11 @@ module ModernTreasury
   class BaseClient
     attr_accessor :requester
 
+    # @param base_url [String]
+    # @param timeout [Integer, nil]
+    # @param headers [Hash{String => String}]
+    # @param max_retries [Integer]
+    # @param idempotency_header [String, nil]
     def initialize(
       base_url:,
       timeout: nil,
@@ -33,6 +38,7 @@ module ModernTreasury
       @idempotency_header = idempotency_header
     end
 
+    # @return [Hash{String => String}]
     def auth_headers
       {}
     end
@@ -320,6 +326,15 @@ module ModernTreasury
         raw_data
       end
     end
+
+    # @return [String]
+    def inspect
+      base_url = Util.uri_from_req(
+        {host: @host, scheme: @scheme, port: @port, path: @base_path},
+        absolute: true
+      )
+      "#<#{self.class.name}:0x#{object_id.to_s(16)} base_url=#{base_url.inspect} max_retries=#{@max_retries.inspect} timeout=#{@timeout.inspect}>"
+    end
   end
 
   class Error < StandardError
@@ -330,7 +345,11 @@ module ModernTreasury
     end
 
     class ResponseError < Error
-      attr_reader :response, :body, :code
+      attr_reader :response, :body
+
+      # @!attribute [r] code
+      #   @return [Integer]
+      attr_reader :code
 
       def initialize(message:, response:, body:)
         super(message)
