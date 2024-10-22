@@ -14,7 +14,7 @@ module ModernTreasury
 
       # create invoice
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :counterparty_id The ID of the counterparty receiving the invoice.
       #   @option params [Time] :due_date A future date by when the invoice needs to be paid.
       #   @option params [String] :originating_account_id The ID of the internal account the invoice should be paid to.
@@ -97,7 +97,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Array<ContactDetail>, nil] :contact_details The invoicer's contact details displayed at the top of the invoice.
       #   @option params [CounterpartyBillingAddress, nil] :counterparty_billing_address The counterparty's billing address.
       #   @option params [String, nil] :counterparty_id The ID of the counterparty receiving the invoice.
@@ -163,7 +163,7 @@ module ModernTreasury
 
       # list invoices
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :counterparty_id
       #   @option params [Date, nil] :due_date_end An inclusive upper bound for searching due_date

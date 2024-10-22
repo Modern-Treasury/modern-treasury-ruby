@@ -11,7 +11,7 @@ module ModernTreasury
 
         # Get a list of ledger transaction versions.
         #
-        # @param params [Hash] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
         #   @option params [String, nil] :after_cursor
         #   @option params [Hash, nil] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #     created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use

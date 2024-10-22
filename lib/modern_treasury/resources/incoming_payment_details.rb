@@ -27,7 +27,7 @@ module ModernTreasury
       #
       # @param id [String] The unique identifier of the incoming payment detail.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
@@ -47,7 +47,7 @@ module ModernTreasury
 
       # Get a list of Incoming Payment Details.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Date, nil] :as_of_date_end Filters incoming payment details with an as_of_date starting on or before the
       #     specified date (YYYY-MM-DD).
@@ -81,7 +81,7 @@ module ModernTreasury
 
       # Simulate Incoming Payment Detail
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Integer, nil] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
       #     as 1000.
       #   @option params [Date, nil] :as_of_date Defaults to today.

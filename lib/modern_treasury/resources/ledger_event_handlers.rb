@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create ledger_event_handler
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [LedgerTransactionTemplate] :ledger_transaction_template
       #   @option params [String] :name Name of the ledger event handler.
       #   @option params [Conditions, nil] :conditions
@@ -51,7 +51,7 @@ module ModernTreasury
 
       # Get a list of ledger event handlers.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Hash, nil] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use

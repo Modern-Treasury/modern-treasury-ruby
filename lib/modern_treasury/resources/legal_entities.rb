@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create legal_entity
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Symbol, LegalEntityType] :legal_entity_type The type of legal entity.
       #   @option params [Array<Address>, nil] :addresses A list of addresses for the entity.
       #   @option params [String, nil] :business_name The business's legal business name.
@@ -62,7 +62,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :business_name The business's legal business name.
       #   @option params [Date, nil] :date_formed A business's formation date (YYYY-MM-DD).
       #   @option params [Date, nil] :date_of_birth An individual's date of birth (YYYY-MM-DD).
@@ -93,7 +93,7 @@ module ModernTreasury
 
       # Get a list of all legal entities.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Symbol, LegalEntityType, nil] :legal_entity_type
       #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
