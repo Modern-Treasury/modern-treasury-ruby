@@ -11,7 +11,7 @@ module ModernTreasury
 
         # create transaction line items
         #
-        # @param params [Hash] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
         #   @option params [Integer] :amount If a matching object exists in Modern Treasury, `amount` will be populated.
         #     Value in specified currency's smallest unit (taken from parent Transaction).
         #   @option params [String] :expected_payment_id The ID of the reconciled Expected Payment, otherwise `null`.
@@ -48,7 +48,7 @@ module ModernTreasury
 
         # list transaction_line_items
         #
-        # @param params [Hash] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
         #   @option params [Hash, nil] :id
         #   @option params [String, nil] :after_cursor
         #   @option params [Integer, nil] :per_page

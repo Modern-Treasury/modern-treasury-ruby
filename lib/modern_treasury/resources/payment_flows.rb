@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create payment_flow
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Integer] :amount Required. Value in specified currency's smallest unit. e.g. $10 would be
       #     represented as 1000. Can be any integer up to 36 digits.
       #   @option params [String] :counterparty_id Required. The ID of a counterparty associated with the payment. As part of the
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Symbol, Status] :status Required. The updated status of the payment flow. Can only be used to mark a
       #     flow as `cancelled`.
       #
@@ -76,7 +76,7 @@ module ModernTreasury
 
       # list payment_flows
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :client_token
       #   @option params [String, nil] :counterparty_id

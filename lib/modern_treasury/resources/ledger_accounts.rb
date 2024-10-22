@@ -10,7 +10,7 @@ module ModernTreasury
 
       # Create a ledger account.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :currency The currency of the ledger account.
       #   @option params [String] :ledger_id The id of the ledger that this account belongs to.
       #   @option params [String] :name The name of the ledger account.
@@ -45,7 +45,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Balances, nil] :balances Use `balances[effective_at_lower_bound]` and
       #     `balances[effective_at_upper_bound]` to get the balances change between the two
       #     timestamps. The lower bound is inclusive while the upper bound is exclusive of
@@ -70,7 +70,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :description The description of the ledger account.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
@@ -92,7 +92,7 @@ module ModernTreasury
 
       # Get a list of ledger accounts.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Array<String>, nil] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #   @option params [String, nil] :after_cursor

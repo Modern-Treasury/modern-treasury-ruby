@@ -14,7 +14,7 @@ module ModernTreasury
 
       # Create a new Payment Order
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
       #   @option params [Symbol, Direction] :direction One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -138,7 +138,7 @@ module ModernTreasury
       #
       # @param id [String]
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Accounting, nil] :accounting
       #   @option params [String, nil] :accounting_category_id The ID of one of your accounting categories. Note that these will only be
       #     accessible if your accounting system has been connected.
@@ -245,7 +245,7 @@ module ModernTreasury
 
       # Get a list of all payment orders
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :counterparty_id
       #   @option params [Date, nil] :created_at_end An inclusive upper bound for searching created_at
@@ -284,7 +284,7 @@ module ModernTreasury
 
       # Create a new payment order asynchronously
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
       #   @option params [Symbol, Direction] :direction One of `credit`, `debit`. Describes the direction money is flowing in the
