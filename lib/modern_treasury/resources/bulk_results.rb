@@ -25,7 +25,7 @@ module ModernTreasury
 
       # list bulk_results
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :entity_id Unique identifier for the result entity object.
       #   @option params [Symbol, EntityType, nil] :entity_type The type of the request that created this result. bulk_request is the only

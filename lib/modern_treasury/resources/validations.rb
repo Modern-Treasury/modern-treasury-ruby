@@ -11,7 +11,7 @@ module ModernTreasury
       # Validates the routing number information supplied without creating a routing
       #   detail
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :routing_number The routing number that is being validated.
       #   @option params [Symbol, RoutingNumberType] :routing_number_type The type of routing number. See
       #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for

@@ -14,7 +14,7 @@ module ModernTreasury
       #
       # @param account_id [String] The ID of the account.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :routing_number The routing number of the bank.
       #   @option params [Symbol, RoutingNumberType] :routing_number_type The type of routing number. See
       #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
@@ -59,7 +59,7 @@ module ModernTreasury
       #
       # @param account_id [String] The ID of the account.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Integer, nil] :per_page
       #

@@ -14,7 +14,7 @@ module ModernTreasury
 
       # create internal account
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :connection_id The identifier of the financial institution the account belongs to.
       #   @option params [Symbol, Currency] :currency Either "USD" or "CAD". Internal accounts created at Increase only supports
       #     "USD".
@@ -60,7 +60,7 @@ module ModernTreasury
       #
       # @param id [String] Unique identifier for the account.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :counterparty_id The Counterparty associated to this account.
       #   @option params [String, nil] :ledger_account_id The Ledger Account associated to this account.
       #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
@@ -84,7 +84,7 @@ module ModernTreasury
 
       # list internal accounts
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :counterparty_id Only return internal accounts associated with this counterparty.
       #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Only return internal accounts with this currency.

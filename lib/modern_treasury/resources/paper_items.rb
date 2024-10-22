@@ -25,7 +25,7 @@ module ModernTreasury
 
       # Get a list of all paper items.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Date, nil] :deposit_date_end Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
       #   @option params [Date, nil] :deposit_date_start Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
