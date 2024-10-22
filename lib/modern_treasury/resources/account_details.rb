@@ -14,7 +14,7 @@ module ModernTreasury
       #
       # @param account_id [String] The ID of the account.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :account_number The account number for the bank account.
       #   @option params [Symbol, AccountNumberType, nil] :account_number_type One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #     account number is in a generic format.
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       # @param account_id [String] The ID of the account.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Integer, nil] :per_page
       #

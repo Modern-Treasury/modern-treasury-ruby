@@ -10,7 +10,7 @@ module ModernTreasury
 
       # Create a ledger account category.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :currency The currency of the ledger account category.
       #   @option params [String] :ledger_id The id of the ledger that this account category belongs to.
       #   @option params [String] :name The name of the ledger account category.
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Balances, nil] :balances For example, if you want the balances as of a particular time (ISO8601), the
       #     encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #     The balances as of a time are inclusive of entries with that exact time.
@@ -62,7 +62,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :description The description of the ledger account category.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
@@ -84,7 +84,7 @@ module ModernTreasury
 
       # Get a list of ledger account categories.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Array<String>, nil] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #   @option params [String, nil] :after_cursor

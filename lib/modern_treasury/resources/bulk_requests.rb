@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create bulk_request
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Symbol, ActionType] :action_type One of create, or update.
       #   @option params [Symbol, ResourceType] :resource_type One of payment_order, expected_payment, or ledger_transaction.
       #   @option params [Array<Resource::UnnamedTypeWithunionParent10, Resource::UnnamedTypeWithunionParent2, Resource::UnnamedTypeWithunionParent3, Resource::UnnamedTypeWithunionParent4, Resource::UnnamedTypeWithunionParent5, Resource::UnnamedTypeWithunionParent6, Resource::UnnamedTypeWithunionParent7, Resource::UnnamedTypeWithunionParent8, Resource::UnnamedTypeWithunionParent9>] :resources An array of objects where each object contains the input params for a single
@@ -49,7 +49,7 @@ module ModernTreasury
 
       # list bulk_requests
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Symbol, ActionType, nil] :action_type One of create, or update.
       #   @option params [String, nil] :after_cursor
       #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value

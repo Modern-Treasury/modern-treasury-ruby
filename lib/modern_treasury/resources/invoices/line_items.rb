@@ -13,7 +13,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         #
-        # @param params [Hash] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
         #   @option params [String] :name The name of the line item, typically a product or SKU name.
         #   @option params [Integer] :unit_amount The cost per unit of the product or service that this line item is for,
         #     specified in the invoice currency's smallest unit.
@@ -65,7 +65,7 @@ module ModernTreasury
         #
         # @param id [String] id
         #
-        # @param params [Hash] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
         #   @option params [String, nil] :description An optional free-form description of the line item.
         #   @option params [String, nil] :direction Either `debit` or `credit`. `debit` indicates that a client owes the business
         #     money and increases the invoice's `total_amount` due. `credit` has the opposite
@@ -99,7 +99,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         #
-        # @param params [Hash] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
         #   @option params [String, nil] :after_cursor
         #   @option params [Integer, nil] :per_page
         #

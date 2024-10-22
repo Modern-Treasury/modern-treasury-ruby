@@ -10,7 +10,7 @@ module ModernTreasury
 
       # Create a document.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :documentable_id The unique identifier for the associated object.
       #   @option params [Symbol, DocumentableType] :documentable_type
       #   @option params [String] :file
@@ -47,7 +47,7 @@ module ModernTreasury
 
       # Get a list of documents.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :documentable_id The unique identifier for the associated object.
       #   @option params [Symbol, DocumentableType, nil] :documentable_type The type of the associated object. Currently can be one of `payment_order`,

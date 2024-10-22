@@ -14,7 +14,7 @@ module ModernTreasury
 
       # Create a ledger transaction.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Array<LedgerEntry>] :ledger_entries An array of ledger entry objects.
       #   @option params [String, nil] :description An optional description for internal use.
       #   @option params [Time, nil] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
@@ -66,7 +66,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :description An optional description for internal use.
       #   @option params [Time, nil] :effective_at The timestamp (ISO8601 format) at which the ledger transaction happened for
       #     reporting purposes.
@@ -97,7 +97,7 @@ module ModernTreasury
 
       # Get a list of ledger transactions.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Array<String>, nil] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #   @option params [String, nil] :after_cursor
@@ -148,7 +148,7 @@ module ModernTreasury
       #
       # @param id [String] The id of ledger transaction to reverse.
       #
-      # @param params [Hash] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String, nil] :description An optional free-form description for the reversal ledger transaction. Maximum
       #     of 1000 characters allowed.
       #   @option params [Time, nil] :effective_at The timestamp (ISO8601 format) at which the reversal ledger transaction happened
