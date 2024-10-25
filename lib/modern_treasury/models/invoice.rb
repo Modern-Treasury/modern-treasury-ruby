@@ -48,199 +48,9 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      #   One of the constants defined in {ModernTreasury::Models::Currency}
       #   @return [Symbol]
-      required :currency,
-               ModernTreasury::Enum.new(
-                 :AED,
-                 :AFN,
-                 :ALL,
-                 :AMD,
-                 :ANG,
-                 :AOA,
-                 :ARS,
-                 :AUD,
-                 :AWG,
-                 :AZN,
-                 :BAM,
-                 :BBD,
-                 :BCH,
-                 :BDT,
-                 :BGN,
-                 :BHD,
-                 :BIF,
-                 :BMD,
-                 :BND,
-                 :BOB,
-                 :BRL,
-                 :BSD,
-                 :BTC,
-                 :BTN,
-                 :BWP,
-                 :BYN,
-                 :BYR,
-                 :BZD,
-                 :CAD,
-                 :CDF,
-                 :CHF,
-                 :CLF,
-                 :CLP,
-                 :CNH,
-                 :CNY,
-                 :COP,
-                 :CRC,
-                 :CUC,
-                 :CUP,
-                 :CVE,
-                 :CZK,
-                 :DJF,
-                 :DKK,
-                 :DOP,
-                 :DZD,
-                 :EEK,
-                 :EGP,
-                 :ERN,
-                 :ETB,
-                 :EUR,
-                 :FJD,
-                 :FKP,
-                 :GBP,
-                 :GBX,
-                 :GEL,
-                 :GGP,
-                 :GHS,
-                 :GIP,
-                 :GMD,
-                 :GNF,
-                 :GTQ,
-                 :GYD,
-                 :HKD,
-                 :HNL,
-                 :HRK,
-                 :HTG,
-                 :HUF,
-                 :IDR,
-                 :ILS,
-                 :IMP,
-                 :INR,
-                 :IQD,
-                 :IRR,
-                 :ISK,
-                 :JEP,
-                 :JMD,
-                 :JOD,
-                 :JPY,
-                 :KES,
-                 :KGS,
-                 :KHR,
-                 :KMF,
-                 :KPW,
-                 :KRW,
-                 :KWD,
-                 :KYD,
-                 :KZT,
-                 :LAK,
-                 :LBP,
-                 :LKR,
-                 :LRD,
-                 :LSL,
-                 :LTL,
-                 :LVL,
-                 :LYD,
-                 :MAD,
-                 :MDL,
-                 :MGA,
-                 :MKD,
-                 :MMK,
-                 :MNT,
-                 :MOP,
-                 :MRO,
-                 :MRU,
-                 :MTL,
-                 :MUR,
-                 :MVR,
-                 :MWK,
-                 :MXN,
-                 :MYR,
-                 :MZN,
-                 :NAD,
-                 :NGN,
-                 :NIO,
-                 :NOK,
-                 :NPR,
-                 :NZD,
-                 :OMR,
-                 :PAB,
-                 :PEN,
-                 :PGK,
-                 :PHP,
-                 :PKR,
-                 :PLN,
-                 :PYG,
-                 :QAR,
-                 :RON,
-                 :RSD,
-                 :RUB,
-                 :RWF,
-                 :SAR,
-                 :SBD,
-                 :SCR,
-                 :SDG,
-                 :SEK,
-                 :SGD,
-                 :SHP,
-                 :SKK,
-                 :SLL,
-                 :SOS,
-                 :SRD,
-                 :SSP,
-                 :STD,
-                 :SVC,
-                 :SYP,
-                 :SZL,
-                 :THB,
-                 :TJS,
-                 :TMM,
-                 :TMT,
-                 :TND,
-                 :TOP,
-                 :TRY,
-                 :TTD,
-                 :TWD,
-                 :TZS,
-                 :UAH,
-                 :UGX,
-                 :USD,
-                 :UYU,
-                 :UZS,
-                 :VEF,
-                 :VES,
-                 :VND,
-                 :VUV,
-                 :WST,
-                 :XAF,
-                 :XAG,
-                 :XAU,
-                 :XBA,
-                 :XBB,
-                 :XBC,
-                 :XBD,
-                 :XCD,
-                 :XDR,
-                 :XFU,
-                 :XOF,
-                 :XPD,
-                 :XPF,
-                 :XPT,
-                 :XTS,
-                 :YER,
-                 :ZAR,
-                 :ZMK,
-                 :ZMW,
-                 :ZWD,
-                 :ZWL,
-                 :ZWN,
-                 :ZWR
-               )
+      required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] description
       #   A free-form description of the invoice.
@@ -318,8 +128,9 @@ module ModernTreasury
 
       # @!attribute [rw] payment_method
       #   When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
+      #   One of the constants defined in {ModernTreasury::Models::Invoice::PaymentMethod}
       #   @return [Symbol]
-      required :payment_method, ModernTreasury::Enum.new(:ui, :manual, :automatic)
+      required :payment_method, enum: -> { ModernTreasury::Models::Invoice::PaymentMethod }
 
       # @!attribute [rw] payment_orders
       #   The payment orders created for paying the invoice through the invoice payment UI.
@@ -328,8 +139,9 @@ module ModernTreasury
 
       # @!attribute [rw] payment_type
       #   One of `ach` or `eft`.
+      #   One of the constants defined in {ModernTreasury::Models::Invoice::PaymentType}
       #   @return [Symbol]
-      required :payment_type, ModernTreasury::Enum.new(:eft, :ach)
+      required :payment_type, enum: -> { ModernTreasury::Models::Invoice::PaymentType }
 
       # @!attribute [rw] pdf_url
       #   The URL where the invoice PDF can be downloaded.
@@ -358,9 +170,9 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The status of the invoice.
+      #   One of the constants defined in {ModernTreasury::Models::Invoice::Status}
       #   @return [Symbol]
-      required :status,
-               ModernTreasury::Enum.new(:draft, :paid, :partially_paid, :payment_pending, :unpaid, :voided)
+      required :status, enum: -> { ModernTreasury::Models::Invoice::Status }
 
       # @!attribute [rw] total_amount
       #   Total amount due in specified currency's smallest unit, e.g., $10 USD would be represented as 1000.
@@ -391,8 +203,10 @@ module ModernTreasury
         required :contact_identifier, String
 
         # @!attribute [rw] contact_identifier_type
+        #   One of the constants defined in {ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType}
         #   @return [Symbol]
-        required :contact_identifier_type, ModernTreasury::Enum.new(:email, :phone_number, :website)
+        required :contact_identifier_type,
+                 enum: -> { ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType }
 
         # @!attribute [rw] created_at
         #   @return [String]
@@ -414,6 +228,12 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
+
+        class ContactIdentifierType < ModernTreasury::Enum
+          EMAIL = :email
+          PHONE_NUMBER = :phone_number
+          WEBSITE = :website
+        end
       end
 
       class CounterpartyBillingAddress < BaseModel
@@ -504,6 +324,29 @@ module ModernTreasury
         # @!attribute [rw] line2
         #   @return [String]
         optional :line2, String
+      end
+
+      # When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
+      class PaymentMethod < ModernTreasury::Enum
+        UI = :ui
+        MANUAL = :manual
+        AUTOMATIC = :automatic
+      end
+
+      # One of `ach` or `eft`.
+      class PaymentType < ModernTreasury::Enum
+        EFT = :eft
+        ACH = :ach
+      end
+
+      # The status of the invoice.
+      class Status < ModernTreasury::Enum
+        DRAFT = :draft
+        PAID = :paid
+        PARTIALLY_PAID = :partially_paid
+        PAYMENT_PENDING = :payment_pending
+        UNPAID = :unpaid
+        VOIDED = :voided
       end
     end
   end

@@ -18,8 +18,9 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
+      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
       #   @return [Symbol]
-      required :direction, ModernTreasury::Enum.new(:credit, :debit)
+      required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] discarded_at
       #   @return [String]
@@ -72,8 +73,9 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
+      #   One of the constants defined in {ModernTreasury::Models::LedgerEntry::Status}
       #   @return [Symbol]
-      required :status, ModernTreasury::Enum.new(:archived, :pending, :posted)
+      required :status, enum: -> { ModernTreasury::Models::LedgerEntry::Status }
 
       # @!attribute [rw] updated_at
       #   @return [String]
@@ -169,6 +171,13 @@ module ModernTreasury
           #   @return [Integer]
           required :debits, Integer
         end
+      end
+
+      # Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
+      class Status < ModernTreasury::Enum
+        ARCHIVED = :archived
+        PENDING = :pending
+        POSTED = :posted
       end
     end
   end

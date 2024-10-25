@@ -48,16 +48,9 @@ module ModernTreasury
 
       # @!attribute [rw] ledgerable_type
       #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
+      #   One of the constants defined in {ModernTreasury::Models::LedgerTransaction::LedgerableType}
       #   @return [Symbol]
-      required :ledgerable_type,
-               ModernTreasury::Enum.new(
-                 :expected_payment,
-                 :incoming_payment_detail,
-                 :paper_item,
-                 :payment_order,
-                 :return,
-                 :reversal
-               )
+      required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerTransaction::LedgerableType }
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -90,12 +83,30 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   To post a ledger transaction at creation, use `posted`.
+      #   One of the constants defined in {ModernTreasury::Models::LedgerTransaction::Status}
       #   @return [Symbol]
-      required :status, ModernTreasury::Enum.new(:archived, :pending, :posted)
+      required :status, enum: -> { ModernTreasury::Models::LedgerTransaction::Status }
 
       # @!attribute [rw] updated_at
       #   @return [String]
       required :updated_at, String
+
+      # If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
+      class LedgerableType < ModernTreasury::Enum
+        EXPECTED_PAYMENT = :expected_payment
+        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+        PAPER_ITEM = :paper_item
+        PAYMENT_ORDER = :payment_order
+        RETURN = :return
+        REVERSAL = :reversal
+      end
+
+      # To post a ledger transaction at creation, use `posted`.
+      class Status < ModernTreasury::Enum
+        ARCHIVED = :archived
+        PENDING = :pending
+        POSTED = :posted
+      end
     end
   end
 end

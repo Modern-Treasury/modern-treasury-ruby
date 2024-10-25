@@ -36,8 +36,9 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The status of the connection legal entity.
+      #   One of the constants defined in {ModernTreasury::Models::ConnectionLegalEntity::Status}
       #   @return [Symbol]
-      required :status, ModernTreasury::Enum.new(:completed, :denied, :failed, :processing)
+      required :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntity::Status }
 
       # @!attribute [rw] updated_at
       #   @return [String]
@@ -47,6 +48,14 @@ module ModernTreasury
       #   The ID of the legal entity at the vendor.
       #   @return [String]
       required :vendor_id, String
+
+      # The status of the connection legal entity.
+      class Status < ModernTreasury::Enum
+        COMPLETED = :completed
+        DENIED = :denied
+        FAILED = :failed
+        PROCESSING = :processing
+      end
     end
   end
 end

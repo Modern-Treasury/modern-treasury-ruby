@@ -20,18 +20,10 @@ module ModernTreasury
 
       # @!attribute [rw] routing_number_type
       #   The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details. In sandbox mode we currently only support `aba` and `swift` with routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      #   One of the constants defined in {ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType}
       #   @return [Symbol]
       optional :routing_number_type,
-               ModernTreasury::Enum.new(
-                 :aba,
-                 :au_bsb,
-                 :ca_cpa,
-                 :gb_sort_code,
-                 :in_ifsc,
-                 :nz_national_clearing_code,
-                 :se_bankgiro_clearing_code,
-                 :swift
-               )
+               enum: -> { ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType }
 
       # @!attribute [rw] sanctions
       #   An object containing key-value pairs, each with a sanctions list as the key and a boolean value representing whether the bank is on that particular sanctions list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
@@ -43,38 +35,9 @@ module ModernTreasury
       #   @return [Array<Symbol>]
       optional :supported_payment_types,
                ModernTreasury::ArrayOf.new(
-                 ModernTreasury::Enum.new(
-                   :ach,
-                   :au_becs,
-                   :bacs,
-                   :book,
-                   :card,
-                   :chats,
-                   :check,
-                   :cross_border,
-                   :dk_nets,
-                   :eft,
-                   :hu_ics,
-                   :interac,
-                   :masav,
-                   :mx_ccen,
-                   :neft,
-                   :nics,
-                   :nz_becs,
-                   :pl_elixir,
-                   :provxchange,
-                   :ro_sent,
-                   :rtp,
-                   :se_bankgirot,
-                   :sen,
-                   :sepa,
-                   :sg_giro,
-                   :sic,
-                   :signet,
-                   :sknbi,
-                   :wire,
-                   :zengin
-                 )
+                 enum: lambda {
+                   ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType
+                 }
                )
 
       class BankAddress < BaseModel
@@ -105,6 +68,51 @@ module ModernTreasury
         #   Region or State.
         #   @return [String]
         optional :region, String
+      end
+
+      # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details. In sandbox mode we currently only support `aba` and `swift` with routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      class RoutingNumberType < ModernTreasury::Enum
+        ABA = :aba
+        AU_BSB = :au_bsb
+        CA_CPA = :ca_cpa
+        GB_SORT_CODE = :gb_sort_code
+        IN_IFSC = :in_ifsc
+        NZ_NATIONAL_CLEARING_CODE = :nz_national_clearing_code
+        SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
+        SWIFT = :swift
+      end
+
+      class SupportedPaymentType < ModernTreasury::Enum
+        ACH = :ach
+        AU_BECS = :au_becs
+        BACS = :bacs
+        BOOK = :book
+        CARD = :card
+        CHATS = :chats
+        CHECK = :check
+        CROSS_BORDER = :cross_border
+        DK_NETS = :dk_nets
+        EFT = :eft
+        HU_ICS = :hu_ics
+        INTERAC = :interac
+        MASAV = :masav
+        MX_CCEN = :mx_ccen
+        NEFT = :neft
+        NICS = :nics
+        NZ_BECS = :nz_becs
+        PL_ELIXIR = :pl_elixir
+        PROVXCHANGE = :provxchange
+        RO_SENT = :ro_sent
+        RTP = :rtp
+        SE_BANKGIROT = :se_bankgirot
+        SEN = :sen
+        SEPA = :sepa
+        SG_GIRO = :sg_giro
+        SIC = :sic
+        SIGNET = :signet
+        SKNBI = :sknbi
+        WIRE = :wire
+        ZENGIN = :zengin
       end
     end
   end

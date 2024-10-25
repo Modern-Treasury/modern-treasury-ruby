@@ -68,21 +68,15 @@ module ModernTreasury
 
       # @!attribute [rw] legal_entity_type
       #   The type of legal entity.
+      #   One of the constants defined in {ModernTreasury::Models::LegalEntity::LegalEntityType}
       #   @return [Symbol]
-      required :legal_entity_type, ModernTreasury::Enum.new(:business, :individual, :joint)
+      required :legal_entity_type, enum: -> { ModernTreasury::Models::LegalEntity::LegalEntityType }
 
       # @!attribute [rw] legal_structure
       #   The business's legal structure.
+      #   One of the constants defined in {ModernTreasury::Models::LegalEntity::LegalStructure}
       #   @return [Symbol]
-      required :legal_structure,
-               ModernTreasury::Enum.new(
-                 :corporation,
-                 :llc,
-                 :non_profit,
-                 :partnership,
-                 :sole_proprietorship,
-                 :trust
-               )
+      required :legal_structure, enum: -> { ModernTreasury::Models::LegalEntity::LegalStructure }
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -105,8 +99,9 @@ module ModernTreasury
 
       # @!attribute [rw] risk_rating
       #   Translation missing: en.openapi.descriptions.legal_entity.schema.risk_rating
+      #   One of the constants defined in {ModernTreasury::Models::LegalEntity::RiskRating}
       #   @return [Symbol]
-      required :risk_rating, ModernTreasury::Enum.new(:low, :medium, :high)
+      required :risk_rating, enum: -> { ModernTreasury::Models::LegalEntity::RiskRating }
 
       # @!attribute [rw] updated_at
       #   @return [String]
@@ -127,13 +122,9 @@ module ModernTreasury
         #   @return [Array<Symbol>]
         required :address_types,
                  ModernTreasury::ArrayOf.new(
-                   ModernTreasury::Enum.new(
-                     :business,
-                     :mailing,
-                     :other,
-                     :po_box,
-                     :residential
-                   )
+                   enum: lambda {
+                     ModernTreasury::Models::LegalEntity::Address::AddressType
+                   }
                  )
 
         # @!attribute [rw] country
@@ -184,6 +175,14 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
+
+        class AddressType < ModernTreasury::Enum
+          BUSINESS = :business
+          MAILING = :mailing
+          OTHER = :other
+          PO_BOX = :po_box
+          RESIDENTIAL = :residential
+        end
       end
 
       class Identification < BaseModel
@@ -201,30 +200,9 @@ module ModernTreasury
 
         # @!attribute [rw] id_type
         #   The type of ID number.
+        #   One of the constants defined in {ModernTreasury::Models::LegalEntity::Identification::IDType}
         #   @return [Symbol]
-        required :id_type,
-                 ModernTreasury::Enum.new(
-                   :ar_cuil,
-                   :ar_cuit,
-                   :br_cnpj,
-                   :br_cpf,
-                   :cl_rut,
-                   :co_cedulas,
-                   :co_nit,
-                   :hn_id,
-                   :hn_rtn,
-                   :in_lei,
-                   :kr_brn,
-                   :kr_crn,
-                   :kr_rrn,
-                   :passport,
-                   :sa_tin,
-                   :sa_vat,
-                   :us_ein,
-                   :us_itin,
-                   :us_ssn,
-                   :vn_tin
-                 )
+        required :id_type, enum: -> { ModernTreasury::Models::LegalEntity::Identification::IDType }
 
         # @!attribute [rw] issuing_country
         #   The ISO 3166-1 alpha-2 country code of the country that issued the identification
@@ -243,12 +221,60 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
+
+        # The type of ID number.
+        class IDType < ModernTreasury::Enum
+          AR_CUIL = :ar_cuil
+          AR_CUIT = :ar_cuit
+          BR_CNPJ = :br_cnpj
+          BR_CPF = :br_cpf
+          CL_RUT = :cl_rut
+          CO_CEDULAS = :co_cedulas
+          CO_NIT = :co_nit
+          HN_ID = :hn_id
+          HN_RTN = :hn_rtn
+          IN_LEI = :in_lei
+          KR_BRN = :kr_brn
+          KR_CRN = :kr_crn
+          KR_RRN = :kr_rrn
+          PASSPORT = :passport
+          SA_TIN = :sa_tin
+          SA_VAT = :sa_vat
+          US_EIN = :us_ein
+          US_ITIN = :us_itin
+          US_SSN = :us_ssn
+          VN_TIN = :vn_tin
+        end
+      end
+
+      # The type of legal entity.
+      class LegalEntityType < ModernTreasury::Enum
+        BUSINESS = :business
+        INDIVIDUAL = :individual
+        JOINT = :joint
+      end
+
+      # The business's legal structure.
+      class LegalStructure < ModernTreasury::Enum
+        CORPORATION = :corporation
+        LLC = :llc
+        NON_PROFIT = :non_profit
+        PARTNERSHIP = :partnership
+        SOLE_PROPRIETORSHIP = :sole_proprietorship
+        TRUST = :trust
       end
 
       class PhoneNumber < BaseModel
         # @!attribute [rw] phone_number
         #   @return [String]
         optional :phone_number, String
+      end
+
+      # Translation missing: en.openapi.descriptions.legal_entity.schema.risk_rating
+      class RiskRating < ModernTreasury::Enum
+        LOW = :low
+        MEDIUM = :medium
+        HIGH = :high
       end
     end
   end
