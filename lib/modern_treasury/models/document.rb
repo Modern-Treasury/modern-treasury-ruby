@@ -32,22 +32,9 @@ module ModernTreasury
 
       # @!attribute [rw] documentable_type
       #   The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      #   One of the constants defined in {ModernTreasury::Models::Document::DocumentableType}
       #   @return [Symbol]
-      required :documentable_type,
-               ModernTreasury::Enum.new(
-                 :case,
-                 :counterparty,
-                 :expected_payment,
-                 :external_account,
-                 :incoming_payment_detail,
-                 :internal_account,
-                 :organization,
-                 :paper_item,
-                 :payment_order,
-                 :transaction,
-                 :decision,
-                 :connection
-               )
+      required :documentable_type, enum: -> { ModernTreasury::Models::Document::DocumentableType }
 
       # @!attribute [rw] file
       #   @return [ModernTreasury::Models::Document::File]
@@ -104,6 +91,22 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
+      end
+
+      # The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      class DocumentableType < ModernTreasury::Enum
+        CASE = :case
+        COUNTERPARTY = :counterparty
+        EXPECTED_PAYMENT = :expected_payment
+        EXTERNAL_ACCOUNT = :external_account
+        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+        INTERNAL_ACCOUNT = :internal_account
+        ORGANIZATION = :organization
+        PAPER_ITEM = :paper_item
+        PAYMENT_ORDER = :payment_order
+        TRANSACTION = :transaction
+        DECISION = :decision
+        CONNECTION = :connection
       end
 
       class File < BaseModel

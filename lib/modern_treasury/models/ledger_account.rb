@@ -37,9 +37,9 @@ module ModernTreasury
 
       # @!attribute [rw] ledgerable_type
       #   If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+      #   One of the constants defined in {ModernTreasury::Models::LedgerAccount::LedgerableType}
       #   @return [Symbol]
-      required :ledgerable_type,
-               ModernTreasury::Enum.new(:counterparty, :external_account, :internal_account, :virtual_account)
+      required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerAccount::LedgerableType }
 
       # @!attribute [rw] live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -63,8 +63,9 @@ module ModernTreasury
 
       # @!attribute [rw] normal_balance
       #   The normal balance of the ledger account.
+      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
       #   @return [Symbol]
-      required :normal_balance, ModernTreasury::Enum.new(:credit, :debit)
+      required :normal_balance, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] object
       #   @return [String]
@@ -171,6 +172,14 @@ module ModernTreasury
           #   @return [Integer]
           required :debits, Integer
         end
+      end
+
+      # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+      class LedgerableType < ModernTreasury::Enum
+        COUNTERPARTY = :counterparty
+        EXTERNAL_ACCOUNT = :external_account
+        INTERNAL_ACCOUNT = :internal_account
+        VIRTUAL_ACCOUNT = :virtual_account
       end
     end
   end

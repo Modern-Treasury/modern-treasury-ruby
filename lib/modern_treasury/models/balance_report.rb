@@ -19,8 +19,9 @@ module ModernTreasury
 
       # @!attribute [rw] balance_report_type
       #   The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
+      #   One of the constants defined in {ModernTreasury::Models::BalanceReport::BalanceReportType}
       #   @return [Symbol]
-      required :balance_report_type, ModernTreasury::Enum.new(:intraday, :other, :previous_day, :real_time)
+      required :balance_report_type, enum: -> { ModernTreasury::Models::BalanceReport::BalanceReportType }
 
       # @!attribute [rw] balances
       #   An array of `Balance` objects.
@@ -49,6 +50,14 @@ module ModernTreasury
       #   @return [String]
       required :updated_at, String
 
+      # The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
+      class BalanceReportType < ModernTreasury::Enum
+        INTRADAY = :intraday
+        OTHER = :other
+        PREVIOUS_DAY = :previous_day
+        REAL_TIME = :real_time
+      end
+
       class Balance < BaseModel
         # @!attribute [rw] id
         #   @return [String]
@@ -61,18 +70,9 @@ module ModernTreasury
 
         # @!attribute [rw] balance_type
         #   The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
+        #   One of the constants defined in {ModernTreasury::Models::BalanceReport::Balance::BalanceType}
         #   @return [Symbol]
-        required :balance_type,
-                 ModernTreasury::Enum.new(
-                   :closing_available,
-                   :closing_ledger,
-                   :current_available,
-                   :current_ledger,
-                   :opening_available,
-                   :opening_available_next_business_day,
-                   :opening_ledger,
-                   :other
-                 )
+        required :balance_type, enum: -> { ModernTreasury::Models::BalanceReport::Balance::BalanceType }
 
         # @!attribute [rw] created_at
         #   @return [String]
@@ -80,199 +80,9 @@ module ModernTreasury
 
         # @!attribute [rw] currency
         #   The currency of the balance.
+        #   One of the constants defined in {ModernTreasury::Models::Currency}
         #   @return [Symbol]
-        required :currency,
-                 ModernTreasury::Enum.new(
-                   :AED,
-                   :AFN,
-                   :ALL,
-                   :AMD,
-                   :ANG,
-                   :AOA,
-                   :ARS,
-                   :AUD,
-                   :AWG,
-                   :AZN,
-                   :BAM,
-                   :BBD,
-                   :BCH,
-                   :BDT,
-                   :BGN,
-                   :BHD,
-                   :BIF,
-                   :BMD,
-                   :BND,
-                   :BOB,
-                   :BRL,
-                   :BSD,
-                   :BTC,
-                   :BTN,
-                   :BWP,
-                   :BYN,
-                   :BYR,
-                   :BZD,
-                   :CAD,
-                   :CDF,
-                   :CHF,
-                   :CLF,
-                   :CLP,
-                   :CNH,
-                   :CNY,
-                   :COP,
-                   :CRC,
-                   :CUC,
-                   :CUP,
-                   :CVE,
-                   :CZK,
-                   :DJF,
-                   :DKK,
-                   :DOP,
-                   :DZD,
-                   :EEK,
-                   :EGP,
-                   :ERN,
-                   :ETB,
-                   :EUR,
-                   :FJD,
-                   :FKP,
-                   :GBP,
-                   :GBX,
-                   :GEL,
-                   :GGP,
-                   :GHS,
-                   :GIP,
-                   :GMD,
-                   :GNF,
-                   :GTQ,
-                   :GYD,
-                   :HKD,
-                   :HNL,
-                   :HRK,
-                   :HTG,
-                   :HUF,
-                   :IDR,
-                   :ILS,
-                   :IMP,
-                   :INR,
-                   :IQD,
-                   :IRR,
-                   :ISK,
-                   :JEP,
-                   :JMD,
-                   :JOD,
-                   :JPY,
-                   :KES,
-                   :KGS,
-                   :KHR,
-                   :KMF,
-                   :KPW,
-                   :KRW,
-                   :KWD,
-                   :KYD,
-                   :KZT,
-                   :LAK,
-                   :LBP,
-                   :LKR,
-                   :LRD,
-                   :LSL,
-                   :LTL,
-                   :LVL,
-                   :LYD,
-                   :MAD,
-                   :MDL,
-                   :MGA,
-                   :MKD,
-                   :MMK,
-                   :MNT,
-                   :MOP,
-                   :MRO,
-                   :MRU,
-                   :MTL,
-                   :MUR,
-                   :MVR,
-                   :MWK,
-                   :MXN,
-                   :MYR,
-                   :MZN,
-                   :NAD,
-                   :NGN,
-                   :NIO,
-                   :NOK,
-                   :NPR,
-                   :NZD,
-                   :OMR,
-                   :PAB,
-                   :PEN,
-                   :PGK,
-                   :PHP,
-                   :PKR,
-                   :PLN,
-                   :PYG,
-                   :QAR,
-                   :RON,
-                   :RSD,
-                   :RUB,
-                   :RWF,
-                   :SAR,
-                   :SBD,
-                   :SCR,
-                   :SDG,
-                   :SEK,
-                   :SGD,
-                   :SHP,
-                   :SKK,
-                   :SLL,
-                   :SOS,
-                   :SRD,
-                   :SSP,
-                   :STD,
-                   :SVC,
-                   :SYP,
-                   :SZL,
-                   :THB,
-                   :TJS,
-                   :TMM,
-                   :TMT,
-                   :TND,
-                   :TOP,
-                   :TRY,
-                   :TTD,
-                   :TWD,
-                   :TZS,
-                   :UAH,
-                   :UGX,
-                   :USD,
-                   :UYU,
-                   :UZS,
-                   :VEF,
-                   :VES,
-                   :VND,
-                   :VUV,
-                   :WST,
-                   :XAF,
-                   :XAG,
-                   :XAU,
-                   :XBA,
-                   :XBB,
-                   :XBC,
-                   :XBD,
-                   :XCD,
-                   :XDR,
-                   :XFU,
-                   :XOF,
-                   :XPD,
-                   :XPF,
-                   :XPT,
-                   :XTS,
-                   :YER,
-                   :ZAR,
-                   :ZMK,
-                   :ZMW,
-                   :ZWD,
-                   :ZWL,
-                   :ZWN,
-                   :ZWR
-                 )
+        required :currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -296,6 +106,18 @@ module ModernTreasury
         #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, or `us_bank`.
         #   @return [String]
         required :vendor_code_type, String
+
+        # The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
+        class BalanceType < ModernTreasury::Enum
+          CLOSING_AVAILABLE = :closing_available
+          CLOSING_LEDGER = :closing_ledger
+          CURRENT_AVAILABLE = :current_available
+          CURRENT_LEDGER = :current_ledger
+          OPENING_AVAILABLE = :opening_available
+          OPENING_AVAILABLE_NEXT_BUSINESS_DAY = :opening_available_next_business_day
+          OPENING_LEDGER = :opening_ledger
+          OTHER = :other
+        end
       end
     end
   end

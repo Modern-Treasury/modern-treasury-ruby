@@ -10,7 +10,12 @@ module ModernTreasury
 
       # @!attribute [rw] payment_types
       #   @return [Array<Symbol>]
-      required :payment_types, ModernTreasury::ArrayOf.new(ModernTreasury::Enum.new(:ach, :wire))
+      required :payment_types,
+               ModernTreasury::ArrayOf.new(
+                 enum: lambda {
+                   ModernTreasury::Models::AccountCollectionFlow::PaymentType
+                 }
+               )
 
       # @!attribute [rw] id
       #   @return [String]
@@ -43,36 +48,56 @@ module ModernTreasury
       #   @return [Array<Symbol>]
       optional :receiving_countries,
                ModernTreasury::ArrayOf.new(
-                 ModernTreasury::Enum.new(
-                   :USA,
-                   :AUS,
-                   :BEL,
-                   :CAN,
-                   :CHL,
-                   :CHN,
-                   :COL,
-                   :FRA,
-                   :DEU,
-                   :HKG,
-                   :IND,
-                   :IRL,
-                   :ITA,
-                   :MEX,
-                   :NLD,
-                   :PER,
-                   :ESP,
-                   :GBR
-                 )
+                 enum: lambda {
+                   ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry
+                 }
                )
 
       # @!attribute [rw] status
       #   The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
+      #   One of the constants defined in {ModernTreasury::Models::AccountCollectionFlow::Status}
       #   @return [Symbol]
-      optional :status, ModernTreasury::Enum.new(:cancelled, :completed, :expired, :pending)
+      optional :status, enum: -> { ModernTreasury::Models::AccountCollectionFlow::Status }
 
       # @!attribute [rw] updated_at
       #   @return [String]
       optional :updated_at, String
+
+      # An account created with this flow will support payments of one of these types.
+      class PaymentType < ModernTreasury::Enum
+        ACH = :ach
+        WIRE = :wire
+      end
+
+      # An account created with this flow will support wires from the US to these countries.
+      class ReceivingCountry < ModernTreasury::Enum
+        USA = :USA
+        AUS = :AUS
+        BEL = :BEL
+        CAN = :CAN
+        CHL = :CHL
+        CHN = :CHN
+        COL = :COL
+        FRA = :FRA
+        DEU = :DEU
+        HKG = :HKG
+        IND = :IND
+        IRL = :IRL
+        ITA = :ITA
+        MEX = :MEX
+        NLD = :NLD
+        PER = :PER
+        ESP = :ESP
+        GBR = :GBR
+      end
+
+      # The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
+      class Status < ModernTreasury::Enum
+        CANCELLED = :cancelled
+        COMPLETED = :completed
+        EXPIRED = :expired
+        PENDING = :pending
+      end
     end
   end
 end

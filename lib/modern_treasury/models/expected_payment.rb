@@ -28,199 +28,9 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account.
+      #   One of the constants defined in {ModernTreasury::Models::Currency}
       #   @return [Symbol]
-      required :currency,
-               ModernTreasury::Enum.new(
-                 :AED,
-                 :AFN,
-                 :ALL,
-                 :AMD,
-                 :ANG,
-                 :AOA,
-                 :ARS,
-                 :AUD,
-                 :AWG,
-                 :AZN,
-                 :BAM,
-                 :BBD,
-                 :BCH,
-                 :BDT,
-                 :BGN,
-                 :BHD,
-                 :BIF,
-                 :BMD,
-                 :BND,
-                 :BOB,
-                 :BRL,
-                 :BSD,
-                 :BTC,
-                 :BTN,
-                 :BWP,
-                 :BYN,
-                 :BYR,
-                 :BZD,
-                 :CAD,
-                 :CDF,
-                 :CHF,
-                 :CLF,
-                 :CLP,
-                 :CNH,
-                 :CNY,
-                 :COP,
-                 :CRC,
-                 :CUC,
-                 :CUP,
-                 :CVE,
-                 :CZK,
-                 :DJF,
-                 :DKK,
-                 :DOP,
-                 :DZD,
-                 :EEK,
-                 :EGP,
-                 :ERN,
-                 :ETB,
-                 :EUR,
-                 :FJD,
-                 :FKP,
-                 :GBP,
-                 :GBX,
-                 :GEL,
-                 :GGP,
-                 :GHS,
-                 :GIP,
-                 :GMD,
-                 :GNF,
-                 :GTQ,
-                 :GYD,
-                 :HKD,
-                 :HNL,
-                 :HRK,
-                 :HTG,
-                 :HUF,
-                 :IDR,
-                 :ILS,
-                 :IMP,
-                 :INR,
-                 :IQD,
-                 :IRR,
-                 :ISK,
-                 :JEP,
-                 :JMD,
-                 :JOD,
-                 :JPY,
-                 :KES,
-                 :KGS,
-                 :KHR,
-                 :KMF,
-                 :KPW,
-                 :KRW,
-                 :KWD,
-                 :KYD,
-                 :KZT,
-                 :LAK,
-                 :LBP,
-                 :LKR,
-                 :LRD,
-                 :LSL,
-                 :LTL,
-                 :LVL,
-                 :LYD,
-                 :MAD,
-                 :MDL,
-                 :MGA,
-                 :MKD,
-                 :MMK,
-                 :MNT,
-                 :MOP,
-                 :MRO,
-                 :MRU,
-                 :MTL,
-                 :MUR,
-                 :MVR,
-                 :MWK,
-                 :MXN,
-                 :MYR,
-                 :MZN,
-                 :NAD,
-                 :NGN,
-                 :NIO,
-                 :NOK,
-                 :NPR,
-                 :NZD,
-                 :OMR,
-                 :PAB,
-                 :PEN,
-                 :PGK,
-                 :PHP,
-                 :PKR,
-                 :PLN,
-                 :PYG,
-                 :QAR,
-                 :RON,
-                 :RSD,
-                 :RUB,
-                 :RWF,
-                 :SAR,
-                 :SBD,
-                 :SCR,
-                 :SDG,
-                 :SEK,
-                 :SGD,
-                 :SHP,
-                 :SKK,
-                 :SLL,
-                 :SOS,
-                 :SRD,
-                 :SSP,
-                 :STD,
-                 :SVC,
-                 :SYP,
-                 :SZL,
-                 :THB,
-                 :TJS,
-                 :TMM,
-                 :TMT,
-                 :TND,
-                 :TOP,
-                 :TRY,
-                 :TTD,
-                 :TWD,
-                 :TZS,
-                 :UAH,
-                 :UGX,
-                 :USD,
-                 :UYU,
-                 :UZS,
-                 :VEF,
-                 :VES,
-                 :VND,
-                 :VUV,
-                 :WST,
-                 :XAF,
-                 :XAG,
-                 :XAU,
-                 :XBA,
-                 :XBB,
-                 :XBC,
-                 :XBD,
-                 :XCD,
-                 :XDR,
-                 :XFU,
-                 :XOF,
-                 :XPD,
-                 :XPF,
-                 :XPT,
-                 :XTS,
-                 :YER,
-                 :ZAR,
-                 :ZMK,
-                 :ZMW,
-                 :ZWD,
-                 :ZWL,
-                 :ZWN,
-                 :ZWR
-               )
+      required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] date_lower_bound
       #   The earliest date the payment may come in. Format: yyyy-mm-dd
@@ -239,8 +49,9 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
+      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
       #   @return [Symbol]
-      required :direction, ModernTreasury::Enum.new(:credit, :debit)
+      required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] internal_account_id
       #   The ID of the Internal Account for the expected payment.
@@ -278,8 +89,10 @@ module ModernTreasury
 
       # @!attribute [rw] reconciliation_method
       #   One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
+      #   One of the constants defined in {ModernTreasury::Models::ExpectedPayment::ReconciliationMethod}
       #   @return [Symbol]
-      required :reconciliation_method, ModernTreasury::Enum.new(:automatic, :manual)
+      required :reconciliation_method,
+               enum: -> { ModernTreasury::Models::ExpectedPayment::ReconciliationMethod }
 
       # @!attribute [rw] reconciliation_rule_variables
       #   An array of reconciliation rule variables for this payment.
@@ -298,8 +111,9 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   One of unreconciled, partially_reconciled, reconciled, or archived.
+      #   One of the constants defined in {ModernTreasury::Models::ExpectedPayment::Status}
       #   @return [Symbol]
-      required :status, ModernTreasury::Enum.new(:archived, :partially_reconciled, :reconciled, :unreconciled)
+      required :status, enum: -> { ModernTreasury::Models::ExpectedPayment::Status }
 
       # @!attribute [rw] transaction_id
       #   The ID of the Transaction this expected payment object has been matched to.
@@ -313,44 +127,27 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sepa, signet, wire.
+      #   One of the constants defined in {ModernTreasury::Models::ExpectedPaymentType}
       #   @return [Symbol]
-      required :type,
-               ModernTreasury::Enum.new(
-                 :ach,
-                 :au_becs,
-                 :bacs,
-                 :book,
-                 :card,
-                 :chats,
-                 :check,
-                 :cross_border,
-                 :dk_nets,
-                 :eft,
-                 :hu_ics,
-                 :interac,
-                 :masav,
-                 :mx_ccen,
-                 :neft,
-                 :nics,
-                 :nz_becs,
-                 :pl_elixir,
-                 :provxchange,
-                 :ro_sent,
-                 :rtp,
-                 :se_bankgirot,
-                 :sen,
-                 :sepa,
-                 :sg_giro,
-                 :sic,
-                 :signet,
-                 :sknbi,
-                 :wire,
-                 :zengin
-               )
+      required :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }
 
       # @!attribute [rw] updated_at
       #   @return [String]
       required :updated_at, String
+
+      # One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
+      class ReconciliationMethod < ModernTreasury::Enum
+        AUTOMATIC = :automatic
+        MANUAL = :manual
+      end
+
+      # One of unreconciled, partially_reconciled, reconciled, or archived.
+      class Status < ModernTreasury::Enum
+        ARCHIVED = :archived
+        PARTIALLY_RECONCILED = :partially_reconciled
+        RECONCILED = :reconciled
+        UNRECONCILED = :unreconciled
+      end
     end
   end
 end

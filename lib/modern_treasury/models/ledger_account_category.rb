@@ -47,8 +47,9 @@ module ModernTreasury
 
       # @!attribute [rw] normal_balance
       #   The normal balance of the ledger account category.
+      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
       #   @return [Symbol]
-      required :normal_balance, ModernTreasury::Enum.new(:credit, :debit)
+      required :normal_balance, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] object
       #   @return [String]

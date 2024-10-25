@@ -14,18 +14,9 @@ module ModernTreasury
 
       # @!attribute [rw] account_type
       #   Can be checking, savings or other.
+      #   One of the constants defined in {ModernTreasury::Models::InternalAccount::AccountType}
       #   @return [Symbol]
-      required :account_type,
-               ModernTreasury::Enum.new(
-                 :cash,
-                 :checking,
-                 :general_ledger,
-                 :loan,
-                 :non_resident,
-                 :other,
-                 :overdraft,
-                 :savings
-               )
+      required :account_type, enum: -> { ModernTreasury::Models::InternalAccount::AccountType }
 
       # @!attribute [rw] connection
       #   Specifies which financial institution the accounts belong to.
@@ -43,199 +34,9 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   The currency of the account.
+      #   One of the constants defined in {ModernTreasury::Models::Currency}
       #   @return [Symbol]
-      required :currency,
-               ModernTreasury::Enum.new(
-                 :AED,
-                 :AFN,
-                 :ALL,
-                 :AMD,
-                 :ANG,
-                 :AOA,
-                 :ARS,
-                 :AUD,
-                 :AWG,
-                 :AZN,
-                 :BAM,
-                 :BBD,
-                 :BCH,
-                 :BDT,
-                 :BGN,
-                 :BHD,
-                 :BIF,
-                 :BMD,
-                 :BND,
-                 :BOB,
-                 :BRL,
-                 :BSD,
-                 :BTC,
-                 :BTN,
-                 :BWP,
-                 :BYN,
-                 :BYR,
-                 :BZD,
-                 :CAD,
-                 :CDF,
-                 :CHF,
-                 :CLF,
-                 :CLP,
-                 :CNH,
-                 :CNY,
-                 :COP,
-                 :CRC,
-                 :CUC,
-                 :CUP,
-                 :CVE,
-                 :CZK,
-                 :DJF,
-                 :DKK,
-                 :DOP,
-                 :DZD,
-                 :EEK,
-                 :EGP,
-                 :ERN,
-                 :ETB,
-                 :EUR,
-                 :FJD,
-                 :FKP,
-                 :GBP,
-                 :GBX,
-                 :GEL,
-                 :GGP,
-                 :GHS,
-                 :GIP,
-                 :GMD,
-                 :GNF,
-                 :GTQ,
-                 :GYD,
-                 :HKD,
-                 :HNL,
-                 :HRK,
-                 :HTG,
-                 :HUF,
-                 :IDR,
-                 :ILS,
-                 :IMP,
-                 :INR,
-                 :IQD,
-                 :IRR,
-                 :ISK,
-                 :JEP,
-                 :JMD,
-                 :JOD,
-                 :JPY,
-                 :KES,
-                 :KGS,
-                 :KHR,
-                 :KMF,
-                 :KPW,
-                 :KRW,
-                 :KWD,
-                 :KYD,
-                 :KZT,
-                 :LAK,
-                 :LBP,
-                 :LKR,
-                 :LRD,
-                 :LSL,
-                 :LTL,
-                 :LVL,
-                 :LYD,
-                 :MAD,
-                 :MDL,
-                 :MGA,
-                 :MKD,
-                 :MMK,
-                 :MNT,
-                 :MOP,
-                 :MRO,
-                 :MRU,
-                 :MTL,
-                 :MUR,
-                 :MVR,
-                 :MWK,
-                 :MXN,
-                 :MYR,
-                 :MZN,
-                 :NAD,
-                 :NGN,
-                 :NIO,
-                 :NOK,
-                 :NPR,
-                 :NZD,
-                 :OMR,
-                 :PAB,
-                 :PEN,
-                 :PGK,
-                 :PHP,
-                 :PKR,
-                 :PLN,
-                 :PYG,
-                 :QAR,
-                 :RON,
-                 :RSD,
-                 :RUB,
-                 :RWF,
-                 :SAR,
-                 :SBD,
-                 :SCR,
-                 :SDG,
-                 :SEK,
-                 :SGD,
-                 :SHP,
-                 :SKK,
-                 :SLL,
-                 :SOS,
-                 :SRD,
-                 :SSP,
-                 :STD,
-                 :SVC,
-                 :SYP,
-                 :SZL,
-                 :THB,
-                 :TJS,
-                 :TMM,
-                 :TMT,
-                 :TND,
-                 :TOP,
-                 :TRY,
-                 :TTD,
-                 :TWD,
-                 :TZS,
-                 :UAH,
-                 :UGX,
-                 :USD,
-                 :UYU,
-                 :UZS,
-                 :VEF,
-                 :VES,
-                 :VND,
-                 :VUV,
-                 :WST,
-                 :XAF,
-                 :XAG,
-                 :XAU,
-                 :XBA,
-                 :XBB,
-                 :XBC,
-                 :XBD,
-                 :XCD,
-                 :XDR,
-                 :XFU,
-                 :XOF,
-                 :XPD,
-                 :XPF,
-                 :XPT,
-                 :XTS,
-                 :YER,
-                 :ZAR,
-                 :ZMK,
-                 :ZMW,
-                 :ZWD,
-                 :ZWL,
-                 :ZWN,
-                 :ZWR
-               )
+      required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] ledger_account_id
       #   If the internal account links to a ledger account in Modern Treasury, the id of the ledger account will be populated here.
@@ -283,8 +84,9 @@ module ModernTreasury
 
       # @!attribute [rw] party_type
       #   Either individual or business.
+      #   One of the constants defined in {ModernTreasury::Models::InternalAccount::PartyType}
       #   @return [Symbol]
-      required :party_type, ModernTreasury::Enum.new(:business, :individual)
+      required :party_type, enum: -> { ModernTreasury::Models::InternalAccount::PartyType }
 
       # @!attribute [rw] routing_details
       #   An array of routing detail objects.
@@ -294,6 +96,18 @@ module ModernTreasury
       # @!attribute [rw] updated_at
       #   @return [String]
       required :updated_at, String
+
+      # Can be checking, savings or other.
+      class AccountType < ModernTreasury::Enum
+        CASH = :cash
+        CHECKING = :checking
+        GENERAL_LEDGER = :general_ledger
+        LOAN = :loan
+        NON_RESIDENT = :non_resident
+        OTHER = :other
+        OVERDRAFT = :overdraft
+        SAVINGS = :savings
+      end
 
       class PartyAddress < BaseModel
         # @!attribute [rw] id
@@ -344,6 +158,12 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [String]
         required :updated_at, String
+      end
+
+      # Either individual or business.
+      class PartyType < ModernTreasury::Enum
+        BUSINESS = :business
+        INDIVIDUAL = :individual
       end
     end
   end
