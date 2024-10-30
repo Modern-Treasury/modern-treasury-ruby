@@ -47,7 +47,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #     sepa, signet, wire.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def create(params = {}, opts = {})
@@ -64,7 +64,7 @@ module ModernTreasury
       # get expected payment
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def retrieve(id, opts = {})
@@ -110,7 +110,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #     sepa, signet, wire.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def update(id, params = {}, opts = {})
@@ -141,7 +141,7 @@ module ModernTreasury
       #   @option params [Symbol, Type, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #     sepa, signet, wire
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
       def list(params = {}, opts = {})
@@ -158,7 +158,7 @@ module ModernTreasury
       # delete expected payment
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def delete(id, opts = {})

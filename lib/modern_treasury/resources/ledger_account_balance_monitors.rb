@@ -17,7 +17,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def create(params = {}, opts = {})
@@ -34,7 +34,7 @@ module ModernTreasury
       # Get details on a single ledger account balance monitor.
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def retrieve(id, opts = {})
@@ -55,7 +55,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def update(id, params = {}, opts = {})
@@ -81,7 +81,7 @@ module ModernTreasury
       #     parameters.
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
       def list(params = {}, opts = {})
@@ -98,7 +98,7 @@ module ModernTreasury
       # Delete a ledger account balance monitor.
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def delete(id, opts = {})

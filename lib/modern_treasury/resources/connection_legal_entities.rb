@@ -15,7 +15,7 @@ module ModernTreasury
       #   @option params [LegalEntity, nil] :legal_entity The legal entity.
       #   @option params [String, nil] :legal_entity_id The ID of the legal entity.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       def create(params = {}, opts = {})
@@ -32,7 +32,7 @@ module ModernTreasury
       # Get details on a single connection legal entity.
       #
       # @param id [String] The id of an existing connection legal entity.
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       def retrieve(id, opts = {})
@@ -51,7 +51,7 @@ module ModernTreasury
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Symbol, Status, nil] :status The status of the connection legal entity.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       def update(id, params = {}, opts = {})
@@ -74,7 +74,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :per_page
       #   @option params [Symbol, Status, nil] :status
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ConnectionLegalEntity>]
       def list(params = {}, opts = {})

@@ -11,7 +11,7 @@ module ModernTreasury
       # get bulk_result
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::BulkResult]
       def retrieve(id, opts = {})
@@ -37,7 +37,7 @@ module ModernTreasury
       #     supported `request_type`
       #   @option params [Symbol, Status, nil] :status One of successful or failed.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkResult>]
       def list(params = {}, opts = {})

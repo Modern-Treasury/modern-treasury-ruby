@@ -22,7 +22,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def create(params = {}, opts = {})
@@ -45,7 +45,7 @@ module ModernTreasury
       #     encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #     The balances as of a time are inclusive of entries with that exact time.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def retrieve(id, params = {}, opts = {})
@@ -68,7 +68,7 @@ module ModernTreasury
       #     strings.
       #   @option params [String, nil] :name The name of the ledger account category.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def update(id, params = {}, opts = {})
@@ -102,7 +102,7 @@ module ModernTreasury
       #   @option params [String, nil] :parent_ledger_account_category_id Query categories that are nested underneath a parent category
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountCategory>]
       def list(params = {}, opts = {})
@@ -119,7 +119,7 @@ module ModernTreasury
       # Delete a ledger account category.
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def delete(id, opts = {})
@@ -135,7 +135,7 @@ module ModernTreasury
       #
       # @param id [String] id
       # @param ledger_account_id [String] ledger_account_id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def add_ledger_account(id, ledger_account_id, opts = {})
@@ -151,7 +151,7 @@ module ModernTreasury
       #
       # @param id [String] id
       # @param sub_category_id [String] sub_category_id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def add_nested_category(id, sub_category_id, opts = {})
@@ -167,7 +167,7 @@ module ModernTreasury
       #
       # @param id [String] id
       # @param ledger_account_id [String] ledger_account_id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def remove_ledger_account(id, ledger_account_id, opts = {})
@@ -183,7 +183,7 @@ module ModernTreasury
       #
       # @param id [String] id
       # @param sub_category_id [String] sub_category_id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def remove_nested_category(id, sub_category_id, opts = {})

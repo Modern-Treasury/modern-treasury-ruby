@@ -20,7 +20,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :target_amount Amount in the lowest denomination of the `target_currency`, often called the
       #     "buy" amount.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       def create(params = {}, opts = {})
@@ -37,7 +37,7 @@ module ModernTreasury
       # get foreign_exchange_quote
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       def retrieve(id, opts = {})
@@ -64,7 +64,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :per_page
       #   @option params [String, nil] :target_currency Currency to convert the `base_currency` to, often called the "buy" currency.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       def list(params = {}, opts = {})

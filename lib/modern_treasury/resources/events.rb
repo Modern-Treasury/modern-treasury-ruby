@@ -11,7 +11,7 @@ module ModernTreasury
       # get event
       #
       # @param id [String] event id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Event]
       def retrieve(id, opts = {})
@@ -34,7 +34,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :per_page
       #   @option params [String, nil] :resource
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Event>]
       def list(params = {}, opts = {})

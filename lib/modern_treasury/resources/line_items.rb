@@ -13,7 +13,7 @@ module ModernTreasury
       # @param itemizable_type [Symbol, ItemizableType] One of `payment_orders` or `expected_payments`.
       # @param itemizable_id [String] The ID of the payment order or expected payment.
       # @param id [String] The ID of the line item.
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LineItem]
       def retrieve(itemizable_type, itemizable_id, id, opts = {})
@@ -37,7 +37,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LineItem]
       def update(itemizable_type, itemizable_id, id, params = {}, opts = {})
@@ -61,7 +61,7 @@ module ModernTreasury
       #   @option params [String, nil] :after_cursor
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LineItem>]
       def list(itemizable_type, itemizable_id, params = {}, opts = {})
