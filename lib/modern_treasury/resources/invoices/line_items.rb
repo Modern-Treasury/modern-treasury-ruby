@@ -29,7 +29,7 @@ module ModernTreasury
         #     specified in the invoice currency's smallest unit. Accepts decimal strings with
         #     up to 12 decimals
         #
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def create(invoice_id, params = {}, opts = {})
@@ -47,7 +47,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         # @param id [String] id
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def retrieve(invoice_id, id, opts = {})
@@ -81,7 +81,7 @@ module ModernTreasury
         #     specified in the invoice currency's smallest unit. Accepts decimal strings with
         #     up to 12 decimals
         #
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def update(invoice_id, id, params = {}, opts = {})
@@ -103,7 +103,7 @@ module ModernTreasury
         #   @option params [String, nil] :after_cursor
         #   @option params [Integer, nil] :per_page
         #
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InvoiceLineItem>]
         def list(invoice_id, params = {}, opts = {})
@@ -121,7 +121,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         # @param id [String] id
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def delete(invoice_id, id, opts = {})

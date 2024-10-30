@@ -18,7 +18,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::BulkRequest]
       def create(params = {}, opts = {})
@@ -35,7 +35,7 @@ module ModernTreasury
       # get bulk_request
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::BulkRequest]
       def retrieve(id, opts = {})
@@ -59,7 +59,7 @@ module ModernTreasury
       #   @option params [Symbol, ResourceType, nil] :resource_type One of payment_order, expected_payment, or ledger_transaction.
       #   @option params [Symbol, Status, nil] :status One of pending, processing, or completed.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkRequest>]
       def list(params = {}, opts = {})

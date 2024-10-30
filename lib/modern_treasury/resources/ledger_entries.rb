@@ -16,7 +16,7 @@ module ModernTreasury
       #   @option params [Boolean, nil] :show_balances If true, response will include the balances attached to the ledger entry. If
       #     there is no balance available, null will be returned instead.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEntry]
       def retrieve(id, params = {}, opts = {})
@@ -37,7 +37,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEntry]
       def update(id, params = {}, opts = {})
@@ -95,7 +95,7 @@ module ModernTreasury
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEntry>]
       def list(params = {}, opts = {})

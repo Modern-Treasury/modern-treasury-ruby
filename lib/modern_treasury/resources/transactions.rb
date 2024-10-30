@@ -34,7 +34,7 @@ module ModernTreasury
       #   @option params [String, nil] :vendor_description The transaction detail text that often appears in on your bank statement and in
       #     your banking portal.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Transaction]
       def create(params = {}, opts = {})
@@ -51,7 +51,7 @@ module ModernTreasury
       # Get details on a single transaction.
       #
       # @param id [String] Transaction ID
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Transaction]
       def retrieve(id, opts = {})
@@ -71,7 +71,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Transaction]
       def update(id, params = {}, opts = {})
@@ -109,7 +109,7 @@ module ModernTreasury
       #     transactions by the bank).
       #   @option params [String, nil] :virtual_account_id
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Transaction>]
       def list(params = {}, opts = {})
@@ -126,7 +126,7 @@ module ModernTreasury
       # delete transaction
       #
       # @param id [String] Transaction ID
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def delete(id, opts = {})

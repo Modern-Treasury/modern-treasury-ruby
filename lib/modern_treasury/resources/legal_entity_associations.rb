@@ -19,7 +19,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :ownership_percentage The child entity's ownership percentage iff they are a beneficial owner.
       #   @option params [String, nil] :title The job title of the child entity at the parent entity.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntityAssociation]
       def create(params = {}, opts = {})

@@ -22,7 +22,7 @@ module ModernTreasury
       #   @option params [String, nil] :reason An optional description of the reason for the return. This is for internal usage
       #     and will not be transmitted to the bank.”
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ReturnObject]
       def create(params = {}, opts = {})
@@ -39,7 +39,7 @@ module ModernTreasury
       # Get a single return.
       #
       # @param id [String] The ID of an existing return.
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ReturnObject]
       def retrieve(id, opts = {})
@@ -64,7 +64,7 @@ module ModernTreasury
       #   @option params [Symbol, ReturnableType, nil] :returnable_type One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #     Must be accompanied by `returnable_id`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
       def list(params = {}, opts = {})

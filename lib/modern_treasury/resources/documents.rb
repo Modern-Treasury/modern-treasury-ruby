@@ -16,7 +16,7 @@ module ModernTreasury
       #   @option params [String] :file
       #   @option params [String, nil] :document_type A category given to the document, can be `null`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Document]
       def create(params = {}, opts = {})
@@ -33,7 +33,7 @@ module ModernTreasury
       # Get an existing document.
       #
       # @param id [String] The ID of the document.
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Document]
       def retrieve(id, opts = {})
@@ -55,7 +55,7 @@ module ModernTreasury
       #     `case`, `internal_account`, `decision`, or `external_account`.
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Document>]
       def list(params = {}, opts = {})

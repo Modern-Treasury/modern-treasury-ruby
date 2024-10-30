@@ -29,7 +29,7 @@ module ModernTreasury
       #   @option params [Symbol, Status, nil] :status The status of the ledger account settlement. It is set to `pending` by default.
       #     To post a ledger account settlement at creation, use `posted`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       def create(params = {}, opts = {})
@@ -46,7 +46,7 @@ module ModernTreasury
       # Get details on a single ledger account settlement.
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       def retrieve(id, opts = {})
@@ -69,7 +69,7 @@ module ModernTreasury
       #   @option params [Symbol, Status, nil] :status To post a pending ledger account settlement, use `posted`. To archive a pending
       #     ledger transaction, use `archived`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       def update(id, params = {}, opts = {})
@@ -104,7 +104,7 @@ module ModernTreasury
       #     updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountSettlement>]
       def list(params = {}, opts = {})
