@@ -33,7 +33,7 @@ module ModernTreasury
       #     strings.
       #   @option params [Symbol, Status, nil] :status To post a ledger transaction at creation, use `posted`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def create(params = {}, opts = {})
@@ -50,7 +50,7 @@ module ModernTreasury
       # Get details on a single ledger transaction.
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def retrieve(id, opts = {})
@@ -81,7 +81,7 @@ module ModernTreasury
       #     strings.
       #   @option params [Symbol, Status, nil] :status To post a ledger transaction at creation, use `posted`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def update(id, params = {}, opts = {})
@@ -130,7 +130,7 @@ module ModernTreasury
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransaction>]
       def list(params = {}, opts = {})
@@ -164,7 +164,7 @@ module ModernTreasury
       #   @option params [Symbol, Status, nil] :status Status of the reversal ledger transaction. It defaults to `posted` if not
       #     provided.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def create_reversal(id, params = {}, opts = {})

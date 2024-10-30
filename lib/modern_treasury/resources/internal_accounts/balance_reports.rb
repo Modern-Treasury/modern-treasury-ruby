@@ -20,7 +20,7 @@ module ModernTreasury
         #     `real_time`, or `other`.
         #   @option params [Array<Balance>] :balances An array of `Balance` objects.
         #
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::BalanceReport]
         def create(internal_account_id, params = {}, opts = {})
@@ -39,7 +39,7 @@ module ModernTreasury
         # @param internal_account_id [String]
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::BalanceReport]
         def retrieve(internal_account_id, id, opts = {})
@@ -62,7 +62,7 @@ module ModernTreasury
         #     `real_time`, or `other`.
         #   @option params [Integer, nil] :per_page
         #
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::BalanceReport>]
         def list(internal_account_id, params = {}, opts = {})
@@ -81,7 +81,7 @@ module ModernTreasury
         # @param internal_account_id [String]
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
-        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [nil]
         def delete(internal_account_id, id, opts = {})

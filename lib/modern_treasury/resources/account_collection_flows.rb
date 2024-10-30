@@ -15,7 +15,7 @@ module ModernTreasury
       #   @option params [Array<String>] :payment_types
       #   @option params [Array<Symbol, ReceivingCountry>, nil] :receiving_countries
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       def create(params = {}, opts = {})
@@ -32,7 +32,7 @@ module ModernTreasury
       # get account_collection_flow
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       def retrieve(id, opts = {})
@@ -52,7 +52,7 @@ module ModernTreasury
       #   @option params [Symbol, Status] :status Required. The updated status of the account collection flow. Can only be used to
       #     mark a flow as `cancelled`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       def update(id, params = {}, opts = {})
@@ -76,7 +76,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :per_page
       #   @option params [String, nil] :status
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountCollectionFlow>]
       def list(params = {}, opts = {})

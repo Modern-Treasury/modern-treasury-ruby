@@ -29,7 +29,7 @@ module ModernTreasury
       #     strings.
       #   @option params [Array<RoutingDetail>, nil] :routing_details An array of routing detail objects.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def create(params = {}, opts = {})
@@ -46,7 +46,7 @@ module ModernTreasury
       # get virtual_account
       #
       # @param id [String] Virtual Acccount ID
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def retrieve(id, opts = {})
@@ -68,7 +68,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata
       #   @option params [String, nil] :name
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def update(id, params = {}, opts = {})
@@ -93,7 +93,7 @@ module ModernTreasury
       #     parameters.
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::VirtualAccount>]
       def list(params = {}, opts = {})
@@ -110,7 +110,7 @@ module ModernTreasury
       # delete virtual_account
       #
       # @param id [String] Virtual Acccount ID
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def delete(id, opts = {})
