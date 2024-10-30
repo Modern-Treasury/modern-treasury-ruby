@@ -32,7 +32,7 @@ module ModernTreasury
       #     you can pass the processor token in this field.
       #   @option params [Array<RoutingDetail>, nil] :routing_details
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def create(params = {}, opts = {})
@@ -49,7 +49,7 @@ module ModernTreasury
       # show external account
       #
       # @param id [String] external account id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def retrieve(id, opts = {})
@@ -76,7 +76,7 @@ module ModernTreasury
       #   @option params [String, nil] :party_name If this value isn't provided, it will be inherited from the counterparty's name.
       #   @option params [Symbol, PartyType, nil] :party_type Either `individual` or `business`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def update(id, params = {}, opts = {})
@@ -101,7 +101,7 @@ module ModernTreasury
       #   @option params [String, nil] :party_name Searches the ExternalAccount's party_name AND the Counterparty's party_name
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExternalAccount>]
       def list(params = {}, opts = {})
@@ -118,7 +118,7 @@ module ModernTreasury
       # delete external account
       #
       # @param id [String] external account id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def delete(id, opts = {})
@@ -137,7 +137,7 @@ module ModernTreasury
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Array<Integer>, nil] :amounts
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def complete_verification(id, params = {}, opts = {})
@@ -166,7 +166,7 @@ module ModernTreasury
       #   @option params [Symbol, Priority, nil] :priority Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #     transfer. This will apply to both `payment_type` and `fallback_type`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::UnnamedTypeWithunionParent1]
       def verify(id, params = {}, opts = {})

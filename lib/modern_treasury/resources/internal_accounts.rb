@@ -27,7 +27,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :vendor_attributes A hash of vendor specific attributes that will be used when creating the account
       #     at the vendor specified by the given connection.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
       def create(params = {}, opts = {})
@@ -44,7 +44,7 @@ module ModernTreasury
       # get internal account
       #
       # @param id [String] Unique identifier for the account.
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
       def retrieve(id, opts = {})
@@ -68,7 +68,7 @@ module ModernTreasury
       #   @option params [String, nil] :name The nickname for the internal account.
       #   @option params [String, nil] :parent_account_id The parent internal account for this account.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
       def update(id, params = {}, opts = {})
@@ -96,7 +96,7 @@ module ModernTreasury
       #   @option params [Symbol, PaymentType, nil] :payment_type Only return internal accounts that can make this type of payment.
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
       def list(params = {}, opts = {})

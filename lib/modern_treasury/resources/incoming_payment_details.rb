@@ -11,7 +11,7 @@ module ModernTreasury
       # Get an existing Incoming Payment Detail.
       #
       # @param id [String] The unique identifier of the incoming payment detail.
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       def retrieve(id, opts = {})
@@ -31,7 +31,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       def update(id, params = {}, opts = {})
@@ -65,7 +65,7 @@ module ModernTreasury
       #   @option params [String, nil] :virtual_account_id If the incoming payment detail is in a virtual account, the ID of the Virtual
       #     Account.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::IncomingPaymentDetail>]
       def list(params = {}, opts = {})
@@ -93,7 +93,7 @@ module ModernTreasury
       #   @option params [String, nil] :virtual_account_id An optional parameter to associate the incoming payment detail to a virtual
       #     account.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       def create_async(params = {}, opts = {})

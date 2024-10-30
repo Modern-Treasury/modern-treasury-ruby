@@ -105,7 +105,7 @@ module ModernTreasury
       #   @option params [String, nil] :ultimate_receiving_party_identifier Identifier of the ultimate funds recipient.
       #   @option params [String, nil] :ultimate_receiving_party_name Name of the ultimate funds recipient.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       def create(params = {}, opts = {})
@@ -122,7 +122,7 @@ module ModernTreasury
       # Get details on a single payment order
       #
       # @param id [String]
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       def retrieve(id, opts = {})
@@ -229,7 +229,7 @@ module ModernTreasury
       #     initiating an ACH payment with CIE subtype. Only the first 15 characters of this
       #     string will be used. Any additional characters will be truncated.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       def update(id, params = {}, opts = {})
@@ -268,7 +268,7 @@ module ModernTreasury
       #   @option params [String, nil] :transaction_id The ID of a transaction that the payment order has been reconciled to.
       #   @option params [Symbol, Type, nil] :type
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrder>]
       def list(params = {}, opts = {})
@@ -373,7 +373,7 @@ module ModernTreasury
       #   @option params [String, nil] :ultimate_receiving_party_identifier Identifier of the ultimate funds recipient.
       #   @option params [String, nil] :ultimate_receiving_party_name Name of the ultimate funds recipient.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       def create_async(params = {}, opts = {})

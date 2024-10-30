@@ -23,7 +23,7 @@ module ModernTreasury
       #     `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #     they are selecting a payment `effective_date`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       def create(params = {}, opts = {})
@@ -40,7 +40,7 @@ module ModernTreasury
       # get payment_flow
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       def retrieve(id, opts = {})
@@ -60,7 +60,7 @@ module ModernTreasury
       #   @option params [Symbol, Status] :status Required. The updated status of the payment flow. Can only be used to mark a
       #     flow as `cancelled`.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       def update(id, params = {}, opts = {})
@@ -86,7 +86,7 @@ module ModernTreasury
       #   @option params [String, nil] :receiving_account_id
       #   @option params [String, nil] :status
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentFlow>]
       def list(params = {}, opts = {})

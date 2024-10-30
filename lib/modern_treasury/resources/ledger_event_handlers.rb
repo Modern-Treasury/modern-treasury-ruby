@@ -20,7 +20,7 @@ module ModernTreasury
       #     strings.
       #   @option params [Hash, nil] :variables
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def create(params = {}, opts = {})
@@ -37,7 +37,7 @@ module ModernTreasury
       # Get details on a single ledger event handler.
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def retrieve(id, opts = {})
@@ -62,7 +62,7 @@ module ModernTreasury
       #   @option params [String, nil] :name
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
       def list(params = {}, opts = {})
@@ -79,7 +79,7 @@ module ModernTreasury
       # Archive a ledger event handler.
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def delete(id, opts = {})

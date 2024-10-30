@@ -64,7 +64,7 @@ module ModernTreasury
       #     invoice recipients.
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
       def create(params = {}, opts = {})
@@ -81,7 +81,7 @@ module ModernTreasury
       # get invoice
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
       def retrieve(id, opts = {})
@@ -147,7 +147,7 @@ module ModernTreasury
       #     `draft` or `unpaid` to `voided`, and `draft` or `unpaid` to `paid`.
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
       def update(id, params = {}, opts = {})
@@ -178,7 +178,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :per_page
       #   @option params [Symbol, Status, nil] :status
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Invoice>]
       def list(params = {}, opts = {})
@@ -196,7 +196,7 @@ module ModernTreasury
       #
       # @param id [String] id
       # @param payment_order_id [String] payment_order_id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def add_payment_order(id, payment_order_id, opts = {})

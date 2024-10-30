@@ -16,7 +16,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :per_page
       #   @option params [String, nil] :vendor_customer_id An identifier assigned by the vendor to your organization.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Connection>]
       def list(params = {}, opts = {})

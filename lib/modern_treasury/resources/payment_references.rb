@@ -11,7 +11,7 @@ module ModernTreasury
       # get payment_reference
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentReference]
       def retrieve(id, opts = {})
@@ -34,7 +34,7 @@ module ModernTreasury
       #   @option params [Symbol, ReferenceableType, nil] :referenceable_type One of the referenceable types. This must be accompanied by the id of the
       #     referenceable or will return an error.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentReference>]
       def list(params = {}, opts = {})
@@ -51,7 +51,7 @@ module ModernTreasury
       # get payment_reference
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentReference]
       def retireve(id, opts = {})

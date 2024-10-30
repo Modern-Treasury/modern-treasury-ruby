@@ -26,7 +26,7 @@ module ModernTreasury
       #   @option params [String, nil] :taxpayer_identifier Either a valid SSN or EIN.
       #   @option params [Symbol, VerificationStatus, nil] :verification_status The verification status of the counterparty.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
       def create(params = {}, opts = {})
@@ -43,7 +43,7 @@ module ModernTreasury
       # Get details on a single counterparty.
       #
       # @param id [String] The id of an existing counterparty.
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
       def retrieve(id, opts = {})
@@ -69,7 +69,7 @@ module ModernTreasury
       #     whenever an associated payment order is sent to the bank.
       #   @option params [String, nil] :taxpayer_identifier Either a valid SSN or EIN.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
       def update(id, params = {}, opts = {})
@@ -99,7 +99,7 @@ module ModernTreasury
       #     insensitive.
       #   @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
       def list(params = {}, opts = {})
@@ -116,7 +116,7 @@ module ModernTreasury
       # Deletes a given counterparty.
       #
       # @param id [String] The id of an existing counterparty.
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       def delete(id, opts = {})
@@ -149,7 +149,7 @@ module ModernTreasury
       #     send the counterparty the link, you can set this parameter to `false`. The JSON
       #     body will include the link to the secure Modern Treasury form.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
       def collect_account(id, params = {}, opts = {})

@@ -29,7 +29,7 @@ module ModernTreasury
       #   @option params [Symbol, RiskRating, nil] :risk_rating The risk rating of the legal entity. One of low, medium, high.
       #   @option params [String, nil] :website The entity's primary website URL.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
       def create(params = {}, opts = {})
@@ -46,7 +46,7 @@ module ModernTreasury
       # Get details on a single legal entity.
       #
       # @param id [String] id
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
       def retrieve(id, opts = {})
@@ -77,7 +77,7 @@ module ModernTreasury
       #   @option params [Symbol, RiskRating, nil] :risk_rating The risk rating of the legal entity. One of low, medium, high.
       #   @option params [String, nil] :website The entity's primary website URL.
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
       def update(id, params = {}, opts = {})
@@ -102,7 +102,7 @@ module ModernTreasury
       #   @option params [Integer, nil] :per_page
       #   @option params [String, nil] :show_deleted
       #
-      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
       def list(params = {}, opts = {})
