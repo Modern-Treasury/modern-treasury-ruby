@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccount < BaseModel
+    class LedgerAccount < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -73,7 +73,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      class Balances < BaseModel
+      class Balances < ModernTreasury::BaseModel
         # @!attribute [rw] available_balance
         #   The available_balance is the sum of all posted inbound entries and pending outbound entries. For credit normal, available_amount = posted_credits - pending_debits; for debit normal, available_amount = posted_debits - pending_credits.
         #   @return [ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance]
@@ -99,7 +99,7 @@ module ModernTreasury
         #   @return [ModernTreasury::Models::LedgerAccount::Balances::PostedBalance]
         required :posted_balance, -> { ModernTreasury::Models::LedgerAccount::Balances::PostedBalance }
 
-        class AvailableBalance < BaseModel
+        class AvailableBalance < ModernTreasury::BaseModel
           # @!attribute [rw] amount
           #   @return [Integer]
           required :amount, Integer
@@ -134,7 +134,7 @@ module ModernTreasury
           #   def initialize(data = {}) = super
         end
 
-        class PendingBalance < BaseModel
+        class PendingBalance < ModernTreasury::BaseModel
           # @!attribute [rw] amount
           #   @return [Integer]
           required :amount, Integer
@@ -169,7 +169,7 @@ module ModernTreasury
           #   def initialize(data = {}) = super
         end
 
-        class PostedBalance < BaseModel
+        class PostedBalance < ModernTreasury::BaseModel
           # @!attribute [rw] amount
           #   @return [Integer]
           required :amount, Integer

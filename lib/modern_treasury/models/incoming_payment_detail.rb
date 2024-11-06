@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class IncomingPaymentDetail < BaseModel
+    class IncomingPaymentDetail < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

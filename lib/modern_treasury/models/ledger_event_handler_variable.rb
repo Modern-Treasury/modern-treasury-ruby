@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerEventHandlerVariable < BaseModel
+    class LedgerEventHandlerVariable < ModernTreasury::BaseModel
       # @!attribute [rw] query
       #   @return [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
       required :query, -> { ModernTreasury::Models::LedgerEventHandlerVariable::Query }
@@ -12,7 +12,7 @@ module ModernTreasury
       #   @return [String]
       required :type, String
 
-      class Query < BaseModel
+      class Query < ModernTreasury::BaseModel
         # @!attribute [rw] field
         #   The LHS of the conditional.
         #   @return [String]

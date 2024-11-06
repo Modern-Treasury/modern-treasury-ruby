@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountDetail < BaseModel
+    class AccountDetail < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

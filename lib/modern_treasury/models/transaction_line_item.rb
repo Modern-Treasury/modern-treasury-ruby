@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class TransactionLineItem < BaseModel
+    class TransactionLineItem < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

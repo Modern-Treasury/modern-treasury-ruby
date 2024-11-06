@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class InternalAccount < BaseModel
+    class InternalAccount < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -106,7 +106,7 @@ module ModernTreasury
         SAVINGS = :savings
       end
 
-      class PartyAddress < BaseModel
+      class PartyAddress < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String

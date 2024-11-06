@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Event < BaseModel
+    class Event < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

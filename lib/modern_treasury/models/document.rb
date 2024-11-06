@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Document < BaseModel
+    class Document < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -57,7 +57,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      class DocumentDetail < BaseModel
+      class DocumentDetail < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String
@@ -123,7 +123,7 @@ module ModernTreasury
         CONNECTION = :connection
       end
 
-      class File < BaseModel
+      class File < ModernTreasury::BaseModel
         # @!attribute [rw] content_type
         #   The MIME content type of the document.
         #   @return [String]

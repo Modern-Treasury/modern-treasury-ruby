@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaperItem < BaseModel
+    class PaperItem < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
