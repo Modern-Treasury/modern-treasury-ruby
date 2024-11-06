@@ -56,8 +56,7 @@ module ModernTreasury
 
       # @!attribute [rw] transactable_type
       #   If a matching object exists in Modern Treasury, the type will be populated here, otherwise `null`.
-      #   One of the constants defined in {ModernTreasury::Models::TransactionLineItem::TransactableType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::TransactionLineItem::TransactableType]
       required :transactable_type, enum: -> { ModernTreasury::Models::TransactionLineItem::TransactableType }
 
       # @!attribute [rw] transaction_id
@@ -67,8 +66,7 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   Indicates whether the line item is `originating` or `receiving` (see https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
-      #   One of the constants defined in {ModernTreasury::Models::TransactionLineItem::Type}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::TransactionLineItem::Type]
       required :type, enum: -> { ModernTreasury::Models::TransactionLineItem::Type }
 
       # @!attribute [rw] updated_at

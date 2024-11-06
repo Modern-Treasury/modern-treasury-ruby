@@ -11,12 +11,12 @@ module ModernTreasury
       #
       # @param params [Hash] Attributes to send in this request.
       # @option params [String] :name Name of the ledgerable event.
-      # @option params [Object] :custom_data Additionally data to be used by the Ledger Event Handler.
-      # @option params [String] :description Description of the ledgerable event.
-      # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      # @option params [Object, nil] :custom_data Additionally data to be used by the Ledger Event Handler.
+      # @option params [String, nil] :description Description of the ledgerable event.
+      # @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       #
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
       def create(params = {}, opts = {})
@@ -31,7 +31,7 @@ module ModernTreasury
       # Get details on a single ledgerable event.
       #
       # @param id [String] id
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
       def retrieve(id, opts = {})

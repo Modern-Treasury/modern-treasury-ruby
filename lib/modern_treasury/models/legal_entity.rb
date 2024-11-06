@@ -68,14 +68,12 @@ module ModernTreasury
 
       # @!attribute [rw] legal_entity_type
       #   The type of legal entity.
-      #   One of the constants defined in {ModernTreasury::Models::LegalEntity::LegalEntityType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LegalEntity::LegalEntityType]
       required :legal_entity_type, enum: -> { ModernTreasury::Models::LegalEntity::LegalEntityType }
 
       # @!attribute [rw] legal_structure
       #   The business's legal structure.
-      #   One of the constants defined in {ModernTreasury::Models::LegalEntity::LegalStructure}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LegalEntity::LegalStructure]
       required :legal_structure, enum: -> { ModernTreasury::Models::LegalEntity::LegalStructure }
 
       # @!attribute [rw] live_mode
@@ -99,8 +97,7 @@ module ModernTreasury
 
       # @!attribute [rw] risk_rating
       #   The risk rating of the legal entity. One of low, medium, high.
-      #   One of the constants defined in {ModernTreasury::Models::LegalEntity::RiskRating}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LegalEntity::RiskRating]
       required :risk_rating, enum: -> { ModernTreasury::Models::LegalEntity::RiskRating }
 
       # @!attribute [rw] updated_at
@@ -119,7 +116,7 @@ module ModernTreasury
 
         # @!attribute [rw] address_types
         #   The types of this address.
-        #   @return [Array<Symbol>]
+        #   @return [Array<Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType>]
         required :address_types,
                  ModernTreasury::ArrayOf.new(
                    enum: lambda {
@@ -200,8 +197,7 @@ module ModernTreasury
 
         # @!attribute [rw] id_type
         #   The type of ID number.
-        #   One of the constants defined in {ModernTreasury::Models::LegalEntity::Identification::IDType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::LegalEntity::Identification::IDType]
         required :id_type, enum: -> { ModernTreasury::Models::LegalEntity::Identification::IDType }
 
         # @!attribute [rw] issuing_country

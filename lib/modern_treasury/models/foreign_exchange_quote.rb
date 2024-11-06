@@ -70,8 +70,7 @@ module ModernTreasury
 
         # @!attribute [rw] base_currency
         #   Currency to convert, often called the "sell" currency.
-        #   One of the constants defined in {ModernTreasury::Models::Currency}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :base_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] exponent
@@ -91,8 +90,7 @@ module ModernTreasury
 
         # @!attribute [rw] target_currency
         #   Currency to convert the `base_currency` to, often called the "buy" currency.
-        #   One of the constants defined in {ModernTreasury::Models::Currency}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] value

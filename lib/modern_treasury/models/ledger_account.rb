@@ -37,8 +37,7 @@ module ModernTreasury
 
       # @!attribute [rw] ledgerable_type
       #   If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
-      #   One of the constants defined in {ModernTreasury::Models::LedgerAccount::LedgerableType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType]
       required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerAccount::LedgerableType }
 
       # @!attribute [rw] live_mode
@@ -63,8 +62,7 @@ module ModernTreasury
 
       # @!attribute [rw] normal_balance
       #   The normal balance of the ledger account.
-      #   One of the constants defined in {ModernTreasury::Models::TransactionDirection}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :normal_balance, enum: -> { ModernTreasury::Models::TransactionDirection }
 
       # @!attribute [rw] object

@@ -37,14 +37,12 @@ module ModernTreasury
 
       # @!attribute [rw] reason
       #   The reason for the reversal.
-      #   One of the constants defined in {ModernTreasury::Models::Reversal::Reason}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Reversal::Reason]
       required :reason, enum: -> { ModernTreasury::Models::Reversal::Reason }
 
       # @!attribute [rw] status
       #   The current status of the reversal.
-      #   One of the constants defined in {ModernTreasury::Models::Reversal::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Reversal::Status]
       required :status, enum: -> { ModernTreasury::Models::Reversal::Status }
 
       # @!attribute [rw] updated_at

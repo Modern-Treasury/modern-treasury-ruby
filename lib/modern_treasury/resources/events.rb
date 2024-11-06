@@ -10,7 +10,7 @@ module ModernTreasury
       # get event
       #
       # @param id [String] event id
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Event]
       def retrieve(id, opts = {})
@@ -24,15 +24,15 @@ module ModernTreasury
       # list events
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String] :after_cursor
-      # @option params [String] :entity_id
-      # @option params [String] :event_name
-      # @option params [DateTime] :event_time_end An inclusive upper bound for when the event occurred
-      # @option params [DateTime] :event_time_start An inclusive lower bound for when the event occurred
-      # @option params [Integer] :per_page
-      # @option params [String] :resource
+      # @option params [String, nil] :after_cursor
+      # @option params [String, nil] :entity_id
+      # @option params [String, nil] :event_name
+      # @option params [DateTime, nil] :event_time_end An inclusive upper bound for when the event occurred
+      # @option params [DateTime, nil] :event_time_start An inclusive lower bound for when the event occurred
+      # @option params [Integer, nil] :per_page
+      # @option params [String, nil] :resource
       #
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Event>]
       def list(params = {}, opts = {})

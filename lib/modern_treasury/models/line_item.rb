@@ -42,8 +42,7 @@ module ModernTreasury
 
       # @!attribute [rw] itemizable_type
       #   One of `payment_orders` or `expected_payments`.
-      #   One of the constants defined in {ModernTreasury::Models::LineItem::ItemizableType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LineItem::ItemizableType]
       required :itemizable_type, enum: -> { ModernTreasury::Models::LineItem::ItemizableType }
 
       # @!attribute [rw] live_mode
