@@ -19,7 +19,7 @@ module ModernTreasury
       idempotency_header: nil,
       max_retries: 0
     )
-      self.requester = PooledNetRequester.new
+      self.requester = ModernTreasury::PooledNetRequester.new
       base_url_parsed = URI.parse(base_url)
       @headers = ModernTreasury::Util.normalized_headers(
         {

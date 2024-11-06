@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Counterparty < BaseModel
+    class Counterparty < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -63,7 +63,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus]
       required :verification_status, enum: -> { ModernTreasury::Models::Counterparty::VerificationStatus }
 
-      class Account < BaseModel
+      class Account < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         optional :id, String
@@ -151,7 +151,7 @@ module ModernTreasury
         optional :verification_status,
                  enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationStatus }
 
-        class ContactDetail < BaseModel
+        class ContactDetail < ModernTreasury::BaseModel
           # @!attribute [rw] id
           #   @return [String]
           required :id, String
@@ -210,7 +210,7 @@ module ModernTreasury
           #   def initialize(data = {}) = super
         end
 
-        class PartyAddress < BaseModel
+        class PartyAddress < ModernTreasury::BaseModel
           # @!attribute [rw] id
           #   @return [String]
           required :id, String

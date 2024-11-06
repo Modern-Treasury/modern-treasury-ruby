@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountCollectionFlow < BaseModel
+    class AccountCollectionFlow < ModernTreasury::BaseModel
       # @!attribute [rw] counterparty_id
       #   The ID of a counterparty. An external account created with this flow will be associated with this counterparty.
       #   @return [String]

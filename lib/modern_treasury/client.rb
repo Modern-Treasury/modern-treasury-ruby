@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ModernTreasury
-  class Client < BaseClient
+  class Client < ModernTreasury::BaseClient
     # Default max number of retries to attempt after a failed retryable request.
     DEFAULT_MAX_RETRIES = 2
 
@@ -137,8 +137,6 @@ module ModernTreasury
     # @param api_key [String, nil] Defaults to `ENV["MODERN_TREASURY_API_KEY"]`
     # @param organization_id [String, nil] Defaults to `ENV["MODERN_TREASURY_ORGANIZATION_ID"]`
     # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
-    #
-    # @return [ModernTreasury::Client]
     def initialize(
       base_url: nil,
       api_key: nil,

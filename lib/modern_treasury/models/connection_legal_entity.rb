@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ConnectionLegalEntity < BaseModel
+    class ConnectionLegalEntity < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

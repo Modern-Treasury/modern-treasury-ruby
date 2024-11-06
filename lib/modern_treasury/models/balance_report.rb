@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class BalanceReport < BaseModel
+    class BalanceReport < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -57,7 +57,7 @@ module ModernTreasury
         REAL_TIME = :real_time
       end
 
-      class Balance < BaseModel
+      class Balance < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String

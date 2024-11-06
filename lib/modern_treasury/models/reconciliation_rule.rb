@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ReconciliationRule < BaseModel
+    class ReconciliationRule < ModernTreasury::BaseModel
       # @!attribute [rw] amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @return [Integer]

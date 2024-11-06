@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentFlow < BaseModel
+    class PaymentFlow < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       optional :id, String
