@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class RoutingNumberLookupRequest < BaseModel
+    class RoutingNumberLookupRequest < ModernTreasury::BaseModel
       # @!attribute [rw] bank_address
       #   The address of the bank.
       #   @return [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
@@ -39,7 +39,7 @@ module ModernTreasury
                  }
                )
 
-      class BankAddress < BaseModel
+      class BankAddress < ModernTreasury::BaseModel
         # @!attribute [rw] country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #   @return [String]

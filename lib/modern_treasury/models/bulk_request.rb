@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class BulkRequest < BaseModel
+    class BulkRequest < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

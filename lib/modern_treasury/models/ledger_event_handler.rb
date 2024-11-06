@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerEventHandler < BaseModel
+    class LedgerEventHandler < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -61,7 +61,7 @@ module ModernTreasury
       #   @return [Hash]
       required :variables, Hash
 
-      class Conditions < BaseModel
+      class Conditions < ModernTreasury::BaseModel
         # @!attribute [rw] field
         #   The LHS of the conditional.
         #   @return [String]
@@ -87,7 +87,7 @@ module ModernTreasury
         #   def initialize(data = {}) = super
       end
 
-      class LedgerTransactionTemplate < BaseModel
+      class LedgerTransactionTemplate < ModernTreasury::BaseModel
         # @!attribute [rw] description
         #   An optional description for internal use.
         #   @return [String]
@@ -113,7 +113,7 @@ module ModernTreasury
         #   @return [String]
         required :status, String
 
-        class LedgerEntry < BaseModel
+        class LedgerEntry < ModernTreasury::BaseModel
           # @!attribute [rw] amount
           #   The LHS of the conditional.
           #   @return [String]

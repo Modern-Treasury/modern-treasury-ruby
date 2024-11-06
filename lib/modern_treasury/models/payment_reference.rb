@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentReference < BaseModel
+    class PaymentReference < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

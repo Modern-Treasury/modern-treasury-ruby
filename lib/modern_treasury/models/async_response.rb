@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AsyncResponse < BaseModel
+    class AsyncResponse < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

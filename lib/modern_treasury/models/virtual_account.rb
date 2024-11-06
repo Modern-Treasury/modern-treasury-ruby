@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class VirtualAccount < BaseModel
+    class VirtualAccount < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

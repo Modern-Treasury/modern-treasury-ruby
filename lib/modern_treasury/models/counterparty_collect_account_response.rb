@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class CounterpartyCollectAccountResponse < BaseModel
+    class CounterpartyCollectAccountResponse < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   The id of the existing counterparty.
       #   @return [String]

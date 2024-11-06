@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PingResponse < BaseModel
+    class PingResponse < ModernTreasury::BaseModel
       # @!attribute [rw] ping
       #   @return [String]
       required :ping, String

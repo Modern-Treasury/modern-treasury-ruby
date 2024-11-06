@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerableEvent < BaseModel
+    class LedgerableEvent < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

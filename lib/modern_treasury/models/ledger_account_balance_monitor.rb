@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountBalanceMonitor < BaseModel
+    class LedgerAccountBalanceMonitor < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -54,7 +54,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      class AlertCondition < BaseModel
+      class AlertCondition < ModernTreasury::BaseModel
         # @!attribute [rw] field
         #   One of `available_balance_amount`, `pending_balance_amount`, `posted_balance_amount`, `ledger_account_lock_version`.
         #   @return [String]
@@ -85,7 +85,7 @@ module ModernTreasury
         #   def initialize(data = {}) = super
       end
 
-      class CurrentLedgerAccountBalanceState < BaseModel
+      class CurrentLedgerAccountBalanceState < ModernTreasury::BaseModel
         # @!attribute [rw] balances
         #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances]
         required :balances,
@@ -101,7 +101,7 @@ module ModernTreasury
         #   @return [Boolean]
         required :triggered, ModernTreasury::BooleanModel
 
-        class Balances < BaseModel
+        class Balances < ModernTreasury::BaseModel
           # @!attribute [rw] available_balance
           #   The available_balance is the sum of all posted inbound entries and pending outbound entries. For credit normal, available_amount = posted_credits - pending_debits; for debit normal, available_amount = posted_debits - pending_credits.
           #   @return [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance]
@@ -120,7 +120,7 @@ module ModernTreasury
           required :posted_balance,
                    -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance }
 
-          class AvailableBalance < BaseModel
+          class AvailableBalance < ModernTreasury::BaseModel
             # @!attribute [rw] amount
             #   @return [Integer]
             required :amount, Integer
@@ -155,7 +155,7 @@ module ModernTreasury
             #   def initialize(data = {}) = super
           end
 
-          class PendingBalance < BaseModel
+          class PendingBalance < ModernTreasury::BaseModel
             # @!attribute [rw] amount
             #   @return [Integer]
             required :amount, Integer
@@ -190,7 +190,7 @@ module ModernTreasury
             #   def initialize(data = {}) = super
           end
 
-          class PostedBalance < BaseModel
+          class PostedBalance < ModernTreasury::BaseModel
             # @!attribute [rw] amount
             #   @return [Integer]
             required :amount, Integer

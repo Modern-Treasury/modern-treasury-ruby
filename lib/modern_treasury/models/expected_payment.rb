@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ExpectedPayment < BaseModel
+    class ExpectedPayment < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

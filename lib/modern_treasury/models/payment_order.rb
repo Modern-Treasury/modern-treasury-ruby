@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentOrder < BaseModel
+    class PaymentOrder < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -249,7 +249,7 @@ module ModernTreasury
       #   @return [String]
       required :vendor_failure_reason, String
 
-      class Accounting < BaseModel
+      class Accounting < ModernTreasury::BaseModel
         # @!attribute [rw] account_id
         #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
         #   @return [String]
@@ -291,7 +291,7 @@ module ModernTreasury
         VARIABLE_TO_FIXED = :variable_to_fixed
       end
 
-      class ForeignExchangeRate < BaseModel
+      class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute [rw] base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
         #   @return [Integer]
@@ -356,7 +356,7 @@ module ModernTreasury
         EXTERNAL_ACCOUNT = :external_account
       end
 
-      class ReferenceNumber < BaseModel
+      class ReferenceNumber < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String

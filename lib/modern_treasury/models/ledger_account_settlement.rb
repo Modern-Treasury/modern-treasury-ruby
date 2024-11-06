@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountSettlement < BaseModel
+    class LedgerAccountSettlement < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

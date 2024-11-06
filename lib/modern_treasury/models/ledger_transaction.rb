@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerTransaction < BaseModel
+    class LedgerTransaction < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

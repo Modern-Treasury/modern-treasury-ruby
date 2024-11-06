@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LegalEntity < BaseModel
+    class LegalEntity < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -109,7 +109,7 @@ module ModernTreasury
       #   @return [String]
       required :website, String
 
-      class Address < BaseModel
+      class Address < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String
@@ -202,7 +202,7 @@ module ModernTreasury
         #   def initialize(data = {}) = super
       end
 
-      class Identification < BaseModel
+      class Identification < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String
@@ -297,7 +297,7 @@ module ModernTreasury
         TRUST = :trust
       end
 
-      class PhoneNumber < BaseModel
+      class PhoneNumber < ModernTreasury::BaseModel
         # @!attribute [rw] phone_number
         #   @return [String]
         optional :phone_number, String
