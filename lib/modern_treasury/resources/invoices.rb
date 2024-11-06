@@ -17,6 +17,9 @@ module ModernTreasury
       # @option params [String] :counterparty_id The ID of the counterparty receiving the invoice.
       # @option params [DateTime] :due_date A future date by when the invoice needs to be paid.
       # @option params [String] :originating_account_id The ID of the internal account the invoice should be paid to.
+      # @option params [Boolean] :auto_advance When true, the invoice will progress to unpaid automatically and cannot be
+      #   edited after entering that state. If the invoice fails to progress to unpaid,
+      #   the errors will be returned and the invoice will not be created.
       # @option params [Array<ContactDetail>] :contact_details The invoicer's contact details displayed at the top of the invoice.
       # @option params [CounterpartyBillingAddress] :counterparty_billing_address The counterparty's billing address.
       # @option params [CounterpartyShippingAddress] :counterparty_shipping_address The counterparty's shipping address where physical goods should be delivered.
@@ -32,6 +35,8 @@ module ModernTreasury
       #   contact support.
       # @option params [InvoicerAddress] :invoicer_address The invoice issuer's business address.
       # @option params [String] :ledger_account_settlement_id The ID of the virtual account the invoice should be paid to.
+      # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       # @option params [Array<String>] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
       #   notifications to. At least one email is required if notifications are enabled
       #   and the counterparty doesn't have an email.
@@ -106,6 +111,8 @@ module ModernTreasury
       #   contact support.
       # @option params [InvoicerAddress] :invoicer_address The invoice issuer's business address.
       # @option params [String] :ledger_account_settlement_id The ID of the virtual account the invoice should be paid to.
+      # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       # @option params [Array<String>] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
       #   notifications to. At least one email is required if notifications are enabled
       #   and the counterparty doesn't have an email.
