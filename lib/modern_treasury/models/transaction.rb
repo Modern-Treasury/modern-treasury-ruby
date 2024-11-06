@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Transaction < BaseModel
+    class Transaction < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -123,7 +123,7 @@ module ModernTreasury
       #   @return [String]
       optional :vendor_description, String
 
-      class ForeignExchangeRate < BaseModel
+      class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute [rw] base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
         #   @return [Integer]

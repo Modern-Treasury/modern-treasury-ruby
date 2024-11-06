@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Connection < BaseModel
+    class Connection < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

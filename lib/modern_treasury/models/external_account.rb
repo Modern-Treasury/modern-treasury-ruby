@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ExternalAccount < BaseModel
+    class ExternalAccount < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -88,7 +88,7 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
       required :verification_status, enum: -> { ModernTreasury::Models::ExternalAccount::VerificationStatus }
 
-      class ContactDetail < BaseModel
+      class ContactDetail < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String
@@ -145,7 +145,7 @@ module ModernTreasury
         #   def initialize(data = {}) = super
       end
 
-      class PartyAddress < BaseModel
+      class PartyAddress < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String

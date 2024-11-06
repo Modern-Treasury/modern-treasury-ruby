@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Reversal < BaseModel
+    class Reversal < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Invoice < BaseModel
+    class Invoice < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -189,7 +189,7 @@ module ModernTreasury
       #   @return [String]
       required :virtual_account_id, String
 
-      class ContactDetail < BaseModel
+      class ContactDetail < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String
@@ -246,7 +246,7 @@ module ModernTreasury
         #   def initialize(data = {}) = super
       end
 
-      class CounterpartyBillingAddress < BaseModel
+      class CounterpartyBillingAddress < ModernTreasury::BaseModel
         # @!attribute [rw] country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #   @return [String]
@@ -288,7 +288,7 @@ module ModernTreasury
         #   def initialize(data = {}) = super
       end
 
-      class CounterpartyShippingAddress < BaseModel
+      class CounterpartyShippingAddress < ModernTreasury::BaseModel
         # @!attribute [rw] country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #   @return [String]
@@ -330,7 +330,7 @@ module ModernTreasury
         #   def initialize(data = {}) = super
       end
 
-      class InvoicerAddress < BaseModel
+      class InvoicerAddress < ModernTreasury::BaseModel
         # @!attribute [rw] country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #   @return [String]

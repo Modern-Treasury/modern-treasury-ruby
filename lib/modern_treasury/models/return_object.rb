@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ReturnObject < BaseModel
+    class ReturnObject < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -172,7 +172,7 @@ module ModernTreasury
         CURRENCYCLOUD = :currencycloud
       end
 
-      class ReferenceNumber < BaseModel
+      class ReferenceNumber < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class InvoiceLineItem < BaseModel
+    class InvoiceLineItem < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String

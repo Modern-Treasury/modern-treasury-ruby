@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class RoutingDetail < BaseModel
+    class RoutingDetail < ModernTreasury::BaseModel
       # @!attribute [rw] id
       #   @return [String]
       required :id, String
@@ -52,7 +52,7 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      class BankAddress < BaseModel
+      class BankAddress < ModernTreasury::BaseModel
         # @!attribute [rw] id
         #   @return [String]
         required :id, String
