@@ -9,8 +9,7 @@ module ModernTreasury
 
       # @!attribute [rw] action_type
       #   One of create, or update.
-      #   One of the constants defined in {ModernTreasury::Models::BulkRequest::ActionType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequest::ActionType]
       required :action_type, enum: -> { ModernTreasury::Models::BulkRequest::ActionType }
 
       # @!attribute [rw] created_at
@@ -38,14 +37,12 @@ module ModernTreasury
 
       # @!attribute [rw] resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
-      #   One of the constants defined in {ModernTreasury::Models::BulkRequest::ResourceType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequest::ResourceType]
       required :resource_type, enum: -> { ModernTreasury::Models::BulkRequest::ResourceType }
 
       # @!attribute [rw] status
       #   One of pending, processing, or completed.
-      #   One of the constants defined in {ModernTreasury::Models::BulkRequest::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequest::Status]
       required :status, enum: -> { ModernTreasury::Models::BulkRequest::Status }
 
       # @!attribute [rw] success_result_count

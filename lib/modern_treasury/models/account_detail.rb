@@ -14,8 +14,7 @@ module ModernTreasury
 
       # @!attribute [rw] account_number_type
       #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
-      #   One of the constants defined in {ModernTreasury::Models::AccountDetail::AccountNumberType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
       required :account_number_type, enum: -> { ModernTreasury::Models::AccountDetail::AccountNumberType }
 
       # @!attribute [rw] created_at

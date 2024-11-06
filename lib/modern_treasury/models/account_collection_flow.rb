@@ -9,7 +9,7 @@ module ModernTreasury
       required :counterparty_id, String
 
       # @!attribute [rw] payment_types
-      #   @return [Array<Symbol>]
+      #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
                ModernTreasury::ArrayOf.new(
                  enum: lambda {
@@ -45,7 +45,7 @@ module ModernTreasury
       optional :object, String
 
       # @!attribute [rw] receiving_countries
-      #   @return [Array<Symbol>]
+      #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
       optional :receiving_countries,
                ModernTreasury::ArrayOf.new(
                  enum: lambda {
@@ -55,8 +55,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
-      #   One of the constants defined in {ModernTreasury::Models::AccountCollectionFlow::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status]
       optional :status, enum: -> { ModernTreasury::Models::AccountCollectionFlow::Status }
 
       # @!attribute [rw] updated_at

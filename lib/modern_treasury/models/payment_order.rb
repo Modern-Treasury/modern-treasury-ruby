@@ -28,8 +28,7 @@ module ModernTreasury
 
       # @!attribute [rw] charge_bearer
       #   The party that will pay the fees for the payment order. Only applies to wire payment orders. Can be one of shared, sender, or receiver, which correspond respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::ChargeBearer}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer]
       required :charge_bearer, enum: -> { ModernTreasury::Models::PaymentOrder::ChargeBearer }
 
       # @!attribute [rw] compliance_rule_metadata
@@ -48,8 +47,7 @@ module ModernTreasury
 
       # @!attribute [rw] currency
       #   Defaults to the currency of the originating account.
-      #   One of the constants defined in {ModernTreasury::Models::Currency}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [rw] current_return
@@ -69,8 +67,7 @@ module ModernTreasury
 
       # @!attribute [rw] direction
       #   One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::Direction}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::Direction]
       required :direction, enum: -> { ModernTreasury::Models::PaymentOrder::Direction }
 
       # @!attribute [rw] effective_date
@@ -90,8 +87,7 @@ module ModernTreasury
 
       # @!attribute [rw] foreign_exchange_indicator
       #   Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator]
       required :foreign_exchange_indicator,
                enum: -> { ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator }
 
@@ -136,8 +132,7 @@ module ModernTreasury
 
       # @!attribute [rw] priority
       #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::Priority}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::Priority]
       required :priority, enum: -> { ModernTreasury::Models::PaymentOrder::Priority }
 
       # @!attribute [rw] process_after
@@ -156,8 +151,7 @@ module ModernTreasury
       required :receiving_account_id, String
 
       # @!attribute [rw] receiving_account_type
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::ReceivingAccountType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType]
       required :receiving_account_type,
                enum: lambda {
                  ModernTreasury::Models::PaymentOrder::ReceivingAccountType
@@ -185,14 +179,12 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   The current status of the payment order.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::Status]
       required :status, enum: -> { ModernTreasury::Models::PaymentOrder::Status }
 
       # @!attribute [rw] subtype
       #   An additional layer of classification for the type of payment order you are doing. This field is only used for `ach` payment orders currently. For `ach`  payment orders, the `subtype`  represents the SEC code. We currently support `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrderSubtype}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderSubtype]
       required :subtype, enum: -> { ModernTreasury::Models::PaymentOrderSubtype }
 
       # @!attribute [rw] transaction_ids
@@ -207,13 +199,12 @@ module ModernTreasury
 
       # @!attribute [rw] type
       #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrderType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
       required :type, enum: -> { ModernTreasury::Models::PaymentOrderType }
 
       # @!attribute [rw] ultimate_originating_account
       #   The account to which the originating of this payment should be attributed to. Can be a `virtual_account` or `internal_account`.
-      #   @return [ModernTreasury::Models::InternalAccount|ModernTreasury::Models::VirtualAccount]
+      #   @return [ModernTreasury::Models::InternalAccount, ModernTreasury::Models::VirtualAccount]
       required :ultimate_originating_account, ModernTreasury::Unknown
 
       # @!attribute [rw] ultimate_originating_account_id
@@ -222,8 +213,7 @@ module ModernTreasury
       required :ultimate_originating_account_id, String
 
       # @!attribute [rw] ultimate_originating_account_type
-      #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType]
       required :ultimate_originating_account_type,
                enum: -> { ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType }
 
@@ -298,8 +288,7 @@ module ModernTreasury
 
         # @!attribute [rw] base_currency
         #   Currency to convert, often called the "sell" currency.
-        #   One of the constants defined in {ModernTreasury::Models::Currency}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :base_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] exponent
@@ -319,8 +308,7 @@ module ModernTreasury
 
         # @!attribute [rw] target_currency
         #   Currency to convert the `base_currency` to, often called the "buy" currency.
-        #   One of the constants defined in {ModernTreasury::Models::Currency}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Currency]
         required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute [rw] value
@@ -365,8 +353,7 @@ module ModernTreasury
 
         # @!attribute [rw] reference_number_type
         #   The type of the reference number. Referring to the vendor payment id.
-        #   One of the constants defined in {ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType]
         required :reference_number_type,
                  enum: -> { ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType }
 

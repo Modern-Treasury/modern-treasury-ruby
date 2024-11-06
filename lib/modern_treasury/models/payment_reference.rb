@@ -27,8 +27,7 @@ module ModernTreasury
 
       # @!attribute [rw] reference_number_type
       #   The type of reference number.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentReference::ReferenceNumberType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType]
       required :reference_number_type,
                enum: -> { ModernTreasury::Models::PaymentReference::ReferenceNumberType }
 
@@ -39,8 +38,7 @@ module ModernTreasury
 
       # @!attribute [rw] referenceable_type
       #   One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
-      #   One of the constants defined in {ModernTreasury::Models::PaymentReference::ReferenceableType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
       required :referenceable_type, enum: -> { ModernTreasury::Models::PaymentReference::ReferenceableType }
 
       # @!attribute [rw] updated_at

@@ -12,14 +12,14 @@ module ModernTreasury
       # @param params [Hash] Attributes to send in this request.
       # @option params [LedgerTransactionTemplate] :ledger_transaction_template
       # @option params [String] :name Name of the ledger event handler.
-      # @option params [Conditions] :conditions
-      # @option params [String] :description An optional description.
-      # @option params [String] :ledger_id The id of the ledger that this account belongs to.
-      # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      # @option params [Conditions, nil] :conditions
+      # @option params [String, nil] :description An optional description.
+      # @option params [String, nil] :ledger_id The id of the ledger that this account belongs to.
+      # @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
-      # @option params [Hash] :variables
+      # @option params [Hash, nil] :variables
       #
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def create(params = {}, opts = {})
@@ -34,7 +34,7 @@ module ModernTreasury
       # Get details on a single ledger event handler.
       #
       # @param id [String] id
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def retrieve(id, opts = {})
@@ -48,17 +48,17 @@ module ModernTreasury
       # Get a list of ledger event handlers.
       #
       # @param params [Hash] Attributes to send in this request.
-      # @option params [String] :after_cursor
-      # @option params [Hash] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      # @option params [String, nil] :after_cursor
+      # @option params [Hash, nil] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
-      # @option params [Hash] :metadata For example, if you want to query for records with metadata key `Type` and value
+      # @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
-      # @option params [String] :name
-      # @option params [Integer] :per_page
+      # @option params [String, nil] :name
+      # @option params [Integer, nil] :per_page
       #
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
       def list(params = {}, opts = {})
@@ -74,7 +74,7 @@ module ModernTreasury
       # Archive a ledger event handler.
       #
       # @param id [String] id
-      # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def delete(id, opts = {})

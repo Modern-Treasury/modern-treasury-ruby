@@ -16,19 +16,19 @@ module ModernTreasury
         # @option params [String] :name The name of the line item, typically a product or SKU name.
         # @option params [Integer] :unit_amount The cost per unit of the product or service that this line item is for,
         #   specified in the invoice currency's smallest unit.
-        # @option params [String] :description An optional free-form description of the line item.
-        # @option params [String] :direction Either `debit` or `credit`. `debit` indicates that a client owes the business
+        # @option params [String, nil] :description An optional free-form description of the line item.
+        # @option params [String, nil] :direction Either `debit` or `credit`. `debit` indicates that a client owes the business
         #   money and increases the invoice's `total_amount` due. `credit` has the opposite
         #   intention and effect.
-        # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+        # @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
-        # @option params [Integer] :quantity The number of units of a product or service that this line item is for. Must be
+        # @option params [Integer, nil] :quantity The number of units of a product or service that this line item is for. Must be
         #   a whole number. Defaults to 1 if not provided.
-        # @option params [String] :unit_amount_decimal The cost per unit of the product or service that this line item is for,
+        # @option params [String, nil] :unit_amount_decimal The cost per unit of the product or service that this line item is for,
         #   specified in the invoice currency's smallest unit. Accepts decimal strings with
         #   up to 12 decimals
         #
-        # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def create(invoice_id, params = {}, opts = {})
@@ -44,7 +44,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         # @param id [String] id
-        # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def retrieve(invoice_id, id, opts = {})
@@ -62,22 +62,22 @@ module ModernTreasury
         # @param id [String] id
         #
         # @param params [Hash] Attributes to send in this request.
-        # @option params [String] :description An optional free-form description of the line item.
-        # @option params [String] :direction Either `debit` or `credit`. `debit` indicates that a client owes the business
+        # @option params [String, nil] :description An optional free-form description of the line item.
+        # @option params [String, nil] :direction Either `debit` or `credit`. `debit` indicates that a client owes the business
         #   money and increases the invoice's `total_amount` due. `credit` has the opposite
         #   intention and effect.
-        # @option params [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
+        # @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
-        # @option params [String] :name The name of the line item, typically a product or SKU name.
-        # @option params [Integer] :quantity The number of units of a product or service that this line item is for. Must be
+        # @option params [String, nil] :name The name of the line item, typically a product or SKU name.
+        # @option params [Integer, nil] :quantity The number of units of a product or service that this line item is for. Must be
         #   a whole number. Defaults to 1 if not provided.
-        # @option params [Integer] :unit_amount The cost per unit of the product or service that this line item is for,
+        # @option params [Integer, nil] :unit_amount The cost per unit of the product or service that this line item is for,
         #   specified in the invoice currency's smallest unit.
-        # @option params [String] :unit_amount_decimal The cost per unit of the product or service that this line item is for,
+        # @option params [String, nil] :unit_amount_decimal The cost per unit of the product or service that this line item is for,
         #   specified in the invoice currency's smallest unit. Accepts decimal strings with
         #   up to 12 decimals
         #
-        # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def update(invoice_id, id, params = {}, opts = {})
@@ -94,10 +94,10 @@ module ModernTreasury
         # @param invoice_id [String] invoice_id
         #
         # @param params [Hash] Attributes to send in this request.
-        # @option params [String] :after_cursor
-        # @option params [Integer] :per_page
+        # @option params [String, nil] :after_cursor
+        # @option params [Integer, nil] :per_page
         #
-        # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InvoiceLineItem>]
         def list(invoice_id, params = {}, opts = {})
@@ -114,7 +114,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         # @param id [String] id
-        # @param opts [Hash|RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InvoiceLineItem]
         def delete(invoice_id, id, opts = {})

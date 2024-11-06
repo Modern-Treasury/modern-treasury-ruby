@@ -48,8 +48,7 @@ module ModernTreasury
 
       # @!attribute [rw] ledgerable_type
       #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
-      #   One of the constants defined in {ModernTreasury::Models::LedgerTransaction::LedgerableType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType]
       required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerTransaction::LedgerableType }
 
       # @!attribute [rw] live_mode
@@ -83,8 +82,7 @@ module ModernTreasury
 
       # @!attribute [rw] status
       #   To post a ledger transaction at creation, use `posted`.
-      #   One of the constants defined in {ModernTreasury::Models::LedgerTransaction::Status}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::Status]
       required :status, enum: -> { ModernTreasury::Models::LedgerTransaction::Status }
 
       # @!attribute [rw] updated_at

@@ -32,8 +32,7 @@ module ModernTreasury
 
       # @!attribute [rw] documentable_type
       #   The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
-      #   One of the constants defined in {ModernTreasury::Models::Document::DocumentableType}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Document::DocumentableType]
       required :documentable_type, enum: -> { ModernTreasury::Models::Document::DocumentableType }
 
       # @!attribute [rw] file

@@ -40,7 +40,7 @@ module ModernTreasury
       required :parent_legal_entity_id, String
 
       # @!attribute [rw] relationship_types
-      #   @return [Array<Symbol>]
+      #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType>]
       required :relationship_types,
                ModernTreasury::ArrayOf.new(
                  enum: lambda {
@@ -126,8 +126,7 @@ module ModernTreasury
 
         # @!attribute [rw] legal_entity_type
         #   The type of legal entity.
-        #   One of the constants defined in {ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
         required :legal_entity_type,
                  enum: lambda {
                    ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType
@@ -135,8 +134,7 @@ module ModernTreasury
 
         # @!attribute [rw] legal_structure
         #   The business's legal structure.
-        #   One of the constants defined in {ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure]
         required :legal_structure,
                  enum: -> { ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure }
 
@@ -165,8 +163,7 @@ module ModernTreasury
 
         # @!attribute [rw] risk_rating
         #   The risk rating of the legal entity. One of low, medium, high.
-        #   One of the constants defined in {ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating]
         required :risk_rating,
                  enum: -> { ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating }
 
@@ -186,7 +183,7 @@ module ModernTreasury
 
           # @!attribute [rw] address_types
           #   The types of this address.
-          #   @return [Array<Symbol>]
+          #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
           required :address_types,
                    ModernTreasury::ArrayOf.new(
                      enum: lambda {
@@ -267,8 +264,7 @@ module ModernTreasury
 
           # @!attribute [rw] id_type
           #   The type of ID number.
-          #   One of the constants defined in {ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType}
-          #   @return [Symbol]
+          #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
           required :id_type,
                    enum: lambda {
                      ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType

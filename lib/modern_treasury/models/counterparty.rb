@@ -60,8 +60,7 @@ module ModernTreasury
 
       # @!attribute [rw] verification_status
       #   The verification status of the counterparty.
-      #   One of the constants defined in {ModernTreasury::Models::Counterparty::VerificationStatus}
-      #   @return [Symbol]
+      #   @return [Symbol, ModernTreasury::Models::Counterparty::VerificationStatus]
       required :verification_status, enum: -> { ModernTreasury::Models::Counterparty::VerificationStatus }
 
       class Account < BaseModel
@@ -75,8 +74,7 @@ module ModernTreasury
 
         # @!attribute [rw] account_type
         #   Can be `checking`, `savings` or `other`.
-        #   One of the constants defined in {ModernTreasury::Models::ExternalAccountType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::ExternalAccountType]
         optional :account_type, enum: -> { ModernTreasury::Models::ExternalAccountType }
 
         # @!attribute [rw] contact_details
@@ -132,8 +130,7 @@ module ModernTreasury
 
         # @!attribute [rw] party_type
         #   Either `individual` or `business`.
-        #   One of the constants defined in {ModernTreasury::Models::Counterparty::Account::PartyType}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType]
         optional :party_type, enum: -> { ModernTreasury::Models::Counterparty::Account::PartyType }
 
         # @!attribute [rw] routing_details
@@ -145,14 +142,12 @@ module ModernTreasury
         optional :updated_at, DateTime
 
         # @!attribute [rw] verification_source
-        #   One of the constants defined in {ModernTreasury::Models::Counterparty::Account::VerificationSource}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationSource]
         optional :verification_source,
                  enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationSource }
 
         # @!attribute [rw] verification_status
-        #   One of the constants defined in {ModernTreasury::Models::Counterparty::Account::VerificationStatus}
-        #   @return [Symbol]
+        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus]
         optional :verification_status,
                  enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationStatus }
 
@@ -166,8 +161,7 @@ module ModernTreasury
           required :contact_identifier, String
 
           # @!attribute [rw] contact_identifier_type
-          #   One of the constants defined in {ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType}
-          #   @return [Symbol]
+          #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType]
           required :contact_identifier_type,
                    enum: lambda {
                      ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType
