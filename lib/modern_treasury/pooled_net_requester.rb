@@ -12,7 +12,7 @@ module ModernTreasury
     # @param timeout [Float]
     #
     # @return [ConnectionPool]
-    def get_pool(req, timeout:)
+    private def get_pool(req, timeout:)
       scheme, hostname = req.fetch_values(:scheme, :host)
       scheme = scheme.to_sym
       port = req.fetch(:port) do
