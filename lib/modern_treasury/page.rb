@@ -10,34 +10,19 @@ module ModernTreasury
 
     # @!visibility private
     #
-    # @return [ModernTreasury::Client]
-    attr_accessor :client
-
-    # @!visibility private
-    #
-    # @return [Hash{Symbol => Object}]
-    attr_accessor :req
-
-    # @!visibility private
-    #
-    # @return [Hash{Symbol => Object}]
-    attr_accessor :opts
-
-    # @!visibility private
-    #
     # @param model [Object]
     # @param raw_data [Hash{Symbol => Object}]
     # @param response [Net::HTTPResponse]
     # @param client [ModernTreasury::Client]
     # @param req [Hash{Symbol => Object}]
     # @param opts [Hash{Symbol => Object}]
-    def initialize(model, raw_data, response, client, req, opts)
+    def initialize(client:, model:, req:, opts:, response:, raw_data:)
       super(raw_data.map { |e| model.convert(e) })
       self.per_page = ModernTreasury::Util.coerce_integer(response["X-Per-Page"])
       self.after_cursor = response["X-After-Cursor"]
-      self.client = client
-      self.req = req
-      self.opts = opts
+      @client = client
+      @req = req
+      @opts = opts
     end
 
     # @return [Boolean]
@@ -51,7 +36,9 @@ module ModernTreasury
       unless next_page?
         raise "No more pages available; please check #next_page? before calling #next_page"
       end
-      client.request(ModernTreasury::Util.deep_merge(req, {query: {after_cursor: after_cursor}}), opts)
+
+      req = ModernTreasury::Util.deep_merge(@req, {query: {after_cursor: after_cursor}})
+      @client.request(req, @opts)
     end
 
     # @param blk [Proc]
@@ -71,7 +58,7 @@ module ModernTreasury
 
     # @return [String]
     def inspect
-      "#<#{selfl.class}:0x#{object_id.to_s(16)} per_page=#{per_page.inspect} after_cursor=#{after_cursor.inspect}>"
+      "#<#{self.class}:0x#{object_id.to_s(16)} per_page=#{per_page.inspect} after_cursor=#{after_cursor.inspect}>"
     end
   end
 end
