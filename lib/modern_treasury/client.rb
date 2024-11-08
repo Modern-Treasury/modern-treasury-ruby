@@ -204,23 +204,23 @@ module ModernTreasury
     end
 
     # @!visibility private
-    def make_status_error(message:, body:, response:)
+    private def make_status_error(message:, body:, response:)
       case response.code.to_i
-      when 400
+      in 400
         ModernTreasury::HTTP::BadRequestError.new(message: message, response: response, body: body)
-      when 401
+      in 401
         ModernTreasury::HTTP::AuthenticationError.new(message: message, response: response, body: body)
-      when 403
+      in 403
         ModernTreasury::HTTP::PermissionDeniedError.new(message: message, response: response, body: body)
-      when 404
+      in 404
         ModernTreasury::HTTP::NotFoundError.new(message: message, response: response, body: body)
-      when 409
+      in 409
         ModernTreasury::HTTP::ConflictError.new(message: message, response: response, body: body)
-      when 422
+      in 422
         ModernTreasury::HTTP::UnprocessableEntityError.new(message: message, response: response, body: body)
-      when 429
+      in 429
         ModernTreasury::HTTP::RateLimitError.new(message: message, response: response, body: body)
-      when 500..599
+      in 500..599
         ModernTreasury::HTTP::InternalServerError.new(message: message, response: response, body: body)
       else
         ModernTreasury::HTTP::APIStatusError.new(message: message, response: response, body: body)
