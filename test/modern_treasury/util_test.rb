@@ -70,6 +70,23 @@ class ModernTreasury::Test::UtilTest < Minitest::Test
     )
   end
 
+  def test_dig
+    assert_equal(1, ModernTreasury::Util.dig(1, nil))
+    assert_nil(ModernTreasury::Util.dig({a: 1}, :b))
+    assert_equal(1, ModernTreasury::Util.dig({a: 1}, :a))
+    assert_equal(1, ModernTreasury::Util.dig({a: {b: 1}}, [:a, :b]))
+    assert_nil(ModernTreasury::Util.dig([], 1))
+    assert_equal(1, ModernTreasury::Util.dig([nil, [nil, 1]], [1, 1]))
+    assert_equal(1, ModernTreasury::Util.dig({a: [nil, 1]}, [:a, 1]))
+
+    assert_raises(NoMatchingPatternError) do
+      ModernTreasury::Util.dig([], 1.0)
+    end
+    assert_raises(NoMatchingPatternError) do
+      ModernTreasury::Util.dig(Object, 1)
+    end
+  end
+
   def test_uri_parsing
     %w[
       http://example.com
