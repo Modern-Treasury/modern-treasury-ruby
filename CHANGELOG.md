@@ -1,5 +1,65 @@
 # Changelog
 
+## 0.1.0-alpha.9 (2024-11-12)
+
+Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
+
+### Features
+
+* annotate client type on resources ([#79](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/79)) ([71af1ae](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/71af1aeadda354e6d765e3bfd3d162101a8db07f))
+* **api:** updates to required fields for ExpectedPayments ([#87](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/87)) ([9fbea98](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9fbea98ab046cd1cea8263f40c5220256c5a3664))
+* breaking change - replace deprecated 'DateTime' class in favour of 'Time' class ([#74](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/74)) ([e2a92f2](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e2a92f20395de996034a70e91b79e06a6389fe2f))
+* **client:** add support for file uploads ([#73](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/73)) ([dc98885](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/dc988857458f7a2d8d6c477cfc571347090f8361))
+* **client:** configurable timeouts ([#81](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/81)) ([178fa82](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/178fa82eb4900d2a4a5559f915ff008edfdf0bf2))
+* **client:** generate classes for enums ([#64](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/64)) ([066eb0e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/066eb0e07db8b1cc95f8d54a91857f76ee08edcf))
+* **client:** improved .inspect output ([64f1f66](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/64f1f66ae21a956103678b3004c1c372f38a20f2))
+* **client:** parse dates in responses ([#67](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/67)) ([342e8df](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/342e8df6a18f3ee06d93a2b9f9fc4f2270e5f66c))
+* **client:** send retry count header ([#70](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/70)) ([712c5aa](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/712c5aaa7af308fca772fc010a3c0798c094a521))
+* **client:** support rightward assignment ([#84](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/84)) ([55cefd5](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/55cefd5fa21ff4ed84c1fbd63be1905fdd25b66d))
+* enable gem building ([#72](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/72)) ([87668f8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/87668f83e6d03ae52f33c77f07358811e96aacd9))
+* explicitly mark more internal methods with `private` ([#105](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/105)) ([107725c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/107725cc513381a8c56efce41ab5764bf78455bc))
+* generate omitted tests ([#75](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/75)) ([5d33bcf](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5d33bcf714c2bb222d80124aff8fefef21586b4b))
+* modernize sdk internals ([#95](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/95)) ([f3aa57e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f3aa57ea96ad102ccca7cdc4e60ff1a485c6af3a))
+* replace test/unit with minitest to enable parallel testing ([#77](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/77)) ([0ce9c35](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0ce9c35bb2f1d48a6853cf26453bfe7363719c5a))
+* switch to yard `@!parse` directive for init signatures instead of dummy methods ([#86](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/86)) ([fe4acec](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fe4acec615ed6b60e280f910e87bb4ce8fdedf47))
+
+
+### Bug Fixes
+
+* **client:** point accessors to the correct keys ([64f1f66](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/64f1f66ae21a956103678b3004c1c372f38a20f2))
+* run bundle install before publishing ruby gems ([#99](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/99)) ([5929d4d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5929d4d5164ad43dcbb6a3851fc4061b4968eec7))
+* **tests,docs:** use snake_case for option names ([#88](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/88)) ([64f1f66](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/64f1f66ae21a956103678b3004c1c372f38a20f2))
+
+
+### Chores
+
+* **api:** fields and parameters added to bulk actions, transactions and invoice creation ([#68](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/68)) ([0255b40](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0255b408e77b7fbeee1ac5209fc8ebc7fdd720af))
+* **client:** normalize header names ([#76](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/76)) ([d2adfb8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d2adfb88e123b0123a5232ea039d93a8f5dfa5fe))
+* consolidate imports ([#90](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/90)) ([59c7f19](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/59c7f19989d7786b533dd74cf0eb10faaf679ea9))
+* formatting consistency update ([#85](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/85)) ([d36401b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d36401bef8b79f23c8acb1afe7a088d303367978))
+* fully qualify class name for inheritance ([#102](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/102)) ([1fb97e5](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1fb97e5c135541876165a26a73bb10f05460e252))
+* generate yard docs on page classes ([#101](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/101)) ([41da934](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/41da934f38daf8200576fe8057dbafef7d1e6514))
+* **internal:** bump webrick dependency ([#69](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/69)) ([1949e59](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1949e5963de959489513c3c9671ce4cb9237c255))
+* **internal:** make lint rules more strict ([#66](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/66)) ([f862f23](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f862f230af710e139f88f15d701cb260ee447f8f))
+* minor improvements to param type yard doc ([#91](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/91)) ([fe734e0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fe734e05d93fe2d7ac5984d859e3fd2d6d26b93a))
+* minor refactorings on base client ([#97](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/97)) ([e13ff94](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e13ff949ce22a17d3dfd8702b3b02be0e337e214))
+* reduce format task verbosity ([#78](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/78)) ([7394cfa](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7394cfad85d25701e457adf23603b76e346d167e))
+* refactor base client internals ([#106](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/106)) ([4504ec1](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4504ec18914c6c6fc4db8475554de1feae2e0556))
+* refactor base client methods ([#98](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/98)) ([5786db0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5786db0e4b38a085e53b67ffa99a07109bfdd8cf))
+* switch over to relative requires for gem locals ([#89](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/89)) ([781dbdb](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/781dbdb765c7d31575a5e6fca9cf1c8abe34d18d))
+* **tests:** support overriding base url with an env var ([#82](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/82)) ([7d419f7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7d419f7b76f0f4a0957315f1fd87804d42de3f9f))
+* **types:** add types for Model#initialize ([#83](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/83)) ([c8b4185](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c8b4185476ad5c9e7cbb73a53f5d92937ecb2b1e))
+* **types:** more detailed type documentation ([#71](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/71)) ([9e6eb5a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/9e6eb5ace1eee7e25e797c3f6ba3aebed1b570a0))
+* yard doc improvements ([#94](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/94)) ([4eafb46](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4eafb464fbb2b6405be8392fff59d68df9befa06))
+
+
+### Refactors
+
+* clean up base client send_request method ([#100](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/100)) ([0a00593](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0a005931c89c8db85e4761444c85b8f483bf008a))
+* client constructor ([#108](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/108)) ([8a3dc06](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8a3dc060f1c4657bd8b141bdc63b0f7e0d693566))
+* extract out url handling functions into utils ([#96](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/96)) ([ed0c8dd](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ed0c8dd3b457f47a3480586976e9065221600668))
+* private base client internals ([#107](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/107)) ([c7a96d5](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c7a96d5352083206cca0b66b1fcfd4889634f846))
+
 ## 0.1.0-alpha.8 (2024-09-17)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
