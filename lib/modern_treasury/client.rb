@@ -5,6 +5,16 @@ module ModernTreasury
     # Default max number of retries to attempt after a failed retryable request.
     DEFAULT_MAX_RETRIES = 2
 
+    # Default per-request timeout.
+    DEFAULT_TIMEOUT_IN_SECONDS = 60
+
+    # Default initial retry delay in seconds.
+    # Overall delay is calculated using exponential backoff + jitter.
+    DEFAULT_INITIAL_RETRY_DELAY = 0.5
+
+    # Default max retry delay in seconds.
+    DEFAULT_MAX_RETRY_DELAY = 8.0
+
     # Client option
     # @return [String]
     attr_reader :api_key
@@ -139,28 +149,32 @@ module ModernTreasury
     # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
     def initialize(
       base_url: nil,
-      api_key: nil,
-      organization_id: nil,
+      api_key: ENV["MODERN_TREASURY_API_KEY"],
+      organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"],
       max_retries: DEFAULT_MAX_RETRIES,
-      timeout: 60
+      timeout: DEFAULT_TIMEOUT_IN_SECONDS,
+      initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
+      max_retry_delay: DEFAULT_MAX_RETRY_DELAY,
+      idempotency_header: "Idempotency-Key"
     )
       base_url ||= "https://app.moderntreasury.com"
 
-      idempotency_header = "Idempotency-Key"
-
-      @api_key = [api_key, ENV["MODERN_TREASURY_API_KEY"]].find { |v| !v.nil? }
-      if @api_key.nil?
+      if api_key.nil?
         raise ArgumentError, "api_key is required"
       end
-      @organization_id = [organization_id, ENV["MODERN_TREASURY_ORGANIZATION_ID"]].find { |v| !v.nil? }
-      if @organization_id.nil?
+      if organization_id.nil?
         raise ArgumentError, "organization_id is required"
       end
 
+      @api_key = api_key.to_s
+      @organization_id = organization_id.to_s
+
       super(
         base_url: base_url,
-        max_retries: max_retries,
         timeout: timeout,
+        max_retries: max_retries,
+        initial_retry_delay: initial_retry_delay,
+        max_retry_delay: max_retry_delay,
         idempotency_header: idempotency_header
       )
 
