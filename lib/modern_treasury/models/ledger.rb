@@ -30,10 +30,10 @@ module ModernTreasury
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] name_
+      # @!attribute [rw] name
       #   The name of the ledger.
       #   @return [String]
-      required :name_, String, api_name: :name
+      required :name, String
 
       # @!attribute [rw] object
       #   @return [String]
