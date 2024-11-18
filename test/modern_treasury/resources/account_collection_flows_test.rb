@@ -15,7 +15,7 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < Minitest::Te
 
   def test_create_required_params
     response = @modern_treasury.account_collection_flows.create(
-      {counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", payment_types: %w[string string string]}
+      {counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", payment_types: ["string"]}
     )
     assert_kind_of(ModernTreasury::Models::AccountCollectionFlow, response)
   end

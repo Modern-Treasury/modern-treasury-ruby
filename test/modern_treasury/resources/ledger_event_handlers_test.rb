@@ -25,10 +25,9 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Minitest::Test
               "amount" => "amount",
               "direction" => "direction",
               "ledger_account_id" => "ledger_account_id"
-            },
-            {"amount" => "amount", "direction" => "direction", "ledger_account_id" => "ledger_account_id"},
-            {"amount" => "amount", "direction" => "direction", "ledger_account_id" => "ledger_account_id"}
-          ]
+            }
+          ],
+          "status" => "posted"
         },
         name: "name"
       }

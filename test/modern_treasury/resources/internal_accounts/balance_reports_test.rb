@@ -26,18 +26,6 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
             "balance_type" => "closing_available",
             "vendor_code" => "vendor_code",
             "vendor_code_type" => "vendor_code_type"
-          },
-          {
-            "amount" => 0,
-            "balance_type" => "closing_available",
-            "vendor_code" => "vendor_code",
-            "vendor_code_type" => "vendor_code_type"
-          },
-          {
-            "amount" => 0,
-            "balance_type" => "closing_available",
-            "vendor_code" => "vendor_code",
-            "vendor_code_type" => "vendor_code_type"
           }
         ]
       }
