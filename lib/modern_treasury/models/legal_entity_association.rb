@@ -72,10 +72,19 @@ module ModernTreasury
                    }
                  )
 
+        # @!attribute [rw] bank_settings
+        #   @return [ModernTreasury::Models::BankSettings]
+        required :bank_settings, -> { ModernTreasury::Models::BankSettings }
+
         # @!attribute [rw] business_name
         #   The business's legal business name.
         #   @return [String]
         required :business_name, String
+
+        # @!attribute [rw] citizenship_country
+        #   The country of citizenship for an individual.
+        #   @return [String]
+        required :citizenship_country, String
 
         # @!attribute [rw] created_at
         #   @return [Time]
@@ -148,6 +157,11 @@ module ModernTreasury
         #   @return [Hash]
         required :metadata, Hash
 
+        # @!attribute [rw] middle_name
+        #   An individual's middle name.
+        #   @return [String]
+        required :middle_name, String
+
         # @!attribute [rw] object
         #   @return [String]
         required :object, String
@@ -161,15 +175,39 @@ module ModernTreasury
                    }
                  )
 
+        # @!attribute [rw] politically_exposed_person
+        #   Whether the individual is a politically exposed person.
+        #   @return [Boolean]
+        required :politically_exposed_person, ModernTreasury::BooleanModel
+
+        # @!attribute [rw] preferred_name
+        #   An individual's preferred name.
+        #   @return [String]
+        required :preferred_name, String
+
+        # @!attribute [rw] prefix
+        #   An individual's prefix.
+        #   @return [String]
+        required :prefix, String
+
         # @!attribute [rw] risk_rating
         #   The risk rating of the legal entity. One of low, medium, high.
         #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating]
         required :risk_rating,
                  enum: -> { ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating }
 
+        # @!attribute [rw] suffix
+        #   An individual's suffix.
+        #   @return [String]
+        required :suffix, String
+
         # @!attribute [rw] updated_at
         #   @return [Time]
         required :updated_at, Time
+
+        # @!attribute [rw] wealth_and_employment_details
+        #   @return [ModernTreasury::Models::WealthAndEmploymentDetails]
+        required :wealth_and_employment_details, -> { ModernTreasury::Models::WealthAndEmploymentDetails }
 
         # @!attribute [rw] website
         #   The entity's primary website URL.
@@ -393,7 +431,9 @@ module ModernTreasury
         #   # @param data [Hash{Symbol => Object}] .
         #   #   @option data [String] :id
         #   #   @option data [Array<Object>] :addresses A list of addresses for the entity.
+        #   #   @option data [Object] :bank_settings
         #   #   @option data [String] :business_name The business's legal business name.
+        #   #   @option data [String] :citizenship_country The country of citizenship for an individual.
         #   #   @option data [String] :created_at
         #   #   @option data [String] :date_formed A business's formation date (YYYY-MM-DD).
         #   #   @option data [String] :date_of_birth An individual's date of birth (YYYY-MM-DD).
@@ -409,10 +449,16 @@ module ModernTreasury
         #   #     if it exists in the test environment.
         #   #   @option data [Hash] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #   #     strings.
+        #   #   @option data [String] :middle_name An individual's middle name.
         #   #   @option data [String] :object
         #   #   @option data [Array<Object>] :phone_numbers
+        #   #   @option data [Hash] :politically_exposed_person Whether the individual is a politically exposed person.
+        #   #   @option data [String] :preferred_name An individual's preferred name.
+        #   #   @option data [String] :prefix An individual's prefix.
         #   #   @option data [String] :risk_rating The risk rating of the legal entity. One of low, medium, high.
+        #   #   @option data [String] :suffix An individual's suffix.
         #   #   @option data [String] :updated_at
+        #   #   @option data [Object] :wealth_and_employment_details
         #   #   @option data [String] :website The entity's primary website URL.
         #   def initialize(data = {}) = super
       end

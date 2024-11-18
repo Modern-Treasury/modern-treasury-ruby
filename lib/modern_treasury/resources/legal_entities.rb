@@ -13,7 +13,9 @@ module ModernTreasury
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Symbol, LegalEntityType] :legal_entity_type The type of legal entity.
       #   @option params [Array<Address>, nil] :addresses A list of addresses for the entity.
+      #   @option params [ModernTreasury::Models::BankSettings, nil] :bank_settings
       #   @option params [String, nil] :business_name The business's legal business name.
+      #   @option params [String, nil] :citizenship_country The country of citizenship for an individual.
       #   @option params [Date, nil] :date_formed A business's formation date (YYYY-MM-DD).
       #   @option params [Date, nil] :date_of_birth An individual's date of birth (YYYY-MM-DD).
       #   @option params [Array<String>, nil] :doing_business_as_names
@@ -25,8 +27,14 @@ module ModernTreasury
       #   @option params [Symbol, LegalStructure, nil] :legal_structure The business's legal structure.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
+      #   @option params [String, nil] :middle_name An individual's middle name.
       #   @option params [Array<PhoneNumber>, nil] :phone_numbers
+      #   @option params [Boolean, nil] :politically_exposed_person Whether the individual is a politically exposed person.
+      #   @option params [String, nil] :preferred_name An individual's preferred name.
+      #   @option params [String, nil] :prefix An individual's prefix.
       #   @option params [Symbol, RiskRating, nil] :risk_rating The risk rating of the legal entity. One of low, medium, high.
+      #   @option params [String, nil] :suffix An individual's suffix.
+      #   @option params [ModernTreasury::Models::WealthAndEmploymentDetails, nil] :wealth_and_employment_details
       #   @option params [String, nil] :website The entity's primary website URL.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -63,18 +71,28 @@ module ModernTreasury
       # @param id [String] id
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      #   @option params [Array<Address>, nil] :addresses A list of addresses for the entity.
+      #   @option params [ModernTreasury::Models::BankSettings, nil] :bank_settings
       #   @option params [String, nil] :business_name The business's legal business name.
+      #   @option params [String, nil] :citizenship_country The country of citizenship for an individual.
       #   @option params [Date, nil] :date_formed A business's formation date (YYYY-MM-DD).
       #   @option params [Date, nil] :date_of_birth An individual's date of birth (YYYY-MM-DD).
       #   @option params [Array<String>, nil] :doing_business_as_names
       #   @option params [String, nil] :email The entity's primary email.
       #   @option params [String, nil] :first_name An individual's first name.
+      #   @option params [Array<Identification>, nil] :identifications A list of identifications for the legal entity.
       #   @option params [String, nil] :last_name An individual's last name.
       #   @option params [Symbol, LegalStructure, nil] :legal_structure The business's legal structure.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
+      #   @option params [String, nil] :middle_name An individual's middle name.
       #   @option params [Array<PhoneNumber>, nil] :phone_numbers
+      #   @option params [Boolean, nil] :politically_exposed_person Whether the individual is a politically exposed person.
+      #   @option params [String, nil] :preferred_name An individual's preferred name.
+      #   @option params [String, nil] :prefix An individual's prefix.
       #   @option params [Symbol, RiskRating, nil] :risk_rating The risk rating of the legal entity. One of low, medium, high.
+      #   @option params [String, nil] :suffix An individual's suffix.
+      #   @option params [ModernTreasury::Models::WealthAndEmploymentDetails, nil] :wealth_and_employment_details
       #   @option params [String, nil] :website The entity's primary website URL.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

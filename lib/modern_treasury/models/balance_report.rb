@@ -67,6 +67,16 @@ module ModernTreasury
         #   @return [Integer]
         required :amount, Integer
 
+        # @!attribute [rw] as_of_date
+        #   The date on which the balance became true for the account.
+        #   @return [Date]
+        required :as_of_date, Date
+
+        # @!attribute [rw] as_of_time
+        #   The time on which the balance became true for the account.
+        #   @return [String]
+        required :as_of_time, String
+
         # @!attribute [rw] balance_type
         #   The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
         #   @return [Symbol, ModernTreasury::Models::BalanceReport::Balance::BalanceType]
@@ -93,6 +103,11 @@ module ModernTreasury
         # @!attribute [rw] updated_at
         #   @return [Time]
         required :updated_at, Time
+
+        # @!attribute [rw] value_date
+        #   The date on which the balance becomes available.
+        #   @return [Date]
+        required :value_date, Date
 
         # @!attribute [rw] vendor_code
         #   The code used by the bank when reporting this specific balance.
@@ -122,6 +137,8 @@ module ModernTreasury
         #   # @param data [Hash{Symbol => Object}] .
         #   #   @option data [String] :id
         #   #   @option data [Integer] :amount The balance amount.
+        #   #   @option data [String] :as_of_date The date on which the balance became true for the account.
+        #   #   @option data [String] :as_of_time The time on which the balance became true for the account.
         #   #   @option data [String] :balance_type The specific type of balance reported. One of `opening_ledger`,
         #   #     `closing_ledger`, `current_ledger`, `opening_available`,
         #   #     `opening_available_next_business_day`, `closing_available`, `current_available`,
@@ -132,6 +149,7 @@ module ModernTreasury
         #   #     if it exists in the test environment.
         #   #   @option data [String] :object
         #   #   @option data [String] :updated_at
+        #   #   @option data [String] :value_date The date on which the balance becomes available.
         #   #   @option data [String] :vendor_code The code used by the bank when reporting this specific balance.
         #   #   @option data [String] :vendor_code_type The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
         #   #     `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,

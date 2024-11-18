@@ -88,6 +88,7 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         ARCHIVED = :archived
         ARCHIVING = :archiving
+        DRAFTING = :drafting
         PENDING = :pending
         POSTED = :posted
         PROCESSING = :processing
