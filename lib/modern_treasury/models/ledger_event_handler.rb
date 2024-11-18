@@ -44,10 +44,10 @@ module ModernTreasury
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] name_
+      # @!attribute [rw] name
       #   Name of the ledger event handler.
       #   @return [String]
-      required :name_, String, api_name: :name
+      required :name, String
 
       # @!attribute [rw] object
       #   @return [String]
