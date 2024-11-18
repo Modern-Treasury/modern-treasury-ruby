@@ -36,10 +36,10 @@ module ModernTreasury
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] name_
+      # @!attribute [rw] name
       #   The name of the line item, typically a product or SKU name.
       #   @return [String]
-      required :name_, String, api_name: :name
+      required :name, String
 
       # @!attribute [rw] object
       #   @return [String]
