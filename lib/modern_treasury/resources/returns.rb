@@ -29,8 +29,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/returns",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::ReturnObject
         }
         @client.request(req, opts)

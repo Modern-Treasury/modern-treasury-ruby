@@ -31,8 +31,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/#{accounts_type}/#{account_id}/routing_details",
-          body: params.except(:accounts_type),
           headers: {"Content-Type" => "application/json"},
+          body: params.except(:accounts_type),
           model: ModernTreasury::Models::RoutingDetail
         }
         @client.request(req, opts)

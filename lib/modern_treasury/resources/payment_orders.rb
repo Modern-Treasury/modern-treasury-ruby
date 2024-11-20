@@ -112,8 +112,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/payment_orders",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::PaymentOrder
         }
         @client.request(req, opts)
@@ -236,8 +236,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/payment_orders/#{id}",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::PaymentOrder
         }
         @client.request(req, opts)
@@ -380,8 +380,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/payment_orders/create_async",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::AsyncResponse
         }
         @client.request(req, opts)

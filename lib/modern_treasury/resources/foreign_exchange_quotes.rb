@@ -27,8 +27,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/foreign_exchange_quotes",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::ForeignExchangeQuote
         }
         @client.request(req, opts)

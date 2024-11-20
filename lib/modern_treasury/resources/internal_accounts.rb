@@ -34,8 +34,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/internal_accounts",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::InternalAccount
         }
         @client.request(req, opts)
@@ -75,8 +75,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/internal_accounts/#{id}",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::InternalAccount
         }
         @client.request(req, opts)

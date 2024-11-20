@@ -27,8 +27,8 @@ module ModernTreasury
           req = {
             method: :post,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports",
-            body: params,
             headers: {"Content-Type" => "application/json"},
+            body: params,
             model: ModernTreasury::Models::BalanceReport
           }
           @client.request(req, opts)

@@ -26,8 +26,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/legal_entity_associations",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::LegalEntityAssociation
         }
         @client.request(req, opts)

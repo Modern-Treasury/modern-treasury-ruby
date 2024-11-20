@@ -36,8 +36,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/virtual_accounts",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::VirtualAccount
         }
         @client.request(req, opts)
@@ -75,8 +75,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/virtual_accounts/#{id}",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::VirtualAccount
         }
         @client.request(req, opts)
