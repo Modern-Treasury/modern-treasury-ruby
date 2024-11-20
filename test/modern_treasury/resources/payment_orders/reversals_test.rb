@@ -18,8 +18,11 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < Minitest::
     assert_kind_of(ModernTreasury::Models::Reversal, response)
   end
 
-  def test_retrieve
-    response = @modern_treasury.payment_orders.reversals.retrieve("payment_order_id", "reversal_id")
+  def test_retrieve_required_params
+    response = @modern_treasury.payment_orders.reversals.retrieve(
+      "reversal_id",
+      {payment_order_id: "payment_order_id"}
+    )
     assert_kind_of(ModernTreasury::Models::Reversal, response)
   end
 

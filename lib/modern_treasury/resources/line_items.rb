@@ -10,13 +10,22 @@ module ModernTreasury
 
       # Get a single line item
       #
-      # @param itemizable_type [Symbol, ItemizableType] One of `payment_orders` or `expected_payments`.
-      # @param itemizable_id [String] The ID of the payment order or expected payment.
       # @param id [String] The ID of the line item.
+      #
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      #   @option params [Symbol, ItemizableType] :itemizable_type One of `payment_orders` or `expected_payments`.
+      #   @option params [String] :itemizable_id The ID of the payment order or expected payment.
+      #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LineItem]
-      def retrieve(itemizable_type, itemizable_id, id, opts = {})
+      def retrieve(id, params = {}, opts = {})
+        itemizable_type = params.fetch(:itemizable_type) do
+          raise ArgumentError, "missing required path argument :itemizable_type"
+        end
+        itemizable_id = params.fetch(:itemizable_id) do
+          raise ArgumentError, "missing required path argument :itemizable_id"
+        end
         req = {
           method: :get,
           path: "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}",
@@ -27,24 +36,28 @@ module ModernTreasury
 
       # update line item
       #
-      # @param itemizable_type [Symbol, ItemizableType] One of `payment_orders` or `expected_payments`.
-      #
-      # @param itemizable_id [String] The ID of the payment order or expected payment.
-      #
-      # @param id [String] The ID of the line item.
+      # @param id [String] Path param: The ID of the line item.
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
+      #   @option params [Symbol, ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
+      #   @option params [String] :itemizable_id Path param: The ID of the payment order or expected payment.
+      #   @option params [Hash, nil] :metadata Body param: Additional data represented as key-value pairs. Both the key and
+      #     value must be strings.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LineItem]
-      def update(itemizable_type, itemizable_id, id, params = {}, opts = {})
+      def update(id, params = {}, opts = {})
+        itemizable_type = params.fetch(:itemizable_type) do
+          raise ArgumentError, "missing required path argument :itemizable_type"
+        end
+        itemizable_id = params.fetch(:itemizable_id) do
+          raise ArgumentError, "missing required path argument :itemizable_id"
+        end
         req = {
           method: :patch,
           path: "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}",
-          body: params,
+          body: params.except(:itemizable_type, :itemizable_id),
           headers: {"Content-Type" => "application/json"},
           model: ModernTreasury::Models::LineItem
         }
@@ -53,22 +66,24 @@ module ModernTreasury
 
       # Get a list of line items
       #
-      # @param itemizable_type [Symbol, ItemizableType] One of `payment_orders` or `expected_payments`.
-      #
-      # @param itemizable_id [String] The ID of the payment order or expected payment.
+      # @param itemizable_id [String] Path param: The ID of the payment order or expected payment.
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [String, nil] :after_cursor
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Symbol, ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
+      #   @option params [String, nil] :after_cursor Query param:
+      #   @option params [Integer, nil] :per_page Query param:
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LineItem>]
-      def list(itemizable_type, itemizable_id, params = {}, opts = {})
+      def list(itemizable_id, params = {}, opts = {})
+        itemizable_type = params.fetch(:itemizable_type) do
+          raise ArgumentError, "missing required path argument :itemizable_type"
+        end
         req = {
           method: :get,
           path: "/api/#{itemizable_type}/#{itemizable_id}/line_items",
-          query: params,
+          query: params.except(:itemizable_type),
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LineItem
         }
