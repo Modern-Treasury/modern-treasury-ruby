@@ -30,8 +30,8 @@ module ModernTreasury
           req = {
             method: :post,
             path: "/api/payment_orders/#{payment_order_id}/reversals",
-            body: params,
             headers: {"Content-Type" => "application/json"},
+            body: params,
             model: ModernTreasury::Models::Reversal
           }
           @client.request(req, opts)

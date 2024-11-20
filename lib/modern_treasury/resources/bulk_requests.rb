@@ -25,8 +25,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/bulk_requests",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::BulkRequest
         }
         @client.request(req, opts)

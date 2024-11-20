@@ -71,8 +71,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/invoices",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::Invoice
         }
         @client.request(req, opts)
@@ -154,8 +154,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/invoices/#{id}",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::Invoice
         }
         @client.request(req, opts)

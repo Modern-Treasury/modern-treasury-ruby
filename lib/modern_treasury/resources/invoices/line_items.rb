@@ -36,8 +36,8 @@ module ModernTreasury
           req = {
             method: :post,
             path: "/api/invoices/#{invoice_id}/invoice_line_items",
-            body: params,
             headers: {"Content-Type" => "application/json"},
+            body: params,
             model: ModernTreasury::Models::InvoiceLineItem
           }
           @client.request(req, opts)
@@ -96,8 +96,8 @@ module ModernTreasury
           req = {
             method: :patch,
             path: "/api/invoices/#{invoice_id}/invoice_line_items/#{id}",
-            body: params.except(:invoice_id),
             headers: {"Content-Type" => "application/json"},
+            body: params.except(:invoice_id),
             model: ModernTreasury::Models::InvoiceLineItem
           }
           @client.request(req, opts)

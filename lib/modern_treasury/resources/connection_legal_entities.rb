@@ -22,8 +22,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/connection_legal_entities",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::ConnectionLegalEntity
         }
         @client.request(req, opts)
@@ -58,8 +58,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/connection_legal_entities/#{id}",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::ConnectionLegalEntity
         }
         @client.request(req, opts)
