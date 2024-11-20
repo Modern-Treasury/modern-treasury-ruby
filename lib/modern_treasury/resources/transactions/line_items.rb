@@ -24,8 +24,8 @@ module ModernTreasury
           req = {
             method: :post,
             path: "/api/transaction_line_items",
-            body: params,
             headers: {"Content-Type" => "application/json"},
+            body: params,
             model: ModernTreasury::Models::TransactionLineItem
           }
           @client.request(req, opts)

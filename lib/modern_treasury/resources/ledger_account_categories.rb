@@ -29,8 +29,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/ledger_account_categories",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
         @client.request(req, opts)
@@ -75,8 +75,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/ledger_account_categories/#{id}",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
         @client.request(req, opts)

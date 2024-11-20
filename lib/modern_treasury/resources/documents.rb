@@ -23,8 +23,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/documents",
-          body: params,
           headers: {"Content-Type" => "multipart/form-data"},
+          body: params,
           model: ModernTreasury::Models::Document
         }
         @client.request(req, opts)

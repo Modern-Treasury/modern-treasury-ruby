@@ -57,8 +57,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}",
-          body: params.except(:itemizable_type, :itemizable_id),
           headers: {"Content-Type" => "application/json"},
+          body: params.except(:itemizable_type, :itemizable_id),
           model: ModernTreasury::Models::LineItem
         }
         @client.request(req, opts)

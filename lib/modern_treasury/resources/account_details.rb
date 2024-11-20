@@ -28,8 +28,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/#{accounts_type}/#{account_id}/account_details",
-          body: params.except(:accounts_type),
           headers: {"Content-Type" => "application/json"},
+          body: params.except(:accounts_type),
           model: ModernTreasury::Models::AccountDetail
         }
         @client.request(req, opts)
