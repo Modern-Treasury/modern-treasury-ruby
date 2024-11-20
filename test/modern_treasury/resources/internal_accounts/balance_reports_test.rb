@@ -33,8 +33,11 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
     assert_kind_of(ModernTreasury::Models::BalanceReport, response)
   end
 
-  def test_retrieve
-    response = @modern_treasury.internal_accounts.balance_reports.retrieve("internal_account_id", "id")
+  def test_retrieve_required_params
+    response = @modern_treasury.internal_accounts.balance_reports.retrieve(
+      "id",
+      {internal_account_id: "internal_account_id"}
+    )
     assert_kind_of(ModernTreasury::Models::BalanceReport, response)
   end
 
@@ -43,8 +46,11 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
     assert_kind_of(ModernTreasury::Page, response)
   end
 
-  def test_delete
-    response = @modern_treasury.internal_accounts.balance_reports.delete("internal_account_id", "id")
+  def test_delete_required_params
+    response = @modern_treasury.internal_accounts.balance_reports.delete(
+      "id",
+      {internal_account_id: "internal_account_id"}
+    )
     assert_nil(response)
   end
 end
