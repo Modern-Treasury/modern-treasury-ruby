@@ -133,12 +133,18 @@ module ModernTreasury
 
       # Add a ledger account to a ledger account category.
       #
-      # @param id [String] id
       # @param ledger_account_id [String] ledger_account_id
+      #
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      #   @option params [String] :id id
+      #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
-      def add_ledger_account(id, ledger_account_id, opts = {})
+      def add_ledger_account(ledger_account_id, params = {}, opts = {})
+        id = params.fetch(:id) do
+          raise ArgumentError, "missing required path argument :id"
+        end
         req = {
           method: :put,
           path: "/api/ledger_account_categories/#{id}/ledger_accounts/#{ledger_account_id}",
@@ -149,12 +155,18 @@ module ModernTreasury
 
       # Add a ledger account category to a ledger account category.
       #
-      # @param id [String] id
       # @param sub_category_id [String] sub_category_id
+      #
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      #   @option params [String] :id id
+      #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
-      def add_nested_category(id, sub_category_id, opts = {})
+      def add_nested_category(sub_category_id, params = {}, opts = {})
+        id = params.fetch(:id) do
+          raise ArgumentError, "missing required path argument :id"
+        end
         req = {
           method: :put,
           path: "/api/ledger_account_categories/#{id}/ledger_account_categories/#{sub_category_id}",
@@ -165,12 +177,18 @@ module ModernTreasury
 
       # Remove a ledger account from a ledger account category.
       #
-      # @param id [String] id
       # @param ledger_account_id [String] ledger_account_id
+      #
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      #   @option params [String] :id id
+      #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
-      def remove_ledger_account(id, ledger_account_id, opts = {})
+      def remove_ledger_account(ledger_account_id, params = {}, opts = {})
+        id = params.fetch(:id) do
+          raise ArgumentError, "missing required path argument :id"
+        end
         req = {
           method: :delete,
           path: "/api/ledger_account_categories/#{id}/ledger_accounts/#{ledger_account_id}",
@@ -181,12 +199,18 @@ module ModernTreasury
 
       # Delete a ledger account category from a ledger account category.
       #
-      # @param id [String] id
       # @param sub_category_id [String] sub_category_id
+      #
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      #   @option params [String] :id id
+      #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
-      def remove_nested_category(id, sub_category_id, opts = {})
+      def remove_nested_category(sub_category_id, params = {}, opts = {})
+        id = params.fetch(:id) do
+          raise ArgumentError, "missing required path argument :id"
+        end
         req = {
           method: :delete,
           path: "/api/ledger_account_categories/#{id}/ledger_account_categories/#{sub_category_id}",

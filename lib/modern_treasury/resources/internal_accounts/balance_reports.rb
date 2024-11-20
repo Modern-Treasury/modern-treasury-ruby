@@ -36,13 +36,19 @@ module ModernTreasury
 
         # Get a single balance report for a given internal account.
         #
-        # @param internal_account_id [String]
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
+        #
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+        #   @option params [String] :internal_account_id
+        #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::BalanceReport]
-        def retrieve(internal_account_id, id, opts = {})
+        def retrieve(id, params = {}, opts = {})
+          internal_account_id = params.fetch(:internal_account_id) do
+            raise ArgumentError, "missing required path argument :internal_account_id"
+          end
           req = {
             method: :get,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports/#{id}",
@@ -78,13 +84,19 @@ module ModernTreasury
 
         # Deletes a given balance report.
         #
-        # @param internal_account_id [String]
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
+        #
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+        #   @option params [String] :internal_account_id
+        #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [nil]
-        def delete(internal_account_id, id, opts = {})
+        def delete(id, params = {}, opts = {})
+          internal_account_id = params.fetch(:internal_account_id) do
+            raise ArgumentError, "missing required path argument :internal_account_id"
+          end
           req = {
             method: :delete,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports/#{id}",

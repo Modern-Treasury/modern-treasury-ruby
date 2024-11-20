@@ -39,8 +39,8 @@ class ModernTreasury::Test::Resources::InvoicesTest < Minitest::Test
     assert_kind_of(ModernTreasury::Page, response)
   end
 
-  def test_add_payment_order
-    response = @modern_treasury.invoices.add_payment_order("id", "payment_order_id")
+  def test_add_payment_order_required_params
+    response = @modern_treasury.invoices.add_payment_order("payment_order_id", {id: "id"})
     assert_nil(response)
   end
 end

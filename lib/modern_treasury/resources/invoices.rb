@@ -194,12 +194,18 @@ module ModernTreasury
 
       # Add a payment order to an invoice.
       #
-      # @param id [String] id
       # @param payment_order_id [String] payment_order_id
+      #
+      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      #   @option params [String] :id id
+      #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
-      def add_payment_order(id, payment_order_id, opts = {})
+      def add_payment_order(payment_order_id, params = {}, opts = {})
+        id = params.fetch(:id) do
+          raise ArgumentError, "missing required path argument :id"
+        end
         req = {
           method: :put,
           path: "/api/invoices/#{id}/payment_orders/#{payment_order_id}",
