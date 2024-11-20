@@ -39,12 +39,18 @@ module ModernTreasury
 
         # Get details on a single reversal of a payment order.
         #
-        # @param payment_order_id [String] The id of the payment order being reversed.
         # @param reversal_id [String] The ID of the reversal.
+        #
+        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+        #   @option params [String] :payment_order_id The id of the payment order being reversed.
+        #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Reversal]
-        def retrieve(payment_order_id, reversal_id, opts = {})
+        def retrieve(reversal_id, params = {}, opts = {})
+          payment_order_id = params.fetch(:payment_order_id) do
+            raise ArgumentError, "missing required path argument :payment_order_id"
+          end
           req = {
             method: :get,
             path: "/api/payment_orders/#{payment_order_id}/reversals/#{reversal_id}",
