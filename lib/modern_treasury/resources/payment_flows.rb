@@ -30,8 +30,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/payment_flows",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::PaymentFlow
         }
         @client.request(req, opts)
@@ -67,8 +67,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/payment_flows/#{id}",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::PaymentFlow
         }
         @client.request(req, opts)

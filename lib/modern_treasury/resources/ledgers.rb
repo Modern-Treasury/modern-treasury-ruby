@@ -23,8 +23,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/ledgers",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::Ledger
         }
         @client.request(req, opts)
@@ -62,8 +62,8 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/ledgers/#{id}",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::Ledger
         }
         @client.request(req, opts)

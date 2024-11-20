@@ -28,8 +28,8 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/ledger_account_statements",
-          body: params,
           headers: {"Content-Type" => "application/json"},
+          body: params,
           model: ModernTreasury::Models::LedgerAccountStatementCreateResponse
         }
         @client.request(req, opts)
