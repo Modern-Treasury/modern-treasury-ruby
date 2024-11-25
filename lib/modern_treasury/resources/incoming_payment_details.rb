@@ -58,9 +58,9 @@ module ModernTreasury
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #   @option params [Integer, nil] :per_page
-      #   @option params [Symbol, Status, nil] :status The current status of the incoming payment order. One of `pending`, `completed`,
+      #   @option params [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status, nil] :status The current status of the incoming payment order. One of `pending`, `completed`,
       #     or `returned`.
-      #   @option params [Symbol, Type, nil] :type One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   @option params [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type, nil] :type One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #     `wire`.
       #   @option params [String, nil] :virtual_account_id If the incoming payment detail is in a virtual account, the ID of the Virtual
       #     Account.
@@ -87,9 +87,9 @@ module ModernTreasury
       #   @option params [Date, nil] :as_of_date Defaults to today.
       #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Defaults to the currency of the originating account.
       #   @option params [String, nil] :description Defaults to a random description.
-      #   @option params [Symbol, Direction, nil] :direction One of `credit`, `debit`.
+      #   @option params [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction, nil] :direction One of `credit`, `debit`.
       #   @option params [String, nil] :internal_account_id The ID of one of your internal accounts.
-      #   @option params [Symbol, Type, nil] :type One of `ach`, `wire`, `check`.
+      #   @option params [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type, nil] :type One of `ach`, `wire`, `check`.
       #   @option params [String, nil] :virtual_account_id An optional parameter to associate the incoming payment detail to a virtual
       #     account.
       #

@@ -16,20 +16,20 @@ module ModernTreasury
         # @param params [Hash{Symbol => Object}] Attributes to send in this request.
         #   @option params [Date] :as_of_date The date of the balance report in local time.
         #   @option params [String] :as_of_time The time (24-hour clock) of the balance report in local time.
-        #   @option params [Symbol, BalanceReportType] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
+        #   @option params [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
         #     `real_time`, or `other`.
-        #   @option params [Array<Balance>] :balances An array of `Balance` objects.
+        #   @option params [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] :balances An array of `Balance` objects.
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::BalanceReport]
+        # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         def create(internal_account_id, params = {}, opts = {})
           req = {
             method: :post,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports",
             headers: {"Content-Type" => "application/json"},
             body: params,
-            model: ModernTreasury::Models::BalanceReport
+            model: ModernTreasury::Models::InternalAccounts::BalanceReport
           }
           @client.request(req, opts)
         end
@@ -44,7 +44,7 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::BalanceReport]
+        # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         def retrieve(id, params = {}, opts = {})
           internal_account_id = params.fetch(:internal_account_id) do
             raise ArgumentError, "missing required path argument :internal_account_id"
@@ -52,7 +52,7 @@ module ModernTreasury
           req = {
             method: :get,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports/#{id}",
-            model: ModernTreasury::Models::BalanceReport
+            model: ModernTreasury::Models::InternalAccounts::BalanceReport
           }
           @client.request(req, opts)
         end
@@ -64,20 +64,20 @@ module ModernTreasury
         # @param params [Hash{Symbol => Object}] Attributes to send in this request.
         #   @option params [String, nil] :after_cursor
         #   @option params [Date, nil] :as_of_date The date of the balance report in local time.
-        #   @option params [Symbol, BalanceReportType, nil] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
+        #   @option params [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType, nil] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
         #     `real_time`, or `other`.
         #   @option params [Integer, nil] :per_page
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::BalanceReport>]
+        # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
         def list(internal_account_id, params = {}, opts = {})
           req = {
             method: :get,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports",
             query: params,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::BalanceReport
+            model: ModernTreasury::Models::InternalAccounts::BalanceReport
           }
           @client.request(req, opts)
         end

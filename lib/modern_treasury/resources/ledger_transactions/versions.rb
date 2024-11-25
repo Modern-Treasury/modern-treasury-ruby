@@ -26,14 +26,14 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactionVersion>]
+        # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
         def list(params = {}, opts = {})
           req = {
             method: :get,
             path: "/api/ledger_transaction_versions",
             query: params,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::LedgerTransactionVersion
+            model: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion
           }
           @client.request(req, opts)
         end

@@ -13,7 +13,7 @@ module ModernTreasury
       # @param id [String] The ID of the line item.
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Symbol, ItemizableType] :itemizable_type One of `payment_orders` or `expected_payments`.
+      #   @option params [Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType] :itemizable_type One of `payment_orders` or `expected_payments`.
       #   @option params [String] :itemizable_id The ID of the payment order or expected payment.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -39,7 +39,7 @@ module ModernTreasury
       # @param id [String] Path param: The ID of the line item.
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Symbol, ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
+      #   @option params [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
       #   @option params [String] :itemizable_id Path param: The ID of the payment order or expected payment.
       #   @option params [Hash, nil] :metadata Body param: Additional data represented as key-value pairs. Both the key and
       #     value must be strings.
@@ -69,7 +69,7 @@ module ModernTreasury
       # @param itemizable_id [String] Path param: The ID of the payment order or expected payment.
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Symbol, ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
+      #   @option params [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
       #   @option params [String, nil] :after_cursor Query param:
       #   @option params [Integer, nil] :per_page Query param:
       #

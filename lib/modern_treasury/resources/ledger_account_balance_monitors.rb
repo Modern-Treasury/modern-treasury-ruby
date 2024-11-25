@@ -11,7 +11,7 @@ module ModernTreasury
       # Create a ledger account balance monitor.
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [AlertCondition] :alert_condition Describes the condition that must be satisfied for the monitor to be triggered.
+      #   @option params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] :alert_condition Describes the condition that must be satisfied for the monitor to be triggered.
       #   @option params [String] :ledger_account_id The ledger account associated with this balance monitor.
       #   @option params [String, nil] :description An optional, free-form description for internal use.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
