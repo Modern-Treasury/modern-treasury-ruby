@@ -41,7 +41,7 @@ module ModernTreasury
       # @param id [String] id
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Balances, nil] :balances For example, if you want the balances as of a particular time (ISO8601), the
+      #   @option params [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances, nil] :balances For example, if you want the balances as of a particular time (ISO8601), the
       #     encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #     The balances as of a time are inclusive of entries with that exact time.
       #
@@ -88,7 +88,7 @@ module ModernTreasury
       #   @option params [Array<String>, nil] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #   @option params [String, nil] :after_cursor
-      #   @option params [Balances, nil] :balances For example, if you want the balances as of a particular time (ISO8601), the
+      #   @option params [ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, nil] :balances For example, if you want the balances as of a particular time (ISO8601), the
       #     encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #     The balances as of a time are inclusive of entries with that exact time.
       #   @option params [String, nil] :currency

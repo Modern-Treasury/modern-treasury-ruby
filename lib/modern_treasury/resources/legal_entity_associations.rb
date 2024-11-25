@@ -13,8 +13,8 @@ module ModernTreasury
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :parent_legal_entity_id The ID of the parent legal entity. This must be a business or joint legal
       #     entity.
-      #   @option params [Array<Symbol, RelationshipType>] :relationship_types
-      #   @option params [ChildLegalEntity, nil] :child_legal_entity The child legal entity.
+      #   @option params [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>] :relationship_types
+      #   @option params [ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity, nil] :child_legal_entity The child legal entity.
       #   @option params [String, nil] :child_legal_entity_id The ID of the child legal entity.
       #   @option params [Integer, nil] :ownership_percentage The child entity's ownership percentage iff they are a beneficial owner.
       #   @option params [String, nil] :title The job title of the child entity at the parent entity.

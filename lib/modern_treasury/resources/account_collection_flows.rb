@@ -13,7 +13,7 @@ module ModernTreasury
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :counterparty_id Required.
       #   @option params [Array<String>] :payment_types
-      #   @option params [Array<Symbol, ReceivingCountry>, nil] :receiving_countries
+      #   @option params [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>, nil] :receiving_countries
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -49,7 +49,7 @@ module ModernTreasury
       # @param id [String] id
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Symbol, Status] :status Required. The updated status of the account collection flow. Can only be used to
+      #   @option params [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] :status Required. The updated status of the account collection flow. Can only be used to
       #     mark a flow as `cancelled`.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

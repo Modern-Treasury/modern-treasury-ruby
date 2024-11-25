@@ -11,9 +11,9 @@ module ModernTreasury
       # create ledger_event_handler
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [LedgerTransactionTemplate] :ledger_transaction_template
+      #   @option params [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate] :ledger_transaction_template
       #   @option params [String] :name Name of the ledger event handler.
-      #   @option params [Conditions, nil] :conditions
+      #   @option params [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil] :conditions
       #   @option params [String, nil] :description An optional description.
       #   @option params [String, nil] :ledger_id The id of the ledger that this account belongs to.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be

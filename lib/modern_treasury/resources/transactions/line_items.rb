@@ -19,14 +19,14 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::TransactionLineItem]
+        # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         def create(params = {}, opts = {})
           req = {
             method: :post,
             path: "/api/transaction_line_items",
             headers: {"Content-Type" => "application/json"},
             body: params,
-            model: ModernTreasury::Models::TransactionLineItem
+            model: ModernTreasury::Models::Transactions::TransactionLineItem
           }
           @client.request(req, opts)
         end
@@ -36,12 +36,12 @@ module ModernTreasury
         # @param id [String] id
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::TransactionLineItem]
+        # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         def retrieve(id, opts = {})
           req = {
             method: :get,
             path: "/api/transaction_line_items/#{id}",
-            model: ModernTreasury::Models::TransactionLineItem
+            model: ModernTreasury::Models::Transactions::TransactionLineItem
           }
           @client.request(req, opts)
         end
@@ -53,18 +53,18 @@ module ModernTreasury
         #   @option params [String, nil] :after_cursor
         #   @option params [Integer, nil] :per_page
         #   @option params [String, nil] :transaction_id
-        #   @option params [Symbol, Type, nil] :type
+        #   @option params [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil] :type
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::TransactionLineItem>]
+        # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
         def list(params = {}, opts = {})
           req = {
             method: :get,
             path: "/api/transaction_line_items",
             query: params,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::TransactionLineItem
+            model: ModernTreasury::Models::Transactions::TransactionLineItem
           }
           @client.request(req, opts)
         end

@@ -12,11 +12,11 @@ module ModernTreasury
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :returnable_id The ID of the object being returned or `null`.
-      #   @option params [Symbol, ReturnableType] :returnable_type The type of object being returned. Currently, this may only be
+      #   @option params [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType] :returnable_type The type of object being returned. Currently, this may only be
       #     incoming_payment_detail.
       #   @option params [String, nil] :additional_information Some returns may include additional information from the bank. In these cases,
       #     this string will be present.
-      #   @option params [Symbol, Code, nil] :code The return code. For ACH returns, this is the required ACH return code.
+      #   @option params [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] :code The return code. For ACH returns, this is the required ACH return code.
       #   @option params [Date, nil] :date_of_death If the return code is `R14` or `R15` this is the date the deceased counterparty
       #     passed away.
       #   @option params [String, nil] :reason An optional description of the reason for the return. This is for internal usage
@@ -61,7 +61,7 @@ module ModernTreasury
       #     account.
       #   @option params [Integer, nil] :per_page
       #   @option params [String, nil] :returnable_id The ID of a valid returnable. Must be accompanied by `returnable_type`.
-      #   @option params [Symbol, ReturnableType, nil] :returnable_type One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #   @option params [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType, nil] :returnable_type One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #     Must be accompanied by `returnable_id`.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

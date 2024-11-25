@@ -20,10 +20,10 @@ module ModernTreasury
       #   @option params [Date, nil] :date_lower_bound The earliest date the payment may come in. Format: yyyy-mm-dd
       #   @option params [Date, nil] :date_upper_bound The latest date the payment may come in. Format: yyyy-mm-dd
       #   @option params [String, nil] :description An optional description for internal use.
-      #   @option params [Symbol, Direction, nil] :direction One of credit or debit. When you are receiving money, use credit. When you are
+      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil] :direction One of credit or debit. When you are receiving money, use credit. When you are
       #     being charged, use debit.
       #   @option params [String, nil] :internal_account_id The ID of the Internal Account for the expected payment.
-      #   @option params [LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the expected
+      #   @option params [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the expected
       #     payment. If the ledger transaction cannot be created, then the expected payment
       #     creation will fail. The resulting ledger transaction will mirror the status of
       #     the expected payment.
@@ -31,7 +31,7 @@ module ModernTreasury
       #     pending ledger transaction can be attached upon expected payment creation. Once
       #     the expected payment is created, the status of the ledger transaction tracks the
       #     expected payment automatically.
-      #   @option params [Array<LineItem>, nil] :line_items
+      #   @option params [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>, nil] :line_items
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
@@ -90,7 +90,7 @@ module ModernTreasury
       #   @option params [Date, nil] :date_lower_bound The earliest date the payment may come in. Format: yyyy-mm-dd
       #   @option params [Date, nil] :date_upper_bound The latest date the payment may come in. Format: yyyy-mm-dd
       #   @option params [String, nil] :description An optional description for internal use.
-      #   @option params [Symbol, Direction, nil] :direction One of credit or debit. When you are receiving money, use credit. When you are
+      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil] :direction One of credit or debit. When you are receiving money, use credit. When you are
       #     being charged, use debit.
       #   @option params [String, nil] :internal_account_id The ID of the Internal Account for the expected payment.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
@@ -105,7 +105,7 @@ module ModernTreasury
       #     payments, this will be the full line item passed from the bank. For wire
       #     payments, this will be the OBI field on the wire. For check payments, this will
       #     be the memo field.
-      #   @option params [Symbol, Status, nil] :status The Expected Payment's status can be updated from partially_reconciled to
+      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil] :status The Expected Payment's status can be updated from partially_reconciled to
       #     reconciled.
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #     sepa, signet, wire.
@@ -137,8 +137,8 @@ module ModernTreasury
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #   @option params [Integer, nil] :per_page
-      #   @option params [Symbol, Status, nil] :status One of unreconciled, reconciled, or archived.
-      #   @option params [Symbol, Type, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status, nil] :status One of unreconciled, reconciled, or archived.
+      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #     sepa, signet, wire
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
