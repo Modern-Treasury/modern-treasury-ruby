@@ -12,19 +12,19 @@ module ModernTreasury
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :name A human friendly name for this counterparty.
-      #   @option params [Accounting, nil] :accounting
-      #   @option params [Array<Account>, nil] :accounts The accounts for this counterparty.
+      #   @option params [ModernTreasury::Models::CounterpartyCreateParams::Accounting, nil] :accounting
+      #   @option params [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>, nil] :accounts The accounts for this counterparty.
       #   @option params [String, nil] :email The counterparty's email.
-      #   @option params [Symbol, LedgerType, nil] :ledger_type An optional type to auto-sync the counterparty to your ledger. Either `customer`
+      #   @option params [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType, nil] :ledger_type An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #     or `vendor`.
-      #   @option params [LegalEntity, nil] :legal_entity
+      #   @option params [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, nil] :legal_entity
       #   @option params [String, nil] :legal_entity_id The id of the legal entity.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #   @option params [Boolean, nil] :send_remittance_advice Send an email to the counterparty whenever an associated payment order is sent
       #     to the bank.
       #   @option params [String, nil] :taxpayer_identifier Either a valid SSN or EIN.
-      #   @option params [Symbol, VerificationStatus, nil] :verification_status The verification status of the counterparty.
+      #   @option params [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus, nil] :verification_status The verification status of the counterparty.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -139,7 +139,7 @@ module ModernTreasury
       #   @option params [String, nil] :custom_redirect The URL you want your customer to visit upon filling out the form. By default,
       #     they will be sent to a Modern Treasury landing page. This must be a valid HTTPS
       #     URL if set.
-      #   @option params [Array<Symbol, Field>, nil] :fields The list of fields you want on the form. This field is optional and if it is not
+      #   @option params [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>, nil] :fields The list of fields you want on the form. This field is optional and if it is not
       #     set, will default to [\"nameOnAccount\", \"accountType\", \"accountNumber\",
       #     \"routingNumber\", \"address\"]. The full list of options is [\"name\",
       #     \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\",

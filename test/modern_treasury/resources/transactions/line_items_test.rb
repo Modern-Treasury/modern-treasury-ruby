@@ -21,12 +21,12 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < Minitest::T
         transaction_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
       }
     )
-    assert_kind_of(ModernTreasury::Models::TransactionLineItem, response)
+    assert_kind_of(ModernTreasury::Models::Transactions::TransactionLineItem, response)
   end
 
   def test_retrieve
     response = @modern_treasury.transactions.line_items.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::TransactionLineItem, response)
+    assert_kind_of(ModernTreasury::Models::Transactions::TransactionLineItem, response)
   end
 
   def test_list

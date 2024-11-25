@@ -29,7 +29,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #   @option params [Boolean, nil] :posted This field will be `true` if the transaction has posted to the account.
-      #   @option params [Symbol, Type, nil] :type The type of the transaction. Examples could be
+      #   @option params [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil] :type The type of the transaction. Examples could be
       #     `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #   @option params [String, nil] :vendor_description The transaction detail text that often appears in on your bank statement and in
       #     your banking portal.

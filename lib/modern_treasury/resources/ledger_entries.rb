@@ -80,7 +80,7 @@ module ModernTreasury
       #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
-      #   @option params [OrderBy, nil] :order_by Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
+      #   @option params [ModernTreasury::Models::LedgerEntryListParams::OrderBy, nil] :order_by Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
       #     to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
       #     by only one field at a time is supported.
       #   @option params [Integer, nil] :per_page
@@ -89,7 +89,7 @@ module ModernTreasury
       #   @option params [Boolean, nil] :show_deleted If true, response will include ledger entries that were deleted. When you update
       #     a ledger transaction to specify a new set of entries, the previous entries are
       #     deleted.
-      #   @option params [Symbol, Status, nil] :status Get all ledger entries that match the status specified. One of `pending`,
+      #   @option params [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status, nil] :status Get all ledger entries that match the status specified. One of `pending`,
       #     `posted`, or `archived`.
       #   @option params [Hash, nil] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use

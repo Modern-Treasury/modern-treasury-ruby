@@ -26,7 +26,7 @@ module ModernTreasury
       #     strings.
       #   @option params [Boolean, nil] :skip_settlement_ledger_transaction It is set to `false` by default. It should be set to `true` when migrating
       #     existing settlements.
-      #   @option params [Symbol, Status, nil] :status The status of the ledger account settlement. It is set to `pending` by default.
+      #   @option params [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil] :status The status of the ledger account settlement. It is set to `pending` by default.
       #     To post a ledger account settlement at creation, use `posted`.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -66,7 +66,7 @@ module ModernTreasury
       #   @option params [String, nil] :description The description of the ledger account settlement.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
-      #   @option params [Symbol, Status, nil] :status To post a pending ledger account settlement, use `posted`. To archive a pending
+      #   @option params [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status, nil] :status To post a pending ledger account settlement, use `posted`. To archive a pending
       #     ledger transaction, use `archived`.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

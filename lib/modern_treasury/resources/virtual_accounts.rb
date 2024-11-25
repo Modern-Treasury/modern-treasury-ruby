@@ -13,7 +13,7 @@ module ModernTreasury
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :internal_account_id The ID of the internal account that this virtual account is associated with.
       #   @option params [String] :name The name of the virtual account.
-      #   @option params [Array<AccountDetail>, nil] :account_details An array of account detail objects.
+      #   @option params [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>, nil] :account_details An array of account detail objects.
       #   @option params [String, nil] :counterparty_id The ID of the counterparty that the virtual account belongs to.
       #   @option params [String, nil] :credit_ledger_account_id The ID of a credit normal ledger account. When money leaves the virtual account,
       #     this ledger account will be credited. Must be accompanied by a
@@ -22,12 +22,12 @@ module ModernTreasury
       #     this ledger account will be debited. Must be accompanied by a
       #     credit_ledger_account_id if present.
       #   @option params [String, nil] :description An optional description for internal use.
-      #   @option params [LedgerAccount, nil] :ledger_account Specifies a ledger account object that will be created with the virtual account.
+      #   @option params [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, nil] :ledger_account Specifies a ledger account object that will be created with the virtual account.
       #     The resulting ledger account is linked to the virtual account for auto-ledgering
       #     IPDs.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
-      #   @option params [Array<RoutingDetail>, nil] :routing_details An array of routing detail objects.
+      #   @option params [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>, nil] :routing_details An array of routing detail objects.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
