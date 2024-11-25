@@ -30,7 +30,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
         ]
       }
     )
-    assert_kind_of(ModernTreasury::Models::BalanceReport, response)
+    assert_kind_of(ModernTreasury::Models::InternalAccounts::BalanceReport, response)
   end
 
   def test_retrieve_required_params
@@ -38,7 +38,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
       "id",
       {internal_account_id: "internal_account_id"}
     )
-    assert_kind_of(ModernTreasury::Models::BalanceReport, response)
+    assert_kind_of(ModernTreasury::Models::InternalAccounts::BalanceReport, response)
   end
 
   def test_list

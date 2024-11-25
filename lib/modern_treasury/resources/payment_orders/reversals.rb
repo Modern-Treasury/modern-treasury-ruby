@@ -14,10 +14,10 @@ module ModernTreasury
         # @param payment_order_id [String] The id of the payment order being reversed.
         #
         # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-        #   @option params [Symbol, Reason] :reason The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
+        #   @option params [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] :reason The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #     `incorrect_receiving_account`, `date_earlier_than_intended`,
         #     `date_later_than_intended`.
-        #   @option params [LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the reversal. If
+        #   @option params [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the reversal. If
         #     the ledger transaction cannot be created, then the reversal creation will fail.
         #     The resulting ledger transaction will mirror the status of the reversal.
         #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
@@ -25,14 +25,14 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::Reversal]
+        # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         def create(payment_order_id, params = {}, opts = {})
           req = {
             method: :post,
             path: "/api/payment_orders/#{payment_order_id}/reversals",
             headers: {"Content-Type" => "application/json"},
             body: params,
-            model: ModernTreasury::Models::Reversal
+            model: ModernTreasury::Models::PaymentOrders::Reversal
           }
           @client.request(req, opts)
         end
@@ -46,7 +46,7 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::Reversal]
+        # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         def retrieve(reversal_id, params = {}, opts = {})
           payment_order_id = params.fetch(:payment_order_id) do
             raise ArgumentError, "missing required path argument :payment_order_id"
@@ -54,7 +54,7 @@ module ModernTreasury
           req = {
             method: :get,
             path: "/api/payment_orders/#{payment_order_id}/reversals/#{reversal_id}",
-            model: ModernTreasury::Models::Reversal
+            model: ModernTreasury::Models::PaymentOrders::Reversal
           }
           @client.request(req, opts)
         end
@@ -69,14 +69,14 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::Reversal>]
+        # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
         def list(payment_order_id, params = {}, opts = {})
           req = {
             method: :get,
             path: "/api/payment_orders/#{payment_order_id}/reversals",
             query: params,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::Reversal
+            model: ModernTreasury::Models::PaymentOrders::Reversal
           }
           @client.request(req, opts)
         end

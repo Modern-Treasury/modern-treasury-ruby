@@ -21,7 +21,7 @@ module ModernTreasury
       #     child of.
       #   @option params [String, nil] :ledgerable_id If the ledger account links to another object in Modern Treasury, the id will be
       #     populated here, otherwise null.
-      #   @option params [Symbol, LedgerableType, nil] :ledgerable_type If the ledger account links to another object in Modern Treasury, the type will
+      #   @option params [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType, nil] :ledgerable_type If the ledger account links to another object in Modern Treasury, the type will
       #     be populated here, otherwise null. The value is one of internal_account or
       #     external_account.
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
@@ -46,7 +46,7 @@ module ModernTreasury
       # @param id [String] id
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Balances, nil] :balances Use `balances[effective_at_lower_bound]` and
+      #   @option params [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, nil] :balances Use `balances[effective_at_lower_bound]` and
       #     `balances[effective_at_upper_bound]` to get the balances change between the two
       #     timestamps. The lower bound is inclusive while the upper bound is exclusive of
       #     the provided timestamps. If no value is supplied the balances will be retrieved
@@ -96,9 +96,9 @@ module ModernTreasury
       #   @option params [Array<String>, nil] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #   @option params [String, nil] :after_cursor
-      #   @option params [AvailableBalanceAmount, nil] :available_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   @option params [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount, nil] :available_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #     filter by balance amount.
-      #   @option params [Balances, nil] :balances Use `balances[effective_at_lower_bound]` and
+      #   @option params [ModernTreasury::Models::LedgerAccountListParams::Balances, nil] :balances Use `balances[effective_at_lower_bound]` and
       #     `balances[effective_at_upper_bound]` to get the balances change between the two
       #     timestamps. The lower bound is inclusive while the upper bound is exclusive of
       #     the provided timestamps. If no value is supplied the balances will be retrieved
@@ -114,10 +114,10 @@ module ModernTreasury
       #     parameters.
       #   @option params [Array<String>, nil] :name If you have specific names to retrieve in bulk, you can pass them as query
       #     parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
-      #   @option params [PendingBalanceAmount, nil] :pending_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   @option params [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount, nil] :pending_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #     filter by balance amount.
       #   @option params [Integer, nil] :per_page
-      #   @option params [PostedBalanceAmount, nil] :posted_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   @option params [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, nil] :posted_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #     filter by balance amount.
       #   @option params [Hash, nil] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use

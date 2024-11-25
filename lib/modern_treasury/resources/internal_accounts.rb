@@ -16,14 +16,14 @@ module ModernTreasury
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [String] :connection_id The identifier of the financial institution the account belongs to.
-      #   @option params [Symbol, Currency] :currency Either "USD" or "CAD". Internal accounts created at Increase only supports
+      #   @option params [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] :currency Either "USD" or "CAD". Internal accounts created at Increase only supports
       #     "USD".
       #   @option params [String] :name The nickname of the account.
       #   @option params [String] :party_name The legal name of the entity which owns the account.
       #   @option params [String, nil] :counterparty_id The Counterparty associated to this account.
       #   @option params [String, nil] :legal_entity_id The LegalEntity associated to this account.
       #   @option params [String, nil] :parent_account_id The parent internal account of this new account.
-      #   @option params [PartyAddress, nil] :party_address The address associated with the owner or null.
+      #   @option params [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, nil] :party_address The address associated with the owner or null.
       #   @option params [Hash, nil] :vendor_attributes A hash of vendor specific attributes that will be used when creating the account
       #     at the vendor specified by the given connection.
       #
@@ -93,7 +93,7 @@ module ModernTreasury
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #   @option params [Symbol, ModernTreasury::Models::TransactionDirection, nil] :payment_direction Only return internal accounts that can originate payments with this direction.
-      #   @option params [Symbol, PaymentType, nil] :payment_type Only return internal accounts that can make this type of payment.
+      #   @option params [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType, nil] :payment_type Only return internal accounts that can make this type of payment.
       #   @option params [Integer, nil] :per_page
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

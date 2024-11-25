@@ -15,7 +15,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < Minitest::
 
   def test_create_required_params
     response = @modern_treasury.payment_orders.reversals.create("payment_order_id", {reason: "duplicate"})
-    assert_kind_of(ModernTreasury::Models::Reversal, response)
+    assert_kind_of(ModernTreasury::Models::PaymentOrders::Reversal, response)
   end
 
   def test_retrieve_required_params
@@ -23,7 +23,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < Minitest::
       "reversal_id",
       {payment_order_id: "payment_order_id"}
     )
-    assert_kind_of(ModernTreasury::Models::Reversal, response)
+    assert_kind_of(ModernTreasury::Models::PaymentOrders::Reversal, response)
   end
 
   def test_list

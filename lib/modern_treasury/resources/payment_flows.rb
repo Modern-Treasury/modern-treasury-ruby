@@ -16,7 +16,7 @@ module ModernTreasury
       #   @option params [String] :counterparty_id Required. The ID of a counterparty associated with the payment. As part of the
       #     payment workflow an external account will be associated with this model.
       #   @option params [String] :currency Required. The currency of the payment.
-      #   @option params [Symbol, Direction] :direction Required. Describes the direction money is flowing in the transaction. Can only
+      #   @option params [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction] :direction Required. Describes the direction money is flowing in the transaction. Can only
       #     be `debit`. A `debit` pulls money from someone else's account to your own.
       #   @option params [String] :originating_account_id Required. The ID of one of your organization's internal accounts.
       #   @option params [Date, nil] :due_date Optional. Can only be passed in when `effective_date_selection_enabled` is
@@ -57,7 +57,7 @@ module ModernTreasury
       # @param id [String] id
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Symbol, Status] :status Required. The updated status of the payment flow. Can only be used to mark a
+      #   @option params [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status] :status Required. The updated status of the payment flow. Can only be used to mark a
       #     flow as `cancelled`.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

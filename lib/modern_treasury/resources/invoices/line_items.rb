@@ -31,14 +31,14 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::InvoiceLineItem]
+        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def create(invoice_id, params = {}, opts = {})
           req = {
             method: :post,
             path: "/api/invoices/#{invoice_id}/invoice_line_items",
             headers: {"Content-Type" => "application/json"},
             body: params,
-            model: ModernTreasury::Models::InvoiceLineItem
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
           @client.request(req, opts)
         end
@@ -52,7 +52,7 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::InvoiceLineItem]
+        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def retrieve(id, params = {}, opts = {})
           invoice_id = params.fetch(:invoice_id) do
             raise ArgumentError, "missing required path argument :invoice_id"
@@ -60,7 +60,7 @@ module ModernTreasury
           req = {
             method: :get,
             path: "/api/invoices/#{invoice_id}/invoice_line_items/#{id}",
-            model: ModernTreasury::Models::InvoiceLineItem
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
           @client.request(req, opts)
         end
@@ -88,7 +88,7 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::InvoiceLineItem]
+        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def update(id, params = {}, opts = {})
           invoice_id = params.fetch(:invoice_id) do
             raise ArgumentError, "missing required path argument :invoice_id"
@@ -98,7 +98,7 @@ module ModernTreasury
             path: "/api/invoices/#{invoice_id}/invoice_line_items/#{id}",
             headers: {"Content-Type" => "application/json"},
             body: params.except(:invoice_id),
-            model: ModernTreasury::Models::InvoiceLineItem
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
           @client.request(req, opts)
         end
@@ -113,14 +113,14 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Page<ModernTreasury::Models::InvoiceLineItem>]
+        # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
         def list(invoice_id, params = {}, opts = {})
           req = {
             method: :get,
             path: "/api/invoices/#{invoice_id}/invoice_line_items",
             query: params,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::InvoiceLineItem
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
           @client.request(req, opts)
         end
@@ -134,7 +134,7 @@ module ModernTreasury
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
-        # @return [ModernTreasury::Models::InvoiceLineItem]
+        # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def delete(id, params = {}, opts = {})
           invoice_id = params.fetch(:invoice_id) do
             raise ArgumentError, "missing required path argument :invoice_id"
@@ -142,7 +142,7 @@ module ModernTreasury
           req = {
             method: :delete,
             path: "/api/invoices/#{invoice_id}/invoice_line_items/#{id}",
-            model: ModernTreasury::Models::InvoiceLineItem
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
           @client.request(req, opts)
         end

@@ -13,9 +13,9 @@ module ModernTreasury
       # @param account_id [String] Path param: The ID of the account.
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Symbol, AccountsType] :accounts_type Path param:
+      #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType] :accounts_type Path param:
       #   @option params [String] :account_number Body param: The account number for the bank account.
-      #   @option params [Symbol, AccountNumberType, nil] :account_number_type Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
+      #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType, nil] :account_number_type Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
       #     the bank account number is in a generic format.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -92,7 +92,7 @@ module ModernTreasury
       # @param id [String] The ID of the account detail.
       #
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
-      #   @option params [Symbol, AccountsType] :accounts_type
+      #   @option params [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType] :accounts_type
       #   @option params [String] :account_id The ID of the account.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
