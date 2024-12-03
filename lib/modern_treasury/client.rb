@@ -160,10 +160,10 @@ module ModernTreasury
       base_url ||= "https://app.moderntreasury.com"
 
       if api_key.nil?
-        raise ArgumentError, "api_key is required"
+        raise ArgumentError.new("api_key is required")
       end
       if organization_id.nil?
-        raise ArgumentError, "organization_id is required"
+        raise ArgumentError.new("organization_id is required")
       end
 
       @api_key = api_key.to_s
@@ -215,30 +215,6 @@ module ModernTreasury
       @connection_legal_entities = ModernTreasury::Resources::ConnectionLegalEntities.new(client: self)
       @legal_entities = ModernTreasury::Resources::LegalEntities.new(client: self)
       @legal_entity_associations = ModernTreasury::Resources::LegalEntityAssociations.new(client: self)
-    end
-
-    # @!visibility private
-    private def make_status_error(message:, body:, response:)
-      case response.code.to_i
-      in 400
-        ModernTreasury::HTTP::BadRequestError.new(message: message, response: response, body: body)
-      in 401
-        ModernTreasury::HTTP::AuthenticationError.new(message: message, response: response, body: body)
-      in 403
-        ModernTreasury::HTTP::PermissionDeniedError.new(message: message, response: response, body: body)
-      in 404
-        ModernTreasury::HTTP::NotFoundError.new(message: message, response: response, body: body)
-      in 409
-        ModernTreasury::HTTP::ConflictError.new(message: message, response: response, body: body)
-      in 422
-        ModernTreasury::HTTP::UnprocessableEntityError.new(message: message, response: response, body: body)
-      in 429
-        ModernTreasury::HTTP::RateLimitError.new(message: message, response: response, body: body)
-      in 500..599
-        ModernTreasury::HTTP::InternalServerError.new(message: message, response: response, body: body)
-      else
-        ModernTreasury::HTTP::APIStatusError.new(message: message, response: response, body: body)
-      end
     end
   end
 end

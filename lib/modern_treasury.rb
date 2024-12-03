@@ -15,6 +15,7 @@ require "connection_pool"
 # Package files.
 require_relative "modern_treasury/base_client"
 require_relative "modern_treasury/base_model"
+require_relative "modern_treasury/errors"
 require_relative "modern_treasury/request_options"
 require_relative "modern_treasury/pooled_net_requester"
 require_relative "modern_treasury/util"
