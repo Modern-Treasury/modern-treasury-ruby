@@ -81,7 +81,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"})
     end
     assert_equal(3, requester.attempts.length)
@@ -96,7 +96,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"})
     end
     assert_equal(4, requester.attempts.length)
@@ -110,7 +110,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"}, max_retries: 3)
     end
     assert_equal(4, requester.attempts.length)
@@ -125,7 +125,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"}, max_retries: 4)
     end
     assert_equal(5, requester.attempts.length)
@@ -140,7 +140,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(500, {}, {"retry-after" => "1.3", "x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"})
     end
     assert_equal(2, requester.attempts.length)
@@ -164,7 +164,7 @@ class ModernTreasuryTest < Minitest::Test
       }
     )
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"})
     end
     assert_equal(2, requester.attempts.length)
@@ -180,7 +180,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(500, {}, {"retry-after-ms" => "1300", "x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"})
     end
     assert_equal(2, requester.attempts.length)
@@ -196,7 +196,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"})
     end
 
@@ -213,7 +213,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"}, extra_headers: {"x-stainless-retry-count" => nil})
     end
 
@@ -230,7 +230,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create(
         {name: "name"},
         extra_headers: {"x-stainless-retry-count" => "42"}
@@ -249,7 +249,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(307, {}, {"location" => "/redirected"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::APIConnectionError) do
+    assert_raises(ModernTreasury::APIConnectionError) do
       modern_treasury.counterparties.create({name: "name"}, extra_headers: {})
     end
     assert_equal(requester.attempts[1][:path], "/redirected")
@@ -269,7 +269,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(303, {}, {"location" => "/redirected"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::APIConnectionError) do
+    assert_raises(ModernTreasury::APIConnectionError) do
       modern_treasury.counterparties.create({name: "name"}, extra_headers: {})
     end
     assert_equal(requester.attempts[1][:path], "/redirected")
@@ -286,7 +286,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(307, {}, {"location" => "/redirected"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::APIConnectionError) do
+    assert_raises(ModernTreasury::APIConnectionError) do
       modern_treasury.counterparties.create({name: "name"}, extra_headers: {"Authorization" => "Bearer xyz"})
     end
     assert_equal(
@@ -303,7 +303,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(307, {}, {"location" => "https://example.com/redirected"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::APIConnectionError) do
+    assert_raises(ModernTreasury::APIConnectionError) do
       modern_treasury.counterparties.create({name: "name"}, extra_headers: {"Authorization" => "Bearer xyz"})
     end
     assert_nil(requester.attempts[1][:headers]["Authorization"])
@@ -317,7 +317,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create({name: "name"}, max_retries: 1)
     end
     idempotency_headers = requester.attempts.map { |a| a[:headers]["Idempotency-Key".downcase] }
@@ -334,7 +334,7 @@ class ModernTreasuryTest < Minitest::Test
     )
     requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
     modern_treasury.requester = requester
-    assert_raises(ModernTreasury::HTTP::InternalServerError) do
+    assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create(
         {name: "name"},
         max_retries: 1,
