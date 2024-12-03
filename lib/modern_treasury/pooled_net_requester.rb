@@ -46,13 +46,13 @@ module ModernTreasury
       content_type = headers["content-type"]
 
       get_pool(req, timeout: timeout).with do |conn|
-        uri = ModernTreasury::Util.unparse_uri(req, absolute: false)
+        url = ModernTreasury::Util.unparse_uri(req, absolute: false)
 
         request = Net::HTTPGenericRequest.new(
           method.to_s.upcase,
           !body.nil?,
           method != :head,
-          uri.to_s
+          url.to_s
         )
 
         case [content_type, body]
@@ -75,6 +75,8 @@ module ModernTreasury
         conn.read_timeout = timeout
         conn.write_timeout = timeout
         conn.request(request)
+      rescue Timeout::Error
+        raise ModernTreasury::APITimeoutError.new(url: url)
       end
     end
   end
