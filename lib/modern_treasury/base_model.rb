@@ -33,7 +33,7 @@ module ModernTreasury
       elsif target_type == Object || [Hash, String, Integer].any? { |cls| target_type <= cls }
         value
       else
-        raise ArgumentError, "Unexpected conversion target type #{target_type}"
+        raise ArgumentError.new("Unexpected conversion target type #{target_type}")
       end
     end
   end
@@ -151,9 +151,8 @@ module ModernTreasury
         ModernTreasury::Converter.convert(field_type, @data[key])
       rescue StandardError
         name = self.class.name.split("::").last
-        raise ModernTreasury::ConversionError,
-              "Failed to parse #{name}.#{name_sym} as #{field_type.inspect}. " \
-              "To get the unparsed API response, use #{name}[:#{key}]."
+        msg = "Failed to parse #{name}.#{name_sym} as #{field_type.inspect}. To get the unparsed API response, use #{name}[:#{key}]."
+        raise ModernTreasury::ConversionError.new(msg)
       end
     end
 
@@ -183,8 +182,7 @@ module ModernTreasury
     # @param data [Hash{Symbol => Object}] Raw data to initialize the model with.
     def initialize(data = {})
       unless data.respond_to?(:to_h)
-        raise ArgumentError,
-              "Expected a Hash, got #{data.inspect}"
+        raise ArgumentError.new("Expected a Hash, got #{data.inspect}")
       end
 
       @data = {}
@@ -223,7 +221,7 @@ module ModernTreasury
     # @return [Object, nil] The raw value at the given key.
     def [](key)
       unless key.instance_of?(Symbol)
-        raise ArgumentError, "Expected symbol key for lookup, got #{key.inspect}"
+        raise ArgumentError.new("Expected symbol key for lookup, got #{key.inspect}")
       end
       @data[key]
     end
@@ -253,8 +251,5 @@ module ModernTreasury
     def to_s
       @data.to_s
     end
-  end
-
-  class ConversionError < Error
   end
 end

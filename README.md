@@ -50,12 +50,12 @@ puts(counterparty.id)
 
 When the library is unable to connect to the API, or if the API returns a
 non-success status code (i.e., 4xx or 5xx response), a subclass of
-`ModernTreasury::HTTP::Error` will be thrown:
+`ModernTreasury::Error` will be thrown:
 
 ```ruby
 begin
   modern_treasury.external_accounts.create(counterparty_id: "missing")
-rescue ModernTreasury::HTTP::Error => e
+rescue ModernTreasury::Error => e
   puts(e.code) # 400
 end
 ```
