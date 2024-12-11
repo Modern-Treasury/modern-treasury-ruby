@@ -90,11 +90,10 @@ class ModernTreasury::Test::UtilTest < Minitest::Test
       https://example.com/
       https://example.com:443/example?e1=e1&e2=e2&e=
     ].each do |url|
-      uri = URI.parse(url)
-      parsed = ModernTreasury::Util.parse_uri(uri)
-      unparsed = ModernTreasury::Util.unparse_uri(parsed)
+      parsed = ModernTreasury::Util.parse_uri(url)
+      unparsed = ModernTreasury::Util.unparse_uri(parsed).to_s
 
-      assert_equal(unparsed, uri)
+      assert_equal(url, unparsed)
       assert_equal(parsed, ModernTreasury::Util.parse_uri(unparsed))
     end
   end
