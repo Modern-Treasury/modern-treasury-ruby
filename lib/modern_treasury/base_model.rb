@@ -2,6 +2,7 @@
 
 module ModernTreasury
   # @!visibility private
+  #
   module Converter
     # Based on `value`, returns a value that conforms to `type`, to the extent possible:
     # - If the given `value` conforms to `type` already, the given `value`.
@@ -38,8 +39,9 @@ module ModernTreasury
     end
   end
 
-  # When we don't know what to expect for the value.
   # @!visibility private
+  #
+  # When we don't know what to expect for the value.
   class Unknown
     include ModernTreasury::Converter
 
@@ -51,8 +53,9 @@ module ModernTreasury
     end
   end
 
-  # Ruby has no Boolean class; this is something for models to refer to.
   # @!visibility private
+  #
+  # Ruby has no Boolean class; this is something for models to refer to.
   class BooleanModel
     include ModernTreasury::Converter
 
@@ -64,6 +67,8 @@ module ModernTreasury
     end
   end
 
+  # @!visibility private
+  #
   # A value from among a specified list of options. OpenAPI enum values map to
   # Ruby values in the SDK as follows:
   # boolean => true|false
@@ -72,7 +77,6 @@ module ModernTreasury
   # string => Symbol
   # We can therefore convert string values to Symbols, but can't convert other
   # values safely.
-  # @!visibility private
   class Enum
     include ModernTreasury::Converter
 
@@ -94,8 +98,9 @@ module ModernTreasury
     end
   end
 
-  # Array of items of a given type.
   # @!visibility private
+  #
+  # Array of items of a given type.
   class ArrayOf
     include ModernTreasury::Converter
 
@@ -119,6 +124,8 @@ module ModernTreasury
     end
   end
 
+  # @!visibility private
+  #
   class BaseModel
     include ModernTreasury::Converter
 
@@ -206,9 +213,7 @@ module ModernTreasury
     # The returned value is shared by the object, so it should not be mutated.
     #
     # @return [Hash{Symbol => Object}] Data for this object.
-    def to_h
-      @data
-    end
+    def to_h = @data
 
     alias_method :to_hash, :to_h
 
@@ -250,8 +255,6 @@ module ModernTreasury
     end
 
     # @return [String]
-    def to_s
-      @data.to_s
-    end
+    def to_s = @data.to_s
   end
 end
