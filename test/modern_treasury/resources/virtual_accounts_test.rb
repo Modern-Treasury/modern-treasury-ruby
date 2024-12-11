@@ -15,7 +15,8 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < Minitest::Test
 
   def test_create_required_params
     response = @modern_treasury.virtual_accounts.create(
-      {internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", name: "name"}
+      internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+      name: "name"
     )
     assert_kind_of(ModernTreasury::Models::VirtualAccount, response)
   end

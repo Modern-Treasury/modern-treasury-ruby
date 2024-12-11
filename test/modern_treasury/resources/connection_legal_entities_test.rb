@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < Minitest::T
   end
 
   def test_create_required_params
-    response = @modern_treasury.connection_legal_entities.create({connection_id: "connection_id"})
+    response = @modern_treasury.connection_legal_entities.create(connection_id: "connection_id")
     assert_kind_of(ModernTreasury::Models::ConnectionLegalEntity, response)
   end
 

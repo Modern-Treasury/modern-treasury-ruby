@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < Minitest::Test
   end
 
   def test_create_required_params
-    response = @modern_treasury.legal_entities.create({legal_entity_type: "business"})
+    response = @modern_treasury.legal_entities.create(legal_entity_type: "business")
     assert_kind_of(ModernTreasury::Models::LegalEntity, response)
   end
 
