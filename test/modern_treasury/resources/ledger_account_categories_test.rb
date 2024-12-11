@@ -15,12 +15,10 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Minitest::T
 
   def test_create_required_params
     response = @modern_treasury.ledger_account_categories.create(
-      {
-        currency: "currency",
-        ledger_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        name: "name",
-        normal_balance: "credit"
-      }
+      currency: "currency",
+      ledger_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+      name: "name",
+      normal_balance: "credit"
     )
     assert_kind_of(ModernTreasury::Models::LedgerAccountCategory, response)
   end
@@ -46,28 +44,22 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Minitest::T
   end
 
   def test_add_ledger_account_required_params
-    response = @modern_treasury.ledger_account_categories.add_ledger_account("ledger_account_id", {id: "id"})
+    response = @modern_treasury.ledger_account_categories.add_ledger_account("ledger_account_id", id: "id")
     assert_nil(response)
   end
 
   def test_add_nested_category_required_params
-    response = @modern_treasury.ledger_account_categories.add_nested_category("sub_category_id", {id: "id"})
+    response = @modern_treasury.ledger_account_categories.add_nested_category("sub_category_id", id: "id")
     assert_nil(response)
   end
 
   def test_remove_ledger_account_required_params
-    response = @modern_treasury.ledger_account_categories.remove_ledger_account(
-      "ledger_account_id",
-      {id: "id"}
-    )
+    response = @modern_treasury.ledger_account_categories.remove_ledger_account("ledger_account_id", id: "id")
     assert_nil(response)
   end
 
   def test_remove_nested_category_required_params
-    response = @modern_treasury.ledger_account_categories.remove_nested_category(
-      "sub_category_id",
-      {id: "id"}
-    )
+    response = @modern_treasury.ledger_account_categories.remove_nested_category("sub_category_id", id: "id")
     assert_nil(response)
   end
 end

@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::LedgersTest < Minitest::Test
   end
 
   def test_create_required_params
-    response = @modern_treasury.ledgers.create({name: "name"})
+    response = @modern_treasury.ledgers.create(name: "name")
     assert_kind_of(ModernTreasury::Models::Ledger, response)
   end
 

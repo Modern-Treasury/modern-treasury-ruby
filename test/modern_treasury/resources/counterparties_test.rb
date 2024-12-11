@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Minitest::Test
   end
 
   def test_create_required_params
-    response = @modern_treasury.counterparties.create({name: "name"})
+    response = @modern_treasury.counterparties.create(name: "name")
     assert_kind_of(ModernTreasury::Models::Counterparty, response)
   end
 
@@ -39,7 +39,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Minitest::Test
   end
 
   def test_collect_account_required_params
-    response = @modern_treasury.counterparties.collect_account("id", {direction: "credit"})
+    response = @modern_treasury.counterparties.collect_account("id", direction: "credit")
     assert_kind_of(ModernTreasury::Models::CounterpartyCollectAccountResponse, response)
   end
 end
