@@ -33,11 +33,12 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def create(invoice_id, params = {}, opts = {})
+          parsed = ModernTreasury::Models::Invoices::LineItemCreateParams.dump(params)
           req = {
             method: :post,
             path: "/api/invoices/#{invoice_id}/invoice_line_items",
             headers: {"Content-Type" => "application/json"},
-            body: params,
+            body: parsed,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
           @client.request(req, opts)
@@ -54,6 +55,7 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def retrieve(id, params = {}, opts = {})
+          ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump(params)
           invoice_id = params.fetch(:invoice_id) do
             raise ArgumentError, "missing required path argument :invoice_id"
           end
@@ -90,6 +92,7 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def update(id, params = {}, opts = {})
+          parsed = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump(params)
           invoice_id = params.fetch(:invoice_id) do
             raise ArgumentError, "missing required path argument :invoice_id"
           end
@@ -97,7 +100,7 @@ module ModernTreasury
             method: :patch,
             path: "/api/invoices/#{invoice_id}/invoice_line_items/#{id}",
             headers: {"Content-Type" => "application/json"},
-            body: params.except(:invoice_id),
+            body: parsed.except(:invoice_id),
             model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
           @client.request(req, opts)
@@ -115,10 +118,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
         def list(invoice_id, params = {}, opts = {})
+          parsed = ModernTreasury::Models::Invoices::LineItemListParams.dump(params)
           req = {
             method: :get,
             path: "/api/invoices/#{invoice_id}/invoice_line_items",
-            query: params,
+            query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
@@ -136,6 +140,7 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def delete(id, params = {}, opts = {})
+          ModernTreasury::Models::Invoices::LineItemDeleteParams.dump(params)
           invoice_id = params.fetch(:invoice_id) do
             raise ArgumentError, "missing required path argument :invoice_id"
           end

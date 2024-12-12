@@ -109,11 +109,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaymentOrderCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/payment_orders",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::PaymentOrder
         }
         @client.request(req, opts)
@@ -233,11 +234,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaymentOrderUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/payment_orders/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::PaymentOrder
         }
         @client.request(req, opts)
@@ -272,10 +274,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrder>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaymentOrderListParams.dump(params)
         req = {
           method: :get,
           path: "/api/payment_orders",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::PaymentOrder
         }
@@ -377,11 +380,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       def create_async(params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaymentOrderCreateAsyncParams.dump(params)
         req = {
           method: :post,
           path: "/api/payment_orders/create_async",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::AsyncResponse
         }
         @client.request(req, opts)

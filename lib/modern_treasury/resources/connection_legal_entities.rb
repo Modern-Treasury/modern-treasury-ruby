@@ -19,11 +19,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ConnectionLegalEntityCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/connection_legal_entities",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ConnectionLegalEntity
         }
         @client.request(req, opts)
@@ -55,11 +56,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::ConnectionLegalEntityUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/connection_legal_entities/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ConnectionLegalEntity
         }
         @client.request(req, opts)
@@ -78,10 +80,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ConnectionLegalEntity>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ConnectionLegalEntityListParams.dump(params)
         req = {
           method: :get,
           path: "/api/connection_legal_entities",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ConnectionLegalEntity
         }

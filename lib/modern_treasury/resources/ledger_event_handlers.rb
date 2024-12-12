@@ -24,11 +24,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerEventHandlerCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/ledger_event_handlers",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerEventHandler
         }
         @client.request(req, opts)
@@ -66,10 +67,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerEventHandlerListParams.dump(params)
         req = {
           method: :get,
           path: "/api/ledger_event_handlers",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerEventHandler
         }

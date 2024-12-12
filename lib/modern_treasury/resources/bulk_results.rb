@@ -41,10 +41,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkResult>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::BulkResultListParams.dump(params)
         req = {
           method: :get,
           path: "/api/bulk_results",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::BulkResult
         }

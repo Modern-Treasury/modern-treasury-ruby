@@ -51,11 +51,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ExpectedPaymentCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/expected_payments",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ExpectedPayment
         }
         @client.request(req, opts)
@@ -114,11 +115,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::ExpectedPaymentUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/expected_payments/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ExpectedPayment
         }
         @client.request(req, opts)
@@ -145,10 +147,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ExpectedPaymentListParams.dump(params)
         req = {
           method: :get,
           path: "/api/expected_payments",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ExpectedPayment
         }
