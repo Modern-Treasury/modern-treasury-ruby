@@ -37,10 +37,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaperItem>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaperItemListParams.dump(params)
         req = {
           method: :get,
           path: "/api/paper_items",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::PaperItem
         }

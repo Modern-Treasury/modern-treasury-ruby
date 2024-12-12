@@ -13,7 +13,7 @@ module ModernTreasury
       # @param params [Hash{Symbol => Object}] Attributes to send in this request.
       #   @option params [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ActionType] :action_type One of create, or update.
       #   @option params [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ResourceType] :resource_type One of payment_order, expected_payment, or ledger_transaction.
-      #   @option params [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent10, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent2, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent3, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent4, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent5, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent6, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent7, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent8, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent9>] :resources An array of objects where each object contains the input params for a single
+      #   @option params [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent0, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent1, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent2, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent3, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent4, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent5, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent6, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent7, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent8>] :resources An array of objects where each object contains the input params for a single
       #     `action_type` request on a `resource_type` resource
       #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
@@ -22,11 +22,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::BulkRequest]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::BulkRequestCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/bulk_requests",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::BulkRequest
         }
         @client.request(req, opts)
@@ -63,10 +64,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkRequest>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::BulkRequestListParams.dump(params)
         req = {
           method: :get,
           path: "/api/bulk_requests",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::BulkRequest
         }

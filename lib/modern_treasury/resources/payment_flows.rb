@@ -27,11 +27,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaymentFlowCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/payment_flows",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::PaymentFlow
         }
         @client.request(req, opts)
@@ -64,11 +65,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaymentFlowUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/payment_flows/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::PaymentFlow
         }
         @client.request(req, opts)
@@ -90,10 +92,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentFlow>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaymentFlowListParams.dump(params)
         req = {
           method: :get,
           path: "/api/payment_flows",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::PaymentFlow
         }

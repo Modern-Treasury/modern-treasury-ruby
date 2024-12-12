@@ -20,10 +20,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerEntry]
       def retrieve(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerEntryRetrieveParams.dump(params)
         req = {
           method: :get,
           path: "/api/ledger_entries/#{id}",
-          query: params,
+          query: parsed,
           model: ModernTreasury::Models::LedgerEntry
         }
         @client.request(req, opts)
@@ -41,11 +42,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerEntry]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerEntryUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/ledger_entries/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerEntry
         }
         @client.request(req, opts)
@@ -99,10 +101,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEntry>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerEntryListParams.dump(params)
         req = {
           method: :get,
           path: "/api/ledger_entries",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerEntry
         }

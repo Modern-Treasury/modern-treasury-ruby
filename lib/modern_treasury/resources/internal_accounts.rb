@@ -31,11 +31,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::InternalAccount]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::InternalAccountCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/internal_accounts",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::InternalAccount
         }
         @client.request(req, opts)
@@ -72,11 +73,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::InternalAccount]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::InternalAccountUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/internal_accounts/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::InternalAccount
         }
         @client.request(req, opts)
@@ -100,10 +102,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::InternalAccountListParams.dump(params)
         req = {
           method: :get,
           path: "/api/internal_accounts",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::InternalAccount
         }

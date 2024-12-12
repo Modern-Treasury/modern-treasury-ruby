@@ -21,11 +21,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerableEventCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/ledgerable_events",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerableEvent
         }
         @client.request(req, opts)

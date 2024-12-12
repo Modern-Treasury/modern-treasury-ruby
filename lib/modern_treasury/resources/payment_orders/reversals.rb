@@ -27,11 +27,12 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         def create(payment_order_id, params = {}, opts = {})
+          parsed = ModernTreasury::Models::PaymentOrders::ReversalCreateParams.dump(params)
           req = {
             method: :post,
             path: "/api/payment_orders/#{payment_order_id}/reversals",
             headers: {"Content-Type" => "application/json"},
-            body: params,
+            body: parsed,
             model: ModernTreasury::Models::PaymentOrders::Reversal
           }
           @client.request(req, opts)
@@ -48,6 +49,7 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         def retrieve(reversal_id, params = {}, opts = {})
+          ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams.dump(params)
           payment_order_id = params.fetch(:payment_order_id) do
             raise ArgumentError, "missing required path argument :payment_order_id"
           end
@@ -71,10 +73,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
         def list(payment_order_id, params = {}, opts = {})
+          parsed = ModernTreasury::Models::PaymentOrders::ReversalListParams.dump(params)
           req = {
             method: :get,
             path: "/api/payment_orders/#{payment_order_id}/reversals",
-            query: params,
+            query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::PaymentOrders::Reversal
           }

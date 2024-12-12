@@ -38,10 +38,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentReference>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::PaymentReferenceListParams.dump(params)
         req = {
           method: :get,
           path: "/api/payment_references",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::PaymentReference
         }

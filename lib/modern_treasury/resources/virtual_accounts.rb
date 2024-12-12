@@ -33,11 +33,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::VirtualAccountCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/virtual_accounts",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::VirtualAccount
         }
         @client.request(req, opts)
@@ -72,11 +73,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::VirtualAccountUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/virtual_accounts/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::VirtualAccount
         }
         @client.request(req, opts)
@@ -97,10 +99,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::VirtualAccount>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::VirtualAccountListParams.dump(params)
         req = {
           method: :get,
           path: "/api/virtual_accounts",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::VirtualAccount
         }
