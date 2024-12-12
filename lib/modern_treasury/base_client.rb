@@ -357,7 +357,7 @@ module ModernTreasury
       in [Class, _]
         page.new(client: self, model: model, req: req, opts: opts, response: response, raw_data: raw_data)
       in [nil, _] unless model.nil?
-        ModernTreasury::Converter.convert(model, raw_data)
+        ModernTreasury::Converter.coerce(model, raw_data)
       in [nil, nil]
         raw_data
       end

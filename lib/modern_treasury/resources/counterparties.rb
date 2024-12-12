@@ -30,11 +30,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Counterparty]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::CounterpartyCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/counterparties",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::Counterparty
         }
         @client.request(req, opts)
@@ -73,11 +74,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Counterparty]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::CounterpartyUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/counterparties/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::Counterparty
         }
         @client.request(req, opts)
@@ -103,10 +105,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::CounterpartyListParams.dump(params)
         req = {
           method: :get,
           path: "/api/counterparties",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Counterparty
         }
@@ -153,11 +156,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
       def collect_account(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::CounterpartyCollectAccountParams.dump(params)
         req = {
           method: :post,
           path: "/api/counterparties/#{id}/collect_account",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::CounterpartyCollectAccountResponse
         }
         @client.request(req, opts)

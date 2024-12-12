@@ -37,11 +37,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerTransactionCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/ledger_transactions",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }
         @client.request(req, opts)
@@ -85,11 +86,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerTransactionUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/ledger_transactions/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }
         @client.request(req, opts)
@@ -134,10 +136,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransaction>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerTransactionListParams.dump(params)
         req = {
           method: :get,
           path: "/api/ledger_transactions",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerTransaction
         }
@@ -168,11 +171,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       def create_reversal(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerTransactionCreateReversalParams.dump(params)
         req = {
           method: :post,
           path: "/api/ledger_transactions/#{id}/reversal",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }
         @client.request(req, opts)

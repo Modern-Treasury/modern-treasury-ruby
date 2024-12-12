@@ -28,10 +28,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
         def list(params = {}, opts = {})
+          parsed = ModernTreasury::Models::LedgerTransactions::VersionListParams.dump(params)
           req = {
             method: :get,
             path: "/api/ledger_transaction_versions",
-            query: params,
+            query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion
           }

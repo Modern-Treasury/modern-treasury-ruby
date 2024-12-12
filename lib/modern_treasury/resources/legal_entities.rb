@@ -41,11 +41,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LegalEntity]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LegalEntityCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/legal_entities",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LegalEntity
         }
         @client.request(req, opts)
@@ -99,11 +100,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LegalEntity]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LegalEntityUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/legal_entities/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LegalEntity
         }
         @client.request(req, opts)
@@ -124,10 +126,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LegalEntityListParams.dump(params)
         req = {
           method: :get,
           path: "/api/legal_entities",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LegalEntity
         }

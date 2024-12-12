@@ -17,7 +17,7 @@ module ModernTreasury
     # @param req [Hash{Symbol => Object}]
     # @param opts [Hash{Symbol => Object}]
     def initialize(client:, model:, req:, opts:, response:, raw_data:)
-      super(raw_data.map { |e| model.convert(e) })
+      super(raw_data.map { |row| model.coerce(row) })
       @per_page = ModernTreasury::Util.coerce_integer(response["X-Per-Page"])
       @after_cursor = response["X-After-Cursor"]&.to_s
       @client = client

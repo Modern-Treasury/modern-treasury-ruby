@@ -36,11 +36,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ExternalAccountCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/external_accounts",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
         @client.request(req, opts)
@@ -80,11 +81,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::ExternalAccountUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/external_accounts/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
         @client.request(req, opts)
@@ -105,10 +107,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExternalAccount>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ExternalAccountListParams.dump(params)
         req = {
           method: :get,
           path: "/api/external_accounts",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ExternalAccount
         }
@@ -141,11 +144,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       def complete_verification(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::ExternalAccountCompleteVerificationParams.dump(params)
         req = {
           method: :post,
           path: "/api/external_accounts/#{id}/complete_verification",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
         @client.request(req, opts)
@@ -168,13 +172,14 @@ module ModernTreasury
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
-      # @return [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::UnnamedTypeWithunionParent1]
+      # @return [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::UnnamedTypeWithunionParent10]
       def verify(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::ExternalAccountVerifyParams.dump(params)
         req = {
           method: :post,
           path: "/api/external_accounts/#{id}/verify",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Unknown
         }
         @client.request(req, opts)

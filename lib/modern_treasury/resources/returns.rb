@@ -26,11 +26,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ReturnObject]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ReturnCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/returns",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ReturnObject
         }
         @client.request(req, opts)
@@ -68,10 +69,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ReturnListParams.dump(params)
         req = {
           method: :get,
           path: "/api/returns",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ReturnObject
         }

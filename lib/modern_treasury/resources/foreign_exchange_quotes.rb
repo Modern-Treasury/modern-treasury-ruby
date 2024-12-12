@@ -24,11 +24,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ForeignExchangeQuoteCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/foreign_exchange_quotes",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::ForeignExchangeQuote
         }
         @client.request(req, opts)
@@ -68,10 +69,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ForeignExchangeQuoteListParams.dump(params)
         req = {
           method: :get,
           path: "/api/foreign_exchange_quotes",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ForeignExchangeQuote
         }
