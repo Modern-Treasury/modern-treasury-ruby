@@ -20,11 +20,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Ledger]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/ledgers",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::Ledger
         }
         @client.request(req, opts)
@@ -59,11 +60,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::Ledger]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/ledgers/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::Ledger
         }
         @client.request(req, opts)
@@ -87,10 +89,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Ledger>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerListParams.dump(params)
         req = {
           method: :get,
           path: "/api/ledgers",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Ledger
         }

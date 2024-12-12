@@ -35,11 +35,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::IncomingPaymentDetailUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/incoming_payment_details/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::IncomingPaymentDetail
         }
         @client.request(req, opts)
@@ -69,10 +70,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::IncomingPaymentDetail>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::IncomingPaymentDetailListParams.dump(params)
         req = {
           method: :get,
           path: "/api/incoming_payment_details",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::IncomingPaymentDetail
         }
@@ -97,11 +99,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       def create_async(params = {}, opts = {})
+        parsed = ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams.dump(params)
         req = {
           method: :post,
           path: "/api/simulations/incoming_payment_details/create_async",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::AsyncResponse
         }
         @client.request(req, opts)

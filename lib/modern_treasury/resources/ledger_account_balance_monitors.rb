@@ -21,11 +21,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/ledger_account_balance_monitors",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
         }
         @client.request(req, opts)
@@ -59,11 +60,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/ledger_account_balance_monitors/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
         }
         @client.request(req, opts)
@@ -85,10 +87,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorListParams.dump(params)
         req = {
           method: :get,
           path: "/api/ledger_account_balance_monitors",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
         }

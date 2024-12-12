@@ -26,11 +26,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerAccountCategoryCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/ledger_account_categories",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
         @client.request(req, opts)
@@ -49,10 +50,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def retrieve(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerAccountCategoryRetrieveParams.dump(params)
         req = {
           method: :get,
           path: "/api/ledger_account_categories/#{id}",
-          query: params,
+          query: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
         @client.request(req, opts)
@@ -72,11 +74,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerAccountCategoryUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/ledger_account_categories/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
         @client.request(req, opts)
@@ -106,10 +109,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountCategory>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerAccountCategoryListParams.dump(params)
         req = {
           method: :get,
           path: "/api/ledger_account_categories",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
@@ -142,6 +146,7 @@ module ModernTreasury
       #
       # @return [nil]
       def add_ledger_account(ledger_account_id, params = {}, opts = {})
+        ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams.dump(params)
         id = params.fetch(:id) do
           raise ArgumentError, "missing required path argument :id"
         end
@@ -164,6 +169,7 @@ module ModernTreasury
       #
       # @return [nil]
       def add_nested_category(sub_category_id, params = {}, opts = {})
+        ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams.dump(params)
         id = params.fetch(:id) do
           raise ArgumentError, "missing required path argument :id"
         end
@@ -186,6 +192,7 @@ module ModernTreasury
       #
       # @return [nil]
       def remove_ledger_account(ledger_account_id, params = {}, opts = {})
+        ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams.dump(params)
         id = params.fetch(:id) do
           raise ArgumentError, "missing required path argument :id"
         end
@@ -208,6 +215,7 @@ module ModernTreasury
       #
       # @return [nil]
       def remove_nested_category(sub_category_id, params = {}, opts = {})
+        ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams.dump(params)
         id = params.fetch(:id) do
           raise ArgumentError, "missing required path argument :id"
         end

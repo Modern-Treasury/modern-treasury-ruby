@@ -20,10 +20,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Connection>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::ConnectionListParams.dump(params)
         req = {
           method: :get,
           path: "/api/connections",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Connection
         }

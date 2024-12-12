@@ -21,11 +21,12 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         def create(params = {}, opts = {})
+          parsed = ModernTreasury::Models::Transactions::LineItemCreateParams.dump(params)
           req = {
             method: :post,
             path: "/api/transaction_line_items",
             headers: {"Content-Type" => "application/json"},
-            body: params,
+            body: parsed,
             model: ModernTreasury::Models::Transactions::TransactionLineItem
           }
           @client.request(req, opts)
@@ -59,10 +60,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
         def list(params = {}, opts = {})
+          parsed = ModernTreasury::Models::Transactions::LineItemListParams.dump(params)
           req = {
             method: :get,
             path: "/api/transaction_line_items",
-            query: params,
+            query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::Transactions::TransactionLineItem
           }

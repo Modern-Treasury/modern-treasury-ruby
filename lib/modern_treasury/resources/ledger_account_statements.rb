@@ -25,11 +25,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerAccountStatementCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/ledger_account_statements",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::LedgerAccountStatementCreateResponse
         }
         @client.request(req, opts)

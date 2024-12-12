@@ -19,11 +19,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       def create(params = {}, opts = {})
+        parsed = ModernTreasury::Models::AccountCollectionFlowCreateParams.dump(params)
         req = {
           method: :post,
           path: "/api/account_collection_flows",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::AccountCollectionFlow
         }
         @client.request(req, opts)
@@ -56,11 +57,12 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       def update(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::AccountCollectionFlowUpdateParams.dump(params)
         req = {
           method: :patch,
           path: "/api/account_collection_flows/#{id}",
           headers: {"Content-Type" => "application/json"},
-          body: params,
+          body: parsed,
           model: ModernTreasury::Models::AccountCollectionFlow
         }
         @client.request(req, opts)
@@ -80,10 +82,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountCollectionFlow>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::AccountCollectionFlowListParams.dump(params)
         req = {
           method: :get,
           path: "/api/account_collection_flows",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::AccountCollectionFlow
         }

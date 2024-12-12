@@ -38,10 +38,11 @@ module ModernTreasury
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Event>]
       def list(params = {}, opts = {})
+        parsed = ModernTreasury::Models::EventListParams.dump(params)
         req = {
           method: :get,
           path: "/api/events",
-          query: params,
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Event
         }

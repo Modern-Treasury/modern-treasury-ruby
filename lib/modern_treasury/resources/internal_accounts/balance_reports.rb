@@ -24,11 +24,12 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         def create(internal_account_id, params = {}, opts = {})
+          parsed = ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump(params)
           req = {
             method: :post,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports",
             headers: {"Content-Type" => "application/json"},
-            body: params,
+            body: parsed,
             model: ModernTreasury::Models::InternalAccounts::BalanceReport
           }
           @client.request(req, opts)
@@ -46,6 +47,7 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         def retrieve(id, params = {}, opts = {})
+          ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump(params)
           internal_account_id = params.fetch(:internal_account_id) do
             raise ArgumentError, "missing required path argument :internal_account_id"
           end
@@ -72,10 +74,11 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
         def list(internal_account_id, params = {}, opts = {})
+          parsed = ModernTreasury::Models::InternalAccounts::BalanceReportListParams.dump(params)
           req = {
             method: :get,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports",
-            query: params,
+            query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::InternalAccounts::BalanceReport
           }
@@ -94,6 +97,7 @@ module ModernTreasury
         #
         # @return [nil]
         def delete(id, params = {}, opts = {})
+          ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump(params)
           internal_account_id = params.fetch(:internal_account_id) do
             raise ArgumentError, "missing required path argument :internal_account_id"
           end
