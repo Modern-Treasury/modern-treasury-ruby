@@ -21,10 +21,10 @@ RuboCop::RakeTask.new(:format) do |t|
   t.options = %w[--fail-level F --autocorrect --format offenses]
 end
 
-task(:build) do
+multitask(:build) do
   sh(*%w[gem build -- modern_treasury.gemspec])
 end
 
-task(release: [:build]) do
+multitask(release: [:build]) do
   sh(*%w[gem push], *FileList["modern_treasury-*.gem"])
 end
