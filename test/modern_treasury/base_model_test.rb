@@ -3,8 +3,6 @@
 require_relative "test_helper"
 
 class ModernTreasury::Test::BaseModelTest < Minitest::Test
-  parallelize_me!
-
   class E1 < ModernTreasury::Enum
     A = :a
     B = :b
