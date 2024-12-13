@@ -10,7 +10,7 @@ module ModernTreasury
 
       # Create a new counterparty.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::CounterpartyCreateParams] Attributes to send in this request.
       #   @option params [String] :name A human friendly name for this counterparty.
       #   @option params [ModernTreasury::Models::CounterpartyCreateParams::Accounting, nil] :accounting
       #   @option params [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>, nil] :accounts The accounts for this counterparty.
@@ -59,7 +59,7 @@ module ModernTreasury
       #
       # @param id [String] The id of an existing counterparty.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::CounterpartyUpdateParams] Attributes to send in this request.
       #   @option params [String, nil] :email A new email for the counterparty.
       #   @option params [String, nil] :legal_entity_id The id of the legal entity.
       #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
@@ -85,7 +85,7 @@ module ModernTreasury
 
       # Get a paginated list of all counterparties.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::CounterpartyListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Time, nil] :created_at_lower_bound Used to return counterparties created after some datetime.
       #   @option params [Time, nil] :created_at_upper_bound Used to return counterparties created before some datetime.
@@ -133,7 +133,7 @@ module ModernTreasury
       #
       # @param id [String] counterparty id
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::CounterpartyCollectAccountParams] Attributes to send in this request.
       #   @option params [Symbol, ModernTreasury::Models::TransactionDirection] :direction One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       #     Use `debit` when you need to charge a counterparty. This field helps us send a
       #     more tailored email to your counterparties."
