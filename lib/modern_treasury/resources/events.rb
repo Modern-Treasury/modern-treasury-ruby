@@ -25,7 +25,7 @@ module ModernTreasury
 
       # list events
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::EventListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :entity_id
       #   @option params [String, nil] :event_name

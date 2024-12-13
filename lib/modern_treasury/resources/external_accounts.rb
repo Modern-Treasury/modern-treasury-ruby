@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create external account
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountCreateParams] Attributes to send in this request.
       #   @option params [String] :counterparty_id
       #   @option params [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>, nil] :account_details
       #   @option params [Symbol, ModernTreasury::Models::ExternalAccountType, nil] :account_type Can be `checking`, `savings` or `other`.
@@ -65,7 +65,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountUpdateParams] Attributes to send in this request.
       #   @option params [Symbol, ModernTreasury::Models::ExternalAccountType, nil] :account_type Can be `checking`, `savings` or `other`.
       #   @option params [String, nil] :counterparty_id
       #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
@@ -92,7 +92,7 @@ module ModernTreasury
 
       # list external accounts
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :counterparty_id
       #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
@@ -135,7 +135,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountCompleteVerificationParams] Attributes to send in this request.
       #   @option params [Array<Integer>, nil] :amounts
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -156,7 +156,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountVerifyParams] Attributes to send in this request.
       #   @option params [String] :originating_account_id The ID of the internal account where the micro-deposits originate from. Both
       #     credit and debit capabilities must be enabled.
       #   @option params [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType] :payment_type Can be `ach`, `eft`, or `rtp`.

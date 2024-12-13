@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create legal_entity
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LegalEntityCreateParams] Attributes to send in this request.
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] :legal_entity_type The type of legal entity.
       #   @option params [Array<ModernTreasury::Models::LegalEntityCreateParams::Address>, nil] :addresses A list of addresses for the entity.
       #   @option params [ModernTreasury::Models::BankSettings, nil] :bank_settings
@@ -70,7 +70,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LegalEntityUpdateParams] Attributes to send in this request.
       #   @option params [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>, nil] :addresses A list of addresses for the entity.
       #   @option params [ModernTreasury::Models::BankSettings, nil] :bank_settings
       #   @option params [String, nil] :business_name The business's legal business name.
@@ -111,7 +111,7 @@ module ModernTreasury
 
       # Get a list of all legal entities.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LegalEntityListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType, nil] :legal_entity_type
       #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value

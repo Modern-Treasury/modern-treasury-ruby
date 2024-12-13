@@ -14,7 +14,7 @@ module ModernTreasury
 
       # create transaction
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::TransactionCreateParams] Attributes to send in this request.
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
       #     as 1000.
       #   @option params [Date] :as_of_date The date on which the transaction occurred.
@@ -67,7 +67,7 @@ module ModernTreasury
       #
       # @param id [String] Transaction ID
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::TransactionUpdateParams] Attributes to send in this request.
       #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
@@ -87,7 +87,7 @@ module ModernTreasury
 
       # Get a list of all transactions.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::TransactionListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Date, nil] :as_of_date_end Filters transactions with an `as_of_date` starting on or before the specified
       #     date (YYYY-MM-DD).

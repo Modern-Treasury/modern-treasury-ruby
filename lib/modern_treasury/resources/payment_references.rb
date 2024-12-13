@@ -25,7 +25,7 @@ module ModernTreasury
 
       # list payment_references
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentReferenceListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [Integer, nil] :per_page
       #   @option params [String, nil] :reference_number The actual reference number assigned by the bank.
