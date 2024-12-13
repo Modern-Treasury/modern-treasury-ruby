@@ -3,6 +3,14 @@
 require_relative "test_helper"
 
 class ModernTreasuryTest < Minitest::Test
+  def setup
+    Thread.current.thread_variable_set(:mock_sleep, [])
+  end
+
+  def teardown
+    Thread.current.thread_variable_set(:mock_sleep, nil)
+  end
+
   def test_raises_on_missing_non_nullable_opts
     e = assert_raises(ArgumentError) do
       ModernTreasury::Client.new
@@ -63,8 +71,7 @@ class ModernTreasuryTest < Minitest::Test
     end
 
     # @param req [Hash{Symbol => Object}]
-    # @param timeout [Float, nil]
-    def execute(req, timeout:)
+    def execute(req)
       # Deep copy the request because it is mutated on each retry.
       attempts.push(Marshal.load(Marshal.dump(req)))
       MockResponse.new(response_code, response_data, response_headers)
@@ -77,7 +84,7 @@ class ModernTreasuryTest < Minitest::Test
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -94,7 +101,7 @@ class ModernTreasuryTest < Minitest::Test
       organization_id: "my-organization-ID",
       max_retries: 3
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -110,7 +117,7 @@ class ModernTreasuryTest < Minitest::Test
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -127,7 +134,7 @@ class ModernTreasuryTest < Minitest::Test
       organization_id: "my-organization-ID",
       max_retries: 3
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -144,7 +151,7 @@ class ModernTreasuryTest < Minitest::Test
       organization_id: "my-organization-ID",
       max_retries: 1
     )
-    requester = MockRequester.new(500, {}, {"retry-after" => "1.3", "x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {"retry-after" => "1.3"})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -152,7 +159,7 @@ class ModernTreasuryTest < Minitest::Test
     end
 
     assert_equal(2, requester.attempts.length)
-    assert_equal(1.3, requester.attempts.last[:headers]["x-stainless-mock-slept"])
+    assert_equal(1.3, Thread.current.thread_variable_get(:mock_sleep).last)
   end
 
   def test_client_retry_after_date
@@ -162,24 +169,17 @@ class ModernTreasuryTest < Minitest::Test
       organization_id: "my-organization-ID",
       max_retries: 1
     )
-    requester = MockRequester.new(
-      500,
-      {},
-      {
-        "retry-after" => (Time.now + 10).httpdate,
-        "x-stainless-mock-sleep" => "true"
-      }
-    )
+    requester = MockRequester.new(500, {}, {"retry-after" => (Time.now + 10).httpdate})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
-      Time.stub(:now, Time.now) do
-        modern_treasury.counterparties.create(name: "name")
-      end
+      Thread.current.thread_variable_set(:time_now, Time.now)
+      modern_treasury.counterparties.create(name: "name")
+      Thread.current.thread_variable_set(:time_now, nil)
     end
 
     assert_equal(2, requester.attempts.length)
-    assert_in_delta(10, requester.attempts.last[:headers]["x-stainless-mock-slept"], 1.0)
+    assert_in_delta(10, Thread.current.thread_variable_get(:mock_sleep).last, 1.0)
   end
 
   def test_client_retry_after_ms
@@ -189,7 +189,7 @@ class ModernTreasuryTest < Minitest::Test
       organization_id: "my-organization-ID",
       max_retries: 1
     )
-    requester = MockRequester.new(500, {}, {"retry-after-ms" => "1300", "x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {"retry-after-ms" => "1300"})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -197,7 +197,7 @@ class ModernTreasuryTest < Minitest::Test
     end
 
     assert_equal(2, requester.attempts.length)
-    assert_equal(1.3, requester.attempts.last[:headers]["x-stainless-mock-slept"])
+    assert_equal(1.3, Thread.current.thread_variable_get(:mock_sleep).last)
   end
 
   def test_retry_count_header
@@ -206,7 +206,7 @@ class ModernTreasuryTest < Minitest::Test
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -223,7 +223,7 @@ class ModernTreasuryTest < Minitest::Test
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -240,7 +240,7 @@ class ModernTreasuryTest < Minitest::Test
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -267,12 +267,12 @@ class ModernTreasuryTest < Minitest::Test
       modern_treasury.counterparties.create({name: "name"}, extra_headers: {})
     end
 
-    assert_equal("/redirected", requester.attempts[1][:url].path)
-    assert_equal(requester.attempts[0][:method], requester.attempts[1][:method])
-    assert_equal(requester.attempts[0][:body], requester.attempts[1][:body])
+    assert_equal("/redirected", requester.attempts.last[:url].path)
+    assert_equal(requester.attempts.first[:method], requester.attempts.last[:method])
+    assert_equal(requester.attempts.first[:body], requester.attempts.last[:body])
     assert_equal(
-      requester.attempts[0][:headers]["content-type"],
-      requester.attempts[1][:headers]["content-type"]
+      requester.attempts.first[:headers]["content-type"],
+      requester.attempts.last[:headers]["content-type"]
     )
   end
 
@@ -289,10 +289,10 @@ class ModernTreasuryTest < Minitest::Test
       modern_treasury.counterparties.create({name: "name"}, extra_headers: {})
     end
 
-    assert_equal("/redirected", requester.attempts[1][:url].path)
-    assert_equal(:get, requester.attempts[1][:method])
-    assert_nil(requester.attempts[1][:body])
-    assert_nil(requester.attempts[1][:headers]["Content-Type"])
+    assert_equal("/redirected", requester.attempts.last[:url].path)
+    assert_equal(:get, requester.attempts.last[:method])
+    assert_nil(requester.attempts.last[:body])
+    assert_nil(requester.attempts.last[:headers]["Content-Type"])
   end
 
   def test_client_redirect_auth_keep_same_origin
@@ -309,8 +309,8 @@ class ModernTreasuryTest < Minitest::Test
     end
 
     assert_equal(
-      requester.attempts[0][:headers]["authorization"],
-      requester.attempts[1][:headers]["authorization"]
+      requester.attempts.first[:headers]["authorization"],
+      requester.attempts.last[:headers]["authorization"]
     )
   end
 
@@ -327,7 +327,7 @@ class ModernTreasuryTest < Minitest::Test
       modern_treasury.counterparties.create({name: "name"}, extra_headers: {"Authorization" => "Bearer xyz"})
     end
 
-    assert_nil(requester.attempts[1][:headers]["Authorization"])
+    assert_nil(requester.attempts.last[:headers]["Authorization"])
   end
 
   def test_client_default_idempotency_key_on_writes
@@ -336,7 +336,7 @@ class ModernTreasuryTest < Minitest::Test
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -345,9 +345,9 @@ class ModernTreasuryTest < Minitest::Test
 
     idempotency_headers = requester.attempts.map { |a| a[:headers]["Idempotency-Key".downcase] }
 
-    assert_kind_of(String, idempotency_headers[0])
-    refute_empty(idempotency_headers[0])
-    assert_equal(idempotency_headers[0], idempotency_headers[1])
+    assert_kind_of(String, idempotency_headers.first)
+    refute_empty(idempotency_headers.first)
+    assert_equal(idempotency_headers.first, idempotency_headers.last)
   end
 
   def test_request_option_idempotency_key_on_writes
@@ -356,7 +356,7 @@ class ModernTreasuryTest < Minitest::Test
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(500, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
@@ -376,10 +376,10 @@ class ModernTreasuryTest < Minitest::Test
       api_key: "My API Key",
       organization_id: "my-organization-ID"
     )
-    requester = MockRequester.new(200, {}, {"x-stainless-mock-sleep" => "true"})
+    requester = MockRequester.new(200, {}, {})
     modern_treasury.requester = requester
     modern_treasury.counterparties.create(name: "name")
-    headers = requester.attempts[0][:headers]
+    headers = requester.attempts.first[:headers]
 
     refute_empty(headers["x-stainless-lang"])
     refute_empty(headers["x-stainless-package-version"])
