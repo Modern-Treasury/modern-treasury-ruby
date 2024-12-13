@@ -3,91 +3,91 @@
 module ModernTreasury
   module Models
     class Document < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] discarded_at
+      # @!attribute discarded_at
       #   @return [Time]
       required :discarded_at, Time
 
-      # @!attribute [rw] document_details
+      # @!attribute document_details
       #   @return [Array<ModernTreasury::Models::Document::DocumentDetail>]
       required :document_details,
                ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::Document::DocumentDetail })
 
-      # @!attribute [rw] document_type
+      # @!attribute document_type
       #   A category given to the document, can be `null`.
       #   @return [String]
       required :document_type, String
 
-      # @!attribute [rw] documentable_id
+      # @!attribute documentable_id
       #   The unique identifier for the associated object.
       #   @return [String]
       required :documentable_id, String
 
-      # @!attribute [rw] documentable_type
+      # @!attribute documentable_type
       #   The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
       #   @return [Symbol, ModernTreasury::Models::Document::DocumentableType]
       required :documentable_type, enum: -> { ModernTreasury::Models::Document::DocumentableType }
 
-      # @!attribute [rw] file
+      # @!attribute file
       #   @return [ModernTreasury::Models::Document::File]
       required :file, -> { ModernTreasury::Models::Document::File }
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] source
+      # @!attribute source
       #   The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
       #   @return [String]
       required :source, String
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
       class DocumentDetail < ModernTreasury::BaseModel
-        # @!attribute [rw] id
+        # @!attribute id
         #   @return [String]
         required :id, String
 
-        # @!attribute [rw] created_at
+        # @!attribute created_at
         #   @return [Time]
         required :created_at, Time
 
-        # @!attribute [rw] discarded_at
+        # @!attribute discarded_at
         #   @return [Time]
         required :discarded_at, Time
 
-        # @!attribute [rw] document_identifier
+        # @!attribute document_identifier
         #   @return [String]
         required :document_identifier, String
 
-        # @!attribute [rw] document_identifier_type
+        # @!attribute document_identifier_type
         #   @return [String]
         required :document_identifier_type, String
 
-        # @!attribute [rw] live_mode
+        # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
-        # @!attribute [rw] object
+        # @!attribute object
         #   @return [String]
         required :object, String
 
-        # @!attribute [rw] updated_at
+        # @!attribute updated_at
         #   @return [Time]
         required :updated_at, Time
 
@@ -124,17 +124,17 @@ module ModernTreasury
       end
 
       class File < ModernTreasury::BaseModel
-        # @!attribute [rw] content_type
+        # @!attribute content_type
         #   The MIME content type of the document.
         #   @return [String]
         optional :content_type, String
 
-        # @!attribute [rw] filename
+        # @!attribute filename
         #   The original filename of the document.
         #   @return [String]
         optional :filename, String
 
-        # @!attribute [rw] size
+        # @!attribute size
         #   The size of the document in bytes.
         #   @return [Integer]
         optional :size, Integer

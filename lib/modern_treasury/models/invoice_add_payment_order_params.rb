@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class InvoiceAddPaymentOrderParams < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
     end

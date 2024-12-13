@@ -3,48 +3,48 @@
 module ModernTreasury
   module Models
     class BankSettings < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] backup_withholding_percentage
+      # @!attribute backup_withholding_percentage
       #   The percentage of backup withholding to apply to the legal entity.
       #   @return [Integer]
       required :backup_withholding_percentage, Integer
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] discarded_at
+      # @!attribute discarded_at
       #   @return [Time]
       required :discarded_at, Time
 
-      # @!attribute [rw] enable_backup_withholding
+      # @!attribute enable_backup_withholding
       #   Whether backup withholding is enabled. See more here - https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
       #   @return [Boolean]
       required :enable_backup_withholding, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] privacy_opt_out
+      # @!attribute privacy_opt_out
       #   Cross River Bank specific setting to opt out of privacy policy.
       #   @return [Boolean]
       required :privacy_opt_out, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] regulation_o
+      # @!attribute regulation_o
       #   It covers, among other types of insider loans, extensions of credit by a member bank to an executive officer, director, or principal shareholder of the member bank; a bank holding company of which the member bank is a subsidiary; and any other subsidiary of that bank holding company.
       #   @return [Boolean]
       required :regulation_o, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 

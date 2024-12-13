@@ -4,27 +4,27 @@ module ModernTreasury
   module Models
     module InternalAccounts
       class BalanceReport < ModernTreasury::BaseModel
-        # @!attribute [rw] id
+        # @!attribute id
         #   @return [String]
         required :id, String
 
-        # @!attribute [rw] as_of_date
+        # @!attribute as_of_date
         #   The date of the balance report in local time.
         #   @return [Date]
         required :as_of_date, Date
 
-        # @!attribute [rw] as_of_time
+        # @!attribute as_of_time
         #   The time (24-hour clock) of the balance report in local time.
         #   @return [String]
         required :as_of_time, String
 
-        # @!attribute [rw] balance_report_type
+        # @!attribute balance_report_type
         #   The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
         #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType]
         required :balance_report_type,
                  enum: -> { ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType }
 
-        # @!attribute [rw] balances
+        # @!attribute balances
         #   An array of `Balance` objects.
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
         required :balances,
@@ -34,25 +34,25 @@ module ModernTreasury
                    }
                  )
 
-        # @!attribute [rw] created_at
+        # @!attribute created_at
         #   @return [Time]
         required :created_at, Time
 
-        # @!attribute [rw] internal_account_id
+        # @!attribute internal_account_id
         #   The ID of one of your organization's Internal Accounts.
         #   @return [String]
         required :internal_account_id, String
 
-        # @!attribute [rw] live_mode
+        # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
-        # @!attribute [rw] object
+        # @!attribute object
         #   @return [String]
         required :object, String
 
-        # @!attribute [rw] updated_at
+        # @!attribute updated_at
         #   @return [Time]
         required :updated_at, Time
 
@@ -65,64 +65,64 @@ module ModernTreasury
         end
 
         class Balance < ModernTreasury::BaseModel
-          # @!attribute [rw] id
+          # @!attribute id
           #   @return [String]
           required :id, String
 
-          # @!attribute [rw] amount
+          # @!attribute amount
           #   The balance amount.
           #   @return [Integer]
           required :amount, Integer
 
-          # @!attribute [rw] as_of_date
+          # @!attribute as_of_date
           #   The date on which the balance became true for the account.
           #   @return [Date]
           required :as_of_date, Date
 
-          # @!attribute [rw] as_of_time
+          # @!attribute as_of_time
           #   The time on which the balance became true for the account.
           #   @return [String]
           required :as_of_time, String
 
-          # @!attribute [rw] balance_type
+          # @!attribute balance_type
           #   The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
           #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType]
           required :balance_type,
                    enum: -> { ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType }
 
-          # @!attribute [rw] created_at
+          # @!attribute created_at
           #   @return [Time]
           required :created_at, Time
 
-          # @!attribute [rw] currency
+          # @!attribute currency
           #   The currency of the balance.
           #   @return [Symbol, ModernTreasury::Models::Currency]
           required :currency, enum: -> { ModernTreasury::Models::Currency }
 
-          # @!attribute [rw] live_mode
+          # @!attribute live_mode
           #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
           #   @return [Boolean]
           required :live_mode, ModernTreasury::BooleanModel
 
-          # @!attribute [rw] object
+          # @!attribute object
           #   @return [String]
           required :object, String
 
-          # @!attribute [rw] updated_at
+          # @!attribute updated_at
           #   @return [Time]
           required :updated_at, Time
 
-          # @!attribute [rw] value_date
+          # @!attribute value_date
           #   The date on which the balance becomes available.
           #   @return [Date]
           required :value_date, Date
 
-          # @!attribute [rw] vendor_code
+          # @!attribute vendor_code
           #   The code used by the bank when reporting this specific balance.
           #   @return [String]
           required :vendor_code, String
 
-          # @!attribute [rw] vendor_code_type
+          # @!attribute vendor_code_type
           #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, or `us_bank`.
           #   @return [String]
           required :vendor_code_type, String

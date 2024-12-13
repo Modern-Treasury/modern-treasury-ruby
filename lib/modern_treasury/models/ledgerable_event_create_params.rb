@@ -3,22 +3,22 @@
 module ModernTreasury
   module Models
     class LedgerableEventCreateParams < ModernTreasury::BaseModel
-      # @!attribute [rw] name
+      # @!attribute name
       #   Name of the ledgerable event.
       #   @return [String]
       required :name, String
 
-      # @!attribute [rw] custom_data
+      # @!attribute custom_data
       #   Additionally data to be used by the Ledger Event Handler.
       #   @return [Object]
       optional :custom_data, ModernTreasury::Unknown
 
-      # @!attribute [rw] description
+      # @!attribute description
       #   Description of the ledgerable event.
       #   @return [String]
       optional :description, String
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
       optional :metadata, Hash

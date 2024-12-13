@@ -28,7 +28,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/foreign_exchange_quotes",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::ForeignExchangeQuote
         }

@@ -3,102 +3,102 @@
 module ModernTreasury
   module Models
     class RoutingDetail < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] bank_address
+      # @!attribute bank_address
       #   @return [ModernTreasury::Models::RoutingDetail::BankAddress]
       required :bank_address, -> { ModernTreasury::Models::RoutingDetail::BankAddress }
 
-      # @!attribute [rw] bank_name
+      # @!attribute bank_name
       #   The name of the bank.
       #   @return [String]
       required :bank_name, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] discarded_at
+      # @!attribute discarded_at
       #   @return [Time]
       required :discarded_at, Time
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] payment_type
+      # @!attribute payment_type
       #   If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
       #   @return [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType]
       required :payment_type, enum: -> { ModernTreasury::Models::RoutingDetail::PaymentType }
 
-      # @!attribute [rw] routing_number
+      # @!attribute routing_number
       #   The routing number of the bank.
       #   @return [String]
       required :routing_number, String
 
-      # @!attribute [rw] routing_number_type
+      # @!attribute routing_number_type
       #   The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
       #   @return [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
       required :routing_number_type, enum: -> { ModernTreasury::Models::RoutingDetail::RoutingNumberType }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
       class BankAddress < ModernTreasury::BaseModel
-        # @!attribute [rw] id
+        # @!attribute id
         #   @return [String]
         required :id, String
 
-        # @!attribute [rw] country
+        # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #   @return [String]
         required :country, String
 
-        # @!attribute [rw] created_at
+        # @!attribute created_at
         #   @return [Time]
         required :created_at, Time
 
-        # @!attribute [rw] line1
+        # @!attribute line1
         #   @return [String]
         required :line1, String
 
-        # @!attribute [rw] line2
+        # @!attribute line2
         #   @return [String]
         required :line2, String
 
-        # @!attribute [rw] live_mode
+        # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
-        # @!attribute [rw] locality
+        # @!attribute locality
         #   Locality or City.
         #   @return [String]
         required :locality, String
 
-        # @!attribute [rw] object
+        # @!attribute object
         #   @return [String]
         required :object, String
 
-        # @!attribute [rw] postal_code
+        # @!attribute postal_code
         #   The postal code of the address.
         #   @return [String]
         required :postal_code, String
 
-        # @!attribute [rw] region
+        # @!attribute region
         #   Region or State.
         #   @return [String]
         required :region, String
 
-        # @!attribute [rw] updated_at
+        # @!attribute updated_at
         #   @return [Time]
         required :updated_at, Time
 

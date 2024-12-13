@@ -3,27 +3,27 @@
 module ModernTreasury
   module Models
     class ExternalAccountVerifyParams < ModernTreasury::BaseModel
-      # @!attribute [rw] originating_account_id
+      # @!attribute originating_account_id
       #   The ID of the internal account where the micro-deposits originate from. Both credit and debit capabilities must be enabled.
       #   @return [String]
       required :originating_account_id, String
 
-      # @!attribute [rw] payment_type
+      # @!attribute payment_type
       #   Can be `ach`, `eft`, or `rtp`.
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType]
       required :payment_type, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType }
 
-      # @!attribute [rw] currency
+      # @!attribute currency
       #   Defaults to the currency of the originating account.
       #   @return [Symbol, ModernTreasury::Models::Currency]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute [rw] fallback_type
+      # @!attribute fallback_type
       #   A payment type to fallback to if the original type is not valid for the receiving account. Currently, this only supports falling back from RTP to ACH (payment_type=rtp and fallback_type=ach)
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType]
       optional :fallback_type, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType }
 
-      # @!attribute [rw] priority
+      # @!attribute priority
       #   Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH transfer. This will apply to both `payment_type` and `fallback_type`.
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority]
       optional :priority, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::Priority }

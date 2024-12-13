@@ -72,7 +72,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/invoices",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::Invoice
         }
@@ -156,7 +155,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/invoices/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::Invoice
         }
@@ -206,9 +204,9 @@ module ModernTreasury
       #
       # @return [nil]
       def add_payment_order(payment_order_id, params = {}, opts = {})
-        ModernTreasury::Models::InvoiceAddPaymentOrderParams.dump(params)
-        id = params.fetch(:id) do
-          raise ArgumentError, "missing required path argument :id"
+        parsed = ModernTreasury::Models::InvoiceAddPaymentOrderParams.dump(params)
+        id = parsed.fetch(:id) do
+          raise ArgumentError.new("missing required path argument :id")
         end
         req = {
           method: :put,

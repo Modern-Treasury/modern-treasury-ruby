@@ -28,7 +28,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/ledger_event_handlers",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerEventHandler
         }

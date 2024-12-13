@@ -4,16 +4,16 @@ module ModernTreasury
   module Models
     module InternalAccounts
       class BalanceReportListParams < ModernTreasury::BaseModel
-        # @!attribute [rw] after_cursor
+        # @!attribute after_cursor
         #   @return [String]
         optional :after_cursor, String
 
-        # @!attribute [rw] as_of_date
+        # @!attribute as_of_date
         #   The date of the balance report in local time.
         #   @return [Date]
         optional :as_of_date, Date
 
-        # @!attribute [rw] balance_report_type
+        # @!attribute balance_report_type
         #   The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
         #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]
         optional :balance_report_type,
@@ -21,7 +21,7 @@ module ModernTreasury
                    ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType
                  }
 
-        # @!attribute [rw] per_page
+        # @!attribute per_page
         #   @return [Integer]
         optional :per_page, Integer
 

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryRemoveLedgerAccountParams < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
     end

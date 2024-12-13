@@ -3,158 +3,158 @@
 module ModernTreasury
   module Models
     class Transaction < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] amount
+      # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @return [Integer]
       required :amount, Integer
 
-      # @!attribute [rw] as_of_date
+      # @!attribute as_of_date
       #   The date on which the transaction occurred.
       #   @return [Date]
       required :as_of_date, Date
 
-      # @!attribute [rw] as_of_time
+      # @!attribute as_of_time
       #   The time on which the transaction occurred. Depending on the granularity of the timestamp information received from the bank, it may be `null`.
       #   @return [String]
       required :as_of_time, String
 
-      # @!attribute [rw] as_of_timezone
+      # @!attribute as_of_timezone
       #   The timezone in which the `as_of_time` is represented. Can be `null` if the bank does not provide timezone info.
       #   @return [String]
       required :as_of_timezone, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] currency
+      # @!attribute currency
       #   Currency that this transaction is denominated in.
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute [rw] custom_identifiers
+      # @!attribute custom_identifiers
       #   An object containing key-value pairs, each with a custom identifier as the key and a string value.
       #   @return [Hash]
       required :custom_identifiers, Hash
 
-      # @!attribute [rw] direction
+      # @!attribute direction
       #   Either `credit` or `debit`.
       #   @return [String]
       required :direction, String
 
-      # @!attribute [rw] discarded_at
+      # @!attribute discarded_at
       #   @return [Time]
       required :discarded_at, Time
 
-      # @!attribute [rw] foreign_exchange_rate
+      # @!attribute foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
       #   @return [ModernTreasury::Models::Transaction::ForeignExchangeRate]
       required :foreign_exchange_rate, -> { ModernTreasury::Models::Transaction::ForeignExchangeRate }
 
-      # @!attribute [rw] internal_account_id
+      # @!attribute internal_account_id
       #   The ID of the relevant Internal Account.
       #   @return [String]
       required :internal_account_id, String
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] posted
+      # @!attribute posted
       #   This field will be `true` if the transaction has posted to the account.
       #   @return [Boolean]
       required :posted, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] reconciled
+      # @!attribute reconciled
       #   This field will be `true` if a transaction is reconciled by the Modern Treasury system. This means that it has transaction line items that sum up to the transaction's amount.
       #   @return [Boolean]
       required :reconciled, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] type
+      # @!attribute type
       #   The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #   @return [Symbol, ModernTreasury::Models::Transaction::Type]
       required :type, enum: -> { ModernTreasury::Models::Transaction::Type }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
-      # @!attribute [rw] vendor_code
+      # @!attribute vendor_code
       #   When applicable, the bank-given code that determines the transaction's category. For most banks this is the BAI2/BTRS transaction code.
       #   @return [String]
       required :vendor_code, String
 
-      # @!attribute [rw] vendor_code_type
+      # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, `us_bank`, or others.
       #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType]
       required :vendor_code_type, enum: -> { ModernTreasury::Models::Transaction::VendorCodeType }
 
-      # @!attribute [rw] vendor_customer_id
+      # @!attribute vendor_customer_id
       #   An identifier given to this transaction by the bank, often `null`.
       #   @return [String]
       required :vendor_customer_id, String
 
-      # @!attribute [rw] vendor_id
+      # @!attribute vendor_id
       #   An identifier given to this transaction by the bank.
       #   @return [String]
       required :vendor_id, String
 
-      # @!attribute [rw] details
+      # @!attribute details
       #   This field contains additional information that the bank provided about the transaction. This is structured data. Some of the data in here might overlap with what is in the `vendor_description`. For example, the OBI could be a part of the vendor description, and it would also be included in here. The attributes that are passed through the details field will vary based on your banking partner. Currently, the following keys may be in the details object: `originator_name`, `originator_to_beneficiary_information`.
       #   @return [Hash]
       optional :details, Hash
 
-      # @!attribute [rw] vendor_description
+      # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in your banking portal.
       #   @return [String]
       optional :vendor_description, String
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
-        # @!attribute [rw] base_amount
+        # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
         #   @return [Integer]
         required :base_amount, Integer
 
-        # @!attribute [rw] base_currency
+        # @!attribute base_currency
         #   Currency to convert, often called the "sell" currency.
         #   @return [Symbol, ModernTreasury::Models::Currency]
         required :base_currency, enum: -> { ModernTreasury::Models::Currency }
 
-        # @!attribute [rw] exponent
+        # @!attribute exponent
         #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
         #   @return [Integer]
         required :exponent, Integer
 
-        # @!attribute [rw] rate_string
+        # @!attribute rate_string
         #   A string representation of the rate.
         #   @return [String]
         required :rate_string, String
 
-        # @!attribute [rw] target_amount
+        # @!attribute target_amount
         #   Amount in the lowest denomination of the `target_currency`, often called the "buy" amount.
         #   @return [Integer]
         required :target_amount, Integer
 
-        # @!attribute [rw] target_currency
+        # @!attribute target_currency
         #   Currency to convert the `base_currency` to, often called the "buy" currency.
         #   @return [Symbol, ModernTreasury::Models::Currency]
         required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
-        # @!attribute [rw] value
+        # @!attribute value
         #   The whole number component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
         #   @return [Integer]
         required :value, Integer

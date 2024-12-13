@@ -3,12 +3,12 @@
 module ModernTreasury
   module Models
     class AccountCollectionFlow < ModernTreasury::BaseModel
-      # @!attribute [rw] counterparty_id
+      # @!attribute counterparty_id
       #   The ID of a counterparty. An external account created with this flow will be associated with this counterparty.
       #   @return [String]
       required :counterparty_id, String
 
-      # @!attribute [rw] payment_types
+      # @!attribute payment_types
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
                ModernTreasury::ArrayOf.new(
@@ -17,34 +17,34 @@ module ModernTreasury
                  }
                )
 
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       optional :id, String
 
-      # @!attribute [rw] client_token
+      # @!attribute client_token
       #   The client token of the account collection flow.  This token can be used to embed account collection in your client-side application.
       #   @return [String]
       optional :client_token, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       optional :created_at, Time
 
-      # @!attribute [rw] external_account_id
+      # @!attribute external_account_id
       #   If present, the ID of the external account created using this flow.
       #   @return [String]
       optional :external_account_id, String
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       optional :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       optional :object, String
 
-      # @!attribute [rw] receiving_countries
+      # @!attribute receiving_countries
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
       optional :receiving_countries,
                ModernTreasury::ArrayOf.new(
@@ -53,12 +53,12 @@ module ModernTreasury
                  }
                )
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
       #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status]
       optional :status, enum: -> { ModernTreasury::Models::AccountCollectionFlow::Status }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       optional :updated_at, Time
 

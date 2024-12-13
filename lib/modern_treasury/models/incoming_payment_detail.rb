@@ -3,125 +3,125 @@
 module ModernTreasury
   module Models
     class IncomingPaymentDetail < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] amount
+      # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @return [Integer]
       required :amount, Integer
 
-      # @!attribute [rw] as_of_date
+      # @!attribute as_of_date
       #   The date on which the corresponding transaction will occur.
       #   @return [Date]
       required :as_of_date, Date
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] currency
+      # @!attribute currency
       #   The currency of the incoming payment detail.
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute [rw] data
+      # @!attribute data
       #   The raw data from the payment pre-notification file that we get from the bank.
       #   @return [Hash]
       required :data, Hash
 
-      # @!attribute [rw] direction
+      # @!attribute direction
       #   One of `credit` or `debit`.
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute [rw] internal_account_id
+      # @!attribute internal_account_id
       #   The ID of the Internal Account for the incoming payment detail. This is always present.
       #   @return [String]
       required :internal_account_id, String
 
-      # @!attribute [rw] ledger_transaction_id
+      # @!attribute ledger_transaction_id
       #   The ID of the ledger transaction linked to the incoming payment detail or `null`.
       #   @return [String]
       required :ledger_transaction_id, String
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] originating_account_number_safe
+      # @!attribute originating_account_number_safe
       #   The last 4 digits of the originating account_number for the incoming payment detail.
       #   @return [String]
       required :originating_account_number_safe, String
 
-      # @!attribute [rw] originating_account_number_type
+      # @!attribute originating_account_number_type
       #   The type of the originating account number for the incoming payment detail.
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType]
       required :originating_account_number_type,
                enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType }
 
-      # @!attribute [rw] originating_routing_number
+      # @!attribute originating_routing_number
       #   The routing number of the originating account for the incoming payment detail.
       #   @return [String]
       required :originating_routing_number, String
 
-      # @!attribute [rw] originating_routing_number_type
+      # @!attribute originating_routing_number_type
       #   The type of the originating routing number for the incoming payment detail.
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType]
       required :originating_routing_number_type,
                enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType }
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status]
       required :status, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Status }
 
-      # @!attribute [rw] transaction_id
+      # @!attribute transaction_id
       #   The ID of the reconciled Transaction or `null`.
       #   @return [String]
       required :transaction_id, String
 
-      # @!attribute [rw] transaction_line_item_id
+      # @!attribute transaction_line_item_id
       #   The ID of the reconciled Transaction Line Item or `null`.
       #   @return [String]
       required :transaction_line_item_id, String
 
-      # @!attribute [rw] type
+      # @!attribute type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type]
       required :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetail::Type }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
-      # @!attribute [rw] vendor_id
+      # @!attribute vendor_id
       #   The identifier of the vendor bank.
       #   @return [String]
       required :vendor_id, String
 
-      # @!attribute [rw] virtual_account
+      # @!attribute virtual_account
       #   If the incoming payment detail is in a virtual account, the serialized virtual account object.
       #   @return [ModernTreasury::Models::VirtualAccount]
       required :virtual_account, -> { ModernTreasury::Models::VirtualAccount }
 
-      # @!attribute [rw] virtual_account_id
+      # @!attribute virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual Account.
       #   @return [String]
       required :virtual_account_id, String
 
-      # @!attribute [rw] originating_account_number
+      # @!attribute originating_account_number
       #   The account number of the originating account for the incoming payment detail.
       #   @return [String]
       optional :originating_account_number, String

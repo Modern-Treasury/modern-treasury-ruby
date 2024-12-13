@@ -3,114 +3,114 @@
 module ModernTreasury
   module Models
     class ReturnObject < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] amount
+      # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @return [Integer]
       required :amount, Integer
 
-      # @!attribute [rw] code
+      # @!attribute code
       #   The return code. For ACH returns, this is the required ACH return code.
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::Code]
       required :code, enum: -> { ModernTreasury::Models::ReturnObject::Code }
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] currency
+      # @!attribute currency
       #   Currency that this transaction is denominated in.
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute [rw] current_return
+      # @!attribute current_return
       #   If the return's status is `returned`, this will include the return object's data that is returning this return.
       #   @return [Object]
       required :current_return, ModernTreasury::Unknown
 
-      # @!attribute [rw] date_of_death
+      # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty passed away.
       #   @return [Date]
       required :date_of_death, Date
 
-      # @!attribute [rw] failure_reason
+      # @!attribute failure_reason
       #   If an originating return failed to be processed by the bank, a description of the failure reason will be available.
       #   @return [String]
       required :failure_reason, String
 
-      # @!attribute [rw] internal_account_id
+      # @!attribute internal_account_id
       #   The ID of the relevant Internal Account.
       #   @return [String]
       required :internal_account_id, String
 
-      # @!attribute [rw] ledger_transaction_id
+      # @!attribute ledger_transaction_id
       #   The ID of the ledger transaction linked to the return.
       #   @return [String]
       required :ledger_transaction_id, String
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] reason
+      # @!attribute reason
       #   Often the bank will provide an explanation for the return, which is a short human readable string.
       #   @return [String]
       required :reason, String
 
-      # @!attribute [rw] reference_numbers
+      # @!attribute reference_numbers
       #   An array of Payment Reference objects.
       #   @return [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
       required :reference_numbers,
                ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::ReturnObject::ReferenceNumber })
 
-      # @!attribute [rw] returnable_id
+      # @!attribute returnable_id
       #   The ID of the object being returned or `null`.
       #   @return [String]
       required :returnable_id, String
 
-      # @!attribute [rw] returnable_type
+      # @!attribute returnable_type
       #   The type of object being returned or `null`.
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType]
       required :returnable_type, enum: -> { ModernTreasury::Models::ReturnObject::ReturnableType }
 
-      # @!attribute [rw] role
+      # @!attribute role
       #   The role of the return, can be `originating` or `receiving`.
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::Role]
       required :role, enum: -> { ModernTreasury::Models::ReturnObject::Role }
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   The current status of the return.
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::Status]
       required :status, enum: -> { ModernTreasury::Models::ReturnObject::Status }
 
-      # @!attribute [rw] transaction_id
+      # @!attribute transaction_id
       #   The ID of the relevant Transaction or `null`.
       #   @return [String]
       required :transaction_id, String
 
-      # @!attribute [rw] transaction_line_item_id
+      # @!attribute transaction_line_item_id
       #   The ID of the relevant Transaction Line Item or `null`.
       #   @return [String]
       required :transaction_line_item_id, String
 
-      # @!attribute [rw] type
+      # @!attribute type
       #   The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `interac`, `manual`, `paper_item`, `wire`.
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::Type]
       required :type, enum: -> { ModernTreasury::Models::ReturnObject::Type }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
-      # @!attribute [rw] additional_information
+      # @!attribute additional_information
       #   Some returns may include additional information from the bank. In these cases, this string will be present.
       #   @return [String]
       optional :additional_information, String
@@ -173,35 +173,35 @@ module ModernTreasury
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
-        # @!attribute [rw] id
+        # @!attribute id
         #   @return [String]
         required :id, String
 
-        # @!attribute [rw] created_at
+        # @!attribute created_at
         #   @return [Time]
         required :created_at, Time
 
-        # @!attribute [rw] live_mode
+        # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
-        # @!attribute [rw] object
+        # @!attribute object
         #   @return [String]
         required :object, String
 
-        # @!attribute [rw] reference_number
+        # @!attribute reference_number
         #   The vendor reference number.
         #   @return [String]
         required :reference_number, String
 
-        # @!attribute [rw] reference_number_type
+        # @!attribute reference_number_type
         #   The type of the reference number. Referring to the vendor payment id.
         #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType]
         required :reference_number_type,
                  enum: -> { ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType }
 
-        # @!attribute [rw] updated_at
+        # @!attribute updated_at
         #   @return [Time]
         required :updated_at, Time
 
