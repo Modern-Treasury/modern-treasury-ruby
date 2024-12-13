@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create expected payment
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExpectedPaymentCreateParams] Attributes to send in this request.
       #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @option params [Integer, nil] :amount_upper_bound The highest amount this expected payment may be equal to. Value in specified
@@ -80,7 +80,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExpectedPaymentUpdateParams] Attributes to send in this request.
       #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @option params [Integer, nil] :amount_upper_bound The highest amount this expected payment may be equal to. Value in specified
@@ -126,7 +126,7 @@ module ModernTreasury
 
       # list expected_payments
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExpectedPaymentListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :counterparty_id Specify counterparty_id to see expected_payments for a specific account.
       #   @option params [Time, nil] :created_at_lower_bound Used to return expected payments created after some datetime
