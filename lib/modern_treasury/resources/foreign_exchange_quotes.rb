@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create foreign_exchange_quote
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ForeignExchangeQuoteCreateParams] Attributes to send in this request.
       #   @option params [String] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
       #   @option params [Symbol, ModernTreasury::Models::Currency] :target_currency Currency to convert the `base_currency` to, often called the "buy" currency.
       #   @option params [Integer, nil] :base_amount Amount in the lowest denomination of the `base_currency` to convert, often
@@ -51,7 +51,7 @@ module ModernTreasury
 
       # list foreign_exchange_quotes
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ForeignExchangeQuoteListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :base_currency Currency to convert, often called the "sell" currency.
       #   @option params [Date, nil] :effective_at_end An inclusive upper bound for searching effective_at

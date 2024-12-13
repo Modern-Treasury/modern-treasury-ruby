@@ -12,7 +12,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::RoutingDetailCreateParams] Attributes to send in this request.
       #   @option params [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType] :accounts_type Path param:
       #   @option params [String] :routing_number Body param: The routing number of the bank.
       #   @option params [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType] :routing_number_type Body param: The type of routing number. See
@@ -42,7 +42,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the routing detail.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::RoutingDetailRetrieveParams] Attributes to send in this request.
       #   @option params [Symbol, ModernTreasury::Models::AccountsType] :accounts_type
       #   @option params [String] :account_id The ID of the account.
       #
@@ -69,7 +69,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::RoutingDetailListParams] Attributes to send in this request.
       #   @option params [Symbol, ModernTreasury::Models::AccountsType] :accounts_type Path param:
       #   @option params [String, nil] :after_cursor Query param:
       #   @option params [Integer, nil] :per_page Query param:
@@ -96,7 +96,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the routing detail.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::RoutingDetailDeleteParams] Attributes to send in this request.
       #   @option params [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType] :accounts_type
       #   @option params [String] :account_id The ID of the account.
       #

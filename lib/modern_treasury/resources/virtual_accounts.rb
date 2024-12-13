@@ -10,7 +10,7 @@ module ModernTreasury
 
       # create virtual_account
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::VirtualAccountCreateParams] Attributes to send in this request.
       #   @option params [String] :internal_account_id The ID of the internal account that this virtual account is associated with.
       #   @option params [String] :name The name of the virtual account.
       #   @option params [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>, nil] :account_details An array of account detail objects.
@@ -62,7 +62,7 @@ module ModernTreasury
       #
       # @param id [String] Virtual Acccount ID
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::VirtualAccountUpdateParams] Attributes to send in this request.
       #   @option params [String, nil] :counterparty_id
       #   @option params [String, nil] :ledger_account_id The ledger account that you'd like to link to the virtual account.
       #   @option params [Hash, nil] :metadata
@@ -84,7 +84,7 @@ module ModernTreasury
 
       # Get a list of virtual accounts.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::VirtualAccountListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :counterparty_id
       #   @option params [String, nil] :internal_account_id

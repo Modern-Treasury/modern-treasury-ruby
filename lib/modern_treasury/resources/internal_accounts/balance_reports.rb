@@ -13,7 +13,7 @@ module ModernTreasury
         #
         # @param internal_account_id [String]
         #
-        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams] Attributes to send in this request.
         #   @option params [Date] :as_of_date The date of the balance report in local time.
         #   @option params [String] :as_of_time The time (24-hour clock) of the balance report in local time.
         #   @option params [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
@@ -39,7 +39,7 @@ module ModernTreasury
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
         #
-        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams] Attributes to send in this request.
         #   @option params [String] :internal_account_id
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -62,7 +62,7 @@ module ModernTreasury
         #
         # @param internal_account_id [String]
         #
-        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InternalAccounts::BalanceReportListParams] Attributes to send in this request.
         #   @option params [String, nil] :after_cursor
         #   @option params [Date, nil] :as_of_date The date of the balance report in local time.
         #   @option params [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType, nil] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
@@ -89,7 +89,7 @@ module ModernTreasury
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
         #
-        # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams] Attributes to send in this request.
         #   @option params [String] :internal_account_id
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

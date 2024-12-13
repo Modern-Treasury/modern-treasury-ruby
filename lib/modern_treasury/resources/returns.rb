@@ -10,7 +10,7 @@ module ModernTreasury
 
       # Create a return.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ReturnCreateParams] Attributes to send in this request.
       #   @option params [String] :returnable_id The ID of the object being returned or `null`.
       #   @option params [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType] :returnable_type The type of object being returned. Currently, this may only be
       #     incoming_payment_detail.
@@ -53,7 +53,7 @@ module ModernTreasury
 
       # Get a list of returns.
       #
-      # @param params [Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ReturnListParams] Attributes to send in this request.
       #   @option params [String, nil] :after_cursor
       #   @option params [String, nil] :counterparty_id Specify `counterparty_id` if you wish to see returns that occurred with a
       #     specific counterparty.
