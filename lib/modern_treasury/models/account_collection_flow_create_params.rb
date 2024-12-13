@@ -3,16 +3,16 @@
 module ModernTreasury
   module Models
     class AccountCollectionFlowCreateParams < ModernTreasury::BaseModel
-      # @!attribute [rw] counterparty_id
+      # @!attribute counterparty_id
       #   Required.
       #   @return [String]
       required :counterparty_id, String
 
-      # @!attribute [rw] payment_types
+      # @!attribute payment_types
       #   @return [Array<String>]
       required :payment_types, ModernTreasury::ArrayOf.new(String)
 
-      # @!attribute [rw] receiving_countries
+      # @!attribute receiving_countries
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
       optional :receiving_countries,
                ModernTreasury::ArrayOf.new(

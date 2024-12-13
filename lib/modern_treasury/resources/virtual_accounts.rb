@@ -37,7 +37,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/virtual_accounts",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::VirtualAccount
         }
@@ -77,7 +76,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/virtual_accounts/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::VirtualAccount
         }

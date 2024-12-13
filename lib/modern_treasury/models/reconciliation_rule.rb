@@ -3,52 +3,52 @@
 module ModernTreasury
   module Models
     class ReconciliationRule < ModernTreasury::BaseModel
-      # @!attribute [rw] amount_lower_bound
+      # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @return [Integer]
       required :amount_lower_bound, Integer
 
-      # @!attribute [rw] amount_upper_bound
+      # @!attribute amount_upper_bound
       #   The highest amount this expected payment may be equal to. Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @return [Integer]
       required :amount_upper_bound, Integer
 
-      # @!attribute [rw] direction
+      # @!attribute direction
       #   One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
       #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Direction]
       required :direction, enum: -> { ModernTreasury::Models::ReconciliationRule::Direction }
 
-      # @!attribute [rw] internal_account_id
+      # @!attribute internal_account_id
       #   The ID of the Internal Account for the expected payment
       #   @return [String]
       required :internal_account_id, String
 
-      # @!attribute [rw] counterparty_id
+      # @!attribute counterparty_id
       #   The ID of the counterparty you expect for this payment
       #   @return [String]
       optional :counterparty_id, String
 
-      # @!attribute [rw] currency
+      # @!attribute currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account
       #   @return [Symbol, ModernTreasury::Models::Currency]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute [rw] custom_identifiers
+      # @!attribute custom_identifiers
       #   A hash of custom identifiers for this payment
       #   @return [Hash]
       optional :custom_identifiers, Hash
 
-      # @!attribute [rw] date_lower_bound
+      # @!attribute date_lower_bound
       #   The earliest date the payment may come in. Format is yyyy-mm-dd
       #   @return [Date]
       optional :date_lower_bound, Date
 
-      # @!attribute [rw] date_upper_bound
+      # @!attribute date_upper_bound
       #   The latest date the payment may come in. Format is yyyy-mm-dd
       #   @return [Date]
       optional :date_upper_bound, Date
 
-      # @!attribute [rw] type
+      # @!attribute type
       #   One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sepa, signet wire
       #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Type]
       optional :type, enum: -> { ModernTreasury::Models::ReconciliationRule::Type }

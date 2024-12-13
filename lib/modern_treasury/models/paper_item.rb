@@ -3,89 +3,89 @@
 module ModernTreasury
   module Models
     class PaperItem < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] account_number
+      # @!attribute account_number
       #   The account number on the paper item.
       #   @return [String]
       required :account_number, String
 
-      # @!attribute [rw] account_number_safe
+      # @!attribute account_number_safe
       #   The last 4 digits of the account_number.
       #   @return [String]
       required :account_number_safe, String
 
-      # @!attribute [rw] amount
+      # @!attribute amount
       #   The amount of the paper item.
       #   @return [Integer]
       required :amount, Integer
 
-      # @!attribute [rw] check_number
+      # @!attribute check_number
       #   The check number on the paper item.
       #   @return [String]
       required :check_number, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] currency
+      # @!attribute currency
       #   The currency of the paper item.
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute [rw] deposit_date
+      # @!attribute deposit_date
       #   The date the paper item was deposited into your organization's bank account.
       #   @return [Date]
       required :deposit_date, Date
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] lockbox_number
+      # @!attribute lockbox_number
       #   The identifier for the lockbox assigned by the bank.
       #   @return [String]
       required :lockbox_number, String
 
-      # @!attribute [rw] memo_field
+      # @!attribute memo_field
       #   The memo field on the paper item.
       #   @return [String]
       required :memo_field, String
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] remitter_name
+      # @!attribute remitter_name
       #   The name of the remitter on the paper item.
       #   @return [String]
       required :remitter_name, String
 
-      # @!attribute [rw] routing_number
+      # @!attribute routing_number
       #   The routing number on the paper item.
       #   @return [String]
       required :routing_number, String
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   The current status of the paper item. One of `pending`, `completed`, or `returned`.
       #   @return [Symbol, ModernTreasury::Models::PaperItem::Status]
       required :status, enum: -> { ModernTreasury::Models::PaperItem::Status }
 
-      # @!attribute [rw] transaction_id
+      # @!attribute transaction_id
       #   The ID of the reconciled Transaction or `null`.
       #   @return [String]
       required :transaction_id, String
 
-      # @!attribute [rw] transaction_line_item_id
+      # @!attribute transaction_line_item_id
       #   The ID of the reconciled Transaction Line Item or `null`.
       #   @return [String]
       required :transaction_line_item_id, String
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 

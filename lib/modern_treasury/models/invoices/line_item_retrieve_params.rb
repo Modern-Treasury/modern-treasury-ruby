@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module Invoices
       class LineItemRetrieveParams < ModernTreasury::BaseModel
-        # @!attribute [rw] invoice_id
+        # @!attribute invoice_id
         #   @return [String]
         required :invoice_id, String
       end

@@ -37,7 +37,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/ledger_account_settlements",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountSettlement
         }
@@ -78,7 +77,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/ledger_account_settlements/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountSettlement
         }

@@ -3,50 +3,50 @@
 module ModernTreasury
   module Models
     class ExpectedPaymentListParams < ModernTreasury::BaseModel
-      # @!attribute [rw] after_cursor
+      # @!attribute after_cursor
       #   @return [String]
       optional :after_cursor, String
 
-      # @!attribute [rw] counterparty_id
+      # @!attribute counterparty_id
       #   Specify counterparty_id to see expected_payments for a specific account.
       #   @return [String]
       optional :counterparty_id, String
 
-      # @!attribute [rw] created_at_lower_bound
+      # @!attribute created_at_lower_bound
       #   Used to return expected payments created after some datetime
       #   @return [Time]
       optional :created_at_lower_bound, Time
 
-      # @!attribute [rw] created_at_upper_bound
+      # @!attribute created_at_upper_bound
       #   Used to return expected payments created before some datetime
       #   @return [Time]
       optional :created_at_upper_bound, Time
 
-      # @!attribute [rw] direction
+      # @!attribute direction
       #   One of credit, debit
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute [rw] internal_account_id
+      # @!attribute internal_account_id
       #   Specify internal_account_id to see expected_payments for a specific account.
       #   @return [String]
       optional :internal_account_id, String
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #   @return [Hash]
       optional :metadata, Hash
 
-      # @!attribute [rw] per_page
+      # @!attribute per_page
       #   @return [Integer]
       optional :per_page, Integer
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   One of unreconciled, reconciled, or archived.
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Status }
 
-      # @!attribute [rw] type
+      # @!attribute type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sepa, signet, wire
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
       optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Type }

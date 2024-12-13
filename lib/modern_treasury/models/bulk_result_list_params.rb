@@ -3,35 +3,35 @@
 module ModernTreasury
   module Models
     class BulkResultListParams < ModernTreasury::BaseModel
-      # @!attribute [rw] after_cursor
+      # @!attribute after_cursor
       #   @return [String]
       optional :after_cursor, String
 
-      # @!attribute [rw] entity_id
+      # @!attribute entity_id
       #   Unique identifier for the result entity object.
       #   @return [String]
       optional :entity_id, String
 
-      # @!attribute [rw] entity_type
+      # @!attribute entity_type
       #   The type of the request that created this result. bulk_request is the only supported `request_type`
       #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType]
       optional :entity_type, enum: -> { ModernTreasury::Models::BulkResultListParams::EntityType }
 
-      # @!attribute [rw] per_page
+      # @!attribute per_page
       #   @return [Integer]
       optional :per_page, Integer
 
-      # @!attribute [rw] request_id
+      # @!attribute request_id
       #   Unique identifier for the request that created this bulk result. This is the ID of the bulk request when `request_type` is bulk_request
       #   @return [String]
       optional :request_id, String
 
-      # @!attribute [rw] request_type
+      # @!attribute request_type
       #   The type of the request that created this result. bulk_request is the only supported `request_type`
       #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType]
       optional :request_type, enum: -> { ModernTreasury::Models::BulkResultListParams::RequestType }
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   One of successful or failed.
       #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::BulkResultListParams::Status }

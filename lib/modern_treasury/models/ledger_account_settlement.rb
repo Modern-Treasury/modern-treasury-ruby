@@ -3,84 +3,84 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlement < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] amount
+      # @!attribute amount
       #   The amount of the ledger account settlement.
       #   @return [Integer]
       required :amount, Integer
 
-      # @!attribute [rw] contra_ledger_account_id
+      # @!attribute contra_ledger_account_id
       #   The id of the contra ledger account that sends to or receives funds from the settled ledger account.
       #   @return [String]
       required :contra_ledger_account_id, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] currency
+      # @!attribute currency
       #   The currency of the ledger account settlement.
       #   @return [String]
       required :currency, String
 
-      # @!attribute [rw] currency_exponent
+      # @!attribute currency_exponent
       #   The currency exponent of the ledger account settlement.
       #   @return [Integer]
       required :currency_exponent, Integer
 
-      # @!attribute [rw] description
+      # @!attribute description
       #   The description of the ledger account settlement.
       #   @return [String]
       required :description, String
 
-      # @!attribute [rw] effective_at_upper_bound
+      # @!attribute effective_at_upper_bound
       #   The exclusive upper bound of the effective_at timestamp of the ledger entries to be included in the ledger account settlement. The default value is the created_at timestamp of the ledger account settlement.
       #   @return [Time]
       required :effective_at_upper_bound, Time
 
-      # @!attribute [rw] ledger_id
+      # @!attribute ledger_id
       #   The id of the ledger that this ledger account settlement belongs to.
       #   @return [String]
       required :ledger_id, String
 
-      # @!attribute [rw] ledger_transaction_id
+      # @!attribute ledger_transaction_id
       #   The id of the ledger transaction that this settlement is associated with.
       #   @return [String]
       required :ledger_transaction_id, String
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] settled_ledger_account_id
+      # @!attribute settled_ledger_account_id
       #   The id of the settled ledger account whose ledger entries are queried against, and its balance is reduced as a result.
       #   @return [String]
       required :settled_ledger_account_id, String
 
-      # @!attribute [rw] settlement_entry_direction
+      # @!attribute settlement_entry_direction
       #   The direction of the ledger entry with the settlement_ledger_account.
       #   @return [String]
       required :settlement_entry_direction, String
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   The status of the ledger account settlement. One of `processing`, `pending`, `posted`, `archiving` or `archived`.
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status]
       required :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlement::Status }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 

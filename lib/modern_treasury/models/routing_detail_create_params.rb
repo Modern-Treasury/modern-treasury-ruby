@@ -3,22 +3,22 @@
 module ModernTreasury
   module Models
     class RoutingDetailCreateParams < ModernTreasury::BaseModel
-      # @!attribute [rw] accounts_type
+      # @!attribute accounts_type
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::AccountsType }
 
-      # @!attribute [rw] routing_number
+      # @!attribute routing_number
       #   The routing number of the bank.
       #   @return [String]
       required :routing_number, String
 
-      # @!attribute [rw] routing_number_type
+      # @!attribute routing_number_type
       #   The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType]
       required :routing_number_type,
                enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType }
 
-      # @!attribute [rw] payment_type
+      # @!attribute payment_type
       #   If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType]
       optional :payment_type, enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::PaymentType }

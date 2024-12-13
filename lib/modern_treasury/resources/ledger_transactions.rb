@@ -41,7 +41,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/ledger_transactions",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }
@@ -90,7 +89,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/ledger_transactions/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }
@@ -175,7 +173,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/ledger_transactions/#{id}/reversal",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }

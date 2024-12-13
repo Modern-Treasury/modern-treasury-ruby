@@ -34,7 +34,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/counterparties",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::Counterparty
         }
@@ -78,7 +77,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/counterparties/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::Counterparty
         }
@@ -160,7 +158,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/counterparties/#{id}/collect_account",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::CounterpartyCollectAccountResponse
         }

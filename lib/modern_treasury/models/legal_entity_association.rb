@@ -3,43 +3,43 @@
 module ModernTreasury
   module Models
     class LegalEntityAssociation < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] child_legal_entity
+      # @!attribute child_legal_entity
       #   The child legal entity.
       #   @return [ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity]
       required :child_legal_entity, -> { ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity }
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] discarded_at
+      # @!attribute discarded_at
       #   @return [Time]
       required :discarded_at, Time
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] ownership_percentage
+      # @!attribute ownership_percentage
       #   The child entity's ownership percentage iff they are a beneficial owner.
       #   @return [Integer]
       required :ownership_percentage, Integer
 
-      # @!attribute [rw] parent_legal_entity_id
+      # @!attribute parent_legal_entity_id
       #   The ID of the parent legal entity. This must be a business or joint legal entity.
       #   @return [String]
       required :parent_legal_entity_id, String
 
-      # @!attribute [rw] relationship_types
+      # @!attribute relationship_types
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType>]
       required :relationship_types,
                ModernTreasury::ArrayOf.new(
@@ -48,21 +48,21 @@ module ModernTreasury
                  }
                )
 
-      # @!attribute [rw] title
+      # @!attribute title
       #   The job title of the child entity at the parent entity.
       #   @return [String]
       required :title, String
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
       class ChildLegalEntity < ModernTreasury::BaseModel
-        # @!attribute [rw] id
+        # @!attribute id
         #   @return [String]
         required :id, String
 
-        # @!attribute [rw] addresses
+        # @!attribute addresses
         #   A list of addresses for the entity.
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address>]
         required :addresses,
@@ -72,53 +72,53 @@ module ModernTreasury
                    }
                  )
 
-        # @!attribute [rw] bank_settings
+        # @!attribute bank_settings
         #   @return [ModernTreasury::Models::BankSettings]
         required :bank_settings, -> { ModernTreasury::Models::BankSettings }
 
-        # @!attribute [rw] business_name
+        # @!attribute business_name
         #   The business's legal business name.
         #   @return [String]
         required :business_name, String
 
-        # @!attribute [rw] citizenship_country
+        # @!attribute citizenship_country
         #   The country of citizenship for an individual.
         #   @return [String]
         required :citizenship_country, String
 
-        # @!attribute [rw] created_at
+        # @!attribute created_at
         #   @return [Time]
         required :created_at, Time
 
-        # @!attribute [rw] date_formed
+        # @!attribute date_formed
         #   A business's formation date (YYYY-MM-DD).
         #   @return [Date]
         required :date_formed, Date
 
-        # @!attribute [rw] date_of_birth
+        # @!attribute date_of_birth
         #   An individual's date of birth (YYYY-MM-DD).
         #   @return [Date]
         required :date_of_birth, Date
 
-        # @!attribute [rw] discarded_at
+        # @!attribute discarded_at
         #   @return [Time]
         required :discarded_at, Time
 
-        # @!attribute [rw] doing_business_as_names
+        # @!attribute doing_business_as_names
         #   @return [Array<String>]
         required :doing_business_as_names, ModernTreasury::ArrayOf.new(String)
 
-        # @!attribute [rw] email
+        # @!attribute email
         #   The entity's primary email.
         #   @return [String]
         required :email, String
 
-        # @!attribute [rw] first_name
+        # @!attribute first_name
         #   An individual's first name.
         #   @return [String]
         required :first_name, String
 
-        # @!attribute [rw] identifications
+        # @!attribute identifications
         #   A list of identifications for the legal entity.
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification>]
         required :identifications,
@@ -128,12 +128,12 @@ module ModernTreasury
                    }
                  )
 
-        # @!attribute [rw] last_name
+        # @!attribute last_name
         #   An individual's last name.
         #   @return [String]
         required :last_name, String
 
-        # @!attribute [rw] legal_entity_type
+        # @!attribute legal_entity_type
         #   The type of legal entity.
         #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
         required :legal_entity_type,
@@ -141,32 +141,32 @@ module ModernTreasury
                    ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType
                  }
 
-        # @!attribute [rw] legal_structure
+        # @!attribute legal_structure
         #   The business's legal structure.
         #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure]
         required :legal_structure,
                  enum: -> { ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure }
 
-        # @!attribute [rw] live_mode
+        # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
-        # @!attribute [rw] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #   @return [Hash]
         required :metadata, Hash
 
-        # @!attribute [rw] middle_name
+        # @!attribute middle_name
         #   An individual's middle name.
         #   @return [String]
         required :middle_name, String
 
-        # @!attribute [rw] object
+        # @!attribute object
         #   @return [String]
         required :object, String
 
-        # @!attribute [rw] phone_numbers
+        # @!attribute phone_numbers
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
         required :phone_numbers,
                  ModernTreasury::ArrayOf.new(
@@ -175,51 +175,51 @@ module ModernTreasury
                    }
                  )
 
-        # @!attribute [rw] politically_exposed_person
+        # @!attribute politically_exposed_person
         #   Whether the individual is a politically exposed person.
         #   @return [Boolean]
         required :politically_exposed_person, ModernTreasury::BooleanModel
 
-        # @!attribute [rw] preferred_name
+        # @!attribute preferred_name
         #   An individual's preferred name.
         #   @return [String]
         required :preferred_name, String
 
-        # @!attribute [rw] prefix
+        # @!attribute prefix
         #   An individual's prefix.
         #   @return [String]
         required :prefix, String
 
-        # @!attribute [rw] risk_rating
+        # @!attribute risk_rating
         #   The risk rating of the legal entity. One of low, medium, high.
         #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating]
         required :risk_rating,
                  enum: -> { ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating }
 
-        # @!attribute [rw] suffix
+        # @!attribute suffix
         #   An individual's suffix.
         #   @return [String]
         required :suffix, String
 
-        # @!attribute [rw] updated_at
+        # @!attribute updated_at
         #   @return [Time]
         required :updated_at, Time
 
-        # @!attribute [rw] wealth_and_employment_details
+        # @!attribute wealth_and_employment_details
         #   @return [ModernTreasury::Models::WealthAndEmploymentDetails]
         required :wealth_and_employment_details, -> { ModernTreasury::Models::WealthAndEmploymentDetails }
 
-        # @!attribute [rw] website
+        # @!attribute website
         #   The entity's primary website URL.
         #   @return [String]
         required :website, String
 
         class Address < ModernTreasury::BaseModel
-          # @!attribute [rw] id
+          # @!attribute id
           #   @return [String]
           required :id, String
 
-          # @!attribute [rw] address_types
+          # @!attribute address_types
           #   The types of this address.
           #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
           required :address_types,
@@ -229,52 +229,52 @@ module ModernTreasury
                      }
                    )
 
-          # @!attribute [rw] country
+          # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
           #   @return [String]
           required :country, String
 
-          # @!attribute [rw] created_at
+          # @!attribute created_at
           #   @return [Time]
           required :created_at, Time
 
-          # @!attribute [rw] discarded_at
+          # @!attribute discarded_at
           #   @return [Time]
           required :discarded_at, Time
 
-          # @!attribute [rw] line1
+          # @!attribute line1
           #   @return [String]
           required :line1, String
 
-          # @!attribute [rw] line2
+          # @!attribute line2
           #   @return [String]
           required :line2, String
 
-          # @!attribute [rw] live_mode
+          # @!attribute live_mode
           #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
           #   @return [Boolean]
           required :live_mode, ModernTreasury::BooleanModel
 
-          # @!attribute [rw] locality
+          # @!attribute locality
           #   Locality or City.
           #   @return [String]
           required :locality, String
 
-          # @!attribute [rw] object
+          # @!attribute object
           #   @return [String]
           required :object, String
 
-          # @!attribute [rw] postal_code
+          # @!attribute postal_code
           #   The postal code of the address.
           #   @return [String]
           required :postal_code, String
 
-          # @!attribute [rw] region
+          # @!attribute region
           #   Region or State.
           #   @return [String]
           required :region, String
 
-          # @!attribute [rw] updated_at
+          # @!attribute updated_at
           #   @return [Time]
           required :updated_at, Time
 
@@ -308,19 +308,19 @@ module ModernTreasury
         end
 
         class Identification < ModernTreasury::BaseModel
-          # @!attribute [rw] id
+          # @!attribute id
           #   @return [String]
           required :id, String
 
-          # @!attribute [rw] created_at
+          # @!attribute created_at
           #   @return [Time]
           required :created_at, Time
 
-          # @!attribute [rw] discarded_at
+          # @!attribute discarded_at
           #   @return [Time]
           required :discarded_at, Time
 
-          # @!attribute [rw] id_type
+          # @!attribute id_type
           #   The type of ID number.
           #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
           required :id_type,
@@ -328,21 +328,21 @@ module ModernTreasury
                      ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType
                    }
 
-          # @!attribute [rw] issuing_country
+          # @!attribute issuing_country
           #   The ISO 3166-1 alpha-2 country code of the country that issued the identification
           #   @return [String]
           required :issuing_country, String
 
-          # @!attribute [rw] live_mode
+          # @!attribute live_mode
           #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
           #   @return [Boolean]
           required :live_mode, ModernTreasury::BooleanModel
 
-          # @!attribute [rw] object
+          # @!attribute object
           #   @return [String]
           required :object, String
 
-          # @!attribute [rw] updated_at
+          # @!attribute updated_at
           #   @return [Time]
           required :updated_at, Time
 
@@ -406,7 +406,7 @@ module ModernTreasury
         end
 
         class PhoneNumber < ModernTreasury::BaseModel
-          # @!attribute [rw] phone_number
+          # @!attribute phone_number
           #   @return [String]
           optional :phone_number, String
 
