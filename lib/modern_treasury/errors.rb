@@ -65,7 +65,7 @@ module ModernTreasury
   end
 
   class APIStatusError < ModernTreasury::APIError
-    # @!visibility private
+    # @private
     #
     # @param status [Integer]
     # @param body [Object, nil]
