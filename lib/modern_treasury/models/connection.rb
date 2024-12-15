@@ -4,60 +4,89 @@ module ModernTreasury
   module Models
     class Connection < ModernTreasury::BaseModel
       # @!attribute id
+      #
       #   @return [String]
       required :id, String
 
       # @!attribute created_at
+      #
       #   @return [Time]
       required :created_at, Time
 
       # @!attribute discarded_at
+      #
       #   @return [Time]
       required :discarded_at, Time
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute object
+      #
       #   @return [String]
       required :object, String
 
       # @!attribute updated_at
+      #
       #   @return [Time]
       required :updated_at, Time
 
       # @!attribute vendor_customer_id
       #   An identifier given to this connection by the bank.
+      #
       #   @return [String]
       required :vendor_customer_id, String
 
       # @!attribute vendor_id
       #   Unique identifier for the bank or vendor.
+      #
       #   @return [String]
       required :vendor_id, String
 
       # @!attribute vendor_name
       #   A human-friendly name for the bank or vendor.
+      #
       #   @return [String]
       required :vendor_name, String
 
       # @!parse
-      #   # Create a new instance of Connection from a Hash of raw data.
+      #   # @param id [String]
       #   #
-      #   # @param data [Hash{Symbol => Object}] .
-      #   #   @option data [String] :id
-      #   #   @option data [String] :created_at
-      #   #   @option data [String] :discarded_at
-      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
-      #   #     if it exists in the test environment.
-      #   #   @option data [String] :object
-      #   #   @option data [String] :updated_at
-      #   #   @option data [String] :vendor_customer_id An identifier given to this connection by the bank.
-      #   #   @option data [String] :vendor_id Unique identifier for the bank or vendor.
-      #   #   @option data [String] :vendor_name A human-friendly name for the bank or vendor.
-      #   def initialize(data = {}) = super
+      #   # @param created_at [String]
+      #   #
+      #   # @param discarded_at [String]
+      #   #
+      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
+      #   #   if it exists in the test environment.
+      #   #
+      #   # @param object [String]
+      #   #
+      #   # @param updated_at [String]
+      #   #
+      #   # @param vendor_customer_id [String] An identifier given to this connection by the bank.
+      #   #
+      #   # @param vendor_id [String] Unique identifier for the bank or vendor.
+      #   #
+      #   # @param vendor_name [String] A human-friendly name for the bank or vendor.
+      #   #
+      #   def initialize(
+      #     id:,
+      #     created_at:,
+      #     discarded_at:,
+      #     live_mode:,
+      #     object:,
+      #     updated_at:,
+      #     vendor_customer_id:,
+      #     vendor_id:,
+      #     vendor_name:
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

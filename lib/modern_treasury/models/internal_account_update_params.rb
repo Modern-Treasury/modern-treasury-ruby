@@ -5,26 +5,31 @@ module ModernTreasury
     class InternalAccountUpdateParams < ModernTreasury::BaseModel
       # @!attribute counterparty_id
       #   The Counterparty associated to this account.
+      #
       #   @return [String]
       optional :counterparty_id, String
 
       # @!attribute ledger_account_id
       #   The Ledger Account associated to this account.
+      #
       #   @return [String]
       optional :ledger_account_id, String
 
       # @!attribute metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing an empty string or `null` as the value.
+      #
       #   @return [Hash]
       optional :metadata, Hash
 
       # @!attribute name
       #   The nickname for the internal account.
+      #
       #   @return [String]
       optional :name, String
 
       # @!attribute parent_account_id
       #   The parent internal account for this account.
+      #
       #   @return [String]
       optional :parent_account_id, String
     end

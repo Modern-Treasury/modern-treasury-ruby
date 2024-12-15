@@ -4,15 +4,16 @@ module ModernTreasury
   module Models
     class PingResponse < ModernTreasury::BaseModel
       # @!attribute ping
+      #
       #   @return [String]
       required :ping, String
 
       # @!parse
-      #   # Create a new instance of PingResponse from a Hash of raw data.
+      #   # @param ping [String]
       #   #
-      #   # @param data [Hash{Symbol => Object}] .
-      #   #   @option data [String] :ping
-      #   def initialize(data = {}) = super
+      #   def initialize(ping:) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end
