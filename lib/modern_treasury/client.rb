@@ -144,8 +144,11 @@ module ModernTreasury
     # Creates and returns a new client for interacting with the API.
     #
     # @param base_url [String, nil] Override the default base URL for the API, e.g., `"https://api.example.com/v2/"`
+    #
     # @param api_key [String, nil] Defaults to `ENV["MODERN_TREASURY_API_KEY"]`
+    #
     # @param organization_id [String, nil] Defaults to `ENV["MODERN_TREASURY_ORGANIZATION_ID"]`
+    #
     # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
     def initialize(
       base_url: nil,
