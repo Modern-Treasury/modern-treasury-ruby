@@ -51,6 +51,41 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionUpdateParams::Status }
 
+      # @!parse
+      #   # @param description [String, nil] An optional description for internal use.
+      #   #
+      #   # @param effective_at [String, nil] The timestamp (ISO8601 format) at which the ledger transaction happened for
+      #   #   reporting purposes.
+      #   #
+      #   # @param ledger_entries [Array<Object>, nil] An array of ledger entry objects.
+      #   #
+      #   # @param ledgerable_id [String, nil] If the ledger transaction can be reconciled to another object in Modern
+      #   #   Treasury, the id will be populated here, otherwise null.
+      #   #
+      #   # @param ledgerable_type [String, nil] If the ledger transaction can be reconciled to another object in Modern
+      #   #   Treasury, the type will be populated here, otherwise null. This can be one of
+      #   #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      #   #   reversal.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   # @param status [String, nil] To post a ledger transaction at creation, use `posted`.
+      #   #
+      #   def initialize(
+      #     description: nil,
+      #     effective_at: nil,
+      #     ledger_entries: nil,
+      #     ledgerable_id: nil,
+      #     ledgerable_type: nil,
+      #     metadata: nil,
+      #     status: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class LedgerEntry < ModernTreasury::BaseModel
         # @!attribute amount
         #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000. Can be any integer up to 36 digits.

@@ -61,6 +61,47 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
       optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Type }
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param counterparty_id [String, nil] Specify counterparty_id to see expected_payments for a specific account.
+      #   #
+      #   # @param created_at_lower_bound [String, nil] Used to return expected payments created after some datetime
+      #   #
+      #   # @param created_at_upper_bound [String, nil] Used to return expected payments created before some datetime
+      #   #
+      #   # @param direction [String, nil] One of credit, debit
+      #   #
+      #   # @param internal_account_id [String, nil] Specify internal_account_id to see expected_payments for a specific account.
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param status [String, nil] One of unreconciled, reconciled, or archived.
+      #   #
+      #   # @param type [String, nil] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      #   #   sepa, signet, wire
+      #   #
+      #   def initialize(
+      #     after_cursor: nil,
+      #     counterparty_id: nil,
+      #     created_at_lower_bound: nil,
+      #     created_at_upper_bound: nil,
+      #     direction: nil,
+      #     internal_account_id: nil,
+      #     metadata: nil,
+      #     per_page: nil,
+      #     status: nil,
+      #     type: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # One of unreconciled, reconciled, or archived.
       class Status < ModernTreasury::Enum
         ARCHIVED = :archived

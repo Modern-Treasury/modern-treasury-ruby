@@ -13,6 +13,14 @@ module ModernTreasury
       #   @return [String]
       required :account_id, String
 
+      # @!parse
+      #   # @param accounts_type [String]
+      #   # @param account_id [String]
+      #   #
+      #   def initialize(accounts_type:, account_id:) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS = :external_accounts
       end

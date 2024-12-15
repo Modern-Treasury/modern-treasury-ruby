@@ -23,6 +23,22 @@ module ModernTreasury
         #   @return [Hash]
         optional :metadata, Hash
 
+        # @!parse
+        #   # @param reason [String] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
+        #   #   `incorrect_receiving_account`, `date_earlier_than_intended`,
+        #   #   `date_later_than_intended`.
+        #   #
+        #   # @param ledger_transaction [Object, nil] Specifies a ledger transaction object that will be created with the reversal. If
+        #   #   the ledger transaction cannot be created, then the reversal creation will fail.
+        #   #   The resulting ledger transaction will mirror the status of the reversal.
+        #   #
+        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   #   strings.
+        #   #
+        #   def initialize(reason:, ledger_transaction: nil, metadata: nil) = super
+
+        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`, `incorrect_receiving_account`, `date_earlier_than_intended`, `date_later_than_intended`.
         class Reason < ModernTreasury::Enum
           DUPLICATE = :duplicate

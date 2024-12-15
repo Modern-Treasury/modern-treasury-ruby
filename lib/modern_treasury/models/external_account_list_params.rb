@@ -29,6 +29,23 @@ module ModernTreasury
       #
       #   @return [Integer]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param counterparty_id [String, nil]
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param party_name [String, nil] Searches the ExternalAccount's party_name AND the Counterparty's party_name
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   def initialize(after_cursor: nil, counterparty_id: nil, metadata: nil, party_name: nil, per_page: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

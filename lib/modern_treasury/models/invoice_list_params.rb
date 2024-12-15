@@ -62,6 +62,49 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::InvoiceListParams::Status }
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param counterparty_id [String, nil]
+      #   #
+      #   # @param due_date_end [String, nil] An inclusive upper bound for searching due_date
+      #   #
+      #   # @param due_date_start [String, nil] An inclusive lower bound for searching due_date
+      #   #
+      #   # @param expected_payment_id [String, nil]
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param number [String, nil] A unique record number assigned to each invoice that is issued.
+      #   #
+      #   # @param originating_account_id [String, nil]
+      #   #
+      #   # @param payment_order_id [String, nil]
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param status [String, nil]
+      #   #
+      #   def initialize(
+      #     after_cursor: nil,
+      #     counterparty_id: nil,
+      #     due_date_end: nil,
+      #     due_date_start: nil,
+      #     expected_payment_id: nil,
+      #     metadata: nil,
+      #     number: nil,
+      #     originating_account_id: nil,
+      #     payment_order_id: nil,
+      #     per_page: nil,
+      #     status: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class Status < ModernTreasury::Enum
         DRAFT = :draft
         PAID = :paid

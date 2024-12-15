@@ -69,6 +69,50 @@ module ModernTreasury
       optional :verification_status,
                enum: -> { ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus }
 
+      # @!parse
+      #   # @param name [String] A human friendly name for this counterparty.
+      #   #
+      #   # @param accounting [Object, nil]
+      #   #
+      #   # @param accounts [Array<Object>, nil] The accounts for this counterparty.
+      #   #
+      #   # @param email [String, nil] The counterparty's email.
+      #   #
+      #   # @param ledger_type [String, nil] An optional type to auto-sync the counterparty to your ledger. Either `customer`
+      #   #   or `vendor`.
+      #   #
+      #   # @param legal_entity [Object, nil]
+      #   #
+      #   # @param legal_entity_id [String, nil] The id of the legal entity.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   # @param send_remittance_advice [Boolean, nil] Send an email to the counterparty whenever an associated payment order is sent
+      #   #   to the bank.
+      #   #
+      #   # @param taxpayer_identifier [String, nil] Either a valid SSN or EIN.
+      #   #
+      #   # @param verification_status [String, nil] The verification status of the counterparty.
+      #   #
+      #   def initialize(
+      #     name:,
+      #     accounting: nil,
+      #     accounts: nil,
+      #     email: nil,
+      #     ledger_type: nil,
+      #     legal_entity: nil,
+      #     legal_entity_id: nil,
+      #     metadata: nil,
+      #     send_remittance_advice: nil,
+      #     taxpayer_identifier: nil,
+      #     verification_status: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class Accounting < ModernTreasury::BaseModel
         # @!attribute type
         #   An optional type to auto-sync the counterparty to your ledger. Either `customer` or `vendor`.

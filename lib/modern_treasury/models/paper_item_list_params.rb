@@ -30,6 +30,22 @@ module ModernTreasury
       #
       #   @return [Integer]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param deposit_date_end [String, nil] Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
+      #   #
+      #   # @param deposit_date_start [String, nil] Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
+      #   #
+      #   # @param lockbox_number [String, nil] Specify `lockbox_number` if you wish to see paper items that are associated with
+      #   #   a specific lockbox number.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   def initialize(after_cursor: nil, deposit_date_end: nil, deposit_date_start: nil, lockbox_number: nil, per_page: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

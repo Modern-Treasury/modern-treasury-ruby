@@ -25,6 +25,21 @@ module ModernTreasury
       #   @return [Integer]
       optional :per_page, Integer
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param documentable_id [String, nil] The unique identifier for the associated object.
+      #   #
+      #   # @param documentable_type [String, nil] The type of the associated object. Currently can be one of `payment_order`,
+      #   #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #   #   `case`, `internal_account`, `decision`, or `external_account`.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   def initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
       class DocumentableType < ModernTreasury::Enum
         CASES = :cases

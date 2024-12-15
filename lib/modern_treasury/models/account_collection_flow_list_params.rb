@@ -32,6 +32,27 @@ module ModernTreasury
       #
       #   @return [String]
       optional :status, String
+
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   # @param client_token [String, nil]
+      #   # @param counterparty_id [String, nil]
+      #   # @param external_account_id [String, nil]
+      #   # @param per_page [Integer, nil]
+      #   # @param status [String, nil]
+      #   #
+      #   def initialize(
+      #     after_cursor: nil,
+      #     client_token: nil,
+      #     counterparty_id: nil,
+      #     external_account_id: nil,
+      #     per_page: nil,
+      #     status: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

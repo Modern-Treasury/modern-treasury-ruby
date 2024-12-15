@@ -32,6 +32,22 @@ module ModernTreasury
       #
       #   @return [String]
       optional :parent_account_id, String
+
+      # @!parse
+      #   # @param counterparty_id [String, nil] The Counterparty associated to this account.
+      #   #
+      #   # @param ledger_account_id [String, nil] The Ledger Account associated to this account.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   #   an empty string or `null` as the value.
+      #   #
+      #   # @param name [String, nil] The nickname for the internal account.
+      #   #
+      #   # @param parent_account_id [String, nil] The parent internal account for this account.
+      #   #
+      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

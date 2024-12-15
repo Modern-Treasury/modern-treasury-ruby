@@ -27,6 +27,22 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType]
       optional :payment_type, enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::PaymentType }
 
+      # @!parse
+      #   # @param accounts_type [String]
+      #   #
+      #   # @param routing_number [String] The routing number of the bank.
+      #   #
+      #   # @param routing_number_type [String] The type of routing number. See
+      #   #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   #   more details.
+      #   #
+      #   # @param payment_type [String, nil] If the routing detail is to be used for a specific payment type this field will
+      #   #   be populated, otherwise null.
+      #   #
+      #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS = :external_accounts
       end

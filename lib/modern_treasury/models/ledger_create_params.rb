@@ -20,6 +20,18 @@ module ModernTreasury
       #
       #   @return [Hash]
       optional :metadata, Hash
+
+      # @!parse
+      #   # @param name [String] The name of the ledger.
+      #   #
+      #   # @param description [String, nil] An optional free-form description for internal use.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   def initialize(name:, description: nil, metadata: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

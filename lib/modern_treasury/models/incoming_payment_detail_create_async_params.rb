@@ -52,6 +52,40 @@ module ModernTreasury
       #   @return [String]
       optional :virtual_account_id, String
 
+      # @!parse
+      #   # @param amount [Integer, nil] Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   #   as 1000.
+      #   #
+      #   # @param as_of_date [String, nil] Defaults to today.
+      #   #
+      #   # @param currency [String, nil] Defaults to the currency of the originating account.
+      #   #
+      #   # @param description [String, nil] Defaults to a random description.
+      #   #
+      #   # @param direction [String, nil] One of `credit`, `debit`.
+      #   #
+      #   # @param internal_account_id [String, nil] The ID of one of your internal accounts.
+      #   #
+      #   # @param type [String, nil] One of `ach`, `wire`, `check`.
+      #   #
+      #   # @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual
+      #   #   account.
+      #   #
+      #   def initialize(
+      #     amount: nil,
+      #     as_of_date: nil,
+      #     currency: nil,
+      #     description: nil,
+      #     direction: nil,
+      #     internal_account_id: nil,
+      #     type: nil,
+      #     virtual_account_id: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # One of `credit`, `debit`.
       class Direction < ModernTreasury::Enum
         CREDIT = :credit

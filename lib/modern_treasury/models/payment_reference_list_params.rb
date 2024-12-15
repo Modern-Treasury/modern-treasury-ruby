@@ -32,6 +32,23 @@ module ModernTreasury
       optional :referenceable_type,
                enum: -> { ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType }
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param reference_number [String, nil] The actual reference number assigned by the bank.
+      #   #
+      #   # @param referenceable_id [String, nil] The id of the referenceable to search for. Must be accompanied by the
+      #   #   referenceable_type or will return an error.
+      #   #
+      #   # @param referenceable_type [String, nil] One of the referenceable types. This must be accompanied by the id of the
+      #   #   referenceable or will return an error.
+      #   #
+      #   def initialize(after_cursor: nil, per_page: nil, reference_number: nil, referenceable_id: nil, referenceable_type: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
       class ReferenceableType < ModernTreasury::Enum
         PAYMENT_ORDER = :payment_order

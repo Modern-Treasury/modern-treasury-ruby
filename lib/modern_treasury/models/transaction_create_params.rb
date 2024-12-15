@@ -63,6 +63,52 @@ module ModernTreasury
       #   @return [String]
       optional :vendor_description, String
 
+      # @!parse
+      #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   #   as 1000.
+      #   #
+      #   # @param as_of_date [String] The date on which the transaction occurred.
+      #   #
+      #   # @param direction [String] Either `credit` or `debit`.
+      #   #
+      #   # @param internal_account_id [String] The ID of the relevant Internal Account.
+      #   #
+      #   # @param vendor_code [String] When applicable, the bank-given code that determines the transaction's category.
+      #   #   For most banks this is the BAI2/BTRS transaction code.
+      #   #
+      #   # @param vendor_code_type [String] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+      #   #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      #   #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   #   `swift`, `us_bank`, or others.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   # @param posted [Boolean, nil] This field will be `true` if the transaction has posted to the account.
+      #   #
+      #   # @param type [String, nil] The type of the transaction. Examples could be
+      #   #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      #   #
+      #   # @param vendor_description [String, nil] The transaction detail text that often appears in on your bank statement and in
+      #   #   your banking portal.
+      #   #
+      #   def initialize(
+      #     amount:,
+      #     as_of_date:,
+      #     direction:,
+      #     internal_account_id:,
+      #     vendor_code:,
+      #     vendor_code_type:,
+      #     metadata: nil,
+      #     posted: nil,
+      #     type: nil,
+      #     vendor_description: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       class Type < ModernTreasury::Enum
         ACH = :ach

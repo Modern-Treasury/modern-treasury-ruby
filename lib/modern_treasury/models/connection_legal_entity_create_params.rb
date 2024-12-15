@@ -21,6 +21,17 @@ module ModernTreasury
       #   @return [String]
       optional :legal_entity_id, String
 
+      # @!parse
+      #   # @param connection_id [String] The ID of the connection.
+      #   #
+      #   # @param legal_entity [Object, nil] The legal entity.
+      #   #
+      #   # @param legal_entity_id [String, nil] The ID of the legal entity.
+      #   #
+      #   def initialize(connection_id:, legal_entity: nil, legal_entity_id: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class LegalEntity < ModernTreasury::BaseModel
         # @!attribute addresses
         #   A list of addresses for the entity.
