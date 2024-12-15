@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ModernTreasury
-  # @!visibility private
+  # @private
   #
   class PooledNetRequester
     def initialize
