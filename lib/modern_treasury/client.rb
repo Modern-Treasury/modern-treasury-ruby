@@ -135,7 +135,7 @@ module ModernTreasury
     attr_reader :legal_entity_associations
 
     # @private
-    def auth_headers
+    private def auth_headers
       # Strict base64 encoding that ensures no control characters.
       base64_credentials = ["#{@organization_id}:#{@api_key}"].pack("m0")
       {"Authorization" => "Basic #{base64_credentials}"}
