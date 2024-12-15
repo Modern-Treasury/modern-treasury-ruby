@@ -117,6 +117,94 @@ module ModernTreasury
       #   @return [Hash]
       optional :updated_at, Hash
 
+      # @!parse
+      #   # @param id [Array<String>, nil] If you have specific IDs to retrieve in bulk, you can pass them as query
+      #   #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      #   #
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param as_of_lock_version [Integer, nil] Shows all ledger entries that were present on a ledger account at a particular
+      #   #   `lock_version`. You must also specify `ledger_account_id`.
+      #   #
+      #   # @param direction [String, nil] If true, response will include ledger entries that were deleted. When you update
+      #   #   a ledger transaction to specify a new set of entries, the previous entries are
+      #   #   deleted.
+      #   #
+      #   # @param effective_at [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   #   transaction's effective time. Format ISO8601
+      #   #
+      #   # @param effective_date [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   #   transaction's effective date. Format YYYY-MM-DD
+      #   #
+      #   # @param ledger_account_category_id [String, nil] Get all ledger entries that match the direction specified. One of `credit`,
+      #   #   `debit`.
+      #   #
+      #   # @param ledger_account_id [String, nil]
+      #   #
+      #   # @param ledger_account_lock_version [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   #   lock_version of a ledger account. For example, for all entries created at or
+      #   #   before before lock_version 1000 of a ledger account, use
+      #   #   `ledger_account_lock_version%5Blte%5D=1000`.
+      #   #
+      #   # @param ledger_account_payout_id [String, nil]
+      #   #
+      #   # @param ledger_account_settlement_id [String, nil]
+      #   #
+      #   # @param ledger_account_statement_id [String, nil] Get all ledger entries that are included in the ledger account statement.
+      #   #
+      #   # @param ledger_transaction_id [String, nil]
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param order_by [Object, nil] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
+      #   #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+      #   #   by only one field at a time is supported.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param show_balances [Boolean, nil] If true, response will include the balances attached to the ledger entry. If
+      #   #   there is no balance available, null will be returned instead.
+      #   #
+      #   # @param show_deleted [Boolean, nil] If true, response will include ledger entries that were deleted. When you update
+      #   #   a ledger transaction to specify a new set of entries, the previous entries are
+      #   #   deleted.
+      #   #
+      #   # @param status [String, nil] Get all ledger entries that match the status specified. One of `pending`,
+      #   #   `posted`, or `archived`.
+      #   #
+      #   # @param updated_at [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   #
+      #   def initialize(
+      #     id: nil,
+      #     after_cursor: nil,
+      #     as_of_lock_version: nil,
+      #     direction: nil,
+      #     effective_at: nil,
+      #     effective_date: nil,
+      #     ledger_account_category_id: nil,
+      #     ledger_account_id: nil,
+      #     ledger_account_lock_version: nil,
+      #     ledger_account_payout_id: nil,
+      #     ledger_account_settlement_id: nil,
+      #     ledger_account_statement_id: nil,
+      #     ledger_transaction_id: nil,
+      #     metadata: nil,
+      #     order_by: nil,
+      #     per_page: nil,
+      #     show_balances: nil,
+      #     show_deleted: nil,
+      #     status: nil,
+      #     updated_at: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class OrderBy < ModernTreasury::BaseModel
         # @!attribute created_at
         #

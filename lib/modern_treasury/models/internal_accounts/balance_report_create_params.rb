@@ -36,6 +36,20 @@ module ModernTreasury
                    }
                  )
 
+        # @!parse
+        #   # @param as_of_date [String] The date of the balance report in local time.
+        #   #
+        #   # @param as_of_time [String] The time (24-hour clock) of the balance report in local time.
+        #   #
+        #   # @param balance_report_type [String] The specific type of balance report. One of `intraday`, `previous_day`,
+        #   #   `real_time`, or `other`.
+        #   #
+        #   # @param balances [Array<Object>] An array of `Balance` objects.
+        #   #
+        #   def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:) = super
+
+        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
         # The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
         class BalanceReportType < ModernTreasury::Enum
           INTRADAY = :intraday

@@ -28,6 +28,20 @@ module ModernTreasury
       #   @return [Hash]
       optional :metadata, Hash
 
+      # @!parse
+      #   # @param alert_condition [Object] Describes the condition that must be satisfied for the monitor to be triggered.
+      #   #
+      #   # @param ledger_account_id [String] The ledger account associated with this balance monitor.
+      #   #
+      #   # @param description [String, nil] An optional, free-form description for internal use.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   def initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class AlertCondition < ModernTreasury::BaseModel
         # @!attribute field
         #   One of `available_balance_amount`, `pending_balance_amount`, `posted_balance_amount`, `ledger_account_lock_version`.

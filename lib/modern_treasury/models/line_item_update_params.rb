@@ -19,6 +19,18 @@ module ModernTreasury
       #   @return [Hash]
       optional :metadata, Hash
 
+      # @!parse
+      #   # @param itemizable_type [String]
+      #   #
+      #   # @param itemizable_id [String]
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   def initialize(itemizable_type:, itemizable_id:, metadata: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class ItemizableType < ModernTreasury::Enum
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders

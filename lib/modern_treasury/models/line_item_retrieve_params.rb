@@ -13,6 +13,14 @@ module ModernTreasury
       #   @return [String]
       required :itemizable_id, String
 
+      # @!parse
+      #   # @param itemizable_type [String]
+      #   # @param itemizable_id [String]
+      #   #
+      #   def initialize(itemizable_type:, itemizable_id:) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class ItemizableType < ModernTreasury::Enum
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders

@@ -29,6 +29,17 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type]
         optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }
 
+        # @!parse
+        #   # @param id [Hash, nil]
+        #   # @param after_cursor [String, nil]
+        #   # @param per_page [Integer, nil]
+        #   # @param transaction_id [String, nil]
+        #   # @param type [String, nil]
+        #   #
+        #   def initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil) = super
+
+        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
         class Type < ModernTreasury::Enum
           ORIGINATING = :originating
           RECEIVING = :receiving

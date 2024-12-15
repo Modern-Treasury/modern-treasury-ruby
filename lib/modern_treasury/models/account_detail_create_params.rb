@@ -21,6 +21,18 @@ module ModernTreasury
       optional :account_number_type,
                enum: -> { ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType }
 
+      # @!parse
+      #   # @param accounts_type [String]
+      #   #
+      #   # @param account_number [String] The account number for the bank account.
+      #   #
+      #   # @param account_number_type [String, nil] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   #   account number is in a generic format.
+      #   #
+      #   def initialize(accounts_type:, account_number:, account_number_type: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS = :external_accounts
       end

@@ -17,6 +17,15 @@ module ModernTreasury
       #
       #   @return [Integer]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @param accounts_type [String]
+      #   # @param after_cursor [String, nil]
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   def initialize(accounts_type:, after_cursor: nil, per_page: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

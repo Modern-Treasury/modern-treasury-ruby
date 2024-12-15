@@ -50,6 +50,45 @@ module ModernTreasury
         #
         #   @return [String]
         optional :unit_amount_decimal, String
+
+        # @!parse
+        #   # @param invoice_id [String]
+        #   #
+        #   # @param description [String, nil] An optional free-form description of the line item.
+        #   #
+        #   # @param direction [String, nil] Either `debit` or `credit`. `debit` indicates that a client owes the business
+        #   #   money and increases the invoice's `total_amount` due. `credit` has the opposite
+        #   #   intention and effect.
+        #   #
+        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   #   strings.
+        #   #
+        #   # @param name [String, nil] The name of the line item, typically a product or SKU name.
+        #   #
+        #   # @param quantity [Integer, nil] The number of units of a product or service that this line item is for. Must be
+        #   #   a whole number. Defaults to 1 if not provided.
+        #   #
+        #   # @param unit_amount [Integer, nil] The cost per unit of the product or service that this line item is for,
+        #   #   specified in the invoice currency's smallest unit.
+        #   #
+        #   # @param unit_amount_decimal [String, nil] The cost per unit of the product or service that this line item is for,
+        #   #   specified in the invoice currency's smallest unit. Accepts decimal strings with
+        #   #   up to 12 decimals
+        #   #
+        #   def initialize(
+        #     invoice_id:,
+        #     description: nil,
+        #     direction: nil,
+        #     metadata: nil,
+        #     name: nil,
+        #     quantity: nil,
+        #     unit_amount: nil,
+        #     unit_amount_decimal: nil
+        #   )
+        #     super
+        #   end
+
+        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
     end
   end

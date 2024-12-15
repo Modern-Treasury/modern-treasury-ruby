@@ -28,6 +28,23 @@ module ModernTreasury
       #
       #   @return [Integer]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param counterparty_id [String, nil]
+      #   #
+      #   # @param internal_account_id [String, nil]
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   def initialize(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, metadata: nil, per_page: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

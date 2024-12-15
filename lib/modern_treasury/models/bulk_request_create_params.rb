@@ -27,6 +27,21 @@ module ModernTreasury
       #   @return [Hash]
       optional :metadata, Hash
 
+      # @!parse
+      #   # @param action_type [String] One of create, or update.
+      #   #
+      #   # @param resource_type [String] One of payment_order, expected_payment, or ledger_transaction.
+      #   #
+      #   # @param resources [Array<Object>] An array of objects where each object contains the input params for a single
+      #   #   `action_type` request on a `resource_type` resource
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   def initialize(action_type:, resource_type:, resources:, metadata: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # One of create, or update.
       class ActionType < ModernTreasury::Enum
         CREATE = :create

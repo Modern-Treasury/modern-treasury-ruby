@@ -46,6 +46,42 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status }
 
+      # @!parse
+      #   # @param description [String, nil] An optional free-form description for the reversal ledger transaction. Maximum
+      #   #   of 1000 characters allowed.
+      #   #
+      #   # @param effective_at [String, nil] The timestamp (ISO8601 format) at which the reversal ledger transaction happened
+      #   #   for reporting purposes. It defaults to the `effective_at` of the original ledger
+      #   #   transaction if not provided.
+      #   #
+      #   # @param external_id [String, nil] Must be unique within the ledger.
+      #   #
+      #   # @param ledgerable_id [String, nil] Specify this if you'd like to link the reversal ledger transaction to a Payment
+      #   #   object like Return or Reversal.
+      #   #
+      #   # @param ledgerable_type [String, nil] Specify this if you'd like to link the reversal ledger transaction to a Payment
+      #   #   object like Return or Reversal.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data to be added to the reversal ledger transaction as key-value
+      #   #   pairs. Both the key and value must be strings.
+      #   #
+      #   # @param status [String, nil] Status of the reversal ledger transaction. It defaults to `posted` if not
+      #   #   provided.
+      #   #
+      #   def initialize(
+      #     description: nil,
+      #     effective_at: nil,
+      #     external_id: nil,
+      #     ledgerable_id: nil,
+      #     ledgerable_type: nil,
+      #     metadata: nil,
+      #     status: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # Specify this if you'd like to link the reversal ledger transaction to a Payment object like Return or Reversal.
       class LedgerableType < ModernTreasury::Enum
         EXPECTED_PAYMENT = :expected_payment
