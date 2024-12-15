@@ -5,6 +5,7 @@ module ModernTreasury
     module Invoices
       class LineItemDeleteParams < ModernTreasury::BaseModel
         # @!attribute invoice_id
+        #
         #   @return [String]
         required :invoice_id, String
       end

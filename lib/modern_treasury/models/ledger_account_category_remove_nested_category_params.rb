@@ -4,6 +4,7 @@ module ModernTreasury
   module Models
     class LedgerAccountCategoryRemoveNestedCategoryParams < ModernTreasury::BaseModel
       # @!attribute id
+      #
       #   @return [String]
       required :id, String
     end

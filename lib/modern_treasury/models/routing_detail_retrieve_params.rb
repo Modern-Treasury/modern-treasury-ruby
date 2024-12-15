@@ -4,10 +4,12 @@ module ModernTreasury
   module Models
     class RoutingDetailRetrieveParams < ModernTreasury::BaseModel
       # @!attribute accounts_type
+      #
       #   @return [Symbol, ModernTreasury::Models::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::Models::AccountsType }
 
       # @!attribute account_id
+      #
       #   @return [String]
       required :account_id, String
     end

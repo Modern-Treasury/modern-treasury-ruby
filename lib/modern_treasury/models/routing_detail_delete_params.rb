@@ -4,10 +4,12 @@ module ModernTreasury
   module Models
     class RoutingDetailDeleteParams < ModernTreasury::BaseModel
       # @!attribute accounts_type
+      #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType }
 
       # @!attribute account_id
+      #
       #   @return [String]
       required :account_id, String
 

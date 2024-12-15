@@ -4,79 +4,95 @@ module ModernTreasury
   module Models
     class WealthAndEmploymentDetails < ModernTreasury::BaseModel
       # @!attribute id
+      #
       #   @return [String]
       required :id, String
 
       # @!attribute annual_income
       #   The annual income of the individual.
+      #
       #   @return [Integer]
       required :annual_income, Integer
 
       # @!attribute created_at
+      #
       #   @return [Time]
       required :created_at, Time
 
       # @!attribute discarded_at
+      #
       #   @return [Time]
       required :discarded_at, Time
 
       # @!attribute employer_country
       #   The country in which the employer is located.
+      #
       #   @return [String]
       required :employer_country, String
 
       # @!attribute employer_name
       #   The name of the employer.
+      #
       #   @return [String]
       required :employer_name, String
 
       # @!attribute employer_state
       #   The state in which the employer is located.
+      #
       #   @return [String]
       required :employer_state, String
 
       # @!attribute employment_status
       #   The employment status of the individual.
+      #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus]
       required :employment_status,
                enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus }
 
       # @!attribute income_country
       #   The country in which the individual's income is earned.
+      #
       #   @return [String]
       required :income_country, String
 
       # @!attribute income_source
       #   The source of the individual's income.
+      #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource]
       required :income_source, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource }
 
       # @!attribute income_state
       #   The state in which the individual's income is earned.
+      #
       #   @return [String]
       required :income_state, String
 
       # @!attribute industry
       #   The industry of the individual.
+      #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry]
       required :industry, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Industry }
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute object
+      #
       #   @return [String]
       required :object, String
 
       # @!attribute occupation
       #   The occupation of the individual.
+      #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation]
       required :occupation, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Occupation }
 
       # @!attribute source_of_funds
       #   The source of the individual's funds.
+      #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds]
       required :source_of_funds,
                enum: -> {
@@ -84,13 +100,78 @@ module ModernTreasury
                }
 
       # @!attribute updated_at
+      #
       #   @return [Time]
       required :updated_at, Time
 
       # @!attribute wealth_source
       #   The source of the individual's wealth.
+      #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource]
       required :wealth_source, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource }
+
+      # @!parse
+      #   # @param id [String]
+      #   #
+      #   # @param annual_income [Integer] The annual income of the individual.
+      #   #
+      #   # @param created_at [String]
+      #   #
+      #   # @param discarded_at [String]
+      #   #
+      #   # @param employer_country [String] The country in which the employer is located.
+      #   #
+      #   # @param employer_name [String] The name of the employer.
+      #   #
+      #   # @param employer_state [String] The state in which the employer is located.
+      #   #
+      #   # @param employment_status [String] The employment status of the individual.
+      #   #
+      #   # @param income_country [String] The country in which the individual's income is earned.
+      #   #
+      #   # @param income_source [String] The source of the individual's income.
+      #   #
+      #   # @param income_state [String] The state in which the individual's income is earned.
+      #   #
+      #   # @param industry [String] The industry of the individual.
+      #   #
+      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
+      #   #   if it exists in the test environment.
+      #   #
+      #   # @param object [String]
+      #   #
+      #   # @param occupation [String] The occupation of the individual.
+      #   #
+      #   # @param source_of_funds [String] The source of the individual's funds.
+      #   #
+      #   # @param updated_at [String]
+      #   #
+      #   # @param wealth_source [String] The source of the individual's wealth.
+      #   #
+      #   def initialize(
+      #     id:,
+      #     annual_income:,
+      #     created_at:,
+      #     discarded_at:,
+      #     employer_country:,
+      #     employer_name:,
+      #     employer_state:,
+      #     employment_status:,
+      #     income_country:,
+      #     income_source:,
+      #     income_state:,
+      #     industry:,
+      #     live_mode:,
+      #     object:,
+      #     occupation:,
+      #     source_of_funds:,
+      #     updated_at:,
+      #     wealth_source:
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The employment status of the individual.
       class EmploymentStatus < ModernTreasury::Enum
@@ -200,31 +281,6 @@ module ModernTreasury
         SALARY = :salary
         SELF_EMPLOYED = :self_employed
       end
-
-      # @!parse
-      #   # Create a new instance of WealthAndEmploymentDetails from a Hash of raw data.
-      #   #
-      #   # @param data [Hash{Symbol => Object}] .
-      #   #   @option data [String] :id
-      #   #   @option data [Integer] :annual_income The annual income of the individual.
-      #   #   @option data [String] :created_at
-      #   #   @option data [String] :discarded_at
-      #   #   @option data [String] :employer_country The country in which the employer is located.
-      #   #   @option data [String] :employer_name The name of the employer.
-      #   #   @option data [String] :employer_state The state in which the employer is located.
-      #   #   @option data [String] :employment_status The employment status of the individual.
-      #   #   @option data [String] :income_country The country in which the individual's income is earned.
-      #   #   @option data [String] :income_source The source of the individual's income.
-      #   #   @option data [String] :income_state The state in which the individual's income is earned.
-      #   #   @option data [String] :industry The industry of the individual.
-      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
-      #   #     if it exists in the test environment.
-      #   #   @option data [String] :object
-      #   #   @option data [String] :occupation The occupation of the individual.
-      #   #   @option data [String] :source_of_funds The source of the individual's funds.
-      #   #   @option data [String] :updated_at
-      #   #   @option data [String] :wealth_source The source of the individual's wealth.
-      #   def initialize(data = {}) = super
     end
   end
 end

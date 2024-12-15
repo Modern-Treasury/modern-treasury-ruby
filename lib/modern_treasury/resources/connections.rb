@@ -11,9 +11,13 @@ module ModernTreasury
       # Get a list of all connections.
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ConnectionListParams] Attributes to send in this request.
+      #
       #   @option params [String, nil] :after_cursor
+      #
       #   @option params [String, nil] :entity A string code representing the vendor (i.e. bank).
+      #
       #   @option params [Integer, nil] :per_page
+      #
       #   @option params [String, nil] :vendor_customer_id An identifier assigned by the vendor to your organization.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

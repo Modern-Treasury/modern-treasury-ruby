@@ -4,10 +4,12 @@ module ModernTreasury
   module Models
     class AccountDetailDeleteParams < ModernTreasury::BaseModel
       # @!attribute accounts_type
+      #
       #   @return [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::Models::AccountDetailDeleteParams::AccountsType }
 
       # @!attribute account_id
+      #
       #   @return [String]
       required :account_id, String
 

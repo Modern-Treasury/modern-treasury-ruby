@@ -4,46 +4,93 @@ module ModernTreasury
   module Models
     class PaymentReference < ModernTreasury::BaseModel
       # @!attribute id
+      #
       #   @return [String]
       required :id, String
 
       # @!attribute created_at
+      #
       #   @return [Time]
       required :created_at, Time
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute object
+      #
       #   @return [String]
       required :object, String
 
       # @!attribute reference_number
       #   The actual reference number assigned by the bank.
+      #
       #   @return [String]
       required :reference_number, String
 
       # @!attribute reference_number_type
       #   The type of reference number.
+      #
       #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType]
       required :reference_number_type,
                enum: -> { ModernTreasury::Models::PaymentReference::ReferenceNumberType }
 
       # @!attribute referenceable_id
       #   The id of the referenceable to search for. Must be accompanied by the referenceable_type or will return an error.
+      #
       #   @return [String]
       required :referenceable_id, String
 
       # @!attribute referenceable_type
       #   One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
+      #
       #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
       required :referenceable_type, enum: -> { ModernTreasury::Models::PaymentReference::ReferenceableType }
 
       # @!attribute updated_at
+      #
       #   @return [Time]
       required :updated_at, Time
+
+      # @!parse
+      #   # @param id [String]
+      #   #
+      #   # @param created_at [String]
+      #   #
+      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
+      #   #   if it exists in the test environment.
+      #   #
+      #   # @param object [String]
+      #   #
+      #   # @param reference_number [String] The actual reference number assigned by the bank.
+      #   #
+      #   # @param reference_number_type [String] The type of reference number.
+      #   #
+      #   # @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the
+      #   #   referenceable_type or will return an error.
+      #   #
+      #   # @param referenceable_type [String] One of the referenceable types. This must be accompanied by the id of the
+      #   #   referenceable or will return an error.
+      #   #
+      #   # @param updated_at [String]
+      #   #
+      #   def initialize(
+      #     id:,
+      #     created_at:,
+      #     live_mode:,
+      #     object:,
+      #     reference_number:,
+      #     reference_number_type:,
+      #     referenceable_id:,
+      #     referenceable_type:,
+      #     updated_at:
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The type of reference number.
       class ReferenceNumberType < ModernTreasury::Enum
@@ -126,24 +173,6 @@ module ModernTreasury
         REVERSAL = :reversal
         RETURN = :return
       end
-
-      # @!parse
-      #   # Create a new instance of PaymentReference from a Hash of raw data.
-      #   #
-      #   # @param data [Hash{Symbol => Object}] .
-      #   #   @option data [String] :id
-      #   #   @option data [String] :created_at
-      #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment or false
-      #   #     if it exists in the test environment.
-      #   #   @option data [String] :object
-      #   #   @option data [String] :reference_number The actual reference number assigned by the bank.
-      #   #   @option data [String] :reference_number_type The type of reference number.
-      #   #   @option data [String] :referenceable_id The id of the referenceable to search for. Must be accompanied by the
-      #   #     referenceable_type or will return an error.
-      #   #   @option data [String] :referenceable_type One of the referenceable types. This must be accompanied by the id of the
-      #   #     referenceable or will return an error.
-      #   #   @option data [String] :updated_at
-      #   def initialize(data = {}) = super
     end
   end
 end

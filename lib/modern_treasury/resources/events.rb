@@ -11,6 +11,7 @@ module ModernTreasury
       # get event
       #
       # @param id [String] event id
+      #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Event]
@@ -26,12 +27,19 @@ module ModernTreasury
       # list events
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::EventListParams] Attributes to send in this request.
+      #
       #   @option params [String, nil] :after_cursor
+      #
       #   @option params [String, nil] :entity_id
+      #
       #   @option params [String, nil] :event_name
+      #
       #   @option params [Time, nil] :event_time_end An inclusive upper bound for when the event occurred
+      #
       #   @option params [Time, nil] :event_time_start An inclusive lower bound for when the event occurred
+      #
       #   @option params [Integer, nil] :per_page
+      #
       #   @option params [String, nil] :resource
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

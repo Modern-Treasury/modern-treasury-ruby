@@ -5,75 +5,153 @@ module ModernTreasury
     module Transactions
       class TransactionLineItem < ModernTreasury::BaseModel
         # @!attribute id
+        #
         #   @return [String]
         required :id, String
 
         # @!attribute amount
         #   If a matching object exists in Modern Treasury, `amount` will be populated. Value in specified currency's smallest unit (taken from parent Transaction).
+        #
         #   @return [Integer]
         required :amount, Integer
 
         # @!attribute counterparty_id
         #   The ID for the counterparty for this transaction line item.
+        #
         #   @return [String]
         required :counterparty_id, String
 
         # @!attribute created_at
+        #
         #   @return [Time]
         required :created_at, Time
 
         # @!attribute description
         #   If no matching object is found, `description` will be a free-form text field describing the line item. This field may contain personally identifiable information (PII) and is not included in API responses by default. Learn more about changing your settings at https://docs.moderntreasury.com/reference/personally-identifiable-information.
+        #
         #   @return [String]
         required :description, String
 
         # @!attribute discarded_at
+        #
         #   @return [Time]
         required :discarded_at, Time
 
         # @!attribute expected_payment_id
         #   The ID of the reconciled Expected Payment, otherwise `null`.
+        #
         #   @return [String]
         required :expected_payment_id, String
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment, or false if it exists in the test environment.
+        #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
         # @!attribute object
+        #
         #   @return [String]
         required :object, String
 
         # @!attribute reconcilable
         #   Describes whether this line item should be counted towards the corresponding transaction’s reconciliation.
+        #
         #   @return [Boolean]
         required :reconcilable, ModernTreasury::BooleanModel
 
         # @!attribute transactable_id
         #   If a matching object exists in Modern Treasury, the ID will be populated here, otherwise `null`.
+        #
         #   @return [String]
         required :transactable_id, String
 
         # @!attribute transactable_type
         #   If a matching object exists in Modern Treasury, the type will be populated here, otherwise `null`.
+        #
         #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType]
         required :transactable_type,
                  enum: -> { ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType }
 
         # @!attribute transaction_id
         #   The ID of the parent transaction.
+        #
         #   @return [String]
         required :transaction_id, String
 
         # @!attribute type
         #   Indicates whether the line item is `originating` or `receiving` (see https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
+        #
         #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
         required :type, enum: -> { ModernTreasury::Models::Transactions::TransactionLineItem::Type }
 
         # @!attribute updated_at
+        #
         #   @return [Time]
         required :updated_at, Time
+
+        # @!parse
+        #   # @param id [String]
+        #   #
+        #   # @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated.
+        #   #   Value in specified currency's smallest unit (taken from parent Transaction).
+        #   #
+        #   # @param counterparty_id [String] The ID for the counterparty for this transaction line item.
+        #   #
+        #   # @param created_at [String]
+        #   #
+        #   # @param description [String] If no matching object is found, `description` will be a free-form text field
+        #   #   describing the line item. This field may contain personally identifiable
+        #   #   information (PII) and is not included in API responses by default. Learn more
+        #   #   about changing your settings at
+        #   #   https://docs.moderntreasury.com/reference/personally-identifiable-information.
+        #   #
+        #   # @param discarded_at [String]
+        #   #
+        #   # @param expected_payment_id [String] The ID of the reconciled Expected Payment, otherwise `null`.
+        #   #
+        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment, or false
+        #   #   if it exists in the test environment.
+        #   #
+        #   # @param object [String]
+        #   #
+        #   # @param reconcilable [Boolean] Describes whether this line item should be counted towards the corresponding
+        #   #   transaction’s reconciliation.
+        #   #
+        #   # @param transactable_id [String] If a matching object exists in Modern Treasury, the ID will be populated here,
+        #   #   otherwise `null`.
+        #   #
+        #   # @param transactable_type [String] If a matching object exists in Modern Treasury, the type will be populated here,
+        #   #   otherwise `null`.
+        #   #
+        #   # @param transaction_id [String] The ID of the parent transaction.
+        #   #
+        #   # @param type [String] Indicates whether the line item is `originating` or `receiving` (see
+        #   #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
+        #   #
+        #   # @param updated_at [String]
+        #   #
+        #   def initialize(
+        #     id:,
+        #     amount:,
+        #     counterparty_id:,
+        #     created_at:,
+        #     description:,
+        #     discarded_at:,
+        #     expected_payment_id:,
+        #     live_mode:,
+        #     object:,
+        #     reconcilable:,
+        #     transactable_id:,
+        #     transactable_type:,
+        #     transaction_id:,
+        #     type:,
+        #     updated_at:
+        #   )
+        #     super
+        #   end
+
+        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # If a matching object exists in Modern Treasury, the type will be populated here, otherwise `null`.
         class TransactableType < ModernTreasury::Enum
@@ -90,37 +168,6 @@ module ModernTreasury
           ORIGINATING = :originating
           RECEIVING = :receiving
         end
-
-        # @!parse
-        #   # Create a new instance of TransactionLineItem from a Hash of raw data.
-        #   #
-        #   # @param data [Hash{Symbol => Object}] .
-        #   #   @option data [String] :id
-        #   #   @option data [Integer] :amount If a matching object exists in Modern Treasury, `amount` will be populated.
-        #   #     Value in specified currency's smallest unit (taken from parent Transaction).
-        #   #   @option data [String] :counterparty_id The ID for the counterparty for this transaction line item.
-        #   #   @option data [String] :created_at
-        #   #   @option data [String] :description If no matching object is found, `description` will be a free-form text field
-        #   #     describing the line item. This field may contain personally identifiable
-        #   #     information (PII) and is not included in API responses by default. Learn more
-        #   #     about changing your settings at
-        #   #     https://docs.moderntreasury.com/reference/personally-identifiable-information.
-        #   #   @option data [String] :discarded_at
-        #   #   @option data [String] :expected_payment_id The ID of the reconciled Expected Payment, otherwise `null`.
-        #   #   @option data [Hash] :live_mode This field will be true if this object exists in the live environment, or false
-        #   #     if it exists in the test environment.
-        #   #   @option data [String] :object
-        #   #   @option data [Hash] :reconcilable Describes whether this line item should be counted towards the corresponding
-        #   #     transaction’s reconciliation.
-        #   #   @option data [String] :transactable_id If a matching object exists in Modern Treasury, the ID will be populated here,
-        #   #     otherwise `null`.
-        #   #   @option data [String] :transactable_type If a matching object exists in Modern Treasury, the type will be populated here,
-        #   #     otherwise `null`.
-        #   #   @option data [String] :transaction_id The ID of the parent transaction.
-        #   #   @option data [String] :type Indicates whether the line item is `originating` or `receiving` (see
-        #   #     https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
-        #   #   @option data [String] :updated_at
-        #   def initialize(data = {}) = super
       end
     end
 

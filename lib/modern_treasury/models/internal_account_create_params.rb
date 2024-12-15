@@ -5,46 +5,55 @@ module ModernTreasury
     class InternalAccountCreateParams < ModernTreasury::BaseModel
       # @!attribute connection_id
       #   The identifier of the financial institution the account belongs to.
+      #
       #   @return [String]
       required :connection_id, String
 
       # @!attribute currency
       #   Either "USD" or "CAD". Internal accounts created at Increase only supports "USD".
+      #
       #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
       required :currency, enum: -> { ModernTreasury::Models::InternalAccountCreateParams::Currency }
 
       # @!attribute name
       #   The nickname of the account.
+      #
       #   @return [String]
       required :name, String
 
       # @!attribute party_name
       #   The legal name of the entity which owns the account.
+      #
       #   @return [String]
       required :party_name, String
 
       # @!attribute counterparty_id
       #   The Counterparty associated to this account.
+      #
       #   @return [String]
       optional :counterparty_id, String
 
       # @!attribute legal_entity_id
       #   The LegalEntity associated to this account.
+      #
       #   @return [String]
       optional :legal_entity_id, String
 
       # @!attribute parent_account_id
       #   The parent internal account of this new account.
+      #
       #   @return [String]
       optional :parent_account_id, String
 
       # @!attribute party_address
       #   The address associated with the owner or null.
+      #
       #   @return [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
       optional :party_address, -> { ModernTreasury::Models::InternalAccountCreateParams::PartyAddress }
 
       # @!attribute vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account at the vendor specified by the given connection.
+      #
       #   @return [Hash]
       optional :vendor_attributes, Hash
 
@@ -57,43 +66,56 @@ module ModernTreasury
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
+        #
         #   @return [String]
         required :country, String
 
         # @!attribute line1
+        #
         #   @return [String]
         required :line1, String
 
         # @!attribute locality
         #   Locality or City.
+        #
         #   @return [String]
         required :locality, String
 
         # @!attribute postal_code
         #   The postal code of the address.
+        #
         #   @return [String]
         required :postal_code, String
 
         # @!attribute region
         #   Region or State.
+        #
         #   @return [String]
         required :region, String
 
         # @!attribute line2
+        #
         #   @return [String]
         optional :line2, String
 
         # @!parse
-        #   # Create a new instance of PartyAddress from a Hash of raw data.
+        #   # The address associated with the owner or null.
         #   #
-        #   # @param data [Hash{Symbol => Object}] .
-        #   #   @option data [String] :country Country code conforms to [ISO 3166-1 alpha-2]
-        #   #   @option data [String] :line1
-        #   #   @option data [String] :locality Locality or City.
-        #   #   @option data [String] :postal_code The postal code of the address.
-        #   #   @option data [String] :region Region or State.
-        #   #   @option data [String, nil] :line2
-        #   def initialize(data = {}) = super
+        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #   #
+        #   # @param line1 [String]
+        #   #
+        #   # @param locality [String] Locality or City.
+        #   #
+        #   # @param postal_code [String] The postal code of the address.
+        #   #
+        #   # @param region [String] Region or State.
+        #   #
+        #   # @param line2 [String, nil]
+        #   #
+        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil) = super
+
+        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
     end
   end
