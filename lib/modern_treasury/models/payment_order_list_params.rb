@@ -98,6 +98,69 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
       optional :type, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Type }
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param counterparty_id [String, nil]
+      #   #
+      #   # @param created_at_end [String, nil] An inclusive upper bound for searching created_at
+      #   #
+      #   # @param created_at_start [String, nil] An inclusive lower bound for searching created_at
+      #   #
+      #   # @param direction [String, nil]
+      #   #
+      #   # @param effective_date_end [String, nil] An inclusive upper bound for searching effective_date
+      #   #
+      #   # @param effective_date_start [String, nil] An inclusive lower bound for searching effective_date
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param originating_account_id [String, nil]
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param priority [String, nil] Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      #   #   an overnight check rather than standard mail.
+      #   #
+      #   # @param process_after_end [String, nil] An inclusive upper bound for searching process_after
+      #   #
+      #   # @param process_after_start [String, nil] An inclusive lower bound for searching process_after
+      #   #
+      #   # @param reference_number [String, nil] Query for records with the provided reference number
+      #   #
+      #   # @param status [String, nil]
+      #   #
+      #   # @param transaction_id [String, nil] The ID of a transaction that the payment order has been reconciled to.
+      #   #
+      #   # @param type [String, nil]
+      #   #
+      #   def initialize(
+      #     after_cursor: nil,
+      #     counterparty_id: nil,
+      #     created_at_end: nil,
+      #     created_at_start: nil,
+      #     direction: nil,
+      #     effective_date_end: nil,
+      #     effective_date_start: nil,
+      #     metadata: nil,
+      #     originating_account_id: nil,
+      #     per_page: nil,
+      #     priority: nil,
+      #     process_after_end: nil,
+      #     process_after_start: nil,
+      #     reference_number: nil,
+      #     status: nil,
+      #     transaction_id: nil,
+      #     type: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
       class Priority < ModernTreasury::Enum
         HIGH = :high

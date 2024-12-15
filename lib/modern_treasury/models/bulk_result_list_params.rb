@@ -43,6 +43,38 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::BulkResultListParams::Status }
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param entity_id [String, nil] Unique identifier for the result entity object.
+      #   #
+      #   # @param entity_type [String, nil] The type of the request that created this result. bulk_request is the only
+      #   #   supported `request_type`
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param request_id [String, nil] Unique identifier for the request that created this bulk result. This is the ID
+      #   #   of the bulk request when `request_type` is bulk_request
+      #   #
+      #   # @param request_type [String, nil] The type of the request that created this result. bulk_request is the only
+      #   #   supported `request_type`
+      #   #
+      #   # @param status [String, nil] One of successful or failed.
+      #   #
+      #   def initialize(
+      #     after_cursor: nil,
+      #     entity_id: nil,
+      #     entity_type: nil,
+      #     per_page: nil,
+      #     request_id: nil,
+      #     request_type: nil,
+      #     status: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # The type of the request that created this result. bulk_request is the only supported `request_type`
       class EntityType < ModernTreasury::Enum
         PAYMENT_ORDER = :payment_order

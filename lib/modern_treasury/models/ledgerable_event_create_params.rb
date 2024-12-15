@@ -26,6 +26,20 @@ module ModernTreasury
       #
       #   @return [Hash]
       optional :metadata, Hash
+
+      # @!parse
+      #   # @param name [String] Name of the ledgerable event.
+      #   #
+      #   # @param custom_data [Object, nil] Additionally data to be used by the Ledger Event Handler.
+      #   #
+      #   # @param description [String, nil] Description of the ledgerable event.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   def initialize(name:, custom_data: nil, description: nil, metadata: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

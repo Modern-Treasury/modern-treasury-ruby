@@ -18,6 +18,15 @@ module ModernTreasury
       #   @return [Integer]
       optional :per_page, Integer
 
+      # @!parse
+      #   # @param itemizable_type [String]
+      #   # @param after_cursor [String, nil]
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   def initialize(itemizable_type:, after_cursor: nil, per_page: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class ItemizableType < ModernTreasury::Enum
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders

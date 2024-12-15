@@ -29,6 +29,20 @@ module ModernTreasury
         #   @return [Integer]
         optional :per_page, Integer
 
+        # @!parse
+        #   # @param after_cursor [String, nil]
+        #   #
+        #   # @param as_of_date [String, nil] The date of the balance report in local time.
+        #   #
+        #   # @param balance_report_type [String, nil] The specific type of balance report. One of `intraday`, `previous_day`,
+        #   #   `real_time`, or `other`.
+        #   #
+        #   # @param per_page [Integer, nil]
+        #   #
+        #   def initialize(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil) = super
+
+        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
         # The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
         class BalanceReportType < ModernTreasury::Enum
           INTRADAY = :intraday

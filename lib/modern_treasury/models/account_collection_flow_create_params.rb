@@ -24,6 +24,17 @@ module ModernTreasury
                  }
                )
 
+      # @!parse
+      #   # @param counterparty_id [String] Required.
+      #   #
+      #   # @param payment_types [Array<String>]
+      #   #
+      #   # @param receiving_countries [Array<String>, nil]
+      #   #
+      #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # Optional. Array of 3-digit ISO country codes.
       class ReceivingCountry < ModernTreasury::Enum
         USA = :USA

@@ -44,6 +44,33 @@ module ModernTreasury
       #   @return [String]
       optional :title, String
 
+      # @!parse
+      #   # @param parent_legal_entity_id [String] The ID of the parent legal entity. This must be a business or joint legal
+      #   #   entity.
+      #   #
+      #   # @param relationship_types [Array<String>]
+      #   #
+      #   # @param child_legal_entity [Object, nil] The child legal entity.
+      #   #
+      #   # @param child_legal_entity_id [String, nil] The ID of the child legal entity.
+      #   #
+      #   # @param ownership_percentage [Integer, nil] The child entity's ownership percentage iff they are a beneficial owner.
+      #   #
+      #   # @param title [String, nil] The job title of the child entity at the parent entity.
+      #   #
+      #   def initialize(
+      #     parent_legal_entity_id:,
+      #     relationship_types:,
+      #     child_legal_entity: nil,
+      #     child_legal_entity_id: nil,
+      #     ownership_percentage: nil,
+      #     title: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # A list of relationship types for how the child entity relates to parent entity.
       class RelationshipType < ModernTreasury::Enum
         BENEFICIAL_OWNER = :beneficial_owner

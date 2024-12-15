@@ -29,6 +29,23 @@ module ModernTreasury
       #   @return [String]
       optional :show_deleted, String
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param legal_entity_type [String, nil]
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param show_deleted [String, nil]
+      #   #
+      #   def initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class LegalEntityType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual

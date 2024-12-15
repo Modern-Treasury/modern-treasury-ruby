@@ -43,6 +43,37 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType]
       optional :party_type, enum: -> { ModernTreasury::Models::ExternalAccountUpdateParams::PartyType }
 
+      # @!parse
+      #   # @param account_type [String, nil] Can be `checking`, `savings` or `other`.
+      #   #
+      #   # @param counterparty_id [String, nil]
+      #   #
+      #   # @param metadata [Hash, nil] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   #   an empty string or `null` as the value.
+      #   #
+      #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
+      #   #   affect any payments
+      #   #
+      #   # @param party_address [Object, nil]
+      #   #
+      #   # @param party_name [String, nil] If this value isn't provided, it will be inherited from the counterparty's name.
+      #   #
+      #   # @param party_type [String, nil] Either `individual` or `business`.
+      #   #
+      #   def initialize(
+      #     account_type: nil,
+      #     counterparty_id: nil,
+      #     metadata: nil,
+      #     name: nil,
+      #     party_address: nil,
+      #     party_name: nil,
+      #     party_type: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]

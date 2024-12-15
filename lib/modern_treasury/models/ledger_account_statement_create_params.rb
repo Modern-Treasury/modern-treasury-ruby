@@ -32,6 +32,25 @@ module ModernTreasury
       #
       #   @return [Hash]
       optional :metadata, Hash
+
+      # @!parse
+      #   # @param effective_at_lower_bound [String] The inclusive lower bound of the effective_at timestamp of the ledger entries to
+      #   #   be included in the ledger account statement.
+      #   #
+      #   # @param effective_at_upper_bound [String] The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      #   #   be included in the ledger account statement.
+      #   #
+      #   # @param ledger_account_id [String] The id of the ledger account whose ledger entries are queried against, and its
+      #   #   balances are computed as a result.
+      #   #
+      #   # @param description [String, nil] The description of the ledger account statement.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   def initialize(effective_at_lower_bound:, effective_at_upper_bound:, ledger_account_id:, description: nil, metadata: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end
