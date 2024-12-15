@@ -8,7 +8,7 @@ module ModernTreasury
     # @return [String]
     attr_accessor :after_cursor
 
-    # @!visibility private
+    # @private
     #
     # @param model [Object]
     # @param raw_data [Hash{Symbol => Object}]
