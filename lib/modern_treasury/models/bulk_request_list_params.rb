@@ -5,29 +5,35 @@ module ModernTreasury
     class BulkRequestListParams < ModernTreasury::BaseModel
       # @!attribute action_type
       #   One of create, or update.
+      #
       #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType]
       optional :action_type, enum: -> { ModernTreasury::Models::BulkRequestListParams::ActionType }
 
       # @!attribute after_cursor
+      #
       #   @return [String]
       optional :after_cursor, String
 
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #
       #   @return [Hash]
       optional :metadata, Hash
 
       # @!attribute per_page
+      #
       #   @return [Integer]
       optional :per_page, Integer
 
       # @!attribute resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
+      #
       #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType]
       optional :resource_type, enum: -> { ModernTreasury::Models::BulkRequestListParams::ResourceType }
 
       # @!attribute status
       #   One of pending, processing, or completed.
+      #
       #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::BulkRequestListParams::Status }
 

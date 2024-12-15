@@ -5,6 +5,7 @@ module ModernTreasury
     module InternalAccounts
       class BalanceReportDeleteParams < ModernTreasury::BaseModel
         # @!attribute internal_account_id
+        #
         #   @return [String]
         required :internal_account_id, String
       end

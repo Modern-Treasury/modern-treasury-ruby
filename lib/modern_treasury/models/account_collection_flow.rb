@@ -5,10 +5,12 @@ module ModernTreasury
     class AccountCollectionFlow < ModernTreasury::BaseModel
       # @!attribute counterparty_id
       #   The ID of a counterparty. An external account created with this flow will be associated with this counterparty.
+      #
       #   @return [String]
       required :counterparty_id, String
 
       # @!attribute payment_types
+      #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
                ModernTreasury::ArrayOf.new(
@@ -18,33 +20,40 @@ module ModernTreasury
                )
 
       # @!attribute id
+      #
       #   @return [String]
       optional :id, String
 
       # @!attribute client_token
       #   The client token of the account collection flow.  This token can be used to embed account collection in your client-side application.
+      #
       #   @return [String]
       optional :client_token, String
 
       # @!attribute created_at
+      #
       #   @return [Time]
       optional :created_at, Time
 
       # @!attribute external_account_id
       #   If present, the ID of the external account created using this flow.
+      #
       #   @return [String]
       optional :external_account_id, String
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #
       #   @return [Boolean]
       optional :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute object
+      #
       #   @return [String]
       optional :object, String
 
       # @!attribute receiving_countries
+      #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
       optional :receiving_countries,
                ModernTreasury::ArrayOf.new(
@@ -55,12 +64,59 @@ module ModernTreasury
 
       # @!attribute status
       #   The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
+      #
       #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status]
       optional :status, enum: -> { ModernTreasury::Models::AccountCollectionFlow::Status }
 
       # @!attribute updated_at
+      #
       #   @return [Time]
       optional :updated_at, Time
+
+      # @!parse
+      #   # @param counterparty_id [String] The ID of a counterparty. An external account created with this flow will be
+      #   #   associated with this counterparty.
+      #   #
+      #   # @param payment_types [Array<String>]
+      #   #
+      #   # @param id [String, nil]
+      #   #
+      #   # @param client_token [String, nil] The client token of the account collection flow. This token can be used to embed
+      #   #   account collection in your client-side application.
+      #   #
+      #   # @param created_at [String, nil]
+      #   #
+      #   # @param external_account_id [String, nil] If present, the ID of the external account created using this flow.
+      #   #
+      #   # @param live_mode [Boolean, nil] This field will be true if this object exists in the live environment or false
+      #   #   if it exists in the test environment.
+      #   #
+      #   # @param object [String, nil]
+      #   #
+      #   # @param receiving_countries [Array<String>, nil]
+      #   #
+      #   # @param status [String, nil] The current status of the account collection flow. One of `pending`,
+      #   #   `completed`, `expired`, or `cancelled`.
+      #   #
+      #   # @param updated_at [String, nil]
+      #   #
+      #   def initialize(
+      #     counterparty_id:,
+      #     payment_types:,
+      #     id: nil,
+      #     client_token: nil,
+      #     created_at: nil,
+      #     external_account_id: nil,
+      #     live_mode: nil,
+      #     object: nil,
+      #     receiving_countries: nil,
+      #     status: nil,
+      #     updated_at: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # An account created with this flow will support payments of one of these types.
       class PaymentType < ModernTreasury::Enum
@@ -97,27 +153,6 @@ module ModernTreasury
         EXPIRED = :expired
         PENDING = :pending
       end
-
-      # @!parse
-      #   # Create a new instance of AccountCollectionFlow from a Hash of raw data.
-      #   #
-      #   # @param data [Hash{Symbol => Object}] .
-      #   #   @option data [String] :counterparty_id The ID of a counterparty. An external account created with this flow will be
-      #   #     associated with this counterparty.
-      #   #   @option data [Array<String>] :payment_types
-      #   #   @option data [String, nil] :id
-      #   #   @option data [String, nil] :client_token The client token of the account collection flow. This token can be used to embed
-      #   #     account collection in your client-side application.
-      #   #   @option data [String, nil] :created_at
-      #   #   @option data [String, nil] :external_account_id If present, the ID of the external account created using this flow.
-      #   #   @option data [Hash, nil] :live_mode This field will be true if this object exists in the live environment or false
-      #   #     if it exists in the test environment.
-      #   #   @option data [String, nil] :object
-      #   #   @option data [Array<String>, nil] :receiving_countries
-      #   #   @option data [String, nil] :status The current status of the account collection flow. One of `pending`,
-      #   #     `completed`, `expired`, or `cancelled`.
-      #   #   @option data [String, nil] :updated_at
-      #   def initialize(data = {}) = super
     end
   end
 end

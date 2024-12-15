@@ -7,6 +7,7 @@ module ModernTreasury
     MAX_REDIRECTS = 20 # from whatwg fetch spec
 
     # @!attribute requester
+    #
     #   @return [ModernTreasury::PooledNetRequester]
     attr_accessor :requester
 

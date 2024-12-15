@@ -14,12 +14,15 @@ module ModernTreasury
         # @param payment_order_id [String] The id of the payment order being reversed.
         #
         # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrders::ReversalCreateParams] Attributes to send in this request.
+        #
         #   @option params [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] :reason The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #     `incorrect_receiving_account`, `date_earlier_than_intended`,
         #     `date_later_than_intended`.
+        #
         #   @option params [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the reversal. If
         #     the ledger transaction cannot be created, then the reversal creation will fail.
         #     The resulting ledger transaction will mirror the status of the reversal.
+        #
         #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
@@ -42,6 +45,7 @@ module ModernTreasury
         # @param reversal_id [String] The ID of the reversal.
         #
         # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams] Attributes to send in this request.
+        #
         #   @option params [String] :payment_order_id The id of the payment order being reversed.
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -65,7 +69,9 @@ module ModernTreasury
         # @param payment_order_id [String] The ID of the relevant Payment Order.
         #
         # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrders::ReversalListParams] Attributes to send in this request.
+        #
         #   @option params [String, nil] :after_cursor
+        #
         #   @option params [Integer, nil] :per_page
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

@@ -11,8 +11,11 @@ module ModernTreasury
       # create account_collection_flow
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::AccountCollectionFlowCreateParams] Attributes to send in this request.
+      #
       #   @option params [String] :counterparty_id Required.
+      #
       #   @option params [Array<String>] :payment_types
+      #
       #   @option params [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>, nil] :receiving_countries
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -32,6 +35,7 @@ module ModernTreasury
       # get account_collection_flow
       #
       # @param id [String] id
+      #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
@@ -49,6 +53,7 @@ module ModernTreasury
       # @param id [String] id
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::AccountCollectionFlowUpdateParams] Attributes to send in this request.
+      #
       #   @option params [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] :status Required. The updated status of the account collection flow. Can only be used to
       #     mark a flow as `cancelled`.
       #
@@ -69,11 +74,17 @@ module ModernTreasury
       # list account_collection_flows
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::AccountCollectionFlowListParams] Attributes to send in this request.
+      #
       #   @option params [String, nil] :after_cursor
+      #
       #   @option params [String, nil] :client_token
+      #
       #   @option params [String, nil] :counterparty_id
+      #
       #   @option params [String, nil] :external_account_id
+      #
       #   @option params [Integer, nil] :per_page
+      #
       #   @option params [String, nil] :status
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

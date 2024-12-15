@@ -5,19 +5,23 @@ module ModernTreasury
     class DocumentCreateParams < ModernTreasury::BaseModel
       # @!attribute documentable_id
       #   The unique identifier for the associated object.
+      #
       #   @return [String]
       required :documentable_id, String
 
       # @!attribute documentable_type
+      #
       #   @return [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
       required :documentable_type, enum: -> { ModernTreasury::Models::DocumentCreateParams::DocumentableType }
 
       # @!attribute file
+      #
       #   @return [String]
       required :file, String
 
       # @!attribute document_type
       #   A category given to the document, can be `null`.
+      #
       #   @return [String]
       optional :document_type, String
 
