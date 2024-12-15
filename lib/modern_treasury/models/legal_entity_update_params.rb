@@ -142,6 +142,81 @@ module ModernTreasury
       #   @return [String]
       optional :website, String
 
+      # @!parse
+      #   # @param addresses [Array<Object>, nil] A list of addresses for the entity.
+      #   #
+      #   # @param bank_settings [Object, nil]
+      #   #
+      #   # @param business_name [String, nil] The business's legal business name.
+      #   #
+      #   # @param citizenship_country [String, nil] The country of citizenship for an individual.
+      #   #
+      #   # @param date_formed [String, nil] A business's formation date (YYYY-MM-DD).
+      #   #
+      #   # @param date_of_birth [String, nil] An individual's date of birth (YYYY-MM-DD).
+      #   #
+      #   # @param doing_business_as_names [Array<String>, nil]
+      #   #
+      #   # @param email [String, nil] The entity's primary email.
+      #   #
+      #   # @param first_name [String, nil] An individual's first name.
+      #   #
+      #   # @param identifications [Array<Object>, nil] A list of identifications for the legal entity.
+      #   #
+      #   # @param last_name [String, nil] An individual's last name.
+      #   #
+      #   # @param legal_structure [String, nil] The business's legal structure.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   # @param middle_name [String, nil] An individual's middle name.
+      #   #
+      #   # @param phone_numbers [Array<Object>, nil]
+      #   #
+      #   # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
+      #   #
+      #   # @param preferred_name [String, nil] An individual's preferred name.
+      #   #
+      #   # @param prefix [String, nil] An individual's prefix.
+      #   #
+      #   # @param risk_rating [String, nil] The risk rating of the legal entity. One of low, medium, high.
+      #   #
+      #   # @param suffix [String, nil] An individual's suffix.
+      #   #
+      #   # @param wealth_and_employment_details [Object, nil]
+      #   #
+      #   # @param website [String, nil] The entity's primary website URL.
+      #   #
+      #   def initialize(
+      #     addresses: nil,
+      #     bank_settings: nil,
+      #     business_name: nil,
+      #     citizenship_country: nil,
+      #     date_formed: nil,
+      #     date_of_birth: nil,
+      #     doing_business_as_names: nil,
+      #     email: nil,
+      #     first_name: nil,
+      #     identifications: nil,
+      #     last_name: nil,
+      #     legal_structure: nil,
+      #     metadata: nil,
+      #     middle_name: nil,
+      #     phone_numbers: nil,
+      #     politically_exposed_person: nil,
+      #     preferred_name: nil,
+      #     prefix: nil,
+      #     risk_rating: nil,
+      #     suffix: nil,
+      #     wealth_and_employment_details: nil,
+      #     website: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class Address < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]

@@ -24,6 +24,19 @@ module ModernTreasury
       #
       #   @return [String]
       optional :vendor_customer_id, String
+
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param entity [String, nil] A string code representing the vendor (i.e. bank).
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param vendor_customer_id [String, nil] An identifier assigned by the vendor to your organization.
+      #   #
+      #   def initialize(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

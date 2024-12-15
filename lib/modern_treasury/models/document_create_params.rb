@@ -25,6 +25,19 @@ module ModernTreasury
       #   @return [String]
       optional :document_type, String
 
+      # @!parse
+      #   # @param documentable_id [String] The unique identifier for the associated object.
+      #   #
+      #   # @param documentable_type [String]
+      #   #
+      #   # @param file [String]
+      #   #
+      #   # @param document_type [String, nil] A category given to the document, can be `null`.
+      #   #
+      #   def initialize(documentable_id:, documentable_type:, file:, document_type: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class DocumentableType < ModernTreasury::Enum
         CASES = :cases
         COUNTERPARTIES = :counterparties

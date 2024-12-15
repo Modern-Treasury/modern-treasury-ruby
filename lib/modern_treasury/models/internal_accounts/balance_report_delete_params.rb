@@ -8,6 +8,13 @@ module ModernTreasury
         #
         #   @return [String]
         required :internal_account_id, String
+
+        # @!parse
+        #   # @param internal_account_id [String]
+        #   #
+        #   def initialize(internal_account_id:) = super
+
+        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
     end
   end

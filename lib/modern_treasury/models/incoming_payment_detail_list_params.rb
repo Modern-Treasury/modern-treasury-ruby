@@ -55,6 +55,48 @@ module ModernTreasury
       #   @return [String]
       optional :virtual_account_id, String
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param as_of_date_end [String, nil] Filters incoming payment details with an as_of_date starting on or before the
+      #   #   specified date (YYYY-MM-DD).
+      #   #
+      #   # @param as_of_date_start [String, nil] Filters incoming payment details with an as_of_date starting on or after the
+      #   #   specified date (YYYY-MM-DD).
+      #   #
+      #   # @param direction [String, nil] One of `credit` or `debit`.
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param status [String, nil] The current status of the incoming payment order. One of `pending`, `completed`,
+      #   #   or `returned`.
+      #   #
+      #   # @param type [String, nil] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   #   `wire`.
+      #   #
+      #   # @param virtual_account_id [String, nil] If the incoming payment detail is in a virtual account, the ID of the Virtual
+      #   #   Account.
+      #   #
+      #   def initialize(
+      #     after_cursor: nil,
+      #     as_of_date_end: nil,
+      #     as_of_date_start: nil,
+      #     direction: nil,
+      #     metadata: nil,
+      #     per_page: nil,
+      #     status: nil,
+      #     type: nil,
+      #     virtual_account_id: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
       class Status < ModernTreasury::Enum
         COMPLETED = :completed

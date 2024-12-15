@@ -57,6 +57,43 @@ module ModernTreasury
       #   @return [Hash]
       optional :vendor_attributes, Hash
 
+      # @!parse
+      #   # @param connection_id [String] The identifier of the financial institution the account belongs to.
+      #   #
+      #   # @param currency [String] Either "USD" or "CAD". Internal accounts created at Increase only supports
+      #   #   "USD".
+      #   #
+      #   # @param name [String] The nickname of the account.
+      #   #
+      #   # @param party_name [String] The legal name of the entity which owns the account.
+      #   #
+      #   # @param counterparty_id [String, nil] The Counterparty associated to this account.
+      #   #
+      #   # @param legal_entity_id [String, nil] The LegalEntity associated to this account.
+      #   #
+      #   # @param parent_account_id [String, nil] The parent internal account of this new account.
+      #   #
+      #   # @param party_address [Object, nil] The address associated with the owner or null.
+      #   #
+      #   # @param vendor_attributes [Hash, nil] A hash of vendor specific attributes that will be used when creating the account
+      #   #   at the vendor specified by the given connection.
+      #   #
+      #   def initialize(
+      #     connection_id:,
+      #     currency:,
+      #     name:,
+      #     party_name:,
+      #     counterparty_id: nil,
+      #     legal_entity_id: nil,
+      #     parent_account_id: nil,
+      #     party_address: nil,
+      #     vendor_attributes: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # Either "USD" or "CAD". Internal accounts created at Increase only supports "USD".
       class Currency < ModernTreasury::Enum
         USD = :USD

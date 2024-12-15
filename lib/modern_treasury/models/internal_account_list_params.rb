@@ -49,6 +49,40 @@ module ModernTreasury
       #   @return [Integer]
       optional :per_page, Integer
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param counterparty_id [String, nil] Only return internal accounts associated with this counterparty.
+      #   #
+      #   # @param currency [String, nil] Only return internal accounts with this currency.
+      #   #
+      #   # @param legal_entity_id [String, nil] Only return internal accounts associated with this legal entity.
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param payment_direction [String, nil] Only return internal accounts that can originate payments with this direction.
+      #   #
+      #   # @param payment_type [String, nil] Only return internal accounts that can make this type of payment.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   def initialize(
+      #     after_cursor: nil,
+      #     counterparty_id: nil,
+      #     currency: nil,
+      #     legal_entity_id: nil,
+      #     metadata: nil,
+      #     payment_direction: nil,
+      #     payment_type: nil,
+      #     per_page: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       # Only return internal accounts that can make this type of payment.
       class PaymentType < ModernTreasury::Enum
         ACH = :ach

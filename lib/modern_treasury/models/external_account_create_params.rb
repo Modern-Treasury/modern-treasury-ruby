@@ -91,6 +91,60 @@ module ModernTreasury
                  }
                )
 
+      # @!parse
+      #   # @param counterparty_id [String]
+      #   #
+      #   # @param account_details [Array<Object>, nil]
+      #   #
+      #   # @param account_type [String, nil] Can be `checking`, `savings` or `other`.
+      #   #
+      #   # @param contact_details [Array<Object>, nil]
+      #   #
+      #   # @param ledger_account [Object, nil] Specifies a ledger account object that will be created with the external
+      #   #   account. The resulting ledger account is linked to the external account for
+      #   #   auto-ledgering Payment objects. See
+      #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+      #   #   for more details.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
+      #   #   affect any payments
+      #   #
+      #   # @param party_address [Object, nil] Required if receiving wire payments.
+      #   #
+      #   # @param party_identifier [String, nil]
+      #   #
+      #   # @param party_name [String, nil] If this value isn't provided, it will be inherited from the counterparty's name.
+      #   #
+      #   # @param party_type [String, nil] Either `individual` or `business`.
+      #   #
+      #   # @param plaid_processor_token [String, nil] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+      #   #   you can pass the processor token in this field.
+      #   #
+      #   # @param routing_details [Array<Object>, nil]
+      #   #
+      #   def initialize(
+      #     counterparty_id:,
+      #     account_details: nil,
+      #     account_type: nil,
+      #     contact_details: nil,
+      #     ledger_account: nil,
+      #     metadata: nil,
+      #     name: nil,
+      #     party_address: nil,
+      #     party_identifier: nil,
+      #     party_name: nil,
+      #     party_type: nil,
+      #     plaid_processor_token: nil,
+      #     routing_details: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class AccountDetail < ModernTreasury::BaseModel
         # @!attribute account_number
         #

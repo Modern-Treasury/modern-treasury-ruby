@@ -73,6 +73,51 @@ module ModernTreasury
                  }
                )
 
+      # @!parse
+      #   # @param internal_account_id [String] The ID of the internal account that this virtual account is associated with.
+      #   #
+      #   # @param name [String] The name of the virtual account.
+      #   #
+      #   # @param account_details [Array<Object>, nil] An array of account detail objects.
+      #   #
+      #   # @param counterparty_id [String, nil] The ID of the counterparty that the virtual account belongs to.
+      #   #
+      #   # @param credit_ledger_account_id [String, nil] The ID of a credit normal ledger account. When money leaves the virtual account,
+      #   #   this ledger account will be credited. Must be accompanied by a
+      #   #   debit_ledger_account_id if present.
+      #   #
+      #   # @param debit_ledger_account_id [String, nil] The ID of a debit normal ledger account. When money enters the virtual account,
+      #   #   this ledger account will be debited. Must be accompanied by a
+      #   #   credit_ledger_account_id if present.
+      #   #
+      #   # @param description [String, nil] An optional description for internal use.
+      #   #
+      #   # @param ledger_account [Object, nil] Specifies a ledger account object that will be created with the virtual account.
+      #   #   The resulting ledger account is linked to the virtual account for auto-ledgering
+      #   #   IPDs.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   # @param routing_details [Array<Object>, nil] An array of routing detail objects.
+      #   #
+      #   def initialize(
+      #     internal_account_id:,
+      #     name:,
+      #     account_details: nil,
+      #     counterparty_id: nil,
+      #     credit_ledger_account_id: nil,
+      #     debit_ledger_account_id: nil,
+      #     description: nil,
+      #     ledger_account: nil,
+      #     metadata: nil,
+      #     routing_details: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class AccountDetail < ModernTreasury::BaseModel
         # @!attribute account_number
         #   The account number for the bank account.

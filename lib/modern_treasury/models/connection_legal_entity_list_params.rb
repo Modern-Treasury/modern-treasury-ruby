@@ -28,6 +28,17 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityListParams::Status }
 
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   # @param connection_id [String, nil]
+      #   # @param legal_entity_id [String, nil]
+      #   # @param per_page [Integer, nil]
+      #   # @param status [String, nil]
+      #   #
+      #   def initialize(after_cursor: nil, connection_id: nil, legal_entity_id: nil, per_page: nil, status: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class Status < ModernTreasury::Enum
         COMPLETED = :completed
         DENIED = :denied

@@ -39,6 +39,35 @@ module ModernTreasury
       #
       #   @return [String]
       optional :resource, String
+
+      # @!parse
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param entity_id [String, nil]
+      #   #
+      #   # @param event_name [String, nil]
+      #   #
+      #   # @param event_time_end [String, nil] An inclusive upper bound for when the event occurred
+      #   #
+      #   # @param event_time_start [String, nil] An inclusive lower bound for when the event occurred
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param resource [String, nil]
+      #   #
+      #   def initialize(
+      #     after_cursor: nil,
+      #     entity_id: nil,
+      #     event_name: nil,
+      #     event_time_end: nil,
+      #     event_time_start: nil,
+      #     per_page: nil,
+      #     resource: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

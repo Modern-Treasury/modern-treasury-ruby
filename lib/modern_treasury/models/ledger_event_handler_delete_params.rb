@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerEventHandlerDeleteParams < ModernTreasury::BaseModel
+      # @!parse
+      #   def initialize = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

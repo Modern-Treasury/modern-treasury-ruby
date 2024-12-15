@@ -58,6 +58,50 @@ module ModernTreasury
       #   @return [Integer]
       optional :per_page, Integer
 
+      # @!parse
+      #   # @param id [Array<String>, nil] If you have specific IDs to retrieve in bulk, you can pass them as query
+      #   #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      #   #
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param balances [Object, nil] For example, if you want the balances as of a particular time (ISO8601), the
+      #   #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
+      #   #   The balances as of a time are inclusive of entries with that exact time.
+      #   #
+      #   # @param currency [String, nil]
+      #   #
+      #   # @param ledger_account_id [String, nil] Query categories which contain a ledger account directly or through child
+      #   #   categories.
+      #   #
+      #   # @param ledger_id [String, nil]
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param name [String, nil]
+      #   #
+      #   # @param parent_ledger_account_category_id [String, nil] Query categories that are nested underneath a parent category
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   def initialize(
+      #     id: nil,
+      #     after_cursor: nil,
+      #     balances: nil,
+      #     currency: nil,
+      #     ledger_account_id: nil,
+      #     ledger_id: nil,
+      #     metadata: nil,
+      #     name: nil,
+      #     parent_ledger_account_category_id: nil,
+      #     per_page: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class Balances < ModernTreasury::BaseModel
         # @!attribute effective_at
         #

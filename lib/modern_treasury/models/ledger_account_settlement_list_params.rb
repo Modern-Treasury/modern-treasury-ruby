@@ -56,6 +56,51 @@ module ModernTreasury
       #
       #   @return [Hash]
       optional :updated_at, Hash
+
+      # @!parse
+      #   # @param id [Array<String>, nil] If you have specific IDs to retrieve in bulk, you can pass them as query
+      #   #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      #   #
+      #   # @param after_cursor [String, nil]
+      #   #
+      #   # @param created_at [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   #
+      #   # @param ledger_id [String, nil]
+      #   #
+      #   # @param ledger_transaction_id [String, nil]
+      #   #
+      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   #   parameters.
+      #   #
+      #   # @param per_page [Integer, nil]
+      #   #
+      #   # @param settled_ledger_account_id [String, nil]
+      #   #
+      #   # @param settlement_entry_direction [String, nil]
+      #   #
+      #   # @param updated_at [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   #
+      #   def initialize(
+      #     id: nil,
+      #     after_cursor: nil,
+      #     created_at: nil,
+      #     ledger_id: nil,
+      #     ledger_transaction_id: nil,
+      #     metadata: nil,
+      #     per_page: nil,
+      #     settled_ledger_account_id: nil,
+      #     settlement_entry_direction: nil,
+      #     updated_at: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end

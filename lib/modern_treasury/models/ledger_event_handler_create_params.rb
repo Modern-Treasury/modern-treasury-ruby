@@ -43,6 +43,36 @@ module ModernTreasury
       #   @return [Hash]
       optional :variables, Hash
 
+      # @!parse
+      #   # @param ledger_transaction_template [Object]
+      #   #
+      #   # @param name [String] Name of the ledger event handler.
+      #   #
+      #   # @param conditions [Object, nil]
+      #   #
+      #   # @param description [String, nil] An optional description.
+      #   #
+      #   # @param ledger_id [String, nil] The id of the ledger that this account belongs to.
+      #   #
+      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   #   strings.
+      #   #
+      #   # @param variables [Hash, nil]
+      #   #
+      #   def initialize(
+      #     ledger_transaction_template:,
+      #     name:,
+      #     conditions: nil,
+      #     description: nil,
+      #     ledger_id: nil,
+      #     metadata: nil,
+      #     variables: nil
+      #   )
+      #     super
+      #   end
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
         # @!attribute description
         #   An optional description for internal use.

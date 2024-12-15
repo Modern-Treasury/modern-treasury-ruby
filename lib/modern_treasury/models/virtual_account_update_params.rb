@@ -23,6 +23,19 @@ module ModernTreasury
       #
       #   @return [String]
       optional :name, String
+
+      # @!parse
+      #   # @param counterparty_id [String, nil]
+      #   #
+      #   # @param ledger_account_id [String, nil] The ledger account that you'd like to link to the virtual account.
+      #   #
+      #   # @param metadata [Hash, nil]
+      #   #
+      #   # @param name [String, nil]
+      #   #
+      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil) = super
+
+      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end
   end
 end
