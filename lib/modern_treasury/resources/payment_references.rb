@@ -55,7 +55,9 @@ module ModernTreasury
         @client.request(req, opts)
       end
 
-      # get payment_reference
+      # @deprecated use `retrieve` instead
+      #
+      #   get payment_reference
       #
       # @param id [String] id
       #

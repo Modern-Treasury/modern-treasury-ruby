@@ -616,6 +616,8 @@ module ModernTreasury
         end
       end
 
+      # @deprecated
+      #
       # An optional type to auto-sync the counterparty to your ledger. Either `customer` or `vendor`.
       class LedgerType < ModernTreasury::Enum
         CUSTOMER = :customer
