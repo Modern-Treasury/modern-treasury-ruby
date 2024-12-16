@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
   end
 
   def test_create_required_params
-    response = @modern_treasury.external_accounts.create({counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"})
+    response = @modern_treasury.external_accounts.create(counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
     assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
   end
 
@@ -46,7 +46,8 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
   def test_verify_required_params
     response = @modern_treasury.external_accounts.verify(
       "id",
-      {originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", payment_type: "ach"}
+      originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+      payment_type: "ach"
     )
     refute_nil(Object, response)
   end
