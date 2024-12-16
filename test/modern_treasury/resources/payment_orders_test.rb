@@ -18,22 +18,34 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < Minitest::Test
       originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
       type: "ach"
     )
-    assert_kind_of(ModernTreasury::Models::PaymentOrder, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaymentOrder
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.payment_orders.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::PaymentOrder, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaymentOrder
+    end
   end
 
   def test_update
     response = @modern_treasury.payment_orders.update("id")
-    assert_kind_of(ModernTreasury::Models::PaymentOrder, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaymentOrder
+    end
   end
 
   def test_list
     response = @modern_treasury.payment_orders.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_create_async_required_params
@@ -43,6 +55,9 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < Minitest::Test
       originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
       type: "ach"
     )
-    assert_kind_of(ModernTreasury::Models::AsyncResponse, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::AsyncResponse
+    end
   end
 end

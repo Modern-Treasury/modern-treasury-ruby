@@ -16,6 +16,9 @@ class ModernTreasury::Test::Resources::ValidationsTest < Minitest::Test
       routing_number: "routing_number",
       routing_number_type: "aba"
     )
-    assert_kind_of(ModernTreasury::Models::RoutingNumberLookupRequest, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::RoutingNumberLookupRequest
+    end
   end
 end

@@ -17,7 +17,10 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
       accounts_type: "external_accounts",
       account_number: "account_number"
     )
-    assert_kind_of(ModernTreasury::Models::AccountDetail, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::AccountDetail
+    end
   end
 
   def test_retrieve_required_params
@@ -26,12 +29,18 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
       accounts_type: "external_accounts",
       account_id: "account_id"
     )
-    assert_kind_of(ModernTreasury::Models::AccountDetail, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::AccountDetail
+    end
   end
 
   def test_list_required_params
     response = @modern_treasury.account_details.list("account_id", accounts_type: "external_accounts")
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete_required_params
@@ -40,6 +49,9 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
       accounts_type: "external_accounts",
       account_id: "account_id"
     )
-    assert_nil(response)
+
+    assert_pattern do
+      response => nil
+    end
   end
 end

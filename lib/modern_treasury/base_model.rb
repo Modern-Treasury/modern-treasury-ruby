@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module ModernTreasury
+  # rubocop:disable Style/CaseEquality
+
   # @private
   #
   module Converter
@@ -15,19 +17,21 @@ module ModernTreasury
     # @return [Object]
     def self.coerce(target, value)
       case target
-      in Converter
+      in ModernTreasury::Converter
         target.coerce(value)
       in Class
         case target
-        in -> { _1 <= Converter }
+        in -> { _1 <= ModernTreasury::Converter }
           target.coerce(value)
         in -> { _1 <= NilClass }
           nil
+        in -> { _1 <= Integer }
+          value.is_a?(Numeric) ? Integer(value) : value
         in -> { _1 <= Float }
           value.is_a?(Numeric) ? Float(value) : value
         in -> { _1 <= Date || _1 <= Time }
           value.is_a?(String) ? target.parse(value) : value
-        in -> { _1 <= Numeric || _1 <= String || _1 <= Hash } | -> { _1 == Object }
+        in -> { _1 <= String || _1 <= Hash } | -> { _1 == Object }
           value
         end
       end
@@ -39,7 +43,7 @@ module ModernTreasury
     # @return [Object]
     def self.dump(target, value)
       case target
-      in Converter | -> { _1.is_a?(Class) && _1.include?(Converter) }
+      in ModernTreasury::Converter | -> { _1.is_a?(Class) && _1.include?(ModernTreasury::Converter) }
         target.dump(value)
       else
         value
@@ -52,6 +56,12 @@ module ModernTreasury
   # When we don't know what to expect for the value.
   class Unknown
     include ModernTreasury::Converter
+    # rubocop:disable Lint/UnusedMethodArgument
+
+    # @param other [Object]
+    #
+    # @return [Boolean]
+    def self.===(other) = true
 
     # @param value [Object]
     #
@@ -61,6 +71,8 @@ module ModernTreasury
     class << self
       alias_method :dump, :coerce
     end
+
+    # rubocop:enable Lint/UnusedMethodArgument
   end
 
   # @private
@@ -68,6 +80,11 @@ module ModernTreasury
   # Ruby has no Boolean class; this is something for models to refer to.
   class BooleanModel
     include ModernTreasury::Converter
+
+    # @param other [Object]
+    #
+    # @return [Boolean]
+    def self.===(other) = other == true || other == false
 
     # @param value [Boolean, Object]
     #
@@ -91,6 +108,11 @@ module ModernTreasury
   # values safely.
   class Enum
     include ModernTreasury::Converter
+
+    # @param other [Object]
+    #
+    # @return [Boolean]
+    def self.===(other) = values.include?(other)
 
     # @param value [Symbol, String, Object]
     #
@@ -120,18 +142,17 @@ module ModernTreasury
   class ArrayOf
     include ModernTreasury::Converter
 
-    # @param items_type_info [Proc, Object, nil]
-    # @param enum [Proc, nil]
-    def initialize(items_type_info = nil, enum: nil)
-      @items_type_fn =
-        case [enum, items_type_info]
-        in [Proc, nil]
-          enum
-        in [nil, Proc]
-          items_type_info
-        in [nil, _] unless items_type_info.nil?
-          -> { items_type_info }
-        end
+    # @param other [Object]
+    #
+    # @return [Boolean]
+    def ===(other)
+      items_type = @items_type_fn.call
+      case other
+      in Array
+        other.all? { |item| items_type === item }
+      else
+        false
+      end
     end
 
     # @param value [Enumerable, Object]
@@ -141,7 +162,7 @@ module ModernTreasury
       items_type = @items_type_fn.call
       case value
       in Enumerable unless value.is_a?(Hash)
-        value.map { |item| Converter.coerce(items_type, item) }
+        value.map { |item| ModernTreasury::Converter.coerce(items_type, item) }
       else
         value
       end
@@ -154,10 +175,27 @@ module ModernTreasury
       items_type = @items_type_fn.call
       case value
       in Enumerable unless value.is_a?(Hash)
-        value.map { |item| Converter.dump(items_type, item) }.to_a
+        value.map { |item| ModernTreasury::Converter.dump(items_type, item) }.to_a
       else
         value
       end
+    end
+
+    # @param item_type [Proc, Object, nil]
+    # @param enum [Proc, nil]
+    # @param union [Proc, nil]
+    def initialize(item_type = nil, enum: nil, union: nil)
+      @items_type_fn =
+        case [enum, union, item_type]
+        in [Proc, nil, nil]
+          enum
+        in [nil, Proc, nil]
+          union
+        in [nil, nil, Proc]
+          item_type
+        in [nil, nil, Class | ModernTreasury::Converter]
+          -> { item_type }
+        end
     end
   end
 
@@ -165,80 +203,6 @@ module ModernTreasury
   #
   class BaseModel
     include ModernTreasury::Converter
-
-    # @private
-    #
-    # Assumes superclass fields are totally defined before fields are accessed / defined on subclasses.
-    #
-    # @return [Hash{Symbol => Hash{Symbol => Object}}]
-    def self.fields
-      @fields ||= (superclass == ModernTreasury::BaseModel ? {} : superclass.fields.dup)
-    end
-
-    # @private
-    #
-    # @param name_sym [Symbol]
-    # @param api_name [Symbol, nil]
-    # @param type_info [Proc, Object]
-    #
-    # @return [void]
-    private_class_method def self.add_field(name_sym, api_name:, type_info:)
-      setter = "#{name_sym}="
-      type_fn = type_info.is_a?(Proc) ? type_info : -> { type_info }
-      key = api_name || name_sym
-      if fields.key?(name_sym)
-        [name_sym, setter].each { |name| undef_method(name) }
-      end
-      fields[name_sym] = {mode: @mode, type_fn: type_fn, key: key}
-
-      define_method(setter) { |val| @data[key] = val }
-
-      define_method(name_sym) do
-        field_type = type_fn.call
-        ModernTreasury::Converter.coerce(field_type, @data[key])
-      rescue StandardError
-        name = self.class.name.split("::").last
-        raise ModernTreasury::ConversionError.new(
-          "Failed to parse #{name}.#{name_sym} as #{field_type.inspect}. " \
-          "To get the unparsed API response, use #{name}[:#{key}]."
-        )
-      end
-    end
-
-    # @private
-    #
-    # NB `required` is just a signal to the reader. We don't do runtime validation anyway.
-    private_class_method def self.required(name_sym, type_info = nil, api_name: nil, enum: nil)
-      add_field(name_sym, api_name: api_name, type_info: enum || type_info)
-    end
-
-    # @private
-    #
-    # NB `optional` is just a signal to the reader. We don't do runtime validation anyway.
-    private_class_method def self.optional(name_sym, type_info = nil, api_name: nil, enum: nil)
-      add_field(name_sym, api_name: api_name, type_info: enum || type_info)
-    end
-
-    # @private
-    #
-    # `request_only` attributes not excluded from `.#coerce` when receiving responses
-    # even if well behaved servers should not send them
-    def self.request_only(&blk)
-      @mode = :dump
-      blk.call
-    ensure
-      @mode = nil
-    end
-
-    # @private
-    #
-    # `response_only` attributes are omitted from `.#dump` when making requests
-    def self.response_only(&blk)
-      @mode = :coerce
-      blk.call
-    ensure
-      @mode = nil
-    end
 
     # @private
     #
@@ -280,6 +244,82 @@ module ModernTreasury
           end
         end
       end.to_h
+    end
+
+    # @private
+    #
+    # Assumes superclass fields are totally defined before fields are accessed / defined on subclasses.
+    #
+    # @return [Hash{Symbol => Hash{Symbol => Object}}]
+    def self.fields
+      @fields ||= (superclass == ModernTreasury::BaseModel ? {} : superclass.fields.dup)
+    end
+
+    # @private
+    #
+    # @param name_sym [Symbol]
+    # @param required [Boolean]
+    # @param api_name [Symbol, nil]
+    # @param type_info [Proc, Object]
+    #
+    # @return [void]
+    private_class_method def self.add_field(name_sym, required:, api_name:, type_info:)
+      type_fn = type_info.is_a?(Proc) ? type_info : -> { type_info }
+      key = api_name || name_sym
+
+      setter = "#{name_sym}="
+      if fields.key?(name_sym)
+        [name_sym, setter].each { |name| undef_method(name) }
+      end
+      fields[name_sym] = {mode: @mode, required: required, type_fn: type_fn, key: key}
+
+      define_method(setter) { |val| @data[key] = val }
+
+      define_method(name_sym) do
+        field_type = type_fn.call
+        ModernTreasury::Converter.coerce(field_type, @data[key])
+      rescue StandardError
+        name = self.class.name.split("::").last
+        raise ModernTreasury::ConversionError.new(
+          "Failed to parse #{name}.#{name_sym} as #{field_type.inspect}. " \
+          "To get the unparsed API response, use #{name}[:#{key}]."
+        )
+      end
+    end
+
+    # @private
+    #
+    # NB `required` is just a signal to the reader. We don't do runtime validation anyway.
+    private_class_method def self.required(name_sym, type_info = nil, api_name: nil, enum: nil, union: nil)
+      add_field(name_sym, required: true, api_name: api_name, type_info: enum || union || type_info)
+    end
+
+    # @private
+    #
+    # NB `optional` is just a signal to the reader. We don't do runtime validation anyway.
+    private_class_method def self.optional(name_sym, type_info = nil, api_name: nil, enum: nil, union: nil)
+      add_field(name_sym, required: false, api_name: api_name, type_info: enum || union || type_info)
+    end
+
+    # @private
+    #
+    # `request_only` attributes not excluded from `.#coerce` when receiving responses
+    # even if well behaved servers should not send them
+    def self.request_only(&blk)
+      @mode = :dump
+      blk.call
+    ensure
+      @mode = nil
+    end
+
+    # @private
+    #
+    # `response_only` attributes are omitted from `.#dump` when making requests
+    def self.response_only(&blk)
+      @mode = :coerce
+      blk.call
+    ensure
+      @mode = nil
     end
 
     # Create a new instance of a model.
@@ -359,4 +399,6 @@ module ModernTreasury
     # @return [String]
     def to_s = @data.to_s
   end
+
+  # rubocop:enable Style/CaseEquality
 end

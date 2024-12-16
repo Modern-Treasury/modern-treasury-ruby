@@ -20,26 +20,41 @@ class ModernTreasury::Test::Resources::TransactionsTest < Minitest::Test
       vendor_code: "vendor_code",
       vendor_code_type: "vendor_code_type"
     )
-    assert_kind_of(ModernTreasury::Models::Transaction, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Transaction
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.transactions.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::Transaction, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Transaction
+    end
   end
 
   def test_update
     response = @modern_treasury.transactions.update("id")
-    assert_kind_of(ModernTreasury::Models::Transaction, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Transaction
+    end
   end
 
   def test_list
     response = @modern_treasury.transactions.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete
     response = @modern_treasury.transactions.delete("id")
-    assert_nil(response)
+
+    assert_pattern do
+      response => nil
+    end
   end
 end

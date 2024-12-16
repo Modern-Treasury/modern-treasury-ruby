@@ -16,6 +16,9 @@ class ModernTreasury::Test::Resources::LegalEntityAssociationsTest < Minitest::T
       parent_legal_entity_id: "parent_legal_entity_id",
       relationship_types: ["beneficial_owner"]
     )
-    assert_kind_of(ModernTreasury::Models::LegalEntityAssociation, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LegalEntityAssociation
+    end
   end
 end
