@@ -15,7 +15,8 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < Minitest::Tes
 
   def test_create_required_params
     response = @modern_treasury.foreign_exchange_quotes.create(
-      {internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e", target_currency: "AED"}
+      internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+      target_currency: "AED"
     )
     assert_kind_of(ModernTreasury::Models::ForeignExchangeQuote, response)
   end

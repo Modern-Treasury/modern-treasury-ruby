@@ -15,7 +15,10 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < Minitest::Test
 
   def test_create_required_params
     response = @modern_treasury.internal_accounts.create(
-      {connection_id: "connection_id", currency: "USD", name: "name", party_name: "party_name"}
+      connection_id: "connection_id",
+      currency: "USD",
+      name: "name",
+      party_name: "party_name"
     )
     assert_kind_of(ModernTreasury::Models::InternalAccount, response)
   end

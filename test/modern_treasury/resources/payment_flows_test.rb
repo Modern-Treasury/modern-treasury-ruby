@@ -15,13 +15,11 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < Minitest::Test
 
   def test_create_required_params
     response = @modern_treasury.payment_flows.create(
-      {
-        amount: 0,
-        counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-        currency: "currency",
-        direction: "credit",
-        originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-      }
+      amount: 0,
+      counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+      currency: "currency",
+      direction: "credit",
+      originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
     )
     assert_kind_of(ModernTreasury::Models::PaymentFlow, response)
   end
@@ -32,7 +30,7 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < Minitest::Test
   end
 
   def test_update_required_params
-    response = @modern_treasury.payment_flows.update("id", {status: "cancelled"})
+    response = @modern_treasury.payment_flows.update("id", status: "cancelled")
     assert_kind_of(ModernTreasury::Models::PaymentFlow, response)
   end
 

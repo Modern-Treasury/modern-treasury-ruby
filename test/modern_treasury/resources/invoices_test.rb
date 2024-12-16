@@ -15,11 +15,9 @@ class ModernTreasury::Test::Resources::InvoicesTest < Minitest::Test
 
   def test_create_required_params
     response = @modern_treasury.invoices.create(
-      {
-        counterparty_id: "counterparty_id",
-        due_date: "2019-12-27T18:11:19.117Z",
-        originating_account_id: "originating_account_id"
-      }
+      counterparty_id: "counterparty_id",
+      due_date: "2019-12-27T18:11:19.117Z",
+      originating_account_id: "originating_account_id"
     )
     assert_kind_of(ModernTreasury::Models::Invoice, response)
   end
@@ -40,7 +38,7 @@ class ModernTreasury::Test::Resources::InvoicesTest < Minitest::Test
   end
 
   def test_add_payment_order_required_params
-    response = @modern_treasury.invoices.add_payment_order("payment_order_id", {id: "id"})
+    response = @modern_treasury.invoices.add_payment_order("payment_order_id", id: "id")
     assert_nil(response)
   end
 end

@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < Minitest::Test
   end
 
   def test_create_required_params
-    response = @modern_treasury.ledgerable_events.create({name: "name"})
+    response = @modern_treasury.ledgerable_events.create(name: "name")
     assert_kind_of(ModernTreasury::Models::LedgerableEvent, response)
   end
 
