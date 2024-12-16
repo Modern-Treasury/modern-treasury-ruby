@@ -13,26 +13,41 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < Minitest::Test
 
   def test_create_required_params
     response = @modern_treasury.invoices.line_items.create("invoice_id", name: "name", unit_amount: 0)
-    assert_kind_of(ModernTreasury::Models::Invoices::InvoiceLineItem, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Invoices::InvoiceLineItem
+    end
   end
 
   def test_retrieve_required_params
     response = @modern_treasury.invoices.line_items.retrieve("id", invoice_id: "invoice_id")
-    assert_kind_of(ModernTreasury::Models::Invoices::InvoiceLineItem, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Invoices::InvoiceLineItem
+    end
   end
 
   def test_update_required_params
     response = @modern_treasury.invoices.line_items.update("id", invoice_id: "invoice_id")
-    assert_kind_of(ModernTreasury::Models::Invoices::InvoiceLineItem, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Invoices::InvoiceLineItem
+    end
   end
 
   def test_list
     response = @modern_treasury.invoices.line_items.list("invoice_id")
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete_required_params
     response = @modern_treasury.invoices.line_items.delete("id", invoice_id: "invoice_id")
-    assert_kind_of(ModernTreasury::Models::Invoices::InvoiceLineItem, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Invoices::InvoiceLineItem
+    end
   end
 end

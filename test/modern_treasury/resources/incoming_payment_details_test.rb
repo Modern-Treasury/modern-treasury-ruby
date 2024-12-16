@@ -13,21 +13,33 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < Minitest::Te
 
   def test_retrieve
     response = @modern_treasury.incoming_payment_details.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::IncomingPaymentDetail, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::IncomingPaymentDetail
+    end
   end
 
   def test_update
     response = @modern_treasury.incoming_payment_details.update("id")
-    assert_kind_of(ModernTreasury::Models::IncomingPaymentDetail, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::IncomingPaymentDetail
+    end
   end
 
   def test_list
     response = @modern_treasury.incoming_payment_details.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_create_async
     response = @modern_treasury.incoming_payment_details.create_async
-    assert_kind_of(ModernTreasury::Models::AsyncResponse, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::AsyncResponse
+    end
   end
 end

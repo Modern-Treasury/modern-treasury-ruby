@@ -13,11 +13,17 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < Minitest::Test
 
   def test_create_required_params
     response = @modern_treasury.ledgerable_events.create(name: "name")
-    assert_kind_of(ModernTreasury::Models::LedgerableEvent, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerableEvent
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.ledgerable_events.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::LedgerableEvent, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerableEvent
+    end
   end
 end

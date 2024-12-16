@@ -18,7 +18,10 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
       routing_number: "routing_number",
       routing_number_type: "aba"
     )
-    assert_kind_of(ModernTreasury::Models::RoutingDetail, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::RoutingDetail
+    end
   end
 
   def test_retrieve_required_params
@@ -27,12 +30,18 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
       accounts_type: "external_accounts",
       account_id: "account_id"
     )
-    assert_kind_of(ModernTreasury::Models::RoutingDetail, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::RoutingDetail
+    end
   end
 
   def test_list_required_params
     response = @modern_treasury.routing_details.list("account_id", accounts_type: "external_accounts")
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete_required_params
@@ -41,6 +50,9 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
       accounts_type: "external_accounts",
       account_id: "account_id"
     )
-    assert_nil(response)
+
+    assert_pattern do
+      response => nil
+    end
   end
 end

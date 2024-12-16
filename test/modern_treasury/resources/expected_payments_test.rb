@@ -13,26 +13,41 @@ class ModernTreasury::Test::Resources::ExpectedPaymentsTest < Minitest::Test
 
   def test_create
     response = @modern_treasury.expected_payments.create
-    assert_kind_of(ModernTreasury::Models::ExpectedPayment, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ExpectedPayment
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.expected_payments.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::ExpectedPayment, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ExpectedPayment
+    end
   end
 
   def test_update
     response = @modern_treasury.expected_payments.update("id")
-    assert_kind_of(ModernTreasury::Models::ExpectedPayment, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ExpectedPayment
+    end
   end
 
   def test_list
     response = @modern_treasury.expected_payments.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete
     response = @modern_treasury.expected_payments.delete("id")
-    assert_kind_of(ModernTreasury::Models::ExpectedPayment, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ExpectedPayment
+    end
   end
 end

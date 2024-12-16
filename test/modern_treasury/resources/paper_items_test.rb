@@ -13,11 +13,17 @@ class ModernTreasury::Test::Resources::PaperItemsTest < Minitest::Test
 
   def test_retrieve
     response = @modern_treasury.paper_items.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::PaperItem, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaperItem
+    end
   end
 
   def test_list
     response = @modern_treasury.paper_items.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

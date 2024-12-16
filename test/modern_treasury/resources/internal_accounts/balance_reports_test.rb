@@ -26,7 +26,10 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
         }
       ]
     )
-    assert_kind_of(ModernTreasury::Models::InternalAccounts::BalanceReport, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::InternalAccounts::BalanceReport
+    end
   end
 
   def test_retrieve_required_params
@@ -34,12 +37,18 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
       "id",
       internal_account_id: "internal_account_id"
     )
-    assert_kind_of(ModernTreasury::Models::InternalAccounts::BalanceReport, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::InternalAccounts::BalanceReport
+    end
   end
 
   def test_list
     response = @modern_treasury.internal_accounts.balance_reports.list("internal_account_id")
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete_required_params
@@ -47,6 +56,9 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
       "id",
       internal_account_id: "internal_account_id"
     )
-    assert_nil(response)
+
+    assert_pattern do
+      response => nil
+    end
   end
 end

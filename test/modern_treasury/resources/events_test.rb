@@ -13,11 +13,17 @@ class ModernTreasury::Test::Resources::EventsTest < Minitest::Test
 
   def test_retrieve
     response = @modern_treasury.events.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::Event, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Event
+    end
   end
 
   def test_list
     response = @modern_treasury.events.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

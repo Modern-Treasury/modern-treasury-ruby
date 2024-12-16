@@ -16,21 +16,33 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < Minitest::Te
       counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
       payment_types: ["string"]
     )
-    assert_kind_of(ModernTreasury::Models::AccountCollectionFlow, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::AccountCollectionFlow
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.account_collection_flows.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::AccountCollectionFlow, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::AccountCollectionFlow
+    end
   end
 
   def test_update_required_params
     response = @modern_treasury.account_collection_flows.update("id", status: "cancelled")
-    assert_kind_of(ModernTreasury::Models::AccountCollectionFlow, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::AccountCollectionFlow
+    end
   end
 
   def test_list
     response = @modern_treasury.account_collection_flows.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end
