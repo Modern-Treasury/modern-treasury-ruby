@@ -123,7 +123,7 @@ module ModernTreasury
       #   # @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
       #   #   ledger transaction may have this ID in the ledger.
       #   #
-      #   # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+      #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEntry>] An array of ledger entry objects.
       #   #
       #   # @param ledger_id [String] The ID of the ledger this ledger transaction belongs to.
       #   #

@@ -44,11 +44,11 @@ module ModernTreasury
       optional :variables, Hash
 
       # @!parse
-      #   # @param ledger_transaction_template [Object]
+      #   # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
       #   #
       #   # @param name [String] Name of the ledger event handler.
       #   #
-      #   # @param conditions [Object, nil]
+      #   # @param conditions [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
       #   #
       #   # @param description [String, nil] An optional description.
       #   #
@@ -109,7 +109,7 @@ module ModernTreasury
         #   # @param effective_at [String] The timestamp (ISO8601 format) at which the ledger transaction happened for
         #   #   reporting purposes.
         #   #
-        #   # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+        #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>] An array of ledger entry objects.
         #   #
         #   # @param status [String] To post a ledger transaction at creation, use `posted`.
         #   #

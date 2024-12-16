@@ -24,7 +24,7 @@ module ModernTreasury
       # @!parse
       #   # @param connection_id [String] The ID of the connection.
       #   #
-      #   # @param legal_entity [Object, nil] The legal entity.
+      #   # @param legal_entity [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity, nil] The legal entity.
       #   #
       #   # @param legal_entity_id [String, nil] The ID of the legal entity.
       #   #
@@ -205,9 +205,9 @@ module ModernTreasury
         # @!parse
         #   # The legal entity.
         #   #
-        #   # @param addresses [Array<Object>, nil] A list of addresses for the entity.
+        #   # @param addresses [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address>, nil] A list of addresses for the entity.
         #   #
-        #   # @param bank_settings [Object, nil]
+        #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
         #   #
         #   # @param business_name [String, nil] The business's legal business name.
         #   #
@@ -223,11 +223,11 @@ module ModernTreasury
         #   #
         #   # @param first_name [String, nil] An individual's first name.
         #   #
-        #   # @param identifications [Array<Object>, nil] A list of identifications for the legal entity.
+        #   # @param identifications [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification>, nil] A list of identifications for the legal entity.
         #   #
         #   # @param last_name [String, nil] An individual's last name.
         #   #
-        #   # @param legal_entity_associations [Array<Object>, nil] The legal entity associations and its child legal entities.
+        #   # @param legal_entity_associations [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation>, nil] The legal entity associations and its child legal entities.
         #   #
         #   # @param legal_entity_type [String, nil] The type of legal entity.
         #   #
@@ -238,7 +238,7 @@ module ModernTreasury
         #   #
         #   # @param middle_name [String, nil] An individual's middle name.
         #   #
-        #   # @param phone_numbers [Array<Object>, nil]
+        #   # @param phone_numbers [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber>, nil]
         #   #
         #   # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
         #   #
@@ -250,7 +250,7 @@ module ModernTreasury
         #   #
         #   # @param suffix [String, nil] An individual's suffix.
         #   #
-        #   # @param wealth_and_employment_details [Object, nil]
+        #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
         #   #
         #   # @param website [String, nil] The entity's primary website URL.
         #   #
@@ -458,7 +458,7 @@ module ModernTreasury
           # @!parse
           #   # @param relationship_types [Array<String>]
           #   #
-          #   # @param child_legal_entity [Object, nil] The child legal entity.
+          #   # @param child_legal_entity [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity, nil] The child legal entity.
           #   #
           #   # @param child_legal_entity_id [String, nil] The ID of the child legal entity.
           #   #
@@ -646,9 +646,9 @@ module ModernTreasury
             # @!parse
             #   # The child legal entity.
             #   #
-            #   # @param addresses [Array<Object>, nil] A list of addresses for the entity.
+            #   # @param addresses [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>, nil] A list of addresses for the entity.
             #   #
-            #   # @param bank_settings [Object, nil]
+            #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
             #   #
             #   # @param business_name [String, nil] The business's legal business name.
             #   #
@@ -664,7 +664,7 @@ module ModernTreasury
             #   #
             #   # @param first_name [String, nil] An individual's first name.
             #   #
-            #   # @param identifications [Array<Object>, nil] A list of identifications for the legal entity.
+            #   # @param identifications [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>, nil] A list of identifications for the legal entity.
             #   #
             #   # @param last_name [String, nil] An individual's last name.
             #   #
@@ -677,7 +677,7 @@ module ModernTreasury
             #   #
             #   # @param middle_name [String, nil] An individual's middle name.
             #   #
-            #   # @param phone_numbers [Array<Object>, nil]
+            #   # @param phone_numbers [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>, nil]
             #   #
             #   # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
             #   #
@@ -689,7 +689,7 @@ module ModernTreasury
             #   #
             #   # @param suffix [String, nil] An individual's suffix.
             #   #
-            #   # @param wealth_and_employment_details [Object, nil]
+            #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
             #   #
             #   # @param website [String, nil] The entity's primary website URL.
             #   #

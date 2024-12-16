@@ -94,13 +94,13 @@ module ModernTreasury
       # @!parse
       #   # @param counterparty_id [String]
       #   #
-      #   # @param account_details [Array<Object>, nil]
+      #   # @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>, nil]
       #   #
       #   # @param account_type [String, nil] Can be `checking`, `savings` or `other`.
       #   #
-      #   # @param contact_details [Array<Object>, nil]
+      #   # @param contact_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>, nil]
       #   #
-      #   # @param ledger_account [Object, nil] Specifies a ledger account object that will be created with the external
+      #   # @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, nil] Specifies a ledger account object that will be created with the external
       #   #   account. The resulting ledger account is linked to the external account for
       #   #   auto-ledgering Payment objects. See
       #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
@@ -112,7 +112,7 @@ module ModernTreasury
       #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
       #   #   affect any payments
       #   #
-      #   # @param party_address [Object, nil] Required if receiving wire payments.
+      #   # @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, nil] Required if receiving wire payments.
       #   #
       #   # @param party_identifier [String, nil]
       #   #
@@ -123,7 +123,7 @@ module ModernTreasury
       #   # @param plaid_processor_token [String, nil] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
       #   #   you can pass the processor token in this field.
       #   #
-      #   # @param routing_details [Array<Object>, nil]
+      #   # @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>, nil]
       #   #
       #   def initialize(
       #     counterparty_id:,

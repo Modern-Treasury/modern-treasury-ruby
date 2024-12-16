@@ -71,7 +71,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param child_legal_entity [Object] The child legal entity.
+      #   # @param child_legal_entity [ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity] The child legal entity.
       #   #
       #   # @param created_at [String]
       #   #
@@ -302,9 +302,9 @@ module ModernTreasury
         #   #
         #   # @param id [String]
         #   #
-        #   # @param addresses [Array<Object>] A list of addresses for the entity.
+        #   # @param addresses [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address>] A list of addresses for the entity.
         #   #
-        #   # @param bank_settings [Object]
+        #   # @param bank_settings [ModernTreasury::Models::BankSettings]
         #   #
         #   # @param business_name [String] The business's legal business name.
         #   #
@@ -324,7 +324,7 @@ module ModernTreasury
         #   #
         #   # @param first_name [String] An individual's first name.
         #   #
-        #   # @param identifications [Array<Object>] A list of identifications for the legal entity.
+        #   # @param identifications [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification>] A list of identifications for the legal entity.
         #   #
         #   # @param last_name [String] An individual's last name.
         #   #
@@ -342,7 +342,7 @@ module ModernTreasury
         #   #
         #   # @param object [String]
         #   #
-        #   # @param phone_numbers [Array<Object>]
+        #   # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
         #   #
         #   # @param politically_exposed_person [Boolean] Whether the individual is a politically exposed person.
         #   #
@@ -356,7 +356,7 @@ module ModernTreasury
         #   #
         #   # @param updated_at [String]
         #   #
-        #   # @param wealth_and_employment_details [Object]
+        #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails]
         #   #
         #   # @param website [String] The entity's primary website URL.
         #   #

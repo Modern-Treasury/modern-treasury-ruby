@@ -171,7 +171,7 @@ module ModernTreasury
       #   # @param reason [String] Often the bank will provide an explanation for the return, which is a short
       #   #   human readable string.
       #   #
-      #   # @param reference_numbers [Array<Object>] An array of Payment Reference objects.
+      #   # @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>] An array of Payment Reference objects.
       #   #
       #   # @param returnable_id [String] The ID of the object being returned or `null`.
       #   #

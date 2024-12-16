@@ -180,9 +180,9 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param addresses [Array<Object>] A list of addresses for the entity.
+      #   # @param addresses [Array<ModernTreasury::Models::LegalEntity::Address>] A list of addresses for the entity.
       #   #
-      #   # @param bank_settings [Object]
+      #   # @param bank_settings [ModernTreasury::Models::BankSettings]
       #   #
       #   # @param business_name [String] The business's legal business name.
       #   #
@@ -202,11 +202,11 @@ module ModernTreasury
       #   #
       #   # @param first_name [String] An individual's first name.
       #   #
-      #   # @param identifications [Array<Object>] A list of identifications for the legal entity.
+      #   # @param identifications [Array<ModernTreasury::Models::LegalEntity::Identification>] A list of identifications for the legal entity.
       #   #
       #   # @param last_name [String] An individual's last name.
       #   #
-      #   # @param legal_entity_associations [Array<Object>] The legal entity associations and its child legal entities.
+      #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>] The legal entity associations and its child legal entities.
       #   #
       #   # @param legal_entity_type [String] The type of legal entity.
       #   #
@@ -222,7 +222,7 @@ module ModernTreasury
       #   #
       #   # @param object [String]
       #   #
-      #   # @param phone_numbers [Array<Object>]
+      #   # @param phone_numbers [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
       #   #
       #   # @param politically_exposed_person [Boolean] Whether the individual is a politically exposed person.
       #   #
@@ -236,7 +236,7 @@ module ModernTreasury
       #   #
       #   # @param updated_at [String]
       #   #
-      #   # @param wealth_and_employment_details [Object]
+      #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails]
       #   #
       #   # @param website [String] The entity's primary website URL.
       #   #

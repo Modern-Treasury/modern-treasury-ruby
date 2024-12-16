@@ -173,7 +173,7 @@ module ModernTreasury
       #   #
       #   # @param discarded_at [String]
       #   #
-      #   # @param foreign_exchange_rate [Object] Associated serialized foreign exchange rate information.
+      #   # @param foreign_exchange_rate [ModernTreasury::Models::Transaction::ForeignExchangeRate] Associated serialized foreign exchange rate information.
       #   #
       #   # @param internal_account_id [String] The ID of the relevant Internal Account.
       #   #

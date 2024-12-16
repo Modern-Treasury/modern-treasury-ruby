@@ -76,7 +76,7 @@ module ModernTreasury
         #   # @param balance_report_type [String] The specific type of balance report. One of `intraday`, `previous_day`,
         #   #   `real_time`, or `other`.
         #   #
-        #   # @param balances [Array<Object>] An array of `Balance` objects.
+        #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>] An array of `Balance` objects.
         #   #
         #   # @param created_at [String]
         #   #

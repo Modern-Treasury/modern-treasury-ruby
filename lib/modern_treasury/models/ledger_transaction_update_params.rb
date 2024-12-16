@@ -57,7 +57,7 @@ module ModernTreasury
       #   # @param effective_at [String, nil] The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   #   reporting purposes.
       #   #
-      #   # @param ledger_entries [Array<Object>, nil] An array of ledger entry objects.
+      #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>, nil] An array of ledger entry objects.
       #   #
       #   # @param ledgerable_id [String, nil] If the ledger transaction can be reconciled to another object in Modern
       #   #   Treasury, the id will be populated here, otherwise null.

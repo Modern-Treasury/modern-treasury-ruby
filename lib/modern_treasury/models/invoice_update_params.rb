@@ -162,13 +162,13 @@ module ModernTreasury
       optional :virtual_account_id, String
 
       # @!parse
-      #   # @param contact_details [Array<Object>, nil] The invoicer's contact details displayed at the top of the invoice.
+      #   # @param contact_details [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>, nil] The invoicer's contact details displayed at the top of the invoice.
       #   #
-      #   # @param counterparty_billing_address [Object, nil] The counterparty's billing address.
+      #   # @param counterparty_billing_address [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress, nil] The counterparty's billing address.
       #   #
       #   # @param counterparty_id [String, nil] The ID of the counterparty receiving the invoice.
       #   #
-      #   # @param counterparty_shipping_address [Object, nil] The counterparty's shipping address where physical goods should be delivered.
+      #   # @param counterparty_shipping_address [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
       #   #
       #   # @param currency [String, nil] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #   #
@@ -183,11 +183,11 @@ module ModernTreasury
       #   #   is false, then a line item must be provided. If this is true, line_items must be
       #   #   empty. Ignored if ledger_account_settlement_id is empty.
       #   #
-      #   # @param invoice_line_items [Array<Object>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line
+      #   # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line
       #   #   items per invoice. If a greater number of invoice line items is required, please
       #   #   contact support.
       #   #
-      #   # @param invoicer_address [Object, nil] The invoice issuer's business address.
+      #   # @param invoicer_address [ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, nil] The invoice issuer's business address.
       #   #
       #   # @param ledger_account_settlement_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #   #

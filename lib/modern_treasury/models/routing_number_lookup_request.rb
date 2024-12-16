@@ -46,7 +46,7 @@ module ModernTreasury
                )
 
       # @!parse
-      #   # @param bank_address [Object, nil] The address of the bank.
+      #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, nil] The address of the bank.
       #   #
       #   # @param bank_name [String, nil] The name of the bank.
       #   #

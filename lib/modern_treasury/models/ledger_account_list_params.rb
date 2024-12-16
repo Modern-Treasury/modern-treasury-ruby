@@ -91,10 +91,10 @@ module ModernTreasury
       #   #
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param available_balance_amount [Object, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   # @param available_balance_amount [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   #   filter by balance amount.
       #   #
-      #   # @param balances [Object, nil] Use `balances[effective_at_lower_bound]` and
+      #   # @param balances [ModernTreasury::Models::LedgerAccountListParams::Balances, nil] Use `balances[effective_at_lower_bound]` and
       #   #   `balances[effective_at_upper_bound]` to get the balances change between the two
       #   #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
       #   #   the provided timestamps. If no value is supplied the balances will be retrieved
@@ -117,12 +117,12 @@ module ModernTreasury
       #   # @param name [Array<String>, nil] If you have specific names to retrieve in bulk, you can pass them as query
       #   #   parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       #   #
-      #   # @param pending_balance_amount [Object, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   # @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   #   filter by balance amount.
       #   #
       #   # @param per_page [Integer, nil]
       #   #
-      #   # @param posted_balance_amount [Object, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   # @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   #   filter by balance amount.
       #   #
       #   # @param updated_at [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
