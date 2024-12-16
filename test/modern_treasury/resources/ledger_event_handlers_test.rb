@@ -27,21 +27,33 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Minitest::Test
       },
       name: "name"
     )
-    assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerEventHandler
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.ledger_event_handlers.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerEventHandler
+    end
   end
 
   def test_list
     response = @modern_treasury.ledger_event_handlers.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete
     response = @modern_treasury.ledger_event_handlers.delete("id")
-    assert_kind_of(ModernTreasury::Models::LedgerEventHandler, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerEventHandler
+    end
   end
 end

@@ -13,21 +13,33 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < Minitest::T
 
   def test_create_required_params
     response = @modern_treasury.connection_legal_entities.create(connection_id: "connection_id")
-    assert_kind_of(ModernTreasury::Models::ConnectionLegalEntity, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ConnectionLegalEntity
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.connection_legal_entities.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::ConnectionLegalEntity, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ConnectionLegalEntity
+    end
   end
 
   def test_update
     response = @modern_treasury.connection_legal_entities.update("id")
-    assert_kind_of(ModernTreasury::Models::ConnectionLegalEntity, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ConnectionLegalEntity
+    end
   end
 
   def test_list
     response = @modern_treasury.connection_legal_entities.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

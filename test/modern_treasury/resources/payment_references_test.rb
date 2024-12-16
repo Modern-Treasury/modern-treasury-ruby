@@ -13,16 +13,25 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < Minitest::Test
 
   def test_retrieve
     response = @modern_treasury.payment_references.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::PaymentReference, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaymentReference
+    end
   end
 
   def test_list
     response = @modern_treasury.payment_references.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_retireve
     response = @modern_treasury.payment_references.retireve("id")
-    assert_kind_of(ModernTreasury::Models::PaymentReference, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaymentReference
+    end
   end
 end

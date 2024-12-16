@@ -13,6 +13,7 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < Minitest::Test
 
   def test_create_required_params
     skip("Multipart documents aren't constructed properly yet")
+
     response = @modern_treasury.bulk_requests.create(
       action_type: "create",
       resource_type: "payment_order",
@@ -25,16 +26,25 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < Minitest::Test
         }
       ]
     )
-    assert_kind_of(ModernTreasury::Models::BulkRequest, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::BulkRequest
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.bulk_requests.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::BulkRequest, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::BulkRequest
+    end
   end
 
   def test_list
     response = @modern_treasury.bulk_requests.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

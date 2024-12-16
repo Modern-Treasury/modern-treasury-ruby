@@ -16,16 +16,25 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < Minitest::Tes
       internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
       target_currency: "AED"
     )
-    assert_kind_of(ModernTreasury::Models::ForeignExchangeQuote, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ForeignExchangeQuote
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.foreign_exchange_quotes.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::ForeignExchangeQuote, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ForeignExchangeQuote
+    end
   end
 
   def test_list
     response = @modern_treasury.foreign_exchange_quotes.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

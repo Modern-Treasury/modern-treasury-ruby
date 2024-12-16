@@ -16,16 +16,25 @@ class ModernTreasury::Test::Resources::ReturnsTest < Minitest::Test
       returnable_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
       returnable_type: "incoming_payment_detail"
     )
-    assert_kind_of(ModernTreasury::Models::ReturnObject, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ReturnObject
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.returns.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::ReturnObject, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ReturnObject
+    end
   end
 
   def test_list
     response = @modern_treasury.returns.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

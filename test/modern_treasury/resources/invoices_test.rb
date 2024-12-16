@@ -17,26 +17,41 @@ class ModernTreasury::Test::Resources::InvoicesTest < Minitest::Test
       due_date: "2019-12-27T18:11:19.117Z",
       originating_account_id: "originating_account_id"
     )
-    assert_kind_of(ModernTreasury::Models::Invoice, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Invoice
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.invoices.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::Invoice, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Invoice
+    end
   end
 
   def test_update
     response = @modern_treasury.invoices.update("id")
-    assert_kind_of(ModernTreasury::Models::Invoice, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Invoice
+    end
   end
 
   def test_list
     response = @modern_treasury.invoices.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_add_payment_order_required_params
     response = @modern_treasury.invoices.add_payment_order("payment_order_id", id: "id")
-    assert_nil(response)
+
+    assert_pattern do
+      response => nil
+    end
   end
 end
