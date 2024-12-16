@@ -16,21 +16,33 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < Minitest::
       contra_ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
       settled_ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
     )
-    assert_kind_of(ModernTreasury::Models::LedgerAccountSettlement, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerAccountSettlement
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.ledger_account_settlements.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::LedgerAccountSettlement, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerAccountSettlement
+    end
   end
 
   def test_update
     response = @modern_treasury.ledger_account_settlements.update("id")
-    assert_kind_of(ModernTreasury::Models::LedgerAccountSettlement, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerAccountSettlement
+    end
   end
 
   def test_list
     response = @modern_treasury.ledger_account_settlements.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

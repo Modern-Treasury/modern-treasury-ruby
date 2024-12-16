@@ -13,32 +13,50 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
 
   def test_create_required_params
     response = @modern_treasury.external_accounts.create(counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
-    assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ExternalAccount
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.external_accounts.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ExternalAccount
+    end
   end
 
   def test_update
     response = @modern_treasury.external_accounts.update("id")
-    assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ExternalAccount
+    end
   end
 
   def test_list
     response = @modern_treasury.external_accounts.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete
     response = @modern_treasury.external_accounts.delete("id")
-    assert_nil(response)
+
+    assert_pattern do
+      response => nil
+    end
   end
 
   def test_complete_verification
     response = @modern_treasury.external_accounts.complete_verification("id")
-    assert_kind_of(ModernTreasury::Models::ExternalAccount, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::ExternalAccount
+    end
   end
 
   def test_verify_required_params
@@ -47,6 +65,7 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
       originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
       payment_type: "ach"
     )
-    refute_nil(Object, response)
+
+    refute_nil(response)
   end
 end

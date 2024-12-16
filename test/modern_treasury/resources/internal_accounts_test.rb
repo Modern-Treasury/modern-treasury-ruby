@@ -18,21 +18,33 @@ class ModernTreasury::Test::Resources::InternalAccountsTest < Minitest::Test
       name: "name",
       party_name: "party_name"
     )
-    assert_kind_of(ModernTreasury::Models::InternalAccount, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::InternalAccount
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.internal_accounts.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::InternalAccount, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::InternalAccount
+    end
   end
 
   def test_update
     response = @modern_treasury.internal_accounts.update("id")
-    assert_kind_of(ModernTreasury::Models::InternalAccount, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::InternalAccount
+    end
   end
 
   def test_list
     response = @modern_treasury.internal_accounts.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

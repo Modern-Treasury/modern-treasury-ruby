@@ -13,6 +13,9 @@ class ModernTreasury::Test::Resources::LedgerTransactions::VersionsTest < Minite
 
   def test_list
     response = @modern_treasury.ledger_transactions.versions.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

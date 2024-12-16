@@ -13,26 +13,41 @@ class ModernTreasury::Test::Resources::LedgersTest < Minitest::Test
 
   def test_create_required_params
     response = @modern_treasury.ledgers.create(name: "name")
-    assert_kind_of(ModernTreasury::Models::Ledger, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Ledger
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.ledgers.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::Ledger, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Ledger
+    end
   end
 
   def test_update
     response = @modern_treasury.ledgers.update("id")
-    assert_kind_of(ModernTreasury::Models::Ledger, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Ledger
+    end
   end
 
   def test_list
     response = @modern_treasury.ledgers.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_delete
     response = @modern_treasury.ledgers.delete("id")
-    assert_kind_of(ModernTreasury::Models::Ledger, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::Ledger
+    end
   end
 end

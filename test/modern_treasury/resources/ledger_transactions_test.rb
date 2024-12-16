@@ -21,26 +21,41 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < Minitest::Test
         }
       ]
     )
-    assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerTransaction
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.ledger_transactions.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerTransaction
+    end
   end
 
   def test_update
     response = @modern_treasury.ledger_transactions.update("id")
-    assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerTransaction
+    end
   end
 
   def test_list
     response = @modern_treasury.ledger_transactions.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 
   def test_create_reversal
     response = @modern_treasury.ledger_transactions.create_reversal("id")
-    assert_kind_of(ModernTreasury::Models::LedgerTransaction, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerTransaction
+    end
   end
 end

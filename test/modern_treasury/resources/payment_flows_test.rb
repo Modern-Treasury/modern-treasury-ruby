@@ -19,21 +19,33 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < Minitest::Test
       direction: "credit",
       originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
     )
-    assert_kind_of(ModernTreasury::Models::PaymentFlow, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaymentFlow
+    end
   end
 
   def test_retrieve
     response = @modern_treasury.payment_flows.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::PaymentFlow, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaymentFlow
+    end
   end
 
   def test_update_required_params
     response = @modern_treasury.payment_flows.update("id", status: "cancelled")
-    assert_kind_of(ModernTreasury::Models::PaymentFlow, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::PaymentFlow
+    end
   end
 
   def test_list
     response = @modern_treasury.payment_flows.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

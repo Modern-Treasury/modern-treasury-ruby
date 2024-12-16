@@ -17,7 +17,10 @@ class ModernTreasury::Test::Resources::LineItemsTest < Minitest::Test
       itemizable_type: "expected_payments",
       itemizable_id: "itemizable_id"
     )
-    assert_kind_of(ModernTreasury::Models::LineItem, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LineItem
+    end
   end
 
   def test_update_required_params
@@ -26,12 +29,19 @@ class ModernTreasury::Test::Resources::LineItemsTest < Minitest::Test
       itemizable_type: "expected_payments",
       itemizable_id: "itemizable_id"
     )
-    assert_kind_of(ModernTreasury::Models::LineItem, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::LineItem
+    end
   end
 
   def test_list_required_params
     skip("Prism is broken in this case")
+
     response = @modern_treasury.line_items.list("itemizable_id", itemizable_type: "expected_payments")
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end

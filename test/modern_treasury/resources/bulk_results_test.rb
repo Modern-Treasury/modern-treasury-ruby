@@ -13,11 +13,17 @@ class ModernTreasury::Test::Resources::BulkResultsTest < Minitest::Test
 
   def test_retrieve
     response = @modern_treasury.bulk_results.retrieve("id")
-    assert_kind_of(ModernTreasury::Models::BulkResult, response)
+
+    assert_pattern do
+      response => ModernTreasury::Models::BulkResult
+    end
   end
 
   def test_list
     response = @modern_treasury.bulk_results.list
-    assert_kind_of(ModernTreasury::Page, response)
+
+    assert_pattern do
+      response => ModernTreasury::Page
+    end
   end
 end
