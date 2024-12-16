@@ -87,7 +87,7 @@ module ModernTreasury
       #   #   `variable_to_fixed` if the `target_amount` was specified when requesting the
       #   #   quote.
       #   #
-      #   # @param foreign_exchange_rate [Object] The serialized rate information represented by this quote.
+      #   # @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate] The serialized rate information represented by this quote.
       #   #
       #   # @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
       #   #

@@ -54,7 +54,7 @@ module ModernTreasury
       #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
       #   #   affect any payments
       #   #
-      #   # @param party_address [Object, nil]
+      #   # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, nil]
       #   #
       #   # @param party_name [String, nil] If this value isn't provided, it will be inherited from the counterparty's name.
       #   #

@@ -72,16 +72,16 @@ module ModernTreasury
       # @!parse
       #   # @param name [String] A human friendly name for this counterparty.
       #   #
-      #   # @param accounting [Object, nil]
+      #   # @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting, nil]
       #   #
-      #   # @param accounts [Array<Object>, nil] The accounts for this counterparty.
+      #   # @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>, nil] The accounts for this counterparty.
       #   #
       #   # @param email [String, nil] The counterparty's email.
       #   #
       #   # @param ledger_type [String, nil] An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #   #   or `vendor`.
       #   #
-      #   # @param legal_entity [Object, nil]
+      #   # @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, nil]
       #   #
       #   # @param legal_entity_id [String, nil] The id of the legal entity.
       #   #
@@ -229,13 +229,13 @@ module ModernTreasury
                  )
 
         # @!parse
-        #   # @param account_details [Array<Object>, nil]
+        #   # @param account_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>, nil]
         #   #
         #   # @param account_type [String, nil] Can be `checking`, `savings` or `other`.
         #   #
-        #   # @param contact_details [Array<Object>, nil]
+        #   # @param contact_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>, nil]
         #   #
-        #   # @param ledger_account [Object, nil] Specifies a ledger account object that will be created with the external
+        #   # @param ledger_account [ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount, nil] Specifies a ledger account object that will be created with the external
         #   #   account. The resulting ledger account is linked to the external account for
         #   #   auto-ledgering Payment objects. See
         #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
@@ -247,7 +247,7 @@ module ModernTreasury
         #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
         #   #   affect any payments
         #   #
-        #   # @param party_address [Object, nil] Required if receiving wire payments.
+        #   # @param party_address [ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress, nil] Required if receiving wire payments.
         #   #
         #   # @param party_identifier [String, nil]
         #   #
@@ -258,7 +258,7 @@ module ModernTreasury
         #   # @param plaid_processor_token [String, nil] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
         #   #   you can pass the processor token in this field.
         #   #
-        #   # @param routing_details [Array<Object>, nil]
+        #   # @param routing_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>, nil]
         #   #
         #   def initialize(
         #     account_details: nil,
@@ -791,9 +791,9 @@ module ModernTreasury
         # @!parse
         #   # @param legal_entity_type [String] The type of legal entity.
         #   #
-        #   # @param addresses [Array<Object>, nil] A list of addresses for the entity.
+        #   # @param addresses [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>, nil] A list of addresses for the entity.
         #   #
-        #   # @param bank_settings [Object, nil]
+        #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
         #   #
         #   # @param business_name [String, nil] The business's legal business name.
         #   #
@@ -809,11 +809,11 @@ module ModernTreasury
         #   #
         #   # @param first_name [String, nil] An individual's first name.
         #   #
-        #   # @param identifications [Array<Object>, nil] A list of identifications for the legal entity.
+        #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>, nil] A list of identifications for the legal entity.
         #   #
         #   # @param last_name [String, nil] An individual's last name.
         #   #
-        #   # @param legal_entity_associations [Array<Object>, nil] The legal entity associations and its child legal entities.
+        #   # @param legal_entity_associations [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>, nil] The legal entity associations and its child legal entities.
         #   #
         #   # @param legal_structure [String, nil] The business's legal structure.
         #   #
@@ -822,7 +822,7 @@ module ModernTreasury
         #   #
         #   # @param middle_name [String, nil] An individual's middle name.
         #   #
-        #   # @param phone_numbers [Array<Object>, nil]
+        #   # @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>, nil]
         #   #
         #   # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
         #   #
@@ -834,7 +834,7 @@ module ModernTreasury
         #   #
         #   # @param suffix [String, nil] An individual's suffix.
         #   #
-        #   # @param wealth_and_employment_details [Object, nil]
+        #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
         #   #
         #   # @param website [String, nil] The entity's primary website URL.
         #   #
@@ -1048,7 +1048,7 @@ module ModernTreasury
           # @!parse
           #   # @param relationship_types [Array<String>]
           #   #
-          #   # @param child_legal_entity [Object, nil] The child legal entity.
+          #   # @param child_legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity, nil] The child legal entity.
           #   #
           #   # @param child_legal_entity_id [String, nil] The ID of the child legal entity.
           #   #
@@ -1236,9 +1236,9 @@ module ModernTreasury
             # @!parse
             #   # The child legal entity.
             #   #
-            #   # @param addresses [Array<Object>, nil] A list of addresses for the entity.
+            #   # @param addresses [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>, nil] A list of addresses for the entity.
             #   #
-            #   # @param bank_settings [Object, nil]
+            #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
             #   #
             #   # @param business_name [String, nil] The business's legal business name.
             #   #
@@ -1254,7 +1254,7 @@ module ModernTreasury
             #   #
             #   # @param first_name [String, nil] An individual's first name.
             #   #
-            #   # @param identifications [Array<Object>, nil] A list of identifications for the legal entity.
+            #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>, nil] A list of identifications for the legal entity.
             #   #
             #   # @param last_name [String, nil] An individual's last name.
             #   #
@@ -1267,7 +1267,7 @@ module ModernTreasury
             #   #
             #   # @param middle_name [String, nil] An individual's middle name.
             #   #
-            #   # @param phone_numbers [Array<Object>, nil]
+            #   # @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>, nil]
             #   #
             #   # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
             #   #
@@ -1279,7 +1279,7 @@ module ModernTreasury
             #   #
             #   # @param suffix [String, nil] An individual's suffix.
             #   #
-            #   # @param wealth_and_employment_details [Object, nil]
+            #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
             #   #
             #   # @param website [String, nil] The entity's primary website URL.
             #   #

@@ -79,7 +79,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param accounts [Array<Object>] The accounts for this counterparty.
+      #   # @param accounts [Array<ModernTreasury::Models::Counterparty::Account>] The accounts for this counterparty.
       #   #
       #   # @param created_at [String]
       #   #
@@ -235,11 +235,11 @@ module ModernTreasury
         # @!parse
         #   # @param id [String, nil]
         #   #
-        #   # @param account_details [Array<Object>, nil]
+        #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>, nil]
         #   #
         #   # @param account_type [String, nil] Can be `checking`, `savings` or `other`.
         #   #
-        #   # @param contact_details [Array<Object>, nil]
+        #   # @param contact_details [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>, nil]
         #   #
         #   # @param created_at [String, nil]
         #   #
@@ -259,13 +259,13 @@ module ModernTreasury
         #   #
         #   # @param object [String, nil]
         #   #
-        #   # @param party_address [Object, nil] The address associated with the owner or `null`.
+        #   # @param party_address [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil] The address associated with the owner or `null`.
         #   #
         #   # @param party_name [String, nil] The legal name of the entity which owns the account.
         #   #
         #   # @param party_type [String, nil] Either `individual` or `business`.
         #   #
-        #   # @param routing_details [Array<Object>, nil]
+        #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>, nil]
         #   #
         #   # @param updated_at [String, nil]
         #   #

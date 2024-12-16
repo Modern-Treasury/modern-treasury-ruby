@@ -140,7 +140,7 @@ module ModernTreasury
         #   # @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
         #   #   ledger transaction may have this ID in the ledger.
         #   #
-        #   # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+        #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry>] An array of ledger entry objects.
         #   #
         #   # @param ledger_id [String] The ID of the ledger this ledger transaction belongs to.
         #   #
@@ -319,7 +319,7 @@ module ModernTreasury
           #   #
           #   # @param object [String]
           #   #
-          #   # @param resulting_ledger_account_balances [Object] The pending, posted, and available balances for this ledger entry's ledger
+          #   # @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances] The pending, posted, and available balances for this ledger entry's ledger
           #   #   account. The posted balance is the sum of all posted entries on the account. The
           #   #   pending balance is the sum of all pending and posted entries on the account. The
           #   #   available balance is the posted incoming entries minus the sum of the pending
@@ -382,14 +382,14 @@ module ModernTreasury
             #   #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
             #   #   details.
             #   #
-            #   # @param available_balance [Object] The available_balance is the sum of all posted inbound entries and pending
+            #   # @param available_balance [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending
             #   #   outbound entries. For credit normal, available_amount = posted_credits -
             #   #   pending_debits; for debit normal, available_amount = posted_debits -
             #   #   pending_credits.
             #   #
-            #   # @param pending_balance [Object] The pending_balance is the sum of all pending and posted entries.
+            #   # @param pending_balance [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
             #   #
-            #   # @param posted_balance [Object] The posted_balance is the sum of all posted entries.
+            #   # @param posted_balance [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance] The posted_balance is the sum of all posted entries.
             #   #
             #   def initialize(available_balance:, pending_balance:, posted_balance:) = super
 

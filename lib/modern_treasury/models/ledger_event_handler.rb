@@ -77,7 +77,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param conditions [Object]
+      #   # @param conditions [ModernTreasury::Models::LedgerEventHandler::Conditions]
       #   #
       #   # @param created_at [String]
       #   #
@@ -87,7 +87,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_id [String] The id of the ledger that this event handler belongs to.
       #   #
-      #   # @param ledger_transaction_template [Object]
+      #   # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate]
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
@@ -190,7 +190,7 @@ module ModernTreasury
         #   # @param effective_at [String] The timestamp (ISO8601 format) at which the ledger transaction happened for
         #   #   reporting purposes.
         #   #
-        #   # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+        #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry>] An array of ledger entry objects.
         #   #
         #   # @param status [String] To post a ledger transaction at creation, use `posted`.
         #   #

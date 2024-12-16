@@ -76,7 +76,7 @@ module ModernTreasury
       #   #
       #   # @param discarded_at [String]
       #   #
-      #   # @param document_details [Array<Object>]
+      #   # @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
       #   #
       #   # @param document_type [String] A category given to the document, can be `null`.
       #   #
@@ -86,7 +86,7 @@ module ModernTreasury
       #   #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   #   `case`, `internal_account`, `decision`, or `external_account`.
       #   #
-      #   # @param file [Object]
+      #   # @param file [ModernTreasury::Models::Document::File]
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.

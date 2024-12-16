@@ -110,11 +110,11 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param account_details [Array<Object>]
+      #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
       #   #
       #   # @param account_type [String] Can be `checking`, `savings` or `other`.
       #   #
-      #   # @param contact_details [Array<Object>]
+      #   # @param contact_details [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
       #   #
       #   # @param counterparty_id [String]
       #   #
@@ -136,13 +136,13 @@ module ModernTreasury
       #   #
       #   # @param object [String]
       #   #
-      #   # @param party_address [Object] The address associated with the owner or `null`.
+      #   # @param party_address [ModernTreasury::Models::ExternalAccount::PartyAddress] The address associated with the owner or `null`.
       #   #
       #   # @param party_name [String] The legal name of the entity which owns the account.
       #   #
       #   # @param party_type [String] Either `individual` or `business`.
       #   #
-      #   # @param routing_details [Array<Object>]
+      #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
       #   #
       #   # @param updated_at [String]
       #   #
