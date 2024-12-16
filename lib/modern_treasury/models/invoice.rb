@@ -235,13 +235,13 @@ module ModernTreasury
       #   # @param amount_remaining [Integer] Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
       #   #   $10 USD would be represented as 1000.
       #   #
-      #   # @param contact_details [Array<Object>] The invoicer's contact details displayed at the top of the invoice.
+      #   # @param contact_details [Array<ModernTreasury::Models::Invoice::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
       #   #
-      #   # @param counterparty_billing_address [Object] The counterparty's billing address.
+      #   # @param counterparty_billing_address [ModernTreasury::Models::Invoice::CounterpartyBillingAddress] The counterparty's billing address.
       #   #
       #   # @param counterparty_id [String] The ID of the counterparty receiving the invoice.
       #   #
-      #   # @param counterparty_shipping_address [Object] The counterparty's shipping address where physical goods should be delivered.
+      #   # @param counterparty_shipping_address [ModernTreasury::Models::Invoice::CounterpartyShippingAddress] The counterparty's shipping address where physical goods should be delivered.
       #   #
       #   # @param created_at [String]
       #   #
@@ -251,14 +251,14 @@ module ModernTreasury
       #   #
       #   # @param due_date [String] A future date by when the invoice needs to be paid.
       #   #
-      #   # @param expected_payments [Array<Object>] The expected payments created for an unpaid invoice.
+      #   # @param expected_payments [Array<ModernTreasury::Models::ExpectedPayment>] The expected payments created for an unpaid invoice.
       #   #
       #   # @param fallback_payment_method [String] When payment_method is automatic, the fallback payment method to use when an
       #   #   automatic payment fails. One of `manual` or `ui`.
       #   #
       #   # @param hosted_url [String] The URL of the hosted web UI where the invoice can be viewed.
       #   #
-      #   # @param invoicer_address [Object] The invoice issuer's business address.
+      #   # @param invoicer_address [ModernTreasury::Models::Invoice::InvoicerAddress] The invoice issuer's business address.
       #   #
       #   # @param ledger_account_settlement_id [String] The ledger account settlement object linked to the invoice.
       #   #
@@ -288,7 +288,7 @@ module ModernTreasury
       #   # @param payment_method [String] When opening an invoice, whether to show the embedded payment UI , automatically
       #   #   debit the recipient, or rely on manual payment from the recipient.
       #   #
-      #   # @param payment_orders [Array<Object>] The payment orders created for paying the invoice through the invoice payment
+      #   # @param payment_orders [Array<ModernTreasury::Models::PaymentOrder>] The payment orders created for paying the invoice through the invoice payment
       #   #   UI.
       #   #
       #   # @param payment_type [String] One of `ach` or `eft`.

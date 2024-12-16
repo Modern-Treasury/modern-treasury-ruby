@@ -79,7 +79,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param accounting [Object]
+      #   # @param accounting [ModernTreasury::Models::LineItem::Accounting]
       #   #
       #   # @param accounting_category_id [String] The ID of one of your accounting categories. Note that these will only be
       #   #   accessible if your accounting system has been connected.

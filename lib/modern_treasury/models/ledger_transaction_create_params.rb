@@ -64,7 +64,7 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionCreateParams::Status }
 
       # @!parse
-      #   # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+      #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>] An array of ledger entry objects.
       #   #
       #   # @param description [String, nil] An optional description for internal use.
       #   #

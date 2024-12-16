@@ -10,7 +10,7 @@ module ModernTreasury
       optional :balances, -> { ModernTreasury::Models::LedgerAccountRetrieveParams::Balances }
 
       # @!parse
-      #   # @param balances [Object, nil] Use `balances[effective_at_lower_bound]` and
+      #   # @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, nil] Use `balances[effective_at_lower_bound]` and
       #   #   `balances[effective_at_upper_bound]` to get the balances change between the two
       #   #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
       #   #   the provided timestamps. If no value is supplied the balances will be retrieved

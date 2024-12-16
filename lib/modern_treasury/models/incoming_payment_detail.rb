@@ -204,7 +204,7 @@ module ModernTreasury
       #   #
       #   # @param vendor_id [String] The identifier of the vendor bank.
       #   #
-      #   # @param virtual_account [Object] If the incoming payment detail is in a virtual account, the serialized virtual
+      #   # @param virtual_account [ModernTreasury::Models::VirtualAccount] If the incoming payment detail is in a virtual account, the serialized virtual
       #   #   account object.
       #   #
       #   # @param virtual_account_id [String] If the incoming payment detail is in a virtual account, the ID of the Virtual

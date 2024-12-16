@@ -68,11 +68,11 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param alert_condition [Object] Describes the condition that must be satisfied for the monitor to be triggered.
+      #   # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param current_ledger_account_balance_state [Object] The ledger account's balances and the monitor state as of the current ledger
+      #   # @param current_ledger_account_balance_state [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState] The ledger account's balances and the monitor state as of the current ledger
       #   #   account lock version.
       #   #
       #   # @param description [String] An optional, free-form description for internal use.
@@ -170,7 +170,7 @@ module ModernTreasury
         #   # The ledger account's balances and the monitor state as of the current ledger
         #   #   account lock version.
         #   #
-        #   # @param balances [Object]
+        #   # @param balances [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances]
         #   #
         #   # @param ledger_account_lock_version [Integer] The current lock version of the ledger account.
         #   #
@@ -204,14 +204,14 @@ module ModernTreasury
                    -> { ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance }
 
           # @!parse
-          #   # @param available_balance [Object] The available_balance is the sum of all posted inbound entries and pending
+          #   # @param available_balance [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending
           #   #   outbound entries. For credit normal, available_amount = posted_credits -
           #   #   pending_debits; for debit normal, available_amount = posted_debits -
           #   #   pending_credits.
           #   #
-          #   # @param pending_balance [Object] The pending_balance is the sum of all pending and posted entries.
+          #   # @param pending_balance [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
           #   #
-          #   # @param posted_balance [Object] The posted_balance is the sum of all posted entries.
+          #   # @param posted_balance [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance] The posted_balance is the sum of all posted entries.
           #   #
           #   def initialize(available_balance:, pending_balance:, posted_balance:) = super
 

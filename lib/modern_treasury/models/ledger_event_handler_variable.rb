@@ -15,7 +15,7 @@ module ModernTreasury
       required :type, String
 
       # @!parse
-      #   # @param query [Object]
+      #   # @param query [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
       #   #
       #   # @param type [String] The type of object this variable is. Currently, only "ledger_account" is
       #   #   supported.

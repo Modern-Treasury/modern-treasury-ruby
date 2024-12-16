@@ -241,7 +241,7 @@ module ModernTreasury
       #   #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #   #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #   #
-      #   # @param accounting [Object, nil]
+      #   # @param accounting [ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting, nil]
       #   #
       #   # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be
       #   #   accessible if your accounting system has been connected.
@@ -274,7 +274,7 @@ module ModernTreasury
       #   #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   #   currency matches the originating account currency.
       #   #
-      #   # @param ledger_transaction [Object, nil] Specifies a ledger transaction object that will be created with the payment
+      #   # @param ledger_transaction [ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction, nil] Specifies a ledger transaction object that will be created with the payment
       #   #   order. If the ledger transaction cannot be created, then the payment order
       #   #   creation will fail. The resulting ledger transaction will mirror the status of
       #   #   the payment order.
@@ -284,7 +284,7 @@ module ModernTreasury
       #   #   payment order is created, the status of the ledger transaction tracks the
       #   #   payment order automatically.
       #   #
-      #   # @param line_items [Array<Object>, nil] An array of line items that must sum up to the amount of the payment order.
+      #   # @param line_items [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>, nil] An array of line items that must sum up to the amount of the payment order.
       #   #
       #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
@@ -311,7 +311,7 @@ module ModernTreasury
       #   #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
       #   #   digit CPA Code that will be attached to the payment.
       #   #
-      #   # @param receiving_account [Object, nil] Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   # @param receiving_account [ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount, nil] Either `receiving_account` or `receiving_account_id` must be present. When using
       #   #   `receiving_account_id`, you may pass the id of an external account or an
       #   #   internal account.
       #   #
@@ -511,7 +511,7 @@ module ModernTreasury
         #   #   creation will fail. The resulting ledger transaction will mirror the status of
         #   #   the payment order.
         #   #
-        #   # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+        #   # @param ledger_entries [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
         #   #
         #   # @param description [String, nil] An optional description for internal use.
         #   #
@@ -819,13 +819,13 @@ module ModernTreasury
         #   #   `receiving_account_id`, you may pass the id of an external account or an
         #   #   internal account.
         #   #
-        #   # @param account_details [Array<Object>, nil]
+        #   # @param account_details [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail>, nil]
         #   #
         #   # @param account_type [String, nil] Can be `checking`, `savings` or `other`.
         #   #
-        #   # @param contact_details [Array<Object>, nil]
+        #   # @param contact_details [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail>, nil]
         #   #
-        #   # @param ledger_account [Object, nil] Specifies a ledger account object that will be created with the external
+        #   # @param ledger_account [ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount, nil] Specifies a ledger account object that will be created with the external
         #   #   account. The resulting ledger account is linked to the external account for
         #   #   auto-ledgering Payment objects. See
         #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
@@ -837,7 +837,7 @@ module ModernTreasury
         #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
         #   #   affect any payments
         #   #
-        #   # @param party_address [Object, nil] Required if receiving wire payments.
+        #   # @param party_address [ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyAddress, nil] Required if receiving wire payments.
         #   #
         #   # @param party_identifier [String, nil]
         #   #
@@ -848,7 +848,7 @@ module ModernTreasury
         #   # @param plaid_processor_token [String, nil] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
         #   #   you can pass the processor token in this field.
         #   #
-        #   # @param routing_details [Array<Object>, nil]
+        #   # @param routing_details [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail>, nil]
         #   #
         #   def initialize(
         #     account_details: nil,

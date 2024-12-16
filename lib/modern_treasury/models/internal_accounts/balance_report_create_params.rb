@@ -44,7 +44,7 @@ module ModernTreasury
         #   # @param balance_report_type [String] The specific type of balance report. One of `intraday`, `previous_day`,
         #   #   `real_time`, or `other`.
         #   #
-        #   # @param balances [Array<Object>] An array of `Balance` objects.
+        #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
         #   #
         #   def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:) = super
 

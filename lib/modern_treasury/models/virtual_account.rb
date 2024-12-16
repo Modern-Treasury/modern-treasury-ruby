@@ -97,7 +97,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param account_details [Array<Object>] An array of account detail objects.
+      #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
       #   #
       #   # @param counterparty_id [String] The ID of a counterparty that the virtual account belongs to. Optional.
       #   #
@@ -130,7 +130,7 @@ module ModernTreasury
       #   #
       #   # @param object [String]
       #   #
-      #   # @param routing_details [Array<Object>] An array of routing detail objects. These will be the routing details of the
+      #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects. These will be the routing details of the
       #   #   internal account.
       #   #
       #   # @param updated_at [String]

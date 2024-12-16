@@ -143,9 +143,9 @@ module ModernTreasury
       optional :website, String
 
       # @!parse
-      #   # @param addresses [Array<Object>, nil] A list of addresses for the entity.
+      #   # @param addresses [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>, nil] A list of addresses for the entity.
       #   #
-      #   # @param bank_settings [Object, nil]
+      #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #   #
       #   # @param business_name [String, nil] The business's legal business name.
       #   #
@@ -161,7 +161,7 @@ module ModernTreasury
       #   #
       #   # @param first_name [String, nil] An individual's first name.
       #   #
-      #   # @param identifications [Array<Object>, nil] A list of identifications for the legal entity.
+      #   # @param identifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>, nil] A list of identifications for the legal entity.
       #   #
       #   # @param last_name [String, nil] An individual's last name.
       #   #
@@ -172,7 +172,7 @@ module ModernTreasury
       #   #
       #   # @param middle_name [String, nil] An individual's middle name.
       #   #
-      #   # @param phone_numbers [Array<Object>, nil]
+      #   # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>, nil]
       #   #
       #   # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
       #   #
@@ -184,7 +184,7 @@ module ModernTreasury
       #   #
       #   # @param suffix [String, nil] An individual's suffix.
       #   #
-      #   # @param wealth_and_employment_details [Object, nil]
+      #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       #   #
       #   # @param website [String, nil] The entity's primary website URL.
       #   #

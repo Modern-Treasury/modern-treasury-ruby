@@ -73,7 +73,7 @@ module ModernTreasury
       #   #
       #   # @param parent_account_id [String, nil] The parent internal account of this new account.
       #   #
-      #   # @param party_address [Object, nil] The address associated with the owner or null.
+      #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, nil] The address associated with the owner or null.
       #   #
       #   # @param vendor_attributes [Hash, nil] A hash of vendor specific attributes that will be used when creating the account
       #   #   at the vendor specified by the given connection.

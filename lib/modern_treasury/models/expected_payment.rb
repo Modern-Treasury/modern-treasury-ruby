@@ -201,7 +201,7 @@ module ModernTreasury
       #   #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   #   is unreconciled.
       #   #
-      #   # @param reconciliation_rule_variables [Array<Object>] An array of reconciliation rule variables for this payment.
+      #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>] An array of reconciliation rule variables for this payment.
       #   #
       #   # @param remittance_information [String] For `ach`, this field will be passed through on an addenda record. For `wire`
       #   #   payments the field will be passed through as the "Originator to Beneficiary

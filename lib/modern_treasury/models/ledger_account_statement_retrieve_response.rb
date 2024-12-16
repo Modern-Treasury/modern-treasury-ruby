@@ -104,7 +104,7 @@ module ModernTreasury
       #   # @param effective_at_upper_bound [String] The exclusive upper bound of the effective_at timestamp of the ledger entries to
       #   #   be included in the ledger account statement.
       #   #
-      #   # @param ending_balance [Object] The pending, posted, and available balances for this ledger account at the
+      #   # @param ending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance] The pending, posted, and available balances for this ledger account at the
       #   #   `effective_at_upper_bound`. The posted balance is the sum of all posted entries
       #   #   on the account. The pending balance is the sum of all pending and posted entries
       #   #   on the account. The available balance is the posted incoming entries minus the
@@ -127,7 +127,7 @@ module ModernTreasury
       #   #
       #   # @param object [String]
       #   #
-      #   # @param starting_balance [Object] The pending, posted, and available balances for this ledger account at the
+      #   # @param starting_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance] The pending, posted, and available balances for this ledger account at the
       #   #   `effective_at_lower_bound`. The posted balance is the sum of all posted entries
       #   #   on the account. The pending balance is the sum of all pending and posted entries
       #   #   on the account. The available balance is the posted incoming entries minus the
@@ -186,14 +186,14 @@ module ModernTreasury
         #   #   on the account. The available balance is the posted incoming entries minus the
         #   #   sum of the pending and posted outgoing amounts.
         #   #
-        #   # @param available_balance [Object] The available_balance is the sum of all posted inbound entries and pending
+        #   # @param available_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending
         #   #   outbound entries. For credit normal, available_amount = posted_credits -
         #   #   pending_debits; for debit normal, available_amount = posted_debits -
         #   #   pending_credits.
         #   #
-        #   # @param pending_balance [Object] The pending_balance is the sum of all pending and posted entries.
+        #   # @param pending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance] The pending_balance is the sum of all pending and posted entries.
         #   #
-        #   # @param posted_balance [Object] The posted_balance is the sum of all posted entries.
+        #   # @param posted_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance] The posted_balance is the sum of all posted entries.
         #   #
         #   def initialize(available_balance:, pending_balance:, posted_balance:) = super
 
@@ -370,14 +370,14 @@ module ModernTreasury
         #   #   on the account. The available balance is the posted incoming entries minus the
         #   #   sum of the pending and posted outgoing amounts.
         #   #
-        #   # @param available_balance [Object] The available_balance is the sum of all posted inbound entries and pending
+        #   # @param available_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending
         #   #   outbound entries. For credit normal, available_amount = posted_credits -
         #   #   pending_debits; for debit normal, available_amount = posted_debits -
         #   #   pending_credits.
         #   #
-        #   # @param pending_balance [Object] The pending_balance is the sum of all pending and posted entries.
+        #   # @param pending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance] The pending_balance is the sum of all pending and posted entries.
         #   #
-        #   # @param posted_balance [Object] The posted_balance is the sum of all posted entries.
+        #   # @param posted_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance] The posted_balance is the sum of all posted entries.
         #   #
         #   def initialize(available_balance:, pending_balance:, posted_balance:) = super
 

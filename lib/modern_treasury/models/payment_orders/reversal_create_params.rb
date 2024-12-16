@@ -28,7 +28,7 @@ module ModernTreasury
         #   #   `incorrect_receiving_account`, `date_earlier_than_intended`,
         #   #   `date_later_than_intended`.
         #   #
-        #   # @param ledger_transaction [Object, nil] Specifies a ledger transaction object that will be created with the reversal. If
+        #   # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction, nil] Specifies a ledger transaction object that will be created with the reversal. If
         #   #   the ledger transaction cannot be created, then the reversal creation will fail.
         #   #   The resulting ledger transaction will mirror the status of the reversal.
         #   #
@@ -119,7 +119,7 @@ module ModernTreasury
           #   #   the ledger transaction cannot be created, then the reversal creation will fail.
           #   #   The resulting ledger transaction will mirror the status of the reversal.
           #   #
-          #   # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+          #   # @param ledger_entries [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
           #   #
           #   # @param description [String, nil] An optional description for internal use.
           #   #
