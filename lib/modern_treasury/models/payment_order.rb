@@ -302,7 +302,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param accounting [Object]
+      #   # @param accounting [ModernTreasury::Models::PaymentOrder::Accounting]
       #   #
       #   # @param accounting_category_id [String] The ID of one of your accounting categories. Note that these will only be
       #   #   accessible if your accounting system has been connected.
@@ -327,7 +327,7 @@ module ModernTreasury
       #   #
       #   # @param currency [String] Defaults to the currency of the originating account.
       #   #
-      #   # @param current_return [Object] If the payment order's status is `returned`, this will include the return
+      #   # @param current_return [ModernTreasury::Models::ReturnObject] If the payment order's status is `returned`, this will include the return
       #   #   object's data.
       #   #
       #   # @param decision_id [String] The ID of the compliance decision for the payment order, if transaction
@@ -353,7 +353,7 @@ module ModernTreasury
       #   #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   #   currency matches the originating account currency.
       #   #
-      #   # @param foreign_exchange_rate [Object] Associated serialized foreign exchange rate information.
+      #   # @param foreign_exchange_rate [ModernTreasury::Models::PaymentOrder::ForeignExchangeRate] Associated serialized foreign exchange rate information.
       #   #
       #   # @param ledger_transaction_id [String] The ID of the ledger transaction linked to the payment order.
       #   #
@@ -393,7 +393,7 @@ module ModernTreasury
       #   #
       #   # @param receiving_account_type [String]
       #   #
-      #   # @param reference_numbers [Array<Object>]
+      #   # @param reference_numbers [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
       #   #
       #   # @param remittance_information [String] For `ach`, this field will be passed through on an addenda record. For `wire`
       #   #   payments the field will be passed through as the "Originator to Beneficiary
@@ -428,7 +428,7 @@ module ModernTreasury
       #   #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #   #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #   #
-      #   # @param ultimate_originating_account [Object] The account to which the originating of this payment should be attributed to.
+      #   # @param ultimate_originating_account [ModernTreasury::Models::InternalAccount, ModernTreasury::Models::VirtualAccount] The account to which the originating of this payment should be attributed to.
       #   #   Can be a `virtual_account` or `internal_account`.
       #   #
       #   # @param ultimate_originating_account_id [String] The ultimate originating account ID. Can be a `virtual_account` or

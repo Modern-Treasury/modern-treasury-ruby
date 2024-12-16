@@ -145,7 +145,7 @@ module ModernTreasury
       #   #
       #   # @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #   #
-      #   # @param ledger_transaction [Object, nil] Specifies a ledger transaction object that will be created with the expected
+      #   # @param ledger_transaction [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction, nil] Specifies a ledger transaction object that will be created with the expected
       #   #   payment. If the ledger transaction cannot be created, then the expected payment
       #   #   creation will fail. The resulting ledger transaction will mirror the status of
       #   #   the expected payment.
@@ -155,7 +155,7 @@ module ModernTreasury
       #   #   the expected payment is created, the status of the ledger transaction tracks the
       #   #   expected payment automatically.
       #   #
-      #   # @param line_items [Array<Object>, nil]
+      #   # @param line_items [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>, nil]
       #   #
       #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
@@ -164,7 +164,7 @@ module ModernTreasury
       #   #
       #   # @param reconciliation_groups [Object, nil] The reconciliation groups you have for this payment.
       #   #
-      #   # @param reconciliation_rule_variables [Array<Object>, nil] An array of reconciliation rule variables for this payment.
+      #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
       #   #
       #   # @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire`
       #   #   payments the field will be passed through as the "Originator to Beneficiary
@@ -280,7 +280,7 @@ module ModernTreasury
         #   #   creation will fail. The resulting ledger transaction will mirror the status of
         #   #   the expected payment.
         #   #
-        #   # @param ledger_entries [Array<Object>] An array of ledger entry objects.
+        #   # @param ledger_entries [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>] An array of ledger entry objects.
         #   #
         #   # @param description [String, nil] An optional description for internal use.
         #   #

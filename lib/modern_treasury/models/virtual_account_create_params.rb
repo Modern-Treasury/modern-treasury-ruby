@@ -78,7 +78,7 @@ module ModernTreasury
       #   #
       #   # @param name [String] The name of the virtual account.
       #   #
-      #   # @param account_details [Array<Object>, nil] An array of account detail objects.
+      #   # @param account_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>, nil] An array of account detail objects.
       #   #
       #   # @param counterparty_id [String, nil] The ID of the counterparty that the virtual account belongs to.
       #   #
@@ -92,14 +92,14 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] An optional description for internal use.
       #   #
-      #   # @param ledger_account [Object, nil] Specifies a ledger account object that will be created with the virtual account.
+      #   # @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, nil] Specifies a ledger account object that will be created with the virtual account.
       #   #   The resulting ledger account is linked to the virtual account for auto-ledgering
       #   #   IPDs.
       #   #
       #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   # @param routing_details [Array<Object>, nil] An array of routing detail objects.
+      #   # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>, nil] An array of routing detail objects.
       #   #
       #   def initialize(
       #     internal_account_id:,

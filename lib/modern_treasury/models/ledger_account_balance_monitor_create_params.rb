@@ -29,7 +29,7 @@ module ModernTreasury
       optional :metadata, Hash
 
       # @!parse
-      #   # @param alert_condition [Object] Describes the condition that must be satisfied for the monitor to be triggered.
+      #   # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.
       #   #
       #   # @param ledger_account_id [String] The ledger account associated with this balance monitor.
       #   #

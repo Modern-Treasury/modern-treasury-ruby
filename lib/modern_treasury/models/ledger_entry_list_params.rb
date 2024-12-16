@@ -158,7 +158,7 @@ module ModernTreasury
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
-      #   # @param order_by [Object, nil] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
+      #   # @param order_by [ModernTreasury::Models::LedgerEntryListParams::OrderBy, nil] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
       #   #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
       #   #   by only one field at a time is supported.
       #   #

@@ -32,7 +32,7 @@ module ModernTreasury
       #   #
       #   # @param resource_type [String] One of payment_order, expected_payment, or ledger_transaction.
       #   #
-      #   # @param resources [Array<Object>] An array of objects where each object contains the input params for a single
+      #   # @param resources [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent0, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent1, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent2, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent3, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent4, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent5, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent6, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent7, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent8>] An array of objects where each object contains the input params for a single
       #   #   `action_type` request on a `resource_type` resource
       #   #
       #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be

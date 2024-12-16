@@ -91,7 +91,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param balances [Object] The pending, posted, and available balances for this ledger account. The posted
+      #   # @param balances [ModernTreasury::Models::LedgerAccount::Balances] The pending, posted, and available balances for this ledger account. The posted
       #   #   balance is the sum of all posted entries on the account. The pending balance is
       #   #   the sum of all pending and posted entries on the account. The available balance
       #   #   is the posted incoming entries minus the sum of the pending and posted outgoing
@@ -188,7 +188,7 @@ module ModernTreasury
         #   #   is the posted incoming entries minus the sum of the pending and posted outgoing
         #   #   amounts.
         #   #
-        #   # @param available_balance [Object] The available_balance is the sum of all posted inbound entries and pending
+        #   # @param available_balance [ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending
         #   #   outbound entries. For credit normal, available_amount = posted_credits -
         #   #   pending_debits; for debit normal, available_amount = posted_debits -
         #   #   pending_credits.
@@ -199,9 +199,9 @@ module ModernTreasury
         #   # @param effective_at_upper_bound [String] The exclusive upper bound of the effective_at timestamp for the returned
         #   #   balances.
         #   #
-        #   # @param pending_balance [Object] The pending_balance is the sum of all pending and posted entries.
+        #   # @param pending_balance [ModernTreasury::Models::LedgerAccount::Balances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
         #   #
-        #   # @param posted_balance [Object] The posted_balance is the sum of all posted entries.
+        #   # @param posted_balance [ModernTreasury::Models::LedgerAccount::Balances::PostedBalance] The posted_balance is the sum of all posted entries.
         #   #
         #   def initialize(
         #     available_balance:,

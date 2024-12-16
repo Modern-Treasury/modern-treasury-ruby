@@ -66,7 +66,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param bank_address [Object]
+      #   # @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress]
       #   #
       #   # @param bank_name [String] The name of the bank.
       #   #

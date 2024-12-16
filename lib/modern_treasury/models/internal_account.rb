@@ -116,11 +116,11 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param account_details [Array<Object>] An array of account detail objects.
+      #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
       #   #
       #   # @param account_type [String] Can be checking, savings or other.
       #   #
-      #   # @param connection [Object] Specifies which financial institution the accounts belong to.
+      #   # @param connection [ModernTreasury::Models::Connection] Specifies which financial institution the accounts belong to.
       #   #
       #   # @param counterparty_id [String] The Counterparty associated to this account.
       #   #
@@ -145,13 +145,13 @@ module ModernTreasury
       #   #
       #   # @param parent_account_id [String] The parent InternalAccount of this account.
       #   #
-      #   # @param party_address [Object] The address associated with the owner or null.
+      #   # @param party_address [ModernTreasury::Models::InternalAccount::PartyAddress] The address associated with the owner or null.
       #   #
       #   # @param party_name [String] The legal name of the entity which owns the account.
       #   #
       #   # @param party_type [String] Either individual or business.
       #   #
-      #   # @param routing_details [Array<Object>] An array of routing detail objects.
+      #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
       #   #
       #   # @param updated_at [String]
       #   #
