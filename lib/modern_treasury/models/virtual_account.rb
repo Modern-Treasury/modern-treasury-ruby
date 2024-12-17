@@ -12,7 +12,7 @@ module ModernTreasury
       #   An array of account detail objects.
       #
       #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::AccountDetail })
+      required :account_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::AccountDetail }]
 
       # @!attribute counterparty_id
       #   The ID of a counterparty that the virtual account belongs to. Optional.
@@ -87,7 +87,7 @@ module ModernTreasury
       #   An array of routing detail objects. These will be the routing details of the internal account.
       #
       #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::RoutingDetail })
+      required :routing_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::RoutingDetail }]
 
       # @!attribute updated_at
       #

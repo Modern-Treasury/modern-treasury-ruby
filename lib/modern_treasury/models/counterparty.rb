@@ -12,7 +12,7 @@ module ModernTreasury
       #   The accounts for this counterparty.
       #
       #   @return [Array<ModernTreasury::Models::Counterparty::Account>]
-      required :accounts, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::Counterparty::Account })
+      required :accounts, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::Counterparty::Account }]
 
       # @!attribute created_at
       #
@@ -135,7 +135,7 @@ module ModernTreasury
         # @!attribute account_details
         #
         #   @return [Array<ModernTreasury::Models::AccountDetail>]
-        optional :account_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::AccountDetail })
+        optional :account_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::AccountDetail }]
 
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
@@ -147,11 +147,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
         optional :contact_details,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::Counterparty::Account::ContactDetail
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> { ModernTreasury::Models::Counterparty::Account::ContactDetail }]
 
         # @!attribute created_at
         #
@@ -213,7 +209,7 @@ module ModernTreasury
         # @!attribute routing_details
         #
         #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-        optional :routing_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::RoutingDetail })
+        optional :routing_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::RoutingDetail }]
 
         # @!attribute updated_at
         #

@@ -39,11 +39,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
       optional :supported_payment_types,
-               ModernTreasury::ArrayOf.new(
-                 enum: -> {
-                   ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType
-                 }
-               )
+               ModernTreasury::ArrayOf[enum: -> {
+                 ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType
+               }]
 
       # @!parse
       #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, nil] The address of the bank.

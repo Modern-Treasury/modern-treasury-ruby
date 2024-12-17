@@ -8,7 +8,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>]
       optional :addresses,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::LegalEntityUpdateParams::Address })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntityUpdateParams::Address }]
 
       # @!attribute bank_settings
       #
@@ -42,7 +42,7 @@ module ModernTreasury
       # @!attribute doing_business_as_names
       #
       #   @return [Array<String>]
-      optional :doing_business_as_names, ModernTreasury::ArrayOf.new(String)
+      optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
 
       # @!attribute email
       #   The entity's primary email.
@@ -61,11 +61,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
       optional :identifications,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::LegalEntityUpdateParams::Identification
-                 }
-               )
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntityUpdateParams::Identification }]
 
       # @!attribute last_name
       #   An individual's last name.
@@ -95,11 +91,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
       optional :phone_numbers,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber
-                 }
-               )
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber }]
 
       # @!attribute politically_exposed_person
       #   Whether the individual is a politically exposed person.
@@ -252,11 +244,9 @@ module ModernTreasury
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>]
         optional :address_types,
-                 ModernTreasury::ArrayOf.new(
-                   enum: -> {
-                     ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType
-                   }
-                 )
+                 ModernTreasury::ArrayOf[enum: -> {
+                   ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType
+                 }]
 
         # @!attribute line2
         #

@@ -91,11 +91,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
         required :ledger_entries,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry
+                 }]
 
         # @!attribute status
         #   To post a ledger transaction at creation, use `posted`.

@@ -12,11 +12,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
       optional :account_details,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail
-                 }
-               )
+               ModernTreasury::ArrayOf[-> {
+                 ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail
+               }]
 
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
@@ -28,11 +26,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
       optional :contact_details,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail
-                 }
-               )
+               ModernTreasury::ArrayOf[-> {
+                 ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail
+               }]
 
       # @!attribute ledger_account
       #   Specifies a ledger account object that will be created with the external account. The resulting ledger account is linked to the external account for auto-ledgering Payment objects. See https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects for more details.
@@ -85,11 +81,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
       optional :routing_details,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail
-                 }
-               )
+               ModernTreasury::ArrayOf[-> {
+                 ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail
+               }]
 
       # @!parse
       #   # @param counterparty_id [String]
@@ -281,7 +275,7 @@ module ModernTreasury
         #   The array of ledger account category ids that this ledger account should be a child of.
         #
         #   @return [Array<String>]
-        optional :ledger_account_category_ids, ModernTreasury::ArrayOf.new(String)
+        optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
         # @!attribute ledgerable_id
         #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.

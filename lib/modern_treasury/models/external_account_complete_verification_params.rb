@@ -6,7 +6,7 @@ module ModernTreasury
       # @!attribute amounts
       #
       #   @return [Array<Integer>]
-      optional :amounts, ModernTreasury::ArrayOf.new(Integer)
+      optional :amounts, ModernTreasury::ArrayOf[Integer]
 
       # @!parse
       #   # @param amounts [Array<Integer>, nil]
