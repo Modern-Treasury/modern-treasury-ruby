@@ -162,11 +162,40 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :high
+      #   # ...
+      # in :normal
+      #   # ...
+      # end
+      # ```
       class Priority < ModernTreasury::Enum
         HIGH = :high
         NORMAL = :normal
       end
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :approved
+      #   # ...
+      # in :cancelled
+      #   # ...
+      # in :completed
+      #   # ...
+      # in :denied
+      #   # ...
+      # in :failed
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         APPROVED = :approved
         CANCELLED = :cancelled
@@ -181,6 +210,24 @@ module ModernTreasury
         SENT = :sent
       end
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :ach
+      #   # ...
+      # in :au_becs
+      #   # ...
+      # in :bacs
+      #   # ...
+      # in :book
+      #   # ...
+      # in :card
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

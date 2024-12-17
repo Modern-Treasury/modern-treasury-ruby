@@ -120,6 +120,19 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # One of create, or update.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :create
+      #   # ...
+      # in :update
+      #   # ...
+      # in :delete
+      #   # ...
+      # end
+      # ```
       class ActionType < ModernTreasury::Enum
         CREATE = :create
         UPDATE = :update
@@ -127,6 +140,21 @@ module ModernTreasury
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :payment_order
+      #   # ...
+      # in :ledger_transaction
+      #   # ...
+      # in :transaction
+      #   # ...
+      # in :expected_payment
+      #   # ...
+      # end
+      # ```
       class ResourceType < ModernTreasury::Enum
         PAYMENT_ORDER = :payment_order
         LEDGER_TRANSACTION = :ledger_transaction
@@ -135,6 +163,19 @@ module ModernTreasury
       end
 
       # One of pending, processing, or completed.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :pending
+      #   # ...
+      # in :processing
+      #   # ...
+      # in :completed
+      #   # ...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         PENDING = :pending
         PROCESSING = :processing

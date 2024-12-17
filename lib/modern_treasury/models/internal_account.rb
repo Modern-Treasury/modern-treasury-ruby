@@ -182,6 +182,25 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # Can be checking, savings or other.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :cash
+      #   # ...
+      # in :checking
+      #   # ...
+      # in :general_ledger
+      #   # ...
+      # in :loan
+      #   # ...
+      # in :non_resident
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class AccountType < ModernTreasury::Enum
         CASH = :cash
         CHECKING = :checking
@@ -300,6 +319,17 @@ module ModernTreasury
       end
 
       # Either individual or business.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :business
+      #   # ...
+      # in :individual
+      #   # ...
+      # end
+      # ```
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual

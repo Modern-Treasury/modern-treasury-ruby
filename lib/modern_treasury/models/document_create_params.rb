@@ -38,6 +38,24 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :cases
+      #   # ...
+      # in :counterparties
+      #   # ...
+      # in :expected_payments
+      #   # ...
+      # in :external_accounts
+      #   # ...
+      # in :incoming_payment_details
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class DocumentableType < ModernTreasury::Enum
         CASES = :cases
         COUNTERPARTIES = :counterparties

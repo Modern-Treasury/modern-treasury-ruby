@@ -56,6 +56,24 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :name
+      #   # ...
+      # in :nameOnAccount
+      #   # ...
+      # in :taxpayerIdentifier
+      #   # ...
+      # in :accountType
+      #   # ...
+      # in :accountNumber
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Field < ModernTreasury::Enum
         NAME = :name
         NAME_ON_ACCOUNT = :nameOnAccount

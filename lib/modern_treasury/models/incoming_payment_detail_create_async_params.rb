@@ -87,12 +87,42 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # One of `credit`, `debit`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :credit
+      #   # ...
+      # in :debit
+      #   # ...
+      # end
+      # ```
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
       end
 
       # One of `ach`, `wire`, `check`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :ach
+      #   # ...
+      # in :book
+      #   # ...
+      # in :check
+      #   # ...
+      # in :eft
+      #   # ...
+      # in :interac
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         BOOK = :book
