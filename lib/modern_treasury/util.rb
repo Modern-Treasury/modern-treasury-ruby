@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module ModernTreasury
+  # rubocop:disable Metrics/ModuleLength
+
   # @private
   #
   module Util
@@ -271,4 +273,6 @@ module ModernTreasury
       end
     end
   end
+
+  # rubocop:enable Metrics/ModuleLength
 end
