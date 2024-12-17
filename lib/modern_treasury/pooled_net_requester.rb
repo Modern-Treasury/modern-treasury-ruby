@@ -48,6 +48,7 @@ module ModernTreasury
     #
     # @return [Net::HTTPResponse]
     def execute(req)
+      # rubocop:disable Metrics/BlockLength
       method, url, headers, body, timeout = req.fetch_values(:method, :url, :headers, :body, :timeout)
       content_type = headers["content-type"]
 
@@ -77,7 +78,7 @@ module ModernTreasury
               [k.to_s, v].flatten
             end
           request.set_form(form_data, content_type)
-          headers = headers.merge("content-type" => nil)
+          headers = headers.except("content-type")
         else
           request.body = body
         end
@@ -93,5 +94,6 @@ module ModernTreasury
     rescue ConnectionPool::TimeoutError
       raise ModernTreasury::APIConnectionError.new(url: url)
     end
+    # rubocop:enable Metrics/BlockLength
   end
 end
