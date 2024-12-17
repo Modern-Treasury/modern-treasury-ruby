@@ -252,6 +252,18 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :email
+        #   # ...
+        # in :phone_number
+        #   # ...
+        # in :website
+        #   # ...
+        # end
+        # ```
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -366,17 +378,52 @@ module ModernTreasury
       end
 
       # Either `individual` or `business`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :business
+      #   # ...
+      # in :individual
+      #   # ...
+      # end
+      # ```
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
       end
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :ach_prenote
+      #   # ...
+      # in :microdeposits
+      #   # ...
+      # in :plaid
+      #   # ...
+      # end
+      # ```
       class VerificationSource < ModernTreasury::Enum
         ACH_PRENOTE = :ach_prenote
         MICRODEPOSITS = :microdeposits
         PLAID = :plaid
       end
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :pending_verification
+      #   # ...
+      # in :unverified
+      #   # ...
+      # in :verified
+      #   # ...
+      # end
+      # ```
       class VerificationStatus < ModernTreasury::Enum
         PENDING_VERIFICATION = :pending_verification
         UNVERIFIED = :unverified

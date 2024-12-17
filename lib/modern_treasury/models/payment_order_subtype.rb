@@ -3,6 +3,25 @@
 module ModernTreasury
   module Models
     # An additional layer of classification for the type of payment order you are doing. This field is only used for `ach` payment orders currently. For `ach`  payment orders, the `subtype`  represents the SEC code. We currently support `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
+    #
+    # @example
+    #
+    # ```ruby
+    # case enum
+    # in :"0C"
+    #   # ...
+    # in :"0N"
+    #   # ...
+    # in :"0S"
+    #   # ...
+    # in :CCD
+    #   # ...
+    # in :CIE
+    #   # ...
+    # in ...
+    #   #...
+    # end
+    # ```
     class PaymentOrderSubtype < ModernTreasury::Enum
       BACS_NEW_INSTRUCTION = :"0C"
       BACS_CANCELLATION_INSTRUCTION = :"0N"

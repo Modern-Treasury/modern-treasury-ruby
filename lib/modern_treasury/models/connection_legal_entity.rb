@@ -98,6 +98,21 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The status of the connection legal entity.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :completed
+      #   # ...
+      # in :denied
+      #   # ...
+      # in :failed
+      #   # ...
+      # in :processing
+      #   # ...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         COMPLETED = :completed
         DENIED = :denied

@@ -176,6 +176,24 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :expected_payment
+      #   # ...
+      # in :incoming_payment_detail
+      #   # ...
+      # in :paper_item
+      #   # ...
+      # in :payment_order
+      #   # ...
+      # in :return
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class LedgerableType < ModernTreasury::Enum
         EXPECTED_PAYMENT = :expected_payment
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -212,17 +230,49 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :asc
+        #   # ...
+        # in :desc
+        #   # ...
+        # end
+        # ```
         class CreatedAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
         end
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :asc
+        #   # ...
+        # in :desc
+        #   # ...
+        # end
+        # ```
         class EffectiveAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
         end
       end
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :pending
+      #   # ...
+      # in :posted
+      #   # ...
+      # in :archived
+      #   # ...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         PENDING = :pending
         POSTED = :posted

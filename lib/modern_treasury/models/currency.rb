@@ -3,6 +3,25 @@
 module ModernTreasury
   module Models
     # Three-letter ISO currency code.
+    #
+    # @example
+    #
+    # ```ruby
+    # case enum
+    # in :AED
+    #   # ...
+    # in :AFN
+    #   # ...
+    # in :ALL
+    #   # ...
+    # in :AMD
+    #   # ...
+    # in :ANG
+    #   # ...
+    # in ...
+    #   #...
+    # end
+    # ```
     class Currency < ModernTreasury::Enum
       AED = :AED
       AFN = :AFN

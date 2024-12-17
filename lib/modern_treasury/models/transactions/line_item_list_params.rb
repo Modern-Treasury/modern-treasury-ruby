@@ -40,6 +40,16 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :originating
+        #   # ...
+        # in :receiving
+        #   # ...
+        # end
+        # ```
         class Type < ModernTreasury::Enum
           ORIGINATING = :originating
           RECEIVING = :receiving
