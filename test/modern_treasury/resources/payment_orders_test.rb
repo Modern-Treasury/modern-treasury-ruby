@@ -46,6 +46,11 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Page
     end
+
+    page = response.next_page
+    assert_pattern do
+      page => ModernTreasury::Page
+    end
   end
 
   def test_create_async_required_params

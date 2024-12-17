@@ -42,6 +42,11 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Page
     end
+
+    page = response.next_page
+    assert_pattern do
+      page => ModernTreasury::Page
+    end
   end
 
   def test_delete_required_params

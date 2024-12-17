@@ -10,19 +10,28 @@ module ModernTreasury
 
     # @private
     #
-    # @param model [Object]
-    # @param raw_data [Hash{Symbol => Object}]
-    # @param response [Net::HTTPResponse]
     # @param client [ModernTreasury::Client]
     # @param req [Hash{Symbol => Object}]
     # @param opts [Hash{Symbol => Object}]
-    def initialize(client:, model:, req:, opts:, response:, raw_data:)
-      super(raw_data.map { |row| model.coerce(row) })
-      @per_page = ModernTreasury::Util.coerce_integer(response["X-Per-Page"])
-      @after_cursor = response["X-After-Cursor"]&.to_s
+    # @param headers [Hash{String => String}]
+    # @param unwrapped [Hash{Symbol => Object}]
+    def initialize(client:, req:, opts:, headers:, unwrapped:)
+      model = req.fetch(:model)
+
+      case unwrapped
+      in Array
+        super(unwrapped&.map { |row| model.coerce(row) })
+      else
+        super([])
+      end
+
       @client = client
       @req = req
       @opts = opts
+
+      @per_page = ModernTreasury::Util.coerce_integer(headers["X-Per-Page"])
+
+      @after_cursor = headers["X-After-Cursor"]&.to_s
     end
 
     # @return [Boolean]
@@ -43,23 +52,19 @@ module ModernTreasury
 
     # @param blk [Proc]
     #
-    # @return [nil]
+    # @yieldreturn ModernTreasury::Page
+    # @return [void]
     def auto_paging_each(&blk)
       unless block_given?
         raise ArgumentError.new("A block must be given to #auto_paging_each")
       end
       page = self
       loop do
-        page.each { |e| blk.call(e) }
+        page.each { |row| blk.call(row) }
         break unless page.next_page?
         page = page.next_page
       end
     end
-
-    # @return [Enumerator]
-    def to_enum = super(:auto_paging_each)
-
-    alias_method :enum_for, :to_enum
 
     # @return [String]
     def inspect
