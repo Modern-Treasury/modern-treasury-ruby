@@ -103,6 +103,21 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # One of unreconciled, reconciled, or archived.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :archived
+      #   # ...
+      # in :partially_reconciled
+      #   # ...
+      # in :reconciled
+      #   # ...
+      # in :unreconciled
+      #   # ...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         ARCHIVED = :archived
         PARTIALLY_RECONCILED = :partially_reconciled
@@ -111,6 +126,25 @@ module ModernTreasury
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sepa, signet, wire
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :ach
+      #   # ...
+      # in :au_becs
+      #   # ...
+      # in :bacs
+      #   # ...
+      # in :book
+      #   # ...
+      # in :card
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

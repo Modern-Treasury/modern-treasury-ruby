@@ -174,6 +174,23 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The employment status of the individual.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :employed
+      #   # ...
+      # in :retired
+      #   # ...
+      # in :self_employed
+      #   # ...
+      # in :student
+      #   # ...
+      # in :unemployed
+      #   # ...
+      # end
+      # ```
       class EmploymentStatus < ModernTreasury::Enum
         EMPLOYED = :employed
         RETIRED = :retired
@@ -183,6 +200,25 @@ module ModernTreasury
       end
 
       # The source of the individual's income.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :family_support
+      #   # ...
+      # in :government_benefits
+      #   # ...
+      # in :inheritance
+      #   # ...
+      # in :investments
+      #   # ...
+      # in :rental_income
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class IncomeSource < ModernTreasury::Enum
         FAMILY_SUPPORT = :family_support
         GOVERNMENT_BENEFITS = :government_benefits
@@ -195,6 +231,25 @@ module ModernTreasury
       end
 
       # The industry of the individual.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :accounting
+      #   # ...
+      # in :agriculture
+      #   # ...
+      # in :automotive
+      #   # ...
+      # in :chemical_manufacturing
+      #   # ...
+      # in :construction
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Industry < ModernTreasury::Enum
         ACCOUNTING = :accounting
         AGRICULTURE = :agriculture
@@ -232,6 +287,25 @@ module ModernTreasury
       end
 
       # The occupation of the individual.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :consulting
+      #   # ...
+      # in :executive
+      #   # ...
+      # in :finance_accounting
+      #   # ...
+      # in :food_services
+      #   # ...
+      # in :government
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Occupation < ModernTreasury::Enum
         CONSULTING = :consulting
         EXECUTIVE = :executive
@@ -248,6 +322,25 @@ module ModernTreasury
       end
 
       # The source of the individual's funds.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :alimony
+      #   # ...
+      # in :annuity
+      #   # ...
+      # in :business_owner
+      #   # ...
+      # in :general_employee
+      #   # ...
+      # in :government_benefits
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class SourceOfFunds < ModernTreasury::Enum
         ALIMONY = :alimony
         ANNUITY = :annuity
@@ -269,6 +362,25 @@ module ModernTreasury
       end
 
       # The source of the individual's wealth.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :business_sale
+      #   # ...
+      # in :family_support
+      #   # ...
+      # in :government_benefits
+      #   # ...
+      # in :inheritance
+      #   # ...
+      # in :investments
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class WealthSource < ModernTreasury::Enum
         BUSINESS_SALE = :business_sale
         FAMILY_SUPPORT = :family_support

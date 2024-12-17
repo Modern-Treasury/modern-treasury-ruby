@@ -46,6 +46,16 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :business
+      #   # ...
+      # in :individual
+      #   # ...
+      # end
+      # ```
       class LegalEntityType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual

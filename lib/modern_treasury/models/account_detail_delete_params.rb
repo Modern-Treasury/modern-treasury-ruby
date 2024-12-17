@@ -21,6 +21,14 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :external_accounts
+      #   # ...
+      # end
+      # ```
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS = :external_accounts
       end

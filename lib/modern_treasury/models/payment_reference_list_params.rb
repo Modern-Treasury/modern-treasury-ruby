@@ -50,6 +50,19 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :payment_order
+      #   # ...
+      # in :return
+      #   # ...
+      # in :reversal
+      #   # ...
+      # end
+      # ```
       class ReferenceableType < ModernTreasury::Enum
         PAYMENT_ORDER = :payment_order
         RETURN = :return

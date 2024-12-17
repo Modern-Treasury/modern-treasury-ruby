@@ -76,6 +76,23 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The type of the request that created this result. bulk_request is the only supported `request_type`
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :payment_order
+      #   # ...
+      # in :ledger_transaction
+      #   # ...
+      # in :transaction
+      #   # ...
+      # in :expected_payment
+      #   # ...
+      # in :bulk_error
+      #   # ...
+      # end
+      # ```
       class EntityType < ModernTreasury::Enum
         PAYMENT_ORDER = :payment_order
         LEDGER_TRANSACTION = :ledger_transaction
@@ -85,11 +102,33 @@ module ModernTreasury
       end
 
       # The type of the request that created this result. bulk_request is the only supported `request_type`
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :bulk_request
+      #   # ...
+      # end
+      # ```
       class RequestType < ModernTreasury::Enum
         BULK_REQUEST = :bulk_request
       end
 
       # One of successful or failed.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :pending
+      #   # ...
+      # in :successful
+      #   # ...
+      # in :failed
+      #   # ...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         PENDING = :pending
         SUCCESSFUL = :successful

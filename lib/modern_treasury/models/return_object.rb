@@ -224,6 +224,25 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The return code. For ACH returns, this is the required ACH return code.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :"901"
+      #   # ...
+      # in :"902"
+      #   # ...
+      # in :"903"
+      #   # ...
+      # in :"904"
+      #   # ...
+      # in :"905"
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Code < ModernTreasury::Enum
         NUMBER_901 = :"901"
         NUMBER_902 = :"902"
@@ -341,6 +360,25 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The type of the reference number. Referring to the vendor payment id.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :ach_original_trace_number
+        #   # ...
+        # in :ach_trace_number
+        #   # ...
+        # in :bankprov_payment_activity_date
+        #   # ...
+        # in :bankprov_payment_id
+        #   # ...
+        # in :bnk_dev_prenotification_id
+        #   # ...
+        # in ...
+        #   #...
+        # end
+        # ```
         class ReferenceNumberType < ModernTreasury::Enum
           ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
           ACH_TRACE_NUMBER = :ach_trace_number
@@ -417,6 +455,23 @@ module ModernTreasury
       end
 
       # The type of object being returned or `null`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :incoming_payment_detail
+      #   # ...
+      # in :paper_item
+      #   # ...
+      # in :payment_order
+      #   # ...
+      # in :return
+      #   # ...
+      # in :reversal
+      #   # ...
+      # end
+      # ```
       class ReturnableType < ModernTreasury::Enum
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         PAPER_ITEM = :paper_item
@@ -426,12 +481,42 @@ module ModernTreasury
       end
 
       # The role of the return, can be `originating` or `receiving`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :originating
+      #   # ...
+      # in :receiving
+      #   # ...
+      # end
+      # ```
       class Role < ModernTreasury::Enum
         ORIGINATING = :originating
         RECEIVING = :receiving
       end
 
       # The current status of the return.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :completed
+      #   # ...
+      # in :failed
+      #   # ...
+      # in :pending
+      #   # ...
+      # in :processing
+      #   # ...
+      # in :returned
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         COMPLETED = :completed
         FAILED = :failed
@@ -442,6 +527,25 @@ module ModernTreasury
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `interac`, `manual`, `paper_item`, `wire`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :ach
+      #   # ...
+      # in :ach_noc
+      #   # ...
+      # in :au_becs
+      #   # ...
+      # in :bacs
+      #   # ...
+      # in :book
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         ACH_NOC = :ach_noc

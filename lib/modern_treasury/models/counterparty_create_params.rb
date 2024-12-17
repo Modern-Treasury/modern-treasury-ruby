@@ -129,6 +129,17 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # An optional type to auto-sync the counterparty to your ledger. Either `customer` or `vendor`.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :customer
+        #   # ...
+        # in :vendor
+        #   # ...
+        # end
+        # ```
         class Type < ModernTreasury::Enum
           CUSTOMER = :customer
           VENDOR = :vendor
@@ -301,6 +312,24 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :au_number
+          #   # ...
+          # in :clabe
+          #   # ...
+          # in :hk_number
+          #   # ...
+          # in :iban
+          #   # ...
+          # in :id_number
+          #   # ...
+          # in ...
+          #   #...
+          # end
+          # ```
           class AccountNumberType < ModernTreasury::Enum
             AU_NUMBER = :au_number
             CLABE = :clabe
@@ -337,6 +366,18 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :email
+          #   # ...
+          # in :phone_number
+          #   # ...
+          # in :website
+          #   # ...
+          # end
+          # ```
           class ContactIdentifierType < ModernTreasury::Enum
             EMAIL = :email
             PHONE_NUMBER = :phone_number
@@ -458,6 +499,21 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+          #
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :counterparty
+          #   # ...
+          # in :external_account
+          #   # ...
+          # in :internal_account
+          #   # ...
+          # in :virtual_account
+          #   # ...
+          # end
+          # ```
           class LedgerableType < ModernTreasury::Enum
             COUNTERPARTY = :counterparty
             EXTERNAL_ACCOUNT = :external_account
@@ -522,6 +578,17 @@ module ModernTreasury
         end
 
         # Either `individual` or `business`.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :business
+        #   # ...
+        # in :individual
+        #   # ...
+        # end
+        # ```
         class PartyType < ModernTreasury::Enum
           BUSINESS = :business
           INDIVIDUAL = :individual
@@ -558,6 +625,24 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :aba
+          #   # ...
+          # in :au_bsb
+          #   # ...
+          # in :br_codigo
+          #   # ...
+          # in :ca_cpa
+          #   # ...
+          # in :chips
+          #   # ...
+          # in ...
+          #   #...
+          # end
+          # ```
           class RoutingNumberType < ModernTreasury::Enum
             ABA = :aba
             AU_BSB = :au_bsb
@@ -581,6 +666,24 @@ module ModernTreasury
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
           end
 
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :ach
+          #   # ...
+          # in :au_becs
+          #   # ...
+          # in :bacs
+          #   # ...
+          # in :book
+          #   # ...
+          # in :card
+          #   # ...
+          # in ...
+          #   #...
+          # end
+          # ```
           class PaymentType < ModernTreasury::Enum
             ACH = :ach
             AU_BECS = :au_becs
@@ -619,6 +722,17 @@ module ModernTreasury
       # @deprecated
       #
       # An optional type to auto-sync the counterparty to your ledger. Either `customer` or `vendor`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :customer
+      #   # ...
+      # in :vendor
+      #   # ...
+      # end
+      # ```
       class LedgerType < ModernTreasury::Enum
         CUSTOMER = :customer
         VENDOR = :vendor
@@ -870,6 +984,17 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The type of legal entity.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :business
+        #   # ...
+        # in :individual
+        #   # ...
+        # end
+        # ```
         class LegalEntityType < ModernTreasury::Enum
           BUSINESS = :business
           INDIVIDUAL = :individual
@@ -940,6 +1065,22 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :business
+          #   # ...
+          # in :mailing
+          #   # ...
+          # in :other
+          #   # ...
+          # in :po_box
+          #   # ...
+          # in :residential
+          #   # ...
+          # end
+          # ```
           class AddressType < ModernTreasury::Enum
             BUSINESS = :business
             MAILING = :mailing
@@ -984,6 +1125,25 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # The type of ID number.
+          #
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :ar_cuil
+          #   # ...
+          # in :ar_cuit
+          #   # ...
+          # in :br_cnpj
+          #   # ...
+          # in :br_cpf
+          #   # ...
+          # in :cl_run
+          #   # ...
+          # in ...
+          #   #...
+          # end
+          # ```
           class IDType < ModernTreasury::Enum
             AR_CUIL = :ar_cuil
             AR_CUIT = :ar_cuit
@@ -1069,6 +1229,17 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # A list of relationship types for how the child entity relates to parent entity.
+          #
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :beneficial_owner
+          #   # ...
+          # in :control_person
+          #   # ...
+          # end
+          # ```
           class RelationshipType < ModernTreasury::Enum
             BENEFICIAL_OWNER = :beneficial_owner
             CONTROL_PERSON = :control_person
@@ -1378,6 +1549,22 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @example
+              #
+              # ```ruby
+              # case enum
+              # in :business
+              #   # ...
+              # in :mailing
+              #   # ...
+              # in :other
+              #   # ...
+              # in :po_box
+              #   # ...
+              # in :residential
+              #   # ...
+              # end
+              # ```
               class AddressType < ModernTreasury::Enum
                 BUSINESS = :business
                 MAILING = :mailing
@@ -1422,6 +1609,25 @@ module ModernTreasury
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
               # The type of ID number.
+              #
+              # @example
+              #
+              # ```ruby
+              # case enum
+              # in :ar_cuil
+              #   # ...
+              # in :ar_cuit
+              #   # ...
+              # in :br_cnpj
+              #   # ...
+              # in :br_cpf
+              #   # ...
+              # in :cl_run
+              #   # ...
+              # in ...
+              #   #...
+              # end
+              # ```
               class IDType < ModernTreasury::Enum
                 AR_CUIL = :ar_cuil
                 AR_CUIT = :ar_cuit
@@ -1448,12 +1654,42 @@ module ModernTreasury
             end
 
             # The type of legal entity.
+            #
+            # @example
+            #
+            # ```ruby
+            # case enum
+            # in :business
+            #   # ...
+            # in :individual
+            #   # ...
+            # end
+            # ```
             class LegalEntityType < ModernTreasury::Enum
               BUSINESS = :business
               INDIVIDUAL = :individual
             end
 
             # The business's legal structure.
+            #
+            # @example
+            #
+            # ```ruby
+            # case enum
+            # in :corporation
+            #   # ...
+            # in :llc
+            #   # ...
+            # in :non_profit
+            #   # ...
+            # in :partnership
+            #   # ...
+            # in :sole_proprietorship
+            #   # ...
+            # in ...
+            #   #...
+            # end
+            # ```
             class LegalStructure < ModernTreasury::Enum
               CORPORATION = :corporation
               LLC = :llc
@@ -1480,6 +1716,19 @@ module ModernTreasury
             end
 
             # The risk rating of the legal entity. One of low, medium, high.
+            #
+            # @example
+            #
+            # ```ruby
+            # case enum
+            # in :low
+            #   # ...
+            # in :medium
+            #   # ...
+            # in :high
+            #   # ...
+            # end
+            # ```
             class RiskRating < ModernTreasury::Enum
               LOW = :low
               MEDIUM = :medium
@@ -1489,6 +1738,25 @@ module ModernTreasury
         end
 
         # The business's legal structure.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :corporation
+        #   # ...
+        # in :llc
+        #   # ...
+        # in :non_profit
+        #   # ...
+        # in :partnership
+        #   # ...
+        # in :sole_proprietorship
+        #   # ...
+        # in ...
+        #   #...
+        # end
+        # ```
         class LegalStructure < ModernTreasury::Enum
           CORPORATION = :corporation
           LLC = :llc
@@ -1515,6 +1783,19 @@ module ModernTreasury
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :low
+        #   # ...
+        # in :medium
+        #   # ...
+        # in :high
+        #   # ...
+        # end
+        # ```
         class RiskRating < ModernTreasury::Enum
           LOW = :low
           MEDIUM = :medium
@@ -1523,6 +1804,21 @@ module ModernTreasury
       end
 
       # The verification status of the counterparty.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :denied
+      #   # ...
+      # in :needs_approval
+      #   # ...
+      # in :unverified
+      #   # ...
+      # in :verified
+      #   # ...
+      # end
+      # ```
       class VerificationStatus < ModernTreasury::Enum
         DENIED = :denied
         NEEDS_APPROVAL = :needs_approval

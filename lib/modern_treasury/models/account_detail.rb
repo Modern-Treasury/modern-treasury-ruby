@@ -90,6 +90,25 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :au_number
+      #   # ...
+      # in :clabe
+      #   # ...
+      # in :hk_number
+      #   # ...
+      # in :iban
+      #   # ...
+      # in :id_number
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class AccountNumberType < ModernTreasury::Enum
         AU_NUMBER = :au_number
         CLABE = :clabe

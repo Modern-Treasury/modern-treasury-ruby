@@ -105,6 +105,24 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :draft
+      #   # ...
+      # in :paid
+      #   # ...
+      # in :partially_paid
+      #   # ...
+      # in :payment_pending
+      #   # ...
+      # in :unpaid
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         DRAFT = :draft
         PAID = :paid

@@ -51,6 +51,21 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :intraday
+        #   # ...
+        # in :other
+        #   # ...
+        # in :previous_day
+        #   # ...
+        # in :real_time
+        #   # ...
+        # end
+        # ```
         class BalanceReportType < ModernTreasury::Enum
           INTRADAY = :intraday
           OTHER = :other
@@ -106,6 +121,25 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
+          #
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :closing_available
+          #   # ...
+          # in :closing_ledger
+          #   # ...
+          # in :current_available
+          #   # ...
+          # in :current_ledger
+          #   # ...
+          # in :opening_available
+          #   # ...
+          # in ...
+          #   #...
+          # end
+          # ```
           class BalanceType < ModernTreasury::Enum
             CLOSING_AVAILABLE = :closing_available
             CLOSING_LEDGER = :closing_ledger

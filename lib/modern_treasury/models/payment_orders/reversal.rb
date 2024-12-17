@@ -101,6 +101,23 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The reason for the reversal.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :duplicate
+        #   # ...
+        # in :incorrect_amount
+        #   # ...
+        # in :incorrect_receiving_account
+        #   # ...
+        # in :date_earlier_than_intended
+        #   # ...
+        # in :date_later_than_intended
+        #   # ...
+        # end
+        # ```
         class Reason < ModernTreasury::Enum
           DUPLICATE = :duplicate
           INCORRECT_AMOUNT = :incorrect_amount
@@ -110,6 +127,25 @@ module ModernTreasury
         end
 
         # The current status of the reversal.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :completed
+        #   # ...
+        # in :failed
+        #   # ...
+        # in :pending
+        #   # ...
+        # in :processing
+        #   # ...
+        # in :returned
+        #   # ...
+        # in ...
+        #   #...
+        # end
+        # ```
         class Status < ModernTreasury::Enum
           COMPLETED = :completed
           FAILED = :failed
