@@ -36,5 +36,10 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < Minitest::
     assert_pattern do
       response => ModernTreasury::Page
     end
+
+    page = response.next_page
+    assert_pattern do
+      page => ModernTreasury::Page
+    end
   end
 end
