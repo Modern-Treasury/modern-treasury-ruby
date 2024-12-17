@@ -36,6 +36,25 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # Optional. Array of 3-digit ISO country codes.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :USA
+      #   # ...
+      # in :AUS
+      #   # ...
+      # in :BEL
+      #   # ...
+      # in :CAN
+      #   # ...
+      # in :CHL
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class ReceivingCountry < ModernTreasury::Enum
         USA = :USA
         AUS = :AUS

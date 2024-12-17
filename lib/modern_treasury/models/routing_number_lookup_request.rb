@@ -133,6 +133,25 @@ module ModernTreasury
       end
 
       # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details. In sandbox mode we currently only support `aba` and `swift` with routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :aba
+      #   # ...
+      # in :au_bsb
+      #   # ...
+      # in :ca_cpa
+      #   # ...
+      # in :gb_sort_code
+      #   # ...
+      # in :in_ifsc
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class RoutingNumberType < ModernTreasury::Enum
         ABA = :aba
         AU_BSB = :au_bsb
@@ -144,6 +163,24 @@ module ModernTreasury
         SWIFT = :swift
       end
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :ach
+      #   # ...
+      # in :au_becs
+      #   # ...
+      # in :bacs
+      #   # ...
+      # in :book
+      #   # ...
+      # in :card
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class SupportedPaymentType < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

@@ -167,6 +167,24 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :au_number
+        #   # ...
+        # in :clabe
+        #   # ...
+        # in :hk_number
+        #   # ...
+        # in :iban
+        #   # ...
+        # in :id_number
+        #   # ...
+        # in ...
+        #   #...
+        # end
+        # ```
         class AccountNumberType < ModernTreasury::Enum
           AU_NUMBER = :au_number
           CLABE = :clabe
@@ -203,6 +221,18 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :email
+        #   # ...
+        # in :phone_number
+        #   # ...
+        # in :website
+        #   # ...
+        # end
+        # ```
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -324,6 +354,21 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :counterparty
+        #   # ...
+        # in :external_account
+        #   # ...
+        # in :internal_account
+        #   # ...
+        # in :virtual_account
+        #   # ...
+        # end
+        # ```
         class LedgerableType < ModernTreasury::Enum
           COUNTERPARTY = :counterparty
           EXTERNAL_ACCOUNT = :external_account
@@ -388,6 +433,17 @@ module ModernTreasury
       end
 
       # Either `individual` or `business`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :business
+      #   # ...
+      # in :individual
+      #   # ...
+      # end
+      # ```
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
@@ -422,6 +478,24 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :aba
+        #   # ...
+        # in :au_bsb
+        #   # ...
+        # in :br_codigo
+        #   # ...
+        # in :ca_cpa
+        #   # ...
+        # in :chips
+        #   # ...
+        # in ...
+        #   #...
+        # end
+        # ```
         class RoutingNumberType < ModernTreasury::Enum
           ABA = :aba
           AU_BSB = :au_bsb
@@ -445,6 +519,24 @@ module ModernTreasury
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
         end
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :ach
+        #   # ...
+        # in :au_becs
+        #   # ...
+        # in :bacs
+        #   # ...
+        # in :book
+        #   # ...
+        # in :card
+        #   # ...
+        # in ...
+        #   #...
+        # end
+        # ```
         class PaymentType < ModernTreasury::Enum
           ACH = :ach
           AU_BECS = :au_becs

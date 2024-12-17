@@ -538,6 +538,19 @@ module ModernTreasury
           end
 
           # Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
+          #
+          # @example
+          #
+          # ```ruby
+          # case enum
+          # in :archived
+          #   # ...
+          # in :pending
+          #   # ...
+          # in :posted
+          #   # ...
+          # end
+          # ```
           class Status < ModernTreasury::Enum
             ARCHIVED = :archived
             PENDING = :pending
@@ -546,6 +559,25 @@ module ModernTreasury
         end
 
         # If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, or reversal.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :expected_payment
+        #   # ...
+        # in :incoming_payment_detail
+        #   # ...
+        # in :paper_item
+        #   # ...
+        # in :payment_order
+        #   # ...
+        # in :return
+        #   # ...
+        # in ...
+        #   #...
+        # end
+        # ```
         class LedgerableType < ModernTreasury::Enum
           EXPECTED_PAYMENT = :expected_payment
           INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -556,6 +588,19 @@ module ModernTreasury
         end
 
         # One of `pending`, `posted`, or `archived`.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :archived
+        #   # ...
+        # in :pending
+        #   # ...
+        # in :posted
+        #   # ...
+        # end
+        # ```
         class Status < ModernTreasury::Enum
           ARCHIVED = :archived
           PENDING = :pending

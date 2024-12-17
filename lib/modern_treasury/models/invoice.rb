@@ -437,6 +437,18 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :email
+        #   # ...
+        # in :phone_number
+        #   # ...
+        # in :website
+        #   # ...
+        # end
+        # ```
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -610,6 +622,19 @@ module ModernTreasury
       end
 
       # When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :ui
+      #   # ...
+      # in :manual
+      #   # ...
+      # in :automatic
+      #   # ...
+      # end
+      # ```
       class PaymentMethod < ModernTreasury::Enum
         UI = :ui
         MANUAL = :manual
@@ -617,12 +642,42 @@ module ModernTreasury
       end
 
       # One of `ach` or `eft`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :eft
+      #   # ...
+      # in :ach
+      #   # ...
+      # end
+      # ```
       class PaymentType < ModernTreasury::Enum
         EFT = :eft
         ACH = :ach
       end
 
       # The status of the invoice.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :draft
+      #   # ...
+      # in :paid
+      #   # ...
+      # in :partially_paid
+      #   # ...
+      # in :payment_pending
+      #   # ...
+      # in :unpaid
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         DRAFT = :draft
         PAID = :paid

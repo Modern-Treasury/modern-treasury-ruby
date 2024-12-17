@@ -536,6 +536,19 @@ module ModernTreasury
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire payment orders. Can be one of shared, sender, or receiver, which correspond respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :shared
+      #   # ...
+      # in :sender
+      #   # ...
+      # in :receiver
+      #   # ...
+      # end
+      # ```
       class ChargeBearer < ModernTreasury::Enum
         SHARED = :shared
         SENDER = :sender
@@ -543,12 +556,34 @@ module ModernTreasury
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :credit
+      #   # ...
+      # in :debit
+      #   # ...
+      # end
+      # ```
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
       end
 
       # Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :fixed_to_variable
+      #   # ...
+      # in :variable_to_fixed
+      #   # ...
+      # end
+      # ```
       class ForeignExchangeIndicator < ModernTreasury::Enum
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
@@ -624,11 +659,32 @@ module ModernTreasury
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :high
+      #   # ...
+      # in :normal
+      #   # ...
+      # end
+      # ```
       class Priority < ModernTreasury::Enum
         HIGH = :high
         NORMAL = :normal
       end
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :internal_account
+      #   # ...
+      # in :external_account
+      #   # ...
+      # end
+      # ```
       class ReceivingAccountType < ModernTreasury::Enum
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
@@ -695,6 +751,25 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The type of the reference number. Referring to the vendor payment id.
+        #
+        # @example
+        #
+        # ```ruby
+        # case enum
+        # in :ach_original_trace_number
+        #   # ...
+        # in :ach_trace_number
+        #   # ...
+        # in :bankprov_payment_activity_date
+        #   # ...
+        # in :bankprov_payment_id
+        #   # ...
+        # in :bnk_dev_prenotification_id
+        #   # ...
+        # in ...
+        #   #...
+        # end
+        # ```
         class ReferenceNumberType < ModernTreasury::Enum
           ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
           ACH_TRACE_NUMBER = :ach_trace_number
@@ -771,6 +846,25 @@ module ModernTreasury
       end
 
       # The current status of the payment order.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :approved
+      #   # ...
+      # in :cancelled
+      #   # ...
+      # in :completed
+      #   # ...
+      # in :denied
+      #   # ...
+      # in :failed
+      #   # ...
+      # in ...
+      #   #...
+      # end
+      # ```
       class Status < ModernTreasury::Enum
         APPROVED = :approved
         CANCELLED = :cancelled
@@ -785,6 +879,16 @@ module ModernTreasury
         SENT = :sent
       end
 
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :internal_account
+      #   # ...
+      # in :virtual_account
+      #   # ...
+      # end
+      # ```
       class UltimateOriginatingAccountType < ModernTreasury::Enum
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account

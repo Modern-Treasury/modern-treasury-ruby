@@ -156,6 +156,17 @@ module ModernTreasury
       end
 
       # One of `payment_orders` or `expected_payments`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :ExpectedPayment
+      #   # ...
+      # in :PaymentOrder
+      #   # ...
+      # end
+      # ```
       class ItemizableType < ModernTreasury::Enum
         EXPECTED_PAYMENT = :ExpectedPayment
         PAYMENT_ORDER = :PaymentOrder

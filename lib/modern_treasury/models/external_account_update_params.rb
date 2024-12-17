@@ -128,6 +128,17 @@ module ModernTreasury
       end
 
       # Either `individual` or `business`.
+      #
+      # @example
+      #
+      # ```ruby
+      # case enum
+      # in :business
+      #   # ...
+      # in :individual
+      #   # ...
+      # end
+      # ```
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
