@@ -25,7 +25,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::Invoice::ContactDetail>]
       required :contact_details,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::Invoice::ContactDetail })
+               ModernTreasury::ArrayOf[-> {
+                 ModernTreasury::Models::Invoice::ContactDetail
+               }]
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
@@ -76,7 +78,7 @@ module ModernTreasury
       #   The expected payments created for an unpaid invoice.
       #
       #   @return [Array<ModernTreasury::Models::ExpectedPayment>]
-      required :expected_payments, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::ExpectedPayment })
+      required :expected_payments, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ExpectedPayment }]
 
       # @!attribute fallback_payment_method
       #   When payment_method is automatic, the fallback payment method to use when an automatic payment fails. One of `manual` or `ui`.
@@ -118,7 +120,7 @@ module ModernTreasury
       #   Emails in addition to the counterparty email to send invoice status notifications to. At least one email is required if notifications are enabled and the counterparty doesn't have an email.
       #
       #   @return [Array<String>]
-      required :notification_email_addresses, ModernTreasury::ArrayOf.new(String)
+      required :notification_email_addresses, ModernTreasury::ArrayOf[String]
 
       # @!attribute notifications_enabled
       #   If true, the invoice will send email notifications to the invoice recipients about invoice status changes.
@@ -159,7 +161,7 @@ module ModernTreasury
       #   The payment orders created for paying the invoice through the invoice payment UI.
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder>]
-      required :payment_orders, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::PaymentOrder })
+      required :payment_orders, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::PaymentOrder }]
 
       # @!attribute payment_type
       #   One of `ach` or `eft`.
@@ -195,7 +197,7 @@ module ModernTreasury
       #   Number of days after due date when overdue reminder emails will be sent out to invoice recipients.
       #
       #   @return [Array<Integer>]
-      required :remind_after_overdue_days, ModernTreasury::ArrayOf.new(Integer)
+      required :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer]
 
       # @!attribute status
       #   The status of the invoice.
@@ -213,7 +215,7 @@ module ModernTreasury
       #   IDs of transaction line items associated with an invoice.
       #
       #   @return [Array<String>]
-      required :transaction_line_item_ids, ModernTreasury::ArrayOf.new(String)
+      required :transaction_line_item_ids, ModernTreasury::ArrayOf[String]
 
       # @!attribute updated_at
       #

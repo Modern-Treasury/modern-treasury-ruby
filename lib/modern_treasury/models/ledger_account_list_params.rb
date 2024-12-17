@@ -7,7 +7,7 @@ module ModernTreasury
       #   If you have specific IDs to retrieve in bulk, you can pass them as query parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>]
-      optional :id, ModernTreasury::ArrayOf.new(String)
+      optional :id, ModernTreasury::ArrayOf[String]
 
       # @!attribute after_cursor
       #
@@ -58,7 +58,7 @@ module ModernTreasury
       #   If you have specific names to retrieve in bulk, you can pass them as query parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       #
       #   @return [Array<String>]
-      optional :name, ModernTreasury::ArrayOf.new(String)
+      optional :name, ModernTreasury::ArrayOf[String]
 
       # @!attribute pending_balance_amount
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to filter by balance amount.

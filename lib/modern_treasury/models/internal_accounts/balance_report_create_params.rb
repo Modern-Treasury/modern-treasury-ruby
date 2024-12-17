@@ -30,11 +30,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
         required :balances,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance
+                 }]
 
         # @!parse
         #   # @param as_of_date [String] The date of the balance report in local time.

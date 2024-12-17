@@ -92,7 +92,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>]
       optional :line_items,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::PaymentOrderUpdateParams::LineItem })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::PaymentOrderUpdateParams::LineItem }]
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
@@ -531,11 +531,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail>]
         optional :account_details,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail
+                 }]
 
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
@@ -547,11 +545,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail>]
         optional :contact_details,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail
+                 }]
 
         # @!attribute ledger_account
         #   Specifies a ledger account object that will be created with the external account. The resulting ledger account is linked to the external account for auto-ledgering Payment objects. See https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects for more details.
@@ -607,11 +603,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail>]
         optional :routing_details,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail
+                 }]
 
         # @!parse
         #   # Either `receiving_account` or `receiving_account_id` must be present. When using
@@ -804,7 +798,7 @@ module ModernTreasury
           #   The array of ledger account category ids that this ledger account should be a child of.
           #
           #   @return [Array<String>]
-          optional :ledger_account_category_ids, ModernTreasury::ArrayOf.new(String)
+          optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
           # @!attribute ledgerable_id
           #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.

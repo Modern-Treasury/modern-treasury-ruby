@@ -43,7 +43,7 @@ module ModernTreasury
       #   The array of ledger account category ids that this ledger account should be a child of.
       #
       #   @return [Array<String>]
-      optional :ledger_account_category_ids, ModernTreasury::ArrayOf.new(String)
+      optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
       # @!attribute ledgerable_id
       #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.

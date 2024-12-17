@@ -11,7 +11,7 @@ module ModernTreasury
       # @!attribute account_details
       #
       #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::AccountDetail })
+      required :account_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::AccountDetail }]
 
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
@@ -23,7 +23,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
       required :contact_details,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::ExternalAccount::ContactDetail })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ExternalAccount::ContactDetail }]
 
       # @!attribute counterparty_id
       #
@@ -90,7 +90,7 @@ module ModernTreasury
       # @!attribute routing_details
       #
       #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details, ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::RoutingDetail })
+      required :routing_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::RoutingDetail }]
 
       # @!attribute updated_at
       #
