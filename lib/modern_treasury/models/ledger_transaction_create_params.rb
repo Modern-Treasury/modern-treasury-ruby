@@ -8,11 +8,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>]
       required :ledger_entries,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry
-                 }
-               )
+               ModernTreasury::ArrayOf[-> {
+                 ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry
+               }]
 
       # @!attribute description
       #   An optional description for internal use.

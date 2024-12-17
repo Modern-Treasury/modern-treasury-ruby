@@ -13,11 +13,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
-               ModernTreasury::ArrayOf.new(
-                 enum: -> {
-                   ModernTreasury::Models::AccountCollectionFlow::PaymentType
-                 }
-               )
+               ModernTreasury::ArrayOf[enum: -> {
+                 ModernTreasury::Models::AccountCollectionFlow::PaymentType
+               }]
 
       # @!attribute id
       #
@@ -56,11 +54,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
       optional :receiving_countries,
-               ModernTreasury::ArrayOf.new(
-                 enum: -> {
-                   ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry
-                 }
-               )
+               ModernTreasury::ArrayOf[enum: -> {
+                 ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry
+               }]
 
       # @!attribute status
       #   The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.

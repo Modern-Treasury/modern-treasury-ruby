@@ -8,7 +8,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>]
       optional :contact_details,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::InvoiceUpdateParams::ContactDetail })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::InvoiceUpdateParams::ContactDetail }]
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
@@ -65,11 +65,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>]
       optional :invoice_line_items,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem
-                 }
-               )
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem }]
 
       # @!attribute invoicer_address
       #   The invoice issuer's business address.
@@ -93,7 +89,7 @@ module ModernTreasury
       #   Emails in addition to the counterparty email to send invoice status notifications to. At least one email is required if notifications are enabled and the counterparty doesn't have an email.
       #
       #   @return [Array<String>]
-      optional :notification_email_addresses, ModernTreasury::ArrayOf.new(String)
+      optional :notification_email_addresses, ModernTreasury::ArrayOf[String]
 
       # @!attribute notifications_enabled
       #   If true, the invoice will send email notifications to the invoice recipients about invoice status changes.
@@ -147,7 +143,7 @@ module ModernTreasury
       #   Number of days after due date when overdue reminder emails will be sent out to invoice recipients.
       #
       #   @return [Array<Integer>]
-      optional :remind_after_overdue_days, ModernTreasury::ArrayOf.new(Integer)
+      optional :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer]
 
       # @!attribute status
       #   Invoice status must be updated in a `PATCH` request that does not modify any other invoice attributes.             Valid state transitions are `draft` to `unpaid`, `draft` or `unpaid` to `voided`, and `draft` or `unpaid`             to `paid`.

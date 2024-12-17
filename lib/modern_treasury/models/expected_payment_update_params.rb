@@ -80,7 +80,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ReconciliationRule>]
       optional :reconciliation_rule_variables,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::ReconciliationRule })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ReconciliationRule }]
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire` payments the field will be passed through as the "Originator to Beneficiary Information", also known as OBI or Fedwire tag 6000.

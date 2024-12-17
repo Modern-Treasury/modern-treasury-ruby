@@ -51,11 +51,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType>]
       required :relationship_types,
-               ModernTreasury::ArrayOf.new(
-                 enum: -> {
-                   ModernTreasury::Models::LegalEntityAssociation::RelationshipType
-                 }
-               )
+               ModernTreasury::ArrayOf[enum: -> {
+                 ModernTreasury::Models::LegalEntityAssociation::RelationshipType
+               }]
 
       # @!attribute title
       #   The job title of the child entity at the parent entity.
@@ -122,11 +120,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address>]
         required :addresses,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address
+                 }]
 
         # @!attribute bank_settings
         #
@@ -170,7 +166,7 @@ module ModernTreasury
         # @!attribute doing_business_as_names
         #
         #   @return [Array<String>]
-        required :doing_business_as_names, ModernTreasury::ArrayOf.new(String)
+        required :doing_business_as_names, ModernTreasury::ArrayOf[String]
 
         # @!attribute email
         #   The entity's primary email.
@@ -189,11 +185,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification>]
         required :identifications,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification
+                 }]
 
         # @!attribute last_name
         #   An individual's last name.
@@ -244,11 +238,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
         required :phone_numbers,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                 }]
 
         # @!attribute politically_exposed_person
         #   Whether the individual is a politically exposed person.
@@ -407,11 +399,9 @@ module ModernTreasury
           #
           #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
           required :address_types,
-                   ModernTreasury::ArrayOf.new(
-                     enum: -> {
-                       ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
-                     }
-                   )
+                   ModernTreasury::ArrayOf[enum: -> {
+                     ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
+                   }]
 
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]

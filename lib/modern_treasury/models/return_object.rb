@@ -83,7 +83,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
       required :reference_numbers,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::ReturnObject::ReferenceNumber })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ReturnObject::ReferenceNumber }]
 
       # @!attribute returnable_id
       #   The ID of the object being returned or `null`.

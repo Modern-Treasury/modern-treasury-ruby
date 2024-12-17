@@ -20,11 +20,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>]
       optional :account_details,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail
-                 }
-               )
+               ModernTreasury::ArrayOf[-> {
+                 ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail
+               }]
 
       # @!attribute counterparty_id
       #   The ID of the counterparty that the virtual account belongs to.
@@ -67,11 +65,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
       optional :routing_details,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail
-                 }
-               )
+               ModernTreasury::ArrayOf[-> {
+                 ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail
+               }]
 
       # @!parse
       #   # @param internal_account_id [String] The ID of the internal account that this virtual account is associated with.
@@ -219,7 +215,7 @@ module ModernTreasury
         #   The array of ledger account category ids that this ledger account should be a child of.
         #
         #   @return [Array<String>]
-        optional :ledger_account_category_ids, ModernTreasury::ArrayOf.new(String)
+        optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
         # @!attribute ledgerable_id
         #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.
