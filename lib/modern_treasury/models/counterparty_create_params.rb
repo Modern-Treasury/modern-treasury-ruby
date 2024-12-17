@@ -19,7 +19,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>]
       optional :accounts,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::CounterpartyCreateParams::Account })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::CounterpartyCreateParams::Account }]
 
       # @!attribute email
       #   The counterparty's email.
@@ -151,11 +151,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>]
         optional :account_details,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail
+                 }]
 
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
@@ -167,11 +165,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>]
         optional :contact_details,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail
+                 }]
 
         # @!attribute ledger_account
         #   Specifies a ledger account object that will be created with the external account. The resulting ledger account is linked to the external account for auto-ledgering Payment objects. See https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects for more details.
@@ -233,11 +229,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>]
         optional :routing_details,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail
+                 }]
 
         # @!parse
         #   # @param account_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>, nil]
@@ -426,7 +420,7 @@ module ModernTreasury
           #   The array of ledger account category ids that this ledger account should be a child of.
           #
           #   @return [Array<String>]
-          optional :ledger_account_category_ids, ModernTreasury::ArrayOf.new(String)
+          optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
           # @!attribute ledgerable_id
           #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.
@@ -751,11 +745,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>]
         optional :addresses,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address
+                 }]
 
         # @!attribute bank_settings
         #
@@ -789,7 +781,7 @@ module ModernTreasury
         # @!attribute doing_business_as_names
         #
         #   @return [Array<String>]
-        optional :doing_business_as_names, ModernTreasury::ArrayOf.new(String)
+        optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
 
         # @!attribute email
         #   The entity's primary email.
@@ -808,11 +800,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
         optional :identifications,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification
+                 }]
 
         # @!attribute last_name
         #   An individual's last name.
@@ -825,11 +815,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>]
         optional :legal_entity_associations,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation
+                 }]
 
         # @!attribute legal_structure
         #   The business's legal structure.
@@ -854,11 +842,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>]
         optional :phone_numbers,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber
+                 }]
 
         # @!attribute politically_exposed_person
         #   Whether the individual is a politically exposed person.
@@ -1035,11 +1021,9 @@ module ModernTreasury
           #
           #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType>]
           optional :address_types,
-                   ModernTreasury::ArrayOf.new(
-                     enum: -> {
-                       ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType
-                     }
-                   )
+                   ModernTreasury::ArrayOf[enum: -> {
+                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType
+                   }]
 
           # @!attribute line2
           #
@@ -1174,11 +1158,9 @@ module ModernTreasury
           #
           #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType>]
           required :relationship_types,
-                   ModernTreasury::ArrayOf.new(
-                     enum: -> {
-                       ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType
-                     }
-                   )
+                   ModernTreasury::ArrayOf[enum: -> {
+                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType
+                   }]
 
           # @!attribute child_legal_entity
           #   The child legal entity.
@@ -1251,11 +1233,9 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>]
             optional :addresses,
-                     ModernTreasury::ArrayOf.new(
-                       -> {
-                         ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
-                       }
-                     )
+                     ModernTreasury::ArrayOf[-> {
+                       ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                     }]
 
             # @!attribute bank_settings
             #
@@ -1289,7 +1269,7 @@ module ModernTreasury
             # @!attribute doing_business_as_names
             #
             #   @return [Array<String>]
-            optional :doing_business_as_names, ModernTreasury::ArrayOf.new(String)
+            optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
 
             # @!attribute email
             #   The entity's primary email.
@@ -1308,11 +1288,9 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>]
             optional :identifications,
-                     ModernTreasury::ArrayOf.new(
-                       -> {
-                         ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
-                       }
-                     )
+                     ModernTreasury::ArrayOf[-> {
+                       ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                     }]
 
             # @!attribute last_name
             #   An individual's last name.
@@ -1354,11 +1332,9 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
             optional :phone_numbers,
-                     ModernTreasury::ArrayOf.new(
-                       -> {
-                         ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
-                       }
-                     )
+                     ModernTreasury::ArrayOf[-> {
+                       ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                     }]
 
             # @!attribute politically_exposed_person
             #   Whether the individual is a politically exposed person.
@@ -1519,11 +1495,9 @@ module ModernTreasury
               #
               #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
               optional :address_types,
-                       ModernTreasury::ArrayOf.new(
-                         enum: -> {
-                           ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
-                         }
-                       )
+                       ModernTreasury::ArrayOf[enum: -> {
+                         ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
+                       }]
 
               # @!attribute line2
               #

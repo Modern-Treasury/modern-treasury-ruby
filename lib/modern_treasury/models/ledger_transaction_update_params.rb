@@ -20,11 +20,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>]
       optional :ledger_entries,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry
-                 }
-               )
+               ModernTreasury::ArrayOf[-> {
+                 ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry
+               }]
 
       # @!attribute ledgerable_id
       #   If the ledger transaction can be reconciled to another object in Modern Treasury, the id will be populated here, otherwise null.

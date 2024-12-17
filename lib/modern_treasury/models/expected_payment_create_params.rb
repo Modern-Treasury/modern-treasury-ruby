@@ -74,11 +74,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>]
       optional :line_items,
-               ModernTreasury::ArrayOf.new(
-                 -> {
-                   ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem
-                 }
-               )
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem }]
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
@@ -103,7 +99,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ReconciliationRule>]
       optional :reconciliation_rule_variables,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::ReconciliationRule })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ReconciliationRule }]
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire` payments the field will be passed through as the "Originator to Beneficiary Information", also known as OBI or Fedwire tag 6000.
@@ -227,11 +223,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>]
         required :ledger_entries,
-                 ModernTreasury::ArrayOf.new(
-                   -> {
-                     ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry
-                   }
-                 )
+                 ModernTreasury::ArrayOf[-> {
+                   ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry
+                 }]
 
         # @!attribute description
         #   An optional description for internal use.

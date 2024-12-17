@@ -71,11 +71,9 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>]
           required :ledger_entries,
-                   ModernTreasury::ArrayOf.new(
-                     -> {
-                       ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry
-                     }
-                   )
+                   ModernTreasury::ArrayOf[-> {
+                     ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry
+                   }]
 
           # @!attribute description
           #   An optional description for internal use.

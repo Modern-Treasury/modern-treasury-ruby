@@ -192,7 +192,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
       required :reference_numbers,
-               ModernTreasury::ArrayOf.new(-> { ModernTreasury::Models::PaymentOrder::ReferenceNumber })
+               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::PaymentOrder::ReferenceNumber }]
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire` payments the field will be passed through as the "Originator to Beneficiary Information", also known as OBI or Fedwire tag 6000.
@@ -228,7 +228,7 @@ module ModernTreasury
       #   The IDs of all the transactions associated to this payment order. Usually, you will only have a single transaction ID. However, if a payment order initially results in a Return, but gets redrafted and is later successfully completed, it can have many transactions.
       #
       #   @return [Array<String>]
-      required :transaction_ids, ModernTreasury::ArrayOf.new(String)
+      required :transaction_ids, ModernTreasury::ArrayOf[String]
 
       # @!attribute transaction_monitoring_enabled
       #   A flag that determines whether a payment order should go through transaction monitoring.
