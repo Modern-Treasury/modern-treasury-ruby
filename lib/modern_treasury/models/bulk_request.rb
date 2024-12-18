@@ -3,59 +3,59 @@
 module ModernTreasury
   module Models
     class BulkRequest < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] action_type
+      # @!attribute action_type
       #   One of create, or update.
       #   @return [Symbol, ModernTreasury::Models::BulkRequest::ActionType]
       required :action_type, enum: -> { ModernTreasury::Models::BulkRequest::ActionType }
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] failed_result_count
+      # @!attribute failed_result_count
       #   Total number of failed bulk results so far for this request
       #   @return [Integer]
       required :failed_result_count, Integer
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] resource_type
+      # @!attribute resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
       #   @return [Symbol, ModernTreasury::Models::BulkRequest::ResourceType]
       required :resource_type, enum: -> { ModernTreasury::Models::BulkRequest::ResourceType }
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   One of pending, processing, or completed.
       #   @return [Symbol, ModernTreasury::Models::BulkRequest::Status]
       required :status, enum: -> { ModernTreasury::Models::BulkRequest::Status }
 
-      # @!attribute [rw] success_result_count
+      # @!attribute success_result_count
       #   Total number of successful bulk results so far for this request
       #   @return [Integer]
       required :success_result_count, Integer
 
-      # @!attribute [rw] total_resource_count
+      # @!attribute total_resource_count
       #   Total number of items in the `resources` array. Once a bulk request is completed, `success_result_count` + `failed_result_count` will be equal to `total_result_count`.
       #   @return [Integer]
       required :total_resource_count, Integer
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 

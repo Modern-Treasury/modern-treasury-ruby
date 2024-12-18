@@ -3,82 +3,82 @@
 module ModernTreasury
   module Models
     class LedgerTransactionListParams < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #   @return [Array<String>]
       optional :id, ModernTreasury::ArrayOf.new(String)
 
-      # @!attribute [rw] after_cursor
+      # @!attribute after_cursor
       #   @return [String]
       optional :after_cursor, String
 
-      # @!attribute [rw] effective_at
+      # @!attribute effective_at
       #   Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by effective at. For example, for all transactions after Jan 1 2000, use effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
       #   @return [Hash]
       optional :effective_at, Hash
 
-      # @!attribute [rw] effective_date
+      # @!attribute effective_date
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by effective date. For example, for all dates after Jan 1 2000, use effective_date%5Bgt%5D=2000-01-01.
       #   @return [Hash]
       optional :effective_date, Hash
 
-      # @!attribute [rw] external_id
+      # @!attribute external_id
       #   @return [String]
       optional :external_id, String
 
-      # @!attribute [rw] ledger_account_category_id
+      # @!attribute ledger_account_category_id
       #   @return [String]
       optional :ledger_account_category_id, String
 
-      # @!attribute [rw] ledger_account_id
+      # @!attribute ledger_account_id
       #   @return [String]
       optional :ledger_account_id, String
 
-      # @!attribute [rw] ledger_account_settlement_id
+      # @!attribute ledger_account_settlement_id
       #   @return [String]
       optional :ledger_account_settlement_id, String
 
-      # @!attribute [rw] ledger_id
+      # @!attribute ledger_id
       #   @return [String]
       optional :ledger_id, String
 
-      # @!attribute [rw] ledgerable_id
+      # @!attribute ledgerable_id
       #   @return [String]
       optional :ledgerable_id, String
 
-      # @!attribute [rw] ledgerable_type
+      # @!attribute ledgerable_type
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType]
       optional :ledgerable_type,
                enum: -> { ModernTreasury::Models::LedgerTransactionListParams::LedgerableType }
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #   @return [Hash]
       optional :metadata, Hash
 
-      # @!attribute [rw] order_by
+      # @!attribute order_by
       #   Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering by only one field at a time is supported.
       #   @return [ModernTreasury::Models::LedgerTransactionListParams::OrderBy]
       optional :order_by, -> { ModernTreasury::Models::LedgerTransactionListParams::OrderBy }
 
-      # @!attribute [rw] per_page
+      # @!attribute per_page
       #   @return [Integer]
       optional :per_page, Integer
 
-      # @!attribute [rw] posted_at
+      # @!attribute posted_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   @return [Hash]
       optional :posted_at, Hash
 
-      # @!attribute [rw] reverses_ledger_transaction_id
+      # @!attribute reverses_ledger_transaction_id
       #   @return [String]
       optional :reverses_ledger_transaction_id, String
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::LedgerTransactionListParams::Status }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   @return [Hash]
       optional :updated_at, Hash
@@ -93,14 +93,14 @@ module ModernTreasury
       end
 
       class OrderBy < ModernTreasury::BaseModel
-        # @!attribute [rw] created_at
+        # @!attribute created_at
         #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt]
         optional :created_at,
                  enum: -> {
                    ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt
                  }
 
-        # @!attribute [rw] effective_at
+        # @!attribute effective_at
         #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt]
         optional :effective_at,
                  enum: -> { ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt }

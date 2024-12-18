@@ -42,7 +42,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/transactions",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::Transaction
         }
@@ -80,7 +79,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/transactions/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::Transaction
         }

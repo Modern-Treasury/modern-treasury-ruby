@@ -4,49 +4,49 @@ module ModernTreasury
   module Models
     module PaymentOrders
       class Reversal < ModernTreasury::BaseModel
-        # @!attribute [rw] id
+        # @!attribute id
         #   @return [String]
         required :id, String
 
-        # @!attribute [rw] created_at
+        # @!attribute created_at
         #   @return [Time]
         required :created_at, Time
 
-        # @!attribute [rw] ledger_transaction_id
+        # @!attribute ledger_transaction_id
         #   The ID of the ledger transaction linked to the reversal.
         #   @return [String]
         required :ledger_transaction_id, String
 
-        # @!attribute [rw] live_mode
+        # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
-        # @!attribute [rw] metadata
+        # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #   @return [Hash]
         required :metadata, Hash
 
-        # @!attribute [rw] object
+        # @!attribute object
         #   @return [String]
         required :object, String
 
-        # @!attribute [rw] payment_order_id
+        # @!attribute payment_order_id
         #   The ID of the relevant Payment Order.
         #   @return [String]
         required :payment_order_id, String
 
-        # @!attribute [rw] reason
+        # @!attribute reason
         #   The reason for the reversal.
         #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
         required :reason, enum: -> { ModernTreasury::Models::PaymentOrders::Reversal::Reason }
 
-        # @!attribute [rw] status
+        # @!attribute status
         #   The current status of the reversal.
         #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status]
         required :status, enum: -> { ModernTreasury::Models::PaymentOrders::Reversal::Status }
 
-        # @!attribute [rw] updated_at
+        # @!attribute updated_at
         #   @return [Time]
         required :updated_at, Time
 

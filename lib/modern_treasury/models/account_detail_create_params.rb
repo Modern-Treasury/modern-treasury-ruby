@@ -3,16 +3,16 @@
 module ModernTreasury
   module Models
     class AccountDetailCreateParams < ModernTreasury::BaseModel
-      # @!attribute [rw] accounts_type
+      # @!attribute accounts_type
       #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
       required :accounts_type, enum: -> { ModernTreasury::Models::AccountDetailCreateParams::AccountsType }
 
-      # @!attribute [rw] account_number
+      # @!attribute account_number
       #   The account number for the bank account.
       #   @return [String]
       required :account_number, String
 
-      # @!attribute [rw] account_number_type
+      # @!attribute account_number_type
       #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
       #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType]
       optional :account_number_type,

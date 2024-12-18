@@ -3,41 +3,41 @@
 module ModernTreasury
   module Models
     class InternalAccountListParams < ModernTreasury::BaseModel
-      # @!attribute [rw] after_cursor
+      # @!attribute after_cursor
       #   @return [String]
       optional :after_cursor, String
 
-      # @!attribute [rw] counterparty_id
+      # @!attribute counterparty_id
       #   Only return internal accounts associated with this counterparty.
       #   @return [String]
       optional :counterparty_id, String
 
-      # @!attribute [rw] currency
+      # @!attribute currency
       #   Only return internal accounts with this currency.
       #   @return [Symbol, ModernTreasury::Models::Currency]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute [rw] legal_entity_id
+      # @!attribute legal_entity_id
       #   Only return internal accounts associated with this legal entity.
       #   @return [String]
       optional :legal_entity_id, String
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #   @return [Hash]
       optional :metadata, Hash
 
-      # @!attribute [rw] payment_direction
+      # @!attribute payment_direction
       #   Only return internal accounts that can originate payments with this direction.
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       optional :payment_direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute [rw] payment_type
+      # @!attribute payment_type
       #   Only return internal accounts that can make this type of payment.
       #   @return [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType]
       optional :payment_type, enum: -> { ModernTreasury::Models::InternalAccountListParams::PaymentType }
 
-      # @!attribute [rw] per_page
+      # @!attribute per_page
       #   @return [Integer]
       optional :per_page, Integer
 

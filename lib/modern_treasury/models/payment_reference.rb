@@ -3,45 +3,45 @@
 module ModernTreasury
   module Models
     class PaymentReference < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] reference_number
+      # @!attribute reference_number
       #   The actual reference number assigned by the bank.
       #   @return [String]
       required :reference_number, String
 
-      # @!attribute [rw] reference_number_type
+      # @!attribute reference_number_type
       #   The type of reference number.
       #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType]
       required :reference_number_type,
                enum: -> { ModernTreasury::Models::PaymentReference::ReferenceNumberType }
 
-      # @!attribute [rw] referenceable_id
+      # @!attribute referenceable_id
       #   The id of the referenceable to search for. Must be accompanied by the referenceable_type or will return an error.
       #   @return [String]
       required :referenceable_id, String
 
-      # @!attribute [rw] referenceable_type
+      # @!attribute referenceable_type
       #   One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
       #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
       required :referenceable_type, enum: -> { ModernTreasury::Models::PaymentReference::ReferenceableType }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 

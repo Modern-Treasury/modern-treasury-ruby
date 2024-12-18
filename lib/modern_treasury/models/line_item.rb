@@ -3,73 +3,73 @@
 module ModernTreasury
   module Models
     class LineItem < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] accounting
+      # @!attribute accounting
       #   @return [ModernTreasury::Models::LineItem::Accounting]
       required :accounting, -> { ModernTreasury::Models::LineItem::Accounting }
 
-      # @!attribute [rw] accounting_category_id
+      # @!attribute accounting_category_id
       #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
       #   @return [String]
       required :accounting_category_id, String
 
-      # @!attribute [rw] accounting_ledger_class_id
+      # @!attribute accounting_ledger_class_id
       #   The ID of one of the class objects in your accounting system. Class objects track segments of your business independent of client or project. Note that these will only be accessible if your accounting system has been connected.
       #   @return [String]
       required :accounting_ledger_class_id, String
 
-      # @!attribute [rw] amount
+      # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #   @return [Integer]
       required :amount, Integer
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] description
+      # @!attribute description
       #   A free-form description of the line item.
       #   @return [String]
       required :description, String
 
-      # @!attribute [rw] itemizable_id
+      # @!attribute itemizable_id
       #   The ID of the payment order or expected payment.
       #   @return [String]
       required :itemizable_id, String
 
-      # @!attribute [rw] itemizable_type
+      # @!attribute itemizable_type
       #   One of `payment_orders` or `expected_payments`.
       #   @return [Symbol, ModernTreasury::Models::LineItem::ItemizableType]
       required :itemizable_type, enum: -> { ModernTreasury::Models::LineItem::ItemizableType }
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
       class Accounting < ModernTreasury::BaseModel
-        # @!attribute [rw] account_id
+        # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
         #   @return [String]
         optional :account_id, String
 
-        # @!attribute [rw] class_id
+        # @!attribute class_id
         #   The ID of one of the class objects in your accounting system. Class objects track segments of your business independent of client or project. Note that these will only be accessible if your accounting system has been connected.
         #   @return [String]
         optional :class_id, String

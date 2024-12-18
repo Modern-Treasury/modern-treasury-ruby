@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module PaymentOrders
       class ReversalRetrieveParams < ModernTreasury::BaseModel
-        # @!attribute [rw] payment_order_id
+        # @!attribute payment_order_id
         #   @return [String]
         required :payment_order_id, String
       end

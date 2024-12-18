@@ -3,51 +3,51 @@
 module ModernTreasury
   module Models
     class LedgerEventHandlerCreateParams < ModernTreasury::BaseModel
-      # @!attribute [rw] ledger_transaction_template
+      # @!attribute ledger_transaction_template
       #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
       required :ledger_transaction_template,
                -> { ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate }
 
-      # @!attribute [rw] name
+      # @!attribute name
       #   Name of the ledger event handler.
       #   @return [String]
       required :name, String
 
-      # @!attribute [rw] conditions
+      # @!attribute conditions
       #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions]
       optional :conditions, -> { ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions }
 
-      # @!attribute [rw] description
+      # @!attribute description
       #   An optional description.
       #   @return [String]
       optional :description, String
 
-      # @!attribute [rw] ledger_id
+      # @!attribute ledger_id
       #   The id of the ledger that this account belongs to.
       #   @return [String]
       optional :ledger_id, String
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
       optional :metadata, Hash
 
-      # @!attribute [rw] variables
+      # @!attribute variables
       #   @return [Hash]
       optional :variables, Hash
 
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
-        # @!attribute [rw] description
+        # @!attribute description
         #   An optional description for internal use.
         #   @return [String]
         required :description, String
 
-        # @!attribute [rw] effective_at
+        # @!attribute effective_at
         #   The timestamp (ISO8601 format) at which the ledger transaction happened for reporting purposes.
         #   @return [String]
         required :effective_at, String
 
-        # @!attribute [rw] ledger_entries
+        # @!attribute ledger_entries
         #   An array of ledger entry objects.
         #   @return [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
         required :ledger_entries,
@@ -57,23 +57,23 @@ module ModernTreasury
                    }
                  )
 
-        # @!attribute [rw] status
+        # @!attribute status
         #   To post a ledger transaction at creation, use `posted`.
         #   @return [String]
         required :status, String
 
         class LedgerEntry < ModernTreasury::BaseModel
-          # @!attribute [rw] amount
+          # @!attribute amount
           #   The LHS of the conditional.
           #   @return [String]
           required :amount, String
 
-          # @!attribute [rw] direction
+          # @!attribute direction
           #   What the operator between the `field` and `value` is.
           #   @return [String]
           required :direction, String
 
-          # @!attribute [rw] ledger_account_id
+          # @!attribute ledger_account_id
           #   The RHS of the conditional.
           #   @return [String]
           required :ledger_account_id, String
@@ -101,17 +101,17 @@ module ModernTreasury
       end
 
       class Conditions < ModernTreasury::BaseModel
-        # @!attribute [rw] field
+        # @!attribute field
         #   The LHS of the conditional.
         #   @return [String]
         required :field, String
 
-        # @!attribute [rw] operator
+        # @!attribute operator
         #   What the operator between the `field` and `value` is.
         #   @return [String]
         required :operator, String
 
-        # @!attribute [rw] value
+        # @!attribute value
         #   The RHS of the conditional.
         #   @return [String]
         required :value, String

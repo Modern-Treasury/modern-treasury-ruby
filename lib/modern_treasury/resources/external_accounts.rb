@@ -40,7 +40,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/external_accounts",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
@@ -85,7 +84,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/external_accounts/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
@@ -148,7 +146,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/external_accounts/#{id}/complete_verification",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
@@ -178,7 +175,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/external_accounts/#{id}/verify",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Unknown
         }

@@ -3,81 +3,81 @@
 module ModernTreasury
   module Models
     class PaymentOrderListParams < ModernTreasury::BaseModel
-      # @!attribute [rw] after_cursor
+      # @!attribute after_cursor
       #   @return [String]
       optional :after_cursor, String
 
-      # @!attribute [rw] counterparty_id
+      # @!attribute counterparty_id
       #   @return [String]
       optional :counterparty_id, String
 
-      # @!attribute [rw] created_at_end
+      # @!attribute created_at_end
       #   An inclusive upper bound for searching created_at
       #   @return [Date]
       optional :created_at_end, Date
 
-      # @!attribute [rw] created_at_start
+      # @!attribute created_at_start
       #   An inclusive lower bound for searching created_at
       #   @return [Date]
       optional :created_at_start, Date
 
-      # @!attribute [rw] direction
+      # @!attribute direction
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute [rw] effective_date_end
+      # @!attribute effective_date_end
       #   An inclusive upper bound for searching effective_date
       #   @return [Date]
       optional :effective_date_end, Date
 
-      # @!attribute [rw] effective_date_start
+      # @!attribute effective_date_start
       #   An inclusive lower bound for searching effective_date
       #   @return [Date]
       optional :effective_date_start, Date
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #   @return [Hash]
       optional :metadata, Hash
 
-      # @!attribute [rw] originating_account_id
+      # @!attribute originating_account_id
       #   @return [String]
       optional :originating_account_id, String
 
-      # @!attribute [rw] per_page
+      # @!attribute per_page
       #   @return [Integer]
       optional :per_page, Integer
 
-      # @!attribute [rw] priority
+      # @!attribute priority
       #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority]
       optional :priority, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Priority }
 
-      # @!attribute [rw] process_after_end
+      # @!attribute process_after_end
       #   An inclusive upper bound for searching process_after
       #   @return [Time]
       optional :process_after_end, Time
 
-      # @!attribute [rw] process_after_start
+      # @!attribute process_after_start
       #   An inclusive lower bound for searching process_after
       #   @return [Time]
       optional :process_after_start, Time
 
-      # @!attribute [rw] reference_number
+      # @!attribute reference_number
       #   Query for records with the provided reference number
       #   @return [String]
       optional :reference_number, String
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Status }
 
-      # @!attribute [rw] transaction_id
+      # @!attribute transaction_id
       #   The ID of a transaction that the payment order has been reconciled to.
       #   @return [String]
       optional :transaction_id, String
 
-      # @!attribute [rw] type
+      # @!attribute type
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
       optional :type, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Type }
 

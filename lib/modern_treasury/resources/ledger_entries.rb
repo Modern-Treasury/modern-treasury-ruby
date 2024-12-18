@@ -46,7 +46,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/ledger_entries/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerEntry
         }

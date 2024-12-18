@@ -55,7 +55,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/expected_payments",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::ExpectedPayment
         }
@@ -119,7 +118,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/expected_payments/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::ExpectedPayment
         }

@@ -3,23 +3,23 @@
 module ModernTreasury
   module Models
     class ConnectionLegalEntityListParams < ModernTreasury::BaseModel
-      # @!attribute [rw] after_cursor
+      # @!attribute after_cursor
       #   @return [String]
       optional :after_cursor, String
 
-      # @!attribute [rw] connection_id
+      # @!attribute connection_id
       #   @return [String]
       optional :connection_id, String
 
-      # @!attribute [rw] legal_entity_id
+      # @!attribute legal_entity_id
       #   @return [String]
       optional :legal_entity_id, String
 
-      # @!attribute [rw] per_page
+      # @!attribute per_page
       #   @return [Integer]
       optional :per_page, Integer
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityListParams::Status }
 
