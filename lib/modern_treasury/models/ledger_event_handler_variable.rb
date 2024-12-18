@@ -3,27 +3,27 @@
 module ModernTreasury
   module Models
     class LedgerEventHandlerVariable < ModernTreasury::BaseModel
-      # @!attribute [rw] query
+      # @!attribute query
       #   @return [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
       required :query, -> { ModernTreasury::Models::LedgerEventHandlerVariable::Query }
 
-      # @!attribute [rw] type
+      # @!attribute type
       #   The type of object this variable is. Currently, only "ledger_account" is supported.
       #   @return [String]
       required :type, String
 
       class Query < ModernTreasury::BaseModel
-        # @!attribute [rw] field
+        # @!attribute field
         #   The LHS of the conditional.
         #   @return [String]
         required :field, String
 
-        # @!attribute [rw] operator
+        # @!attribute operator
         #   What the operator between the `field` and `value` is.
         #   @return [String]
         required :operator, String
 
-        # @!attribute [rw] value
+        # @!attribute value
         #   The RHS of the conditional.
         #   @return [String]
         required :value, String

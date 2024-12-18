@@ -39,7 +39,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/incoming_payment_details/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::IncomingPaymentDetail
         }
@@ -103,7 +102,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/simulations/incoming_payment_details/create_async",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::AsyncResponse
         }

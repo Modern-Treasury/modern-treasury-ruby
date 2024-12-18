@@ -28,7 +28,6 @@ module ModernTreasury
           req = {
             method: :post,
             path: "/api/internal_accounts/#{internal_account_id}/balance_reports",
-            headers: {"Content-Type" => "application/json"},
             body: parsed,
             model: ModernTreasury::Models::InternalAccounts::BalanceReport
           }
@@ -47,9 +46,9 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         def retrieve(id, params = {}, opts = {})
-          ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump(params)
-          internal_account_id = params.fetch(:internal_account_id) do
-            raise ArgumentError, "missing required path argument :internal_account_id"
+          parsed = ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump(params)
+          internal_account_id = parsed.fetch(:internal_account_id) do
+            raise ArgumentError.new("missing required path argument :internal_account_id")
           end
           req = {
             method: :get,
@@ -97,9 +96,9 @@ module ModernTreasury
         #
         # @return [nil]
         def delete(id, params = {}, opts = {})
-          ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump(params)
-          internal_account_id = params.fetch(:internal_account_id) do
-            raise ArgumentError, "missing required path argument :internal_account_id"
+          parsed = ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump(params)
+          internal_account_id = parsed.fetch(:internal_account_id) do
+            raise ArgumentError.new("missing required path argument :internal_account_id")
           end
           req = {
             method: :delete,

@@ -3,30 +3,30 @@
 module ModernTreasury
   module Models
     class ForeignExchangeQuote < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] effective_at
+      # @!attribute effective_at
       #   The timestamp until when the quoted rate is valid.
       #   @return [Time]
       required :effective_at, Time
 
-      # @!attribute [rw] expires_at
+      # @!attribute expires_at
       #   The timestamp until which the quote must be booked by.
       #   @return [Time]
       required :expires_at, Time
 
-      # @!attribute [rw] foreign_exchange_indicator
+      # @!attribute foreign_exchange_indicator
       #   Either `fixed_to_variable` if the `base_amount` was specified, or `variable_to_fixed` if the `target_amount` was specified when requesting the quote.
       #   @return [String]
       required :foreign_exchange_indicator, String
 
-      # @!attribute [rw] foreign_exchange_rate
+      # @!attribute foreign_exchange_rate
       #   The serialized rate information represented by this quote.
       #   @return [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate]
       required :foreign_exchange_rate,
@@ -34,66 +34,66 @@ module ModernTreasury
                  ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate
                }
 
-      # @!attribute [rw] internal_account_id
+      # @!attribute internal_account_id
       #   The ID for the `InternalAccount` this quote is associated with.
       #   @return [String]
       required :internal_account_id, String
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #   @return [Hash]
       required :metadata, Hash
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
-      # @!attribute [rw] vendor_id
+      # @!attribute vendor_id
       #   This vendor assigned ID for this quote.
       #   @return [String]
       optional :vendor_id, String
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
-        # @!attribute [rw] base_amount
+        # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
         #   @return [Integer]
         required :base_amount, Integer
 
-        # @!attribute [rw] base_currency
+        # @!attribute base_currency
         #   Currency to convert, often called the "sell" currency.
         #   @return [Symbol, ModernTreasury::Models::Currency]
         required :base_currency, enum: -> { ModernTreasury::Models::Currency }
 
-        # @!attribute [rw] exponent
+        # @!attribute exponent
         #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
         #   @return [Integer]
         required :exponent, Integer
 
-        # @!attribute [rw] rate_string
+        # @!attribute rate_string
         #   A string representation of the rate.
         #   @return [String]
         required :rate_string, String
 
-        # @!attribute [rw] target_amount
+        # @!attribute target_amount
         #   Amount in the lowest denomination of the `target_currency`, often called the "buy" amount.
         #   @return [Integer]
         required :target_amount, Integer
 
-        # @!attribute [rw] target_currency
+        # @!attribute target_currency
         #   Currency to convert the `base_currency` to, often called the "buy" currency.
         #   @return [Symbol, ModernTreasury::Models::Currency]
         required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
-        # @!attribute [rw] value
+        # @!attribute value
         #   The whole number component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
         #   @return [Integer]
         required :value, Integer

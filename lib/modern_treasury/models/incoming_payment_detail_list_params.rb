@@ -3,45 +3,45 @@
 module ModernTreasury
   module Models
     class IncomingPaymentDetailListParams < ModernTreasury::BaseModel
-      # @!attribute [rw] after_cursor
+      # @!attribute after_cursor
       #   @return [String]
       optional :after_cursor, String
 
-      # @!attribute [rw] as_of_date_end
+      # @!attribute as_of_date_end
       #   Filters incoming payment details with an as_of_date starting on or before the specified date (YYYY-MM-DD).
       #   @return [Date]
       optional :as_of_date_end, Date
 
-      # @!attribute [rw] as_of_date_start
+      # @!attribute as_of_date_start
       #   Filters incoming payment details with an as_of_date starting on or after the specified date (YYYY-MM-DD).
       #   @return [Date]
       optional :as_of_date_start, Date
 
-      # @!attribute [rw] direction
+      # @!attribute direction
       #   One of `credit` or `debit`.
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute [rw] metadata
+      # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #   @return [Hash]
       optional :metadata, Hash
 
-      # @!attribute [rw] per_page
+      # @!attribute per_page
       #   @return [Integer]
       optional :per_page, Integer
 
-      # @!attribute [rw] status
+      # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status]
       optional :status, enum: -> { ModernTreasury::Models::IncomingPaymentDetailListParams::Status }
 
-      # @!attribute [rw] type
+      # @!attribute type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type]
       optional :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetailListParams::Type }
 
-      # @!attribute [rw] virtual_account_id
+      # @!attribute virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual Account.
       #   @return [String]
       optional :virtual_account_id, String

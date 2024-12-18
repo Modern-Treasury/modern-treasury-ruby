@@ -3,49 +3,49 @@
 module ModernTreasury
   module Models
     class Event < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] data
+      # @!attribute data
       #   The body of the event.
       #   @return [Hash]
       required :data, Hash
 
-      # @!attribute [rw] entity_id
+      # @!attribute entity_id
       #   The ID of the entity for the event.
       #   @return [String]
       required :entity_id, String
 
-      # @!attribute [rw] event_name
+      # @!attribute event_name
       #   The name of the event.
       #   @return [String]
       required :event_name, String
 
-      # @!attribute [rw] event_time
+      # @!attribute event_time
       #   The time of the event.
       #   @return [Time]
       required :event_time, Time
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] resource
+      # @!attribute resource
       #   The type of resource for the event.
       #   @return [String]
       required :resource, String
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 

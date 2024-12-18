@@ -30,7 +30,6 @@ module ModernTreasury
         req = {
           method: :post,
           path: "/api/ledger_account_categories",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
@@ -78,7 +77,6 @@ module ModernTreasury
         req = {
           method: :patch,
           path: "/api/ledger_account_categories/#{id}",
-          headers: {"Content-Type" => "application/json"},
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
@@ -146,9 +144,9 @@ module ModernTreasury
       #
       # @return [nil]
       def add_ledger_account(ledger_account_id, params = {}, opts = {})
-        ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams.dump(params)
-        id = params.fetch(:id) do
-          raise ArgumentError, "missing required path argument :id"
+        parsed = ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams.dump(params)
+        id = parsed.fetch(:id) do
+          raise ArgumentError.new("missing required path argument :id")
         end
         req = {
           method: :put,
@@ -169,9 +167,9 @@ module ModernTreasury
       #
       # @return [nil]
       def add_nested_category(sub_category_id, params = {}, opts = {})
-        ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams.dump(params)
-        id = params.fetch(:id) do
-          raise ArgumentError, "missing required path argument :id"
+        parsed = ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams.dump(params)
+        id = parsed.fetch(:id) do
+          raise ArgumentError.new("missing required path argument :id")
         end
         req = {
           method: :put,
@@ -192,9 +190,9 @@ module ModernTreasury
       #
       # @return [nil]
       def remove_ledger_account(ledger_account_id, params = {}, opts = {})
-        ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams.dump(params)
-        id = params.fetch(:id) do
-          raise ArgumentError, "missing required path argument :id"
+        parsed = ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams.dump(params)
+        id = parsed.fetch(:id) do
+          raise ArgumentError.new("missing required path argument :id")
         end
         req = {
           method: :delete,
@@ -215,9 +213,9 @@ module ModernTreasury
       #
       # @return [nil]
       def remove_nested_category(sub_category_id, params = {}, opts = {})
-        ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams.dump(params)
-        id = params.fetch(:id) do
-          raise ArgumentError, "missing required path argument :id"
+        parsed = ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams.dump(params)
+        id = parsed.fetch(:id) do
+          raise ArgumentError.new("missing required path argument :id")
         end
         req = {
           method: :delete,

@@ -4,23 +4,23 @@ module ModernTreasury
   module Models
     module Transactions
       class LineItemListParams < ModernTreasury::BaseModel
-        # @!attribute [rw] id
+        # @!attribute id
         #   @return [Hash]
         optional :id, Hash
 
-        # @!attribute [rw] after_cursor
+        # @!attribute after_cursor
         #   @return [String]
         optional :after_cursor, String
 
-        # @!attribute [rw] per_page
+        # @!attribute per_page
         #   @return [Integer]
         optional :per_page, Integer
 
-        # @!attribute [rw] transaction_id
+        # @!attribute transaction_id
         #   @return [String]
         optional :transaction_id, String
 
-        # @!attribute [rw] type
+        # @!attribute type
         #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type]
         optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }
 

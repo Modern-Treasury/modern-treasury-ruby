@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module InternalAccounts
       class BalanceReportRetrieveParams < ModernTreasury::BaseModel
-        # @!attribute [rw] internal_account_id
+        # @!attribute internal_account_id
         #   @return [String]
         required :internal_account_id, String
       end

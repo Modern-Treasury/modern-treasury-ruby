@@ -3,79 +3,79 @@
 module ModernTreasury
   module Models
     class WealthAndEmploymentDetails < ModernTreasury::BaseModel
-      # @!attribute [rw] id
+      # @!attribute id
       #   @return [String]
       required :id, String
 
-      # @!attribute [rw] annual_income
+      # @!attribute annual_income
       #   The annual income of the individual.
       #   @return [Integer]
       required :annual_income, Integer
 
-      # @!attribute [rw] created_at
+      # @!attribute created_at
       #   @return [Time]
       required :created_at, Time
 
-      # @!attribute [rw] discarded_at
+      # @!attribute discarded_at
       #   @return [Time]
       required :discarded_at, Time
 
-      # @!attribute [rw] employer_country
+      # @!attribute employer_country
       #   The country in which the employer is located.
       #   @return [String]
       required :employer_country, String
 
-      # @!attribute [rw] employer_name
+      # @!attribute employer_name
       #   The name of the employer.
       #   @return [String]
       required :employer_name, String
 
-      # @!attribute [rw] employer_state
+      # @!attribute employer_state
       #   The state in which the employer is located.
       #   @return [String]
       required :employer_state, String
 
-      # @!attribute [rw] employment_status
+      # @!attribute employment_status
       #   The employment status of the individual.
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus]
       required :employment_status,
                enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus }
 
-      # @!attribute [rw] income_country
+      # @!attribute income_country
       #   The country in which the individual's income is earned.
       #   @return [String]
       required :income_country, String
 
-      # @!attribute [rw] income_source
+      # @!attribute income_source
       #   The source of the individual's income.
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource]
       required :income_source, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource }
 
-      # @!attribute [rw] income_state
+      # @!attribute income_state
       #   The state in which the individual's income is earned.
       #   @return [String]
       required :income_state, String
 
-      # @!attribute [rw] industry
+      # @!attribute industry
       #   The industry of the individual.
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry]
       required :industry, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Industry }
 
-      # @!attribute [rw] live_mode
+      # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
-      # @!attribute [rw] object
+      # @!attribute object
       #   @return [String]
       required :object, String
 
-      # @!attribute [rw] occupation
+      # @!attribute occupation
       #   The occupation of the individual.
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation]
       required :occupation, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Occupation }
 
-      # @!attribute [rw] source_of_funds
+      # @!attribute source_of_funds
       #   The source of the individual's funds.
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds]
       required :source_of_funds,
@@ -83,11 +83,11 @@ module ModernTreasury
                  ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds
                }
 
-      # @!attribute [rw] updated_at
+      # @!attribute updated_at
       #   @return [Time]
       required :updated_at, Time
 
-      # @!attribute [rw] wealth_source
+      # @!attribute wealth_source
       #   The source of the individual's wealth.
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource]
       required :wealth_source, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource }
