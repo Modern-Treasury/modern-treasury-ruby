@@ -45,7 +45,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>, nil] :line_items
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
@@ -123,7 +123,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :internal_account_id The ID of the Internal Account for the expected payment.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
@@ -177,7 +177,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :internal_account_id Specify internal_account_id to see expected_payments for a specific account.
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

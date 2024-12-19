@@ -12,8 +12,8 @@ module ModernTreasury
         # @!attribute created_at
         #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         #
-        #   @return [Hash]
-        optional :created_at, Hash
+        #   @return [Hash{Symbol => Time}]
+        optional :created_at, ModernTreasury::HashOf[Time]
 
         # @!attribute ledger_account_statement_id
         #   Get all ledger transaction versions that are included in the ledger account statement.
@@ -35,13 +35,13 @@ module ModernTreasury
         # @!attribute version
         #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the version. For example, for all versions after 2, use version%5Bgt%5D=2.
         #
-        #   @return [Hash]
-        optional :version, Hash
+        #   @return [Hash{Symbol => Integer}]
+        optional :version, ModernTreasury::HashOf[Integer]
 
         # @!parse
         #   # @param after_cursor [String, nil]
         #   #
-        #   # @param created_at [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   # @param created_at [Hash{Symbol => String}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #   #   created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use
         #   #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         #   #
@@ -53,7 +53,7 @@ module ModernTreasury
         #   #
         #   # @param per_page [Integer, nil]
         #   #
-        #   # @param version [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   # @param version [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #   #   version. For example, for all versions after 2, use version%5Bgt%5D=2.
         #   #
         #   def initialize(

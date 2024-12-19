@@ -24,8 +24,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!parse
       #   # @param action_type [String] One of create, or update.
@@ -35,7 +35,7 @@ module ModernTreasury
       #   # @param resources [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent0, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent1, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent2, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent3, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent4, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent5, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent6, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent7, ModernTreasury::Models::BulkRequestCreateParams::Resource::UnnamedTypeWithunionParent8>] An array of objects where each object contains the input params for a single
       #   #   `action_type` request on a `resource_type` resource
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(action_type:, resource_type:, resources:, metadata: nil) = super

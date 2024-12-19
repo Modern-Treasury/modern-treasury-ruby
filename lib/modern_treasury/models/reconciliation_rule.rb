@@ -42,8 +42,8 @@ module ModernTreasury
       # @!attribute custom_identifiers
       #   A hash of custom identifiers for this payment
       #
-      #   @return [Hash]
-      optional :custom_identifiers, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :custom_identifiers, ModernTreasury::HashOf[String]
 
       # @!attribute date_lower_bound
       #   The earliest date the payment may come in. Format is yyyy-mm-dd
@@ -79,7 +79,7 @@ module ModernTreasury
       #   #
       #   # @param currency [String, nil] Must conform to ISO 4217. Defaults to the currency of the internal account
       #   #
-      #   # @param custom_identifiers [Hash, nil] A hash of custom identifiers for this payment
+      #   # @param custom_identifiers [Hash{Symbol => String}, nil] A hash of custom identifiers for this payment
       #   #
       #   # @param date_lower_bound [String, nil] The earliest date the payment may come in. Format is yyyy-mm-dd
       #   #

@@ -20,8 +20,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!parse
         #   # @param reason [String] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
@@ -32,7 +32,7 @@ module ModernTreasury
         #   #   the ledger transaction cannot be created, then the reversal creation will fail.
         #   #   The resulting ledger transaction will mirror the status of the reversal.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   def initialize(reason:, ledger_transaction: nil, metadata: nil) = super
@@ -117,8 +117,8 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash]
-          optional :metadata, Hash
+          #   @return [Hash{Symbol => String}]
+          optional :metadata, ModernTreasury::HashOf[String]
 
           # @!attribute status
           #   To post a ledger transaction at creation, use `posted`.
@@ -155,7 +155,7 @@ module ModernTreasury
           #   #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   #   reversal.
           #   #
-          #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
           #   # @param status [String, nil] To post a ledger transaction at creation, use `posted`.
@@ -198,8 +198,8 @@ module ModernTreasury
             # @!attribute available_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s available balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
-            #   @return [Hash]
-            optional :available_balance_amount, Hash
+            #   @return [Hash{Symbol => Integer}]
+            optional :available_balance_amount, ModernTreasury::HashOf[Integer]
 
             # @!attribute lock_version
             #   Lock version of the ledger account. This can be passed when creating a ledger transaction to only succeed if no ledger transactions have posted since the given version. See our post about Designing the Ledgers API with Optimistic Locking for more details.
@@ -210,20 +210,20 @@ module ModernTreasury
             # @!attribute metadata
             #   Additional data represented as key-value pairs. Both the key and value must be strings.
             #
-            #   @return [Hash]
-            optional :metadata, Hash
+            #   @return [Hash{Symbol => String}]
+            optional :metadata, ModernTreasury::HashOf[String]
 
             # @!attribute pending_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s pending balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
-            #   @return [Hash]
-            optional :pending_balance_amount, Hash
+            #   @return [Hash{Symbol => Integer}]
+            optional :pending_balance_amount, ModernTreasury::HashOf[Integer]
 
             # @!attribute posted_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s posted balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
-            #   @return [Hash]
-            optional :posted_balance_amount, Hash
+            #   @return [Hash{Symbol => Integer}]
+            optional :posted_balance_amount, ModernTreasury::HashOf[Integer]
 
             # @!attribute show_resulting_ledger_account_balances
             #   If true, response will include the balance of the associated ledger account for the entry.
@@ -242,7 +242,7 @@ module ModernTreasury
             #   #
             #   # @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
             #   #
-            #   # @param available_balance_amount [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   # @param available_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
             #   #   account’s available balance. If any of these conditions would be false after the
             #   #   transaction is created, the entire call will fail with error code 422.
             #   #
@@ -251,14 +251,14 @@ module ModernTreasury
             #   #   given version. See our post about Designing the Ledgers API with Optimistic
             #   #   Locking for more details.
             #   #
-            #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+            #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
             #   #   strings.
             #   #
-            #   # @param pending_balance_amount [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   # @param pending_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
             #   #   account’s pending balance. If any of these conditions would be false after the
             #   #   transaction is created, the entire call will fail with error code 422.
             #   #
-            #   # @param posted_balance_amount [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   # @param posted_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
             #   #   account’s posted balance. If any of these conditions would be false after the
             #   #   transaction is created, the entire call will fail with error code 422.
             #   #

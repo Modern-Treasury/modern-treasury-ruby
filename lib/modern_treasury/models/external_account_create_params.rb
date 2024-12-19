@@ -39,8 +39,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
       #   A nickname for the external account. This is only for internal usage and won't affect any payments
@@ -86,7 +86,7 @@ module ModernTreasury
                }]
 
       # @!parse
-      #   # @param counterparty_id [String]
+      #   # @param counterparty_id [String, nil]
       #   #
       #   # @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>, nil]
       #   #
@@ -100,7 +100,7 @@ module ModernTreasury
       #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
       #   #   for more details.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
@@ -295,8 +295,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!parse
         #   # Specifies a ledger account object that will be created with the external
@@ -327,7 +327,7 @@ module ModernTreasury
         #   #   be populated here, otherwise null. The value is one of internal_account or
         #   #   external_account.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   def initialize(

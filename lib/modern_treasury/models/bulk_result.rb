@@ -51,8 +51,8 @@ module ModernTreasury
       # @!attribute request_params
       #   An optional object that contains the provided input params for the request that created this result. This is an item in the `resources` array for the bulk_request
       #
-      #   @return [Hash]
-      required :request_params, Hash
+      #   @return [Hash{Symbol => String}]
+      required :request_params, ModernTreasury::HashOf[String]
 
       # @!attribute request_type
       #   The type of the request that created this result. bulk_request is the only supported `request_type`
@@ -94,7 +94,7 @@ module ModernTreasury
       #   # @param request_id [String] Unique identifier for the request that created this bulk result. This is the ID
       #   #   of the bulk request when `request_type` is bulk_request
       #   #
-      #   # @param request_params [Hash] An optional object that contains the provided input params for the request that
+      #   # @param request_params [Hash{Symbol => String}, nil] An optional object that contains the provided input params for the request that
       #   #   created this result. This is an item in the `resources` array for the
       #   #   bulk_request
       #   #

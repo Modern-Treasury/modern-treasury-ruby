@@ -54,8 +54,8 @@ module ModernTreasury
       # @!attribute vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account at the vendor specified by the given connection.
       #
-      #   @return [Hash]
-      optional :vendor_attributes, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :vendor_attributes, ModernTreasury::HashOf[String]
 
       # @!parse
       #   # @param connection_id [String] The identifier of the financial institution the account belongs to.
@@ -75,7 +75,7 @@ module ModernTreasury
       #   #
       #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, nil] The address associated with the owner or null.
       #   #
-      #   # @param vendor_attributes [Hash, nil] A hash of vendor specific attributes that will be used when creating the account
+      #   # @param vendor_attributes [Hash{Symbol => String}, nil] A hash of vendor specific attributes that will be used when creating the account
       #   #   at the vendor specified by the given connection.
       #   #
       #   def initialize(

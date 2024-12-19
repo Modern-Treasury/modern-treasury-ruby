@@ -69,7 +69,7 @@ module ModernTreasury
         #   #
         #   # @param as_of_date [String] The date of the balance report in local time.
         #   #
-        #   # @param as_of_time [String] The time (24-hour clock) of the balance report in local time.
+        #   # @param as_of_time [String, nil] The time (24-hour clock) of the balance report in local time.
         #   #
         #   # @param balance_report_type [String] The specific type of balance report. One of `intraday`, `previous_day`,
         #   #   `real_time`, or `other`.
@@ -208,9 +208,9 @@ module ModernTreasury
           #   #
           #   # @param amount [Integer] The balance amount.
           #   #
-          #   # @param as_of_date [String] The date on which the balance became true for the account.
+          #   # @param as_of_date [String, nil] The date on which the balance became true for the account.
           #   #
-          #   # @param as_of_time [String] The time on which the balance became true for the account.
+          #   # @param as_of_time [String, nil] The time on which the balance became true for the account.
           #   #
           #   # @param balance_type [String] The specific type of balance reported. One of `opening_ledger`,
           #   #   `closing_ledger`, `current_ledger`, `opening_available`,
@@ -228,11 +228,11 @@ module ModernTreasury
           #   #
           #   # @param updated_at [String]
           #   #
-          #   # @param value_date [String] The date on which the balance becomes available.
+          #   # @param value_date [String, nil] The date on which the balance becomes available.
           #   #
           #   # @param vendor_code [String] The code used by the bank when reporting this specific balance.
           #   #
-          #   # @param vendor_code_type [String] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+          #   # @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           #   #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
           #   #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
           #   #   `swift`, or `us_bank`.

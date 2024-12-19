@@ -66,20 +66,20 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress]
+      #   # @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
       #   #
       #   # @param bank_name [String] The name of the bank.
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
       #   # @param object [String]
       #   #
-      #   # @param payment_type [String] If the routing detail is to be used for a specific payment type this field will
+      #   # @param payment_type [String, nil] If the routing detail is to be used for a specific payment type this field will
       #   #   be populated, otherwise null.
       #   #
       #   # @param routing_number [String] The routing number of the bank.
@@ -172,24 +172,24 @@ module ModernTreasury
         # @!parse
         #   # @param id [String]
         #   #
-        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
         #   #
         #   # @param created_at [String]
         #   #
-        #   # @param line1 [String]
+        #   # @param line1 [String, nil]
         #   #
-        #   # @param line2 [String]
+        #   # @param line2 [String, nil]
         #   #
         #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
         #   #   if it exists in the test environment.
         #   #
-        #   # @param locality [String] Locality or City.
+        #   # @param locality [String, nil] Locality or City.
         #   #
         #   # @param object [String]
         #   #
-        #   # @param postal_code [String] The postal code of the address.
+        #   # @param postal_code [String, nil] The postal code of the address.
         #   #
-        #   # @param region [String] Region or State.
+        #   # @param region [String, nil] Region or State.
         #   #
         #   # @param updated_at [String]
         #   #

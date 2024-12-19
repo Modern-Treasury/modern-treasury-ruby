@@ -15,7 +15,7 @@ module ModernTreasury
         #
         #   @option params [String, nil] :after_cursor
         #
-        #   @option params [Hash, nil] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   @option params [Hash{Symbol => Time}, nil] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #     created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use
         #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         #
@@ -27,7 +27,7 @@ module ModernTreasury
         #
         #   @option params [Integer, nil] :per_page
         #
-        #   @option params [Hash, nil] :version Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   @option params [Hash{Symbol => Integer}, nil] :version Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #     version. For example, for all versions after 2, use version%5Bgt%5D=2.
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

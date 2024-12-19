@@ -37,7 +37,7 @@ module ModernTreasury
       #     payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #     reversal.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status, nil] :status To post a ledger transaction at creation, use `posted`.
@@ -93,7 +93,7 @@ module ModernTreasury
       #     payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #     reversal.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status, nil] :status To post a ledger transaction at creation, use `posted`.
@@ -121,11 +121,11 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [Hash, nil] :effective_at Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
+      #   @option params [Hash{Symbol => Time}, nil] :effective_at Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
       #     effective at. For example, for all transactions after Jan 1 2000, use
       #     effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
       #
-      #   @option params [Hash, nil] :effective_date Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
+      #   @option params [Hash{Symbol => Time}, nil] :effective_date Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
       #     effective date. For example, for all dates after Jan 1 2000, use
       #     effective_date%5Bgt%5D=2000-01-01.
       #
@@ -143,7 +143,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType, nil] :ledgerable_type
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -153,7 +153,7 @@ module ModernTreasury
       #
       #   @option params [Integer, nil] :per_page
       #
-      #   @option params [Hash, nil] :posted_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol => Time}, nil] :posted_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
@@ -161,7 +161,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status, nil] :status
       #
-      #   @option params [Hash, nil] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol => Time}, nil] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
@@ -201,7 +201,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType, nil] :ledgerable_type Specify this if you'd like to link the reversal ledger transaction to a Payment
       #     object like Return or Reversal.
       #
-      #   @option params [Hash, nil] :metadata Additional data to be added to the reversal ledger transaction as key-value
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data to be added to the reversal ledger transaction as key-value
       #     pairs. Both the key and value must be strings.
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status, nil] :status Status of the reversal ledger transaction. It defaults to `posted` if not

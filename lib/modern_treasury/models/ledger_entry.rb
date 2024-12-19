@@ -69,8 +69,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
       #
@@ -108,7 +108,7 @@ module ModernTreasury
       #   #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   #   rtp, and check payments will always be `credit`.
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param ledger_account_currency [String] The currency of the ledger account.
       #   #
@@ -116,7 +116,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
       #   #
-      #   # @param ledger_account_lock_version [Integer] Lock version of the ledger account. This can be passed when creating a ledger
+      #   # @param ledger_account_lock_version [Integer, nil] Lock version of the ledger account. This can be passed when creating a ledger
       #   #   transaction to only succeed if no ledger transactions have posted since the
       #   #   given version. See our post about Designing the Ledgers API with Optimistic
       #   #   Locking for more details.
@@ -126,12 +126,12 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
       #   #
-      #   # @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances] The pending, posted, and available balances for this ledger entry's ledger
+      #   # @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil] The pending, posted, and available balances for this ledger entry's ledger
       #   #   account. The posted balance is the sum of all posted entries on the account. The
       #   #   pending balance is the sum of all pending and posted entries on the account. The
       #   #   available balance is the posted incoming entries minus the sum of the pending
