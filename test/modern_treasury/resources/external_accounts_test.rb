@@ -71,6 +71,8 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
       payment_type: "ach"
     )
 
-    refute_nil(response)
+    assert_pattern do
+      response => ModernTreasury::Models::ExternalAccountVerifyResponse
+    end
   end
 end
