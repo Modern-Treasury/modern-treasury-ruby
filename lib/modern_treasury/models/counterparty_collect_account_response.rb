@@ -32,7 +32,7 @@ module ModernTreasury
       #   # @param is_resend [Boolean] This field will be `true` if an email requesting account details has already
       #   #   been sent to this counterparty.
       #   #
-      #   def initialize(id:, form_link:, is_resend:) = super
+      #   def initialize(id:, form_link:, is_resend:, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

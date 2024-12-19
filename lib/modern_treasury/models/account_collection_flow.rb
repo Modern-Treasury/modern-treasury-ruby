@@ -107,7 +107,8 @@ module ModernTreasury
       #     object: nil,
       #     receiving_countries: nil,
       #     status: nil,
-      #     updated_at: nil
+      #     updated_at: nil,
+      #     **
       #   )
       #     super
       #   end

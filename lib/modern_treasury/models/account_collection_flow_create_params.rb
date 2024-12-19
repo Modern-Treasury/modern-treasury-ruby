@@ -29,7 +29,7 @@ module ModernTreasury
       #   #
       #   # @param receiving_countries [Array<String>, nil]
       #   #
-      #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil) = super
+      #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

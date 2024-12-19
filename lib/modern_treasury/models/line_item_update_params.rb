@@ -27,7 +27,7 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   def initialize(itemizable_type:, itemizable_id:, metadata: nil) = super
+      #   def initialize(itemizable_type:, itemizable_id:, metadata: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

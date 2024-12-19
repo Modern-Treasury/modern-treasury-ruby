@@ -98,7 +98,8 @@ module ModernTreasury
       #     custom_identifiers: nil,
       #     date_lower_bound: nil,
       #     date_upper_bound: nil,
-      #     type: nil
+      #     type: nil,
+      #     **
       #   )
       #     super
       #   end

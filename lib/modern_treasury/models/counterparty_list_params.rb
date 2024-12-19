@@ -78,7 +78,8 @@ module ModernTreasury
       #     legal_entity_id: nil,
       #     metadata: nil,
       #     name: nil,
-      #     per_page: nil
+      #     per_page: nil,
+      #     **
       #   )
       #     super
       #   end

@@ -13,7 +13,7 @@ module ModernTreasury
       #   # @param status [String] Required. The updated status of the payment flow. Can only be used to mark a
       #   #   flow as `cancelled`.
       #   #
-      #   def initialize(status:) = super
+      #   def initialize(status:, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

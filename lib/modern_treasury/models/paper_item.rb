@@ -164,7 +164,8 @@ module ModernTreasury
       #     status:,
       #     transaction_id:,
       #     transaction_line_item_id:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end

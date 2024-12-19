@@ -95,7 +95,8 @@ module ModernTreasury
       #     metadata: nil,
       #     name: nil,
       #     parent_ledger_account_category_id: nil,
-      #     per_page: nil
+      #     per_page: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -115,7 +116,7 @@ module ModernTreasury
         #   #
         #   # @param effective_at [String, nil]
         #   #
-        #   def initialize(effective_at: nil) = super
+        #   def initialize(effective_at: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

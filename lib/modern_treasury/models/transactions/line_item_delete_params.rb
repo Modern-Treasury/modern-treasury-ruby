@@ -5,7 +5,7 @@ module ModernTreasury
     module Transactions
       class LineItemDeleteParams < ModernTreasury::BaseModel
         # @!parse
-        #   def initialize = super
+        #   def initialize(**) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

@@ -97,7 +97,8 @@ module ModernTreasury
         #     internal_account_id:,
         #     live_mode:,
         #     object:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end
@@ -250,7 +251,8 @@ module ModernTreasury
           #     updated_at:,
           #     value_date:,
           #     vendor_code:,
-          #     vendor_code_type:
+          #     vendor_code_type:,
+          #     **
           #   )
           #     super
           #   end

@@ -143,7 +143,8 @@ module ModernTreasury
       #     pending_balance_amount: nil,
       #     per_page: nil,
       #     posted_balance_amount: nil,
-      #     updated_at: nil
+      #     updated_at: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -192,7 +193,7 @@ module ModernTreasury
         #   # @param lte [Integer, nil]
         #   # @param not_eq [Integer, nil]
         #   #
-        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil) = super
+        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -230,7 +231,7 @@ module ModernTreasury
         #   # @param effective_at_lower_bound [String, nil]
         #   # @param effective_at_upper_bound [String, nil]
         #   #
-        #   def initialize(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil) = super
+        #   def initialize(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -277,7 +278,7 @@ module ModernTreasury
         #   # @param lte [Integer, nil]
         #   # @param not_eq [Integer, nil]
         #   #
-        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil) = super
+        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -324,7 +325,7 @@ module ModernTreasury
         #   # @param lte [Integer, nil]
         #   # @param not_eq [Integer, nil]
         #   #
-        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil) = super
+        #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

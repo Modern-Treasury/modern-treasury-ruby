@@ -45,7 +45,7 @@ module ModernTreasury
       #   #
       #   # @param parent_account_id [String, nil] The parent internal account for this account.
       #   #
-      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil) = super
+      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

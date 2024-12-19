@@ -129,7 +129,8 @@ module ModernTreasury
       #     posted: nil,
       #     transactable_type: nil,
       #     vendor_id: nil,
-      #     virtual_account_id: nil
+      #     virtual_account_id: nil,
+      #     **
       #   )
       #     super
       #   end

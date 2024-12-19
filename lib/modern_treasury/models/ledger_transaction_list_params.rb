@@ -169,7 +169,8 @@ module ModernTreasury
       #     posted_at: nil,
       #     reverses_ledger_transaction_id: nil,
       #     status: nil,
-      #     updated_at: nil
+      #     updated_at: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -226,7 +227,7 @@ module ModernTreasury
         #   # @param created_at [String, nil]
         #   # @param effective_at [String, nil]
         #   #
-        #   def initialize(created_at: nil, effective_at: nil) = super
+        #   def initialize(created_at: nil, effective_at: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

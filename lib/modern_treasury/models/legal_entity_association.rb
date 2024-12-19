@@ -102,7 +102,8 @@ module ModernTreasury
       #     parent_legal_entity_id:,
       #     relationship_types:,
       #     title:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end
@@ -381,7 +382,8 @@ module ModernTreasury
         #     suffix:,
         #     updated_at:,
         #     wealth_and_employment_details:,
-        #     website:
+        #     website:,
+        #     **
         #   )
         #     super
         #   end
@@ -504,7 +506,8 @@ module ModernTreasury
           #     object:,
           #     postal_code:,
           #     region:,
-          #     updated_at:
+          #     updated_at:,
+          #     **
           #   )
           #     super
           #   end
@@ -602,7 +605,7 @@ module ModernTreasury
           #   #
           #   # @param updated_at [String]
           #   #
-          #   def initialize(id:, created_at:, discarded_at:, id_type:, issuing_country:, live_mode:, object:, updated_at:) = super
+          #   def initialize(id:, created_at:, discarded_at:, id_type:, issuing_country:, live_mode:, object:, updated_at:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -711,7 +714,7 @@ module ModernTreasury
           #   #
           #   # @param phone_number [String, nil]
           #   #
-          #   def initialize(phone_number: nil) = super
+          #   def initialize(phone_number: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end

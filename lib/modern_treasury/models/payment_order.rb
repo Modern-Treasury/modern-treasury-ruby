@@ -502,7 +502,8 @@ module ModernTreasury
       #     ultimate_receiving_party_name:,
       #     updated_at:,
       #     vendor_attributes:,
-      #     vendor_failure_reason:
+      #     vendor_failure_reason:,
+      #     **
       #   )
       #     super
       #   end
@@ -530,7 +531,7 @@ module ModernTreasury
         #   #   track segments of your business independent of client or project. Note that
         #   #   these will only be accessible if your accounting system has been connected.
         #   #
-        #   def initialize(account_id: nil, class_id: nil) = super
+        #   def initialize(account_id: nil, class_id: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -653,7 +654,7 @@ module ModernTreasury
         #   # @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` /
         #   #   (10 ^ `exponent`).
         #   #
-        #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:) = super
+        #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -746,7 +747,7 @@ module ModernTreasury
         #   #
         #   # @param updated_at [String]
         #   #
-        #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:) = super
+        #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

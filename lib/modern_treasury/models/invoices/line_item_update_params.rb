@@ -83,7 +83,8 @@ module ModernTreasury
         #     name: nil,
         #     quantity: nil,
         #     unit_amount: nil,
-        #     unit_amount_decimal: nil
+        #     unit_amount_decimal: nil,
+        #     **
         #   )
         #     super
         #   end

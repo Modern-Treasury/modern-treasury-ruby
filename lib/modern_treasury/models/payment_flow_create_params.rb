@@ -57,7 +57,7 @@ module ModernTreasury
       #   #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #   #   they are selecting a payment `effective_date`.
       #   #
-      #   def initialize(amount:, counterparty_id:, currency:, direction:, originating_account_id:, due_date: nil) = super
+      #   def initialize(amount:, counterparty_id:, currency:, direction:, originating_account_id:, due_date: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

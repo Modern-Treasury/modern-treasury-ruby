@@ -174,7 +174,8 @@ module ModernTreasury
       #     party_name:,
       #     party_type:,
       #     routing_details:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end
@@ -310,7 +311,8 @@ module ModernTreasury
         #     object:,
         #     postal_code:,
         #     region:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end

@@ -356,7 +356,8 @@ module ModernTreasury
       #     total_amount:,
       #     transaction_line_item_ids:,
       #     updated_at:,
-      #     virtual_account_id:
+      #     virtual_account_id:,
+      #     **
       #   )
       #     super
       #   end
@@ -432,7 +433,8 @@ module ModernTreasury
         #     discarded_at:,
         #     live_mode:,
         #     object:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end
@@ -508,7 +510,7 @@ module ModernTreasury
         #   #
         #   # @param line2 [String, nil]
         #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil) = super
+        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -563,7 +565,7 @@ module ModernTreasury
         #   #
         #   # @param line2 [String, nil]
         #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil) = super
+        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -618,7 +620,7 @@ module ModernTreasury
         #   #
         #   # @param line2 [String, nil]
         #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil) = super
+        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

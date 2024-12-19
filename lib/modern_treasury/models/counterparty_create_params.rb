@@ -106,7 +106,8 @@ module ModernTreasury
       #     metadata: nil,
       #     send_remittance_advice: nil,
       #     taxpayer_identifier: nil,
-      #     verification_status: nil
+      #     verification_status: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -124,7 +125,7 @@ module ModernTreasury
         #   # @param type [String, nil] An optional type to auto-sync the counterparty to your ledger. Either `customer`
         #   #   or `vendor`.
         #   #
-        #   def initialize(type: nil) = super
+        #   def initialize(type: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -277,7 +278,8 @@ module ModernTreasury
         #     party_name: nil,
         #     party_type: nil,
         #     plaid_processor_token: nil,
-        #     routing_details: nil
+        #     routing_details: nil,
+        #     **
         #   )
         #     super
         #   end
@@ -302,7 +304,7 @@ module ModernTreasury
           #   # @param account_number [String]
           #   # @param account_number_type [String, nil]
           #   #
-          #   def initialize(account_number:, account_number_type: nil) = super
+          #   def initialize(account_number:, account_number_type: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -356,7 +358,7 @@ module ModernTreasury
           #   # @param contact_identifier [String, nil]
           #   # @param contact_identifier_type [String, nil]
           #   #
-          #   def initialize(contact_identifier: nil, contact_identifier_type: nil) = super
+          #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -485,7 +487,8 @@ module ModernTreasury
           #     ledger_account_category_ids: nil,
           #     ledgerable_id: nil,
           #     ledgerable_type: nil,
-          #     metadata: nil
+          #     metadata: nil,
+          #     **
           #   )
           #     super
           #   end
@@ -566,7 +569,7 @@ module ModernTreasury
           #   #
           #   # @param region [String, nil] Region or State.
           #   #
-          #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil) = super
+          #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
@@ -615,7 +618,7 @@ module ModernTreasury
           #   # @param routing_number_type [String]
           #   # @param payment_type [String, nil]
           #   #
-          #   def initialize(routing_number:, routing_number_type:, payment_type: nil) = super
+          #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -962,7 +965,8 @@ module ModernTreasury
         #     risk_rating: nil,
         #     suffix: nil,
         #     wealth_and_employment_details: nil,
-        #     website: nil
+        #     website: nil,
+        #     **
         #   )
         #     super
         #   end
@@ -1045,7 +1049,7 @@ module ModernTreasury
           #   #
           #   # @param line2 [String, nil]
           #   #
-          #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil) = super
+          #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -1104,7 +1108,7 @@ module ModernTreasury
           #   # @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the
           #   #   identification
           #   #
-          #   def initialize(id_number:, id_type:, issuing_country: nil) = super
+          #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -1203,7 +1207,8 @@ module ModernTreasury
           #     child_legal_entity: nil,
           #     child_legal_entity_id: nil,
           #     ownership_percentage: nil,
-          #     title: nil
+          #     title: nil,
+          #     **
           #   )
           #     super
           #   end
@@ -1453,7 +1458,8 @@ module ModernTreasury
             #     risk_rating: nil,
             #     suffix: nil,
             #     wealth_and_employment_details: nil,
-            #     website: nil
+            #     website: nil,
+            #     **
             #   )
             #     super
             #   end
@@ -1519,7 +1525,7 @@ module ModernTreasury
               #   #
               #   # @param line2 [String, nil]
               #   #
-              #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil) = super
+              #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -1578,7 +1584,7 @@ module ModernTreasury
               #   # @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the
               #   #   identification
               #   #
-              #   def initialize(id_number:, id_type:, issuing_country: nil) = super
+              #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -1684,7 +1690,7 @@ module ModernTreasury
               #   #
               #   # @param phone_number [String, nil]
               #   #
-              #   def initialize(phone_number: nil) = super
+              #   def initialize(phone_number: nil, **) = super
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
             end
@@ -1751,7 +1757,7 @@ module ModernTreasury
           #   #
           #   # @param phone_number [String, nil]
           #   #
-          #   def initialize(phone_number: nil) = super
+          #   def initialize(phone_number: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end

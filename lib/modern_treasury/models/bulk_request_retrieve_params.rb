@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     class BulkRequestRetrieveParams < ModernTreasury::BaseModel
       # @!parse
-      #   def initialize = super
+      #   def initialize(**) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

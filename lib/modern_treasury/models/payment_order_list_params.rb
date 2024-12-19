@@ -154,7 +154,8 @@ module ModernTreasury
       #     reference_number: nil,
       #     status: nil,
       #     transaction_id: nil,
-      #     type: nil
+      #     type: nil,
+      #     **
       #   )
       #     super
       #   end

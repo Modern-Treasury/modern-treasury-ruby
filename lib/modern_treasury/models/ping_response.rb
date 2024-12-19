@@ -11,7 +11,7 @@ module ModernTreasury
       # @!parse
       #   # @param ping [String]
       #   #
-      #   def initialize(ping:) = super
+      #   def initialize(ping:, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

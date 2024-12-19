@@ -166,7 +166,8 @@ module ModernTreasury
       #     occupation:,
       #     source_of_funds:,
       #     updated_at:,
-      #     wealth_source:
+      #     wealth_source:,
+      #     **
       #   )
       #     super
       #   end

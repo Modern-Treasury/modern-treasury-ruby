@@ -76,7 +76,8 @@ module ModernTreasury
       #     metadata: nil,
       #     payment_direction: nil,
       #     payment_type: nil,
-      #     per_page: nil
+      #     per_page: nil,
+      #     **
       #   )
       #     super
       #   end

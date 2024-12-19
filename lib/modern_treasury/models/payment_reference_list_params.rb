@@ -45,7 +45,16 @@ module ModernTreasury
       #   # @param referenceable_type [String, nil] One of the referenceable types. This must be accompanied by the id of the
       #   #   referenceable or will return an error.
       #   #
-      #   def initialize(after_cursor: nil, per_page: nil, reference_number: nil, referenceable_id: nil, referenceable_type: nil) = super
+      #   def initialize(
+      #     after_cursor: nil,
+      #     per_page: nil,
+      #     reference_number: nil,
+      #     referenceable_id: nil,
+      #     referenceable_type: nil,
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

@@ -75,7 +75,8 @@ module ModernTreasury
         #     direction: nil,
         #     metadata: nil,
         #     quantity: nil,
-        #     unit_amount_decimal: nil
+        #     unit_amount_decimal: nil,
+        #     **
         #   )
         #     super
         #   end

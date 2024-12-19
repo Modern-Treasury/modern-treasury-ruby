@@ -249,7 +249,8 @@ module ModernTreasury
       #     transaction_id:,
       #     transaction_line_item_id:,
       #     type:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end
