@@ -87,7 +87,8 @@ module ModernTreasury
       #     legal_entity_id: nil,
       #     parent_account_id: nil,
       #     party_address: nil,
-      #     vendor_attributes: nil
+      #     vendor_attributes: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -161,7 +162,7 @@ module ModernTreasury
         #   #
         #   # @param line2 [String, nil]
         #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil) = super
+        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

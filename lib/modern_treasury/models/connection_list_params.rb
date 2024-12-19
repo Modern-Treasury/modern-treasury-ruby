@@ -34,7 +34,7 @@ module ModernTreasury
       #   #
       #   # @param vendor_customer_id [String, nil] An identifier assigned by the vendor to your organization.
       #   #
-      #   def initialize(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil) = super
+      #   def initialize(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

@@ -97,7 +97,8 @@ module ModernTreasury
       #     ledgerable_id: nil,
       #     ledgerable_type: nil,
       #     metadata: nil,
-      #     status: nil
+      #     status: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -202,7 +203,8 @@ module ModernTreasury
         #     metadata: nil,
         #     pending_balance_amount: nil,
         #     posted_balance_amount: nil,
-        #     show_resulting_ledger_account_balances: nil
+        #     show_resulting_ledger_account_balances: nil,
+        #     **
         #   )
         #     super
         #   end

@@ -169,7 +169,8 @@ module ModernTreasury
       #     remittance_information: nil,
       #     statement_descriptor: nil,
       #     status: nil,
-      #     type: nil
+      #     type: nil,
+      #     **
       #   )
       #     super
       #   end

@@ -127,7 +127,8 @@ module ModernTreasury
         #     quantity:,
         #     unit_amount:,
         #     unit_amount_decimal:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end

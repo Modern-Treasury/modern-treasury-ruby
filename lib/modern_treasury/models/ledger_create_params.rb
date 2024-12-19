@@ -29,7 +29,7 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   def initialize(name:, description: nil, metadata: nil) = super
+      #   def initialize(name:, description: nil, metadata: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

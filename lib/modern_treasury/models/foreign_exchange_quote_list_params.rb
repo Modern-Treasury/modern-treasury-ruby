@@ -85,7 +85,8 @@ module ModernTreasury
       #     internal_account_id: nil,
       #     metadata: nil,
       #     per_page: nil,
-      #     target_currency: nil
+      #     target_currency: nil,
+      #     **
       #   )
       #     super
       #   end

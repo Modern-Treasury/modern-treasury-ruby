@@ -160,7 +160,8 @@ module ModernTreasury
       #     settled_ledger_account_id:,
       #     settlement_entry_direction:,
       #     status:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end

@@ -36,7 +36,7 @@ module ModernTreasury
         #   # @param transaction_id [String, nil]
         #   # @param type [String, nil]
         #   #
-        #   def initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil) = super
+        #   def initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

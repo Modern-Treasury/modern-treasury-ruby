@@ -82,7 +82,8 @@ module ModernTreasury
       #     live_mode:,
       #     object:,
       #     updated_at:,
-      #     account_number: nil
+      #     account_number: nil,
+      #     **
       #   )
       #     super
       #   end

@@ -146,7 +146,8 @@ module ModernTreasury
         #     transactable_type:,
         #     transaction_id:,
         #     type:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end

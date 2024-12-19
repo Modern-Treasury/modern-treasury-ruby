@@ -17,7 +17,7 @@ module ModernTreasury
       #   # @param id [String]
       #   # @param object [String]
       #   #
-      #   def initialize(id:, object:) = super
+      #   def initialize(id:, object:, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

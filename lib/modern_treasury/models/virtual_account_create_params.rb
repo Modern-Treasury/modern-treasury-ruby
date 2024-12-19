@@ -107,7 +107,8 @@ module ModernTreasury
       #     description: nil,
       #     ledger_account: nil,
       #     metadata: nil,
-      #     routing_details: nil
+      #     routing_details: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -136,7 +137,7 @@ module ModernTreasury
         #   # @param account_number_type [String, nil] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   #   account number is in a generic format.
         #   #
-        #   def initialize(account_number:, account_number_type: nil) = super
+        #   def initialize(account_number:, account_number_type: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -278,7 +279,8 @@ module ModernTreasury
         #     ledger_account_category_ids: nil,
         #     ledgerable_id: nil,
         #     ledgerable_type: nil,
-        #     metadata: nil
+        #     metadata: nil,
+        #     **
         #   )
         #     super
         #   end
@@ -342,7 +344,7 @@ module ModernTreasury
         #   # @param payment_type [String, nil] If the routing detail is to be used for a specific payment type this field will
         #   #   be populated, otherwise null.
         #   #
-        #   def initialize(routing_number:, routing_number_type:, payment_type: nil) = super
+        #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

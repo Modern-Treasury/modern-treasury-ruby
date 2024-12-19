@@ -95,7 +95,8 @@ module ModernTreasury
       #     metadata: nil,
       #     per_page: nil,
       #     status: nil,
-      #     type: nil
+      #     type: nil,
+      #     **
       #   )
       #     super
       #   end

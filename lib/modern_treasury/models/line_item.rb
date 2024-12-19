@@ -122,7 +122,8 @@ module ModernTreasury
       #     live_mode:,
       #     metadata:,
       #     object:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end
@@ -150,7 +151,7 @@ module ModernTreasury
         #   #   track segments of your business independent of client or project. Note that
         #   #   these will only be accessible if your accounting system has been connected.
         #   #
-        #   def initialize(account_id: nil, class_id: nil) = super
+        #   def initialize(account_id: nil, class_id: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

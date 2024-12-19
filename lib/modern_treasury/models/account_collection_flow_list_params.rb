@@ -47,7 +47,8 @@ module ModernTreasury
       #     counterparty_id: nil,
       #     external_account_id: nil,
       #     per_page: nil,
-      #     status: nil
+      #     status: nil,
+      #     **
       #   )
       #     super
       #   end

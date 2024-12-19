@@ -60,7 +60,8 @@ module ModernTreasury
       #     base_amount: nil,
       #     base_currency: nil,
       #     effective_at: nil,
-      #     target_amount: nil
+      #     target_amount: nil,
+      #     **
       #   )
       #     super
       #   end

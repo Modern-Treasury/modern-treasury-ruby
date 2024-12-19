@@ -81,7 +81,8 @@ module ModernTreasury
       #     updated_at:,
       #     vendor_customer_id:,
       #     vendor_id:,
-      #     vendor_name:
+      #     vendor_name:,
+      #     **
       #   )
       #     super
       #   end

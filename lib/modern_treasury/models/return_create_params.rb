@@ -56,7 +56,17 @@ module ModernTreasury
       #   # @param reason [String, nil] An optional description of the reason for the return. This is for internal usage
       #   #   and will not be transmitted to the bank.”
       #   #
-      #   def initialize(returnable_id:, returnable_type:, additional_information: nil, code: nil, date_of_death: nil, reason: nil) = super
+      #   def initialize(
+      #     returnable_id:,
+      #     returnable_type:,
+      #     additional_information: nil,
+      #     code: nil,
+      #     date_of_death: nil,
+      #     reason: nil,
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

@@ -20,7 +20,7 @@ module ModernTreasury
       #   # @param type [String] The type of object this variable is. Currently, only "ledger_account" is
       #   #   supported.
       #   #
-      #   def initialize(query:, type:) = super
+      #   def initialize(query:, type:, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -50,7 +50,7 @@ module ModernTreasury
         #   #
         #   # @param value [String] The RHS of the conditional.
         #   #
-        #   def initialize(field:, operator:, value:) = super
+        #   def initialize(field:, operator:, value:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

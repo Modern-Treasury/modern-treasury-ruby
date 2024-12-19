@@ -119,7 +119,8 @@ module ModernTreasury
       #     object:,
       #     send_remittance_advice:,
       #     updated_at:,
-      #     verification_status:
+      #     verification_status:,
+      #     **
       #   )
       #     super
       #   end
@@ -287,7 +288,8 @@ module ModernTreasury
         #     routing_details: nil,
         #     updated_at: nil,
         #     verification_source: nil,
-        #     verification_status: nil
+        #     verification_status: nil,
+        #     **
         #   )
         #     super
         #   end
@@ -365,7 +367,8 @@ module ModernTreasury
           #     discarded_at:,
           #     live_mode:,
           #     object:,
-          #     updated_at:
+          #     updated_at:,
+          #     **
           #   )
           #     super
           #   end
@@ -489,7 +492,8 @@ module ModernTreasury
           #     object:,
           #     postal_code:,
           #     region:,
-          #     updated_at:
+          #     updated_at:,
+          #     **
           #   )
           #     super
           #   end

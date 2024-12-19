@@ -78,7 +78,8 @@ module ModernTreasury
       #     currency_exponent: nil,
       #     description: nil,
       #     ledger_account_category_ids: nil,
-      #     metadata: nil
+      #     metadata: nil,
+      #     **
       #   )
       #     super
       #   end

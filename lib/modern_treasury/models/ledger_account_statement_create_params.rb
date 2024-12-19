@@ -48,7 +48,16 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   def initialize(effective_at_lower_bound:, effective_at_upper_bound:, ledger_account_id:, description: nil, metadata: nil) = super
+      #   def initialize(
+      #     effective_at_lower_bound:,
+      #     effective_at_upper_bound:,
+      #     ledger_account_id:,
+      #     description: nil,
+      #     metadata: nil,
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

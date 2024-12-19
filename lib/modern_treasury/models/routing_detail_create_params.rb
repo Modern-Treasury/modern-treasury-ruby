@@ -39,7 +39,7 @@ module ModernTreasury
       #   # @param payment_type [String, nil] If the routing detail is to be used for a specific payment type this field will
       #   #   be populated, otherwise null.
       #   #
-      #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil) = super
+      #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

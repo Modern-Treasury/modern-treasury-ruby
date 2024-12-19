@@ -38,7 +38,7 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   def initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil) = super
+      #   def initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -75,7 +75,7 @@ module ModernTreasury
         #   #   when comparing the `field` to this integer value using the `operator` is
         #   #   logically true.
         #   #
-        #   def initialize(field:, operator:, value:) = super
+        #   def initialize(field:, operator:, value:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

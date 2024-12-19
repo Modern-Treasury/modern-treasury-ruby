@@ -380,7 +380,8 @@ module ModernTreasury
       #     ultimate_originating_party_identifier: nil,
       #     ultimate_originating_party_name: nil,
       #     ultimate_receiving_party_identifier: nil,
-      #     ultimate_receiving_party_name: nil
+      #     ultimate_receiving_party_name: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -425,7 +426,7 @@ module ModernTreasury
         #   #   track segments of your business independent of client or project. Note that
         #   #   these will only be accessible if your accounting system has been connected.
         #   #
-        #   def initialize(account_id: nil, class_id: nil) = super
+        #   def initialize(account_id: nil, class_id: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -584,7 +585,8 @@ module ModernTreasury
         #     ledgerable_id: nil,
         #     ledgerable_type: nil,
         #     metadata: nil,
-        #     status: nil
+        #     status: nil,
+        #     **
         #   )
         #     super
         #   end
@@ -689,7 +691,8 @@ module ModernTreasury
           #     metadata: nil,
           #     pending_balance_amount: nil,
           #     posted_balance_amount: nil,
-          #     show_resulting_ledger_account_balances: nil
+          #     show_resulting_ledger_account_balances: nil,
+          #     **
           #   )
           #     super
           #   end
@@ -784,7 +787,7 @@ module ModernTreasury
         #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
-        #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil) = super
+        #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -937,7 +940,8 @@ module ModernTreasury
         #     party_name: nil,
         #     party_type: nil,
         #     plaid_processor_token: nil,
-        #     routing_details: nil
+        #     routing_details: nil,
+        #     **
         #   )
         #     super
         #   end
@@ -962,7 +966,7 @@ module ModernTreasury
           #   # @param account_number [String]
           #   # @param account_number_type [String, nil]
           #   #
-          #   def initialize(account_number:, account_number_type: nil) = super
+          #   def initialize(account_number:, account_number_type: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -1016,7 +1020,7 @@ module ModernTreasury
           #   # @param contact_identifier [String, nil]
           #   # @param contact_identifier_type [String, nil]
           #   #
-          #   def initialize(contact_identifier: nil, contact_identifier_type: nil) = super
+          #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -1145,7 +1149,8 @@ module ModernTreasury
           #     ledger_account_category_ids: nil,
           #     ledgerable_id: nil,
           #     ledgerable_type: nil,
-          #     metadata: nil
+          #     metadata: nil,
+          #     **
           #   )
           #     super
           #   end
@@ -1226,7 +1231,7 @@ module ModernTreasury
           #   #
           #   # @param region [String, nil] Region or State.
           #   #
-          #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil) = super
+          #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
@@ -1275,7 +1280,7 @@ module ModernTreasury
           #   # @param routing_number_type [String]
           #   # @param payment_type [String, nil]
           #   #
-          #   def initialize(routing_number:, routing_number_type:, payment_type: nil) = super
+          #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
