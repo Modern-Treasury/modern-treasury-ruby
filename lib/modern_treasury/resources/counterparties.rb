@@ -44,7 +44,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::CounterpartyCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/counterparties",
+          path: "api/counterparties",
           body: parsed,
           model: ModernTreasury::Models::Counterparty
         }
@@ -61,7 +61,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/counterparties/#{id}",
+          path: ["api/counterparties/%0s", id],
           model: ModernTreasury::Models::Counterparty
         }
         @client.request(req, opts)
@@ -94,7 +94,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::CounterpartyUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/counterparties/#{id}",
+          path: ["api/counterparties/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::Counterparty
         }
@@ -132,7 +132,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::CounterpartyListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/counterparties",
+          path: "api/counterparties",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Counterparty
@@ -150,7 +150,7 @@ module ModernTreasury
       def delete(id, opts = {})
         req = {
           method: :delete,
-          path: "/api/counterparties/#{id}",
+          path: ["api/counterparties/%0s", id],
           model: NilClass
         }
         @client.request(req, opts)
@@ -188,7 +188,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::CounterpartyCollectAccountParams.dump(params)
         req = {
           method: :post,
-          path: "/api/counterparties/#{id}/collect_account",
+          path: ["api/counterparties/%0s/collect_account", id],
           body: parsed,
           model: ModernTreasury::Models::CounterpartyCollectAccountResponse
         }

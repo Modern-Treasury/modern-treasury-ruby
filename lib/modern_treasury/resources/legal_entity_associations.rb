@@ -32,7 +32,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LegalEntityAssociationCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/legal_entity_associations",
+          path: "api/legal_entity_associations",
           body: parsed,
           model: ModernTreasury::Models::LegalEntityAssociation
         }

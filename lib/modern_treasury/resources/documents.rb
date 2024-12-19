@@ -27,7 +27,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::DocumentCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/documents",
+          path: "api/documents",
           headers: {"Content-Type" => "multipart/form-data"},
           body: parsed,
           model: ModernTreasury::Models::Document
@@ -45,7 +45,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/documents/#{id}",
+          path: ["api/documents/%0s", id],
           model: ModernTreasury::Models::Document
         }
         @client.request(req, opts)
@@ -72,7 +72,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::DocumentListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/documents",
+          path: "api/documents",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Document

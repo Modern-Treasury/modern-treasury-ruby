@@ -18,7 +18,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/events/#{id}",
+          path: ["api/events/%0s", id],
           model: ModernTreasury::Models::Event
         }
         @client.request(req, opts)
@@ -49,7 +49,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::EventListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/events",
+          path: "api/events",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Event

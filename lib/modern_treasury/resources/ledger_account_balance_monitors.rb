@@ -28,7 +28,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledger_account_balance_monitors",
+          path: "api/ledger_account_balance_monitors",
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
         }
@@ -45,7 +45,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/ledger_account_balance_monitors/#{id}",
+          path: ["api/ledger_account_balance_monitors/%0s", id],
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
         }
         @client.request(req, opts)
@@ -69,7 +69,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/ledger_account_balance_monitors/#{id}",
+          path: ["api/ledger_account_balance_monitors/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
         }
@@ -100,7 +100,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledger_account_balance_monitors",
+          path: "api/ledger_account_balance_monitors",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
@@ -118,7 +118,7 @@ module ModernTreasury
       def delete(id, opts = {})
         req = {
           method: :delete,
-          path: "/api/ledger_account_balance_monitors/#{id}",
+          path: ["api/ledger_account_balance_monitors/%0s", id],
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
         }
         @client.request(req, opts)

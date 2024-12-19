@@ -27,7 +27,7 @@ module ModernTreasury
           parsed = ModernTreasury::Models::Transactions::LineItemCreateParams.dump(params)
           req = {
             method: :post,
-            path: "/api/transaction_line_items",
+            path: "api/transaction_line_items",
             body: parsed,
             model: ModernTreasury::Models::Transactions::TransactionLineItem
           }
@@ -44,7 +44,7 @@ module ModernTreasury
         def retrieve(id, opts = {})
           req = {
             method: :get,
-            path: "/api/transaction_line_items/#{id}",
+            path: ["api/transaction_line_items/%0s", id],
             model: ModernTreasury::Models::Transactions::TransactionLineItem
           }
           @client.request(req, opts)
@@ -71,7 +71,7 @@ module ModernTreasury
           parsed = ModernTreasury::Models::Transactions::LineItemListParams.dump(params)
           req = {
             method: :get,
-            path: "/api/transaction_line_items",
+            path: "api/transaction_line_items",
             query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::Transactions::TransactionLineItem
@@ -89,7 +89,7 @@ module ModernTreasury
         def delete(id, opts = {})
           req = {
             method: :delete,
-            path: "/api/transaction_line_items/#{id}",
+            path: ["api/transaction_line_items/%0s", id],
             model: NilClass
           }
           @client.request(req, opts)

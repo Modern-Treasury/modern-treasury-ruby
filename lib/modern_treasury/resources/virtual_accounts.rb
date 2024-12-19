@@ -46,7 +46,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::VirtualAccountCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/virtual_accounts",
+          path: "api/virtual_accounts",
           body: parsed,
           model: ModernTreasury::Models::VirtualAccount
         }
@@ -63,7 +63,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/virtual_accounts/#{id}",
+          path: ["api/virtual_accounts/%0s", id],
           model: ModernTreasury::Models::VirtualAccount
         }
         @client.request(req, opts)
@@ -90,7 +90,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::VirtualAccountUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/virtual_accounts/#{id}",
+          path: ["api/virtual_accounts/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::VirtualAccount
         }
@@ -120,7 +120,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::VirtualAccountListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/virtual_accounts",
+          path: "api/virtual_accounts",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::VirtualAccount
@@ -138,7 +138,7 @@ module ModernTreasury
       def delete(id, opts = {})
         req = {
           method: :delete,
-          path: "/api/virtual_accounts/#{id}",
+          path: ["api/virtual_accounts/%0s", id],
           model: ModernTreasury::Models::VirtualAccount
         }
         @client.request(req, opts)

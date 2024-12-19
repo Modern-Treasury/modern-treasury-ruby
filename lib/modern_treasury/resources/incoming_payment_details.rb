@@ -18,7 +18,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/incoming_payment_details/#{id}",
+          path: ["api/incoming_payment_details/%0s", id],
           model: ModernTreasury::Models::IncomingPaymentDetail
         }
         @client.request(req, opts)
@@ -40,7 +40,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::IncomingPaymentDetailUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/incoming_payment_details/#{id}",
+          path: ["api/incoming_payment_details/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::IncomingPaymentDetail
         }
@@ -83,7 +83,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::IncomingPaymentDetailListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/incoming_payment_details",
+          path: "api/incoming_payment_details",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::IncomingPaymentDetail
@@ -120,7 +120,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams.dump(params)
         req = {
           method: :post,
-          path: "/api/simulations/incoming_payment_details/create_async",
+          path: "api/simulations/incoming_payment_details/create_async",
           body: parsed,
           model: ModernTreasury::Models::AsyncResponse
         }
