@@ -31,11 +31,11 @@ module ModernTreasury
       def create(account_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::RoutingDetailCreateParams.dump(params)
         accounts_type = parsed.fetch(:accounts_type) do
-          raise ArgumentError.new("missing required path argument :accounts_type")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :post,
-          path: "/api/#{accounts_type}/#{account_id}/routing_details",
+          path: ["api/%0s/%1s/routing_details", accounts_type, account_id],
           body: parsed.except(:accounts_type),
           model: ModernTreasury::Models::RoutingDetail
         }
@@ -58,14 +58,14 @@ module ModernTreasury
       def retrieve(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::RoutingDetailRetrieveParams.dump(params)
         accounts_type = parsed.fetch(:accounts_type) do
-          raise ArgumentError.new("missing required path argument :accounts_type")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         account_id = parsed.fetch(:account_id) do
-          raise ArgumentError.new("missing required path argument :account_id")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :get,
-          path: "/api/#{accounts_type}/#{account_id}/routing_details/#{id}",
+          path: ["api/%0s/%1s/routing_details/%2s", accounts_type, account_id, id],
           model: ModernTreasury::Models::RoutingDetail
         }
         @client.request(req, opts)
@@ -89,11 +89,11 @@ module ModernTreasury
       def list(account_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::RoutingDetailListParams.dump(params)
         accounts_type = parsed.fetch(:accounts_type) do
-          raise ArgumentError.new("missing required path argument :accounts_type")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :get,
-          path: "/api/#{accounts_type}/#{account_id}/routing_details",
+          path: ["api/%0s/%1s/routing_details", accounts_type, account_id],
           query: parsed.except(:accounts_type),
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::RoutingDetail
@@ -117,14 +117,14 @@ module ModernTreasury
       def delete(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::RoutingDetailDeleteParams.dump(params)
         accounts_type = parsed.fetch(:accounts_type) do
-          raise ArgumentError.new("missing required path argument :accounts_type")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         account_id = parsed.fetch(:account_id) do
-          raise ArgumentError.new("missing required path argument :account_id")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :delete,
-          path: "/api/#{accounts_type}/#{account_id}/routing_details/#{id}",
+          path: ["api/%0s/%1s/routing_details/%2s", accounts_type, account_id, id],
           model: NilClass
         }
         @client.request(req, opts)

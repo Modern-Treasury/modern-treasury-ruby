@@ -148,7 +148,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaymentOrderCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/payment_orders",
+          path: "api/payment_orders",
           body: parsed,
           model: ModernTreasury::Models::PaymentOrder
         }
@@ -165,7 +165,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/payment_orders/#{id}",
+          path: ["api/payment_orders/%0s", id],
           model: ModernTreasury::Models::PaymentOrder
         }
         @client.request(req, opts)
@@ -307,7 +307,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaymentOrderUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/payment_orders/#{id}",
+          path: ["api/payment_orders/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::PaymentOrder
         }
@@ -363,7 +363,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaymentOrderListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/payment_orders",
+          path: "api/payment_orders",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::PaymentOrder
@@ -504,7 +504,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaymentOrderCreateAsyncParams.dump(params)
         req = {
           method: :post,
-          path: "/api/payment_orders/create_async",
+          path: "api/payment_orders/create_async",
           body: parsed,
           model: ModernTreasury::Models::AsyncResponse
         }

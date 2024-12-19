@@ -27,7 +27,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ConnectionListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/connections",
+          path: "api/connections",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Connection

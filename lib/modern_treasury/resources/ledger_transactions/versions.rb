@@ -37,7 +37,7 @@ module ModernTreasury
           parsed = ModernTreasury::Models::LedgerTransactions::VersionListParams.dump(params)
           req = {
             method: :get,
-            path: "/api/ledger_transaction_versions",
+            path: "api/ledger_transaction_versions",
             query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion
