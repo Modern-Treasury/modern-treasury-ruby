@@ -33,7 +33,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ForeignExchangeQuoteCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/foreign_exchange_quotes",
+          path: "api/foreign_exchange_quotes",
           body: parsed,
           model: ModernTreasury::Models::ForeignExchangeQuote
         }
@@ -50,7 +50,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/foreign_exchange_quotes/#{id}",
+          path: ["api/foreign_exchange_quotes/%0s", id],
           model: ModernTreasury::Models::ForeignExchangeQuote
         }
         @client.request(req, opts)
@@ -87,7 +87,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ForeignExchangeQuoteListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/foreign_exchange_quotes",
+          path: "api/foreign_exchange_quotes",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ForeignExchangeQuote

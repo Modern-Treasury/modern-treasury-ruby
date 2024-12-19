@@ -28,7 +28,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerableEventCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledgerable_events",
+          path: "api/ledgerable_events",
           body: parsed,
           model: ModernTreasury::Models::LedgerableEvent
         }
@@ -45,7 +45,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/ledgerable_events/#{id}",
+          path: ["api/ledgerable_events/%0s", id],
           model: ModernTreasury::Models::LedgerableEvent
         }
         @client.request(req, opts)

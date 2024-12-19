@@ -27,7 +27,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ValidationValidateRoutingNumberParams.dump(params)
         req = {
           method: :get,
-          path: "/api/validations/routing_numbers",
+          path: "api/validations/routing_numbers",
           query: parsed,
           model: ModernTreasury::Models::RoutingNumberLookupRequest
         }

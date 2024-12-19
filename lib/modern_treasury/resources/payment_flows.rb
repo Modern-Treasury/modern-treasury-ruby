@@ -36,7 +36,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaymentFlowCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/payment_flows",
+          path: "api/payment_flows",
           body: parsed,
           model: ModernTreasury::Models::PaymentFlow
         }
@@ -53,7 +53,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/payment_flows/#{id}",
+          path: ["api/payment_flows/%0s", id],
           model: ModernTreasury::Models::PaymentFlow
         }
         @client.request(req, opts)
@@ -75,7 +75,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaymentFlowUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/payment_flows/#{id}",
+          path: ["api/payment_flows/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::PaymentFlow
         }
@@ -109,7 +109,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaymentFlowListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/payment_flows",
+          path: "api/payment_flows",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::PaymentFlow

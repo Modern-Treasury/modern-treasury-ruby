@@ -52,7 +52,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ExternalAccountCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/external_accounts",
+          path: "api/external_accounts",
           body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
@@ -69,7 +69,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/external_accounts/#{id}",
+          path: ["api/external_accounts/%0s", id],
           model: ModernTreasury::Models::ExternalAccount
         }
         @client.request(req, opts)
@@ -104,7 +104,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ExternalAccountUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/external_accounts/#{id}",
+          path: ["api/external_accounts/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
@@ -134,7 +134,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ExternalAccountListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/external_accounts",
+          path: "api/external_accounts",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ExternalAccount
@@ -152,7 +152,7 @@ module ModernTreasury
       def delete(id, opts = {})
         req = {
           method: :delete,
-          path: "/api/external_accounts/#{id}",
+          path: ["api/external_accounts/%0s", id],
           model: NilClass
         }
         @client.request(req, opts)
@@ -173,7 +173,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ExternalAccountCompleteVerificationParams.dump(params)
         req = {
           method: :post,
-          path: "/api/external_accounts/#{id}/complete_verification",
+          path: ["api/external_accounts/%0s/complete_verification", id],
           body: parsed,
           model: ModernTreasury::Models::ExternalAccount
         }
@@ -207,7 +207,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ExternalAccountVerifyParams.dump(params)
         req = {
           method: :post,
-          path: "/api/external_accounts/#{id}/verify",
+          path: ["api/external_accounts/%0s/verify", id],
           body: parsed,
           model: ModernTreasury::Models::ExternalAccountVerifyResponse
         }

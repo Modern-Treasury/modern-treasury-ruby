@@ -35,7 +35,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ReturnCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/returns",
+          path: "api/returns",
           body: parsed,
           model: ModernTreasury::Models::ReturnObject
         }
@@ -52,7 +52,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/returns/#{id}",
+          path: ["api/returns/%0s", id],
           model: ModernTreasury::Models::ReturnObject
         }
         @client.request(req, opts)
@@ -84,7 +84,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ReturnListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/returns",
+          path: "api/returns",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ReturnObject

@@ -24,7 +24,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerEntryRetrieveParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledger_entries/#{id}",
+          path: ["api/ledger_entries/%0s", id],
           query: parsed,
           model: ModernTreasury::Models::LedgerEntry
         }
@@ -47,7 +47,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerEntryUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/ledger_entries/#{id}",
+          path: ["api/ledger_entries/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerEntry
         }
@@ -125,7 +125,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerEntryListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledger_entries",
+          path: "api/ledger_entries",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerEntry

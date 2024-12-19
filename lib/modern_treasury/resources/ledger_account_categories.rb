@@ -37,7 +37,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountCategoryCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledger_account_categories",
+          path: "api/ledger_account_categories",
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
@@ -61,7 +61,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountCategoryRetrieveParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledger_account_categories/#{id}",
+          path: ["api/ledger_account_categories/%0s", id],
           query: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
@@ -88,7 +88,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountCategoryUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/ledger_account_categories/#{id}",
+          path: ["api/ledger_account_categories/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory
         }
@@ -132,7 +132,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountCategoryListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledger_account_categories",
+          path: "api/ledger_account_categories",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerAccountCategory
@@ -150,7 +150,7 @@ module ModernTreasury
       def delete(id, opts = {})
         req = {
           method: :delete,
-          path: "/api/ledger_account_categories/#{id}",
+          path: ["api/ledger_account_categories/%0s", id],
           model: ModernTreasury::Models::LedgerAccountCategory
         }
         @client.request(req, opts)
@@ -170,11 +170,11 @@ module ModernTreasury
       def add_ledger_account(ledger_account_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams.dump(params)
         id = parsed.fetch(:id) do
-          raise ArgumentError.new("missing required path argument :id")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :put,
-          path: "/api/ledger_account_categories/#{id}/ledger_accounts/#{ledger_account_id}",
+          path: ["api/ledger_account_categories/%0s/ledger_accounts/%1s", id, ledger_account_id],
           model: NilClass
         }
         @client.request(req, opts)
@@ -194,11 +194,11 @@ module ModernTreasury
       def add_nested_category(sub_category_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams.dump(params)
         id = parsed.fetch(:id) do
-          raise ArgumentError.new("missing required path argument :id")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :put,
-          path: "/api/ledger_account_categories/#{id}/ledger_account_categories/#{sub_category_id}",
+          path: ["api/ledger_account_categories/%0s/ledger_account_categories/%1s", id, sub_category_id],
           model: NilClass
         }
         @client.request(req, opts)
@@ -218,11 +218,11 @@ module ModernTreasury
       def remove_ledger_account(ledger_account_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams.dump(params)
         id = parsed.fetch(:id) do
-          raise ArgumentError.new("missing required path argument :id")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :delete,
-          path: "/api/ledger_account_categories/#{id}/ledger_accounts/#{ledger_account_id}",
+          path: ["api/ledger_account_categories/%0s/ledger_accounts/%1s", id, ledger_account_id],
           model: NilClass
         }
         @client.request(req, opts)
@@ -242,11 +242,11 @@ module ModernTreasury
       def remove_nested_category(sub_category_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams.dump(params)
         id = parsed.fetch(:id) do
-          raise ArgumentError.new("missing required path argument :id")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :delete,
-          path: "/api/ledger_account_categories/#{id}/ledger_account_categories/#{sub_category_id}",
+          path: ["api/ledger_account_categories/%0s/ledger_account_categories/%1s", id, sub_category_id],
           model: NilClass
         }
         @client.request(req, opts)

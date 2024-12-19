@@ -44,7 +44,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountSettlementCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledger_account_settlements",
+          path: "api/ledger_account_settlements",
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountSettlement
         }
@@ -61,7 +61,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/ledger_account_settlements/#{id}",
+          path: ["api/ledger_account_settlements/%0s", id],
           model: ModernTreasury::Models::LedgerAccountSettlement
         }
         @client.request(req, opts)
@@ -88,7 +88,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountSettlementUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/ledger_account_settlements/#{id}",
+          path: ["api/ledger_account_settlements/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountSettlement
         }
@@ -133,7 +133,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountSettlementListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledger_account_settlements",
+          path: "api/ledger_account_settlements",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerAccountSettlement

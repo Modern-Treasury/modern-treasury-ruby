@@ -34,7 +34,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerEventHandlerCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledger_event_handlers",
+          path: "api/ledger_event_handlers",
           body: parsed,
           model: ModernTreasury::Models::LedgerEventHandler
         }
@@ -51,7 +51,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/ledger_event_handlers/#{id}",
+          path: ["api/ledger_event_handlers/%0s", id],
           model: ModernTreasury::Models::LedgerEventHandler
         }
         @client.request(req, opts)
@@ -82,7 +82,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerEventHandlerListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledger_event_handlers",
+          path: "api/ledger_event_handlers",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerEventHandler
@@ -100,7 +100,7 @@ module ModernTreasury
       def delete(id, opts = {})
         req = {
           method: :delete,
-          path: "/api/ledger_event_handlers/#{id}",
+          path: ["api/ledger_event_handlers/%0s", id],
           model: ModernTreasury::Models::LedgerEventHandler
         }
         @client.request(req, opts)

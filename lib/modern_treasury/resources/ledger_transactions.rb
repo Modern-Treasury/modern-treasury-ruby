@@ -49,7 +49,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerTransactionCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledger_transactions",
+          path: "api/ledger_transactions",
           body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }
@@ -66,7 +66,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/ledger_transactions/#{id}",
+          path: ["api/ledger_transactions/%0s", id],
           model: ModernTreasury::Models::LedgerTransaction
         }
         @client.request(req, opts)
@@ -105,7 +105,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerTransactionUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/ledger_transactions/#{id}",
+          path: ["api/ledger_transactions/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }
@@ -172,7 +172,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerTransactionListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledger_transactions",
+          path: "api/ledger_transactions",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LedgerTransaction
@@ -214,7 +214,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerTransactionCreateReversalParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledger_transactions/#{id}/reversal",
+          path: ["api/ledger_transactions/%0s/reversal", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }

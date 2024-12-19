@@ -18,7 +18,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/bulk_results/#{id}",
+          path: ["api/bulk_results/%0s", id],
           model: ModernTreasury::Models::BulkResult
         }
         @client.request(req, opts)
@@ -52,7 +52,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::BulkResultListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/bulk_results",
+          path: "api/bulk_results",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::BulkResult
