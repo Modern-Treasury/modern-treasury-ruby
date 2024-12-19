@@ -60,8 +60,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute reconciliation_filters
       #   The reconciliation filters you have for this payment.
@@ -128,7 +128,7 @@ module ModernTreasury
       #   #
       #   # @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param reconciliation_filters [Object, nil] The reconciliation filters you have for this payment.

@@ -40,8 +40,8 @@ module ModernTreasury
       # @!attribute compliance_rule_metadata
       #   Custom key-value pair for usage in compliance rules. Please contact support before making changes to this field.
       #
-      #   @return [Hash]
-      required :compliance_rule_metadata, Hash
+      #   @return [Hash{Symbol => Object}]
+      required :compliance_rule_metadata, ModernTreasury::HashOf[ModernTreasury::Unknown]
 
       # @!attribute counterparty_id
       #   If the payment order is tied to a specific Counterparty, their id will appear, otherwise `null`.
@@ -130,8 +130,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute nsf_protected
       #   A boolean to determine if NSF Protection is enabled for this payment order. Note that this setting must also be turned on in your organization settings page.
@@ -304,36 +304,36 @@ module ModernTreasury
       #   #
       #   # @param accounting [ModernTreasury::Models::PaymentOrder::Accounting]
       #   #
-      #   # @param accounting_category_id [String] The ID of one of your accounting categories. Note that these will only be
+      #   # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be
       #   #   accessible if your accounting system has been connected.
       #   #
-      #   # @param accounting_ledger_class_id [String] The ID of one of your accounting ledger classes. Note that these will only be
+      #   # @param accounting_ledger_class_id [String, nil] The ID of one of your accounting ledger classes. Note that these will only be
       #   #   accessible if your accounting system has been connected.
       #   #
       #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented as
       #   #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
       #   #
-      #   # @param charge_bearer [String] The party that will pay the fees for the payment order. Only applies to wire
+      #   # @param charge_bearer [String, nil] The party that will pay the fees for the payment order. Only applies to wire
       #   #   payment orders. Can be one of shared, sender, or receiver, which correspond
       #   #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       #   #
-      #   # @param compliance_rule_metadata [Hash] Custom key-value pair for usage in compliance rules. Please contact support
+      #   # @param compliance_rule_metadata [Hash{Symbol => Object}, nil] Custom key-value pair for usage in compliance rules. Please contact support
       #   #   before making changes to this field.
       #   #
-      #   # @param counterparty_id [String] If the payment order is tied to a specific Counterparty, their id will appear,
+      #   # @param counterparty_id [String, nil] If the payment order is tied to a specific Counterparty, their id will appear,
       #   #   otherwise `null`.
       #   #
       #   # @param created_at [String]
       #   #
       #   # @param currency [String] Defaults to the currency of the originating account.
       #   #
-      #   # @param current_return [ModernTreasury::Models::ReturnObject] If the payment order's status is `returned`, this will include the return
+      #   # @param current_return [ModernTreasury::Models::ReturnObject, nil] If the payment order's status is `returned`, this will include the return
       #   #   object's data.
       #   #
-      #   # @param decision_id [String] The ID of the compliance decision for the payment order, if transaction
+      #   # @param decision_id [String, nil] The ID of the compliance decision for the payment order, if transaction
       #   #   monitoring is enabled.
       #   #
-      #   # @param description [String] An optional description for internal use.
+      #   # @param description [String, nil] An optional description for internal use.
       #   #
       #   # @param direction [String] One of `credit`, `debit`. Describes the direction money is flowing in the
       #   #   transaction. A `credit` moves money from your account to someone else's. A
@@ -344,23 +344,23 @@ module ModernTreasury
       #   #   current business day or the next business day if the current day is a bank
       #   #   holiday or weekend. Format: yyyy-mm-dd.
       #   #
-      #   # @param expires_at [String] RFP payments require an expires_at. This value must be past the effective_date.
+      #   # @param expires_at [String, nil] RFP payments require an expires_at. This value must be past the effective_date.
       #   #
-      #   # @param foreign_exchange_contract [String] If present, indicates a specific foreign exchange contract number that has been
+      #   # @param foreign_exchange_contract [String, nil] If present, indicates a specific foreign exchange contract number that has been
       #   #   generated by your financial institution.
       #   #
-      #   # @param foreign_exchange_indicator [String] Indicates the type of FX transfer to initiate, can be either
+      #   # @param foreign_exchange_indicator [String, nil] Indicates the type of FX transfer to initiate, can be either
       #   #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   #   currency matches the originating account currency.
       #   #
-      #   # @param foreign_exchange_rate [ModernTreasury::Models::PaymentOrder::ForeignExchangeRate] Associated serialized foreign exchange rate information.
+      #   # @param foreign_exchange_rate [ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, nil] Associated serialized foreign exchange rate information.
       #   #
-      #   # @param ledger_transaction_id [String] The ID of the ledger transaction linked to the payment order.
+      #   # @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the payment order.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param nsf_protected [Boolean] A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -370,7 +370,7 @@ module ModernTreasury
       #   #
       #   # @param originating_account_id [String] The ID of one of your organization's internal accounts.
       #   #
-      #   # @param originating_party_name [String] If present, this will replace your default company name on receiver's bank
+      #   # @param originating_party_name [String, nil] If present, this will replace your default company name on receiver's bank
       #   #   statement. This field can only be used for ACH payments currently. For ACH, only
       #   #   the first 16 characters of this string will be used. Any additional characters
       #   #   will be truncated.
@@ -379,13 +379,13 @@ module ModernTreasury
       #   #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   #   an overnight check rather than standard mail.
       #   #
-      #   # @param process_after [String] If present, Modern Treasury will not process the payment until after this time.
+      #   # @param process_after [String, nil] If present, Modern Treasury will not process the payment until after this time.
       #   #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
       #   #   take precedence and `effective_date` will automatically update to reflect the
       #   #   earliest possible sending date after `process_after`. Format is ISO8601
       #   #   timestamp.
       #   #
-      #   # @param purpose [String] For `wire`, this is usually the purpose which is transmitted via the
+      #   # @param purpose [String, nil] For `wire`, this is usually the purpose which is transmitted via the
       #   #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
       #   #   digit CPA Code that will be attached to the payment.
       #   #
@@ -395,14 +395,14 @@ module ModernTreasury
       #   #
       #   # @param reference_numbers [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
       #   #
-      #   # @param remittance_information [String] For `ach`, this field will be passed through on an addenda record. For `wire`
+      #   # @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire`
       #   #   payments the field will be passed through as the "Originator to Beneficiary
       #   #   Information", also known as OBI or Fedwire tag 6000.
       #   #
-      #   # @param send_remittance_advice [Boolean] Send an email to the counterparty when the payment order is sent to the bank. If
+      #   # @param send_remittance_advice [Boolean, nil] Send an email to the counterparty when the payment order is sent to the bank. If
       #   #   `null`, `send_remittance_advice` on the Counterparty is used.
       #   #
-      #   # @param statement_descriptor [String] An optional descriptor which will appear in the receiver's statement. For
+      #   # @param statement_descriptor [String, nil] An optional descriptor which will appear in the receiver's statement. For
       #   #   `check` payments this field will be used as the memo line. For `ach` the maximum
       #   #   length is 10 characters. Note that for ACH payments, the name on your bank
       #   #   account will be included automatically by the bank, so you can use the
@@ -411,7 +411,7 @@ module ModernTreasury
       #   #
       #   # @param status [String] The current status of the payment order.
       #   #
-      #   # @param subtype [String] An additional layer of classification for the type of payment order you are
+      #   # @param subtype [String, nil] An additional layer of classification for the type of payment order you are
       #   #   doing. This field is only used for `ach` payment orders currently. For `ach`
       #   #   payment orders, the `subtype` represents the SEC code. We currently support
       #   #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
@@ -428,28 +428,28 @@ module ModernTreasury
       #   #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #   #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #   #
-      #   # @param ultimate_originating_account [ModernTreasury::Models::InternalAccount, ModernTreasury::Models::VirtualAccount] The account to which the originating of this payment should be attributed to.
+      #   # @param ultimate_originating_account [ModernTreasury::Models::InternalAccount, ModernTreasury::Models::VirtualAccount, nil] The account to which the originating of this payment should be attributed to.
       #   #   Can be a `virtual_account` or `internal_account`.
       #   #
-      #   # @param ultimate_originating_account_id [String] The ultimate originating account ID. Can be a `virtual_account` or
+      #   # @param ultimate_originating_account_id [String, nil] The ultimate originating account ID. Can be a `virtual_account` or
       #   #   `internal_account`.
       #   #
-      #   # @param ultimate_originating_account_type [String]
+      #   # @param ultimate_originating_account_type [String, nil]
       #   #
-      #   # @param ultimate_originating_party_identifier [String] Identifier of the ultimate originator of the payment order.
+      #   # @param ultimate_originating_party_identifier [String, nil] Identifier of the ultimate originator of the payment order.
       #   #
-      #   # @param ultimate_originating_party_name [String] Name of the ultimate originator of the payment order.
+      #   # @param ultimate_originating_party_name [String, nil] Name of the ultimate originator of the payment order.
       #   #
-      #   # @param ultimate_receiving_party_identifier [String]
+      #   # @param ultimate_receiving_party_identifier [String, nil]
       #   #
-      #   # @param ultimate_receiving_party_name [String]
+      #   # @param ultimate_receiving_party_name [String, nil]
       #   #
       #   # @param updated_at [String]
       #   #
-      #   # @param vendor_attributes [Object] Additional vendor specific fields for this payment. Data must be represented as
+      #   # @param vendor_attributes [Object, nil] Additional vendor specific fields for this payment. Data must be represented as
       #   #   key-value pairs.
       #   #
-      #   # @param vendor_failure_reason [String] This field will be populated if a vendor failure occurs. Logic shouldn't be
+      #   # @param vendor_failure_reason [String, nil] This field will be populated if a vendor failure occurs. Logic shouldn't be
       #   #   built on its value as it is free-form.
       #   #
       #   def initialize(

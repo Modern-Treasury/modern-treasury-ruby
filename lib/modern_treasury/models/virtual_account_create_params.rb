@@ -57,8 +57,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute routing_details
       #   An array of routing detail objects.
@@ -92,7 +92,7 @@ module ModernTreasury
       #   #   The resulting ledger account is linked to the virtual account for auto-ledgering
       #   #   IPDs.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>, nil] An array of routing detail objects.
@@ -235,8 +235,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!parse
         #   # Specifies a ledger account object that will be created with the virtual account.
@@ -265,7 +265,7 @@ module ModernTreasury
         #   #   be populated here, otherwise null. The value is one of internal_account or
         #   #   external_account.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   def initialize(

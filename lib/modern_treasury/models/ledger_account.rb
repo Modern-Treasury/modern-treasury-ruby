@@ -63,8 +63,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
       #   The name of the ledger account.
@@ -99,16 +99,16 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param description [String] The description of the ledger account.
+      #   # @param description [String, nil] The description of the ledger account.
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param ledger_id [String] The id of the ledger that this account belongs to.
       #   #
-      #   # @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
+      #   # @param ledgerable_id [String, nil] If the ledger account links to another object in Modern Treasury, the id will be
       #   #   populated here, otherwise null.
       #   #
-      #   # @param ledgerable_type [String] If the ledger account links to another object in Modern Treasury, the type will
+      #   # @param ledgerable_type [String, nil] If the ledger account links to another object in Modern Treasury, the type will
       #   #   be populated here, otherwise null. The value is one of internal_account or
       #   #   external_account.
       #   #
@@ -117,7 +117,7 @@ module ModernTreasury
       #   #
       #   # @param lock_version [Integer] Lock version of the ledger account.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param name [String] The name of the ledger account.
@@ -193,10 +193,10 @@ module ModernTreasury
         #   #   pending_debits; for debit normal, available_amount = posted_debits -
         #   #   pending_credits.
         #   #
-        #   # @param effective_at_lower_bound [String] The inclusive lower bound of the effective_at timestamp for the returned
+        #   # @param effective_at_lower_bound [String, nil] The inclusive lower bound of the effective_at timestamp for the returned
         #   #   balances.
         #   #
-        #   # @param effective_at_upper_bound [String] The exclusive upper bound of the effective_at timestamp for the returned
+        #   # @param effective_at_upper_bound [String, nil] The exclusive upper bound of the effective_at timestamp for the returned
         #   #   balances.
         #   #
         #   # @param pending_balance [ModernTreasury::Models::LedgerAccount::Balances::PendingBalance] The pending_balance is the sum of all pending and posted entries.

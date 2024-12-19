@@ -17,14 +17,14 @@ module ModernTreasury
       # @!attribute effective_at
       #   Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by effective at. For example, for all transactions after Jan 1 2000, use effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
       #
-      #   @return [Hash]
-      optional :effective_at, Hash
+      #   @return [Hash{Symbol => Time}]
+      optional :effective_at, ModernTreasury::HashOf[Time]
 
       # @!attribute effective_date
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by effective date. For example, for all dates after Jan 1 2000, use effective_date%5Bgt%5D=2000-01-01.
       #
-      #   @return [Hash]
-      optional :effective_date, Hash
+      #   @return [Hash{Symbol => Time}]
+      optional :effective_date, ModernTreasury::HashOf[Time]
 
       # @!attribute external_id
       #
@@ -65,8 +65,8 @@ module ModernTreasury
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute order_by
       #   Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering by only one field at a time is supported.
@@ -82,8 +82,8 @@ module ModernTreasury
       # @!attribute posted_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash]
-      optional :posted_at, Hash
+      #   @return [Hash{Symbol => Time}]
+      optional :posted_at, ModernTreasury::HashOf[Time]
 
       # @!attribute reverses_ledger_transaction_id
       #
@@ -98,8 +98,8 @@ module ModernTreasury
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash]
-      optional :updated_at, Hash
+      #   @return [Hash{Symbol => Time}]
+      optional :updated_at, ModernTreasury::HashOf[Time]
 
       # @!parse
       #   # @param id [Array<String>, nil] If you have specific IDs to retrieve in bulk, you can pass them as query
@@ -107,11 +107,11 @@ module ModernTreasury
       #   #
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param effective_at [Hash, nil] Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
+      #   # @param effective_at [Hash{Symbol => String}, nil] Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
       #   #   effective at. For example, for all transactions after Jan 1 2000, use
       #   #   effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
       #   #
-      #   # @param effective_date [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
+      #   # @param effective_date [Hash{Symbol => String}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
       #   #   effective date. For example, for all dates after Jan 1 2000, use
       #   #   effective_date%5Bgt%5D=2000-01-01.
       #   #
@@ -129,7 +129,7 @@ module ModernTreasury
       #   #
       #   # @param ledgerable_type [String, nil]
       #   #
-      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol => String}, nil] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
@@ -139,7 +139,7 @@ module ModernTreasury
       #   #
       #   # @param per_page [Integer, nil]
       #   #
-      #   # @param posted_at [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param posted_at [Hash{Symbol => String}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #
@@ -147,7 +147,7 @@ module ModernTreasury
       #   #
       #   # @param status [String, nil]
       #   #
-      #   # @param updated_at [Hash, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param updated_at [Hash{Symbol => String}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #

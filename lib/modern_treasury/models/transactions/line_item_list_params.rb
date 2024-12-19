@@ -6,8 +6,8 @@ module ModernTreasury
       class LineItemListParams < ModernTreasury::BaseModel
         # @!attribute id
         #
-        #   @return [Hash]
-        optional :id, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :id, ModernTreasury::HashOf[String]
 
         # @!attribute after_cursor
         #
@@ -30,7 +30,7 @@ module ModernTreasury
         optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }
 
         # @!parse
-        #   # @param id [Hash, nil]
+        #   # @param id [Hash{Symbol => String}, nil]
         #   # @param after_cursor [String, nil]
         #   # @param per_page [Integer, nil]
         #   # @param transaction_id [String, nil]

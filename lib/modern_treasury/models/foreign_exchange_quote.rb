@@ -55,8 +55,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
       #
@@ -94,7 +94,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]

@@ -30,8 +30,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!parse
       #   # @param effective_at_lower_bound [String] The inclusive lower bound of the effective_at timestamp of the ledger entries to
@@ -45,7 +45,7 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] The description of the ledger account statement.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(effective_at_lower_bound:, effective_at_upper_bound:, ledger_account_id:, description: nil, metadata: nil) = super

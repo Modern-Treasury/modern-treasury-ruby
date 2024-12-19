@@ -97,8 +97,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute nsf_protected
       #   A boolean to determine if NSF Protection is enabled for this payment order. Note that this setting must also be turned on in your organization settings page.
@@ -254,7 +254,7 @@ module ModernTreasury
       #   #
       #   # @param line_items [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>, nil] An array of line items that must sum up to the amount of the payment order.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param nsf_protected [Boolean, nil] A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -489,8 +489,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!parse
         #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -501,7 +501,7 @@ module ModernTreasury
         #   #
         #   # @param description [String, nil] A free-form description of the line item.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil) = super
@@ -559,8 +559,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute name
         #   A nickname for the external account. This is only for internal usage and won't affect any payments
@@ -624,7 +624,7 @@ module ModernTreasury
         #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         #   #   for more details.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
@@ -818,8 +818,8 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash]
-          optional :metadata, Hash
+          #   @return [Hash{Symbol => String}]
+          optional :metadata, ModernTreasury::HashOf[String]
 
           # @!parse
           #   # Specifies a ledger account object that will be created with the external
@@ -850,7 +850,7 @@ module ModernTreasury
           #   #   be populated here, otherwise null. The value is one of internal_account or
           #   #   external_account.
           #   #
-          #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
           #   def initialize(

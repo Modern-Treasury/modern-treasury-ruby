@@ -62,7 +62,7 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.

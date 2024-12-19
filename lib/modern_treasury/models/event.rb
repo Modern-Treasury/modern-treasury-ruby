@@ -16,8 +16,8 @@ module ModernTreasury
       # @!attribute data
       #   The body of the event.
       #
-      #   @return [Hash]
-      required :data, Hash
+      #   @return [Hash{Symbol => Object}]
+      required :data, ModernTreasury::HashOf[ModernTreasury::Unknown]
 
       # @!attribute entity_id
       #   The ID of the entity for the event.
@@ -64,7 +64,7 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param data [Hash] The body of the event.
+      #   # @param data [Hash{Symbol => Object}] The body of the event.
       #   #
       #   # @param entity_id [String] The ID of the entity for the event.
       #   #

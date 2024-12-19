@@ -78,7 +78,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>, nil] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean, nil] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -222,7 +222,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>, nil] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean, nil] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -332,7 +332,7 @@ module ModernTreasury
       #
       #   @option params [Date, nil] :effective_date_start An inclusive lower bound for searching effective_date
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -434,7 +434,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>, nil] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean, nil] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note

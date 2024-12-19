@@ -65,7 +65,7 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param legal_entity_id [String] The ID of the legal entity.
       #   #

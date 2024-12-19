@@ -96,8 +96,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute middle_name
       #   An individual's middle name.
@@ -181,7 +181,7 @@ module ModernTreasury
       #   #
       #   # @param legal_structure [String, nil] The business's legal structure.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param middle_name [String, nil] An individual's middle name.
@@ -295,15 +295,15 @@ module ModernTreasury
         optional :line2, String
 
         # @!parse
-        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
         #   #
-        #   # @param line1 [String]
+        #   # @param line1 [String, nil]
         #   #
-        #   # @param locality [String] Locality or City.
+        #   # @param locality [String, nil] Locality or City.
         #   #
-        #   # @param postal_code [String] The postal code of the address.
+        #   # @param postal_code [String, nil] The postal code of the address.
         #   #
-        #   # @param region [String] Region or State.
+        #   # @param region [String, nil] Region or State.
         #   #
         #   # @param address_types [Array<String>, nil] The types of this address.
         #   #
@@ -583,8 +583,8 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash]
-          optional :metadata, Hash
+          #   @return [Hash{Symbol => String}]
+          optional :metadata, ModernTreasury::HashOf[String]
 
           # @!attribute middle_name
           #   An individual's middle name.
@@ -673,7 +673,7 @@ module ModernTreasury
           #   #
           #   # @param legal_structure [String, nil] The business's legal structure.
           #   #
-          #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
           #   # @param middle_name [String, nil] An individual's middle name.
@@ -769,15 +769,15 @@ module ModernTreasury
             optional :line2, String
 
             # @!parse
-            #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+            #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
             #   #
-            #   # @param line1 [String]
+            #   # @param line1 [String, nil]
             #   #
-            #   # @param locality [String] Locality or City.
+            #   # @param locality [String, nil] Locality or City.
             #   #
-            #   # @param postal_code [String] The postal code of the address.
+            #   # @param postal_code [String, nil] The postal code of the address.
             #   #
-            #   # @param region [String] Region or State.
+            #   # @param region [String, nil] Region or State.
             #   #
             #   # @param address_types [Array<String>, nil] The types of this address.
             #   #

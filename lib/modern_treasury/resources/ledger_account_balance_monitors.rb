@@ -18,7 +18,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :description An optional, free-form description for internal use.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -59,7 +59,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :description An optional, free-form description for internal use.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -87,7 +87,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ledger_account_id Query the balance monitors for a single ledger account.
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

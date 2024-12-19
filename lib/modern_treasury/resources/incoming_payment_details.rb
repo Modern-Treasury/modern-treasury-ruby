@@ -30,7 +30,7 @@ module ModernTreasury
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::IncomingPaymentDetailUpdateParams] Attributes to send in this request.
       #
-      #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -61,7 +61,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::TransactionDirection, nil] :direction One of `credit` or `debit`.
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

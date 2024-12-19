@@ -16,8 +16,8 @@ module ModernTreasury
 
       # @!attribute metadata
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
       #
@@ -29,7 +29,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_account_id [String, nil] The ledger account that you'd like to link to the virtual account.
       #   #
-      #   # @param metadata [Hash, nil]
+      #   # @param metadata [Hash{Symbol => String}, nil]
       #   #
       #   # @param name [String, nil]
       #   #

@@ -113,40 +113,40 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param annual_income [Integer] The annual income of the individual.
+      #   # @param annual_income [Integer, nil] The annual income of the individual.
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
-      #   # @param employer_country [String] The country in which the employer is located.
+      #   # @param employer_country [String, nil] The country in which the employer is located.
       #   #
-      #   # @param employer_name [String] The name of the employer.
+      #   # @param employer_name [String, nil] The name of the employer.
       #   #
-      #   # @param employer_state [String] The state in which the employer is located.
+      #   # @param employer_state [String, nil] The state in which the employer is located.
       #   #
-      #   # @param employment_status [String] The employment status of the individual.
+      #   # @param employment_status [String, nil] The employment status of the individual.
       #   #
-      #   # @param income_country [String] The country in which the individual's income is earned.
+      #   # @param income_country [String, nil] The country in which the individual's income is earned.
       #   #
-      #   # @param income_source [String] The source of the individual's income.
+      #   # @param income_source [String, nil] The source of the individual's income.
       #   #
-      #   # @param income_state [String] The state in which the individual's income is earned.
+      #   # @param income_state [String, nil] The state in which the individual's income is earned.
       #   #
-      #   # @param industry [String] The industry of the individual.
+      #   # @param industry [String, nil] The industry of the individual.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
       #   # @param object [String]
       #   #
-      #   # @param occupation [String] The occupation of the individual.
+      #   # @param occupation [String, nil] The occupation of the individual.
       #   #
-      #   # @param source_of_funds [String] The source of the individual's funds.
+      #   # @param source_of_funds [String, nil] The source of the individual's funds.
       #   #
       #   # @param updated_at [String]
       #   #
-      #   # @param wealth_source [String] The source of the individual's wealth.
+      #   # @param wealth_source [String, nil] The source of the individual's wealth.
       #   #
       #   def initialize(
       #     id:,

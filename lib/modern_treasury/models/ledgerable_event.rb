@@ -40,8 +40,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
       #   Name of the ledgerable event.
@@ -64,16 +64,16 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param custom_data [Object] Additionally data to be used by the Ledger Event Handler.
+      #   # @param custom_data [Object, nil] Additionally data to be used by the Ledger Event Handler.
       #   #
-      #   # @param description [String] Description of the ledgerable event.
+      #   # @param description [String, nil] Description of the ledgerable event.
       #   #
       #   # @param ledger_event_handler_id [String] Id of the ledger event handler that is used to create a ledger transaction.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param name [String] Name of the ledgerable event.
