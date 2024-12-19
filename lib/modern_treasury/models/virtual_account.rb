@@ -69,8 +69,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
       #   The name of the virtual account.
@@ -99,31 +99,31 @@ module ModernTreasury
       #   #
       #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
       #   #
-      #   # @param counterparty_id [String] The ID of a counterparty that the virtual account belongs to. Optional.
+      #   # @param counterparty_id [String, nil] The ID of a counterparty that the virtual account belongs to. Optional.
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param credit_ledger_account_id [String] The ID of a credit normal ledger account. When money enters the virtual account,
+      #   # @param credit_ledger_account_id [String, nil] The ID of a credit normal ledger account. When money enters the virtual account,
       #   #   this ledger account will be credited. Must be accompanied by a
       #   #   debit_ledger_account_id if present.
       #   #
-      #   # @param debit_ledger_account_id [String] The ID of a debit normal ledger account. When money enters the virtual account,
+      #   # @param debit_ledger_account_id [String, nil] The ID of a debit normal ledger account. When money enters the virtual account,
       #   #   this ledger account will be debited. Must be accompanied by a
       #   #   credit_ledger_account_id if present.
       #   #
-      #   # @param description [String] An optional free-form description for internal use.
+      #   # @param description [String, nil] An optional free-form description for internal use.
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param internal_account_id [String] The ID of the internal account that the virtual account is in.
       #   #
-      #   # @param ledger_account_id [String] If the virtual account links to a ledger account in Modern Treasury, the id of
+      #   # @param ledger_account_id [String, nil] If the virtual account links to a ledger account in Modern Treasury, the id of
       #   #   the ledger account will be populated here.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param name [String] The name of the virtual account.

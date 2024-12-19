@@ -63,8 +63,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
       #
@@ -81,10 +81,10 @@ module ModernTreasury
       #   #
       #   # @param accounting [ModernTreasury::Models::LineItem::Accounting]
       #   #
-      #   # @param accounting_category_id [String] The ID of one of your accounting categories. Note that these will only be
+      #   # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be
       #   #   accessible if your accounting system has been connected.
       #   #
-      #   # @param accounting_ledger_class_id [String] The ID of one of the class objects in your accounting system. Class objects
+      #   # @param accounting_ledger_class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects
       #   #   track segments of your business independent of client or project. Note that
       #   #   these will only be accessible if your accounting system has been connected.
       #   #
@@ -93,7 +93,7 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param description [String] A free-form description of the line item.
+      #   # @param description [String, nil] A free-form description of the line item.
       #   #
       #   # @param itemizable_id [String] The ID of the payment order or expected payment.
       #   #
@@ -102,7 +102,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]

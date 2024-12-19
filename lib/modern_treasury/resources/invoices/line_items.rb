@@ -26,7 +26,7 @@ module ModernTreasury
         #     money and increases the invoice's `total_amount` due. `credit` has the opposite
         #     intention and effect.
         #
-        #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+        #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
         #   @option params [Integer, nil] :quantity The number of units of a product or service that this line item is for. Must be
@@ -88,7 +88,7 @@ module ModernTreasury
         #     business money and increases the invoice's `total_amount` due. `credit` has the
         #     opposite intention and effect.
         #
-        #   @option params [Hash, nil] :metadata Body param: Additional data represented as key-value pairs. Both the key and
+        #   @option params [Hash{Symbol => String}, nil] :metadata Body param: Additional data represented as key-value pairs. Both the key and
         #     value must be strings.
         #
         #   @option params [String, nil] :name Body param: The name of the line item, typically a product or SKU name.

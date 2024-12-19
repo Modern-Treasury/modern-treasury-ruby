@@ -24,8 +24,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!parse
       #   # @param name [String] Name of the ledgerable event.
@@ -34,7 +34,7 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] Description of the ledgerable event.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(name:, custom_data: nil, description: nil, metadata: nil) = super

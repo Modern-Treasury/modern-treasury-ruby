@@ -50,8 +50,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
       #   Name of the ledger event handler.
@@ -71,28 +71,28 @@ module ModernTreasury
 
       # @!attribute variables
       #
-      #   @return [Hash]
-      required :variables, Hash
+      #   @return [Hash{Symbol => ModernTreasury::Models::LedgerEventHandlerVariable}]
+      required :variables, ModernTreasury::HashOf[-> { ModernTreasury::Models::LedgerEventHandlerVariable }]
 
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param conditions [ModernTreasury::Models::LedgerEventHandler::Conditions]
+      #   # @param conditions [ModernTreasury::Models::LedgerEventHandler::Conditions, nil]
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param description [String] An optional description.
+      #   # @param description [String, nil] An optional description.
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
-      #   # @param ledger_id [String] The id of the ledger that this event handler belongs to.
+      #   # @param ledger_id [String, nil] The id of the ledger that this event handler belongs to.
       #   #
       #   # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate]
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param name [String] Name of the ledger event handler.
@@ -101,7 +101,7 @@ module ModernTreasury
       #   #
       #   # @param updated_at [String]
       #   #
-      #   # @param variables [Hash]
+      #   # @param variables [Hash{Symbol => ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       #   #
       #   def initialize(
       #     id:,
@@ -183,14 +183,14 @@ module ModernTreasury
         required :status, String
 
         # @!parse
-        #   # @param description [String] An optional description for internal use.
+        #   # @param description [String, nil] An optional description for internal use.
         #   #
-        #   # @param effective_at [String] The timestamp (ISO8601 format) at which the ledger transaction happened for
+        #   # @param effective_at [String, nil] The timestamp (ISO8601 format) at which the ledger transaction happened for
         #   #   reporting purposes.
         #   #
         #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry>] An array of ledger entry objects.
         #   #
-        #   # @param status [String] To post a ledger transaction at creation, use `posted`.
+        #   # @param status [String, nil] To post a ledger transaction at creation, use `posted`.
         #   #
         #   def initialize(description:, effective_at:, ledger_entries:, status:) = super
 

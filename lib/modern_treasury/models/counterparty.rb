@@ -45,8 +45,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
       #   A human friendly name for this counterparty.
@@ -83,19 +83,19 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
-      #   # @param email [String] The counterparty's email.
+      #   # @param email [String, nil] The counterparty's email.
       #   #
-      #   # @param legal_entity_id [String] The id of the legal entity.
+      #   # @param legal_entity_id [String, nil] The id of the legal entity.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   # @param name [String] A human friendly name for this counterparty.
+      #   # @param name [String, nil] A human friendly name for this counterparty.
       #   #
       #   # @param object [String]
       #   #
@@ -174,8 +174,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute name
         #   A nickname for the external account. This is only for internal usage and won't affect any payments
@@ -247,7 +247,7 @@ module ModernTreasury
         #   # @param live_mode [Boolean, nil] This field will be true if this object exists in the live environment or false
         #   #   if it exists in the test environment.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
@@ -348,7 +348,7 @@ module ModernTreasury
           #   #
           #   # @param created_at [String]
           #   #
-          #   # @param discarded_at [String]
+          #   # @param discarded_at [String, nil]
           #   #
           #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
           #   #   if it exists in the test environment.
@@ -457,24 +457,24 @@ module ModernTreasury
           #   #
           #   # @param id [String]
           #   #
-          #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+          #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
           #   #
           #   # @param created_at [String]
           #   #
-          #   # @param line1 [String]
+          #   # @param line1 [String, nil]
           #   #
-          #   # @param line2 [String]
+          #   # @param line2 [String, nil]
           #   #
           #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
           #   #   if it exists in the test environment.
           #   #
-          #   # @param locality [String] Locality or City.
+          #   # @param locality [String, nil] Locality or City.
           #   #
           #   # @param object [String]
           #   #
-          #   # @param postal_code [String] The postal code of the address.
+          #   # @param postal_code [String, nil] The postal code of the address.
           #   #
-          #   # @param region [String] Region or State.
+          #   # @param region [String, nil] Region or State.
           #   #
           #   # @param updated_at [String]
           #   #

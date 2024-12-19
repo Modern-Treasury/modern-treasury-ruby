@@ -29,8 +29,8 @@ module ModernTreasury
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute payment_direction
       #   Only return internal accounts that can originate payments with this direction.
@@ -58,7 +58,7 @@ module ModernTreasury
       #   #
       #   # @param legal_entity_id [String, nil] Only return internal accounts associated with this legal entity.
       #   #
-      #   # @param metadata [Hash, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol => String}, nil] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #

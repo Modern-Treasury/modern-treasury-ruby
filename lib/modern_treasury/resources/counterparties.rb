@@ -27,7 +27,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :legal_entity_id The id of the legal entity.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean, nil] :send_remittance_advice Send an email to the counterparty whenever an associated payment order is sent
@@ -77,7 +77,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :legal_entity_id The id of the legal entity.
       #
-      #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
       #   @option params [String, nil] :name A new name for the counterparty. Will only update if passed.
@@ -116,7 +116,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :legal_entity_id Filters for counterparties with the given legal entity ID.
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

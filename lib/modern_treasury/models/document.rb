@@ -74,11 +74,11 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
       #   #
-      #   # @param document_type [String] A category given to the document, can be `null`.
+      #   # @param document_type [String, nil] A category given to the document, can be `null`.
       #   #
       #   # @param documentable_id [String] The unique identifier for the associated object.
       #   #
@@ -163,7 +163,7 @@ module ModernTreasury
         #   #
         #   # @param created_at [String]
         #   #
-        #   # @param discarded_at [String]
+        #   # @param discarded_at [String, nil]
         #   #
         #   # @param document_identifier [String]
         #   #

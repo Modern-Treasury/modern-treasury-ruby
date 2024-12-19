@@ -70,8 +70,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
       #
@@ -104,7 +104,7 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param amount [Integer] The amount of the ledger account settlement.
+      #   # @param amount [Integer, nil] The amount of the ledger account settlement.
       #   #
       #   # @param contra_ledger_account_id [String] The id of the contra ledger account that sends to or receives funds from the
       #   #   settled ledger account.
@@ -113,9 +113,9 @@ module ModernTreasury
       #   #
       #   # @param currency [String] The currency of the ledger account settlement.
       #   #
-      #   # @param currency_exponent [Integer] The currency exponent of the ledger account settlement.
+      #   # @param currency_exponent [Integer, nil] The currency exponent of the ledger account settlement.
       #   #
-      #   # @param description [String] The description of the ledger account settlement.
+      #   # @param description [String, nil] The description of the ledger account settlement.
       #   #
       #   # @param effective_at_upper_bound [String] The exclusive upper bound of the effective_at timestamp of the ledger entries to
       #   #   be included in the ledger account settlement. The default value is the
@@ -123,12 +123,12 @@ module ModernTreasury
       #   #
       #   # @param ledger_id [String] The id of the ledger that this ledger account settlement belongs to.
       #   #
-      #   # @param ledger_transaction_id [String] The id of the ledger transaction that this settlement is associated with.
+      #   # @param ledger_transaction_id [String, nil] The id of the ledger transaction that this settlement is associated with.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
@@ -136,7 +136,7 @@ module ModernTreasury
       #   # @param settled_ledger_account_id [String] The id of the settled ledger account whose ledger entries are queried against,
       #   #   and its balance is reduced as a result.
       #   #
-      #   # @param settlement_entry_direction [String] The direction of the ledger entry with the settlement_ledger_account.
+      #   # @param settlement_entry_direction [String, nil] The direction of the ledger entry with the settlement_ledger_account.
       #   #
       #   # @param status [String] The status of the ledger account settlement. One of `processing`, `pending`,
       #   #   `posted`, `archiving` or `archived`.

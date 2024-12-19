@@ -46,8 +46,8 @@ module ModernTreasury
       # @!attribute custom_identifiers
       #   An object containing key-value pairs, each with a custom identifier as the key and a string value.
       #
-      #   @return [Hash]
-      required :custom_identifiers, Hash
+      #   @return [Hash{Symbol => String}]
+      required :custom_identifiers, ModernTreasury::HashOf[String]
 
       # @!attribute direction
       #   Either `credit` or `debit`.
@@ -81,8 +81,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
       #
@@ -139,8 +139,8 @@ module ModernTreasury
       # @!attribute details
       #   This field contains additional information that the bank provided about the transaction. This is structured data. Some of the data in here might overlap with what is in the `vendor_description`. For example, the OBI could be a part of the vendor description, and it would also be included in here. The attributes that are passed through the details field will vary based on your banking partner. Currently, the following keys may be in the details object: `originator_name`, `originator_to_beneficiary_information`.
       #
-      #   @return [Hash]
-      optional :details, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :details, ModernTreasury::HashOf[String]
 
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in your banking portal.
@@ -154,33 +154,33 @@ module ModernTreasury
       #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
       #   #   as 1000.
       #   #
-      #   # @param as_of_date [String] The date on which the transaction occurred.
+      #   # @param as_of_date [String, nil] The date on which the transaction occurred.
       #   #
-      #   # @param as_of_time [String] The time on which the transaction occurred. Depending on the granularity of the
+      #   # @param as_of_time [String, nil] The time on which the transaction occurred. Depending on the granularity of the
       #   #   timestamp information received from the bank, it may be `null`.
       #   #
-      #   # @param as_of_timezone [String] The timezone in which the `as_of_time` is represented. Can be `null` if the bank
+      #   # @param as_of_timezone [String, nil] The timezone in which the `as_of_time` is represented. Can be `null` if the bank
       #   #   does not provide timezone info.
       #   #
       #   # @param created_at [String]
       #   #
       #   # @param currency [String] Currency that this transaction is denominated in.
       #   #
-      #   # @param custom_identifiers [Hash] An object containing key-value pairs, each with a custom identifier as the key
+      #   # @param custom_identifiers [Hash{Symbol => String}] An object containing key-value pairs, each with a custom identifier as the key
       #   #   and a string value.
       #   #
       #   # @param direction [String] Either `credit` or `debit`.
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
-      #   # @param foreign_exchange_rate [ModernTreasury::Models::Transaction::ForeignExchangeRate] Associated serialized foreign exchange rate information.
+      #   # @param foreign_exchange_rate [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil] Associated serialized foreign exchange rate information.
       #   #
       #   # @param internal_account_id [String] The ID of the relevant Internal Account.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
@@ -196,19 +196,19 @@ module ModernTreasury
       #   #
       #   # @param updated_at [String]
       #   #
-      #   # @param vendor_code [String] When applicable, the bank-given code that determines the transaction's category.
+      #   # @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
       #   #   For most banks this is the BAI2/BTRS transaction code.
       #   #
-      #   # @param vendor_code_type [String] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+      #   # @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   #   `swift`, `us_bank`, or others.
       #   #
-      #   # @param vendor_customer_id [String] An identifier given to this transaction by the bank, often `null`.
+      #   # @param vendor_customer_id [String, nil] An identifier given to this transaction by the bank, often `null`.
       #   #
-      #   # @param vendor_id [String] An identifier given to this transaction by the bank.
+      #   # @param vendor_id [String, nil] An identifier given to this transaction by the bank.
       #   #
-      #   # @param details [Hash, nil] This field contains additional information that the bank provided about the
+      #   # @param details [Hash{Symbol => String}, nil] This field contains additional information that the bank provided about the
       #   #   transaction. This is structured data. Some of the data in here might overlap
       #   #   with what is in the `vendor_description`. For example, the OBI could be a part
       #   #   of the vendor description, and it would also be included in here. The attributes

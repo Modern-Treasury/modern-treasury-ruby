@@ -96,7 +96,7 @@ module ModernTreasury
         #   # @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated.
         #   #   Value in specified currency's smallest unit (taken from parent Transaction).
         #   #
-        #   # @param counterparty_id [String] The ID for the counterparty for this transaction line item.
+        #   # @param counterparty_id [String, nil] The ID for the counterparty for this transaction line item.
         #   #
         #   # @param created_at [String]
         #   #
@@ -106,9 +106,9 @@ module ModernTreasury
         #   #   about changing your settings at
         #   #   https://docs.moderntreasury.com/reference/personally-identifiable-information.
         #   #
-        #   # @param discarded_at [String]
+        #   # @param discarded_at [String, nil]
         #   #
-        #   # @param expected_payment_id [String] The ID of the reconciled Expected Payment, otherwise `null`.
+        #   # @param expected_payment_id [String, nil] The ID of the reconciled Expected Payment, otherwise `null`.
         #   #
         #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment, or false
         #   #   if it exists in the test environment.
@@ -118,10 +118,10 @@ module ModernTreasury
         #   # @param reconcilable [Boolean] Describes whether this line item should be counted towards the corresponding
         #   #   transaction’s reconciliation.
         #   #
-        #   # @param transactable_id [String] If a matching object exists in Modern Treasury, the ID will be populated here,
+        #   # @param transactable_id [String, nil] If a matching object exists in Modern Treasury, the ID will be populated here,
         #   #   otherwise `null`.
         #   #
-        #   # @param transactable_type [String] If a matching object exists in Modern Treasury, the type will be populated here,
+        #   # @param transactable_type [String, nil] If a matching object exists in Modern Treasury, the type will be populated here,
         #   #   otherwise `null`.
         #   #
         #   # @param transaction_id [String] The ID of the parent transaction.

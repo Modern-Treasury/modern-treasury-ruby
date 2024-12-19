@@ -29,8 +29,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        required :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        required :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute object
         #
@@ -65,17 +65,17 @@ module ModernTreasury
         #   #
         #   # @param created_at [String]
         #   #
-        #   # @param ledger_transaction_id [String] The ID of the ledger transaction linked to the reversal.
+        #   # @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the reversal.
         #   #
         #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
         #   #   if it exists in the test environment.
         #   #
-        #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param object [String]
         #   #
-        #   # @param payment_order_id [String] The ID of the relevant Payment Order.
+        #   # @param payment_order_id [String, nil] The ID of the relevant Payment Order.
         #   #
         #   # @param reason [String] The reason for the reversal.
         #   #

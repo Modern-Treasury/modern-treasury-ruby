@@ -94,8 +94,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute notification_email_addresses
       #   Emails in addition to the counterparty email to send invoice status notifications to. At least one email is required if notifications are enabled and the counterparty doesn't have an email.
@@ -193,7 +193,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_account_settlement_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param notification_email_addresses [Array<String>, nil] Emails in addition to the counterparty email to send invoice status
@@ -317,7 +317,7 @@ module ModernTreasury
         #   #
         #   # @param created_at [String]
         #   #
-        #   # @param discarded_at [String]
+        #   # @param discarded_at [String, nil]
         #   #
         #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
         #   #   if it exists in the test environment.
@@ -498,8 +498,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute quantity
         #   The number of units of a product or service that this line item is for.           Must be a whole number. Defaults to 1 if not provided.
@@ -525,7 +525,7 @@ module ModernTreasury
         #   #   money and increases the invoice's `total_amount` due. `credit` has the opposite
         #   #   intention and effect.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param quantity [Integer, nil] The number of units of a product or service that this line item is for. Must be

@@ -64,8 +64,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
       #   A nickname for the account.
@@ -118,38 +118,38 @@ module ModernTreasury
       #   #
       #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
       #   #
-      #   # @param account_type [String] Can be checking, savings or other.
+      #   # @param account_type [String, nil] Can be checking, savings or other.
       #   #
       #   # @param connection [ModernTreasury::Models::Connection] Specifies which financial institution the accounts belong to.
       #   #
-      #   # @param counterparty_id [String] The Counterparty associated to this account.
+      #   # @param counterparty_id [String, nil] The Counterparty associated to this account.
       #   #
       #   # @param created_at [String]
       #   #
       #   # @param currency [String] The currency of the account.
       #   #
-      #   # @param ledger_account_id [String] If the internal account links to a ledger account in Modern Treasury, the id of
+      #   # @param ledger_account_id [String, nil] If the internal account links to a ledger account in Modern Treasury, the id of
       #   #   the ledger account will be populated here.
       #   #
-      #   # @param legal_entity_id [String] The Legal Entity associated to this account
+      #   # @param legal_entity_id [String, nil] The Legal Entity associated to this account
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   # @param name [String] A nickname for the account.
+      #   # @param name [String, nil] A nickname for the account.
       #   #
       #   # @param object [String]
       #   #
-      #   # @param parent_account_id [String] The parent InternalAccount of this account.
+      #   # @param parent_account_id [String, nil] The parent InternalAccount of this account.
       #   #
-      #   # @param party_address [ModernTreasury::Models::InternalAccount::PartyAddress] The address associated with the owner or null.
+      #   # @param party_address [ModernTreasury::Models::InternalAccount::PartyAddress, nil] The address associated with the owner or null.
       #   #
       #   # @param party_name [String] The legal name of the entity which owns the account.
       #   #
-      #   # @param party_type [String] Either individual or business.
+      #   # @param party_type [String, nil] Either individual or business.
       #   #
       #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
       #   #
@@ -278,24 +278,24 @@ module ModernTreasury
         #   #
         #   # @param id [String]
         #   #
-        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
         #   #
         #   # @param created_at [String]
         #   #
-        #   # @param line1 [String]
+        #   # @param line1 [String, nil]
         #   #
-        #   # @param line2 [String]
+        #   # @param line2 [String, nil]
         #   #
         #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
         #   #   if it exists in the test environment.
         #   #
-        #   # @param locality [String] Locality or City.
+        #   # @param locality [String, nil] Locality or City.
         #   #
         #   # @param object [String]
         #   #
-        #   # @param postal_code [String] The postal code of the address.
+        #   # @param postal_code [String, nil] The postal code of the address.
         #   #
-        #   # @param region [String] Region or State.
+        #   # @param region [String, nil] Region or State.
         #   #
         #   # @param updated_at [String]
         #   #

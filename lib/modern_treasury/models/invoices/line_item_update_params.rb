@@ -24,8 +24,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute name
         #   The name of the line item, typically a product or SKU name.
@@ -60,7 +60,7 @@ module ModernTreasury
         #   #   money and increases the invoice's `total_amount` due. `credit` has the opposite
         #   #   intention and effect.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param name [String, nil] The name of the line item, typically a product or SKU name.

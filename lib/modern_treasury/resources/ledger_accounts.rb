@@ -34,7 +34,7 @@ module ModernTreasury
       #     be populated here, otherwise null. The value is one of internal_account or
       #     external_account.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -86,7 +86,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :description The description of the ledger account.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [String, nil] :name The name of the ledger account.
@@ -123,7 +123,7 @@ module ModernTreasury
       #     the provided timestamps. If no value is supplied the balances will be retrieved
       #     not including that bound.
       #
-      #   @option params [Hash, nil] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol => Time}, nil] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
@@ -133,7 +133,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ledger_id
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -148,7 +148,7 @@ module ModernTreasury
       #   @option params [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, nil] :posted_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #     filter by balance amount.
       #
-      #   @option params [Hash, nil] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol => Time}, nil] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
