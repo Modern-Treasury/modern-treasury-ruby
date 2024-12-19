@@ -198,7 +198,8 @@ module ModernTreasury
       #     show_balances: nil,
       #     show_deleted: nil,
       #     status: nil,
-      #     updated_at: nil
+      #     updated_at: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -227,7 +228,7 @@ module ModernTreasury
         #   # @param created_at [String, nil]
         #   # @param effective_at [String, nil]
         #   #
-        #   def initialize(created_at: nil, effective_at: nil) = super
+        #   def initialize(created_at: nil, effective_at: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

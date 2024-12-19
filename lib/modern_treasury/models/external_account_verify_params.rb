@@ -48,7 +48,7 @@ module ModernTreasury
       #   # @param priority [String, nil] Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #   #   transfer. This will apply to both `payment_type` and `fallback_type`.
       #   #
-      #   def initialize(originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil) = super
+      #   def initialize(originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

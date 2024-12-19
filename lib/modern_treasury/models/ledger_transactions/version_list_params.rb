@@ -62,7 +62,8 @@ module ModernTreasury
         #     ledger_account_statement_id: nil,
         #     ledger_transaction_id: nil,
         #     per_page: nil,
-        #     version: nil
+        #     version: nil,
+        #     **
         #   )
         #     super
         #   end

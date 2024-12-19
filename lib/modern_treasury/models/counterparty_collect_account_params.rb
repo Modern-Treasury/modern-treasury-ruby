@@ -50,7 +50,7 @@ module ModernTreasury
       #   #   send the counterparty the link, you can set this parameter to `false`. The JSON
       #   #   body will include the link to the secure Modern Treasury form.
       #   #
-      #   def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil) = super
+      #   def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

@@ -113,7 +113,8 @@ module ModernTreasury
       #     name:,
       #     normal_balance:,
       #     object:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end
@@ -162,7 +163,7 @@ module ModernTreasury
         #   #
         #   # @param posted_balance [ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance] The posted_balance is the sum of all posted entries.
         #   #
-        #   def initialize(available_balance:, pending_balance:, posted_balance:) = super
+        #   def initialize(available_balance:, pending_balance:, posted_balance:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -210,7 +211,7 @@ module ModernTreasury
           #   #
           #   # @param debits [Integer]
           #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:) = super
+          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
@@ -256,7 +257,7 @@ module ModernTreasury
           #   #
           #   # @param debits [Integer]
           #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:) = super
+          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
@@ -302,7 +303,7 @@ module ModernTreasury
           #   #
           #   # @param debits [Integer]
           #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:) = super
+          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end

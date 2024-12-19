@@ -66,7 +66,8 @@ module ModernTreasury
       #     description: nil,
       #     ledger_id: nil,
       #     metadata: nil,
-      #     variables: nil
+      #     variables: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -111,7 +112,7 @@ module ModernTreasury
         #   #
         #   # @param status [String, nil] To post a ledger transaction at creation, use `posted`.
         #   #
-        #   def initialize(description:, effective_at:, ledger_entries:, status:) = super
+        #   def initialize(description:, effective_at:, ledger_entries:, status:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -141,7 +142,7 @@ module ModernTreasury
           #   #
           #   # @param ledger_account_id [String] The RHS of the conditional.
           #   #
-          #   def initialize(amount:, direction:, ledger_account_id:) = super
+          #   def initialize(amount:, direction:, ledger_account_id:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
@@ -173,7 +174,7 @@ module ModernTreasury
         #   #
         #   # @param value [String] The RHS of the conditional.
         #   #
-        #   def initialize(field:, operator:, value:) = super
+        #   def initialize(field:, operator:, value:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

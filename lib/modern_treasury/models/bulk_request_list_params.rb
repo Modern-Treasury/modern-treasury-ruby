@@ -52,7 +52,7 @@ module ModernTreasury
       #   #
       #   # @param status [String, nil] One of pending, processing, or completed.
       #   #
-      #   def initialize(action_type: nil, after_cursor: nil, metadata: nil, per_page: nil, resource_type: nil, status: nil) = super
+      #   def initialize(action_type: nil, after_cursor: nil, metadata: nil, per_page: nil, resource_type: nil, status: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

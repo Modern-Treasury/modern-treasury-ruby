@@ -216,7 +216,8 @@ module ModernTreasury
       #     transaction_line_item_id:,
       #     type:,
       #     updated_at:,
-      #     additional_information: nil
+      #     additional_information: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -355,7 +356,7 @@ module ModernTreasury
         #   #
         #   # @param updated_at [String]
         #   #
-        #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:) = super
+        #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

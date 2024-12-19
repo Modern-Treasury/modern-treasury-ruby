@@ -60,7 +60,8 @@ module ModernTreasury
       #     metadata: nil,
       #     name: nil,
       #     send_remittance_advice: nil,
-      #     taxpayer_identifier: nil
+      #     taxpayer_identifier: nil,
+      #     **
       #   )
       #     super
       #   end

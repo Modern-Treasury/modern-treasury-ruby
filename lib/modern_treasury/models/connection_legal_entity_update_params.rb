@@ -12,7 +12,7 @@ module ModernTreasury
       # @!parse
       #   # @param status [String, nil] The status of the connection legal entity.
       #   #
-      #   def initialize(status: nil) = super
+      #   def initialize(status: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

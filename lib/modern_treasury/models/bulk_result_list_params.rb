@@ -68,7 +68,8 @@ module ModernTreasury
       #     per_page: nil,
       #     request_id: nil,
       #     request_type: nil,
-      #     status: nil
+      #     status: nil,
+      #     **
       #   )
       #     super
       #   end

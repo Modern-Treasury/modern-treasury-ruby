@@ -169,7 +169,8 @@ module ModernTreasury
       #     routing_details:,
       #     updated_at:,
       #     verification_source:,
-      #     verification_status:
+      #     verification_status:,
+      #     **
       #   )
       #     super
       #   end
@@ -245,7 +246,8 @@ module ModernTreasury
         #     discarded_at:,
         #     live_mode:,
         #     object:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end
@@ -369,7 +371,8 @@ module ModernTreasury
         #     object:,
         #     postal_code:,
         #     region:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end

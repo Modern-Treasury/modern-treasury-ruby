@@ -90,7 +90,8 @@ module ModernTreasury
       #     object:,
       #     status:,
       #     updated_at:,
-      #     vendor_id:
+      #     vendor_id:,
+      #     **
       #   )
       #     super
       #   end

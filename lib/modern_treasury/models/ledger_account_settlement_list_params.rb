@@ -95,7 +95,8 @@ module ModernTreasury
       #     per_page: nil,
       #     settled_ledger_account_id: nil,
       #     settlement_entry_direction: nil,
-      #     updated_at: nil
+      #     updated_at: nil,
+      #     **
       #   )
       #     super
       #   end

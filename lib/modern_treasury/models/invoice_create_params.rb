@@ -256,7 +256,8 @@ module ModernTreasury
       #     recipient_email: nil,
       #     recipient_name: nil,
       #     remind_after_overdue_days: nil,
-      #     virtual_account_id: nil
+      #     virtual_account_id: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -334,7 +335,8 @@ module ModernTreasury
         #     discarded_at:,
         #     live_mode:,
         #     object:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end
@@ -410,7 +412,7 @@ module ModernTreasury
         #   #
         #   # @param line2 [String, nil]
         #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil) = super
+        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -465,7 +467,7 @@ module ModernTreasury
         #   #
         #   # @param line2 [String, nil]
         #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil) = super
+        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
@@ -542,7 +544,8 @@ module ModernTreasury
         #     direction: nil,
         #     metadata: nil,
         #     quantity: nil,
-        #     unit_amount_decimal: nil
+        #     unit_amount_decimal: nil,
+        #     **
         #   )
         #     super
         #   end
@@ -600,7 +603,7 @@ module ModernTreasury
         #   #
         #   # @param line2 [String, nil]
         #   #
-        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil) = super
+        #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

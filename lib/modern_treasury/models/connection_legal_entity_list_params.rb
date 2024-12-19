@@ -35,7 +35,7 @@ module ModernTreasury
       #   # @param per_page [Integer, nil]
       #   # @param status [String, nil]
       #   #
-      #   def initialize(after_cursor: nil, connection_id: nil, legal_entity_id: nil, per_page: nil, status: nil) = super
+      #   def initialize(after_cursor: nil, connection_id: nil, legal_entity_id: nil, per_page: nil, status: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

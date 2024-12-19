@@ -85,7 +85,8 @@ module ModernTreasury
       #     effective_at_upper_bound: nil,
       #     metadata: nil,
       #     skip_settlement_ledger_transaction: nil,
-      #     status: nil
+      #     status: nil,
+      #     **
       #   )
       #     super
       #   end

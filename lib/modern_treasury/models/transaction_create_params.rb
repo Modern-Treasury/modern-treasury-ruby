@@ -102,7 +102,8 @@ module ModernTreasury
       #     metadata: nil,
       #     posted: nil,
       #     type: nil,
-      #     vendor_description: nil
+      #     vendor_description: nil,
+      #     **
       #   )
       #     super
       #   end

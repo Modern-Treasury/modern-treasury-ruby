@@ -90,7 +90,8 @@ module ModernTreasury
       #     per_page: nil,
       #     status: nil,
       #     type: nil,
-      #     virtual_account_id: nil
+      #     virtual_account_id: nil,
+      #     **
       #   )
       #     super
       #   end

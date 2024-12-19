@@ -67,7 +67,8 @@ module ModernTreasury
       #     name: nil,
       #     party_address: nil,
       #     party_name: nil,
-      #     party_type: nil
+      #     party_type: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -122,7 +123,7 @@ module ModernTreasury
         #   #
         #   # @param region [String, nil] Region or State.
         #   #
-        #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil) = super
+        #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

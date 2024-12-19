@@ -92,7 +92,8 @@ module ModernTreasury
       #     metadata:,
       #     name:,
       #     object:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end

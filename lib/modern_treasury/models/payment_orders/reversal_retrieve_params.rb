@@ -12,7 +12,7 @@ module ModernTreasury
         # @!parse
         #   # @param payment_order_id [String]
         #   #
-        #   def initialize(payment_order_id:) = super
+        #   def initialize(payment_order_id:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

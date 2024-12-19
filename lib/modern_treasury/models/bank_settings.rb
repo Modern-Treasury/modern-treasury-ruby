@@ -94,7 +94,8 @@ module ModernTreasury
       #     object:,
       #     privacy_opt_out:,
       #     regulation_o:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end

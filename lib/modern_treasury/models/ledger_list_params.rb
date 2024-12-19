@@ -47,7 +47,7 @@ module ModernTreasury
       #   #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #
-      #   def initialize(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil) = super
+      #   def initialize(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

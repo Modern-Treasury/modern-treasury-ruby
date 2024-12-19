@@ -29,7 +29,7 @@ module ModernTreasury
       #   #
       #   # @param name [String, nil] The name of the ledger.
       #   #
-      #   def initialize(description: nil, metadata: nil, name: nil) = super
+      #   def initialize(description: nil, metadata: nil, name: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

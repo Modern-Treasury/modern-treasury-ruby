@@ -42,7 +42,7 @@ module ModernTreasury
       #   #
       #   # @param show_deleted [String, nil]
       #   #
-      #   def initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil) = super
+      #   def initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

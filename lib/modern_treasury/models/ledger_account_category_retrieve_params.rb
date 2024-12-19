@@ -14,7 +14,7 @@ module ModernTreasury
       #   #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #   #   The balances as of a time are inclusive of entries with that exact time.
       #   #
-      #   def initialize(balances: nil) = super
+      #   def initialize(balances: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -37,7 +37,7 @@ module ModernTreasury
         #   # @param as_of_date [String, nil]
         #   # @param effective_at [String, nil]
         #   #
-        #   def initialize(as_of_date: nil, effective_at: nil) = super
+        #   def initialize(as_of_date: nil, effective_at: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

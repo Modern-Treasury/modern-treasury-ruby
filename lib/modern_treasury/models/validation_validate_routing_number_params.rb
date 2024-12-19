@@ -24,7 +24,7 @@ module ModernTreasury
       #   #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #   #
-      #   def initialize(routing_number:, routing_number_type:) = super
+      #   def initialize(routing_number:, routing_number_type:, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

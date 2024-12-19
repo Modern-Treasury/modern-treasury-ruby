@@ -112,7 +112,8 @@ module ModernTreasury
       #     status:,
       #     success_result_count:,
       #     total_resource_count:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end

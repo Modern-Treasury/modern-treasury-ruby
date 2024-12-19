@@ -101,7 +101,8 @@ module ModernTreasury
       #     payment_type:,
       #     routing_number:,
       #     routing_number_type:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end
@@ -204,7 +205,8 @@ module ModernTreasury
         #     object:,
         #     postal_code:,
         #     region:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end

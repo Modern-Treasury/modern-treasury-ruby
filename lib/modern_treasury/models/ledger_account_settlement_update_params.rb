@@ -30,7 +30,7 @@ module ModernTreasury
       #   # @param status [String, nil] To post a pending ledger account settlement, use `posted`. To archive a pending
       #   #   ledger transaction, use `archived`.
       #   #
-      #   def initialize(description: nil, metadata: nil, status: nil) = super
+      #   def initialize(description: nil, metadata: nil, status: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
