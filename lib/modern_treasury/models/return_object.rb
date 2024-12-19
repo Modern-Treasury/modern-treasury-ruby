@@ -34,8 +34,8 @@ module ModernTreasury
       # @!attribute current_return
       #   If the return's status is `returned`, this will include the return object's data that is returning this return.
       #
-      #   @return [Object]
-      required :current_return, ModernTreasury::Unknown
+      #   @return [ModernTreasury::Models::ReturnObject]
+      required :current_return, -> { ModernTreasury::Models::ReturnObject }
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty passed away.
