@@ -26,7 +26,7 @@ module ModernTreasury
       #     https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
       #     for more details.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [String, nil] :name A nickname for the external account. This is only for internal usage and won't
@@ -85,7 +85,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :counterparty_id
       #
-      #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
       #   @option params [String, nil] :name A nickname for the external account. This is only for internal usage and won't
@@ -119,7 +119,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :counterparty_id
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

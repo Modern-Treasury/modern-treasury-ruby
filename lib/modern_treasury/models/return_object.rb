@@ -144,46 +144,46 @@ module ModernTreasury
       #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
       #   #   as 1000.
       #   #
-      #   # @param code [String] The return code. For ACH returns, this is the required ACH return code.
+      #   # @param code [String, nil] The return code. For ACH returns, this is the required ACH return code.
       #   #
       #   # @param created_at [String]
       #   #
       #   # @param currency [String] Currency that this transaction is denominated in.
       #   #
-      #   # @param current_return [Object] If the return's status is `returned`, this will include the return object's data
+      #   # @param current_return [Object, nil] If the return's status is `returned`, this will include the return object's data
       #   #   that is returning this return.
       #   #
-      #   # @param date_of_death [String] If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #   # @param date_of_death [String, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
       #   #   passed away.
       #   #
-      #   # @param failure_reason [String] If an originating return failed to be processed by the bank, a description of
+      #   # @param failure_reason [String, nil] If an originating return failed to be processed by the bank, a description of
       #   #   the failure reason will be available.
       #   #
-      #   # @param internal_account_id [String] The ID of the relevant Internal Account.
+      #   # @param internal_account_id [String, nil] The ID of the relevant Internal Account.
       #   #
-      #   # @param ledger_transaction_id [String] The ID of the ledger transaction linked to the return.
+      #   # @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the return.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
       #   # @param object [String]
       #   #
-      #   # @param reason [String] Often the bank will provide an explanation for the return, which is a short
+      #   # @param reason [String, nil] Often the bank will provide an explanation for the return, which is a short
       #   #   human readable string.
       #   #
       #   # @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>] An array of Payment Reference objects.
       #   #
-      #   # @param returnable_id [String] The ID of the object being returned or `null`.
+      #   # @param returnable_id [String, nil] The ID of the object being returned or `null`.
       #   #
-      #   # @param returnable_type [String] The type of object being returned or `null`.
+      #   # @param returnable_type [String, nil] The type of object being returned or `null`.
       #   #
       #   # @param role [String] The role of the return, can be `originating` or `receiving`.
       #   #
       #   # @param status [String] The current status of the return.
       #   #
-      #   # @param transaction_id [String] The ID of the relevant Transaction or `null`.
+      #   # @param transaction_id [String, nil] The ID of the relevant Transaction or `null`.
       #   #
-      #   # @param transaction_line_item_id [String] The ID of the relevant Transaction Line Item or `null`.
+      #   # @param transaction_line_item_id [String, nil] The ID of the relevant Transaction Line Item or `null`.
       #   #
       #   # @param type [String] The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       #   #   `interac`, `manual`, `paper_item`, `wire`.

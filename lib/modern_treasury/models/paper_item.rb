@@ -110,13 +110,13 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   #
-      #   # @param account_number [String] The account number on the paper item.
+      #   # @param account_number [String, nil] The account number on the paper item.
       #   #
-      #   # @param account_number_safe [String] The last 4 digits of the account_number.
+      #   # @param account_number_safe [String, nil] The last 4 digits of the account_number.
       #   #
       #   # @param amount [Integer] The amount of the paper item.
       #   #
-      #   # @param check_number [String] The check number on the paper item.
+      #   # @param check_number [String, nil] The check number on the paper item.
       #   #
       #   # @param created_at [String]
       #   #
@@ -129,20 +129,20 @@ module ModernTreasury
       #   #
       #   # @param lockbox_number [String] The identifier for the lockbox assigned by the bank.
       #   #
-      #   # @param memo_field [String] The memo field on the paper item.
+      #   # @param memo_field [String, nil] The memo field on the paper item.
       #   #
       #   # @param object [String]
       #   #
-      #   # @param remitter_name [String] The name of the remitter on the paper item.
+      #   # @param remitter_name [String, nil] The name of the remitter on the paper item.
       #   #
-      #   # @param routing_number [String] The routing number on the paper item.
+      #   # @param routing_number [String, nil] The routing number on the paper item.
       #   #
       #   # @param status [String] The current status of the paper item. One of `pending`, `completed`, or
       #   #   `returned`.
       #   #
-      #   # @param transaction_id [String] The ID of the reconciled Transaction or `null`.
+      #   # @param transaction_id [String, nil] The ID of the reconciled Transaction or `null`.
       #   #
-      #   # @param transaction_line_item_id [String] The ID of the reconciled Transaction Line Item or `null`.
+      #   # @param transaction_line_item_id [String, nil] The ID of the reconciled Transaction Line Item or `null`.
       #   #
       #   # @param updated_at [String]
       #   #

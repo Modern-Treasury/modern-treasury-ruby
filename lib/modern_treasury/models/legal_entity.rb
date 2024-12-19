@@ -111,8 +111,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute middle_name
       #   An individual's middle name.
@@ -184,63 +184,63 @@ module ModernTreasury
       #   #
       #   # @param addresses [Array<ModernTreasury::Models::LegalEntity::Address>] A list of addresses for the entity.
       #   #
-      #   # @param bank_settings [ModernTreasury::Models::BankSettings]
+      #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #   #
-      #   # @param business_name [String] The business's legal business name.
+      #   # @param business_name [String, nil] The business's legal business name.
       #   #
-      #   # @param citizenship_country [String] The country of citizenship for an individual.
+      #   # @param citizenship_country [String, nil] The country of citizenship for an individual.
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param date_formed [String] A business's formation date (YYYY-MM-DD).
+      #   # @param date_formed [String, nil] A business's formation date (YYYY-MM-DD).
       #   #
-      #   # @param date_of_birth [String] An individual's date of birth (YYYY-MM-DD).
+      #   # @param date_of_birth [String, nil] An individual's date of birth (YYYY-MM-DD).
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param doing_business_as_names [Array<String>]
       #   #
-      #   # @param email [String] The entity's primary email.
+      #   # @param email [String, nil] The entity's primary email.
       #   #
-      #   # @param first_name [String] An individual's first name.
+      #   # @param first_name [String, nil] An individual's first name.
       #   #
       #   # @param identifications [Array<ModernTreasury::Models::LegalEntity::Identification>] A list of identifications for the legal entity.
       #   #
-      #   # @param last_name [String] An individual's last name.
+      #   # @param last_name [String, nil] An individual's last name.
       #   #
-      #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>] The legal entity associations and its child legal entities.
+      #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>, nil] The legal entity associations and its child legal entities.
       #   #
       #   # @param legal_entity_type [String] The type of legal entity.
       #   #
-      #   # @param legal_structure [String] The business's legal structure.
+      #   # @param legal_structure [String, nil] The business's legal structure.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   # @param middle_name [String] An individual's middle name.
+      #   # @param middle_name [String, nil] An individual's middle name.
       #   #
       #   # @param object [String]
       #   #
       #   # @param phone_numbers [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
       #   #
-      #   # @param politically_exposed_person [Boolean] Whether the individual is a politically exposed person.
+      #   # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
       #   #
-      #   # @param preferred_name [String] An individual's preferred name.
+      #   # @param preferred_name [String, nil] An individual's preferred name.
       #   #
-      #   # @param prefix [String] An individual's prefix.
+      #   # @param prefix [String, nil] An individual's prefix.
       #   #
-      #   # @param risk_rating [String] The risk rating of the legal entity. One of low, medium, high.
+      #   # @param risk_rating [String, nil] The risk rating of the legal entity. One of low, medium, high.
       #   #
-      #   # @param suffix [String] An individual's suffix.
+      #   # @param suffix [String, nil] An individual's suffix.
       #   #
       #   # @param updated_at [String]
       #   #
-      #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails]
+      #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       #   #
-      #   # @param website [String] The entity's primary website URL.
+      #   # @param website [String, nil] The entity's primary website URL.
       #   #
       #   def initialize(
       #     id:,
@@ -359,26 +359,26 @@ module ModernTreasury
         #   #
         #   # @param address_types [Array<String>] The types of this address.
         #   #
-        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
         #   #
         #   # @param created_at [String]
         #   #
-        #   # @param discarded_at [String]
+        #   # @param discarded_at [String, nil]
         #   #
-        #   # @param line1 [String]
+        #   # @param line1 [String, nil]
         #   #
-        #   # @param line2 [String]
+        #   # @param line2 [String, nil]
         #   #
         #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
         #   #   if it exists in the test environment.
         #   #
-        #   # @param locality [String] Locality or City.
+        #   # @param locality [String, nil] Locality or City.
         #   #
         #   # @param object [String]
         #   #
-        #   # @param postal_code [String] The postal code of the address.
+        #   # @param postal_code [String, nil] The postal code of the address.
         #   #
-        #   # @param region [String] Region or State.
+        #   # @param region [String, nil] Region or State.
         #   #
         #   # @param updated_at [String]
         #   #
@@ -476,11 +476,11 @@ module ModernTreasury
         #   #
         #   # @param created_at [String]
         #   #
-        #   # @param discarded_at [String]
+        #   # @param discarded_at [String, nil]
         #   #
         #   # @param id_type [String] The type of ID number.
         #   #
-        #   # @param issuing_country [String] The ISO 3166-1 alpha-2 country code of the country that issued the
+        #   # @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the
         #   #   identification
         #   #
         #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false

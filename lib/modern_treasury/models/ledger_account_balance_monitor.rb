@@ -52,8 +52,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
       #
@@ -75,16 +75,16 @@ module ModernTreasury
       #   # @param current_ledger_account_balance_state [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState] The ledger account's balances and the monitor state as of the current ledger
       #   #   account lock version.
       #   #
-      #   # @param description [String] An optional, free-form description for internal use.
+      #   # @param description [String, nil] An optional, free-form description for internal use.
       #   #
-      #   # @param discarded_at [String]
+      #   # @param discarded_at [String, nil]
       #   #
       #   # @param ledger_account_id [String] The ledger account associated with this balance monitor.
       #   #
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]

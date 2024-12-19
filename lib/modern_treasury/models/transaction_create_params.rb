@@ -42,8 +42,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute posted
       #   This field will be `true` if the transaction has posted to the account.
@@ -67,21 +67,21 @@ module ModernTreasury
       #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
       #   #   as 1000.
       #   #
-      #   # @param as_of_date [String] The date on which the transaction occurred.
+      #   # @param as_of_date [String, nil] The date on which the transaction occurred.
       #   #
       #   # @param direction [String] Either `credit` or `debit`.
       #   #
       #   # @param internal_account_id [String] The ID of the relevant Internal Account.
       #   #
-      #   # @param vendor_code [String] When applicable, the bank-given code that determines the transaction's category.
+      #   # @param vendor_code [String, nil] When applicable, the bank-given code that determines the transaction's category.
       #   #   For most banks this is the BAI2/BTRS transaction code.
       #   #
-      #   # @param vendor_code_type [String] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+      #   # @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   #   `swift`, `us_bank`, or others.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param posted [Boolean, nil] This field will be `true` if the transaction has posted to the account.

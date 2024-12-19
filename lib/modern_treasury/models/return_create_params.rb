@@ -40,7 +40,7 @@ module ModernTreasury
       optional :reason, String
 
       # @!parse
-      #   # @param returnable_id [String] The ID of the object being returned or `null`.
+      #   # @param returnable_id [String, nil] The ID of the object being returned or `null`.
       #   #
       #   # @param returnable_type [String] The type of object being returned. Currently, this may only be
       #   #   incoming_payment_detail.

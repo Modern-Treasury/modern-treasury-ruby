@@ -23,7 +23,7 @@ module ModernTreasury
         #     the ledger transaction cannot be created, then the reversal creation will fail.
         #     The resulting ledger transaction will mirror the status of the reversal.
         #
-        #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+        #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

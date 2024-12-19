@@ -47,8 +47,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      optional :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute send_remittance_advice
       #   Send an email to the counterparty whenever an associated payment order is sent to the bank.
@@ -70,7 +70,7 @@ module ModernTreasury
                enum: -> { ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus }
 
       # @!parse
-      #   # @param name [String] A human friendly name for this counterparty.
+      #   # @param name [String, nil] A human friendly name for this counterparty.
       #   #
       #   # @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting, nil]
       #   #
@@ -85,7 +85,7 @@ module ModernTreasury
       #   #
       #   # @param legal_entity_id [String, nil] The id of the legal entity.
       #   #
-      #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param send_remittance_advice [Boolean, nil] Send an email to the counterparty whenever an associated payment order is sent
@@ -181,8 +181,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute name
         #   A nickname for the external account. This is only for internal usage and won't affect any payments
@@ -246,7 +246,7 @@ module ModernTreasury
         #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         #   #   for more details.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
@@ -440,8 +440,8 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash]
-          optional :metadata, Hash
+          #   @return [Hash{Symbol => String}]
+          optional :metadata, ModernTreasury::HashOf[String]
 
           # @!parse
           #   # Specifies a ledger account object that will be created with the external
@@ -472,7 +472,7 @@ module ModernTreasury
           #   #   be populated here, otherwise null. The value is one of internal_account or
           #   #   external_account.
           #   #
-          #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
           #   def initialize(
@@ -829,8 +829,8 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash]
-        optional :metadata, Hash
+        #   @return [Hash{Symbol => String}]
+        optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute middle_name
         #   An individual's middle name.
@@ -917,7 +917,7 @@ module ModernTreasury
         #   #
         #   # @param legal_structure [String, nil] The business's legal structure.
         #   #
-        #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param middle_name [String, nil] An individual's middle name.
@@ -1031,15 +1031,15 @@ module ModernTreasury
           optional :line2, String
 
           # @!parse
-          #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+          #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
           #   #
-          #   # @param line1 [String]
+          #   # @param line1 [String, nil]
           #   #
-          #   # @param locality [String] Locality or City.
+          #   # @param locality [String, nil] Locality or City.
           #   #
-          #   # @param postal_code [String] The postal code of the address.
+          #   # @param postal_code [String, nil] The postal code of the address.
           #   #
-          #   # @param region [String] Region or State.
+          #   # @param region [String, nil] Region or State.
           #   #
           #   # @param address_types [Array<String>, nil] The types of this address.
           #   #
@@ -1319,8 +1319,8 @@ module ModernTreasury
             # @!attribute metadata
             #   Additional data represented as key-value pairs. Both the key and value must be strings.
             #
-            #   @return [Hash]
-            optional :metadata, Hash
+            #   @return [Hash{Symbol => String}]
+            optional :metadata, ModernTreasury::HashOf[String]
 
             # @!attribute middle_name
             #   An individual's middle name.
@@ -1409,7 +1409,7 @@ module ModernTreasury
             #   #
             #   # @param legal_structure [String, nil] The business's legal structure.
             #   #
-            #   # @param metadata [Hash, nil] Additional data represented as key-value pairs. Both the key and value must be
+            #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
             #   #   strings.
             #   #
             #   # @param middle_name [String, nil] An individual's middle name.
@@ -1505,15 +1505,15 @@ module ModernTreasury
               optional :line2, String
 
               # @!parse
-              #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
+              #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
               #   #
-              #   # @param line1 [String]
+              #   # @param line1 [String, nil]
               #   #
-              #   # @param locality [String] Locality or City.
+              #   # @param locality [String, nil] Locality or City.
               #   #
-              #   # @param postal_code [String] The postal code of the address.
+              #   # @param postal_code [String, nil] The postal code of the address.
               #   #
-              #   # @param region [String] Region or State.
+              #   # @param region [String, nil] Region or State.
               #   #
               #   # @param address_types [Array<String>, nil] The types of this address.
               #   #

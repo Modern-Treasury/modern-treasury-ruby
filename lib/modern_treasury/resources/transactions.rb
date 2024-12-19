@@ -33,7 +33,7 @@ module ModernTreasury
       #     `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #     `swift`, `us_bank`, or others.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean, nil] :posted This field will be `true` if the transaction has posted to the account.
@@ -80,7 +80,7 @@ module ModernTreasury
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::TransactionUpdateParams] Attributes to send in this request.
       #
-      #   @option params [Hash, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -118,7 +118,7 @@ module ModernTreasury
       #   @option params [String, nil] :internal_account_id Specify `internal_account_id` if you wish to see transactions to/from a specific
       #     account.
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

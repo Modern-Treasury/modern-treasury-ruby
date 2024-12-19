@@ -72,7 +72,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

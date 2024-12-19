@@ -27,7 +27,7 @@ module ModernTreasury
       #   @option params [Array<String>, nil] :ledger_account_category_ids The array of ledger account category ids that this ledger account category
       #     should be a child of.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -76,7 +76,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :description The description of the ledger account category.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [String, nil] :name The name of the ledger account category.
@@ -115,7 +115,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ledger_id
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

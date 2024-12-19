@@ -51,7 +51,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ledger_account_settlement_id The ID of the virtual account the invoice should be paid to.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Array<String>, nil] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
@@ -154,7 +154,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ledger_account_settlement_id The ID of the virtual account the invoice should be paid to.
       #
-      #   @option params [Hash, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Array<String>, nil] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
@@ -226,7 +226,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :expected_payment_id
       #
-      #   @option params [Hash, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #

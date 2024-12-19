@@ -70,8 +70,8 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash]
-      required :metadata, Hash
+      #   @return [Hash{Symbol => String}]
+      required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
       #
@@ -112,7 +112,7 @@ module ModernTreasury
       #   #
       #   # @param created_at [String]
       #   #
-      #   # @param description [String] An optional description for internal use.
+      #   # @param description [String, nil] An optional description for internal use.
       #   #
       #   # @param effective_at [String] The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   #   reporting purposes.
@@ -120,17 +120,17 @@ module ModernTreasury
       #   # @param effective_date [String] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
       #   #   purposes.
       #   #
-      #   # @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
+      #   # @param external_id [String, nil] A unique string to represent the ledger transaction. Only one pending or posted
       #   #   ledger transaction may have this ID in the ledger.
       #   #
       #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEntry>] An array of ledger entry objects.
       #   #
       #   # @param ledger_id [String] The ID of the ledger this ledger transaction belongs to.
       #   #
-      #   # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern
+      #   # @param ledgerable_id [String, nil] If the ledger transaction can be reconciled to another object in Modern
       #   #   Treasury, the id will be populated here, otherwise null.
       #   #
-      #   # @param ledgerable_type [String] If the ledger transaction can be reconciled to another object in Modern
+      #   # @param ledgerable_type [String, nil] If the ledger transaction can be reconciled to another object in Modern
       #   #   Treasury, the type will be populated here, otherwise null. This can be one of
       #   #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   #   reversal.
@@ -138,17 +138,17 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
       #   #
-      #   # @param posted_at [String] The time on which the ledger transaction posted. This is null if the ledger
+      #   # @param posted_at [String, nil] The time on which the ledger transaction posted. This is null if the ledger
       #   #   transaction is pending.
       #   #
-      #   # @param reversed_by_ledger_transaction_id [String] The ID of the ledger transaction that reversed this ledger transaction.
+      #   # @param reversed_by_ledger_transaction_id [String, nil] The ID of the ledger transaction that reversed this ledger transaction.
       #   #
-      #   # @param reverses_ledger_transaction_id [String] The ID of the original ledger transaction that this ledger transaction reverses.
+      #   # @param reverses_ledger_transaction_id [String, nil] The ID of the original ledger transaction that this ledger transaction reverses.
       #   #
       #   # @param status [String] To post a ledger transaction at creation, use `posted`.
       #   #
