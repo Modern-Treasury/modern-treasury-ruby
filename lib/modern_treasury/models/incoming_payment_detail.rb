@@ -237,7 +237,8 @@ module ModernTreasury
       #     vendor_id:,
       #     virtual_account:,
       #     virtual_account_id:,
-      #     originating_account_number: nil
+      #     originating_account_number: nil,
+      #     **
       #   )
       #     super
       #   end

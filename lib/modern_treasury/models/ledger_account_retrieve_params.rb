@@ -17,7 +17,7 @@ module ModernTreasury
       #   #   not including that bound. Use `balances[as_of_lock_version]` to retrieve a
       #   #   balance as of a specific Ledger Account `lock_version`.
       #   #
-      #   def initialize(balances: nil) = super
+      #   def initialize(balances: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -66,7 +66,8 @@ module ModernTreasury
         #     as_of_lock_version: nil,
         #     effective_at: nil,
         #     effective_at_lower_bound: nil,
-        #     effective_at_upper_bound: nil
+        #     effective_at_upper_bound: nil,
+        #     **
         #   )
         #     super
         #   end

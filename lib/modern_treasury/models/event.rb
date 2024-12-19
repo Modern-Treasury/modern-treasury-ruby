@@ -81,7 +81,21 @@ module ModernTreasury
       #   #
       #   # @param updated_at [String]
       #   #
-      #   def initialize(id:, created_at:, data:, entity_id:, event_name:, event_time:, live_mode:, object:, resource:, updated_at:) = super
+      #   def initialize(
+      #     id:,
+      #     created_at:,
+      #     data:,
+      #     entity_id:,
+      #     event_name:,
+      #     event_time:,
+      #     live_mode:,
+      #     object:,
+      #     resource:,
+      #     updated_at:,
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

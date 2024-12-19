@@ -62,7 +62,8 @@ module ModernTreasury
       #     event_time_end: nil,
       #     event_time_start: nil,
       #     per_page: nil,
-      #     resource: nil
+      #     resource: nil,
+      #     **
       #   )
       #     super
       #   end

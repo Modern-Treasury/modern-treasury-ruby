@@ -23,7 +23,7 @@ module ModernTreasury
       #   # @param after_cursor [String, nil]
       #   # @param per_page [Integer, nil]
       #   #
-      #   def initialize(itemizable_type:, after_cursor: nil, per_page: nil) = super
+      #   def initialize(itemizable_type:, after_cursor: nil, per_page: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

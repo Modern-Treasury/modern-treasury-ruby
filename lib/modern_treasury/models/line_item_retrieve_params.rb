@@ -17,7 +17,7 @@ module ModernTreasury
       #   # @param itemizable_type [String]
       #   # @param itemizable_id [String]
       #   #
-      #   def initialize(itemizable_type:, itemizable_id:) = super
+      #   def initialize(itemizable_type:, itemizable_id:, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

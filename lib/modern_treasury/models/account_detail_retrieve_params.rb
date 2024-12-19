@@ -17,7 +17,7 @@ module ModernTreasury
       #   # @param accounts_type [String]
       #   # @param account_id [String]
       #   #
-      #   def initialize(accounts_type:, account_id:) = super
+      #   def initialize(accounts_type:, account_id:, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

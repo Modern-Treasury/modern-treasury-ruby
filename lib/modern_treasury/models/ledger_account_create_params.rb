@@ -102,7 +102,8 @@ module ModernTreasury
       #     ledger_account_category_ids: nil,
       #     ledgerable_id: nil,
       #     ledgerable_type: nil,
-      #     metadata: nil
+      #     metadata: nil,
+      #     **
       #   )
       #     super
       #   end

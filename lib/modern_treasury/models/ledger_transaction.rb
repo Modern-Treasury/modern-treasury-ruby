@@ -172,7 +172,8 @@ module ModernTreasury
       #     reversed_by_ledger_transaction_id:,
       #     reverses_ledger_transaction_id:,
       #     status:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end

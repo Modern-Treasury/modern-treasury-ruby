@@ -68,7 +68,8 @@ module ModernTreasury
       #     routing_number: nil,
       #     routing_number_type: nil,
       #     sanctions: nil,
-      #     supported_payment_types: nil
+      #     supported_payment_types: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -125,7 +126,7 @@ module ModernTreasury
         #   #
         #   # @param region [String, nil] Region or State.
         #   #
-        #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil) = super
+        #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

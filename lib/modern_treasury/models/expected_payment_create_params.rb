@@ -193,7 +193,8 @@ module ModernTreasury
       #     reconciliation_rule_variables: nil,
       #     remittance_information: nil,
       #     statement_descriptor: nil,
-      #     type: nil
+      #     type: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -320,7 +321,8 @@ module ModernTreasury
         #     ledgerable_id: nil,
         #     ledgerable_type: nil,
         #     metadata: nil,
-        #     status: nil
+        #     status: nil,
+        #     **
         #   )
         #     super
         #   end
@@ -425,7 +427,8 @@ module ModernTreasury
           #     metadata: nil,
           #     pending_balance_amount: nil,
           #     posted_balance_amount: nil,
-          #     show_resulting_ledger_account_balances: nil
+          #     show_resulting_ledger_account_balances: nil,
+          #     **
           #   )
           #     super
           #   end
@@ -520,7 +523,7 @@ module ModernTreasury
         #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
-        #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil) = super
+        #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

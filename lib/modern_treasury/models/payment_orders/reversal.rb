@@ -93,7 +93,8 @@ module ModernTreasury
         #     payment_order_id:,
         #     reason:,
         #     status:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end

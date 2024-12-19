@@ -30,7 +30,7 @@ module ModernTreasury
         #   #
         #   # @param transaction_id [String] The ID of the parent transaction.
         #   #
-        #   def initialize(amount:, expected_payment_id:, transaction_id:) = super
+        #   def initialize(amount:, expected_payment_id:, transaction_id:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

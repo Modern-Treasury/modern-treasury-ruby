@@ -44,7 +44,7 @@ module ModernTreasury
         #   #
         #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
         #   #
-        #   def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:) = super
+        #   def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
@@ -114,7 +114,7 @@ module ModernTreasury
           #   #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
           #   #   `swift`, or `us_bank`.
           #   #
-          #   def initialize(amount:, balance_type:, vendor_code:, vendor_code_type:) = super
+          #   def initialize(amount:, balance_type:, vendor_code:, vendor_code_type:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

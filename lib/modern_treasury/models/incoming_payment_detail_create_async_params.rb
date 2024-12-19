@@ -79,7 +79,8 @@ module ModernTreasury
       #     direction: nil,
       #     internal_account_id: nil,
       #     type: nil,
-      #     virtual_account_id: nil
+      #     virtual_account_id: nil,
+      #     **
       #   )
       #     super
       #   end

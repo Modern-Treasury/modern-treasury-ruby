@@ -109,7 +109,8 @@ module ModernTreasury
       #     live_mode:,
       #     object:,
       #     source:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end
@@ -184,7 +185,8 @@ module ModernTreasury
         #     document_identifier_type:,
         #     live_mode:,
         #     object:,
-        #     updated_at:
+        #     updated_at:,
+        #     **
         #   )
         #     super
         #   end
@@ -253,7 +255,7 @@ module ModernTreasury
         #   #
         #   # @param size [Integer, nil] The size of the document in bytes.
         #   #
-        #   def initialize(content_type: nil, filename: nil, size: nil) = super
+        #   def initialize(content_type: nil, filename: nil, size: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

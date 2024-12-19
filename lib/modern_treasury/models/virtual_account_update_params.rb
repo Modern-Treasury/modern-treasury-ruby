@@ -33,7 +33,7 @@ module ModernTreasury
       #   #
       #   # @param name [String, nil]
       #   #
-      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil) = super
+      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

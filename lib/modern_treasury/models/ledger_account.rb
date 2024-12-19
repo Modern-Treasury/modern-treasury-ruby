@@ -143,7 +143,8 @@ module ModernTreasury
       #     name:,
       #     normal_balance:,
       #     object:,
-      #     updated_at:
+      #     updated_at:,
+      #     **
       #   )
       #     super
       #   end
@@ -208,7 +209,8 @@ module ModernTreasury
         #     effective_at_lower_bound:,
         #     effective_at_upper_bound:,
         #     pending_balance:,
-        #     posted_balance:
+        #     posted_balance:,
+        #     **
         #   )
         #     super
         #   end
@@ -259,7 +261,7 @@ module ModernTreasury
           #   #
           #   # @param debits [Integer]
           #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:) = super
+          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
@@ -305,7 +307,7 @@ module ModernTreasury
           #   #
           #   # @param debits [Integer]
           #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:) = super
+          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
@@ -351,7 +353,7 @@ module ModernTreasury
           #   #
           #   # @param debits [Integer]
           #   #
-          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:) = super
+          #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end

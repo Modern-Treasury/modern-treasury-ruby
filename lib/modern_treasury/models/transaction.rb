@@ -244,7 +244,8 @@ module ModernTreasury
       #     vendor_customer_id:,
       #     vendor_id:,
       #     details: nil,
-      #     vendor_description: nil
+      #     vendor_description: nil,
+      #     **
       #   )
       #     super
       #   end
@@ -315,7 +316,7 @@ module ModernTreasury
         #   # @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` /
         #   #   (10 ^ `exponent`).
         #   #
-        #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:) = super
+        #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
