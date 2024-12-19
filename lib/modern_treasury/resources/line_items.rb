@@ -24,14 +24,14 @@ module ModernTreasury
       def retrieve(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LineItemRetrieveParams.dump(params)
         itemizable_type = parsed.fetch(:itemizable_type) do
-          raise ArgumentError.new("missing required path argument :itemizable_type")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         itemizable_id = parsed.fetch(:itemizable_id) do
-          raise ArgumentError.new("missing required path argument :itemizable_id")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :get,
-          path: "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}",
+          path: ["api/%0s/%1s/line_items/%2s", itemizable_type, itemizable_id, id],
           model: ModernTreasury::Models::LineItem
         }
         @client.request(req, opts)
@@ -56,14 +56,14 @@ module ModernTreasury
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LineItemUpdateParams.dump(params)
         itemizable_type = parsed.fetch(:itemizable_type) do
-          raise ArgumentError.new("missing required path argument :itemizable_type")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         itemizable_id = parsed.fetch(:itemizable_id) do
-          raise ArgumentError.new("missing required path argument :itemizable_id")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :patch,
-          path: "/api/#{itemizable_type}/#{itemizable_id}/line_items/#{id}",
+          path: ["api/%0s/%1s/line_items/%2s", itemizable_type, itemizable_id, id],
           body: parsed.except(:itemizable_type, :itemizable_id),
           model: ModernTreasury::Models::LineItem
         }
@@ -88,11 +88,11 @@ module ModernTreasury
       def list(itemizable_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LineItemListParams.dump(params)
         itemizable_type = parsed.fetch(:itemizable_type) do
-          raise ArgumentError.new("missing required path argument :itemizable_type")
+          raise ArgumentError.new("missing required path argument #{_1}")
         end
         req = {
           method: :get,
-          path: "/api/#{itemizable_type}/#{itemizable_id}/line_items",
+          path: ["api/%0s/%1s/line_items", itemizable_type, itemizable_id],
           query: parsed.except(:itemizable_type),
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LineItem

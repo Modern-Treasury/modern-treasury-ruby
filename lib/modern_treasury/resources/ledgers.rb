@@ -26,7 +26,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledgers",
+          path: "api/ledgers",
           body: parsed,
           model: ModernTreasury::Models::Ledger
         }
@@ -43,7 +43,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/ledgers/#{id}",
+          path: ["api/ledgers/%0s", id],
           model: ModernTreasury::Models::Ledger
         }
         @client.request(req, opts)
@@ -69,7 +69,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/ledgers/#{id}",
+          path: ["api/ledgers/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::Ledger
         }
@@ -102,7 +102,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/ledgers",
+          path: "api/ledgers",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::Ledger
@@ -120,7 +120,7 @@ module ModernTreasury
       def delete(id, opts = {})
         req = {
           method: :delete,
-          path: "/api/ledgers/#{id}",
+          path: ["api/ledgers/%0s", id],
           model: ModernTreasury::Models::Ledger
         }
         @client.request(req, opts)

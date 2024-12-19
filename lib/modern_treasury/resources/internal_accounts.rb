@@ -43,7 +43,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::InternalAccountCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/internal_accounts",
+          path: "api/internal_accounts",
           body: parsed,
           model: ModernTreasury::Models::InternalAccount
         }
@@ -60,7 +60,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/internal_accounts/#{id}",
+          path: ["api/internal_accounts/%0s", id],
           model: ModernTreasury::Models::InternalAccount
         }
         @client.request(req, opts)
@@ -90,7 +90,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::InternalAccountUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/internal_accounts/#{id}",
+          path: ["api/internal_accounts/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::InternalAccount
         }
@@ -126,7 +126,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::InternalAccountListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/internal_accounts",
+          path: "api/internal_accounts",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::InternalAccount

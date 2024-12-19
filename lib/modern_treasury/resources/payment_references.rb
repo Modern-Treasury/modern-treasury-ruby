@@ -18,7 +18,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/payment_references/#{id}",
+          path: ["api/payment_references/%0s", id],
           model: ModernTreasury::Models::PaymentReference
         }
         @client.request(req, opts)
@@ -47,7 +47,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaymentReferenceListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/payment_references",
+          path: "api/payment_references",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::PaymentReference
@@ -67,7 +67,7 @@ module ModernTreasury
       def retireve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/payment_references/#{id}",
+          path: ["api/payment_references/%0s", id],
           model: ModernTreasury::Models::PaymentReference
         }
         @client.request(req, opts)

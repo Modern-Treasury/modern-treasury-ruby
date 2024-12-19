@@ -33,7 +33,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::LedgerAccountStatementCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/ledger_account_statements",
+          path: "api/ledger_account_statements",
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountStatementCreateResponse
         }
@@ -50,7 +50,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/ledger_account_statements/#{id}",
+          path: ["api/ledger_account_statements/%0s", id],
           model: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
         }
         @client.request(req, opts)

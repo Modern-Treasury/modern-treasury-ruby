@@ -18,7 +18,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/paper_items/#{id}",
+          path: ["api/paper_items/%0s", id],
           model: ModernTreasury::Models::PaperItem
         }
         @client.request(req, opts)
@@ -46,7 +46,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::PaperItemListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/paper_items",
+          path: "api/paper_items",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::PaperItem

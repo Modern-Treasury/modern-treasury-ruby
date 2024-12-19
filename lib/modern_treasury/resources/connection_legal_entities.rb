@@ -25,7 +25,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ConnectionLegalEntityCreateParams.dump(params)
         req = {
           method: :post,
-          path: "/api/connection_legal_entities",
+          path: "api/connection_legal_entities",
           body: parsed,
           model: ModernTreasury::Models::ConnectionLegalEntity
         }
@@ -42,7 +42,7 @@ module ModernTreasury
       def retrieve(id, opts = {})
         req = {
           method: :get,
-          path: "/api/connection_legal_entities/#{id}",
+          path: ["api/connection_legal_entities/%0s", id],
           model: ModernTreasury::Models::ConnectionLegalEntity
         }
         @client.request(req, opts)
@@ -63,7 +63,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ConnectionLegalEntityUpdateParams.dump(params)
         req = {
           method: :patch,
-          path: "/api/connection_legal_entities/#{id}",
+          path: ["api/connection_legal_entities/%0s", id],
           body: parsed,
           model: ModernTreasury::Models::ConnectionLegalEntity
         }
@@ -91,7 +91,7 @@ module ModernTreasury
         parsed = ModernTreasury::Models::ConnectionLegalEntityListParams.dump(params)
         req = {
           method: :get,
-          path: "/api/connection_legal_entities",
+          path: "api/connection_legal_entities",
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::ConnectionLegalEntity
