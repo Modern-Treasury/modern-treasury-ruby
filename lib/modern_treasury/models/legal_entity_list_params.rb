@@ -59,6 +59,8 @@ module ModernTreasury
       class LegalEntityType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
+
+        finalize!
       end
     end
   end

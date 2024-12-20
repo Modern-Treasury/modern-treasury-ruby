@@ -372,6 +372,8 @@ module ModernTreasury
         ARCHIVED = :archived
         PENDING = :pending
         POSTED = :posted
+
+        finalize!
       end
     end
   end

@@ -73,6 +73,8 @@ module ModernTreasury
         TRANSACTIONS = :transactions
         DECISIONS = :decisions
         CONNECTIONS = :connections
+
+        finalize!
       end
     end
   end

@@ -245,6 +245,8 @@ module ModernTreasury
         class CreatedAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
+
+          finalize!
         end
 
         # @example
@@ -260,6 +262,8 @@ module ModernTreasury
         class EffectiveAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
+
+          finalize!
         end
       end
 
@@ -281,6 +285,8 @@ module ModernTreasury
         PENDING = :pending
         POSTED = :posted
         ARCHIVED = :archived
+
+        finalize!
       end
     end
   end

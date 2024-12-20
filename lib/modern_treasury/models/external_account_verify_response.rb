@@ -176,6 +176,8 @@ module ModernTreasury
           SKNBI = :sknbi
           WIRE = :wire
           ZENGIN = :zengin
+
+          finalize!
         end
 
         # The priority of the payment. Can be `normal` or `high`.
@@ -193,6 +195,8 @@ module ModernTreasury
         class Priority < ModernTreasury::Enum
           HIGH = :high
           NORMAL = :normal
+
+          finalize!
         end
 
         # The status of the verification attempt. Can be `pending_verification`, `verified`, `failed`, or `cancelled`.
@@ -216,6 +220,8 @@ module ModernTreasury
           FAILED = :failed
           PENDING_VERIFICATION = :pending_verification
           VERIFIED = :verified
+
+          finalize!
         end
       end
     end

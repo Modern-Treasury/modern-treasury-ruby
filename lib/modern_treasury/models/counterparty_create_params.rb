@@ -144,6 +144,8 @@ module ModernTreasury
         class Type < ModernTreasury::Enum
           CUSTOMER = :customer
           VENDOR = :vendor
+
+          finalize!
         end
       end
 
@@ -337,6 +339,8 @@ module ModernTreasury
             PAN = :pan
             SG_NUMBER = :sg_number
             WALLET_ADDRESS = :wallet_address
+
+            finalize!
           end
         end
 
@@ -378,6 +382,8 @@ module ModernTreasury
             EMAIL = :email
             PHONE_NUMBER = :phone_number
             WEBSITE = :website
+
+            finalize!
           end
         end
 
@@ -516,6 +522,8 @@ module ModernTreasury
             EXTERNAL_ACCOUNT = :external_account
             INTERNAL_ACCOUNT = :internal_account
             VIRTUAL_ACCOUNT = :virtual_account
+
+            finalize!
           end
         end
 
@@ -589,6 +597,8 @@ module ModernTreasury
         class PartyType < ModernTreasury::Enum
           BUSINESS = :business
           INDIVIDUAL = :individual
+
+          finalize!
         end
 
         class RoutingDetail < ModernTreasury::BaseModel
@@ -661,6 +671,8 @@ module ModernTreasury
             SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
             SWIFT = :swift
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+            finalize!
           end
 
           # @example
@@ -712,6 +724,8 @@ module ModernTreasury
             SKNBI = :sknbi
             WIRE = :wire
             ZENGIN = :zengin
+
+            finalize!
           end
         end
       end
@@ -733,6 +747,8 @@ module ModernTreasury
       class LedgerType < ModernTreasury::Enum
         CUSTOMER = :customer
         VENDOR = :vendor
+
+        finalize!
       end
 
       class LegalEntity < ModernTreasury::BaseModel
@@ -988,6 +1004,8 @@ module ModernTreasury
         class LegalEntityType < ModernTreasury::Enum
           BUSINESS = :business
           INDIVIDUAL = :individual
+
+          finalize!
         end
 
         class Address < ModernTreasury::BaseModel
@@ -1075,6 +1093,8 @@ module ModernTreasury
             OTHER = :other
             PO_BOX = :po_box
             RESIDENTIAL = :residential
+
+            finalize!
           end
         end
 
@@ -1154,6 +1174,8 @@ module ModernTreasury
             US_ITIN = :us_itin
             US_SSN = :us_ssn
             VN_TIN = :vn_tin
+
+            finalize!
           end
         end
 
@@ -1230,6 +1252,8 @@ module ModernTreasury
           class RelationshipType < ModernTreasury::Enum
             BENEFICIAL_OWNER = :beneficial_owner
             CONTROL_PERSON = :control_person
+
+            finalize!
           end
 
           class ChildLegalEntity < ModernTreasury::BaseModel
@@ -1551,6 +1575,8 @@ module ModernTreasury
                 OTHER = :other
                 PO_BOX = :po_box
                 RESIDENTIAL = :residential
+
+                finalize!
               end
             end
 
@@ -1630,6 +1656,8 @@ module ModernTreasury
                 US_ITIN = :us_itin
                 US_SSN = :us_ssn
                 VN_TIN = :vn_tin
+
+                finalize!
               end
             end
 
@@ -1648,6 +1676,8 @@ module ModernTreasury
             class LegalEntityType < ModernTreasury::Enum
               BUSINESS = :business
               INDIVIDUAL = :individual
+
+              finalize!
             end
 
             # The business's legal structure.
@@ -1677,6 +1707,8 @@ module ModernTreasury
               PARTNERSHIP = :partnership
               SOLE_PROPRIETORSHIP = :sole_proprietorship
               TRUST = :trust
+
+              finalize!
             end
 
             class PhoneNumber < ModernTreasury::BaseModel
@@ -1713,6 +1745,8 @@ module ModernTreasury
               LOW = :low
               MEDIUM = :medium
               HIGH = :high
+
+              finalize!
             end
           end
         end
@@ -1744,6 +1778,8 @@ module ModernTreasury
           PARTNERSHIP = :partnership
           SOLE_PROPRIETORSHIP = :sole_proprietorship
           TRUST = :trust
+
+          finalize!
         end
 
         class PhoneNumber < ModernTreasury::BaseModel
@@ -1780,6 +1816,8 @@ module ModernTreasury
           LOW = :low
           MEDIUM = :medium
           HIGH = :high
+
+          finalize!
         end
       end
 
@@ -1804,6 +1842,8 @@ module ModernTreasury
         NEEDS_APPROVAL = :needs_approval
         UNVERIFIED = :unverified
         VERIFIED = :verified
+
+        finalize!
       end
     end
   end

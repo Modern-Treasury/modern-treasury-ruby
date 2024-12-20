@@ -69,6 +69,8 @@ module ModernTreasury
           OTHER = :other
           PREVIOUS_DAY = :previous_day
           REAL_TIME = :real_time
+
+          finalize!
         end
 
         class Balance < ModernTreasury::BaseModel
@@ -147,6 +149,8 @@ module ModernTreasury
             OPENING_AVAILABLE_NEXT_BUSINESS_DAY = :opening_available_next_business_day
             OPENING_LEDGER = :opening_ledger
             OTHER = :other
+
+            finalize!
           end
         end
       end

@@ -82,6 +82,8 @@ module ModernTreasury
       # ```
       class ReturnableType < ModernTreasury::Enum
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+
+        finalize!
       end
 
       # The return code. For ACH returns, this is the required ACH return code.
@@ -158,6 +160,8 @@ module ModernTreasury
         R52 = :R52
         R53 = :R53
         CURRENCYCLOUD = :currencycloud
+
+        finalize!
       end
     end
   end

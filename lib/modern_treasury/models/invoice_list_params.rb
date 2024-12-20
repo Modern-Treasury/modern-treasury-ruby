@@ -131,6 +131,8 @@ module ModernTreasury
         PAYMENT_PENDING = :payment_pending
         UNPAID = :unpaid
         VOIDED = :voided
+
+        finalize!
       end
     end
   end

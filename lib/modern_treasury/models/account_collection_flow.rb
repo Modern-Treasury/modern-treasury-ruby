@@ -130,6 +130,8 @@ module ModernTreasury
       class PaymentType < ModernTreasury::Enum
         ACH = :ach
         WIRE = :wire
+
+        finalize!
       end
 
       # An account created with this flow will support wires from the US to these countries.
@@ -171,6 +173,8 @@ module ModernTreasury
         PER = :PER
         ESP = :ESP
         GBR = :GBR
+
+        finalize!
       end
 
       # The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
@@ -194,6 +198,8 @@ module ModernTreasury
         COMPLETED = :completed
         EXPIRED = :expired
         PENDING = :pending
+
+        finalize!
       end
     end
   end

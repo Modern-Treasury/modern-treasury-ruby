@@ -29,6 +29,8 @@ module ModernTreasury
       # ```
       class Status < ModernTreasury::Enum
         CANCELLED = :cancelled
+
+        finalize!
       end
     end
   end

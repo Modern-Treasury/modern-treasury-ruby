@@ -788,6 +788,8 @@ module ModernTreasury
           SHARED = :shared
           SENDER = :sender
           RECEIVER = :receiver
+
+          finalize!
         end
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
@@ -805,6 +807,8 @@ module ModernTreasury
         class Direction < ModernTreasury::Enum
           CREDIT = :credit
           DEBIT = :debit
+
+          finalize!
         end
 
         # Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
@@ -822,6 +826,8 @@ module ModernTreasury
         class ForeignExchangeIndicator < ModernTreasury::Enum
           FIXED_TO_VARIABLE = :fixed_to_variable
           VARIABLE_TO_FIXED = :variable_to_fixed
+
+          finalize!
         end
 
         class ForeignExchangeRate < ModernTreasury::BaseModel
@@ -908,6 +914,8 @@ module ModernTreasury
         class Priority < ModernTreasury::Enum
           HIGH = :high
           NORMAL = :normal
+
+          finalize!
         end
 
         # @example
@@ -923,6 +931,8 @@ module ModernTreasury
         class ReceivingAccountType < ModernTreasury::Enum
           INTERNAL_ACCOUNT = :internal_account
           EXTERNAL_ACCOUNT = :external_account
+
+          finalize!
         end
 
         class ReferenceNumber < ModernTreasury::BaseModel
@@ -1077,6 +1087,8 @@ module ModernTreasury
             WELLS_FARGO_PAYMENT_ID = :wells_fargo_payment_id
             WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
             WELLS_FARGO_UETR = :wells_fargo_uetr
+
+            finalize!
           end
         end
 
@@ -1112,6 +1124,8 @@ module ModernTreasury
           RETURNED = :returned
           REVERSED = :reversed
           SENT = :sent
+
+          finalize!
         end
 
         # The account to which the originating of this payment should be attributed to. Can be a `virtual_account` or `internal_account`.
@@ -1499,6 +1513,8 @@ module ModernTreasury
             OTHER = :other
             OVERDRAFT = :overdraft
             SAVINGS = :savings
+
+            finalize!
           end
 
           class PartyAddress < ModernTreasury::BaseModel
@@ -1623,6 +1639,8 @@ module ModernTreasury
           class PartyType < ModernTreasury::Enum
             BUSINESS = :business
             INDIVIDUAL = :individual
+
+            finalize!
           end
         end
 
@@ -1639,6 +1657,8 @@ module ModernTreasury
         class UltimateOriginatingAccountType < ModernTreasury::Enum
           INTERNAL_ACCOUNT = :internal_account
           VIRTUAL_ACCOUNT = :virtual_account
+
+          finalize!
         end
       end
 
@@ -1912,6 +1932,8 @@ module ModernTreasury
         class Direction < ModernTreasury::Enum
           CREDIT = :credit
           DEBIT = :debit
+
+          finalize!
         end
 
         # One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
@@ -1929,6 +1951,8 @@ module ModernTreasury
         class ReconciliationMethod < ModernTreasury::Enum
           AUTOMATIC = :automatic
           MANUAL = :manual
+
+          finalize!
         end
 
         # One of unreconciled, partially_reconciled, reconciled, or archived.
@@ -1952,6 +1976,8 @@ module ModernTreasury
           PARTIALLY_RECONCILED = :partially_reconciled
           RECONCILED = :reconciled
           UNRECONCILED = :unreconciled
+
+          finalize!
         end
       end
 
@@ -2160,6 +2186,8 @@ module ModernTreasury
           PAYMENT_ORDER = :payment_order
           RETURN = :return
           REVERSAL = :reversal
+
+          finalize!
         end
 
         # To post a ledger transaction at creation, use `posted`.
@@ -2180,6 +2208,8 @@ module ModernTreasury
           ARCHIVED = :archived
           PENDING = :pending
           POSTED = :posted
+
+          finalize!
         end
       end
 
@@ -2554,6 +2584,8 @@ module ModernTreasury
           WIRE = :wire
           ZENGIN = :zengin
           OTHER = :other
+
+          finalize!
         end
 
         # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, `us_bank`, or others.
@@ -2599,6 +2631,8 @@ module ModernTreasury
           SWIFT = :swift
           US_BANK = :us_bank
           USER = :user
+
+          finalize!
         end
       end
 
@@ -2706,6 +2740,8 @@ module ModernTreasury
         TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
         BULK_ERROR = :bulk_error
+
+        finalize!
       end
 
       # The type of the request that created this result. bulk_request is the only supported `request_type`
@@ -2720,6 +2756,8 @@ module ModernTreasury
       # ```
       class RequestType < ModernTreasury::Enum
         BULK_REQUEST = :bulk_request
+
+        finalize!
       end
 
       # One of successful or failed.
@@ -2740,6 +2778,8 @@ module ModernTreasury
         PENDING = :pending
         SUCCESSFUL = :successful
         FAILED = :failed
+
+        finalize!
       end
     end
   end

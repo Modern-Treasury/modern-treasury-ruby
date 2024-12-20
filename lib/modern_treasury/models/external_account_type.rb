@@ -31,6 +31,8 @@ module ModernTreasury
       OTHER = :other
       OVERDRAFT = :overdraft
       SAVINGS = :savings
+
+      finalize!
     end
   end
 end

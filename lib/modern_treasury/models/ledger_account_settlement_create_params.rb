@@ -108,6 +108,8 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         PENDING = :pending
         POSTED = :posted
+
+        finalize!
       end
     end
   end

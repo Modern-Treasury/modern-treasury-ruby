@@ -69,6 +69,8 @@ module ModernTreasury
         SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+        finalize!
       end
     end
   end

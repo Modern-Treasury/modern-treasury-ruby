@@ -190,6 +190,8 @@ module ModernTreasury
         COMPLETED = :completed
         PENDING = :pending
         RETURNED = :returned
+
+        finalize!
       end
     end
   end

@@ -102,6 +102,8 @@ module ModernTreasury
         DK_INTERBANK_CLEARING_CODE = :dkInterbankClearingCode
         ID_SKNBI_CODE = :idSknbiCode
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+        finalize!
       end
     end
   end

@@ -210,6 +210,8 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
+
+        finalize!
       end
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list of external accounts your end-user can select to those with a `verification_status` of `verified`.
@@ -224,6 +226,8 @@ module ModernTreasury
       # ```
       class ExistingExternalAccountsFilter < ModernTreasury::Enum
         VERIFIED = :verified
+
+        finalize!
       end
 
       # When `enabled`, your end-user can select from an existing external account when completing the flow. When `disabled`, your end-user must add new payment details when completing the flow.
@@ -241,6 +245,8 @@ module ModernTreasury
       class ExternalAccountCollection < ModernTreasury::Enum
         DISABLED = :disabled
         ENABLED = :enabled
+
+        finalize!
       end
 
       # The current status of the payment flow. One of `pending`, `completed`, `expired`, or `cancelled`.
@@ -264,6 +270,8 @@ module ModernTreasury
         COMPLETED = :completed
         EXPIRED = :expired
         PENDING = :pending
+
+        finalize!
       end
     end
   end

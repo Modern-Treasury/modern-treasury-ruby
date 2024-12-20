@@ -181,6 +181,8 @@ module ModernTreasury
           PAYMENT_ORDER_ATTEMPT = :payment_order_attempt
           RETURN = :return
           REVERSAL = :reversal
+
+          finalize!
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
@@ -198,6 +200,8 @@ module ModernTreasury
         class Type < ModernTreasury::Enum
           ORIGINATING = :originating
           RECEIVING = :receiving
+
+          finalize!
         end
       end
     end

@@ -125,6 +125,8 @@ module ModernTreasury
           INCORRECT_RECEIVING_ACCOUNT = :incorrect_receiving_account
           DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
+
+          finalize!
         end
 
         # The current status of the reversal.
@@ -154,6 +156,8 @@ module ModernTreasury
           PROCESSING = :processing
           RETURNED = :returned
           SENT = :sent
+
+          finalize!
         end
       end
     end
