@@ -171,6 +171,8 @@ module ModernTreasury
       class ItemizableType < ModernTreasury::Enum
         EXPECTED_PAYMENT = :ExpectedPayment
         PAYMENT_ORDER = :PaymentOrder
+
+        finalize!
       end
     end
   end

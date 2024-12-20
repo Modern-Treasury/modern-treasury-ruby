@@ -276,6 +276,8 @@ module ModernTreasury
         PAN = :pan
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
+
+        finalize!
       end
 
       # The type of the originating routing number for the incoming payment detail.
@@ -319,6 +321,8 @@ module ModernTreasury
         SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+        finalize!
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
@@ -339,6 +343,8 @@ module ModernTreasury
         COMPLETED = :completed
         PENDING = :pending
         RETURNED = :returned
+
+        finalize!
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
@@ -371,6 +377,8 @@ module ModernTreasury
         SEPA = :sepa
         SIGNET = :signet
         WIRE = :wire
+
+        finalize!
       end
     end
   end

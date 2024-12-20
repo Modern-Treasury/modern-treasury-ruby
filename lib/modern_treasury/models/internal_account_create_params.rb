@@ -110,6 +110,8 @@ module ModernTreasury
       class Currency < ModernTreasury::Enum
         USD = :USD
         CAD = :CAD
+
+        finalize!
       end
 
       class PartyAddress < ModernTreasury::BaseModel

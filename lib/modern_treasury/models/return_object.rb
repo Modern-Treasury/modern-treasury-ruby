@@ -298,6 +298,8 @@ module ModernTreasury
         R52 = :R52
         R53 = :R53
         CURRENCYCLOUD = :currencycloud
+
+        finalize!
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -452,6 +454,8 @@ module ModernTreasury
           WELLS_FARGO_PAYMENT_ID = :wells_fargo_payment_id
           WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
           WELLS_FARGO_UETR = :wells_fargo_uetr
+
+          finalize!
         end
       end
 
@@ -479,6 +483,8 @@ module ModernTreasury
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         REVERSAL = :reversal
+
+        finalize!
       end
 
       # The role of the return, can be `originating` or `receiving`.
@@ -496,6 +502,8 @@ module ModernTreasury
       class Role < ModernTreasury::Enum
         ORIGINATING = :originating
         RECEIVING = :receiving
+
+        finalize!
       end
 
       # The current status of the return.
@@ -525,6 +533,8 @@ module ModernTreasury
         PROCESSING = :processing
         RETURNED = :returned
         SENT = :sent
+
+        finalize!
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `interac`, `manual`, `paper_item`, `wire`.
@@ -561,6 +571,8 @@ module ModernTreasury
         PAPER_ITEM = :paper_item
         SEPA = :sepa
         WIRE = :wire
+
+        finalize!
       end
     end
   end

@@ -239,6 +239,8 @@ module ModernTreasury
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         REVERSAL = :reversal
+
+        finalize!
       end
 
       # To post a ledger transaction at creation, use `posted`.
@@ -259,6 +261,8 @@ module ModernTreasury
         ARCHIVED = :archived
         PENDING = :pending
         POSTED = :posted
+
+        finalize!
       end
     end
   end

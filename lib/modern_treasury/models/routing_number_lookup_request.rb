@@ -160,6 +160,8 @@ module ModernTreasury
         NZ_NATIONAL_CLEARING_CODE = :nz_national_clearing_code
         SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
         SWIFT = :swift
+
+        finalize!
       end
 
       # @example
@@ -211,6 +213,8 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
+
+        finalize!
       end
     end
   end

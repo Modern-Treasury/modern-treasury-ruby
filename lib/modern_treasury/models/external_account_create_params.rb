@@ -191,6 +191,8 @@ module ModernTreasury
           PAN = :pan
           SG_NUMBER = :sg_number
           WALLET_ADDRESS = :wallet_address
+
+          finalize!
         end
       end
 
@@ -232,6 +234,8 @@ module ModernTreasury
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
+
+          finalize!
         end
       end
 
@@ -370,6 +374,8 @@ module ModernTreasury
           EXTERNAL_ACCOUNT = :external_account
           INTERNAL_ACCOUNT = :internal_account
           VIRTUAL_ACCOUNT = :virtual_account
+
+          finalize!
         end
       end
 
@@ -443,6 +449,8 @@ module ModernTreasury
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
+
+        finalize!
       end
 
       class RoutingDetail < ModernTreasury::BaseModel
@@ -513,6 +521,8 @@ module ModernTreasury
           SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
           SWIFT = :swift
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+          finalize!
         end
 
         # @example
@@ -564,6 +574,8 @@ module ModernTreasury
           SKNBI = :sknbi
           WIRE = :wire
           ZENGIN = :zengin
+
+          finalize!
         end
       end
     end

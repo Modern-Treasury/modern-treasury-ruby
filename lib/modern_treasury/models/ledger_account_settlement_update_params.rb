@@ -49,6 +49,8 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         POSTED = :posted
         ARCHIVED = :archived
+
+        finalize!
       end
     end
   end

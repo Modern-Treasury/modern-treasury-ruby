@@ -162,6 +162,8 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
         OTHER = :other
+
+        finalize!
       end
     end
   end

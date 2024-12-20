@@ -110,6 +110,8 @@ module ModernTreasury
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         REVERSAL = :reversal
+
+        finalize!
       end
 
       # Status of the reversal ledger transaction. It defaults to `posted` if not provided.
@@ -130,6 +132,8 @@ module ModernTreasury
         ARCHIVED = :archived
         PENDING = :pending
         POSTED = :posted
+
+        finalize!
       end
     end
   end

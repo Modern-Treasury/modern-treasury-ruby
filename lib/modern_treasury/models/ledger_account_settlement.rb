@@ -195,6 +195,8 @@ module ModernTreasury
         PENDING = :pending
         POSTED = :posted
         PROCESSING = :processing
+
+        finalize!
       end
     end
   end

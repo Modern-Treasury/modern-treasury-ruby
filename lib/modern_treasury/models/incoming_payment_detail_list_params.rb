@@ -116,6 +116,8 @@ module ModernTreasury
         COMPLETED = :completed
         PENDING = :pending
         RETURNED = :returned
+
+        finalize!
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
@@ -148,6 +150,8 @@ module ModernTreasury
         SEPA = :sepa
         SIGNET = :signet
         WIRE = :wire
+
+        finalize!
       end
     end
   end

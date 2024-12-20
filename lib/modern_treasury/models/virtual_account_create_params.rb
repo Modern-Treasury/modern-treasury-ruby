@@ -172,6 +172,8 @@ module ModernTreasury
           PAN = :pan
           SG_NUMBER = :sg_number
           WALLET_ADDRESS = :wallet_address
+
+          finalize!
         end
       end
 
@@ -308,6 +310,8 @@ module ModernTreasury
           EXTERNAL_ACCOUNT = :external_account
           INTERNAL_ACCOUNT = :internal_account
           VIRTUAL_ACCOUNT = :virtual_account
+
+          finalize!
         end
       end
 
@@ -389,6 +393,8 @@ module ModernTreasury
           SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
           SWIFT = :swift
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+          finalize!
         end
 
         # If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
@@ -442,6 +448,8 @@ module ModernTreasury
           SKNBI = :sknbi
           WIRE = :wire
           ZENGIN = :zengin
+
+          finalize!
         end
       end
     end

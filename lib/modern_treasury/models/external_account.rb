@@ -270,6 +270,8 @@ module ModernTreasury
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
+
+          finalize!
         end
       end
 
@@ -395,6 +397,8 @@ module ModernTreasury
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
+
+        finalize!
       end
 
       # @example
@@ -413,6 +417,8 @@ module ModernTreasury
         ACH_PRENOTE = :ach_prenote
         MICRODEPOSITS = :microdeposits
         PLAID = :plaid
+
+        finalize!
       end
 
       # @example
@@ -431,6 +437,8 @@ module ModernTreasury
         PENDING_VERIFICATION = :pending_verification
         UNVERIFIED = :unverified
         VERIFIED = :verified
+
+        finalize!
       end
     end
   end

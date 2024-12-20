@@ -457,6 +457,8 @@ module ModernTreasury
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
+
+          finalize!
         end
       end
 
@@ -643,6 +645,8 @@ module ModernTreasury
         UI = :ui
         MANUAL = :manual
         AUTOMATIC = :automatic
+
+        finalize!
       end
 
       # One of `ach` or `eft`.
@@ -660,6 +664,8 @@ module ModernTreasury
       class PaymentType < ModernTreasury::Enum
         EFT = :eft
         ACH = :ach
+
+        finalize!
       end
 
       # The status of the invoice.
@@ -689,6 +695,8 @@ module ModernTreasury
         PAYMENT_PENDING = :payment_pending
         UNPAID = :unpaid
         VOIDED = :voided
+
+        finalize!
       end
     end
   end

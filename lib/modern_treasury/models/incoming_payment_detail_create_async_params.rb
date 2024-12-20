@@ -102,6 +102,8 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
+
+        finalize!
       end
 
       # One of `ach`, `wire`, `check`.
@@ -134,6 +136,8 @@ module ModernTreasury
         SEPA = :sepa
         SIGNET = :signet
         WIRE = :wire
+
+        finalize!
       end
     end
   end

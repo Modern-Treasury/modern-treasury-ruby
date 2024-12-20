@@ -272,6 +272,8 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
+
+        finalize!
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
@@ -289,6 +291,8 @@ module ModernTreasury
       class ReconciliationMethod < ModernTreasury::Enum
         AUTOMATIC = :automatic
         MANUAL = :manual
+
+        finalize!
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
@@ -312,6 +316,8 @@ module ModernTreasury
         PARTIALLY_RECONCILED = :partially_reconciled
         RECONCILED = :reconciled
         UNRECONCILED = :unreconciled
+
+        finalize!
       end
     end
   end

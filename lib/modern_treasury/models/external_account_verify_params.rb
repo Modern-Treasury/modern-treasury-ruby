@@ -103,6 +103,8 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
+
+        finalize!
       end
 
       # A payment type to fallback to if the original type is not valid for the receiving account. Currently, this only supports falling back from RTP to ACH (payment_type=rtp and fallback_type=ach)
@@ -117,6 +119,8 @@ module ModernTreasury
       # ```
       class FallbackType < ModernTreasury::Enum
         ACH = :ach
+
+        finalize!
       end
 
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH transfer. This will apply to both `payment_type` and `fallback_type`.
@@ -134,6 +138,8 @@ module ModernTreasury
       class Priority < ModernTreasury::Enum
         HIGH = :high
         NORMAL = :normal
+
+        finalize!
       end
     end
   end

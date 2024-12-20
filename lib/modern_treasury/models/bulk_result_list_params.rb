@@ -100,6 +100,8 @@ module ModernTreasury
         TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
         BULK_ERROR = :bulk_error
+
+        finalize!
       end
 
       # The type of the request that created this result. bulk_request is the only supported `request_type`
@@ -114,6 +116,8 @@ module ModernTreasury
       # ```
       class RequestType < ModernTreasury::Enum
         BULK_REQUEST = :bulk_request
+
+        finalize!
       end
 
       # One of successful or failed.
@@ -134,6 +138,8 @@ module ModernTreasury
         PENDING = :pending
         SUCCESSFUL = :successful
         FAILED = :failed
+
+        finalize!
       end
     end
   end
