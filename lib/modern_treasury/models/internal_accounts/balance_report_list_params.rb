@@ -64,6 +64,8 @@ module ModernTreasury
           OTHER = :other
           PREVIOUS_DAY = :previous_day
           REAL_TIME = :real_time
+
+          finalize!
         end
       end
     end

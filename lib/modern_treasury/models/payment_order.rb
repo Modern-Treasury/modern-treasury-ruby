@@ -555,6 +555,8 @@ module ModernTreasury
         SHARED = :shared
         SENDER = :sender
         RECEIVER = :receiver
+
+        finalize!
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
@@ -572,6 +574,8 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
+
+        finalize!
       end
 
       # Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
@@ -589,6 +593,8 @@ module ModernTreasury
       class ForeignExchangeIndicator < ModernTreasury::Enum
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
+
+        finalize!
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
@@ -675,6 +681,8 @@ module ModernTreasury
       class Priority < ModernTreasury::Enum
         HIGH = :high
         NORMAL = :normal
+
+        finalize!
       end
 
       # @example
@@ -690,6 +698,8 @@ module ModernTreasury
       class ReceivingAccountType < ModernTreasury::Enum
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
+
+        finalize!
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -844,6 +854,8 @@ module ModernTreasury
           WELLS_FARGO_PAYMENT_ID = :wells_fargo_payment_id
           WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
           WELLS_FARGO_UETR = :wells_fargo_uetr
+
+          finalize!
         end
       end
 
@@ -879,6 +891,8 @@ module ModernTreasury
         RETURNED = :returned
         REVERSED = :reversed
         SENT = :sent
+
+        finalize!
       end
 
       # The account to which the originating of this payment should be attributed to. Can be a `virtual_account` or `internal_account`.
@@ -1266,6 +1280,8 @@ module ModernTreasury
           OTHER = :other
           OVERDRAFT = :overdraft
           SAVINGS = :savings
+
+          finalize!
         end
 
         class PartyAddress < ModernTreasury::BaseModel
@@ -1390,6 +1406,8 @@ module ModernTreasury
         class PartyType < ModernTreasury::Enum
           BUSINESS = :business
           INDIVIDUAL = :individual
+
+          finalize!
         end
       end
 
@@ -1406,6 +1424,8 @@ module ModernTreasury
       class UltimateOriginatingAccountType < ModernTreasury::Enum
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account
+
+        finalize!
       end
     end
   end

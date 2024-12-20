@@ -211,6 +211,8 @@ module ModernTreasury
         OTHER = :other
         OVERDRAFT = :overdraft
         SAVINGS = :savings
+
+        finalize!
       end
 
       class PartyAddress < ModernTreasury::BaseModel
@@ -335,6 +337,8 @@ module ModernTreasury
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
+
+        finalize!
       end
     end
   end

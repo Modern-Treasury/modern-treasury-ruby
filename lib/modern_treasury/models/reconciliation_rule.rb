@@ -121,6 +121,8 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
+
+        finalize!
       end
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sepa, signet wire
@@ -174,6 +176,8 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
+
+        finalize!
       end
     end
   end

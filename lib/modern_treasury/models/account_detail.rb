@@ -121,6 +121,8 @@ module ModernTreasury
         PAN = :pan
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
+
+        finalize!
       end
     end
   end

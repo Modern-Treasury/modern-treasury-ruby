@@ -138,6 +138,8 @@ module ModernTreasury
         CREATE = :create
         UPDATE = :update
         DELETE = :delete
+
+        finalize!
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -161,6 +163,8 @@ module ModernTreasury
         LEDGER_TRANSACTION = :ledger_transaction
         TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
+
+        finalize!
       end
 
       # One of pending, processing, or completed.
@@ -181,6 +185,8 @@ module ModernTreasury
         PENDING = :pending
         PROCESSING = :processing
         COMPLETED = :completed
+
+        finalize!
       end
     end
   end

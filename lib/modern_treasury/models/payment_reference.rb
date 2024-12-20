@@ -185,6 +185,8 @@ module ModernTreasury
         WELLS_FARGO_PAYMENT_ID = :wells_fargo_payment_id
         WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
         WELLS_FARGO_UETR = :wells_fargo_uetr
+
+        finalize!
       end
 
       # One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
@@ -205,6 +207,8 @@ module ModernTreasury
         PAYMENT_ORDER = :payment_order
         REVERSAL = :reversal
         RETURN = :return
+
+        finalize!
       end
     end
   end

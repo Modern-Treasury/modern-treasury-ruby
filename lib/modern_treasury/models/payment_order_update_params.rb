@@ -418,6 +418,8 @@ module ModernTreasury
         SHARED = :shared
         SENDER = :sender
         RECEIVER = :receiver
+
+        finalize!
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
@@ -435,6 +437,8 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
+
+        finalize!
       end
 
       # A payment type to fallback to if the original type is not valid for the receiving account. Currently, this only supports falling back from RTP to ACH (type=rtp and fallback_type=ach)
@@ -449,6 +453,8 @@ module ModernTreasury
       # ```
       class FallbackType < ModernTreasury::Enum
         ACH = :ach
+
+        finalize!
       end
 
       # Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
@@ -466,6 +472,8 @@ module ModernTreasury
       class ForeignExchangeIndicator < ModernTreasury::Enum
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
+
+        finalize!
       end
 
       class LineItem < ModernTreasury::BaseModel
@@ -525,6 +533,8 @@ module ModernTreasury
       class Priority < ModernTreasury::Enum
         HIGH = :high
         NORMAL = :normal
+
+        finalize!
       end
 
       class ReceivingAccount < ModernTreasury::BaseModel
@@ -715,6 +725,8 @@ module ModernTreasury
             PAN = :pan
             SG_NUMBER = :sg_number
             WALLET_ADDRESS = :wallet_address
+
+            finalize!
           end
         end
 
@@ -756,6 +768,8 @@ module ModernTreasury
             EMAIL = :email
             PHONE_NUMBER = :phone_number
             WEBSITE = :website
+
+            finalize!
           end
         end
 
@@ -894,6 +908,8 @@ module ModernTreasury
             EXTERNAL_ACCOUNT = :external_account
             INTERNAL_ACCOUNT = :internal_account
             VIRTUAL_ACCOUNT = :virtual_account
+
+            finalize!
           end
         end
 
@@ -967,6 +983,8 @@ module ModernTreasury
         class PartyType < ModernTreasury::Enum
           BUSINESS = :business
           INDIVIDUAL = :individual
+
+          finalize!
         end
 
         class RoutingDetail < ModernTreasury::BaseModel
@@ -1039,6 +1057,8 @@ module ModernTreasury
             SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
             SWIFT = :swift
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+            finalize!
           end
 
           # @example
@@ -1090,6 +1110,8 @@ module ModernTreasury
             SKNBI = :sknbi
             WIRE = :wire
             ZENGIN = :zengin
+
+            finalize!
           end
         end
       end
@@ -1126,6 +1148,8 @@ module ModernTreasury
         RETURNED = :returned
         REVERSED = :reversed
         SENT = :sent
+
+        finalize!
       end
     end
   end

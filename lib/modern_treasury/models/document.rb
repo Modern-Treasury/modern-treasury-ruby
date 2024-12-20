@@ -227,6 +227,8 @@ module ModernTreasury
         TRANSACTION = :transaction
         DECISION = :decision
         CONNECTION = :connection
+
+        finalize!
       end
 
       class File < ModernTreasury::BaseModel

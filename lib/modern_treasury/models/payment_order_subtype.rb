@@ -52,6 +52,8 @@ module ModernTreasury
       SIC = :sic
       SKNBI = :sknbi
       ZENGIN = :zengin
+
+      finalize!
     end
   end
 end

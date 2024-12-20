@@ -124,6 +124,8 @@ module ModernTreasury
         PARTIALLY_RECONCILED = :partially_reconciled
         RECONCILED = :reconciled
         UNRECONCILED = :unreconciled
+
+        finalize!
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sepa, signet, wire
@@ -177,6 +179,8 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
+
+        finalize!
       end
     end
   end

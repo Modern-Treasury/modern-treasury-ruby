@@ -28,6 +28,8 @@ module ModernTreasury
       # ```
       class Status < ModernTreasury::Enum
         PROCESSING = :processing
+
+        finalize!
       end
     end
   end

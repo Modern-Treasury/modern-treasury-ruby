@@ -198,6 +198,8 @@ module ModernTreasury
         SELF_EMPLOYED = :self_employed
         STUDENT = :student
         UNEMPLOYED = :unemployed
+
+        finalize!
       end
 
       # The source of the individual's income.
@@ -229,6 +231,8 @@ module ModernTreasury
         RETIREMENT = :retirement
         SALARY = :salary
         SELF_EMPLOYED = :self_employed
+
+        finalize!
       end
 
       # The industry of the individual.
@@ -285,6 +289,8 @@ module ModernTreasury
         TRANSPORTATION = :transportation
         TRAVEL = :travel
         UTILITIES = :utilities
+
+        finalize!
       end
 
       # The occupation of the individual.
@@ -320,6 +326,8 @@ module ModernTreasury
         SALES = :sales
         SCIENCE_ENGINEERING = :science_engineering
         TECHNOLOGY = :technology
+
+        finalize!
       end
 
       # The source of the individual's funds.
@@ -360,6 +368,8 @@ module ModernTreasury
         SELF_EMPLOYED = :self_employed
         SENIOR_EXECUTIVE = :senior_executive
         TRUST_INCOME = :trust_income
+
+        finalize!
       end
 
       # The source of the individual's wealth.
@@ -393,6 +403,8 @@ module ModernTreasury
         RETIREMENT = :retirement
         SALARY = :salary
         SELF_EMPLOYED = :self_employed
+
+        finalize!
       end
     end
   end

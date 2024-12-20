@@ -76,6 +76,8 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
+
+        finalize!
       end
     end
   end

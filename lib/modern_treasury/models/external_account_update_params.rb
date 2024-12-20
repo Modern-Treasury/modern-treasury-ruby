@@ -143,6 +143,8 @@ module ModernTreasury
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
+
+        finalize!
       end
     end
   end

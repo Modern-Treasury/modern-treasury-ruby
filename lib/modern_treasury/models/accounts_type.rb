@@ -15,6 +15,8 @@ module ModernTreasury
     class AccountsType < ModernTreasury::Enum
       EXTERNAL_ACCOUNTS = :external_accounts
       INTERNAL_ACCOUNTS = :internal_accounts
+
+      finalize!
     end
   end
 end

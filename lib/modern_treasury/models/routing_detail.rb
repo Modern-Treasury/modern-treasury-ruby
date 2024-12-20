@@ -265,6 +265,8 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
+
+        finalize!
       end
 
       # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
@@ -308,6 +310,8 @@ module ModernTreasury
         SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+        finalize!
       end
     end
   end

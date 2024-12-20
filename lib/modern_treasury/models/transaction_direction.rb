@@ -15,6 +15,8 @@ module ModernTreasury
     class TransactionDirection < ModernTreasury::Enum
       CREDIT = :credit
       DEBIT = :debit
+
+      finalize!
     end
   end
 end
