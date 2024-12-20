@@ -53,6 +53,8 @@ module ModernTreasury
       # ```
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS = :external_accounts
+
+        finalize!
       end
 
       # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
@@ -96,6 +98,8 @@ module ModernTreasury
         SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+
+        finalize!
       end
 
       # If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
@@ -149,6 +153,8 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
+
+        finalize!
       end
     end
   end

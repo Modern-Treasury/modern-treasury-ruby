@@ -363,6 +363,8 @@ module ModernTreasury
             OTHER = :other
             PO_BOX = :po_box
             RESIDENTIAL = :residential
+
+            finalize!
           end
         end
 
@@ -442,6 +444,8 @@ module ModernTreasury
             US_ITIN = :us_itin
             US_SSN = :us_ssn
             VN_TIN = :vn_tin
+
+            finalize!
           end
         end
 
@@ -518,6 +522,8 @@ module ModernTreasury
           class RelationshipType < ModernTreasury::Enum
             BENEFICIAL_OWNER = :beneficial_owner
             CONTROL_PERSON = :control_person
+
+            finalize!
           end
 
           class ChildLegalEntity < ModernTreasury::BaseModel
@@ -839,6 +845,8 @@ module ModernTreasury
                 OTHER = :other
                 PO_BOX = :po_box
                 RESIDENTIAL = :residential
+
+                finalize!
               end
             end
 
@@ -918,6 +926,8 @@ module ModernTreasury
                 US_ITIN = :us_itin
                 US_SSN = :us_ssn
                 VN_TIN = :vn_tin
+
+                finalize!
               end
             end
 
@@ -936,6 +946,8 @@ module ModernTreasury
             class LegalEntityType < ModernTreasury::Enum
               BUSINESS = :business
               INDIVIDUAL = :individual
+
+              finalize!
             end
 
             # The business's legal structure.
@@ -965,6 +977,8 @@ module ModernTreasury
               PARTNERSHIP = :partnership
               SOLE_PROPRIETORSHIP = :sole_proprietorship
               TRUST = :trust
+
+              finalize!
             end
 
             class PhoneNumber < ModernTreasury::BaseModel
@@ -1001,6 +1015,8 @@ module ModernTreasury
               LOW = :low
               MEDIUM = :medium
               HIGH = :high
+
+              finalize!
             end
           end
         end
@@ -1020,6 +1036,8 @@ module ModernTreasury
         class LegalEntityType < ModernTreasury::Enum
           BUSINESS = :business
           INDIVIDUAL = :individual
+
+          finalize!
         end
 
         # The business's legal structure.
@@ -1049,6 +1067,8 @@ module ModernTreasury
           PARTNERSHIP = :partnership
           SOLE_PROPRIETORSHIP = :sole_proprietorship
           TRUST = :trust
+
+          finalize!
         end
 
         class PhoneNumber < ModernTreasury::BaseModel
@@ -1085,6 +1105,8 @@ module ModernTreasury
           LOW = :low
           MEDIUM = :medium
           HIGH = :high
+
+          finalize!
         end
       end
     end

@@ -53,6 +53,8 @@ module ModernTreasury
         class Type < ModernTreasury::Enum
           ORIGINATING = :originating
           RECEIVING = :receiving
+
+          finalize!
         end
       end
     end

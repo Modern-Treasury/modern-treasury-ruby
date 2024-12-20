@@ -212,6 +212,8 @@ module ModernTreasury
       ZWL = :ZWL
       ZWN = :ZWN
       ZWR = :ZWR
+
+      finalize!
     end
   end
 end

@@ -359,6 +359,8 @@ module ModernTreasury
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
+
+          finalize!
         end
       end
 
@@ -626,6 +628,8 @@ module ModernTreasury
         UI = :ui
         MANUAL = :manual
         AUTOMATIC = :automatic
+
+        finalize!
       end
     end
   end

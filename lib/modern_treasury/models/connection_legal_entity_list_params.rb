@@ -58,6 +58,8 @@ module ModernTreasury
         DENIED = :denied
         FAILED = :failed
         PROCESSING = :processing
+
+        finalize!
       end
     end
   end

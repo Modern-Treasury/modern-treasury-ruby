@@ -131,6 +131,8 @@ module ModernTreasury
         EXTERNAL_ACCOUNT = :external_account
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account
+
+        finalize!
       end
     end
   end

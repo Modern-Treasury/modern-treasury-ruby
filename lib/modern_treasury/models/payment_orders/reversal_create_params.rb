@@ -63,6 +63,8 @@ module ModernTreasury
           INCORRECT_RECEIVING_ACCOUNT = :incorrect_receiving_account
           DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
+
+          finalize!
         end
 
         class LedgerTransaction < ModernTreasury::BaseModel
@@ -311,6 +313,8 @@ module ModernTreasury
             PAYMENT_ORDER = :payment_order
             RETURN = :return
             REVERSAL = :reversal
+
+            finalize!
           end
 
           # To post a ledger transaction at creation, use `posted`.
@@ -331,6 +335,8 @@ module ModernTreasury
             ARCHIVED = :archived
             PENDING = :pending
             POSTED = :posted
+
+            finalize!
           end
         end
       end

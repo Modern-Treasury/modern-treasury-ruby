@@ -76,6 +76,8 @@ module ModernTreasury
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         REVERSAL = :reversal
+
+        finalize!
       end
     end
   end

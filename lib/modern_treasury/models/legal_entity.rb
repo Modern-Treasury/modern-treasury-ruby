@@ -426,6 +426,8 @@ module ModernTreasury
           OTHER = :other
           PO_BOX = :po_box
           RESIDENTIAL = :residential
+
+          finalize!
         end
       end
 
@@ -538,6 +540,8 @@ module ModernTreasury
           US_ITIN = :us_itin
           US_SSN = :us_ssn
           VN_TIN = :vn_tin
+
+          finalize!
         end
       end
 
@@ -559,6 +563,8 @@ module ModernTreasury
         BUSINESS = :business
         INDIVIDUAL = :individual
         JOINT = :joint
+
+        finalize!
       end
 
       # The business's legal structure.
@@ -588,6 +594,8 @@ module ModernTreasury
         PARTNERSHIP = :partnership
         SOLE_PROPRIETORSHIP = :sole_proprietorship
         TRUST = :trust
+
+        finalize!
       end
 
       class PhoneNumber < ModernTreasury::BaseModel
@@ -624,6 +632,8 @@ module ModernTreasury
         LOW = :low
         MEDIUM = :medium
         HIGH = :high
+
+        finalize!
       end
     end
   end

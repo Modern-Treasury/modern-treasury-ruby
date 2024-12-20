@@ -177,6 +177,8 @@ module ModernTreasury
       class Priority < ModernTreasury::Enum
         HIGH = :high
         NORMAL = :normal
+
+        finalize!
       end
 
       # @example
@@ -209,6 +211,8 @@ module ModernTreasury
         RETURNED = :returned
         REVERSED = :reversed
         SENT = :sent
+
+        finalize!
       end
 
       # @example
@@ -260,6 +264,8 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
+
+        finalize!
       end
     end
   end

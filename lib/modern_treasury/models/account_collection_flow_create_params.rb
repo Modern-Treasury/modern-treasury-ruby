@@ -72,6 +72,8 @@ module ModernTreasury
         PER = :PER
         ESP = :ESP
         GBR = :GBR
+
+        finalize!
       end
     end
   end

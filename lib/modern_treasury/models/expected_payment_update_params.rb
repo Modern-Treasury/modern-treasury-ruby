@@ -192,6 +192,8 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
+
+        finalize!
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to reconciled.
@@ -206,6 +208,8 @@ module ModernTreasury
       # ```
       class Status < ModernTreasury::Enum
         RECONCILED = :reconciled
+
+        finalize!
       end
     end
   end

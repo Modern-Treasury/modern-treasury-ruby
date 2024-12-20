@@ -43,6 +43,8 @@ module ModernTreasury
       # ```
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS = :external_accounts
+
+        finalize!
       end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
@@ -76,6 +78,8 @@ module ModernTreasury
         PAN = :pan
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
+
+        finalize!
       end
     end
   end
