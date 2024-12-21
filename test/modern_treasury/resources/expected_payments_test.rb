@@ -3,7 +3,7 @@
 require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::ExpectedPaymentsTest < Minitest::Test
-  def setup
+  def before_all
     @modern_treasury = ModernTreasury::Client.new(
       base_url: ENV.fetch("TEST_API_BASE_URL", "http://localhost:4010"),
       api_key: "My API Key",
