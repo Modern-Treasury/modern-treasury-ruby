@@ -53,10 +53,10 @@ module ModernTreasury
       content_type = headers["content-type"]
 
       # This timeout is for acquiring a connection from the pool
-      # The default 5 seconds seems too short, lets just have an unbounded queue for now
+      # The default 5 seconds seems too short, lets just have a nearly unbounded queue for now
       #
       # TODO: revisit this around granular timeout / concurrency control
-      get_pool(url).with(timeout: 2**32) do |conn|
+      get_pool(url).with(timeout: 600) do |conn|
         conn.open_timeout = timeout
         conn.read_timeout = timeout
         conn.write_timeout = timeout
@@ -88,11 +88,12 @@ module ModernTreasury
         end
 
         conn.request(request)
-      rescue Timeout::Error
-        raise ModernTreasury::APITimeoutError.new(url: url)
+      rescue StandardError => e
+        conn.finish if conn.started?
+        raise e
       end
     rescue ConnectionPool::TimeoutError
-      raise ModernTreasury::APIConnectionError.new(url: url)
+      raise ModernTreasury::APITimeoutError.new(url: url)
     end
     # rubocop:enable Metrics/BlockLength
   end
