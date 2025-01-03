@@ -30,7 +30,7 @@ module ModernTreasury
       #     `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #     `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
-      #   @option params [ModernTreasury::Models::PaymentOrderCreateParams::Accounting, nil] :accounting
+      #   @option params [ModernTreasury::Models::PaymentOrderCreateParams::Accounting] :accounting
       #
       #   @option params [String, nil] :accounting_category_id The ID of one of your accounting categories. Note that these will only be
       #     accessible if your accounting system has been connected.
@@ -42,20 +42,20 @@ module ModernTreasury
       #     payment orders. Can be one of shared, sender, or receiver, which correspond
       #     respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       #
-      #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Defaults to the currency of the originating account.
+      #   @option params [Symbol, ModernTreasury::Models::Currency] :currency Defaults to the currency of the originating account.
       #
       #   @option params [String, nil] :description An optional description for internal use.
       #
-      #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateParams::Document>, nil] :documents An array of documents to be attached to the payment order. Note that if you
+      #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateParams::Document>] :documents An array of documents to be attached to the payment order. Note that if you
       #     attach documents, the request's content type must be `multipart/form-data`.
       #
-      #   @option params [Date, nil] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      #   @option params [Date] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #     current business day or the next business day if the current day is a bank
       #     holiday or weekend. Format: yyyy-mm-dd.
       #
       #   @option params [Time, nil] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::FallbackType, nil] :fallback_type A payment type to fallback to if the original type is not valid for the
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::FallbackType] :fallback_type A payment type to fallback to if the original type is not valid for the
       #     receiving account. Currently, this only supports falling back from RTP to ACH
       #     (type=rtp and fallback_type=ach)
       #
@@ -66,22 +66,22 @@ module ModernTreasury
       #     `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #     currency matches the originating account currency.
       #
-      #   @option params [ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the payment
+      #   @option params [ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction] :ledger_transaction Specifies a ledger transaction object that will be created with the payment
       #     order. If the ledger transaction cannot be created, then the payment order
       #     creation will fail. The resulting ledger transaction will mirror the status of
       #     the payment order.
       #
-      #   @option params [String, nil] :ledger_transaction_id Either ledger_transaction or ledger_transaction_id can be provided. Only a
+      #   @option params [String] :ledger_transaction_id Either ledger_transaction or ledger_transaction_id can be provided. Only a
       #     pending ledger transaction can be attached upon payment order creation. Once the
       #     payment order is created, the status of the ledger transaction tracks the
       #     payment order automatically.
       #
-      #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>, nil] :line_items An array of line items that must sum up to the amount of the payment order.
+      #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      #   @option params [Boolean, nil] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
+      #   @option params [Boolean] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
       #     that this setting must also be turned on in your organization settings page.
       #
       #   @option params [String, nil] :originating_party_name If present, this will replace your default company name on receiver's bank
@@ -89,7 +89,7 @@ module ModernTreasury
       #     the first 16 characters of this string will be used. Any additional characters
       #     will be truncated.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::Priority, nil] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::Priority] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #     same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #     an overnight check rather than standard mail.
       #
@@ -103,11 +103,11 @@ module ModernTreasury
       #     "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
       #     digit CPA Code that will be attached to the payment.
       #
-      #   @option params [ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount, nil] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   @option params [ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
       #     `receiving_account_id`, you may pass the id of an external account or an
       #     internal account.
       #
-      #   @option params [String, nil] :receiving_account_id Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   @option params [String] :receiving_account_id Either `receiving_account` or `receiving_account_id` must be present. When using
       #     `receiving_account_id`, you may pass the id of an external account or an
       #     internal account.
       #
@@ -130,7 +130,7 @@ module ModernTreasury
       #     payment orders, the `subtype` represents the SEC code. We currently support
       #     `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
       #
-      #   @option params [Boolean, nil] :transaction_monitoring_enabled A flag that determines whether a payment order should go through transaction
+      #   @option params [Boolean] :transaction_monitoring_enabled A flag that determines whether a payment order should go through transaction
       #     monitoring.
       #
       #   @option params [String, nil] :ultimate_originating_party_identifier Identifier of the ultimate originator of the payment order.
@@ -177,7 +177,7 @@ module ModernTreasury
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrderUpdateParams] Attributes to send in this request.
       #
-      #   @option params [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting, nil] :accounting
+      #   @option params [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting] :accounting
       #
       #   @option params [String, nil] :accounting_category_id The ID of one of your accounting categories. Note that these will only be
       #     accessible if your accounting system has been connected.
@@ -185,7 +185,7 @@ module ModernTreasury
       #   @option params [String, nil] :accounting_ledger_class_id The ID of one of your accounting ledger classes. Note that these will only be
       #     accessible if your accounting system has been connected.
       #
-      #   @option params [Integer, nil] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
+      #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
       #
       #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer, nil] :charge_bearer The party that will pay the fees for the payment order. Only applies to wire
@@ -194,22 +194,22 @@ module ModernTreasury
       #
       #   @option params [String, nil] :counterparty_id Required when receiving_account_id is passed the ID of an external account.
       #
-      #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Defaults to the currency of the originating account.
+      #   @option params [Symbol, ModernTreasury::Models::Currency] :currency Defaults to the currency of the originating account.
       #
       #   @option params [String, nil] :description An optional description for internal use.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction, nil] :direction One of `credit`, `debit`. Describes the direction money is flowing in the
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction] :direction One of `credit`, `debit`. Describes the direction money is flowing in the
       #     transaction. A `credit` moves money from your account to someone else's. A
       #     `debit` pulls money from someone else's account to your own. Note that wire,
       #     rtp, and check payments will always be `credit`.
       #
-      #   @option params [Date, nil] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      #   @option params [Date] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #     current business day or the next business day if the current day is a bank
       #     holiday or weekend. Format: yyyy-mm-dd.
       #
       #   @option params [Time, nil] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType, nil] :fallback_type A payment type to fallback to if the original type is not valid for the
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType] :fallback_type A payment type to fallback to if the original type is not valid for the
       #     receiving account. Currently, this only supports falling back from RTP to ACH
       #     (type=rtp and fallback_type=ach)
       #
@@ -220,22 +220,22 @@ module ModernTreasury
       #     `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #     currency matches the originating account currency.
       #
-      #   @option params [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>, nil] :line_items An array of line items that must sum up to the amount of the payment order.
+      #   @option params [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      #   @option params [Boolean, nil] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
+      #   @option params [Boolean] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
       #     that this setting must also be turned on in your organization settings page.
       #
-      #   @option params [String, nil] :originating_account_id The ID of one of your organization's internal accounts.
+      #   @option params [String] :originating_account_id The ID of one of your organization's internal accounts.
       #
       #   @option params [String, nil] :originating_party_name If present, this will replace your default company name on receiver's bank
       #     statement. This field can only be used for ACH payments currently. For ACH, only
       #     the first 16 characters of this string will be used. Any additional characters
       #     will be truncated.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority, nil] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #     same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #     an overnight check rather than standard mail.
       #
@@ -249,11 +249,11 @@ module ModernTreasury
       #     "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
       #     digit CPA Code that will be attached to the payment.
       #
-      #   @option params [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount, nil] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   @option params [ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
       #     `receiving_account_id`, you may pass the id of an external account or an
       #     internal account.
       #
-      #   @option params [String, nil] :receiving_account_id Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   @option params [String] :receiving_account_id Either `receiving_account` or `receiving_account_id` must be present. When using
       #     `receiving_account_id`, you may pass the id of an external account or an
       #     internal account.
       #
@@ -271,7 +271,7 @@ module ModernTreasury
       #     characters for other useful information. For `eft` the maximum length is 15
       #     characters.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status, nil] :status To cancel a payment order, use `cancelled`. To redraft a returned payment order,
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status] :status To cancel a payment order, use `cancelled`. To redraft a returned payment order,
       #     use `approved`. To undo approval on a denied or approved payment order, use
       #     `needs_approval`.
       #
@@ -280,7 +280,7 @@ module ModernTreasury
       #     payment orders, the `subtype` represents the SEC code. We currently support
       #     `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderType, nil] :type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderType] :type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       #     `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #     `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
@@ -320,41 +320,41 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [String, nil] :counterparty_id
+      #   @option params [String] :counterparty_id
       #
-      #   @option params [Date, nil] :created_at_end An inclusive upper bound for searching created_at
+      #   @option params [Date] :created_at_end An inclusive upper bound for searching created_at
       #
-      #   @option params [Date, nil] :created_at_start An inclusive lower bound for searching created_at
+      #   @option params [Date] :created_at_start An inclusive lower bound for searching created_at
       #
-      #   @option params [Symbol, ModernTreasury::Models::TransactionDirection, nil] :direction
+      #   @option params [Symbol, ModernTreasury::Models::TransactionDirection] :direction
       #
-      #   @option params [Date, nil] :effective_date_end An inclusive upper bound for searching effective_date
+      #   @option params [Date] :effective_date_end An inclusive upper bound for searching effective_date
       #
-      #   @option params [Date, nil] :effective_date_start An inclusive lower bound for searching effective_date
+      #   @option params [Date] :effective_date_start An inclusive lower bound for searching effective_date
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
-      #   @option params [String, nil] :originating_account_id
+      #   @option params [String] :originating_account_id
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority, nil] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #     same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #     an overnight check rather than standard mail.
       #
-      #   @option params [Time, nil] :process_after_end An inclusive upper bound for searching process_after
+      #   @option params [Time] :process_after_end An inclusive upper bound for searching process_after
       #
-      #   @option params [Time, nil] :process_after_start An inclusive lower bound for searching process_after
+      #   @option params [Time] :process_after_start An inclusive lower bound for searching process_after
       #
-      #   @option params [String, nil] :reference_number Query for records with the provided reference number
+      #   @option params [String] :reference_number Query for records with the provided reference number
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status, nil] :status
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status] :status
       #
-      #   @option params [String, nil] :transaction_id The ID of a transaction that the payment order has been reconciled to.
+      #   @option params [String] :transaction_id The ID of a transaction that the payment order has been reconciled to.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type, nil] :type
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type] :type
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -389,7 +389,7 @@ module ModernTreasury
       #     `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #     `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
-      #   @option params [ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting, nil] :accounting
+      #   @option params [ModernTreasury::Models::PaymentOrderCreateAsyncParams::Accounting] :accounting
       #
       #   @option params [String, nil] :accounting_category_id The ID of one of your accounting categories. Note that these will only be
       #     accessible if your accounting system has been connected.
@@ -401,17 +401,17 @@ module ModernTreasury
       #     payment orders. Can be one of shared, sender, or receiver, which correspond
       #     respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       #
-      #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Defaults to the currency of the originating account.
+      #   @option params [Symbol, ModernTreasury::Models::Currency] :currency Defaults to the currency of the originating account.
       #
       #   @option params [String, nil] :description An optional description for internal use.
       #
-      #   @option params [Date, nil] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      #   @option params [Date] :effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #     current business day or the next business day if the current day is a bank
       #     holiday or weekend. Format: yyyy-mm-dd.
       #
       #   @option params [Time, nil] :expires_at RFP payments require an expires_at. This value must be past the effective_date.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType, nil] :fallback_type A payment type to fallback to if the original type is not valid for the
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::FallbackType] :fallback_type A payment type to fallback to if the original type is not valid for the
       #     receiving account. Currently, this only supports falling back from RTP to ACH
       #     (type=rtp and fallback_type=ach)
       #
@@ -422,22 +422,22 @@ module ModernTreasury
       #     `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #     currency matches the originating account currency.
       #
-      #   @option params [ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the payment
+      #   @option params [ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction] :ledger_transaction Specifies a ledger transaction object that will be created with the payment
       #     order. If the ledger transaction cannot be created, then the payment order
       #     creation will fail. The resulting ledger transaction will mirror the status of
       #     the payment order.
       #
-      #   @option params [String, nil] :ledger_transaction_id Either ledger_transaction or ledger_transaction_id can be provided. Only a
+      #   @option params [String] :ledger_transaction_id Either ledger_transaction or ledger_transaction_id can be provided. Only a
       #     pending ledger transaction can be attached upon payment order creation. Once the
       #     payment order is created, the status of the ledger transaction tracks the
       #     payment order automatically.
       #
-      #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>, nil] :line_items An array of line items that must sum up to the amount of the payment order.
+      #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      #   @option params [Boolean, nil] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
+      #   @option params [Boolean] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
       #     that this setting must also be turned on in your organization settings page.
       #
       #   @option params [String, nil] :originating_party_name If present, this will replace your default company name on receiver's bank
@@ -445,7 +445,7 @@ module ModernTreasury
       #     the first 16 characters of this string will be used. Any additional characters
       #     will be truncated.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority, nil] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderCreateAsyncParams::Priority] :priority Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #     same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #     an overnight check rather than standard mail.
       #
@@ -459,11 +459,11 @@ module ModernTreasury
       #     "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
       #     digit CPA Code that will be attached to the payment.
       #
-      #   @option params [ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount, nil] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   @option params [ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount] :receiving_account Either `receiving_account` or `receiving_account_id` must be present. When using
       #     `receiving_account_id`, you may pass the id of an external account or an
       #     internal account.
       #
-      #   @option params [String, nil] :receiving_account_id Either `receiving_account` or `receiving_account_id` must be present. When using
+      #   @option params [String] :receiving_account_id Either `receiving_account` or `receiving_account_id` must be present. When using
       #     `receiving_account_id`, you may pass the id of an external account or an
       #     internal account.
       #
@@ -486,7 +486,7 @@ module ModernTreasury
       #     payment orders, the `subtype` represents the SEC code. We currently support
       #     `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
       #
-      #   @option params [Boolean, nil] :transaction_monitoring_enabled A flag that determines whether a payment order should go through transaction
+      #   @option params [Boolean] :transaction_monitoring_enabled A flag that determines whether a payment order should go through transaction
       #     monitoring.
       #
       #   @option params [String, nil] :ultimate_originating_party_identifier Identifier of the ultimate originator of the payment order.

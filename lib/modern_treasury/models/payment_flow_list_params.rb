@@ -5,7 +5,7 @@ module ModernTreasury
     class PaymentFlowListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute client_token
@@ -45,13 +45,13 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   # @param client_token [String, nil]
-      #   # @param counterparty_id [String, nil]
-      #   # @param originating_account_id [String, nil]
-      #   # @param payment_order_id [String, nil]
-      #   # @param per_page [Integer, nil]
-      #   # @param receiving_account_id [String, nil]
-      #   # @param status [String, nil]
+      #   # @param client_token [String]
+      #   # @param counterparty_id [String]
+      #   # @param originating_account_id [String]
+      #   # @param payment_order_id [String]
+      #   # @param per_page [Integer]
+      #   # @param receiving_account_id [String]
+      #   # @param status [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,

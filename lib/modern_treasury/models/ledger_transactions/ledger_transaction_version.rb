@@ -17,7 +17,7 @@ module ModernTreasury
         # @!attribute description
         #   An optional description for internal use.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :description, String
 
         # @!attribute effective_at
@@ -35,7 +35,7 @@ module ModernTreasury
         # @!attribute external_id
         #   A unique string to represent the ledger transaction. Only one pending or posted ledger transaction may have this ID in the ledger.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :external_id, String
 
         # @!attribute ledger_entries
@@ -62,13 +62,13 @@ module ModernTreasury
         # @!attribute ledgerable_id
         #   If the ledger transaction can be reconciled to another object in Modern Treasury, the id will be populated here, otherwise null.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :ledgerable_id, String
 
         # @!attribute ledgerable_type
         #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, or reversal.
         #
-        #   @return [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType]
+        #   @return [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType, nil]
         required :ledgerable_type,
                  enum: -> {
                    ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType
@@ -94,19 +94,19 @@ module ModernTreasury
         # @!attribute posted_at
         #   The time on which the ledger transaction posted. This is null if the ledger transaction is pending.
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         required :posted_at, Time
 
         # @!attribute reversed_by_ledger_transaction_id
         #   The ID of the ledger transaction that reversed this ledger transaction.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :reversed_by_ledger_transaction_id, String
 
         # @!attribute reverses_ledger_transaction_id
         #   The ID of the original ledger transaction. that this ledger transaction reverses.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :reverses_ledger_transaction_id, String
 
         # @!attribute status
@@ -242,7 +242,7 @@ module ModernTreasury
           # @!attribute ledger_account_lock_version
           #   Lock version of the ledger account. This can be passed when creating a ledger transaction to only succeed if no ledger transactions have posted since the given version. See our post about Designing the Ledgers API with Optimistic Locking for more details.
           #
-          #   @return [Integer]
+          #   @return [Integer, nil]
           required :ledger_account_lock_version, Integer
 
           # @!attribute ledger_transaction_id
@@ -271,7 +271,7 @@ module ModernTreasury
           # @!attribute resulting_ledger_account_balances
           #   The pending, posted, and available balances for this ledger entry's ledger account. The posted balance is the sum of all posted entries on the account. The pending balance is the sum of all pending and posted entries on the account. The available balance is the posted incoming entries minus the sum of the pending and posted outgoing amounts. Please see https://docs.moderntreasury.com/docs/transaction-status-and-balances for more details.
           #
-          #   @return [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances]
+          #   @return [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances, nil]
           required :resulting_ledger_account_balances,
                    -> { ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances }
 

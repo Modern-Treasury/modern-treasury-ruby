@@ -5,7 +5,7 @@ module ModernTreasury
     class IncomingPaymentDetailListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute as_of_date_end
@@ -58,27 +58,27 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param as_of_date_end [String, nil] Filters incoming payment details with an as_of_date starting on or before the
+      #   # @param as_of_date_end [String] Filters incoming payment details with an as_of_date starting on or before the
       #   #   specified date (YYYY-MM-DD).
       #   #
-      #   # @param as_of_date_start [String, nil] Filters incoming payment details with an as_of_date starting on or after the
+      #   # @param as_of_date_start [String] Filters incoming payment details with an as_of_date starting on or after the
       #   #   specified date (YYYY-MM-DD).
       #   #
-      #   # @param direction [String, nil] One of `credit` or `debit`.
+      #   # @param direction [String] One of `credit` or `debit`.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
-      #   # @param status [String, nil] The current status of the incoming payment order. One of `pending`, `completed`,
+      #   # @param status [String] The current status of the incoming payment order. One of `pending`, `completed`,
       #   #   or `returned`.
       #   #
-      #   # @param type [String, nil] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   # @param type [String] One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   #   `wire`.
       #   #
-      #   # @param virtual_account_id [String, nil] If the incoming payment detail is in a virtual account, the ID of the Virtual
+      #   # @param virtual_account_id [String] If the incoming payment detail is in a virtual account, the ID of the Virtual
       #   #   Account.
       #   #
       #   def initialize(

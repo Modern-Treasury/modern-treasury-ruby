@@ -71,12 +71,12 @@ module ModernTreasury
         #
         #   @option params [String, nil] :after_cursor
         #
-        #   @option params [Date, nil] :as_of_date The date of the balance report in local time.
+        #   @option params [Date] :as_of_date The date of the balance report in local time.
         #
-        #   @option params [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType, nil] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
+        #   @option params [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType] :balance_report_type The specific type of balance report. One of `intraday`, `previous_day`,
         #     `real_time`, or `other`.
         #
-        #   @option params [Integer, nil] :per_page
+        #   @option params [Integer] :per_page
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #

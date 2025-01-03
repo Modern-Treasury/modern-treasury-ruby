@@ -26,15 +26,15 @@ module ModernTreasury
       #     edited after entering that state. If the invoice fails to progress to unpaid,
       #     the errors will be returned and the invoice will not be created.
       #
-      #   @option params [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>, nil] :contact_details The invoicer's contact details displayed at the top of the invoice.
+      #   @option params [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>] :contact_details The invoicer's contact details displayed at the top of the invoice.
       #
       #   @option params [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil] :counterparty_billing_address The counterparty's billing address.
       #
       #   @option params [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil] :counterparty_shipping_address The counterparty's shipping address where physical goods should be delivered.
       #
-      #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      #   @option params [Symbol, ModernTreasury::Models::Currency] :currency Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
-      #   @option params [String, nil] :description A free-form description of the invoice.
+      #   @option params [String] :description A free-form description of the invoice.
       #
       #   @option params [String, nil] :fallback_payment_method When payment_method is automatic, the fallback payment method to use when an
       #     automatic payment fails. One of `manual` or `ui`.
@@ -58,25 +58,25 @@ module ModernTreasury
       #     notifications to. At least one email is required if notifications are enabled
       #     and the counterparty doesn't have an email.
       #
-      #   @option params [Boolean, nil] :notifications_enabled If true, the invoice will send email notifications to the invoice recipients
+      #   @option params [Boolean] :notifications_enabled If true, the invoice will send email notifications to the invoice recipients
       #     about invoice status changes.
       #
-      #   @option params [Date, nil] :payment_effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      #   @option params [Date] :payment_effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #     current business day or the next business day if the current day is a bank
       #     holiday or weekend. Format: yyyy-mm-dd.
       #
-      #   @option params [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod, nil] :payment_method The method by which the invoice can be paid. `ui` will show the embedded payment
+      #   @option params [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod] :payment_method The method by which the invoice can be paid. `ui` will show the embedded payment
       #     collection flow. `automatic` will automatically initiate payment based upon the
       #     account details of the receiving_account id.\nIf the invoice amount is positive,
       #     the automatically initiated payment order's direction will be debit. If the
       #     invoice amount is negative, the automatically initiated payment order's
       #     direction will be credit. One of `manual`, `ui`, or `automatic`.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderType, nil] :payment_type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderType] :payment_type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       #     `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #     `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
-      #   @option params [String, nil] :receiving_account_id The receiving account ID. Can be an `external_account`.
+      #   @option params [String] :receiving_account_id The receiving account ID. Can be an `external_account`.
       #
       #   @option params [String, nil] :recipient_email The email of the recipient of the invoice. Leaving this value as null will
       #     fallback to using the counterparty's name.
@@ -125,19 +125,19 @@ module ModernTreasury
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InvoiceUpdateParams] Attributes to send in this request.
       #
-      #   @option params [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>, nil] :contact_details The invoicer's contact details displayed at the top of the invoice.
+      #   @option params [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>] :contact_details The invoicer's contact details displayed at the top of the invoice.
       #
       #   @option params [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress, nil] :counterparty_billing_address The counterparty's billing address.
       #
-      #   @option params [String, nil] :counterparty_id The ID of the counterparty receiving the invoice.
+      #   @option params [String] :counterparty_id The ID of the counterparty receiving the invoice.
       #
       #   @option params [ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress, nil] :counterparty_shipping_address The counterparty's shipping address where physical goods should be delivered.
       #
-      #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Currency that the invoice is denominated in. Defaults to `USD` if not provided.
+      #   @option params [Symbol, ModernTreasury::Models::Currency] :currency Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
-      #   @option params [String, nil] :description A free-form description of the invoice.
+      #   @option params [String] :description A free-form description of the invoice.
       #
-      #   @option params [Time, nil] :due_date A future date by when the invoice needs to be paid.
+      #   @option params [Time] :due_date A future date by when the invoice needs to be paid.
       #
       #   @option params [String, nil] :fallback_payment_method When payment_method is automatic, the fallback payment method to use when an
       #     automatic payment fails. One of `manual` or `ui`.
@@ -161,27 +161,27 @@ module ModernTreasury
       #     notifications to. At least one email is required if notifications are enabled
       #     and the counterparty doesn't have an email.
       #
-      #   @option params [Boolean, nil] :notifications_enabled If true, the invoice will send email notifications to the invoice recipients
+      #   @option params [Boolean] :notifications_enabled If true, the invoice will send email notifications to the invoice recipients
       #     about invoice status changes.
       #
-      #   @option params [String, nil] :originating_account_id The ID of the internal account the invoice should be paid to.
+      #   @option params [String] :originating_account_id The ID of the internal account the invoice should be paid to.
       #
-      #   @option params [Date, nil] :payment_effective_date Date transactions are to be posted to the participants' account. Defaults to the
+      #   @option params [Date] :payment_effective_date Date transactions are to be posted to the participants' account. Defaults to the
       #     current business day or the next business day if the current day is a bank
       #     holiday or weekend. Format: yyyy-mm-dd.
       #
-      #   @option params [Symbol, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod, nil] :payment_method The method by which the invoice can be paid. `ui` will show the embedded payment
+      #   @option params [Symbol, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod] :payment_method The method by which the invoice can be paid. `ui` will show the embedded payment
       #     collection flow. `automatic` will automatically initiate payment based upon the
       #     account details of the receiving_account id.\nIf the invoice amount is positive,
       #     the automatically initiated payment order's direction will be debit. If the
       #     invoice amount is negative, the automatically initiated payment order's
       #     direction will be credit. One of `manual`, `ui`, or `automatic`.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderType, nil] :payment_type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+      #   @option params [Symbol, ModernTreasury::Models::PaymentOrderType] :payment_type One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       #     `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #     `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
-      #   @option params [String, nil] :receiving_account_id The receiving account ID. Can be an `external_account`.
+      #   @option params [String] :receiving_account_id The receiving account ID. Can be an `external_account`.
       #
       #   @option params [String, nil] :recipient_email The email of the recipient of the invoice. Leaving this value as null will
       #     fallback to using the counterparty's name.
@@ -192,7 +192,7 @@ module ModernTreasury
       #   @option params [Array<Integer>, nil] :remind_after_overdue_days Number of days after due date when overdue reminder emails will be sent out to
       #     invoice recipients.
       #
-      #   @option params [String, nil] :status Invoice status must be updated in a `PATCH` request that does not modify any
+      #   @option params [String] :status Invoice status must be updated in a `PATCH` request that does not modify any
       #     other invoice attributes. Valid state transitions are `draft` to `unpaid`,
       #     `draft` or `unpaid` to `voided`, and `draft` or `unpaid` to `paid`.
       #
@@ -218,27 +218,27 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [String, nil] :counterparty_id
+      #   @option params [String] :counterparty_id
       #
-      #   @option params [Date, nil] :due_date_end An inclusive upper bound for searching due_date
+      #   @option params [Date] :due_date_end An inclusive upper bound for searching due_date
       #
-      #   @option params [Date, nil] :due_date_start An inclusive lower bound for searching due_date
+      #   @option params [Date] :due_date_start An inclusive lower bound for searching due_date
       #
-      #   @option params [String, nil] :expected_payment_id
+      #   @option params [String] :expected_payment_id
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
-      #   @option params [String, nil] :number A unique record number assigned to each invoice that is issued.
+      #   @option params [String] :number A unique record number assigned to each invoice that is issued.
       #
-      #   @option params [String, nil] :originating_account_id
+      #   @option params [String] :originating_account_id
       #
-      #   @option params [String, nil] :payment_order_id
+      #   @option params [String] :payment_order_id
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
-      #   @option params [Symbol, ModernTreasury::Models::InvoiceListParams::Status, nil] :status
+      #   @option params [Symbol, ModernTreasury::Models::InvoiceListParams::Status] :status
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

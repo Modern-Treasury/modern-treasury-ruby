@@ -22,12 +22,12 @@ module ModernTreasury
       # @!attribute description
       #   The description of the ledger account category.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute ledger_id

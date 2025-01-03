@@ -5,7 +5,7 @@ module ModernTreasury
     class PaymentReferenceListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute per_page
@@ -35,14 +35,14 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
-      #   # @param reference_number [String, nil] The actual reference number assigned by the bank.
+      #   # @param reference_number [String] The actual reference number assigned by the bank.
       #   #
-      #   # @param referenceable_id [String, nil] The id of the referenceable to search for. Must be accompanied by the
+      #   # @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the
       #   #   referenceable_type or will return an error.
       #   #
-      #   # @param referenceable_type [String, nil] One of the referenceable types. This must be accompanied by the id of the
+      #   # @param referenceable_type [String] One of the referenceable types. This must be accompanied by the id of the
       #   #   referenceable or will return an error.
       #   #
       #   def initialize(

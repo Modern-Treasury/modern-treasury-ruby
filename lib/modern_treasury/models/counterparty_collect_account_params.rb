@@ -35,17 +35,17 @@ module ModernTreasury
       #   #   Use `debit` when you need to charge a counterparty. This field helps us send a
       #   #   more tailored email to your counterparties."
       #   #
-      #   # @param custom_redirect [String, nil] The URL you want your customer to visit upon filling out the form. By default,
+      #   # @param custom_redirect [String] The URL you want your customer to visit upon filling out the form. By default,
       #   #   they will be sent to a Modern Treasury landing page. This must be a valid HTTPS
       #   #   URL if set.
       #   #
-      #   # @param fields [Array<String>, nil] The list of fields you want on the form. This field is optional and if it is not
+      #   # @param fields [Array<String>] The list of fields you want on the form. This field is optional and if it is not
       #   #   set, will default to [\"nameOnAccount\", \"accountType\", \"accountNumber\",
       #   #   \"routingNumber\", \"address\"]. The full list of options is [\"name\",
       #   #   \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\",
       #   #   \"routingNumber\", \"address\", \"ibanNumber\", \"swiftCode\"].
       #   #
-      #   # @param send_email [Boolean, nil] By default, Modern Treasury will send an email to your counterparty that
+      #   # @param send_email [Boolean] By default, Modern Treasury will send an email to your counterparty that
       #   #   includes a link to the form they must fill out. However, if you would like to
       #   #   send the counterparty the link, you can set this parameter to `false`. The JSON
       #   #   body will include the link to the secure Modern Treasury form.

@@ -16,7 +16,7 @@ module ModernTreasury
       #
       #   @option params [Array<String>] :payment_types
       #
-      #   @option params [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>, nil] :receiving_countries
+      #   @option params [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>] :receiving_countries
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -77,15 +77,15 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [String, nil] :client_token
+      #   @option params [String] :client_token
       #
-      #   @option params [String, nil] :counterparty_id
+      #   @option params [String] :counterparty_id
       #
-      #   @option params [String, nil] :external_account_id
+      #   @option params [String] :external_account_id
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
-      #   @option params [String, nil] :status
+      #   @option params [String] :status
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

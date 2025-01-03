@@ -12,19 +12,19 @@ module ModernTreasury
       # @!attribute as_of_date
       #   Defaults to today.
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :as_of_date, Date
 
       # @!attribute currency
       #   Defaults to the currency of the originating account.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute description
       #   Defaults to a random description.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
       # @!attribute direction
@@ -49,11 +49,11 @@ module ModernTreasury
       # @!attribute virtual_account_id
       #   An optional parameter to associate the incoming payment detail to a virtual account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :virtual_account_id, String
 
       # @!parse
-      #   # @param amount [Integer, nil] Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
       #   #   as 1000.
       #   #
       #   # @param as_of_date [String, nil] Defaults to today.
@@ -62,11 +62,11 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] Defaults to a random description.
       #   #
-      #   # @param direction [String, nil] One of `credit`, `debit`.
+      #   # @param direction [String] One of `credit`, `debit`.
       #   #
-      #   # @param internal_account_id [String, nil] The ID of one of your internal accounts.
+      #   # @param internal_account_id [String] The ID of one of your internal accounts.
       #   #
-      #   # @param type [String, nil] One of `ach`, `wire`, `check`.
+      #   # @param type [String] One of `ach`, `wire`, `check`.
       #   #
       #   # @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual
       #   #   account.

@@ -5,7 +5,7 @@ module ModernTreasury
     class InvoiceListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute counterparty_id
@@ -65,27 +65,27 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param counterparty_id [String, nil]
+      #   # @param counterparty_id [String]
       #   #
-      #   # @param due_date_end [String, nil] An inclusive upper bound for searching due_date
+      #   # @param due_date_end [String] An inclusive upper bound for searching due_date
       #   #
-      #   # @param due_date_start [String, nil] An inclusive lower bound for searching due_date
+      #   # @param due_date_start [String] An inclusive lower bound for searching due_date
       #   #
-      #   # @param expected_payment_id [String, nil]
+      #   # @param expected_payment_id [String]
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
-      #   # @param number [String, nil] A unique record number assigned to each invoice that is issued.
+      #   # @param number [String] A unique record number assigned to each invoice that is issued.
       #   #
-      #   # @param originating_account_id [String, nil]
+      #   # @param originating_account_id [String]
       #   #
-      #   # @param payment_order_id [String, nil]
+      #   # @param payment_order_id [String]
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
-      #   # @param status [String, nil]
+      #   # @param status [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,

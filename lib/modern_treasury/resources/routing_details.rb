@@ -81,7 +81,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor Query param:
       #
-      #   @option params [Integer, nil] :per_page Query param:
+      #   @option params [Integer] :per_page Query param:
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

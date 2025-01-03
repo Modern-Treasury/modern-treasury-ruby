@@ -52,7 +52,7 @@ module ModernTreasury
       # @!attribute ledger_transaction_id
       #   The ID of the ledger transaction linked to the incoming payment detail or `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :ledger_transaction_id, String
 
       # @!attribute live_mode
@@ -75,26 +75,26 @@ module ModernTreasury
       # @!attribute originating_account_number_safe
       #   The last 4 digits of the originating account_number for the incoming payment detail.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :originating_account_number_safe, String
 
       # @!attribute originating_account_number_type
       #   The type of the originating account number for the incoming payment detail.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType, nil]
       required :originating_account_number_type,
                enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType }
 
       # @!attribute originating_routing_number
       #   The routing number of the originating account for the incoming payment detail.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :originating_routing_number, String
 
       # @!attribute originating_routing_number_type
       #   The type of the originating routing number for the incoming payment detail.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType, nil]
       required :originating_routing_number_type,
                enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType }
 
@@ -107,13 +107,13 @@ module ModernTreasury
       # @!attribute transaction_id
       #   The ID of the reconciled Transaction or `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :transaction_id, String
 
       # @!attribute transaction_line_item_id
       #   The ID of the reconciled Transaction Line Item or `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :transaction_line_item_id, String
 
       # @!attribute type
@@ -130,25 +130,25 @@ module ModernTreasury
       # @!attribute vendor_id
       #   The identifier of the vendor bank.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :vendor_id, String
 
       # @!attribute virtual_account
       #   If the incoming payment detail is in a virtual account, the serialized virtual account object.
       #
-      #   @return [ModernTreasury::Models::VirtualAccount]
+      #   @return [ModernTreasury::Models::VirtualAccount, nil]
       required :virtual_account, -> { ModernTreasury::Models::VirtualAccount }
 
       # @!attribute virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual Account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :virtual_account_id, String
 
       # @!attribute originating_account_number
       #   The account number of the originating account for the incoming payment detail.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :originating_account_number, String
 
       # @!parse

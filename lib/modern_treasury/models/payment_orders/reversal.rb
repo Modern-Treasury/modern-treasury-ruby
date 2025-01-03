@@ -17,7 +17,7 @@ module ModernTreasury
         # @!attribute ledger_transaction_id
         #   The ID of the ledger transaction linked to the reversal.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :ledger_transaction_id, String
 
         # @!attribute live_mode
@@ -40,7 +40,7 @@ module ModernTreasury
         # @!attribute payment_order_id
         #   The ID of the relevant Payment Order.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :payment_order_id, String
 
         # @!attribute reason
