@@ -10,7 +10,7 @@ module ModernTreasury
 
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute per_page
@@ -21,7 +21,7 @@ module ModernTreasury
       # @!parse
       #   # @param accounts_type [String]
       #   # @param after_cursor [String, nil]
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
       #   def initialize(accounts_type:, after_cursor: nil, per_page: nil, **) = super
 

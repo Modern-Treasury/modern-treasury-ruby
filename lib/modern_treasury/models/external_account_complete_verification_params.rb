@@ -9,7 +9,7 @@ module ModernTreasury
       optional :amounts, ModernTreasury::ArrayOf[Integer]
 
       # @!parse
-      #   # @param amounts [Array<Integer>, nil]
+      #   # @param amounts [Array<Integer>]
       #   #
       #   def initialize(amounts: nil, **) = super
 

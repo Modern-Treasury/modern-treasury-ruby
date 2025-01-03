@@ -18,7 +18,7 @@ module ModernTreasury
       #
       #   @option params [String] :account_number Body param: The account number for the bank account.
       #
-      #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType, nil] :account_number_type Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
+      #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] :account_number_type Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
       #     the bank account number is in a generic format.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -77,7 +77,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor Query param:
       #
-      #   @option params [Integer, nil] :per_page Query param:
+      #   @option params [Integer] :per_page Query param:
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

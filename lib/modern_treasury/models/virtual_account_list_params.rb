@@ -5,7 +5,7 @@ module ModernTreasury
     class VirtualAccountListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute counterparty_id
@@ -32,15 +32,15 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param counterparty_id [String, nil]
+      #   # @param counterparty_id [String]
       #   #
-      #   # @param internal_account_id [String, nil]
+      #   # @param internal_account_id [String]
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
       #   def initialize(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, **) = super
 

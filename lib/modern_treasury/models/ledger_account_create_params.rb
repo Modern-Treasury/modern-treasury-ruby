@@ -30,13 +30,13 @@ module ModernTreasury
       # @!attribute currency_exponent
       #   The currency exponent of the ledger account.
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :currency_exponent, Integer
 
       # @!attribute description
       #   The description of the ledger account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
       # @!attribute ledger_account_category_ids
@@ -79,17 +79,17 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] The description of the ledger account.
       #   #
-      #   # @param ledger_account_category_ids [Array<String>, nil] The array of ledger account category ids that this ledger account should be a
+      #   # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a
       #   #   child of.
       #   #
-      #   # @param ledgerable_id [String, nil] If the ledger account links to another object in Modern Treasury, the id will be
+      #   # @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
       #   #   populated here, otherwise null.
       #   #
-      #   # @param ledgerable_type [String, nil] If the ledger account links to another object in Modern Treasury, the type will
+      #   # @param ledgerable_type [String] If the ledger account links to another object in Modern Treasury, the type will
       #   #   be populated here, otherwise null. The value is one of internal_account or
       #   #   external_account.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(

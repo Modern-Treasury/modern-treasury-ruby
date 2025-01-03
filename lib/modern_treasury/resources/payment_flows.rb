@@ -25,7 +25,7 @@ module ModernTreasury
       #
       #   @option params [String] :originating_account_id Required. The ID of one of your organization's internal accounts.
       #
-      #   @option params [Date, nil] :due_date Optional. Can only be passed in when `effective_date_selection_enabled` is
+      #   @option params [Date] :due_date Optional. Can only be passed in when `effective_date_selection_enabled` is
       #     `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #     they are selecting a payment `effective_date`.
       #
@@ -88,19 +88,19 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [String, nil] :client_token
+      #   @option params [String] :client_token
       #
-      #   @option params [String, nil] :counterparty_id
+      #   @option params [String] :counterparty_id
       #
-      #   @option params [String, nil] :originating_account_id
+      #   @option params [String] :originating_account_id
       #
-      #   @option params [String, nil] :payment_order_id
+      #   @option params [String] :payment_order_id
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
-      #   @option params [String, nil] :receiving_account_id
+      #   @option params [String] :receiving_account_id
       #
-      #   @option params [String, nil] :status
+      #   @option params [String] :status
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

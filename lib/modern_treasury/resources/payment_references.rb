@@ -30,14 +30,14 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
-      #   @option params [String, nil] :reference_number The actual reference number assigned by the bank.
+      #   @option params [String] :reference_number The actual reference number assigned by the bank.
       #
-      #   @option params [String, nil] :referenceable_id The id of the referenceable to search for. Must be accompanied by the
+      #   @option params [String] :referenceable_id The id of the referenceable to search for. Must be accompanied by the
       #     referenceable_type or will return an error.
       #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType, nil] :referenceable_type One of the referenceable types. This must be accompanied by the id of the
+      #   @option params [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType] :referenceable_type One of the referenceable types. This must be accompanied by the id of the
       #     referenceable or will return an error.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

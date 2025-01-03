@@ -16,9 +16,9 @@ module ModernTreasury
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!parse
-      #   # @param description [String, nil] An optional, free-form description for internal use.
+      #   # @param description [String] An optional, free-form description for internal use.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(description: nil, metadata: nil, **) = super

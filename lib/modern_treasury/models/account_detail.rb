@@ -27,7 +27,7 @@ module ModernTreasury
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute live_mode
@@ -71,7 +71,7 @@ module ModernTreasury
       #   #
       #   # @param updated_at [String]
       #   #
-      #   # @param account_number [String, nil] The account number for the bank account.
+      #   # @param account_number [String] The account number for the bank account.
       #   #
       #   def initialize(
       #     id:,

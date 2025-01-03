@@ -16,7 +16,7 @@ module ModernTreasury
       # @!attribute description
       #   The description of the ledger account statement.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute effective_at_lower_bound

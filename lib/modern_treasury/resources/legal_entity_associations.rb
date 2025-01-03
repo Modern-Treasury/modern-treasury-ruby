@@ -17,9 +17,9 @@ module ModernTreasury
       #
       #   @option params [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>] :relationship_types
       #
-      #   @option params [ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity, nil] :child_legal_entity The child legal entity.
+      #   @option params [ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity] :child_legal_entity The child legal entity.
       #
-      #   @option params [String, nil] :child_legal_entity_id The ID of the child legal entity.
+      #   @option params [String] :child_legal_entity_id The ID of the child legal entity.
       #
       #   @option params [Integer, nil] :ownership_percentage The child entity's ownership percentage iff they are a beneficial owner.
       #

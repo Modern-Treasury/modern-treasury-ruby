@@ -17,19 +17,19 @@ module ModernTreasury
       # @!attribute as_of_date
       #   The date on which the transaction occurred.
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       required :as_of_date, Date
 
       # @!attribute as_of_time
       #   The time on which the transaction occurred. Depending on the granularity of the timestamp information received from the bank, it may be `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :as_of_time, String
 
       # @!attribute as_of_timezone
       #   The timezone in which the `as_of_time` is represented. Can be `null` if the bank does not provide timezone info.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :as_of_timezone, String
 
       # @!attribute created_at
@@ -57,13 +57,13 @@ module ModernTreasury
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
       #
-      #   @return [ModernTreasury::Models::Transaction::ForeignExchangeRate]
+      #   @return [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil]
       required :foreign_exchange_rate, -> { ModernTreasury::Models::Transaction::ForeignExchangeRate }
 
       # @!attribute internal_account_id
@@ -115,25 +115,25 @@ module ModernTreasury
       # @!attribute vendor_code
       #   When applicable, the bank-given code that determines the transaction's category. For most banks this is the BAI2/BTRS transaction code.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :vendor_code, String
 
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, `us_bank`, or others.
       #
-      #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType]
+      #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
       required :vendor_code_type, enum: -> { ModernTreasury::Models::Transaction::VendorCodeType }
 
       # @!attribute vendor_customer_id
       #   An identifier given to this transaction by the bank, often `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :vendor_customer_id, String
 
       # @!attribute vendor_id
       #   An identifier given to this transaction by the bank.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :vendor_id, String
 
       # @!attribute details
@@ -145,7 +145,7 @@ module ModernTreasury
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in your banking portal.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :vendor_description, String
 
       # @!parse
@@ -208,7 +208,7 @@ module ModernTreasury
       #   #
       #   # @param vendor_id [String, nil] An identifier given to this transaction by the bank.
       #   #
-      #   # @param details [Hash{Symbol => String}, nil] This field contains additional information that the bank provided about the
+      #   # @param details [Hash{Symbol => String}] This field contains additional information that the bank provided about the
       #   #   transaction. This is structured data. Some of the data in here might overlap
       #   #   with what is in the `vendor_description`. For example, the OBI could be a part
       #   #   of the vendor description, and it would also be included in here. The attributes

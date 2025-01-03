@@ -11,7 +11,7 @@ module ModernTreasury
       # @!attribute amount
       #   The amount of the ledger account settlement.
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       required :amount, Integer
 
       # @!attribute contra_ledger_account_id
@@ -34,13 +34,13 @@ module ModernTreasury
       # @!attribute currency_exponent
       #   The currency exponent of the ledger account settlement.
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       required :currency_exponent, Integer
 
       # @!attribute description
       #   The description of the ledger account settlement.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute effective_at_upper_bound
@@ -58,7 +58,7 @@ module ModernTreasury
       # @!attribute ledger_transaction_id
       #   The id of the ledger transaction that this settlement is associated with.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :ledger_transaction_id, String
 
       # @!attribute live_mode
@@ -87,7 +87,7 @@ module ModernTreasury
       # @!attribute settlement_entry_direction
       #   The direction of the ledger entry with the settlement_ledger_account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :settlement_entry_direction, String
 
       # @!attribute status

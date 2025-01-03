@@ -18,7 +18,7 @@ module ModernTreasury
         # @!attribute as_of_time
         #   The time (24-hour clock) of the balance report in local time.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :as_of_time, String
 
         # @!attribute balance_report_type
@@ -145,13 +145,13 @@ module ModernTreasury
           # @!attribute as_of_date
           #   The date on which the balance became true for the account.
           #
-          #   @return [Date]
+          #   @return [Date, nil]
           required :as_of_date, Date
 
           # @!attribute as_of_time
           #   The time on which the balance became true for the account.
           #
-          #   @return [String]
+          #   @return [String, nil]
           required :as_of_time, String
 
           # @!attribute balance_type
@@ -191,7 +191,7 @@ module ModernTreasury
           # @!attribute value_date
           #   The date on which the balance becomes available.
           #
-          #   @return [Date]
+          #   @return [Date, nil]
           required :value_date, Date
 
           # @!attribute vendor_code
@@ -203,7 +203,7 @@ module ModernTreasury
           # @!attribute vendor_code_type
           #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, or `us_bank`.
           #
-          #   @return [String]
+          #   @return [String, nil]
           required :vendor_code_type, String
 
           # @!parse

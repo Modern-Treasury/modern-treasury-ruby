@@ -16,12 +16,12 @@ module ModernTreasury
       # @!attribute description
       #   An optional free-form description for internal use.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute live_mode

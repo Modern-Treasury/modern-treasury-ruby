@@ -16,13 +16,13 @@ module ModernTreasury
       # @!attribute accounting_category_id
       #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :accounting_category_id, String
 
       # @!attribute accounting_ledger_class_id
       #   The ID of one of the class objects in your accounting system. Class objects track segments of your business independent of client or project. Note that these will only be accessible if your accounting system has been connected.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :accounting_ledger_class_id, String
 
       # @!attribute amount
@@ -39,7 +39,7 @@ module ModernTreasury
       # @!attribute description
       #   A free-form description of the line item.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute itemizable_id
@@ -134,13 +134,13 @@ module ModernTreasury
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :account_id, String
 
         # @!attribute class_id
         #   The ID of one of the class objects in your accounting system. Class objects track segments of your business independent of client or project. Note that these will only be accessible if your accounting system has been connected.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :class_id, String
 
         # @!parse

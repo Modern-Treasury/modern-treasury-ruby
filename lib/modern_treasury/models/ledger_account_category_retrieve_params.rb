@@ -10,7 +10,7 @@ module ModernTreasury
       optional :balances, -> { ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances }
 
       # @!parse
-      #   # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances, nil] For example, if you want the balances as of a particular time (ISO8601), the
+      #   # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the
       #   #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #   #   The balances as of a time are inclusive of entries with that exact time.
       #   #
@@ -34,8 +34,8 @@ module ModernTreasury
         #   #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
         #   #   The balances as of a time are inclusive of entries with that exact time.
         #   #
-        #   # @param as_of_date [String, nil]
-        #   # @param effective_at [String, nil]
+        #   # @param as_of_date [String]
+        #   # @param effective_at [String]
         #   #
         #   def initialize(as_of_date: nil, effective_at: nil, **) = super
 

@@ -10,7 +10,7 @@ module ModernTreasury
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status }
 
       # @!parse
-      #   # @param status [String, nil] The status of the connection legal entity.
+      #   # @param status [String] The status of the connection legal entity.
       #   #
       #   def initialize(status: nil, **) = super
 

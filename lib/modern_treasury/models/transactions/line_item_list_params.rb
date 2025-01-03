@@ -11,7 +11,7 @@ module ModernTreasury
 
         # @!attribute after_cursor
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :after_cursor, String
 
         # @!attribute per_page
@@ -26,14 +26,14 @@ module ModernTreasury
 
         # @!attribute type
         #
-        #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type]
+        #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
         optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }
 
         # @!parse
-        #   # @param id [Hash{Symbol => String}, nil]
+        #   # @param id [Hash{Symbol => String}]
         #   # @param after_cursor [String, nil]
-        #   # @param per_page [Integer, nil]
-        #   # @param transaction_id [String, nil]
+        #   # @param per_page [Integer]
+        #   # @param transaction_id [String]
         #   # @param type [String, nil]
         #   #
         #   def initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, **) = super

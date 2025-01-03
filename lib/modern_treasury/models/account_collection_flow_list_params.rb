@@ -5,7 +5,7 @@ module ModernTreasury
     class AccountCollectionFlowListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute client_token
@@ -35,11 +35,11 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   # @param client_token [String, nil]
-      #   # @param counterparty_id [String, nil]
-      #   # @param external_account_id [String, nil]
-      #   # @param per_page [Integer, nil]
-      #   # @param status [String, nil]
+      #   # @param client_token [String]
+      #   # @param counterparty_id [String]
+      #   # @param external_account_id [String]
+      #   # @param per_page [Integer]
+      #   # @param status [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,

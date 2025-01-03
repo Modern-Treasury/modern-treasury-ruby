@@ -21,19 +21,19 @@ module ModernTreasury
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute email
       #   The counterparty's email.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :email, String
 
       # @!attribute legal_entity_id
       #   The id of the legal entity.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :legal_entity_id, String
 
       # @!attribute live_mode
@@ -51,7 +51,7 @@ module ModernTreasury
       # @!attribute name
       #   A human friendly name for this counterparty.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :name, String
 
       # @!attribute object
@@ -157,13 +157,13 @@ module ModernTreasury
 
         # @!attribute discarded_at
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         optional :discarded_at, Time
 
         # @!attribute ledger_account_id
         #   If the external account links to a ledger account in Modern Treasury, the id of the ledger account will be populated here.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :ledger_account_id, String
 
         # @!attribute live_mode
@@ -181,7 +181,7 @@ module ModernTreasury
         # @!attribute name
         #   A nickname for the external account. This is only for internal usage and won't affect any payments
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :name, String
 
         # @!attribute object
@@ -192,7 +192,7 @@ module ModernTreasury
         # @!attribute party_address
         #   The address associated with the owner or `null`.
         #
-        #   @return [ModernTreasury::Models::Counterparty::Account::PartyAddress]
+        #   @return [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil]
         optional :party_address, -> { ModernTreasury::Models::Counterparty::Account::PartyAddress }
 
         # @!attribute party_name
@@ -204,7 +204,7 @@ module ModernTreasury
         # @!attribute party_type
         #   Either `individual` or `business`.
         #
-        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType]
+        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType, nil]
         optional :party_type, enum: -> { ModernTreasury::Models::Counterparty::Account::PartyType }
 
         # @!attribute routing_details
@@ -219,7 +219,7 @@ module ModernTreasury
 
         # @!attribute verification_source
         #
-        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationSource]
+        #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::VerificationSource, nil]
         optional :verification_source,
                  enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationSource }
 
@@ -230,45 +230,45 @@ module ModernTreasury
                  enum: -> { ModernTreasury::Models::Counterparty::Account::VerificationStatus }
 
         # @!parse
-        #   # @param id [String, nil]
+        #   # @param id [String]
         #   #
-        #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>, nil]
+        #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
         #   #
-        #   # @param account_type [String, nil] Can be `checking`, `savings` or `other`.
+        #   # @param account_type [String] Can be `checking`, `savings` or `other`.
         #   #
-        #   # @param contact_details [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>, nil]
+        #   # @param contact_details [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
         #   #
-        #   # @param created_at [String, nil]
+        #   # @param created_at [String]
         #   #
         #   # @param discarded_at [String, nil]
         #   #
         #   # @param ledger_account_id [String, nil] If the external account links to a ledger account in Modern Treasury, the id of
         #   #   the ledger account will be populated here.
         #   #
-        #   # @param live_mode [Boolean, nil] This field will be true if this object exists in the live environment or false
+        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
         #   #   if it exists in the test environment.
         #   #
-        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
         #   #   affect any payments
         #   #
-        #   # @param object [String, nil]
+        #   # @param object [String]
         #   #
         #   # @param party_address [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil] The address associated with the owner or `null`.
         #   #
-        #   # @param party_name [String, nil] The legal name of the entity which owns the account.
+        #   # @param party_name [String] The legal name of the entity which owns the account.
         #   #
         #   # @param party_type [String, nil] Either `individual` or `business`.
         #   #
-        #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>, nil]
+        #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
         #   #
-        #   # @param updated_at [String, nil]
+        #   # @param updated_at [String]
         #   #
         #   # @param verification_source [String, nil]
         #   #
-        #   # @param verification_status [String, nil]
+        #   # @param verification_status [String]
         #   #
         #   def initialize(
         #     id: nil,
@@ -322,7 +322,7 @@ module ModernTreasury
 
           # @!attribute discarded_at
           #
-          #   @return [Time]
+          #   @return [Time, nil]
           required :discarded_at, Time
 
           # @!attribute live_mode
@@ -405,7 +405,7 @@ module ModernTreasury
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
           #
-          #   @return [String]
+          #   @return [String, nil]
           required :country, String
 
           # @!attribute created_at
@@ -415,12 +415,12 @@ module ModernTreasury
 
           # @!attribute line1
           #
-          #   @return [String]
+          #   @return [String, nil]
           required :line1, String
 
           # @!attribute line2
           #
-          #   @return [String]
+          #   @return [String, nil]
           required :line2, String
 
           # @!attribute live_mode
@@ -432,7 +432,7 @@ module ModernTreasury
           # @!attribute locality
           #   Locality or City.
           #
-          #   @return [String]
+          #   @return [String, nil]
           required :locality, String
 
           # @!attribute object
@@ -443,13 +443,13 @@ module ModernTreasury
           # @!attribute postal_code
           #   The postal code of the address.
           #
-          #   @return [String]
+          #   @return [String, nil]
           required :postal_code, String
 
           # @!attribute region
           #   Region or State.
           #
-          #   @return [String]
+          #   @return [String, nil]
           required :region, String
 
           # @!attribute updated_at

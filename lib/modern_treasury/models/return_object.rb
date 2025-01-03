@@ -17,7 +17,7 @@ module ModernTreasury
       # @!attribute code
       #   The return code. For ACH returns, this is the required ACH return code.
       #
-      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Code]
+      #   @return [Symbol, ModernTreasury::Models::ReturnObject::Code, nil]
       required :code, enum: -> { ModernTreasury::Models::ReturnObject::Code }
 
       # @!attribute created_at
@@ -34,31 +34,31 @@ module ModernTreasury
       # @!attribute current_return
       #   If the return's status is `returned`, this will include the return object's data that is returning this return.
       #
-      #   @return [ModernTreasury::Models::ReturnObject]
+      #   @return [ModernTreasury::Models::ReturnObject, nil]
       required :current_return, -> { ModernTreasury::Models::ReturnObject }
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty passed away.
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       required :date_of_death, Date
 
       # @!attribute failure_reason
       #   If an originating return failed to be processed by the bank, a description of the failure reason will be available.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :failure_reason, String
 
       # @!attribute internal_account_id
       #   The ID of the relevant Internal Account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :internal_account_id, String
 
       # @!attribute ledger_transaction_id
       #   The ID of the ledger transaction linked to the return.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :ledger_transaction_id, String
 
       # @!attribute live_mode
@@ -75,7 +75,7 @@ module ModernTreasury
       # @!attribute reason
       #   Often the bank will provide an explanation for the return, which is a short human readable string.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :reason, String
 
       # @!attribute reference_numbers
@@ -88,13 +88,13 @@ module ModernTreasury
       # @!attribute returnable_id
       #   The ID of the object being returned or `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :returnable_id, String
 
       # @!attribute returnable_type
       #   The type of object being returned or `null`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType]
+      #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil]
       required :returnable_type, enum: -> { ModernTreasury::Models::ReturnObject::ReturnableType }
 
       # @!attribute role
@@ -112,13 +112,13 @@ module ModernTreasury
       # @!attribute transaction_id
       #   The ID of the relevant Transaction or `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :transaction_id, String
 
       # @!attribute transaction_line_item_id
       #   The ID of the relevant Transaction Line Item or `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :transaction_line_item_id, String
 
       # @!attribute type
@@ -135,7 +135,7 @@ module ModernTreasury
       # @!attribute additional_information
       #   Some returns may include additional information from the bank. In these cases, this string will be present.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :additional_information, String
 
       # @!parse

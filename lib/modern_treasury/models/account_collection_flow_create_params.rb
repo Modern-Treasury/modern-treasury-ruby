@@ -27,7 +27,7 @@ module ModernTreasury
       #   #
       #   # @param payment_types [Array<String>]
       #   #
-      #   # @param receiving_countries [Array<String>, nil]
+      #   # @param receiving_countries [Array<String>]
       #   #
       #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil, **) = super
 
