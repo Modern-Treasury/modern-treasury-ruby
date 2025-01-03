@@ -22,12 +22,12 @@ module ModernTreasury
       # @!attribute description
       #   The description of the ledger account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute ledger_id
@@ -39,13 +39,13 @@ module ModernTreasury
       # @!attribute ledgerable_id
       #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :ledgerable_id, String
 
       # @!attribute ledgerable_type
       #   If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType, nil]
       required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerAccount::LedgerableType }
 
       # @!attribute live_mode
@@ -161,13 +161,13 @@ module ModernTreasury
         # @!attribute effective_at_lower_bound
         #   The inclusive lower bound of the effective_at timestamp for the returned balances.
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         required :effective_at_lower_bound, Time
 
         # @!attribute effective_at_upper_bound
         #   The exclusive upper bound of the effective_at timestamp for the returned balances.
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         required :effective_at_upper_bound, Time
 
         # @!attribute pending_balance

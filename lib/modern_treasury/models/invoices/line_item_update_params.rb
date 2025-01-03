@@ -54,24 +54,24 @@ module ModernTreasury
         # @!parse
         #   # @param invoice_id [String]
         #   #
-        #   # @param description [String, nil] An optional free-form description of the line item.
+        #   # @param description [String] An optional free-form description of the line item.
         #   #
-        #   # @param direction [String, nil] Either `debit` or `credit`. `debit` indicates that a client owes the business
+        #   # @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business
         #   #   money and increases the invoice's `total_amount` due. `credit` has the opposite
         #   #   intention and effect.
         #   #
-        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
-        #   # @param name [String, nil] The name of the line item, typically a product or SKU name.
+        #   # @param name [String] The name of the line item, typically a product or SKU name.
         #   #
-        #   # @param quantity [Integer, nil] The number of units of a product or service that this line item is for. Must be
+        #   # @param quantity [Integer] The number of units of a product or service that this line item is for. Must be
         #   #   a whole number. Defaults to 1 if not provided.
         #   #
-        #   # @param unit_amount [Integer, nil] The cost per unit of the product or service that this line item is for,
+        #   # @param unit_amount [Integer] The cost per unit of the product or service that this line item is for,
         #   #   specified in the invoice currency's smallest unit.
         #   #
-        #   # @param unit_amount_decimal [String, nil] The cost per unit of the product or service that this line item is for,
+        #   # @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for,
         #   #   specified in the invoice currency's smallest unit. Accepts decimal strings with
         #   #   up to 12 decimals
         #   #

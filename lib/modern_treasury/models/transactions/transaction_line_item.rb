@@ -18,7 +18,7 @@ module ModernTreasury
         # @!attribute counterparty_id
         #   The ID for the counterparty for this transaction line item.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :counterparty_id, String
 
         # @!attribute created_at
@@ -34,13 +34,13 @@ module ModernTreasury
 
         # @!attribute discarded_at
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         required :discarded_at, Time
 
         # @!attribute expected_payment_id
         #   The ID of the reconciled Expected Payment, otherwise `null`.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :expected_payment_id, String
 
         # @!attribute live_mode
@@ -63,13 +63,13 @@ module ModernTreasury
         # @!attribute transactable_id
         #   If a matching object exists in Modern Treasury, the ID will be populated here, otherwise `null`.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :transactable_id, String
 
         # @!attribute transactable_type
         #   If a matching object exists in Modern Treasury, the type will be populated here, otherwise `null`.
         #
-        #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType]
+        #   @return [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
         required :transactable_type,
                  enum: -> { ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType }
 

@@ -5,7 +5,7 @@ module ModernTreasury
     class DocumentListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute documentable_id
@@ -28,13 +28,13 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param documentable_id [String, nil] The unique identifier for the associated object.
+      #   # @param documentable_id [String] The unique identifier for the associated object.
       #   #
-      #   # @param documentable_type [String, nil] The type of the associated object. Currently can be one of `payment_order`,
+      #   # @param documentable_type [String] The type of the associated object. Currently can be one of `payment_order`,
       #   #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   #   `case`, `internal_account`, `decision`, or `external_account`.
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
       #   def initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, **) = super
 

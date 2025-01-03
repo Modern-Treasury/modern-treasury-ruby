@@ -18,19 +18,19 @@ module ModernTreasury
       # @!attribute allow_either_direction
       #   If true, the settlement amount and settlement_entry_direction will bring the settlement ledger account's balance closer to zero, even if the balance is negative.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       optional :allow_either_direction, ModernTreasury::BooleanModel
 
       # @!attribute description
       #   The description of the ledger account settlement.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
       # @!attribute effective_at_upper_bound
       #   The exclusive upper bound of the effective_at timestamp of the ledger entries to be included in the ledger account settlement. The default value is the created_at timestamp of the ledger account settlement.
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :effective_at_upper_bound, Time
 
       # @!attribute metadata
@@ -42,13 +42,13 @@ module ModernTreasury
       # @!attribute skip_settlement_ledger_transaction
       #   It is set to `false` by default. It should be set to `true` when migrating existing settlements.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       optional :skip_settlement_ledger_transaction, ModernTreasury::BooleanModel
 
       # @!attribute status
       #   The status of the ledger account settlement. It is set to `pending` by default. To post a ledger account settlement at creation, use `posted`.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status }
 
       # @!parse
@@ -68,7 +68,7 @@ module ModernTreasury
       #   #   be included in the ledger account settlement. The default value is the
       #   #   created_at timestamp of the ledger account settlement.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param skip_settlement_ledger_transaction [Boolean, nil] It is set to `false` by default. It should be set to `true` when migrating

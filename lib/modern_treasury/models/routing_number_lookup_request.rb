@@ -44,22 +44,22 @@ module ModernTreasury
                }]
 
       # @!parse
-      #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, nil] The address of the bank.
+      #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress] The address of the bank.
       #   #
-      #   # @param bank_name [String, nil] The name of the bank.
+      #   # @param bank_name [String] The name of the bank.
       #   #
-      #   # @param routing_number [String, nil] The routing number of the bank.
+      #   # @param routing_number [String] The routing number of the bank.
       #   #
-      #   # @param routing_number_type [String, nil] The type of routing number. See
+      #   # @param routing_number_type [String] The type of routing number. See
       #   #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #   #
-      #   # @param sanctions [Hash{Symbol => Object}, nil] An object containing key-value pairs, each with a sanctions list as the key and
+      #   # @param sanctions [Hash{Symbol => Object}] An object containing key-value pairs, each with a sanctions list as the key and
       #   #   a boolean value representing whether the bank is on that particular sanctions
       #   #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       #   #
-      #   # @param supported_payment_types [Array<String>, nil] An array of payment types that are supported for this routing number. This can
+      #   # @param supported_payment_types [Array<String>] An array of payment types that are supported for this routing number. This can
       #   #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs` currently.
       #   #
       #   def initialize(
@@ -80,35 +80,35 @@ module ModernTreasury
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :country, String
 
         # @!attribute line1
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line1, String
 
         # @!attribute line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
 
         # @!attribute locality
         #   Locality or City.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :locality, String
 
         # @!attribute postal_code
         #   The postal code of the address.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :postal_code, String
 
         # @!attribute region
         #   Region or State.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :region, String
 
         # @!parse

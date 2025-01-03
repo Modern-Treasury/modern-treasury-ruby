@@ -54,13 +54,13 @@ module ModernTreasury
         #
         # @param params [Hash{Symbol => Object}, ModernTreasury::Models::Transactions::LineItemListParams] Attributes to send in this request.
         #
-        #   @option params [Hash{Symbol => String}, nil] :id
+        #   @option params [Hash{Symbol => String}] :id
         #
         #   @option params [String, nil] :after_cursor
         #
-        #   @option params [Integer, nil] :per_page
+        #   @option params [Integer] :per_page
         #
-        #   @option params [String, nil] :transaction_id
+        #   @option params [String] :transaction_id
         #
         #   @option params [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil] :type
         #

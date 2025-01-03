@@ -5,7 +5,7 @@ module ModernTreasury
     class CounterpartyListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute created_at_lower_bound
@@ -52,23 +52,23 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param created_at_lower_bound [String, nil] Used to return counterparties created after some datetime.
+      #   # @param created_at_lower_bound [String] Used to return counterparties created after some datetime.
       #   #
-      #   # @param created_at_upper_bound [String, nil] Used to return counterparties created before some datetime.
+      #   # @param created_at_upper_bound [String] Used to return counterparties created before some datetime.
       #   #
-      #   # @param email [String, nil] Performs a partial string match of the email field. This is also case
+      #   # @param email [String] Performs a partial string match of the email field. This is also case
       #   #   insensitive.
       #   #
-      #   # @param legal_entity_id [String, nil] Filters for counterparties with the given legal entity ID.
+      #   # @param legal_entity_id [String] Filters for counterparties with the given legal entity ID.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
-      #   # @param name [String, nil] Performs a partial string match of the name field. This is also case
+      #   # @param name [String] Performs a partial string match of the name field. This is also case
       #   #   insensitive.
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
       #   def initialize(
       #     after_cursor: nil,

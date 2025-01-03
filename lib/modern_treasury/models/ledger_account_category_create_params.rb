@@ -30,13 +30,13 @@ module ModernTreasury
       # @!attribute currency_exponent
       #   The currency exponent of the ledger account category.
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :currency_exponent, Integer
 
       # @!attribute description
       #   The description of the ledger account category.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
       # @!attribute ledger_account_category_ids
@@ -64,10 +64,10 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] The description of the ledger account category.
       #   #
-      #   # @param ledger_account_category_ids [Array<String>, nil] The array of ledger account category ids that this ledger account category
+      #   # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account category
       #   #   should be a child of.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(

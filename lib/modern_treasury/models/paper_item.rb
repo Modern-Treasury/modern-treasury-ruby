@@ -11,13 +11,13 @@ module ModernTreasury
       # @!attribute account_number
       #   The account number on the paper item.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :account_number, String
 
       # @!attribute account_number_safe
       #   The last 4 digits of the account_number.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :account_number_safe, String
 
       # @!attribute amount
@@ -29,7 +29,7 @@ module ModernTreasury
       # @!attribute check_number
       #   The check number on the paper item.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :check_number, String
 
       # @!attribute created_at
@@ -64,7 +64,7 @@ module ModernTreasury
       # @!attribute memo_field
       #   The memo field on the paper item.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :memo_field, String
 
       # @!attribute object
@@ -75,13 +75,13 @@ module ModernTreasury
       # @!attribute remitter_name
       #   The name of the remitter on the paper item.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :remitter_name, String
 
       # @!attribute routing_number
       #   The routing number on the paper item.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :routing_number, String
 
       # @!attribute status
@@ -93,13 +93,13 @@ module ModernTreasury
       # @!attribute transaction_id
       #   The ID of the reconciled Transaction or `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :transaction_id, String
 
       # @!attribute transaction_line_item_id
       #   The ID of the reconciled Transaction Line Item or `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :transaction_line_item_id, String
 
       # @!attribute updated_at

@@ -39,13 +39,13 @@ module ModernTreasury
       #   #
       #   # @param payment_type [String] Can be `ach`, `eft`, or `rtp`.
       #   #
-      #   # @param currency [String, nil] Defaults to the currency of the originating account.
+      #   # @param currency [String] Defaults to the currency of the originating account.
       #   #
-      #   # @param fallback_type [String, nil] A payment type to fallback to if the original type is not valid for the
+      #   # @param fallback_type [String] A payment type to fallback to if the original type is not valid for the
       #   #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   #   (payment_type=rtp and fallback_type=ach)
       #   #
-      #   # @param priority [String, nil] Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
+      #   # @param priority [String] Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #   #   transfer. This will apply to both `payment_type` and `fallback_type`.
       #   #
       #   def initialize(originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, **) = super

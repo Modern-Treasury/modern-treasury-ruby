@@ -17,7 +17,7 @@ module ModernTreasury
       # @!attribute counterparty_id
       #   The ID of a counterparty that the virtual account belongs to. Optional.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :counterparty_id, String
 
       # @!attribute created_at
@@ -28,24 +28,24 @@ module ModernTreasury
       # @!attribute credit_ledger_account_id
       #   The ID of a credit normal ledger account. When money enters the virtual account, this ledger account will be credited. Must be accompanied by a debit_ledger_account_id if present.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :credit_ledger_account_id, String
 
       # @!attribute debit_ledger_account_id
       #   The ID of a debit normal ledger account. When money enters the virtual account, this ledger account will be debited. Must be accompanied by a credit_ledger_account_id if present.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :debit_ledger_account_id, String
 
       # @!attribute description
       #   An optional free-form description for internal use.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute internal_account_id
@@ -57,7 +57,7 @@ module ModernTreasury
       # @!attribute ledger_account_id
       #   If the virtual account links to a ledger account in Modern Treasury, the id of the ledger account will be populated here.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :ledger_account_id, String
 
       # @!attribute live_mode

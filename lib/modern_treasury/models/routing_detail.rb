@@ -10,7 +10,7 @@ module ModernTreasury
 
       # @!attribute bank_address
       #
-      #   @return [ModernTreasury::Models::RoutingDetail::BankAddress]
+      #   @return [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
       required :bank_address, -> { ModernTreasury::Models::RoutingDetail::BankAddress }
 
       # @!attribute bank_name
@@ -26,7 +26,7 @@ module ModernTreasury
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute live_mode
@@ -43,7 +43,7 @@ module ModernTreasury
       # @!attribute payment_type
       #   If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType]
+      #   @return [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
       required :payment_type, enum: -> { ModernTreasury::Models::RoutingDetail::PaymentType }
 
       # @!attribute routing_number
@@ -118,7 +118,7 @@ module ModernTreasury
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :country, String
 
         # @!attribute created_at
@@ -128,12 +128,12 @@ module ModernTreasury
 
         # @!attribute line1
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :line1, String
 
         # @!attribute line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :line2, String
 
         # @!attribute live_mode
@@ -145,7 +145,7 @@ module ModernTreasury
         # @!attribute locality
         #   Locality or City.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :locality, String
 
         # @!attribute object
@@ -156,13 +156,13 @@ module ModernTreasury
         # @!attribute postal_code
         #   The postal code of the address.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :postal_code, String
 
         # @!attribute region
         #   Region or State.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :region, String
 
         # @!attribute updated_at

@@ -5,7 +5,7 @@ module ModernTreasury
     class PaperItemListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute deposit_date_end
@@ -34,14 +34,14 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param deposit_date_end [String, nil] Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
+      #   # @param deposit_date_end [String] Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
       #   #
-      #   # @param deposit_date_start [String, nil] Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
+      #   # @param deposit_date_start [String] Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
       #   #
-      #   # @param lockbox_number [String, nil] Specify `lockbox_number` if you wish to see paper items that are associated with
+      #   # @param lockbox_number [String] Specify `lockbox_number` if you wish to see paper items that are associated with
       #   #   a specific lockbox number.
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
       #   def initialize(after_cursor: nil, deposit_date_end: nil, deposit_date_start: nil, lockbox_number: nil, per_page: nil, **) = super
 

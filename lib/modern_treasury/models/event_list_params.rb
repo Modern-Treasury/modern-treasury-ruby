@@ -5,7 +5,7 @@ module ModernTreasury
     class EventListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute entity_id
@@ -43,17 +43,17 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param entity_id [String, nil]
+      #   # @param entity_id [String]
       #   #
-      #   # @param event_name [String, nil]
+      #   # @param event_name [String]
       #   #
-      #   # @param event_time_end [String, nil] An inclusive upper bound for when the event occurred
+      #   # @param event_time_end [String] An inclusive upper bound for when the event occurred
       #   #
-      #   # @param event_time_start [String, nil] An inclusive lower bound for when the event occurred
+      #   # @param event_time_start [String] An inclusive lower bound for when the event occurred
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
-      #   # @param resource [String, nil]
+      #   # @param resource [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,

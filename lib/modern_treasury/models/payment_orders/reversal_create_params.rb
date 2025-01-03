@@ -28,11 +28,11 @@ module ModernTreasury
         #   #   `incorrect_receiving_account`, `date_earlier_than_intended`,
         #   #   `date_later_than_intended`.
         #   #
-        #   # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction, nil] Specifies a ledger transaction object that will be created with the reversal. If
+        #   # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction] Specifies a ledger transaction object that will be created with the reversal. If
         #   #   the ledger transaction cannot be created, then the reversal creation will fail.
         #   #   The resulting ledger transaction will mirror the status of the reversal.
         #   #
-        #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   def initialize(reason:, ledger_transaction: nil, metadata: nil, **) = super
@@ -80,7 +80,7 @@ module ModernTreasury
           # @!attribute description
           #   An optional description for internal use.
           #
-          #   @return [String]
+          #   @return [String, nil]
           optional :description, String
 
           # @!attribute effective_at
@@ -140,27 +140,27 @@ module ModernTreasury
           #   #
           #   # @param description [String, nil] An optional description for internal use.
           #   #
-          #   # @param effective_at [String, nil] The timestamp (ISO8601 format) at which the ledger transaction happened for
+          #   # @param effective_at [String] The timestamp (ISO8601 format) at which the ledger transaction happened for
           #   #   reporting purposes.
           #   #
-          #   # @param effective_date [String, nil] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+          #   # @param effective_date [String] The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
           #   #   purposes.
           #   #
-          #   # @param external_id [String, nil] A unique string to represent the ledger transaction. Only one pending or posted
+          #   # @param external_id [String] A unique string to represent the ledger transaction. Only one pending or posted
           #   #   ledger transaction may have this ID in the ledger.
           #   #
-          #   # @param ledgerable_id [String, nil] If the ledger transaction can be reconciled to another object in Modern
+          #   # @param ledgerable_id [String] If the ledger transaction can be reconciled to another object in Modern
           #   #   Treasury, the id will be populated here, otherwise null.
           #   #
-          #   # @param ledgerable_type [String, nil] If the ledger transaction can be reconciled to another object in Modern
+          #   # @param ledgerable_type [String] If the ledger transaction can be reconciled to another object in Modern
           #   #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   #   reversal.
           #   #
-          #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
-          #   # @param status [String, nil] To post a ledger transaction at creation, use `posted`.
+          #   # @param status [String] To post a ledger transaction at creation, use `posted`.
           #   #
           #   def initialize(
           #     ledger_entries:,
@@ -201,13 +201,13 @@ module ModernTreasury
             # @!attribute available_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s available balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
-            #   @return [Hash{Symbol => Integer}]
+            #   @return [Hash{Symbol => Integer}, nil]
             optional :available_balance_amount, ModernTreasury::HashOf[Integer]
 
             # @!attribute lock_version
             #   Lock version of the ledger account. This can be passed when creating a ledger transaction to only succeed if no ledger transactions have posted since the given version. See our post about Designing the Ledgers API with Optimistic Locking for more details.
             #
-            #   @return [Integer]
+            #   @return [Integer, nil]
             optional :lock_version, Integer
 
             # @!attribute metadata
@@ -219,19 +219,19 @@ module ModernTreasury
             # @!attribute pending_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s pending balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
-            #   @return [Hash{Symbol => Integer}]
+            #   @return [Hash{Symbol => Integer}, nil]
             optional :pending_balance_amount, ModernTreasury::HashOf[Integer]
 
             # @!attribute posted_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s posted balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
-            #   @return [Hash{Symbol => Integer}]
+            #   @return [Hash{Symbol => Integer}, nil]
             optional :posted_balance_amount, ModernTreasury::HashOf[Integer]
 
             # @!attribute show_resulting_ledger_account_balances
             #   If true, response will include the balance of the associated ledger account for the entry.
             #
-            #   @return [Boolean]
+            #   @return [Boolean, nil]
             optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel
 
             # @!parse
@@ -254,7 +254,7 @@ module ModernTreasury
             #   #   given version. See our post about Designing the Ledgers API with Optimistic
             #   #   Locking for more details.
             #   #
-            #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+            #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
             #   #   strings.
             #   #
             #   # @param pending_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the

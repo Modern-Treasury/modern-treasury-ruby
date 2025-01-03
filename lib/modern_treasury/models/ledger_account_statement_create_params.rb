@@ -24,7 +24,7 @@ module ModernTreasury
       # @!attribute description
       #   The description of the ledger account statement.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
       # @!attribute metadata
@@ -45,7 +45,7 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] The description of the ledger account statement.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(

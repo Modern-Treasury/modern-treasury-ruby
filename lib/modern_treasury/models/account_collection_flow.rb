@@ -36,7 +36,7 @@ module ModernTreasury
       # @!attribute external_account_id
       #   If present, the ID of the external account created using this flow.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :external_account_id, String
 
       # @!attribute live_mode
@@ -75,26 +75,26 @@ module ModernTreasury
       #   #
       #   # @param payment_types [Array<String>]
       #   #
-      #   # @param id [String, nil]
+      #   # @param id [String]
       #   #
-      #   # @param client_token [String, nil] The client token of the account collection flow. This token can be used to embed
+      #   # @param client_token [String] The client token of the account collection flow. This token can be used to embed
       #   #   account collection in your client-side application.
       #   #
-      #   # @param created_at [String, nil]
+      #   # @param created_at [String]
       #   #
       #   # @param external_account_id [String, nil] If present, the ID of the external account created using this flow.
       #   #
-      #   # @param live_mode [Boolean, nil] This field will be true if this object exists in the live environment or false
+      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param object [String, nil]
+      #   # @param object [String]
       #   #
-      #   # @param receiving_countries [Array<String>, nil]
+      #   # @param receiving_countries [Array<String>]
       #   #
-      #   # @param status [String, nil] The current status of the account collection flow. One of `pending`,
+      #   # @param status [String] The current status of the account collection flow. One of `pending`,
       #   #   `completed`, `expired`, or `cancelled`.
       #   #
-      #   # @param updated_at [String, nil]
+      #   # @param updated_at [String]
       #   #
       #   def initialize(
       #     counterparty_id:,

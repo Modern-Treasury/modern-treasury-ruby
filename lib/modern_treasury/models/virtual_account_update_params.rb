@@ -21,15 +21,15 @@ module ModernTreasury
 
       # @!attribute name
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :name, String
 
       # @!parse
-      #   # @param counterparty_id [String, nil]
+      #   # @param counterparty_id [String]
       #   #
-      #   # @param ledger_account_id [String, nil] The ledger account that you'd like to link to the virtual account.
+      #   # @param ledger_account_id [String] The ledger account that you'd like to link to the virtual account.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil]
+      #   # @param metadata [Hash{Symbol => String}]
       #   #
       #   # @param name [String, nil]
       #   #

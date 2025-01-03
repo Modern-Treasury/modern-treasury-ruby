@@ -53,7 +53,7 @@ module ModernTreasury
       #   #
       #   # @param originating_account_id [String] Required. The ID of one of your organization's internal accounts.
       #   #
-      #   # @param due_date [String, nil] Optional. Can only be passed in when `effective_date_selection_enabled` is
+      #   # @param due_date [String] Optional. Can only be passed in when `effective_date_selection_enabled` is
       #   #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #   #   they are selecting a payment `effective_date`.
       #   #

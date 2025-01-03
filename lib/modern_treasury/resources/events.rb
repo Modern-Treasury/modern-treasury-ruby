@@ -30,17 +30,17 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [String, nil] :entity_id
+      #   @option params [String] :entity_id
       #
-      #   @option params [String, nil] :event_name
+      #   @option params [String] :event_name
       #
-      #   @option params [Time, nil] :event_time_end An inclusive upper bound for when the event occurred
+      #   @option params [Time] :event_time_end An inclusive upper bound for when the event occurred
       #
-      #   @option params [Time, nil] :event_time_start An inclusive lower bound for when the event occurred
+      #   @option params [Time] :event_time_start An inclusive lower bound for when the event occurred
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
-      #   @option params [String, nil] :resource
+      #   @option params [String] :resource
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

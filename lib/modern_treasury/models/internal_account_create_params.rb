@@ -67,15 +67,15 @@ module ModernTreasury
       #   #
       #   # @param party_name [String] The legal name of the entity which owns the account.
       #   #
-      #   # @param counterparty_id [String, nil] The Counterparty associated to this account.
+      #   # @param counterparty_id [String] The Counterparty associated to this account.
       #   #
-      #   # @param legal_entity_id [String, nil] The LegalEntity associated to this account.
+      #   # @param legal_entity_id [String] The LegalEntity associated to this account.
       #   #
-      #   # @param parent_account_id [String, nil] The parent internal account of this new account.
+      #   # @param parent_account_id [String] The parent internal account of this new account.
       #   #
-      #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, nil] The address associated with the owner or null.
+      #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #   #
-      #   # @param vendor_attributes [Hash{Symbol => String}, nil] A hash of vendor specific attributes that will be used when creating the account
+      #   # @param vendor_attributes [Hash{Symbol => String}] A hash of vendor specific attributes that will be used when creating the account
       #   #   at the vendor specified by the given connection.
       #   #
       #   def initialize(
@@ -162,7 +162,7 @@ module ModernTreasury
         #   #
         #   # @param region [String] Region or State.
         #   #
-        #   # @param line2 [String, nil]
+        #   # @param line2 [String]
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 

@@ -23,7 +23,7 @@ module ModernTreasury
       # @!attribute counterparty_id
       #   The ID of a counterparty associated with the payment. As part of the payment workflow an external account will be associated with this counterparty.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
       # @!attribute created_at
@@ -46,7 +46,7 @@ module ModernTreasury
       # @!attribute due_date
       #   The due date for the flow. Can only be passed in when `effective_date_selection_enabled` is `true`.
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :due_date, Date
 
       # @!attribute effective_date_selection_enabled
@@ -58,7 +58,7 @@ module ModernTreasury
       # @!attribute existing_external_accounts_filter
       #   When `verified` and `external_account_collection` is `enabled`, filters the list of external accounts your end-user can select to those with a `verification_status` of `verified`.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter]
+      #   @return [Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter, nil]
       optional :existing_external_accounts_filter,
                enum: -> { ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter }
 
@@ -83,25 +83,25 @@ module ModernTreasury
       # @!attribute originating_account_id
       #   The ID of one of your organization's internal accounts.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :originating_account_id, String
 
       # @!attribute payment_order_id
       #   If present, the ID of the payment order created using this flow.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :payment_order_id, String
 
       # @!attribute receiving_account_id
       #   If present, the ID of the external account created using this flow.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :receiving_account_id, String
 
       # @!attribute selected_effective_date
       #   This field is set after your end-user selects a payment date while completing the pre-built UI. This field is always `null` unless `effective_date_selection_enabled` is `true`.
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :selected_effective_date, Date
 
       # @!attribute status
@@ -116,42 +116,42 @@ module ModernTreasury
       optional :updated_at, Time
 
       # @!parse
-      #   # @param id [String, nil]
+      #   # @param id [String]
       #   #
-      #   # @param amount [Integer, nil] Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
       #   #   as 1000. Can be any integer up to 36 digits.
       #   #
-      #   # @param client_token [String, nil] The client token of the payment flow. This token can be used to embed a payment
+      #   # @param client_token [String] The client token of the payment flow. This token can be used to embed a payment
       #   #   workflow in your client-side application.
       #   #
       #   # @param counterparty_id [String, nil] The ID of a counterparty associated with the payment. As part of the payment
       #   #   workflow an external account will be associated with this counterparty.
       #   #
-      #   # @param created_at [String, nil]
+      #   # @param created_at [String]
       #   #
-      #   # @param currency [String, nil] The currency of the payment.
+      #   # @param currency [String] The currency of the payment.
       #   #
-      #   # @param direction [String, nil] Describes the direction money is flowing in the transaction. Can only be
+      #   # @param direction [String] Describes the direction money is flowing in the transaction. Can only be
       #   #   `debit`. A `debit` pulls money from someone else's account to your own.
       #   #
       #   # @param due_date [String, nil] The due date for the flow. Can only be passed in when
       #   #   `effective_date_selection_enabled` is `true`.
       #   #
-      #   # @param effective_date_selection_enabled [Boolean, nil] When `true`, your end-user can schedule the payment `effective_date` while
+      #   # @param effective_date_selection_enabled [Boolean] When `true`, your end-user can schedule the payment `effective_date` while
       #   #   completing the pre-built UI.
       #   #
       #   # @param existing_external_accounts_filter [String, nil] When `verified` and `external_account_collection` is `enabled`, filters the list
       #   #   of external accounts your end-user can select to those with a
       #   #   `verification_status` of `verified`.
       #   #
-      #   # @param external_account_collection [String, nil] When `enabled`, your end-user can select from an existing external account when
+      #   # @param external_account_collection [String] When `enabled`, your end-user can select from an existing external account when
       #   #   completing the flow. When `disabled`, your end-user must add new payment details
       #   #   when completing the flow.
       #   #
-      #   # @param live_mode [Boolean, nil] This field will be true if this object exists in the live environment or false
+      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param object [String, nil]
+      #   # @param object [String]
       #   #
       #   # @param originating_account_id [String, nil] The ID of one of your organization's internal accounts.
       #   #
@@ -163,10 +163,10 @@ module ModernTreasury
       #   #   the pre-built UI. This field is always `null` unless
       #   #   `effective_date_selection_enabled` is `true`.
       #   #
-      #   # @param status [String, nil] The current status of the payment flow. One of `pending`, `completed`,
+      #   # @param status [String] The current status of the payment flow. One of `pending`, `completed`,
       #   #   `expired`, or `cancelled`.
       #   #
-      #   # @param updated_at [String, nil]
+      #   # @param updated_at [String]
       #   #
       #   def initialize(
       #     id: nil,
