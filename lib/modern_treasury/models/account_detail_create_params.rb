@@ -26,7 +26,7 @@ module ModernTreasury
       #   #
       #   # @param account_number [String] The account number for the bank account.
       #   #
-      #   # @param account_number_type [String, nil] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   # @param account_number_type [String] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   #   account number is in a generic format.
       #   #
       #   def initialize(accounts_type:, account_number:, account_number_type: nil, **) = super

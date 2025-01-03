@@ -5,7 +5,7 @@ module ModernTreasury
     class ReturnListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute counterparty_id
@@ -40,17 +40,17 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param counterparty_id [String, nil] Specify `counterparty_id` if you wish to see returns that occurred with a
+      #   # @param counterparty_id [String] Specify `counterparty_id` if you wish to see returns that occurred with a
       #   #   specific counterparty.
       #   #
-      #   # @param internal_account_id [String, nil] Specify `internal_account_id` if you wish to see returns to/from a specific
+      #   # @param internal_account_id [String] Specify `internal_account_id` if you wish to see returns to/from a specific
       #   #   account.
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
-      #   # @param returnable_id [String, nil] The ID of a valid returnable. Must be accompanied by `returnable_type`.
+      #   # @param returnable_id [String] The ID of a valid returnable. Must be accompanied by `returnable_type`.
       #   #
-      #   # @param returnable_type [String, nil] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #   # @param returnable_type [String] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   #   Must be accompanied by `returnable_id`.
       #   #
       #   def initialize(

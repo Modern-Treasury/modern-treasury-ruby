@@ -6,7 +6,7 @@ module ModernTreasury
       class VersionListParams < ModernTreasury::BaseModel
         # @!attribute after_cursor
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :after_cursor, String
 
         # @!attribute created_at
@@ -41,19 +41,19 @@ module ModernTreasury
         # @!parse
         #   # @param after_cursor [String, nil]
         #   #
-        #   # @param created_at [Hash{Symbol => String}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   # @param created_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #   #   created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use
         #   #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         #   #
-        #   # @param ledger_account_statement_id [String, nil] Get all ledger transaction versions that are included in the ledger account
+        #   # @param ledger_account_statement_id [String] Get all ledger transaction versions that are included in the ledger account
         #   #   statement.
         #   #
-        #   # @param ledger_transaction_id [String, nil] Get all the ledger transaction versions corresponding to the ID of a ledger
+        #   # @param ledger_transaction_id [String] Get all the ledger transaction versions corresponding to the ID of a ledger
         #   #   transaction.
         #   #
-        #   # @param per_page [Integer, nil]
+        #   # @param per_page [Integer]
         #   #
-        #   # @param version [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   # @param version [Hash{Symbol => Integer}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #   #   version. For example, for all versions after 2, use version%5Bgt%5D=2.
         #   #
         #   def initialize(

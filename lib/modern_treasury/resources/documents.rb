@@ -18,7 +18,7 @@ module ModernTreasury
       #
       #   @option params [String] :file
       #
-      #   @option params [String, nil] :document_type A category given to the document, can be `null`.
+      #   @option params [String] :document_type A category given to the document, can be `null`.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -57,13 +57,13 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [String, nil] :documentable_id The unique identifier for the associated object.
+      #   @option params [String] :documentable_id The unique identifier for the associated object.
       #
-      #   @option params [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType, nil] :documentable_type The type of the associated object. Currently can be one of `payment_order`,
+      #   @option params [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType] :documentable_type The type of the associated object. Currently can be one of `payment_order`,
       #     `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #     `case`, `internal_account`, `decision`, or `external_account`.
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

@@ -5,7 +5,7 @@ module ModernTreasury
     class TransactionListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute as_of_date_end
@@ -83,37 +83,37 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param as_of_date_end [String, nil] Filters transactions with an `as_of_date` starting on or before the specified
+      #   # @param as_of_date_end [String] Filters transactions with an `as_of_date` starting on or before the specified
       #   #   date (YYYY-MM-DD).
       #   #
-      #   # @param as_of_date_start [String, nil] Filters transactions with an `as_of_date` starting on or after the specified
+      #   # @param as_of_date_start [String] Filters transactions with an `as_of_date` starting on or after the specified
       #   #   date (YYYY-MM-DD).
       #   #
-      #   # @param counterparty_id [String, nil]
+      #   # @param counterparty_id [String]
       #   #
-      #   # @param description [String, nil] Filters for transactions including the queried string in the description.
+      #   # @param description [String] Filters for transactions including the queried string in the description.
       #   #
-      #   # @param direction [String, nil]
+      #   # @param direction [String]
       #   #
-      #   # @param internal_account_id [String, nil] Specify `internal_account_id` if you wish to see transactions to/from a specific
+      #   # @param internal_account_id [String] Specify `internal_account_id` if you wish to see transactions to/from a specific
       #   #   account.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
-      #   # @param payment_type [String, nil]
+      #   # @param payment_type [String]
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
-      #   # @param posted [Boolean, nil] Either `true` or `false`.
+      #   # @param posted [Boolean] Either `true` or `false`.
       #   #
-      #   # @param transactable_type [String, nil]
+      #   # @param transactable_type [String]
       #   #
-      #   # @param vendor_id [String, nil] Filters for transactions including the queried vendor id (an identifier given to
+      #   # @param vendor_id [String] Filters for transactions including the queried vendor id (an identifier given to
       #   #   transactions by the bank).
       #   #
-      #   # @param virtual_account_id [String, nil]
+      #   # @param virtual_account_id [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,

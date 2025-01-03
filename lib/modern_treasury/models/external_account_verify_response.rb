@@ -63,7 +63,7 @@ module ModernTreasury
         # @!attribute priority
         #   The priority of the payment. Can be `normal` or `high`.
         #
-        #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority]
+        #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority, nil]
         required :priority,
                  enum: -> {
                    ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority

@@ -5,7 +5,7 @@ module ModernTreasury
     class BulkResultListParams < ModernTreasury::BaseModel
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute entity_id
@@ -46,20 +46,20 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param entity_id [String, nil] Unique identifier for the result entity object.
+      #   # @param entity_id [String] Unique identifier for the result entity object.
       #   #
-      #   # @param entity_type [String, nil] The type of the request that created this result. bulk_request is the only
+      #   # @param entity_type [String] The type of the request that created this result. bulk_request is the only
       #   #   supported `request_type`
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
-      #   # @param request_id [String, nil] Unique identifier for the request that created this bulk result. This is the ID
+      #   # @param request_id [String] Unique identifier for the request that created this bulk result. This is the ID
       #   #   of the bulk request when `request_type` is bulk_request
       #   #
-      #   # @param request_type [String, nil] The type of the request that created this result. bulk_request is the only
+      #   # @param request_type [String] The type of the request that created this result. bulk_request is the only
       #   #   supported `request_type`
       #   #
-      #   # @param status [String, nil] One of successful or failed.
+      #   # @param status [String] One of successful or failed.
       #   #
       #   def initialize(
       #     after_cursor: nil,

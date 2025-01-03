@@ -12,7 +12,7 @@ module ModernTreasury
       # @!attribute description
       #   An optional free-form description for internal use.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
       # @!attribute metadata
@@ -26,7 +26,7 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] An optional free-form description for internal use.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(name:, description: nil, metadata: nil, **) = super

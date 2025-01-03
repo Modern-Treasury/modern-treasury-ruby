@@ -47,7 +47,7 @@ module ModernTreasury
       #
       #   @option params [String] :itemizable_id Path param: The ID of the payment order or expected payment.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Body param: Additional data represented as key-value pairs. Both the key and
+      #   @option params [Hash{Symbol => String}] :metadata Body param: Additional data represented as key-value pairs. Both the key and
       #     value must be strings.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -80,7 +80,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor Query param:
       #
-      #   @option params [Integer, nil] :per_page Query param:
+      #   @option params [Integer] :per_page Query param:
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

@@ -101,7 +101,7 @@ module ModernTreasury
       #   #
       #   # @param updated_at [String]
       #   #
-      #   # @param vendor_id [String, nil] This vendor assigned ID for this quote.
+      #   # @param vendor_id [String] This vendor assigned ID for this quote.
       #   #
       #   def initialize(
       #     id:,

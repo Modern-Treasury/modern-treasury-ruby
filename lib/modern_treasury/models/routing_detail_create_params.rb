@@ -24,7 +24,7 @@ module ModernTreasury
       # @!attribute payment_type
       #   If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
       #
-      #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType]
+      #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
       optional :payment_type, enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::PaymentType }
 
       # @!parse

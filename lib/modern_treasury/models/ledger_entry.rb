@@ -27,7 +27,7 @@ module ModernTreasury
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute ledger_account_currency
@@ -51,7 +51,7 @@ module ModernTreasury
       # @!attribute ledger_account_lock_version
       #   Lock version of the ledger account. This can be passed when creating a ledger transaction to only succeed if no ledger transactions have posted since the given version. See our post about Designing the Ledgers API with Optimistic Locking for more details.
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       required :ledger_account_lock_version, Integer
 
       # @!attribute ledger_transaction_id
@@ -80,7 +80,7 @@ module ModernTreasury
       # @!attribute resulting_ledger_account_balances
       #   The pending, posted, and available balances for this ledger entry's ledger account. The posted balance is the sum of all posted entries on the account. The pending balance is the sum of all pending and posted entries on the account. The available balance is the posted incoming entries minus the sum of the pending and posted outgoing amounts. Please see https://docs.moderntreasury.com/docs/transaction-status-and-balances for more details.
       #
-      #   @return [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances]
+      #   @return [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil]
       required :resulting_ledger_account_balances,
                -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances }
 

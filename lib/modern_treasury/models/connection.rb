@@ -15,7 +15,7 @@ module ModernTreasury
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute live_mode
@@ -37,7 +37,7 @@ module ModernTreasury
       # @!attribute vendor_customer_id
       #   An identifier given to this connection by the bank.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :vendor_customer_id, String
 
       # @!attribute vendor_id

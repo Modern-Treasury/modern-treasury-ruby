@@ -15,7 +15,7 @@ module ModernTreasury
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute document_details
@@ -27,7 +27,7 @@ module ModernTreasury
       # @!attribute document_type
       #   A category given to the document, can be `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :document_type, String
 
       # @!attribute documentable_id
@@ -130,7 +130,7 @@ module ModernTreasury
 
         # @!attribute discarded_at
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         required :discarded_at, Time
 
         # @!attribute document_identifier
@@ -251,11 +251,11 @@ module ModernTreasury
         optional :size, Integer
 
         # @!parse
-        #   # @param content_type [String, nil] The MIME content type of the document.
+        #   # @param content_type [String] The MIME content type of the document.
         #   #
-        #   # @param filename [String, nil] The original filename of the document.
+        #   # @param filename [String] The original filename of the document.
         #   #
-        #   # @param size [Integer, nil] The size of the document in bytes.
+        #   # @param size [Integer] The size of the document in bytes.
         #   #
         #   def initialize(content_type: nil, filename: nil, size: nil, **) = super
 

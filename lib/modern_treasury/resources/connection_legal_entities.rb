@@ -14,9 +14,9 @@ module ModernTreasury
       #
       #   @option params [String] :connection_id The ID of the connection.
       #
-      #   @option params [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity, nil] :legal_entity The legal entity.
+      #   @option params [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity] :legal_entity The legal entity.
       #
-      #   @option params [String, nil] :legal_entity_id The ID of the legal entity.
+      #   @option params [String] :legal_entity_id The ID of the legal entity.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -54,7 +54,7 @@ module ModernTreasury
       #
       # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ConnectionLegalEntityUpdateParams] Attributes to send in this request.
       #
-      #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status, nil] :status The status of the connection legal entity.
+      #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] :status The status of the connection legal entity.
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
@@ -76,13 +76,13 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [String, nil] :connection_id
+      #   @option params [String] :connection_id
       #
-      #   @option params [String, nil] :legal_entity_id
+      #   @option params [String] :legal_entity_id
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
-      #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status, nil] :status
+      #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status] :status
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #

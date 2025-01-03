@@ -19,11 +19,11 @@ module ModernTreasury
         #     `incorrect_receiving_account`, `date_earlier_than_intended`,
         #     `date_later_than_intended`.
         #
-        #   @option params [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the reversal. If
+        #   @option params [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction] :ledger_transaction Specifies a ledger transaction object that will be created with the reversal. If
         #     the ledger transaction cannot be created, then the reversal creation will fail.
         #     The resulting ledger transaction will mirror the status of the reversal.
         #
-        #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+        #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
@@ -72,7 +72,7 @@ module ModernTreasury
         #
         #   @option params [String, nil] :after_cursor
         #
-        #   @option params [Integer, nil] :per_page
+        #   @option params [Integer] :per_page
         #
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #

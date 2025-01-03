@@ -16,13 +16,13 @@ module ModernTreasury
       # @!attribute custom_data
       #   Additionally data to be used by the Ledger Event Handler.
       #
-      #   @return [Object]
+      #   @return [Object, nil]
       required :custom_data, ModernTreasury::Unknown
 
       # @!attribute description
       #   Description of the ledgerable event.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute ledger_event_handler_id
@@ -40,7 +40,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol => String}, nil]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name

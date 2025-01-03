@@ -6,7 +6,7 @@ module ModernTreasury
       class BalanceReportListParams < ModernTreasury::BaseModel
         # @!attribute after_cursor
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :after_cursor, String
 
         # @!attribute as_of_date
@@ -32,12 +32,12 @@ module ModernTreasury
         # @!parse
         #   # @param after_cursor [String, nil]
         #   #
-        #   # @param as_of_date [String, nil] The date of the balance report in local time.
+        #   # @param as_of_date [String] The date of the balance report in local time.
         #   #
-        #   # @param balance_report_type [String, nil] The specific type of balance report. One of `intraday`, `previous_day`,
+        #   # @param balance_report_type [String] The specific type of balance report. One of `intraday`, `previous_day`,
         #   #   `real_time`, or `other`.
         #   #
-        #   # @param per_page [Integer, nil]
+        #   # @param per_page [Integer]
         #   #
         #   def initialize(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, **) = super
 

@@ -11,7 +11,7 @@ module ModernTreasury
       # @!attribute backup_withholding_percentage
       #   The percentage of backup withholding to apply to the legal entity.
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       required :backup_withholding_percentage, Integer
 
       # @!attribute created_at
@@ -21,13 +21,13 @@ module ModernTreasury
 
       # @!attribute discarded_at
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :discarded_at, Time
 
       # @!attribute enable_backup_withholding
       #   Whether backup withholding is enabled. See more here - https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       required :enable_backup_withholding, ModernTreasury::BooleanModel
 
       # @!attribute live_mode
@@ -44,13 +44,13 @@ module ModernTreasury
       # @!attribute privacy_opt_out
       #   Cross River Bank specific setting to opt out of privacy policy.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       required :privacy_opt_out, ModernTreasury::BooleanModel
 
       # @!attribute regulation_o
       #   It covers, among other types of insider loans, extensions of credit by a member bank to an executive officer, director, or principal shareholder of the member bank; a bank holding company of which the member bank is a subsidiary; and any other subsidiary of that bank holding company.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       required :regulation_o, ModernTreasury::BooleanModel
 
       # @!attribute updated_at

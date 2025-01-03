@@ -33,19 +33,19 @@ module ModernTreasury
       #
       #   @option params [String, nil] :internal_account_id The ID of the Internal Account for the expected payment.
       #
-      #   @option params [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction, nil] :ledger_transaction Specifies a ledger transaction object that will be created with the expected
+      #   @option params [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction] :ledger_transaction Specifies a ledger transaction object that will be created with the expected
       #     payment. If the ledger transaction cannot be created, then the expected payment
       #     creation will fail. The resulting ledger transaction will mirror the status of
       #     the expected payment.
       #
-      #   @option params [String, nil] :ledger_transaction_id Either ledger_transaction or ledger_transaction_id can be provided. Only a
+      #   @option params [String] :ledger_transaction_id Either ledger_transaction or ledger_transaction_id can be provided. Only a
       #     pending ledger transaction can be attached upon expected payment creation. Once
       #     the expected payment is created, the status of the ledger transaction tracks the
       #     expected payment automatically.
       #
-      #   @option params [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>, nil] :line_items
+      #   @option params [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>] :line_items
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
@@ -123,7 +123,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :internal_account_id The ID of the Internal Account for the expected payment.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
@@ -167,25 +167,25 @@ module ModernTreasury
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [String, nil] :counterparty_id Specify counterparty_id to see expected_payments for a specific account.
+      #   @option params [String] :counterparty_id Specify counterparty_id to see expected_payments for a specific account.
       #
-      #   @option params [Time, nil] :created_at_lower_bound Used to return expected payments created after some datetime
+      #   @option params [Time] :created_at_lower_bound Used to return expected payments created after some datetime
       #
-      #   @option params [Time, nil] :created_at_upper_bound Used to return expected payments created before some datetime
+      #   @option params [Time] :created_at_upper_bound Used to return expected payments created before some datetime
       #
-      #   @option params [Symbol, ModernTreasury::Models::TransactionDirection, nil] :direction One of credit, debit
+      #   @option params [Symbol, ModernTreasury::Models::TransactionDirection] :direction One of credit, debit
       #
-      #   @option params [String, nil] :internal_account_id Specify internal_account_id to see expected_payments for a specific account.
+      #   @option params [String] :internal_account_id Specify internal_account_id to see expected_payments for a specific account.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
-      #   @option params [Integer, nil] :per_page
+      #   @option params [Integer] :per_page
       #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status, nil] :status One of unreconciled, reconciled, or archived.
+      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status] :status One of unreconciled, reconciled, or archived.
       #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #     sepa, signet, wire
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.

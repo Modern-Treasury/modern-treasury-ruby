@@ -16,7 +16,7 @@ module ModernTreasury
       # @!attribute description
       #   An optional description for internal use.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :description, String
 
       # @!attribute effective_at
@@ -34,7 +34,7 @@ module ModernTreasury
       # @!attribute external_id
       #   A unique string to represent the ledger transaction. Only one pending or posted ledger transaction may have this ID in the ledger.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :external_id, String
 
       # @!attribute ledger_entries
@@ -52,13 +52,13 @@ module ModernTreasury
       # @!attribute ledgerable_id
       #   If the ledger transaction can be reconciled to another object in Modern Treasury, the id will be populated here, otherwise null.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :ledgerable_id, String
 
       # @!attribute ledgerable_type
       #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType]
+      #   @return [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType, nil]
       required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerTransaction::LedgerableType }
 
       # @!attribute live_mode
@@ -81,19 +81,19 @@ module ModernTreasury
       # @!attribute posted_at
       #   The time on which the ledger transaction posted. This is null if the ledger transaction is pending.
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       required :posted_at, Time
 
       # @!attribute reversed_by_ledger_transaction_id
       #   The ID of the ledger transaction that reversed this ledger transaction.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :reversed_by_ledger_transaction_id, String
 
       # @!attribute reverses_ledger_transaction_id
       #   The ID of the original ledger transaction that this ledger transaction reverses.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :reverses_ledger_transaction_id, String
 
       # @!attribute status

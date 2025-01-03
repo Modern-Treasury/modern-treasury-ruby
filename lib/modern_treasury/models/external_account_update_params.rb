@@ -11,7 +11,7 @@ module ModernTreasury
 
       # @!attribute counterparty_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
       # @!attribute metadata
@@ -23,7 +23,7 @@ module ModernTreasury
       # @!attribute name
       #   A nickname for the external account. This is only for internal usage and won't affect any payments
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :name, String
 
       # @!attribute party_address
@@ -40,23 +40,23 @@ module ModernTreasury
       # @!attribute party_type
       #   Either `individual` or `business`.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType]
+      #   @return [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil]
       optional :party_type, enum: -> { ModernTreasury::Models::ExternalAccountUpdateParams::PartyType }
 
       # @!parse
-      #   # @param account_type [String, nil] Can be `checking`, `savings` or `other`.
+      #   # @param account_type [String] Can be `checking`, `savings` or `other`.
       #   #
       #   # @param counterparty_id [String, nil]
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   # @param metadata [Hash{Symbol => String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   #   an empty string or `null` as the value.
       #   #
       #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
       #   #   affect any payments
       #   #
-      #   # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, nil]
+      #   # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
       #   #
-      #   # @param party_name [String, nil] If this value isn't provided, it will be inherited from the counterparty's name.
+      #   # @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
       #   #
       #   # @param party_type [String, nil] Either `individual` or `business`.
       #   #
@@ -79,35 +79,35 @@ module ModernTreasury
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :country, String
 
         # @!attribute line1
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line1, String
 
         # @!attribute line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
 
         # @!attribute locality
         #   Locality or City.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :locality, String
 
         # @!attribute postal_code
         #   The postal code of the address.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :postal_code, String
 
         # @!attribute region
         #   Region or State.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :region, String
 
         # @!parse

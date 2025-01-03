@@ -17,13 +17,13 @@ module ModernTreasury
 
       # @!attribute conditions
       #
-      #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions]
+      #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
       optional :conditions, -> { ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions }
 
       # @!attribute description
       #   An optional description.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
       # @!attribute ledger_id
@@ -35,12 +35,12 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol => String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute variables
       #
-      #   @return [Hash{Symbol => ModernTreasury::Models::LedgerEventHandlerVariable}]
+      #   @return [Hash{Symbol => ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       optional :variables, ModernTreasury::HashOf[-> { ModernTreasury::Models::LedgerEventHandlerVariable }]
 
       # @!parse
@@ -52,7 +52,7 @@ module ModernTreasury
       #   #
       #   # @param description [String, nil] An optional description.
       #   #
-      #   # @param ledger_id [String, nil] The id of the ledger that this account belongs to.
+      #   # @param ledger_id [String] The id of the ledger that this account belongs to.
       #   #
       #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
@@ -78,13 +78,13 @@ module ModernTreasury
         # @!attribute description
         #   An optional description for internal use.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :description, String
 
         # @!attribute effective_at
         #   The timestamp (ISO8601 format) at which the ledger transaction happened for reporting purposes.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :effective_at, String
 
         # @!attribute ledger_entries
@@ -99,7 +99,7 @@ module ModernTreasury
         # @!attribute status
         #   To post a ledger transaction at creation, use `posted`.
         #
-        #   @return [String]
+        #   @return [String, nil]
         required :status, String
 
         # @!parse

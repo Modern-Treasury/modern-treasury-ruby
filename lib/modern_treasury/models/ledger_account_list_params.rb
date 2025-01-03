@@ -11,7 +11,7 @@ module ModernTreasury
 
       # @!attribute after_cursor
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :after_cursor, String
 
       # @!attribute available_balance_amount
@@ -86,46 +86,46 @@ module ModernTreasury
       optional :updated_at, ModernTreasury::HashOf[Time]
 
       # @!parse
-      #   # @param id [Array<String>, nil] If you have specific IDs to retrieve in bulk, you can pass them as query
+      #   # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query
       #   #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #   #
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param available_balance_amount [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   # @param available_balance_amount [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   #   filter by balance amount.
       #   #
-      #   # @param balances [ModernTreasury::Models::LedgerAccountListParams::Balances, nil] Use `balances[effective_at_lower_bound]` and
+      #   # @param balances [ModernTreasury::Models::LedgerAccountListParams::Balances] Use `balances[effective_at_lower_bound]` and
       #   #   `balances[effective_at_upper_bound]` to get the balances change between the two
       #   #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
       #   #   the provided timestamps. If no value is supplied the balances will be retrieved
       #   #   not including that bound.
       #   #
-      #   # @param created_at [Hash{Symbol => String}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param created_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #
-      #   # @param currency [String, nil]
+      #   # @param currency [String]
       #   #
-      #   # @param ledger_account_category_id [String, nil]
+      #   # @param ledger_account_category_id [String]
       #   #
-      #   # @param ledger_id [String, nil]
+      #   # @param ledger_id [String]
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
-      #   # @param name [Array<String>, nil] If you have specific names to retrieve in bulk, you can pass them as query
+      #   # @param name [Array<String>] If you have specific names to retrieve in bulk, you can pass them as query
       #   #   parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       #   #
-      #   # @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   # @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   #   filter by balance amount.
       #   #
-      #   # @param per_page [Integer, nil]
+      #   # @param per_page [Integer]
       #   #
-      #   # @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   # @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   #   filter by balance amount.
       #   #
-      #   # @param updated_at [Hash{Symbol => String}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param updated_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #
@@ -186,12 +186,12 @@ module ModernTreasury
         #   # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         #   #   filter by balance amount.
         #   #
-        #   # @param eq [Integer, nil]
-        #   # @param gt [Integer, nil]
-        #   # @param gte [Integer, nil]
-        #   # @param lt [Integer, nil]
-        #   # @param lte [Integer, nil]
-        #   # @param not_eq [Integer, nil]
+        #   # @param eq [Integer]
+        #   # @param gt [Integer]
+        #   # @param gte [Integer]
+        #   # @param lt [Integer]
+        #   # @param lte [Integer]
+        #   # @param not_eq [Integer]
         #   #
         #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 
@@ -226,10 +226,10 @@ module ModernTreasury
         #   #   the provided timestamps. If no value is supplied the balances will be retrieved
         #   #   not including that bound.
         #   #
-        #   # @param as_of_date [String, nil]
-        #   # @param effective_at [String, nil]
-        #   # @param effective_at_lower_bound [String, nil]
-        #   # @param effective_at_upper_bound [String, nil]
+        #   # @param as_of_date [String]
+        #   # @param effective_at [String]
+        #   # @param effective_at_lower_bound [String]
+        #   # @param effective_at_upper_bound [String]
         #   #
         #   def initialize(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil, **) = super
 
@@ -271,12 +271,12 @@ module ModernTreasury
         #   # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         #   #   filter by balance amount.
         #   #
-        #   # @param eq [Integer, nil]
-        #   # @param gt [Integer, nil]
-        #   # @param gte [Integer, nil]
-        #   # @param lt [Integer, nil]
-        #   # @param lte [Integer, nil]
-        #   # @param not_eq [Integer, nil]
+        #   # @param eq [Integer]
+        #   # @param gt [Integer]
+        #   # @param gte [Integer]
+        #   # @param lt [Integer]
+        #   # @param lte [Integer]
+        #   # @param not_eq [Integer]
         #   #
         #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 
@@ -318,12 +318,12 @@ module ModernTreasury
         #   # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         #   #   filter by balance amount.
         #   #
-        #   # @param eq [Integer, nil]
-        #   # @param gt [Integer, nil]
-        #   # @param gte [Integer, nil]
-        #   # @param lt [Integer, nil]
-        #   # @param lte [Integer, nil]
-        #   # @param not_eq [Integer, nil]
+        #   # @param eq [Integer]
+        #   # @param gt [Integer]
+        #   # @param gte [Integer]
+        #   # @param lt [Integer]
+        #   # @param lte [Integer]
+        #   # @param not_eq [Integer]
         #   #
         #   def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil, **) = super
 

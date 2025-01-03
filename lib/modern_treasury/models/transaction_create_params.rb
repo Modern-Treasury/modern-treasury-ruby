@@ -12,7 +12,7 @@ module ModernTreasury
       # @!attribute as_of_date
       #   The date on which the transaction occurred.
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       required :as_of_date, Date
 
       # @!attribute direction
@@ -30,13 +30,13 @@ module ModernTreasury
       # @!attribute vendor_code
       #   When applicable, the bank-given code that determines the transaction's category. For most banks this is the BAI2/BTRS transaction code.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :vendor_code, String
 
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, `us_bank`, or others.
       #
-      #   @return [String]
+      #   @return [String, nil]
       required :vendor_code_type, String
 
       # @!attribute metadata
@@ -54,13 +54,13 @@ module ModernTreasury
       # @!attribute type
       #   The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionCreateParams::Type]
+      #   @return [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::TransactionCreateParams::Type }
 
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in your banking portal.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :vendor_description, String
 
       # @!parse
@@ -81,10 +81,10 @@ module ModernTreasury
       #   #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   #   `swift`, `us_bank`, or others.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   # @param posted [Boolean, nil] This field will be `true` if the transaction has posted to the account.
+      #   # @param posted [Boolean] This field will be `true` if the transaction has posted to the account.
       #   #
       #   # @param type [String, nil] The type of the transaction. Examples could be
       #   #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
