@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerAccountCategories
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -33,6 +34,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryCreateParams.dump(params)
         req = {
@@ -57,6 +59,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
+      #
       def retrieve(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryRetrieveParams.dump(params)
         req = {
@@ -84,6 +87,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryUpdateParams.dump(params)
         req = {
@@ -128,6 +132,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountCategory>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryListParams.dump(params)
         req = {
@@ -147,6 +152,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,
@@ -167,6 +173,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def add_ledger_account(ledger_account_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams.dump(params)
         id = parsed.fetch(:id) do
@@ -191,6 +198,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def add_nested_category(sub_category_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams.dump(params)
         id = parsed.fetch(:id) do
@@ -215,6 +223,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def remove_ledger_account(ledger_account_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams.dump(params)
         id = parsed.fetch(:id) do
@@ -239,6 +248,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def remove_nested_category(sub_category_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams.dump(params)
         id = parsed.fetch(:id) do

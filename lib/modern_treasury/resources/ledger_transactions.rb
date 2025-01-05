@@ -7,6 +7,7 @@ module ModernTreasury
       attr_reader :versions
 
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
         @versions = ModernTreasury::Resources::LedgerTransactions::Versions.new(client: client)
@@ -45,6 +46,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerTransactionCreateParams.dump(params)
         req = {
@@ -63,6 +65,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -101,6 +104,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerTransactionUpdateParams.dump(params)
         req = {
@@ -168,6 +172,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransaction>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerTransactionListParams.dump(params)
         req = {
@@ -210,6 +215,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
+      #
       def create_reversal(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerTransactionCreateReversalParams.dump(params)
         req = {

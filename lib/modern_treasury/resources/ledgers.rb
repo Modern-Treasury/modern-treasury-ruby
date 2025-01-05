@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Ledgers
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -22,6 +23,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Ledger]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerCreateParams.dump(params)
         req = {
@@ -40,6 +42,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Ledger]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -65,6 +68,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Ledger]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerUpdateParams.dump(params)
         req = {
@@ -98,6 +102,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Ledger>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerListParams.dump(params)
         req = {
@@ -117,6 +122,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Ledger]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,

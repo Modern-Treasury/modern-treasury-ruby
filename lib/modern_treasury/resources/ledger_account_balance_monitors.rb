@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerAccountBalanceMonitors
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -24,6 +25,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams.dump(params)
         req = {
@@ -42,6 +44,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -65,6 +68,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams.dump(params)
         req = {
@@ -96,6 +100,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountBalanceMonitorListParams.dump(params)
         req = {
@@ -115,6 +120,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,

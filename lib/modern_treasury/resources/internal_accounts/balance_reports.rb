@@ -5,6 +5,7 @@ module ModernTreasury
     class InternalAccounts
       class BalanceReports
         # @param client [ModernTreasury::Client]
+        #
         def initialize(client:)
           @client = client
         end
@@ -27,6 +28,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
+        #
         def create(internal_account_id, params = {}, opts = {})
           parsed = ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump(params)
           req = {
@@ -50,6 +52,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
+        #
         def retrieve(id, params = {}, opts = {})
           parsed = ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump(params)
           internal_account_id = parsed.fetch(:internal_account_id) do
@@ -81,6 +84,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
+        #
         def list(internal_account_id, params = {}, opts = {})
           parsed = ModernTreasury::Models::InternalAccounts::BalanceReportListParams.dump(params)
           req = {
@@ -105,6 +109,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [nil]
+        #
         def delete(id, params = {}, opts = {})
           parsed = ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump(params)
           internal_account_id = parsed.fetch(:internal_account_id) do

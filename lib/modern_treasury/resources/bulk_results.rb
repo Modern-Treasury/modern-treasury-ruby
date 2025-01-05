@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class BulkResults
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -15,6 +16,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::BulkResult]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -48,6 +50,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkResult>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::BulkResultListParams.dump(params)
         req = {

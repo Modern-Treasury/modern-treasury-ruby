@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LegalEntities
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -64,6 +65,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LegalEntityCreateParams.dump(params)
         req = {
@@ -82,6 +84,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -145,6 +148,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LegalEntityUpdateParams.dump(params)
         req = {
@@ -175,6 +179,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::LegalEntityListParams.dump(params)
         req = {

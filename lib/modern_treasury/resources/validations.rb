@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Validations
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -23,6 +24,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::RoutingNumberLookupRequest]
+      #
       def validate_routing_number(params = {}, opts = {})
         parsed = ModernTreasury::Models::ValidationValidateRoutingNumberParams.dump(params)
         req = {
