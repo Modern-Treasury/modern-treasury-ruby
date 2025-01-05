@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerAccounts
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -40,6 +41,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccount]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountCreateParams.dump(params)
         req = {
@@ -67,6 +69,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccount]
+      #
       def retrieve(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountRetrieveParams.dump(params)
         req = {
@@ -94,6 +97,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccount]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountUpdateParams.dump(params)
         req = {
@@ -155,6 +159,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccount>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountListParams.dump(params)
         req = {
@@ -174,6 +179,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccount]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,

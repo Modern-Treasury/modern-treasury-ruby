@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class AccountDetails
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -24,6 +25,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountDetail]
+      #
       def create(account_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::AccountDetailCreateParams.dump(params)
         accounts_type = parsed.fetch(:accounts_type) do
@@ -51,6 +53,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountDetail]
+      #
       def retrieve(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::AccountDetailRetrieveParams.dump(params)
         accounts_type = parsed.fetch(:accounts_type) do
@@ -82,6 +85,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountDetail>]
+      #
       def list(account_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::AccountDetailListParams.dump(params)
         accounts_type = parsed.fetch(:accounts_type) do
@@ -110,6 +114,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def delete(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::AccountDetailDeleteParams.dump(params)
         accounts_type = parsed.fetch(:accounts_type) do

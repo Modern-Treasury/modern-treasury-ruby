@@ -7,6 +7,7 @@ module ModernTreasury
       attr_reader :line_items
 
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
         @line_items = ModernTreasury::Resources::Transactions::LineItems.new(client: client)
@@ -47,6 +48,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Transaction]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::TransactionCreateParams.dump(params)
         req = {
@@ -65,6 +67,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Transaction]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -86,6 +89,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Transaction]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::TransactionUpdateParams.dump(params)
         req = {
@@ -138,6 +142,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Transaction>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::TransactionListParams.dump(params)
         req = {
@@ -157,6 +162,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,

@@ -31,6 +31,7 @@ class ModernTreasuryTest < Minitest::Test
     # @param code [Integer]
     # @param headers [Hash{String => String}]
     # @param data [Object]
+    #
     def initialize(code, headers, data)
       @code = code
       @headers = headers
@@ -38,10 +39,18 @@ class ModernTreasuryTest < Minitest::Test
       @body = JSON.generate(data)
     end
 
+    # @param header [String]
+    #
+    # @return [String, nil]
+    #
     def [](header)
       @headers[header]
     end
 
+    # @param header [String]
+    #
+    # @return [Boolean]
+    #
     def key?(header)
       @headers.key?(header)
     end
@@ -63,6 +72,7 @@ class ModernTreasuryTest < Minitest::Test
     # @param response_code [Integer]
     # @param response_headers [Hash{String => String}]
     # @param response_data [Object]
+    #
     def initialize(response_code, response_headers, response_data)
       @response_code = response_code
       @response_headers = response_headers
@@ -71,6 +81,7 @@ class ModernTreasuryTest < Minitest::Test
     end
 
     # @param req [Hash{Symbol => Object}]
+    #
     def execute(req)
       # Deep copy the request because it is mutated on each retry.
       attempts.push(Marshal.load(Marshal.dump(req)))

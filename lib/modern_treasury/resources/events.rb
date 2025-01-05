@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Events
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -15,6 +16,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Event]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -45,6 +47,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Event>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::EventListParams.dump(params)
         req = {

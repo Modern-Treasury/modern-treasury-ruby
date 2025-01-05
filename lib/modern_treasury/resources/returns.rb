@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Returns
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -31,6 +32,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ReturnObject]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::ReturnCreateParams.dump(params)
         req = {
@@ -49,6 +51,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ReturnObject]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -80,6 +83,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::ReturnListParams.dump(params)
         req = {

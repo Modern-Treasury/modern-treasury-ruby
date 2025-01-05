@@ -7,6 +7,7 @@ module ModernTreasury
       attr_reader :reversals
 
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
         @reversals = ModernTreasury::Resources::PaymentOrders::Reversals.new(client: client)
@@ -144,6 +145,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::PaymentOrderCreateParams.dump(params)
         req = {
@@ -162,6 +164,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -303,6 +306,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::PaymentOrderUpdateParams.dump(params)
         req = {
@@ -359,6 +363,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrder>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::PaymentOrderListParams.dump(params)
         req = {
@@ -500,6 +505,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AsyncResponse]
+      #
       def create_async(params = {}, opts = {})
         parsed = ModernTreasury::Models::PaymentOrderCreateAsyncParams.dump(params)
         req = {

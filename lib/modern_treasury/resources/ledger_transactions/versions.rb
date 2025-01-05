@@ -5,6 +5,7 @@ module ModernTreasury
     class LedgerTransactions
       class Versions
         # @param client [ModernTreasury::Client]
+        #
         def initialize(client:)
           @client = client
         end
@@ -33,6 +34,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
+        #
         def list(params = {}, opts = {})
           parsed = ModernTreasury::Models::LedgerTransactions::VersionListParams.dump(params)
           req = {

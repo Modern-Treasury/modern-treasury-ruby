@@ -135,6 +135,9 @@ module ModernTreasury
     attr_reader :legal_entity_associations
 
     # @private
+    #
+    # @return [Hash{String => String}]
+    #
     private def auth_headers
       # Strict base64 encoding that ensures no control characters.
       base64_credentials = ["#{@organization_id}:#{@api_key}"].pack("m0")
@@ -150,6 +153,15 @@ module ModernTreasury
     # @param organization_id [String, nil] Defaults to `ENV["MODERN_TREASURY_ORGANIZATION_ID"]`
     #
     # @param max_retries [Integer] Max number of retries to attempt after a failed retryable request.
+    #
+    # @param timeout [Float]
+    #
+    # @param initial_retry_delay [Float]
+    #
+    # @param max_retry_delay [Float]
+    #
+    # @param idempotency_header [String]
+    #
     def initialize(
       base_url: nil,
       api_key: ENV["MODERN_TREASURY_API_KEY"],

@@ -5,6 +5,7 @@ module ModernTreasury
     class Transactions
       class LineItems
         # @param client [ModernTreasury::Client]
+        #
         def initialize(client:)
           @client = client
         end
@@ -23,6 +24,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
+        #
         def create(params = {}, opts = {})
           parsed = ModernTreasury::Models::Transactions::LineItemCreateParams.dump(params)
           req = {
@@ -41,6 +43,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
+        #
         def retrieve(id, opts = {})
           req = {
             method: :get,
@@ -67,6 +70,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
+        #
         def list(params = {}, opts = {})
           parsed = ModernTreasury::Models::Transactions::LineItemListParams.dump(params)
           req = {
@@ -86,6 +90,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [nil]
+        #
         def delete(id, opts = {})
           req = {
             method: :delete,
