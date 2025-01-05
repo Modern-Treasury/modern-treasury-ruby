@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerAccountStatements
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -29,6 +30,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerAccountStatementCreateParams.dump(params)
         req = {
@@ -47,6 +49,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,

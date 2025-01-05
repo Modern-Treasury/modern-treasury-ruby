@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class VirtualAccounts
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -42,6 +43,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::VirtualAccountCreateParams.dump(params)
         req = {
@@ -60,6 +62,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -86,6 +89,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::VirtualAccountUpdateParams.dump(params)
         req = {
@@ -116,6 +120,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::VirtualAccount>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::VirtualAccountListParams.dump(params)
         req = {
@@ -135,6 +140,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,

@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class ExpectedPayments
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -69,6 +70,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::ExpectedPaymentCreateParams.dump(params)
         req = {
@@ -87,6 +89,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -150,6 +153,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::ExpectedPaymentUpdateParams.dump(params)
         req = {
@@ -191,6 +195,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::ExpectedPaymentListParams.dump(params)
         req = {
@@ -210,6 +215,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,

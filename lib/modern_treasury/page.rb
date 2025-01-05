@@ -15,6 +15,7 @@ module ModernTreasury
     # @param opts [Hash{Symbol => Object}]
     # @param headers [Hash{String => String}]
     # @param unwrapped [Hash{Symbol => Object}]
+    #
     def initialize(client:, req:, opts:, headers:, unwrapped:)
       model = req.fetch(:model)
 
@@ -35,12 +36,14 @@ module ModernTreasury
     end
 
     # @return [Boolean]
+    #
     def next_page?
       !after_cursor.nil?
     end
 
     # @raise [ModernTreasury::HTTP::Error]
     # @return [ModernTreasury::Page]
+    #
     def next_page
       unless next_page?
         raise "No more pages available; please check #next_page? before calling #next_page"
@@ -52,8 +55,6 @@ module ModernTreasury
 
     # @param blk [Proc]
     #
-    # @yieldreturn ModernTreasury::Page
-    # @return [void]
     def auto_paging_each(&blk)
       unless block_given?
         raise ArgumentError.new("A block must be given to #auto_paging_each")
@@ -67,6 +68,7 @@ module ModernTreasury
     end
 
     # @return [String]
+    #
     def inspect
       "#<#{self.class}:0x#{object_id.to_s(16)} per_page=#{per_page.inspect} after_cursor=#{after_cursor.inspect}>"
     end

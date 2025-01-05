@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LegalEntityAssociations
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -28,6 +29,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntityAssociation]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LegalEntityAssociationCreateParams.dump(params)
         req = {

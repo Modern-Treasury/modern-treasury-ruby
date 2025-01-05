@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerEventHandlers
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -30,6 +31,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerEventHandlerCreateParams.dump(params)
         req = {
@@ -48,6 +50,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -78,6 +81,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerEventHandlerListParams.dump(params)
         req = {
@@ -97,6 +101,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,

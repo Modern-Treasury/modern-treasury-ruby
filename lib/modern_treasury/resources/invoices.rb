@@ -7,6 +7,7 @@ module ModernTreasury
       attr_reader :line_items
 
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
         @line_items = ModernTreasury::Resources::Invoices::LineItems.new(client: client)
@@ -92,6 +93,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::InvoiceCreateParams.dump(params)
         req = {
@@ -110,6 +112,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -201,6 +204,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::InvoiceUpdateParams.dump(params)
         req = {
@@ -243,6 +247,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Invoice>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::InvoiceListParams.dump(params)
         req = {
@@ -266,6 +271,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def add_payment_order(payment_order_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::InvoiceAddPaymentOrderParams.dump(params)
         id = parsed.fetch(:id) do

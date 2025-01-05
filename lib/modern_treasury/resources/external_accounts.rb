@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class ExternalAccounts
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -48,6 +49,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::ExternalAccountCreateParams.dump(params)
         req = {
@@ -66,6 +68,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -100,6 +103,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::ExternalAccountUpdateParams.dump(params)
         req = {
@@ -130,6 +134,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExternalAccount>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::ExternalAccountListParams.dump(params)
         req = {
@@ -149,6 +154,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,
@@ -169,6 +175,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
       def complete_verification(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::ExternalAccountCompleteVerificationParams.dump(params)
         req = {
@@ -203,6 +210,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
+      #
       def verify(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::ExternalAccountVerifyParams.dump(params)
         req = {

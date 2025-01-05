@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LineItems
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -21,6 +22,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LineItem]
+      #
       def retrieve(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LineItemRetrieveParams.dump(params)
         itemizable_type = parsed.fetch(:itemizable_type) do
@@ -53,6 +55,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LineItem]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LineItemUpdateParams.dump(params)
         itemizable_type = parsed.fetch(:itemizable_type) do
@@ -85,6 +88,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LineItem>]
+      #
       def list(itemizable_id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LineItemListParams.dump(params)
         itemizable_type = parsed.fetch(:itemizable_type) do
