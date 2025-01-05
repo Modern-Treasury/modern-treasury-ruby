@@ -7,6 +7,7 @@ module ModernTreasury
       attr_reader :balance_reports
 
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
         @balance_reports = ModernTreasury::Resources::InternalAccounts::BalanceReports.new(client: client)
@@ -39,6 +40,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::InternalAccountCreateParams.dump(params)
         req = {
@@ -57,6 +59,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -86,6 +89,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::InternalAccountUpdateParams.dump(params)
         req = {
@@ -122,6 +126,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::InternalAccountListParams.dump(params)
         req = {

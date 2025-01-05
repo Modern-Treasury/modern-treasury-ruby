@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class PaymentReferences
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -15,6 +16,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentReference]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -43,6 +45,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentReference>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::PaymentReferenceListParams.dump(params)
         req = {
@@ -57,13 +60,14 @@ module ModernTreasury
 
       # @deprecated use `retrieve` instead
       #
-      #   get payment_reference
+      # get payment_reference
       #
       # @param id [String] id
       #
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentReference]
+      #
       def retireve(id, opts = {})
         req = {
           method: :get,

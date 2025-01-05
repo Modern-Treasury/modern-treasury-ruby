@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerEntries
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -20,6 +21,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEntry]
+      #
       def retrieve(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerEntryRetrieveParams.dump(params)
         req = {
@@ -43,6 +45,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEntry]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerEntryUpdateParams.dump(params)
         req = {
@@ -121,6 +124,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEntry>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::LedgerEntryListParams.dump(params)
         req = {

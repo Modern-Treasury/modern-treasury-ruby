@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class IncomingPaymentDetails
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -15,6 +16,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -36,6 +38,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::IncomingPaymentDetailUpdateParams.dump(params)
         req = {
@@ -79,6 +82,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::IncomingPaymentDetail>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::IncomingPaymentDetailListParams.dump(params)
         req = {
@@ -116,6 +120,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AsyncResponse]
+      #
       def create_async(params = {}, opts = {})
         parsed = ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams.dump(params)
         req = {

@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Counterparties
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -40,6 +41,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::CounterpartyCreateParams.dump(params)
         req = {
@@ -58,6 +60,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -90,6 +93,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
+      #
       def update(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::CounterpartyUpdateParams.dump(params)
         req = {
@@ -128,6 +132,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::CounterpartyListParams.dump(params)
         req = {
@@ -147,6 +152,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
+      #
       def delete(id, opts = {})
         req = {
           method: :delete,
@@ -184,6 +190,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
+      #
       def collect_account(id, params = {}, opts = {})
         parsed = ModernTreasury::Models::CounterpartyCollectAccountParams.dump(params)
         req = {

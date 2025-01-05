@@ -5,6 +5,7 @@ module ModernTreasury
     class PaymentOrders
       class Reversals
         # @param client [ModernTreasury::Client]
+        #
         def initialize(client:)
           @client = client
         end
@@ -29,6 +30,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
+        #
         def create(payment_order_id, params = {}, opts = {})
           parsed = ModernTreasury::Models::PaymentOrders::ReversalCreateParams.dump(params)
           req = {
@@ -51,6 +53,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
+        #
         def retrieve(reversal_id, params = {}, opts = {})
           parsed = ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams.dump(params)
           payment_order_id = parsed.fetch(:payment_order_id) do
@@ -77,6 +80,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
+        #
         def list(payment_order_id, params = {}, opts = {})
           parsed = ModernTreasury::Models::PaymentOrders::ReversalListParams.dump(params)
           req = {

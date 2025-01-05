@@ -5,6 +5,7 @@ module ModernTreasury
     class Invoices
       class LineItems
         # @param client [ModernTreasury::Client]
+        #
         def initialize(client:)
           @client = client
         end
@@ -39,6 +40,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
         def create(invoice_id, params = {}, opts = {})
           parsed = ModernTreasury::Models::Invoices::LineItemCreateParams.dump(params)
           req = {
@@ -61,6 +63,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
         def retrieve(id, params = {}, opts = {})
           parsed = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump(params)
           invoice_id = parsed.fetch(:invoice_id) do
@@ -106,6 +109,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
         def update(id, params = {}, opts = {})
           parsed = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump(params)
           invoice_id = parsed.fetch(:invoice_id) do
@@ -133,6 +137,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
+        #
         def list(invoice_id, params = {}, opts = {})
           parsed = ModernTreasury::Models::Invoices::LineItemListParams.dump(params)
           req = {
@@ -156,6 +161,7 @@ module ModernTreasury
         # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
         def delete(id, params = {}, opts = {})
           parsed = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump(params)
           invoice_id = parsed.fetch(:invoice_id) do

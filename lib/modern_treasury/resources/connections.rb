@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Connections
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -23,6 +24,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Connection>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::ConnectionListParams.dump(params)
         req = {

@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class ForeignExchangeQuotes
       # @param client [ModernTreasury::Client]
+      #
       def initialize(client:)
         @client = client
       end
@@ -29,6 +30,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
+      #
       def create(params = {}, opts = {})
         parsed = ModernTreasury::Models::ForeignExchangeQuoteCreateParams.dump(params)
         req = {
@@ -47,6 +49,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
+      #
       def retrieve(id, opts = {})
         req = {
           method: :get,
@@ -83,6 +86,7 @@ module ModernTreasury
       # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
+      #
       def list(params = {}, opts = {})
         parsed = ModernTreasury::Models::ForeignExchangeQuoteListParams.dump(params)
         req = {
