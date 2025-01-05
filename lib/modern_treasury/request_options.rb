@@ -6,10 +6,12 @@ module ModernTreasury
   #
   # When making a request, you can pass an actual {RequestOptions} instance, or simply pass a Hash
   # with symbol keys matching the attributes on this class.
+  #
   class RequestOptions
     # @private
     #
     # @return [Array<Symbol>]
+    #
     private_class_method def self.options
       @options ||= []
     end
@@ -17,6 +19,7 @@ module ModernTreasury
     # @private
     #
     # @param name [Symbol]
+    #
     private_class_method def self.option(name)
       define_method("#{name}=") { |val| @values[name] = val }
       define_method(name) { @values[name] }
@@ -28,6 +31,7 @@ module ModernTreasury
     # @param opts [ModernTreasury::RequestOptions, Hash{Symbol => Object}]
     #
     # @raise [ArgumentError]
+    #
     def self.validate!(opts)
       case opts
       in ModernTreasury::RequestOptions | Hash
@@ -90,6 +94,7 @@ module ModernTreasury
     #   @option values [Hash{Symbol => Object}] :extra_body
     #   @option values [Integer] :max_retries
     #   @option values [Integer] :timeout
+    #
     def initialize(values = {})
       @values = values
     end
@@ -99,11 +104,13 @@ module ModernTreasury
     # @param key [Symbol] Key to look up by.
     #
     # @return [Object]
+    #
     def [](key) = @values[key]
 
     # Return a Hash containing the options set on this instance.
     #
     # @return [Hash{Symbol => Object}]
+    #
     def to_h = @values
 
     alias_method :to_hash, :to_h
@@ -111,12 +118,15 @@ module ModernTreasury
     # @param keys [Array<Symbol>, nil]
     #
     # @return [Hash{Symbol => Object}]
+    #
     def deconstruct_keys(keys) = @values.deconstruct_keys(keys)
 
     # @return [String]
+    #
     def to_s = @values.to_s
 
     # @return [String]
+    #
     def inspect
       "#<#{self.class}:0x#{object_id.to_s(16)} #{@values.inspect}>"
     end
