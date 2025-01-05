@@ -15,6 +15,7 @@ module ModernTreasury
     # @param timeout [Float]
     #
     # @return [ConnectionPool]
+    #
     private def get_pool(url)
       origin = ModernTreasury::Util.uri_origin(url)
       @mutex.synchronize do
@@ -47,6 +48,7 @@ module ModernTreasury
     #   @option req [Float] :timeout
     #
     # @return [Net::HTTPResponse]
+    #
     def execute(req)
       # rubocop:disable Metrics/BlockLength
       method, url, headers, body, timeout = req.fetch_values(:method, :url, :headers, :body, :timeout)
