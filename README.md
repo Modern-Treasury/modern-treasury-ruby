@@ -54,7 +54,7 @@ non-success status code (i.e., 4xx or 5xx response), a subclass of
 
 ```ruby
 begin
-  modern_treasury.external_accounts.create(counterparty_id: "missing")
+  external_account = modern_treasury.external_accounts.create(counterparty_id: "missing")
 rescue ModernTreasury::Error => e
   puts(e.code) # 400
 end
