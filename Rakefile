@@ -21,6 +21,8 @@ RuboCop::RakeTask.new(:format) do |t|
   t.options = %w[--fail-level F --autocorrect --format offenses]
 end
 
+multitask(lint: [:rubocop])
+
 multitask(:build) do
   sh(*%w[gem build -- modern_treasury.gemspec])
 end
