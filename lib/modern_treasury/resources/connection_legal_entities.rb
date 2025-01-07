@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a connection legal entity.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ConnectionLegalEntityCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ConnectionLegalEntityCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :connection_id The ID of the connection.
       #
@@ -55,7 +55,7 @@ module ModernTreasury
       #
       # @param id [String] The id of an existing connection legal entity.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ConnectionLegalEntityUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ConnectionLegalEntityUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] :status The status of the connection legal entity.
       #
@@ -76,7 +76,7 @@ module ModernTreasury
 
       # Get a list of all connection legal entities.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ConnectionLegalEntityListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ConnectionLegalEntityListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

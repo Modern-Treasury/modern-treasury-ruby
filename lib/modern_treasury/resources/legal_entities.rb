@@ -11,7 +11,7 @@ module ModernTreasury
 
       # create legal_entity
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LegalEntityCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] :legal_entity_type The type of legal entity.
       #
@@ -98,7 +98,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LegalEntityUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>] :addresses A list of addresses for the entity.
       #
@@ -162,7 +162,7 @@ module ModernTreasury
 
       # Get a list of all legal entities.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LegalEntityListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

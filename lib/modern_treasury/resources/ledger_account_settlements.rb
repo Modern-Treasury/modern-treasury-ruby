@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a ledger account settlement.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountSettlementCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountSettlementCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :contra_ledger_account_id The id of the contra ledger account that sends to or receives funds from the
       #     settled ledger account.
@@ -74,7 +74,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountSettlementUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountSettlementUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :description The description of the ledger account settlement.
       #
@@ -101,7 +101,7 @@ module ModernTreasury
 
       # Get a list of ledger account settlements.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountSettlementListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountSettlementListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.

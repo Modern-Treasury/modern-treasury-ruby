@@ -11,7 +11,7 @@ module ModernTreasury
 
       # create expected payment
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExpectedPaymentCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -103,7 +103,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExpectedPaymentUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -167,7 +167,7 @@ module ModernTreasury
 
       # list expected_payments
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExpectedPaymentListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

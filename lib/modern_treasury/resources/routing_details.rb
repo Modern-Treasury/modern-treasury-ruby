@@ -13,7 +13,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::RoutingDetailCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::RoutingDetailCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType] :accounts_type Path param:
       #
@@ -48,7 +48,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the routing detail.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::RoutingDetailRetrieveParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::RoutingDetailRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::AccountsType] :accounts_type
       #
@@ -78,7 +78,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::RoutingDetailListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::RoutingDetailListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::AccountsType] :accounts_type Path param:
       #
@@ -109,7 +109,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the routing detail.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::RoutingDetailDeleteParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::RoutingDetailDeleteParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType] :accounts_type
       #

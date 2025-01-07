@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a ledger account.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :currency The currency of the ledger account.
       #
@@ -57,7 +57,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountRetrieveParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances] :balances Use `balances[effective_at_lower_bound]` and
       #     `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -85,7 +85,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :description The description of the ledger account.
       #
@@ -111,7 +111,7 @@ module ModernTreasury
 
       # Get a list of ledger accounts.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.

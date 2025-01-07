@@ -11,7 +11,7 @@ module ModernTreasury
 
       # create external account
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :counterparty_id
       #
@@ -82,7 +82,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::ExternalAccountType] :account_type Can be `checking`, `savings` or `other`.
       #
@@ -117,7 +117,7 @@ module ModernTreasury
 
       # list external accounts
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -168,7 +168,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountCompleteVerificationParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountCompleteVerificationParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<Integer>] :amounts
       #
@@ -191,7 +191,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ExternalAccountVerifyParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountVerifyParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :originating_account_id The ID of the internal account where the micro-deposits originate from. Both
       #     credit and debit capabilities must be enabled.

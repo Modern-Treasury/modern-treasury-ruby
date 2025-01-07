@@ -14,7 +14,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::Invoices::LineItemCreateParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [String] :name The name of the line item, typically a product or SKU name.
         #
@@ -56,7 +56,7 @@ module ModernTreasury
         #
         # @param id [String] id
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::Invoices::LineItemRetrieveParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [String] :invoice_id invoice_id
         #
@@ -81,7 +81,7 @@ module ModernTreasury
         #
         # @param id [String] Path param: id
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::Invoices::LineItemUpdateParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [String] :invoice_id Path param: invoice_id
         #
@@ -128,7 +128,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::Invoices::LineItemListParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemListParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [String, nil] :after_cursor
         #
@@ -154,7 +154,7 @@ module ModernTreasury
         #
         # @param id [String] id
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::Invoices::LineItemDeleteParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemDeleteParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [String] :invoice_id invoice_id
         #

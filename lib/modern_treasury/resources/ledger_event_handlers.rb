@@ -11,7 +11,7 @@ module ModernTreasury
 
       # create ledger_event_handler
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerEventHandlerCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEventHandlerCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate] :ledger_transaction_template
       #
@@ -62,7 +62,7 @@ module ModernTreasury
 
       # Get a list of ledger event handlers.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerEventHandlerListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEventHandlerListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
