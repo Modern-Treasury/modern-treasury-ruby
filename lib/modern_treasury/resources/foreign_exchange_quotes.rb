@@ -11,7 +11,7 @@ module ModernTreasury
 
       # create foreign_exchange_quote
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ForeignExchangeQuoteCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ForeignExchangeQuoteCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
       #
@@ -61,7 +61,7 @@ module ModernTreasury
 
       # list foreign_exchange_quotes
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ForeignExchangeQuoteListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ForeignExchangeQuoteListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

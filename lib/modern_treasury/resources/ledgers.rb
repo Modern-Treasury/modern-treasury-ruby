@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a ledger.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :name The name of the ledger.
       #
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :description An optional free-form description for internal use.
       #
@@ -82,7 +82,7 @@ module ModernTreasury
 
       # Get a list of ledgers.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.

@@ -13,7 +13,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerEntryRetrieveParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEntryRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Boolean] :show_balances If true, response will include the balances attached to the ledger entry. If
       #     there is no balance available, null will be returned instead.
@@ -37,7 +37,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerEntryUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEntryUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
@@ -59,7 +59,7 @@ module ModernTreasury
 
       # Get a list of all ledger entries.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerEntryListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEntryListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.

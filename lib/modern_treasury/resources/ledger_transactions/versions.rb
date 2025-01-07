@@ -12,7 +12,7 @@ module ModernTreasury
 
         # Get a list of ledger transaction versions.
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerTransactions::VersionListParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::LedgerTransactions::VersionListParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [String, nil] :after_cursor
         #

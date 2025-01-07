@@ -28,7 +28,7 @@ module ModernTreasury
 
       # list bulk_results
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::BulkResultListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::BulkResultListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

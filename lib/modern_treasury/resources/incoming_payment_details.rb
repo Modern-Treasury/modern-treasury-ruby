@@ -30,7 +30,7 @@ module ModernTreasury
       #
       # @param id [String] The unique identifier of the incoming payment detail.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::IncomingPaymentDetailUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::IncomingPaymentDetailUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Hash{Symbol => String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
@@ -52,7 +52,7 @@ module ModernTreasury
 
       # Get a list of Incoming Payment Details.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::IncomingPaymentDetailListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::IncomingPaymentDetailListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -97,7 +97,7 @@ module ModernTreasury
 
       # Simulate Incoming Payment Detail
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
       #     as 1000.

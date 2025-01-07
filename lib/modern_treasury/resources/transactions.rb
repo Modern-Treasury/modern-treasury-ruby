@@ -15,7 +15,7 @@ module ModernTreasury
 
       # create transaction
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::TransactionCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::TransactionCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
       #     as 1000.
@@ -81,7 +81,7 @@ module ModernTreasury
       #
       # @param id [String] Transaction ID
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::TransactionUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::TransactionUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Hash{Symbol => String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
@@ -103,7 +103,7 @@ module ModernTreasury
 
       # Get a list of all transactions.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::TransactionListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::TransactionListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a return.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ReturnCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ReturnCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :returnable_id The ID of the object being returned or `null`.
       #
@@ -63,7 +63,7 @@ module ModernTreasury
 
       # Get a list of returns.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ReturnListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ReturnListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

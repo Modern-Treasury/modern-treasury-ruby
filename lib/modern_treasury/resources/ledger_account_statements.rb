@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a ledger account statement.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountStatementCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountStatementCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Time] :effective_at_lower_bound The inclusive lower bound of the effective_at timestamp of the ledger entries to
       #     be included in the ledger account statement.

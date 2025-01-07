@@ -14,7 +14,7 @@ module ModernTreasury
         #
         # @param payment_order_id [String] The id of the payment order being reversed.
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrders::ReversalCreateParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::PaymentOrders::ReversalCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason] :reason The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #     `incorrect_receiving_account`, `date_earlier_than_intended`,
@@ -46,7 +46,7 @@ module ModernTreasury
         #
         # @param reversal_id [String] The ID of the reversal.
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [String] :payment_order_id The id of the payment order being reversed.
         #
@@ -71,7 +71,7 @@ module ModernTreasury
         #
         # @param payment_order_id [String] The ID of the relevant Payment Order.
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrders::ReversalListParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::PaymentOrders::ReversalListParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [String, nil] :after_cursor
         #
