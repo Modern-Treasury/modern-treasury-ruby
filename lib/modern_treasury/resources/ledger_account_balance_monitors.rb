@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a ledger account balance monitor.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] :alert_condition Describes the condition that must be satisfied for the monitor to be triggered.
       #
@@ -58,7 +58,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :description An optional, free-form description for internal use.
       #
@@ -82,7 +82,7 @@ module ModernTreasury
 
       # Get a list of ledger account balance monitors.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountBalanceMonitorListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.

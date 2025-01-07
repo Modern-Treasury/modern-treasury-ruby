@@ -11,7 +11,7 @@ module ModernTreasury
 
       # create account_collection_flow
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::AccountCollectionFlowCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountCollectionFlowCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :counterparty_id Required.
       #
@@ -55,7 +55,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::AccountCollectionFlowUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountCollectionFlowUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] :status Required. The updated status of the account collection flow. Can only be used to
       #     mark a flow as `cancelled`.
@@ -77,7 +77,7 @@ module ModernTreasury
 
       # list account_collection_flows
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::AccountCollectionFlowListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountCollectionFlowListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

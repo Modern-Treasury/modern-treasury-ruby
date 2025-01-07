@@ -11,7 +11,7 @@ module ModernTreasury
 
       # create bulk_request
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::BulkRequestCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::BulkRequestCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ActionType] :action_type One of create, or update.
       #
@@ -57,7 +57,7 @@ module ModernTreasury
 
       # list bulk_requests
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::BulkRequestListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::BulkRequestListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType] :action_type One of create, or update.
       #

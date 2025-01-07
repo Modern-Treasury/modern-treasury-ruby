@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a ledger account category.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCategoryCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :currency The currency of the ledger account category.
       #
@@ -50,7 +50,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCategoryRetrieveParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] :balances For example, if you want the balances as of a particular time (ISO8601), the
       #     encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
@@ -75,7 +75,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCategoryUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :description The description of the ledger account category.
       #
@@ -101,7 +101,7 @@ module ModernTreasury
 
       # Get a list of ledger account categories.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCategoryListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -166,7 +166,7 @@ module ModernTreasury
       #
       # @param ledger_account_id [String] ledger_account_id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #
@@ -191,7 +191,7 @@ module ModernTreasury
       #
       # @param sub_category_id [String] sub_category_id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #
@@ -216,7 +216,7 @@ module ModernTreasury
       #
       # @param ledger_account_id [String] ledger_account_id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #
@@ -241,7 +241,7 @@ module ModernTreasury
       #
       # @param sub_category_id [String] sub_category_id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #

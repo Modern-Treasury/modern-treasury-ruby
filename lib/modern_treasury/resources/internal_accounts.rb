@@ -15,7 +15,7 @@ module ModernTreasury
 
       # create internal account
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InternalAccountCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :connection_id The identifier of the financial institution the account belongs to.
       #
@@ -73,7 +73,7 @@ module ModernTreasury
       #
       # @param id [String] Unique identifier for the account.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InternalAccountUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :counterparty_id The Counterparty associated to this account.
       #
@@ -103,7 +103,7 @@ module ModernTreasury
 
       # list internal accounts
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InternalAccountListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

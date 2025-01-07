@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Get a list of all connections.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::ConnectionListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ConnectionListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a new counterparty.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::CounterpartyCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :name A human friendly name for this counterparty.
       #
@@ -74,7 +74,7 @@ module ModernTreasury
       #
       # @param id [String] The id of an existing counterparty.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::CounterpartyUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :email A new email for the counterparty.
       #
@@ -107,7 +107,7 @@ module ModernTreasury
 
       # Get a paginated list of all counterparties.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::CounterpartyListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -166,7 +166,7 @@ module ModernTreasury
       #
       # @param id [String] counterparty id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::CounterpartyCollectAccountParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyCollectAccountParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::TransactionDirection] :direction One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       #     Use `debit` when you need to charge a counterparty. This field helps us send a

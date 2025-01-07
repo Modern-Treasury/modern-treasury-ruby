@@ -28,7 +28,7 @@ module ModernTreasury
 
       # Get a list of all paper items.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaperItemListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaperItemListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
