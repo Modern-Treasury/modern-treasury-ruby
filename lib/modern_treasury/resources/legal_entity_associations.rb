@@ -11,7 +11,7 @@ module ModernTreasury
 
       # create legal_entity_association
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LegalEntityAssociationCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityAssociationCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :parent_legal_entity_id The ID of the parent legal entity. This must be a business or joint legal
       #     entity.

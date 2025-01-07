@@ -15,7 +15,7 @@ module ModernTreasury
 
       # Create a new Payment Order
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrderCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -178,7 +178,7 @@ module ModernTreasury
       #
       # @param id [String]
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrderUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting] :accounting
       #
@@ -320,7 +320,7 @@ module ModernTreasury
 
       # Get a list of all payment orders
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrderListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -378,7 +378,7 @@ module ModernTreasury
 
       # Create a new payment order asynchronously
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::PaymentOrderCreateAsyncParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderCreateAsyncParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.

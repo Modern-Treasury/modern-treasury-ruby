@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a ledgerable event.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerableEventCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerableEventCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :name Name of the ledgerable event.
       #

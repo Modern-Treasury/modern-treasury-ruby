@@ -13,7 +13,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the line item.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LineItemRetrieveParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LineItemRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType] :itemizable_type One of `payment_orders` or `expected_payments`.
       #
@@ -43,7 +43,7 @@ module ModernTreasury
       #
       # @param id [String] Path param: The ID of the line item.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LineItemUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LineItemUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
       #
@@ -77,7 +77,7 @@ module ModernTreasury
       #
       # @param itemizable_id [String] Path param: The ID of the payment order or expected payment.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LineItemListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LineItemListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
       #

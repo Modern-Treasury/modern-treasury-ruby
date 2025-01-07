@@ -15,7 +15,7 @@ module ModernTreasury
 
       # Create a ledger transaction.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerTransactionCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>] :ledger_entries An array of ledger entry objects.
       #
@@ -79,7 +79,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerTransactionUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :description An optional description for internal use.
       #
@@ -118,7 +118,7 @@ module ModernTreasury
 
       # Get a list of ledger transactions.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerTransactionListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -189,7 +189,7 @@ module ModernTreasury
       #
       # @param id [String] The id of ledger transaction to reverse.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::LedgerTransactionCreateReversalParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionCreateReversalParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :description An optional free-form description for the reversal ledger transaction. Maximum
       #     of 1000 characters allowed.

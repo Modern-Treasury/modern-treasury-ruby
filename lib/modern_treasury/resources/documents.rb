@@ -11,7 +11,7 @@ module ModernTreasury
 
       # Create a document.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::DocumentCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::DocumentCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :documentable_id The unique identifier for the associated object.
       #
@@ -56,7 +56,7 @@ module ModernTreasury
 
       # Get a list of documents.
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::DocumentListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::DocumentListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #

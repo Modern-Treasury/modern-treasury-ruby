@@ -15,7 +15,7 @@ module ModernTreasury
 
       # create invoice
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InvoiceCreateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :counterparty_id The ID of the counterparty receiving the invoice.
       #
@@ -126,7 +126,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InvoiceUpdateParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>] :contact_details The invoicer's contact details displayed at the top of the invoice.
       #
@@ -218,7 +218,7 @@ module ModernTreasury
 
       # list invoices
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InvoiceListParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceListParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -264,7 +264,7 @@ module ModernTreasury
       #
       # @param payment_order_id [String] payment_order_id
       #
-      # @param params [Hash{Symbol => Object}, ModernTreasury::Models::InvoiceAddPaymentOrderParams] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceAddPaymentOrderParams, Hash{Symbol => Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #

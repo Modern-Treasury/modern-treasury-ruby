@@ -12,7 +12,7 @@ module ModernTreasury
 
         # create transaction line items
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::Transactions::LineItemCreateParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Transactions::LineItemCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [Integer] :amount If a matching object exists in Modern Treasury, `amount` will be populated.
         #     Value in specified currency's smallest unit (taken from parent Transaction).
@@ -55,7 +55,7 @@ module ModernTreasury
 
         # list transaction_line_items
         #
-        # @param params [Hash{Symbol => Object}, ModernTreasury::Models::Transactions::LineItemListParams] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Transactions::LineItemListParams, Hash{Symbol => Object}] Attributes to send in this request.
         #
         #   @option params [Hash{Symbol => String}] :id
         #
