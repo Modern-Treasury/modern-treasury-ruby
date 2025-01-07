@@ -10,7 +10,7 @@ module ModernTreasury
 
     # @private
     #
-    # @param client [ModernTreasury::Client]
+    # @param client [ModernTreasury::BaseClient]
     # @param req [Hash{Symbol => Object}]
     # @param opts [Hash{Symbol => Object}]
     # @param headers [Hash{String => String}]
