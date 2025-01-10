@@ -204,7 +204,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
       required :reference_numbers,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::PaymentOrder::ReferenceNumber }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder::ReferenceNumber] }
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire` payments the field will be passed through as the "Originator to Beneficiary Information", also known as OBI or Fedwire tag 6000.
@@ -622,7 +622,7 @@ module ModernTreasury
       # ```ruby
       # foreign_exchange_rate => {
       #   base_amount: Integer,
-      #   base_currency: ModernTreasury::Models::Currency,
+      #   base_currency: enum: ModernTreasury::Models::Currency,
       #   exponent: Integer,
       #   rate_string: String,
       #   target_amount: Integer,

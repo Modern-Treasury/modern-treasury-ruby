@@ -20,9 +20,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>]
       optional :ledger_entries,
-               ModernTreasury::ArrayOf[-> {
-                 ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]
+               }
 
       # @!attribute ledgerable_id
       #   If the ledger transaction can be reconciled to another object in Modern Treasury, the id will be populated here, otherwise null.
@@ -90,7 +90,7 @@ module ModernTreasury
       # ```ruby
       # ledger_entry => {
       #   amount: Integer,
-      #   direction: ModernTreasury::Models::TransactionDirection,
+      #   direction: enum: ModernTreasury::Models::TransactionDirection,
       #   ledger_account_id: String,
       #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
       #   lock_version: Integer,

@@ -41,7 +41,7 @@ module ModernTreasury
       # @!attribute variables
       #
       #   @return [Hash{Symbol => ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
-      optional :variables, ModernTreasury::HashOf[-> { ModernTreasury::Models::LedgerEventHandlerVariable }]
+      optional :variables, -> { ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable] }
 
       # @!parse
       #   # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
@@ -102,9 +102,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
         required :ledger_entries,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
+                 }
 
         # @!attribute status
         #   To post a ledger transaction at creation, use `posted`.

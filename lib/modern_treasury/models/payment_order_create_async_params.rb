@@ -117,7 +117,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>]
       optional :line_items,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem] }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
@@ -516,9 +516,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry>]
         required :ledger_entries,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry]
+                 }
 
         # @!attribute description
         #   An optional description for internal use.
@@ -626,7 +626,7 @@ module ModernTreasury
         # ```ruby
         # ledger_entry => {
         #   amount: Integer,
-        #   direction: ModernTreasury::Models::TransactionDirection,
+        #   direction: enum: ModernTreasury::Models::TransactionDirection,
         #   ledger_account_id: String,
         #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
         #   lock_version: Integer,
@@ -870,7 +870,7 @@ module ModernTreasury
       # ```ruby
       # receiving_account => {
       #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail] === _1 },
-      #   account_type: ModernTreasury::Models::ExternalAccountType,
+      #   account_type: enum: ModernTreasury::Models::ExternalAccountType,
       #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail] === _1 },
       #   ledger_account: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
       #   metadata: -> { ModernTreasury::HashOf[String] === _1 },
@@ -882,9 +882,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail>]
         optional :account_details,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail]
+                 }
 
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
@@ -896,9 +896,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail>]
         optional :contact_details,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail]
+                 }
 
         # @!attribute ledger_account
         #   Specifies a ledger account object that will be created with the external account. The resulting ledger account is linked to the external account for auto-ledgering Payment objects. See https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects for more details.
@@ -956,9 +956,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail>]
         optional :routing_details,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail]
+                 }
 
         # @!parse
         #   # Either `receiving_account` or `receiving_account_id` must be present. When using
@@ -1021,7 +1021,7 @@ module ModernTreasury
         # ```ruby
         # account_detail => {
         #   account_number: String,
-        #   account_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType
+        #   account_number_type: enum: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType
         # }
         # ```
         class AccountDetail < ModernTreasury::BaseModel
@@ -1085,7 +1085,7 @@ module ModernTreasury
         # ```ruby
         # contact_detail => {
         #   contact_identifier: String,
-        #   contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType
+        #   contact_identifier_type: enum: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType
         # }
         # ```
         class ContactDetail < ModernTreasury::BaseModel
@@ -1138,7 +1138,7 @@ module ModernTreasury
         #   currency: String,
         #   ledger_id: String,
         #   name: String,
-        #   normal_balance: ModernTreasury::Models::TransactionDirection,
+        #   normal_balance: enum: ModernTreasury::Models::TransactionDirection,
         #   currency_exponent: Integer,
         #   **_
         # }
@@ -1373,8 +1373,8 @@ module ModernTreasury
         # ```ruby
         # routing_detail => {
         #   routing_number: String,
-        #   routing_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType,
-        #   payment_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType
+        #   routing_number_type: enum: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType,
+        #   payment_type: enum: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType
         # }
         # ```
         class RoutingDetail < ModernTreasury::BaseModel

@@ -210,8 +210,8 @@ module ModernTreasury
       #
       # ```ruby
       # order_by => {
-      #   created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt,
-      #   effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt
+      #   created_at: enum: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt,
+      #   effective_at: enum: ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt
       # }
       # ```
       class OrderBy < ModernTreasury::BaseModel

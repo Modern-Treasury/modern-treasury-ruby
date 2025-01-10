@@ -34,7 +34,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::Document::DocumentDetail>]
       required :document_details,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::Document::DocumentDetail }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail] }
 
       # @!attribute document_type
       #   A category given to the document, can be `null`.

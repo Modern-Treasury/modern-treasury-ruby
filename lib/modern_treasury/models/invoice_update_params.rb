@@ -8,7 +8,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>]
       optional :contact_details,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::InvoiceUpdateParams::ContactDetail }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail] }
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
@@ -65,7 +65,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>, nil]
       optional :invoice_line_items,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem] }
 
       # @!attribute invoicer_address
       #   The invoice issuer's business address.
@@ -270,7 +270,7 @@ module ModernTreasury
       # contact_detail => {
       #   id: String,
       #   contact_identifier: String,
-      #   contact_identifier_type: ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::ContactIdentifierType,
+      #   contact_identifier_type: enum: ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::ContactIdentifierType,
       #   created_at: Time,
       #   discarded_at: Time,
       #   **_

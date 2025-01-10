@@ -67,7 +67,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::Document>]
       optional :documents,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::PaymentOrderCreateParams::Document }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::Document] }
 
       # @!attribute effective_date
       #   Date transactions are to be posted to the participants' account. Defaults to the current business day or the next business day if the current day is a bank holiday or weekend. Format: yyyy-mm-dd.
@@ -117,7 +117,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>]
       optional :line_items,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::PaymentOrderCreateParams::LineItem }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::LineItem] }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
@@ -471,7 +471,7 @@ module ModernTreasury
       # ```ruby
       # document => {
       #   documentable_id: String,
-      #   documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType,
+      #   documentable_type: enum: ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType,
       #   file: String,
       #   document_type: String
       # }
@@ -602,9 +602,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry>]
         required :ledger_entries,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry]
+                 }
 
         # @!attribute description
         #   An optional description for internal use.
@@ -714,7 +714,7 @@ module ModernTreasury
         # ```ruby
         # ledger_entry => {
         #   amount: Integer,
-        #   direction: ModernTreasury::Models::TransactionDirection,
+        #   direction: enum: ModernTreasury::Models::TransactionDirection,
         #   ledger_account_id: String,
         #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
         #   lock_version: Integer,
@@ -958,7 +958,7 @@ module ModernTreasury
       # ```ruby
       # receiving_account => {
       #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail] === _1 },
-      #   account_type: ModernTreasury::Models::ExternalAccountType,
+      #   account_type: enum: ModernTreasury::Models::ExternalAccountType,
       #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail] === _1 },
       #   ledger_account: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount,
       #   metadata: -> { ModernTreasury::HashOf[String] === _1 },
@@ -970,9 +970,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail>]
         optional :account_details,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]
+                 }
 
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
@@ -984,9 +984,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail>]
         optional :contact_details,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]
+                 }
 
         # @!attribute ledger_account
         #   Specifies a ledger account object that will be created with the external account. The resulting ledger account is linked to the external account for auto-ledgering Payment objects. See https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects for more details.
@@ -1042,9 +1042,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail>]
         optional :routing_details,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]
+                 }
 
         # @!parse
         #   # Either `receiving_account` or `receiving_account_id` must be present. When using
@@ -1107,7 +1107,7 @@ module ModernTreasury
         # ```ruby
         # account_detail => {
         #   account_number: String,
-        #   account_number_type: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType
+        #   account_number_type: enum: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType
         # }
         # ```
         class AccountDetail < ModernTreasury::BaseModel
@@ -1171,7 +1171,7 @@ module ModernTreasury
         # ```ruby
         # contact_detail => {
         #   contact_identifier: String,
-        #   contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType
+        #   contact_identifier_type: enum: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType
         # }
         # ```
         class ContactDetail < ModernTreasury::BaseModel
@@ -1224,7 +1224,7 @@ module ModernTreasury
         #   currency: String,
         #   ledger_id: String,
         #   name: String,
-        #   normal_balance: ModernTreasury::Models::TransactionDirection,
+        #   normal_balance: enum: ModernTreasury::Models::TransactionDirection,
         #   currency_exponent: Integer,
         #   **_
         # }
@@ -1459,8 +1459,8 @@ module ModernTreasury
         # ```ruby
         # routing_detail => {
         #   routing_number: String,
-        #   routing_number_type: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType,
-        #   payment_type: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType
+        #   routing_number_type: enum: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType,
+        #   payment_type: enum: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType
         # }
         # ```
         class RoutingDetail < ModernTreasury::BaseModel

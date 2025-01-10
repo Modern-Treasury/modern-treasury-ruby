@@ -24,7 +24,7 @@ module ModernTreasury
       #   A list of addresses for the entity.
       #
       #   @return [Array<ModernTreasury::Models::LegalEntity::Address>]
-      required :addresses, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntity::Address }]
+      required :addresses, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Address] }
 
       # @!attribute bank_settings
       #
@@ -87,7 +87,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntity::Identification>]
       required :identifications,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntity::Identification }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Identification] }
 
       # @!attribute last_name
       #   An individual's last name.
@@ -100,7 +100,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
       required :legal_entity_associations,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntityAssociation }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation] }
 
       # @!attribute legal_entity_type
       #   The type of legal entity.
@@ -141,9 +141,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
       required :phone_numbers,
-               ModernTreasury::ArrayOf[-> {
-                 ModernTreasury::Models::LegalEntity::PhoneNumber
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber]
+               }
 
       # @!attribute politically_exposed_person
       #   Whether the individual is a politically exposed person.
@@ -297,7 +297,7 @@ module ModernTreasury
       # ```ruby
       # address => {
       #   id: String,
-      #   address_types: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Address::AddressType] === _1 },
+      #   address_types: -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntity::Address::AddressType] === _1 },
       #   country: String,
       #   created_at: Time,
       #   discarded_at: Time,
@@ -315,9 +315,9 @@ module ModernTreasury
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType>]
         required :address_types,
-                 ModernTreasury::ArrayOf[enum: -> {
-                   ModernTreasury::Models::LegalEntity::Address::AddressType
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntity::Address::AddressType]
+                 }
 
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -462,7 +462,7 @@ module ModernTreasury
       #   id: String,
       #   created_at: Time,
       #   discarded_at: Time,
-      #   id_type: ModernTreasury::Models::LegalEntity::Identification::IDType,
+      #   id_type: enum: ModernTreasury::Models::LegalEntity::Identification::IDType,
       #   issuing_country: String,
       #   **_
       # }
