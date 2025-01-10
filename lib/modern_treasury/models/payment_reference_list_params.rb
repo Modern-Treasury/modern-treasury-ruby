@@ -63,7 +63,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case referenceable_type
       # in :payment_order
       #   # ...
       # in :return

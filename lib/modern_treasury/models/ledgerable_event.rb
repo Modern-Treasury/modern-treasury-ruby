@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # ledgerable_event => {
+    #   id: String,
+    #   created_at: Time,
+    #   custom_data: ModernTreasury::Unknown,
+    #   description: String,
+    #   ledger_event_handler_id: String,
+    #   **_
+    # }
+    # ```
     class LedgerableEvent < ModernTreasury::BaseModel
       # @!attribute id
       #

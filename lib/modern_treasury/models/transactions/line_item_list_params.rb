@@ -43,7 +43,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case type
         # in :originating
         #   # ...
         # in :receiving

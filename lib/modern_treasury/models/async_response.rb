@@ -2,6 +2,14 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # async_response => {
+    #   id: String,
+    #   object: String
+    # }
+    # ```
     class AsyncResponse < ModernTreasury::BaseModel
       # @!attribute id
       #

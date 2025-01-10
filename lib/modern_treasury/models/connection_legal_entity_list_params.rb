@@ -42,7 +42,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :completed
       #   # ...
       # in :denied

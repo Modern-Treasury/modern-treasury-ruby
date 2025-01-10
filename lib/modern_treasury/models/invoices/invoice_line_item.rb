@@ -3,6 +3,18 @@
 module ModernTreasury
   module Models
     module Invoices
+      # @example
+      #
+      # ```ruby
+      # invoice_line_item => {
+      #   id: String,
+      #   amount: Integer,
+      #   created_at: Time,
+      #   description: String,
+      #   direction: String,
+      #   **_
+      # }
+      # ```
       class InvoiceLineItem < ModernTreasury::BaseModel
         # @!attribute id
         #

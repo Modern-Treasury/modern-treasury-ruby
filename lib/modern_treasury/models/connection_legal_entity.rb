@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # connection_legal_entity => {
+    #   id: String,
+    #   connection_id: String,
+    #   created_at: Time,
+    #   discarded_at: Time,
+    #   legal_entity_id: String,
+    #   **_
+    # }
+    # ```
     class ConnectionLegalEntity < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -103,7 +115,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :completed
       #   # ...
       # in :denied

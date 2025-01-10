@@ -38,7 +38,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case receiving_country
       # in :USA
       #   # ...
       # in :AUS

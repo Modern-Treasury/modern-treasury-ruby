@@ -3,6 +3,18 @@
 module ModernTreasury
   module Models
     module Transactions
+      # @example
+      #
+      # ```ruby
+      # transaction_line_item => {
+      #   id: String,
+      #   amount: Integer,
+      #   counterparty_id: String,
+      #   created_at: Time,
+      #   description: String,
+      #   **_
+      # }
+      # ```
       class TransactionLineItem < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -159,7 +171,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case transactable_type
         # in :incoming_payment_detail
         #   # ...
         # in :paper_item
@@ -190,7 +202,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case type
         # in :originating
         #   # ...
         # in :receiving

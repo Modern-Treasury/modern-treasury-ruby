@@ -5,7 +5,7 @@ module ModernTreasury
     # @example
     #
     # ```ruby
-    # case union
+    # case external_account_verify_response
     # in ModernTreasury::Models::ExternalAccount
     #   # ...
     # in ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
@@ -17,6 +17,18 @@ module ModernTreasury
 
       variant -> { ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt }
 
+      # @example
+      #
+      # ```ruby
+      # external_account_verification_attempt => {
+      #   id: String,
+      #   created_at: Time,
+      #   external_account_id: String,
+      #   live_mode: ModernTreasury::BooleanModel,
+      #   object: String,
+      #   **_
+      # }
+      # ```
       class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -130,7 +142,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case payment_type
         # in :ach
         #   # ...
         # in :au_becs
@@ -185,7 +197,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case priority
         # in :high
         #   # ...
         # in :normal
@@ -204,7 +216,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case status
         # in :cancelled
         #   # ...
         # in :failed

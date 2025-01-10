@@ -33,7 +33,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case routing_number_type
       # in :aba
       #   # ...
       # in :au_bsb

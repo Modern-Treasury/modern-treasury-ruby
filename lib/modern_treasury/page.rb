@@ -1,6 +1,29 @@
 # frozen_string_literal: true
 
 module ModernTreasury
+  # @example
+  #
+  # ```ruby
+  # if page.has_next?
+  #   page = page.next_page
+  # end
+  # ```
+  #
+  # @example
+  #
+  # ```ruby
+  # page.auto_paging_each do |item|
+  # #   item ...
+  # end
+  # ```
+  #
+  # @example
+  #
+  # ```ruby
+  # items = page.to_enum.take(2)
+  #
+  # items => Array
+  # ```
   class Page < ::Array
     # @return [Integer]
     attr_accessor :per_page

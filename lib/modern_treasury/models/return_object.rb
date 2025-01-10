@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # return_object => {
+    #   id: String,
+    #   amount: Integer,
+    #   code: ModernTreasury::Models::ReturnObject::Code,
+    #   created_at: Time,
+    #   currency: ModernTreasury::Models::Currency,
+    #   **_
+    # }
+    # ```
     class ReturnObject < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -229,7 +241,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case code
       # in :"901"
       #   # ...
       # in :"902"
@@ -302,6 +314,18 @@ module ModernTreasury
         finalize!
       end
 
+      # @example
+      #
+      # ```ruby
+      # reference_number => {
+      #   id: String,
+      #   created_at: Time,
+      #   live_mode: ModernTreasury::BooleanModel,
+      #   object: String,
+      #   reference_number: String,
+      #   **_
+      # }
+      # ```
       class ReferenceNumber < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -367,7 +391,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case reference_number_type
         # in :ach_original_trace_number
         #   # ...
         # in :ach_trace_number
@@ -464,7 +488,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case returnable_type
       # in :incoming_payment_detail
       #   # ...
       # in :paper_item
@@ -492,7 +516,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case role
       # in :originating
       #   # ...
       # in :receiving
@@ -511,7 +535,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :completed
       #   # ...
       # in :failed
@@ -542,7 +566,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case type
       # in :ach
       #   # ...
       # in :ach_noc

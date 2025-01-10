@@ -75,7 +75,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case returnable_type
       # in :incoming_payment_detail
       #   # ...
       # end
@@ -91,7 +91,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case code
       # in :"901"
       #   # ...
       # in :"902"

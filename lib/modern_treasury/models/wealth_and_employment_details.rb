@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # wealth_and_employment_details => {
+    #   id: String,
+    #   annual_income: Integer,
+    #   created_at: Time,
+    #   discarded_at: Time,
+    #   employer_country: String,
+    #   **_
+    # }
+    # ```
     class WealthAndEmploymentDetails < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -179,7 +191,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case employment_status
       # in :employed
       #   # ...
       # in :retired
@@ -207,7 +219,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case income_source
       # in :family_support
       #   # ...
       # in :government_benefits
@@ -240,7 +252,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case industry
       # in :accounting
       #   # ...
       # in :agriculture
@@ -298,7 +310,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case occupation
       # in :consulting
       #   # ...
       # in :executive
@@ -335,7 +347,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case source_of_funds
       # in :alimony
       #   # ...
       # in :annuity
@@ -377,7 +389,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case wealth_source
       # in :business_sale
       #   # ...
       # in :family_support

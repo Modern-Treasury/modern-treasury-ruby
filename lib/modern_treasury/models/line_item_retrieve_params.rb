@@ -24,7 +24,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case itemizable_type
       # in :expected_payments
       #   # ...
       # in :payment_orders

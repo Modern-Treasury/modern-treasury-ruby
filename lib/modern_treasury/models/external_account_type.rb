@@ -7,7 +7,7 @@ module ModernTreasury
     # @example
     #
     # ```ruby
-    # case enum
+    # case external_account_type
     # in :cash
     #   # ...
     # in :checking
