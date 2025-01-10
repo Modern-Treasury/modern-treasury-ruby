@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # payment_reference => {
+    #   id: String,
+    #   created_at: Time,
+    #   live_mode: ModernTreasury::BooleanModel,
+    #   object: String,
+    #   reference_number: String,
+    #   **_
+    # }
+    # ```
     class PaymentReference < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -98,7 +110,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case reference_number_type
       # in :ach_original_trace_number
       #   # ...
       # in :ach_trace_number
@@ -194,7 +206,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case referenceable_type
       # in :payment_order
       #   # ...
       # in :reversal

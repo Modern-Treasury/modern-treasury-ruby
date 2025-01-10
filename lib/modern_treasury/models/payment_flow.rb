@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # payment_flow => {
+    #   id: String,
+    #   amount: Integer,
+    #   client_token: String,
+    #   counterparty_id: String,
+    #   created_at: Time,
+    #   **_
+    # }
+    # ```
     class PaymentFlow < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -200,7 +212,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case direction
       # in :credit
       #   # ...
       # in :debit
@@ -219,7 +231,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case existing_external_accounts_filter
       # in :verified
       #   # ...
       # end
@@ -235,7 +247,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case external_account_collection
       # in :disabled
       #   # ...
       # in :enabled
@@ -254,7 +266,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :cancelled
       #   # ...
       # in :completed

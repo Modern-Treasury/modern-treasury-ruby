@@ -2,6 +2,17 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # routing_number_lookup_request => {
+    #   bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
+    #   bank_name: String,
+    #   routing_number: String,
+    #   routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType,
+    #   sanctions: -> { ModernTreasury::HashOf[ModernTreasury::Unknown] === _1 }
+    # }
+    # ```
     class RoutingNumberLookupRequest < ModernTreasury::BaseModel
       # @!attribute bank_address
       #   The address of the bank.
@@ -76,6 +87,17 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # bank_address => {
+      #   country: String,
+      #   line1: String,
+      #   line2: String,
+      #   locality: String,
+      #   postal_code: String
+      # }
+      # ```
       class BankAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -136,7 +158,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case routing_number_type
       # in :aba
       #   # ...
       # in :au_bsb
@@ -167,7 +189,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case supported_payment_type
       # in :ach
       #   # ...
       # in :au_becs

@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # ledger_account_balance_monitor => {
+    #   id: String,
+    #   alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+    #   created_at: Time,
+    #   current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+    #   description: String,
+    #   **_
+    # }
+    # ```
     class LedgerAccountBalanceMonitor < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -110,6 +122,15 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # alert_condition => {
+      #   field: String,
+      #   operator: String,
+      #   value: Integer
+      # }
+      # ```
       class AlertCondition < ModernTreasury::BaseModel
         # @!attribute field
         #   One of `available_balance_amount`, `pending_balance_amount`, `posted_balance_amount`, `ledger_account_lock_version`.
@@ -148,6 +169,15 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @example
+      #
+      # ```ruby
+      # current_ledger_account_balance_state => {
+      #   balances: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
+      #   ledger_account_lock_version: Integer,
+      #   triggered: ModernTreasury::BooleanModel
+      # }
+      # ```
       class CurrentLedgerAccountBalanceState < ModernTreasury::BaseModel
         # @!attribute balances
         #
@@ -182,6 +212,15 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # balances => {
+        #   available_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
+        #   pending_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
+        #   posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+        # }
+        # ```
         class Balances < ModernTreasury::BaseModel
           # @!attribute available_balance
           #   The available_balance is the sum of all posted inbound entries and pending outbound entries. For credit normal, available_amount = posted_credits - pending_debits; for debit normal, available_amount = posted_debits - pending_credits.
@@ -218,6 +257,17 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @example
+          #
+          # ```ruby
+          # available_balance => {
+          #   amount: Integer,
+          #   credits: Integer,
+          #   currency: String,
+          #   currency_exponent: Integer,
+          #   debits: Integer
+          # }
+          # ```
           class AvailableBalance < ModernTreasury::BaseModel
             # @!attribute amount
             #
@@ -267,6 +317,17 @@ module ModernTreasury
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
           end
 
+          # @example
+          #
+          # ```ruby
+          # pending_balance => {
+          #   amount: Integer,
+          #   credits: Integer,
+          #   currency: String,
+          #   currency_exponent: Integer,
+          #   debits: Integer
+          # }
+          # ```
           class PendingBalance < ModernTreasury::BaseModel
             # @!attribute amount
             #
@@ -313,6 +374,17 @@ module ModernTreasury
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
           end
 
+          # @example
+          #
+          # ```ruby
+          # posted_balance => {
+          #   amount: Integer,
+          #   credits: Integer,
+          #   currency: String,
+          #   currency_exponent: Integer,
+          #   debits: Integer
+          # }
+          # ```
           class PostedBalance < ModernTreasury::BaseModel
             # @!attribute amount
             #

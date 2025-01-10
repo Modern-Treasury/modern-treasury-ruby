@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # payment_order => {
+    #   id: String,
+    #   accounting: ModernTreasury::Models::PaymentOrder::Accounting,
+    #   accounting_category_id: String,
+    #   accounting_ledger_class_id: String,
+    #   amount: Integer,
+    #   **_
+    # }
+    # ```
     class PaymentOrder < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -511,6 +523,14 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # accounting => {
+      #   account_id: String,
+      #   class_id: String
+      # }
+      # ```
       class Accounting < ModernTreasury::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
@@ -542,7 +562,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case charge_bearer
       # in :shared
       #   # ...
       # in :sender
@@ -564,7 +584,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case direction
       # in :credit
       #   # ...
       # in :debit
@@ -583,7 +603,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case foreign_exchange_indicator
       # in :fixed_to_variable
       #   # ...
       # in :variable_to_fixed
@@ -597,6 +617,18 @@ module ModernTreasury
         finalize!
       end
 
+      # @example
+      #
+      # ```ruby
+      # foreign_exchange_rate => {
+      #   base_amount: Integer,
+      #   base_currency: ModernTreasury::Models::Currency,
+      #   exponent: Integer,
+      #   rate_string: String,
+      #   target_amount: Integer,
+      #   **_
+      # }
+      # ```
       class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
@@ -671,7 +703,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case priority
       # in :high
       #   # ...
       # in :normal
@@ -688,7 +720,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case receiving_account_type
       # in :internal_account
       #   # ...
       # in :external_account
@@ -702,6 +734,18 @@ module ModernTreasury
         finalize!
       end
 
+      # @example
+      #
+      # ```ruby
+      # reference_number => {
+      #   id: String,
+      #   created_at: Time,
+      #   live_mode: ModernTreasury::BooleanModel,
+      #   object: String,
+      #   reference_number: String,
+      #   **_
+      # }
+      # ```
       class ReferenceNumber < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -767,7 +811,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case reference_number_type
         # in :ach_original_trace_number
         #   # ...
         # in :ach_trace_number
@@ -864,7 +908,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :approved
       #   # ...
       # in :cancelled
@@ -900,7 +944,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case union
+      # case ultimate_originating_account
       # in ModernTreasury::Models::VirtualAccount
       #   # ...
       # in ModernTreasury::Models::InternalAccount
@@ -916,7 +960,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case ultimate_originating_account_type
       # in :internal_account
       #   # ...
       # in :virtual_account

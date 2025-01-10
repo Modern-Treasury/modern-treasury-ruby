@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # bulk_result => {
+    #   id: String,
+    #   created_at: Time,
+    #   entity: ModernTreasury::Models::BulkResult::Entity,
+    #   entity_id: String,
+    #   entity_type: ModernTreasury::Models::BulkResult::EntityType,
+    #   **_
+    # }
+    # ```
     class BulkResult < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -130,7 +142,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case union
+      # case entity
       # in ModernTreasury::Models::PaymentOrder
       #   # ...
       # in ModernTreasury::Models::ExpectedPayment
@@ -154,6 +166,17 @@ module ModernTreasury
 
         variant -> { ModernTreasury::Models::BulkResult::Entity::BulkError }
 
+        # @example
+        #
+        # ```ruby
+        # bulk_error => {
+        #   id: String,
+        #   created_at: Time,
+        #   live_mode: ModernTreasury::BooleanModel,
+        #   object: String,
+        #   request_errors: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError] === _1 }
+        # }
+        # ```
         class BulkError < ModernTreasury::BaseModel
           # @!attribute id
           #
@@ -207,6 +230,15 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @example
+          #
+          # ```ruby
+          # request_error => {
+          #   code: String,
+          #   message: String,
+          #   parameter: String
+          # }
+          # ```
           class RequestError < ModernTreasury::BaseModel
             # @!attribute code
             #
@@ -240,7 +272,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case entity_type
       # in :payment_order
       #   # ...
       # in :ledger_transaction
@@ -268,7 +300,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case request_type
       # in :bulk_request
       #   # ...
       # end
@@ -284,7 +316,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :pending
       #   # ...
       # in :successful

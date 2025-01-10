@@ -167,7 +167,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case priority
       # in :high
       #   # ...
       # in :normal
@@ -184,7 +184,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :approved
       #   # ...
       # in :cancelled
@@ -218,7 +218,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case type
       # in :ach
       #   # ...
       # in :au_becs

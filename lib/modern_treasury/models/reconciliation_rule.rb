@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # reconciliation_rule => {
+    #   amount_lower_bound: Integer,
+    #   amount_upper_bound: Integer,
+    #   direction: ModernTreasury::Models::ReconciliationRule::Direction,
+    #   internal_account_id: String,
+    #   counterparty_id: String,
+    #   **_
+    # }
+    # ```
     class ReconciliationRule < ModernTreasury::BaseModel
       # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -111,7 +123,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case direction
       # in :credit
       #   # ...
       # in :debit
@@ -130,7 +142,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case type
       # in :ach
       #   # ...
       # in :au_becs

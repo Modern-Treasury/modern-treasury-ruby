@@ -115,6 +115,14 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # account_detail => {
+      #   account_number: String,
+      #   account_number_type: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType
+      # }
+      # ```
       class AccountDetail < ModernTreasury::BaseModel
         # @!attribute account_number
         #   The account number for the bank account.
@@ -146,7 +154,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case account_number_type
         # in :au_number
         #   # ...
         # in :clabe
@@ -177,6 +185,18 @@ module ModernTreasury
         end
       end
 
+      # @example
+      #
+      # ```ruby
+      # ledger_account => {
+      #   currency: String,
+      #   ledger_id: String,
+      #   name: String,
+      #   normal_balance: ModernTreasury::Models::TransactionDirection,
+      #   currency_exponent: Integer,
+      #   **_
+      # }
+      # ```
       class LedgerAccount < ModernTreasury::BaseModel
         # @!attribute currency
         #   The currency of the ledger account.
@@ -294,7 +314,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case ledgerable_type
         # in :counterparty
         #   # ...
         # in :external_account
@@ -315,6 +335,15 @@ module ModernTreasury
         end
       end
 
+      # @example
+      #
+      # ```ruby
+      # routing_detail => {
+      #   routing_number: String,
+      #   routing_number_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType,
+      #   payment_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType
+      # }
+      # ```
       class RoutingDetail < ModernTreasury::BaseModel
         # @!attribute routing_number
         #   The routing number of the bank.
@@ -357,7 +386,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case routing_number_type
         # in :aba
         #   # ...
         # in :au_bsb
@@ -402,7 +431,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case payment_type
         # in :ach
         #   # ...
         # in :au_becs

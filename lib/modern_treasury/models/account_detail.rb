@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # account_detail => {
+    #   id: String,
+    #   account_number_safe: String,
+    #   account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
+    #   created_at: Time,
+    #   discarded_at: Time,
+    #   **_
+    # }
+    # ```
     class AccountDetail < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -95,7 +107,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case account_number_type
       # in :au_number
       #   # ...
       # in :clabe

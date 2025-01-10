@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # expected_payment => {
+    #   id: String,
+    #   amount_lower_bound: Integer,
+    #   amount_upper_bound: Integer,
+    #   counterparty_id: String,
+    #   created_at: Time,
+    #   **_
+    # }
+    # ```
     class ExpectedPayment < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -262,7 +274,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case direction
       # in :credit
       #   # ...
       # in :debit
@@ -281,7 +293,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case reconciliation_method
       # in :automatic
       #   # ...
       # in :manual
@@ -300,7 +312,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :archived
       #   # ...
       # in :partially_reconciled

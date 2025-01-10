@@ -114,6 +114,13 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # accounting => {
+      #   type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type
+      # }
+      # ```
       class Accounting < ModernTreasury::BaseModel
         # @!attribute type
         #   An optional type to auto-sync the counterparty to your ledger. Either `customer` or `vendor`.
@@ -134,7 +141,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case type
         # in :customer
         #   # ...
         # in :vendor
@@ -149,6 +156,18 @@ module ModernTreasury
         end
       end
 
+      # @example
+      #
+      # ```ruby
+      # account => {
+      #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail] === _1 },
+      #   account_type: ModernTreasury::Models::ExternalAccountType,
+      #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail] === _1 },
+      #   ledger_account: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
+      #   metadata: -> { ModernTreasury::HashOf[String] === _1 },
+      #   **_
+      # }
+      # ```
       class Account < ModernTreasury::BaseModel
         # @!attribute account_details
         #
@@ -288,6 +307,14 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # account_detail => {
+        #   account_number: String,
+        #   account_number_type: ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType
+        # }
+        # ```
         class AccountDetail < ModernTreasury::BaseModel
           # @!attribute account_number
           #
@@ -313,7 +340,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case account_number_type
           # in :au_number
           #   # ...
           # in :clabe
@@ -344,6 +371,14 @@ module ModernTreasury
           end
         end
 
+        # @example
+        #
+        # ```ruby
+        # contact_detail => {
+        #   contact_identifier: String,
+        #   contact_identifier_type: ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType
+        # }
+        # ```
         class ContactDetail < ModernTreasury::BaseModel
           # @!attribute contact_identifier
           #
@@ -369,7 +404,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case contact_identifier_type
           # in :email
           #   # ...
           # in :phone_number
@@ -387,6 +422,18 @@ module ModernTreasury
           end
         end
 
+        # @example
+        #
+        # ```ruby
+        # ledger_account => {
+        #   currency: String,
+        #   ledger_id: String,
+        #   name: String,
+        #   normal_balance: ModernTreasury::Models::TransactionDirection,
+        #   currency_exponent: Integer,
+        #   **_
+        # }
+        # ```
         class LedgerAccount < ModernTreasury::BaseModel
           # @!attribute currency
           #   The currency of the ledger account.
@@ -506,7 +553,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case ledgerable_type
           # in :counterparty
           #   # ...
           # in :external_account
@@ -527,6 +574,17 @@ module ModernTreasury
           end
         end
 
+        # @example
+        #
+        # ```ruby
+        # party_address => {
+        #   country: String,
+        #   line1: String,
+        #   line2: String,
+        #   locality: String,
+        #   postal_code: String
+        # }
+        # ```
         class PartyAddress < ModernTreasury::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -587,7 +645,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case party_type
         # in :business
         #   # ...
         # in :individual
@@ -601,6 +659,15 @@ module ModernTreasury
           finalize!
         end
 
+        # @example
+        #
+        # ```ruby
+        # routing_detail => {
+        #   routing_number: String,
+        #   routing_number_type: ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType,
+        #   payment_type: ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType
+        # }
+        # ```
         class RoutingDetail < ModernTreasury::BaseModel
           # @!attribute routing_number
           #
@@ -635,7 +702,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case routing_number_type
           # in :aba
           #   # ...
           # in :au_bsb
@@ -678,7 +745,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case payment_type
           # in :ach
           #   # ...
           # in :au_becs
@@ -737,7 +804,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case ledger_type
       # in :customer
       #   # ...
       # in :vendor
@@ -751,6 +818,18 @@ module ModernTreasury
         finalize!
       end
 
+      # @example
+      #
+      # ```ruby
+      # legal_entity => {
+      #   legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType,
+      #   addresses: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address] === _1 },
+      #   bank_settings: ModernTreasury::Models::BankSettings,
+      #   business_name: String,
+      #   citizenship_country: String,
+      #   **_
+      # }
+      # ```
       class LegalEntity < ModernTreasury::BaseModel
         # @!attribute legal_entity_type
         #   The type of legal entity.
@@ -994,7 +1073,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case legal_entity_type
         # in :business
         #   # ...
         # in :individual
@@ -1008,6 +1087,18 @@ module ModernTreasury
           finalize!
         end
 
+        # @example
+        #
+        # ```ruby
+        # address => {
+        #   country: String,
+        #   line1: String,
+        #   locality: String,
+        #   postal_code: String,
+        #   region: String,
+        #   **_
+        # }
+        # ```
         class Address < ModernTreasury::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -1074,7 +1165,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case address_type
           # in :business
           #   # ...
           # in :mailing
@@ -1098,6 +1189,15 @@ module ModernTreasury
           end
         end
 
+        # @example
+        #
+        # ```ruby
+        # identification => {
+        #   id_number: String,
+        #   id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType,
+        #   issuing_country: String
+        # }
+        # ```
         class Identification < ModernTreasury::BaseModel
           # @!attribute id_number
           #   The ID number of identification document.
@@ -1137,7 +1237,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case id_type
           # in :ar_cuil
           #   # ...
           # in :ar_cuit
@@ -1179,6 +1279,17 @@ module ModernTreasury
           end
         end
 
+        # @example
+        #
+        # ```ruby
+        # legal_entity_association => {
+        #   relationship_types: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType] === _1 },
+        #   child_legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+        #   child_legal_entity_id: String,
+        #   ownership_percentage: Integer,
+        #   title: String
+        # }
+        # ```
         class LegalEntityAssociation < ModernTreasury::BaseModel
           # @!attribute relationship_types
           #
@@ -1242,7 +1353,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case relationship_type
           # in :beneficial_owner
           #   # ...
           # in :control_person
@@ -1256,6 +1367,18 @@ module ModernTreasury
             finalize!
           end
 
+          # @example
+          #
+          # ```ruby
+          # child_legal_entity => {
+          #   addresses: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address] === _1 },
+          #   bank_settings: ModernTreasury::Models::BankSettings,
+          #   business_name: String,
+          #   citizenship_country: String,
+          #   date_formed: Date,
+          #   **_
+          # }
+          # ```
           class ChildLegalEntity < ModernTreasury::BaseModel
             # @!attribute addresses
             #   A list of addresses for the entity.
@@ -1490,6 +1613,18 @@ module ModernTreasury
 
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+            # @example
+            #
+            # ```ruby
+            # address => {
+            #   country: String,
+            #   line1: String,
+            #   locality: String,
+            #   postal_code: String,
+            #   region: String,
+            #   **_
+            # }
+            # ```
             class Address < ModernTreasury::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -1556,7 +1691,7 @@ module ModernTreasury
               # @example
               #
               # ```ruby
-              # case enum
+              # case address_type
               # in :business
               #   # ...
               # in :mailing
@@ -1580,6 +1715,15 @@ module ModernTreasury
               end
             end
 
+            # @example
+            #
+            # ```ruby
+            # identification => {
+            #   id_number: String,
+            #   id_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType,
+            #   issuing_country: String
+            # }
+            # ```
             class Identification < ModernTreasury::BaseModel
               # @!attribute id_number
               #   The ID number of identification document.
@@ -1619,7 +1763,7 @@ module ModernTreasury
               # @example
               #
               # ```ruby
-              # case enum
+              # case id_type
               # in :ar_cuil
               #   # ...
               # in :ar_cuit
@@ -1666,7 +1810,7 @@ module ModernTreasury
             # @example
             #
             # ```ruby
-            # case enum
+            # case legal_entity_type
             # in :business
             #   # ...
             # in :individual
@@ -1685,7 +1829,7 @@ module ModernTreasury
             # @example
             #
             # ```ruby
-            # case enum
+            # case legal_structure
             # in :corporation
             #   # ...
             # in :llc
@@ -1711,6 +1855,13 @@ module ModernTreasury
               finalize!
             end
 
+            # @example
+            #
+            # ```ruby
+            # phone_number => {
+            #   phone_number: String
+            # }
+            # ```
             class PhoneNumber < ModernTreasury::BaseModel
               # @!attribute phone_number
               #
@@ -1732,7 +1883,7 @@ module ModernTreasury
             # @example
             #
             # ```ruby
-            # case enum
+            # case risk_rating
             # in :low
             #   # ...
             # in :medium
@@ -1756,7 +1907,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case legal_structure
         # in :corporation
         #   # ...
         # in :llc
@@ -1782,6 +1933,13 @@ module ModernTreasury
           finalize!
         end
 
+        # @example
+        #
+        # ```ruby
+        # phone_number => {
+        #   phone_number: String
+        # }
+        # ```
         class PhoneNumber < ModernTreasury::BaseModel
           # @!attribute phone_number
           #
@@ -1803,7 +1961,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case risk_rating
         # in :low
         #   # ...
         # in :medium
@@ -1826,7 +1984,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case verification_status
       # in :denied
       #   # ...
       # in :needs_approval

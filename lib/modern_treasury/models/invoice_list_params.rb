@@ -109,7 +109,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :draft
       #   # ...
       # in :paid

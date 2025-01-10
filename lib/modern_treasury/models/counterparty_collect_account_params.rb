@@ -57,7 +57,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case field
       # in :name
       #   # ...
       # in :nameOnAccount

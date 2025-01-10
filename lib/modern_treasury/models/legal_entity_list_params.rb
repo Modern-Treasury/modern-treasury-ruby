@@ -49,7 +49,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case legal_entity_type
       # in :business
       #   # ...
       # in :individual
