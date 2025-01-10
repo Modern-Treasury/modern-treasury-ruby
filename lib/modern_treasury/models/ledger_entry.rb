@@ -9,7 +9,7 @@ module ModernTreasury
     #   id: String,
     #   amount: Integer,
     #   created_at: Time,
-    #   direction: ModernTreasury::Models::TransactionDirection,
+    #   direction: enum: ModernTreasury::Models::TransactionDirection,
     #   discarded_at: Time,
     #   **_
     # }

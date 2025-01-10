@@ -30,9 +30,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
         required :balances,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]
+                 }
 
         # @!parse
         #   # @param as_of_date [String] The date of the balance report in local time.
@@ -78,7 +78,7 @@ module ModernTreasury
         # ```ruby
         # balance => {
         #   amount: Integer,
-        #   balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType,
+        #   balance_type: enum: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType,
         #   vendor_code: String,
         #   vendor_code_type: String
         # }

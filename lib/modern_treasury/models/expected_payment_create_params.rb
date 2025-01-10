@@ -74,7 +74,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>]
       optional :line_items,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem] }
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
@@ -99,7 +99,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
       optional :reconciliation_rule_variables,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ReconciliationRule }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] }
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire` payments the field will be passed through as the "Originator to Beneficiary Information", also known as OBI or Fedwire tag 6000.
@@ -238,9 +238,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>]
         required :ledger_entries,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry]
+                 }
 
         # @!attribute description
         #   An optional description for internal use.
@@ -348,7 +348,7 @@ module ModernTreasury
         # ```ruby
         # ledger_entry => {
         #   amount: Integer,
-        #   direction: ModernTreasury::Models::TransactionDirection,
+        #   direction: enum: ModernTreasury::Models::TransactionDirection,
         #   ledger_account_id: String,
         #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
         #   lock_version: Integer,

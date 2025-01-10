@@ -18,9 +18,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
       optional :receiving_countries,
-               ModernTreasury::ArrayOf[enum: -> {
-                 ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry]
+               }
 
       # @!parse
       #   # @param counterparty_id [String] Required.

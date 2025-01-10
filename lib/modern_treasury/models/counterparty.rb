@@ -24,7 +24,7 @@ module ModernTreasury
       #   The accounts for this counterparty.
       #
       #   @return [Array<ModernTreasury::Models::Counterparty::Account>]
-      required :accounts, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::Counterparty::Account }]
+      required :accounts, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account] }
 
       # @!attribute created_at
       #
@@ -145,7 +145,7 @@ module ModernTreasury
       # account => {
       #   id: String,
       #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] === _1 },
-      #   account_type: ModernTreasury::Models::ExternalAccountType,
+      #   account_type: enum: ModernTreasury::Models::ExternalAccountType,
       #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account::ContactDetail] === _1 },
       #   created_at: Time,
       #   **_
@@ -160,7 +160,7 @@ module ModernTreasury
         # @!attribute account_details
         #
         #   @return [Array<ModernTreasury::Models::AccountDetail>]
-        optional :account_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::AccountDetail }]
+        optional :account_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] }
 
         # @!attribute account_type
         #   Can be `checking`, `savings` or `other`.
@@ -172,7 +172,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
         optional :contact_details,
-                 ModernTreasury::ArrayOf[-> { ModernTreasury::Models::Counterparty::Account::ContactDetail }]
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account::ContactDetail] }
 
         # @!attribute created_at
         #
@@ -234,7 +234,7 @@ module ModernTreasury
         # @!attribute routing_details
         #
         #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-        optional :routing_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::RoutingDetail }]
+        optional :routing_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail] }
 
         # @!attribute updated_at
         #
@@ -326,7 +326,7 @@ module ModernTreasury
         # contact_detail => {
         #   id: String,
         #   contact_identifier: String,
-        #   contact_identifier_type: ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType,
+        #   contact_identifier_type: enum: ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType,
         #   created_at: Time,
         #   discarded_at: Time,
         #   **_

@@ -10,7 +10,7 @@ module ModernTreasury
     #   amount: Integer,
     #   as_of_date: Date,
     #   created_at: Time,
-    #   currency: ModernTreasury::Models::Currency,
+    #   currency: enum: ModernTreasury::Models::Currency,
     #   **_
     # }
     # ```

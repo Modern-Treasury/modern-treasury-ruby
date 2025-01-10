@@ -8,9 +8,9 @@ module ModernTreasury
     # bulk_result => {
     #   id: String,
     #   created_at: Time,
-    #   entity: ModernTreasury::Models::BulkResult::Entity,
+    #   entity: union: ModernTreasury::Models::BulkResult::Entity,
     #   entity_id: String,
-    #   entity_type: ModernTreasury::Models::BulkResult::EntityType,
+    #   entity_type: enum: ModernTreasury::Models::BulkResult::EntityType,
     #   **_
     # }
     # ```
@@ -203,9 +203,9 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError>]
           required :request_errors,
-                   ModernTreasury::ArrayOf[-> {
-                     ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError
-                   }]
+                   -> {
+                     ModernTreasury::ArrayOf[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError]
+                   }
 
           # @!attribute updated_at
           #

@@ -13,9 +13,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
       required :relationship_types,
-               ModernTreasury::ArrayOf[enum: -> {
-                 ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType]
+               }
 
       # @!attribute child_legal_entity
       #   The child legal entity.
@@ -107,9 +107,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address>]
         optional :addresses,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
+                 }
 
         # @!attribute bank_settings
         #
@@ -162,9 +162,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification>]
         optional :identifications,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
+                 }
 
         # @!attribute last_name
         #   An individual's last name.
@@ -206,9 +206,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber>]
         optional :phone_numbers,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
+                 }
 
         # @!attribute politically_exposed_person
         #   Whether the individual is a politically exposed person.
@@ -382,9 +382,9 @@ module ModernTreasury
           #
           #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType>]
           optional :address_types,
-                   ModernTreasury::ArrayOf[enum: -> {
-                     ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType
-                   }]
+                   -> {
+                     ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType]
+                   }
 
           # @!attribute line2
           #
@@ -442,7 +442,7 @@ module ModernTreasury
         # ```ruby
         # identification => {
         #   id_number: String,
-        #   id_type: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::IDType,
+        #   id_type: enum: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::IDType,
         #   issuing_country: String
         # }
         # ```

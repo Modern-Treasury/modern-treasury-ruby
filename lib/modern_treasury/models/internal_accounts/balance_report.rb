@@ -10,7 +10,7 @@ module ModernTreasury
       #   id: String,
       #   as_of_date: Date,
       #   as_of_time: String,
-      #   balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
+      #   balance_report_type: enum: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
       #   balances: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance] === _1 },
       #   **_
       # }
@@ -45,9 +45,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
         required :balances,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::InternalAccounts::BalanceReport::Balance
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]
+                 }
 
         # @!attribute created_at
         #
@@ -150,7 +150,7 @@ module ModernTreasury
         #   amount: Integer,
         #   as_of_date: Date,
         #   as_of_time: String,
-        #   balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType,
+        #   balance_type: enum: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType,
         #   **_
         # }
         # ```

@@ -8,7 +8,7 @@ module ModernTreasury
     # internal_account => {
     #   id: String,
     #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] === _1 },
-    #   account_type: ModernTreasury::Models::InternalAccount::AccountType,
+    #   account_type: enum: ModernTreasury::Models::InternalAccount::AccountType,
     #   connection: ModernTreasury::Models::Connection,
     #   counterparty_id: String,
     #   **_
@@ -24,7 +24,7 @@ module ModernTreasury
       #   An array of account detail objects.
       #
       #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::AccountDetail }]
+      required :account_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] }
 
       # @!attribute account_type
       #   Can be checking, savings or other.
@@ -118,7 +118,7 @@ module ModernTreasury
       #   An array of routing detail objects.
       #
       #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::RoutingDetail }]
+      required :routing_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail] }
 
       # @!attribute updated_at
       #
