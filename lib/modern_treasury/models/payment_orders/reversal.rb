@@ -3,6 +3,18 @@
 module ModernTreasury
   module Models
     module PaymentOrders
+      # @example
+      #
+      # ```ruby
+      # reversal => {
+      #   id: String,
+      #   created_at: Time,
+      #   ledger_transaction_id: String,
+      #   live_mode: ModernTreasury::BooleanModel,
+      #   metadata: -> { ModernTreasury::HashOf[String] === _1 },
+      #   **_
+      # }
+      # ```
       class Reversal < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -106,7 +118,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case reason
         # in :duplicate
         #   # ...
         # in :incorrect_amount
@@ -134,7 +146,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case status
         # in :completed
         #   # ...
         # in :failed

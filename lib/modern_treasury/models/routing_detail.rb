@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # routing_detail => {
+    #   id: String,
+    #   bank_address: ModernTreasury::Models::RoutingDetail::BankAddress,
+    #   bank_name: String,
+    #   created_at: Time,
+    #   discarded_at: Time,
+    #   **_
+    # }
+    # ```
     class RoutingDetail < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -109,6 +121,18 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # bank_address => {
+      #   id: String,
+      #   country: String,
+      #   created_at: Time,
+      #   line1: String,
+      #   line2: String,
+      #   **_
+      # }
+      # ```
       class BankAddress < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -219,7 +243,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case payment_type
       # in :ach
       #   # ...
       # in :au_becs
@@ -274,7 +298,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case routing_number_type
       # in :aba
       #   # ...
       # in :au_bsb

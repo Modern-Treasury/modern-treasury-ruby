@@ -57,7 +57,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case payment_type
       # in :ach
       #   # ...
       # in :au_becs
@@ -112,7 +112,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case fallback_type
       # in :ach
       #   # ...
       # end
@@ -128,7 +128,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case priority
       # in :high
       #   # ...
       # in :normal

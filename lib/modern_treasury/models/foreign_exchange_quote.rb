@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # foreign_exchange_quote => {
+    #   id: String,
+    #   created_at: Time,
+    #   effective_at: Time,
+    #   expires_at: Time,
+    #   foreign_exchange_indicator: String,
+    #   **_
+    # }
+    # ```
     class ForeignExchangeQuote < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -123,6 +135,18 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # foreign_exchange_rate => {
+      #   base_amount: Integer,
+      #   base_currency: ModernTreasury::Models::Currency,
+      #   exponent: Integer,
+      #   rate_string: String,
+      #   target_amount: Integer,
+      #   **_
+      # }
+      # ```
       class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.

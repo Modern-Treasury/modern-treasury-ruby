@@ -7,7 +7,7 @@ module ModernTreasury
     # @example
     #
     # ```ruby
-    # case enum
+    # case currency
     # in :AED
     #   # ...
     # in :AFN

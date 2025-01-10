@@ -182,7 +182,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case direction
       # in :credit
       #   # ...
       # in :debit
@@ -201,7 +201,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :reconciled
       #   # ...
       # end

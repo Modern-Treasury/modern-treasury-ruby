@@ -2,6 +2,15 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # counterparty_collect_account_response => {
+    #   id: String,
+    #   form_link: String,
+    #   is_resend: ModernTreasury::BooleanModel
+    # }
+    # ```
     class CounterpartyCollectAccountResponse < ModernTreasury::BaseModel
       # @!attribute id
       #   The id of the existing counterparty.

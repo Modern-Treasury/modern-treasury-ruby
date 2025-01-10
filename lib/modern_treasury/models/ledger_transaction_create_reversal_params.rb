@@ -88,7 +88,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case ledgerable_type
       # in :expected_payment
       #   # ...
       # in :incoming_payment_detail
@@ -119,7 +119,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :archived
       #   # ...
       # in :pending

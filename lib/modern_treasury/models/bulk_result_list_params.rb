@@ -81,7 +81,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case entity_type
       # in :payment_order
       #   # ...
       # in :ledger_transaction
@@ -109,7 +109,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case request_type
       # in :bulk_request
       #   # ...
       # end
@@ -125,7 +125,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :pending
       #   # ...
       # in :successful

@@ -36,7 +36,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case accounts_type
       # in :external_accounts
       #   # ...
       # end
@@ -52,7 +52,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case account_number_type
       # in :au_number
       #   # ...
       # in :clabe

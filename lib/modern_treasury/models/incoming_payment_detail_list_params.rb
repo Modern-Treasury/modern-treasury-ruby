@@ -103,7 +103,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :completed
       #   # ...
       # in :pending
@@ -125,7 +125,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case type
       # in :ach
       #   # ...
       # in :book

@@ -100,7 +100,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case currency
       # in :USD
       #   # ...
       # in :CAD
@@ -114,6 +114,17 @@ module ModernTreasury
         finalize!
       end
 
+      # @example
+      #
+      # ```ruby
+      # party_address => {
+      #   country: String,
+      #   line1: String,
+      #   locality: String,
+      #   postal_code: String,
+      #   region: String
+      # }
+      # ```
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]

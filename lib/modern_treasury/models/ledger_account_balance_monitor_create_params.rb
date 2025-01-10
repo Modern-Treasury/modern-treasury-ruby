@@ -42,6 +42,15 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # alert_condition => {
+      #   field: String,
+      #   operator: String,
+      #   value: Integer
+      # }
+      # ```
       class AlertCondition < ModernTreasury::BaseModel
         # @!attribute field
         #   One of `available_balance_amount`, `pending_balance_amount`, `posted_balance_amount`, `ledger_account_lock_version`.

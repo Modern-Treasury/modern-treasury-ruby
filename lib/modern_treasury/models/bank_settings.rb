@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # bank_settings => {
+    #   id: String,
+    #   backup_withholding_percentage: Integer,
+    #   created_at: Time,
+    #   discarded_at: Time,
+    #   enable_backup_withholding: ModernTreasury::BooleanModel,
+    #   **_
+    # }
+    # ```
     class BankSettings < ModernTreasury::BaseModel
       # @!attribute id
       #

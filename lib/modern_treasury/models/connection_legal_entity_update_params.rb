@@ -21,7 +21,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :processing
       #   # ...
       # end

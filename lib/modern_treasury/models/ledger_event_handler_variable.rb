@@ -2,6 +2,14 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # ledger_event_handler_variable => {
+    #   query: ModernTreasury::Models::LedgerEventHandlerVariable::Query,
+    #   type: String
+    # }
+    # ```
     class LedgerEventHandlerVariable < ModernTreasury::BaseModel
       # @!attribute query
       #
@@ -24,6 +32,15 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # query => {
+      #   field: String,
+      #   operator: String,
+      #   value: String
+      # }
+      # ```
       class Query < ModernTreasury::BaseModel
         # @!attribute field
         #   The LHS of the conditional.

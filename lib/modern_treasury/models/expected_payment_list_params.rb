@@ -108,7 +108,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :archived
       #   # ...
       # in :partially_reconciled
@@ -133,7 +133,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case type
       # in :ach
       #   # ...
       # in :au_becs
