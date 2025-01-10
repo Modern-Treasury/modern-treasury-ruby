@@ -89,7 +89,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case payment_type
       # in :ach
       #   # ...
       # in :au_becs

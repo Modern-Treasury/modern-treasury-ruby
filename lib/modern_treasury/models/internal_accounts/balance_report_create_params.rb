@@ -53,7 +53,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case balance_report_type
         # in :intraday
         #   # ...
         # in :other
@@ -73,6 +73,16 @@ module ModernTreasury
           finalize!
         end
 
+        # @example
+        #
+        # ```ruby
+        # balance => {
+        #   amount: Integer,
+        #   balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType,
+        #   vendor_code: String,
+        #   vendor_code_type: String
+        # }
+        # ```
         class Balance < ModernTreasury::BaseModel
           # @!attribute amount
           #   The balance amount.
@@ -125,7 +135,7 @@ module ModernTreasury
           # @example
           #
           # ```ruby
-          # case enum
+          # case balance_type
           # in :closing_available
           #   # ...
           # in :closing_ledger

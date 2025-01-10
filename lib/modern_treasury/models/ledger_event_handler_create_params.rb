@@ -74,6 +74,16 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # ledger_transaction_template => {
+      #   description: String,
+      #   effective_at: String,
+      #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry] === _1 },
+      #   status: String
+      # }
+      # ```
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
         # @!attribute description
         #   An optional description for internal use.
@@ -116,6 +126,15 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # ledger_entry => {
+        #   amount: String,
+        #   direction: String,
+        #   ledger_account_id: String
+        # }
+        # ```
         class LedgerEntry < ModernTreasury::BaseModel
           # @!attribute amount
           #   The LHS of the conditional.
@@ -148,6 +167,15 @@ module ModernTreasury
         end
       end
 
+      # @example
+      #
+      # ```ruby
+      # conditions => {
+      #   field: String,
+      #   operator: String,
+      #   value: String
+      # }
+      # ```
       class Conditions < ModernTreasury::BaseModel
         # @!attribute field
         #   The LHS of the conditional.

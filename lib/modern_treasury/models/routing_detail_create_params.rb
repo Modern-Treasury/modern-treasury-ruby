@@ -46,7 +46,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case accounts_type
       # in :external_accounts
       #   # ...
       # end
@@ -62,7 +62,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case routing_number_type
       # in :aba
       #   # ...
       # in :au_bsb
@@ -107,7 +107,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case payment_type
       # in :ach
       #   # ...
       # in :au_becs

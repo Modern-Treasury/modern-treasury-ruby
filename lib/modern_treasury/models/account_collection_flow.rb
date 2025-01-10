@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # account_collection_flow => {
+    #   counterparty_id: String,
+    #   payment_types: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountCollectionFlow::PaymentType] === _1 },
+    #   id: String,
+    #   client_token: String,
+    #   created_at: Time,
+    #   **_
+    # }
+    # ```
     class AccountCollectionFlow < ModernTreasury::BaseModel
       # @!attribute counterparty_id
       #   The ID of a counterparty. An external account created with this flow will be associated with this counterparty.
@@ -120,7 +132,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case payment_type
       # in :ach
       #   # ...
       # in :wire
@@ -139,7 +151,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case receiving_country
       # in :USA
       #   # ...
       # in :AUS
@@ -182,7 +194,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :cancelled
       #   # ...
       # in :completed

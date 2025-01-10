@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # line_item => {
+    #   id: String,
+    #   accounting: ModernTreasury::Models::LineItem::Accounting,
+    #   accounting_category_id: String,
+    #   accounting_ledger_class_id: String,
+    #   amount: Integer,
+    #   **_
+    # }
+    # ```
     class LineItem < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -130,6 +142,14 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # accounting => {
+      #   account_id: String,
+      #   class_id: String
+      # }
+      # ```
       class Accounting < ModernTreasury::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
@@ -161,7 +181,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case itemizable_type
       # in :ExpectedPayment
       #   # ...
       # in :PaymentOrder

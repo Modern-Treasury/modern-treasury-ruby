@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # transaction => {
+    #   id: String,
+    #   amount: Integer,
+    #   as_of_date: Date,
+    #   as_of_time: String,
+    #   as_of_timezone: String,
+    #   **_
+    # }
+    # ```
     class Transaction < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -252,6 +264,18 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @example
+      #
+      # ```ruby
+      # foreign_exchange_rate => {
+      #   base_amount: Integer,
+      #   base_currency: ModernTreasury::Models::Currency,
+      #   exponent: Integer,
+      #   rate_string: String,
+      #   target_amount: Integer,
+      #   **_
+      # }
+      # ```
       class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
@@ -326,7 +350,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case type
       # in :ach
       #   # ...
       # in :au_becs
@@ -382,7 +406,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case vendor_code_type
       # in :bai2
       #   # ...
       # in :bankprov

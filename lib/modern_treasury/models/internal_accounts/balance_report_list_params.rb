@@ -48,7 +48,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case balance_report_type
         # in :intraday
         #   # ...
         # in :other

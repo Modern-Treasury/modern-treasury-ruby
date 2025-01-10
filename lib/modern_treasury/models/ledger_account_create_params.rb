@@ -115,7 +115,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case ledgerable_type
       # in :counterparty
       #   # ...
       # in :external_account

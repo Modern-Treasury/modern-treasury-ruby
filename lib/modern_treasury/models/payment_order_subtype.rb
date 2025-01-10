@@ -7,7 +7,7 @@ module ModernTreasury
     # @example
     #
     # ```ruby
-    # case enum
+    # case payment_order_subtype
     # in :"0C"
     #   # ...
     # in :"0N"

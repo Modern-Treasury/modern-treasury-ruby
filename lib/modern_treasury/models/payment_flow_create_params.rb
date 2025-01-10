@@ -66,7 +66,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case direction
       # in :credit
       #   # ...
       # in :debit

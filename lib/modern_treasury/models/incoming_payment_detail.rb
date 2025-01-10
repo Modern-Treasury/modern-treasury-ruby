@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # incoming_payment_detail => {
+    #   id: String,
+    #   amount: Integer,
+    #   as_of_date: Date,
+    #   created_at: Time,
+    #   currency: ModernTreasury::Models::Currency,
+    #   **_
+    # }
+    # ```
     class IncomingPaymentDetail < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -250,7 +262,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case originating_account_number_type
       # in :au_number
       #   # ...
       # in :clabe
@@ -285,7 +297,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case originating_routing_number_type
       # in :aba
       #   # ...
       # in :au_bsb
@@ -330,7 +342,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :completed
       #   # ...
       # in :pending
@@ -352,7 +364,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case type
       # in :ach
       #   # ...
       # in :book

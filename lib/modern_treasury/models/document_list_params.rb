@@ -45,7 +45,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case documentable_type
       # in :cases
       #   # ...
       # in :counterparties

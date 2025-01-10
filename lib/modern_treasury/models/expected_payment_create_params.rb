@@ -206,7 +206,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case direction
       # in :credit
       #   # ...
       # in :debit
@@ -220,6 +220,18 @@ module ModernTreasury
         finalize!
       end
 
+      # @example
+      #
+      # ```ruby
+      # ledger_transaction => {
+      #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry] === _1 },
+      #   description: String,
+      #   effective_at: Time,
+      #   effective_date: Date,
+      #   external_id: String,
+      #   **_
+      # }
+      # ```
       class LedgerTransaction < ModernTreasury::BaseModel
         # @!attribute ledger_entries
         #   An array of ledger entry objects.
@@ -331,6 +343,18 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @example
+        #
+        # ```ruby
+        # ledger_entry => {
+        #   amount: Integer,
+        #   direction: ModernTreasury::Models::TransactionDirection,
+        #   ledger_account_id: String,
+        #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
+        #   lock_version: Integer,
+        #   **_
+        # }
+        # ```
         class LedgerEntry < ModernTreasury::BaseModel
           # @!attribute amount
           #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000. Can be any integer up to 36 digits.
@@ -443,7 +467,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case ledgerable_type
         # in :expected_payment
         #   # ...
         # in :incoming_payment_detail
@@ -474,7 +498,7 @@ module ModernTreasury
         # @example
         #
         # ```ruby
-        # case enum
+        # case status
         # in :archived
         #   # ...
         # in :pending
@@ -492,6 +516,16 @@ module ModernTreasury
         end
       end
 
+      # @example
+      #
+      # ```ruby
+      # line_item => {
+      #   amount: Integer,
+      #   accounting_category_id: String,
+      #   description: String,
+      #   metadata: -> { ModernTreasury::HashOf[String] === _1 }
+      # }
+      # ```
       class LineItem < ModernTreasury::BaseModel
         # @!attribute amount
         #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.

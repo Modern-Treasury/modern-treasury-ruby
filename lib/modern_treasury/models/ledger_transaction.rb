@@ -2,6 +2,18 @@
 
 module ModernTreasury
   module Models
+    # @example
+    #
+    # ```ruby
+    # ledger_transaction => {
+    #   id: String,
+    #   created_at: Time,
+    #   description: String,
+    #   effective_at: Time,
+    #   effective_date: Date,
+    #   **_
+    # }
+    # ```
     class LedgerTransaction < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -185,7 +197,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case ledgerable_type
       # in :expected_payment
       #   # ...
       # in :incoming_payment_detail
@@ -216,7 +228,7 @@ module ModernTreasury
       # @example
       #
       # ```ruby
-      # case enum
+      # case status
       # in :archived
       #   # ...
       # in :pending
