@@ -7,7 +7,7 @@ module ModernTreasury
     # ```ruby
     # bulk_request => {
     #   id: String,
-    #   action_type: ModernTreasury::Models::BulkRequest::ActionType,
+    #   action_type: enum: ModernTreasury::Models::BulkRequest::ActionType,
     #   created_at: Time,
     #   failed_result_count: Integer,
     #   live_mode: ModernTreasury::BooleanModel,

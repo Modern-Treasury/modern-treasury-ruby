@@ -7,7 +7,7 @@ module ModernTreasury
     # ```ruby
     # account_collection_flow => {
     #   counterparty_id: String,
-    #   payment_types: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountCollectionFlow::PaymentType] === _1 },
+    #   payment_types: -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType] === _1 },
     #   id: String,
     #   client_token: String,
     #   created_at: Time,
@@ -25,9 +25,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
-               ModernTreasury::ArrayOf[enum: -> {
-                 ModernTreasury::Models::AccountCollectionFlow::PaymentType
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]
+               }
 
       # @!attribute id
       #
@@ -66,9 +66,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
       optional :receiving_countries,
-               ModernTreasury::ArrayOf[enum: -> {
-                 ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]
+               }
 
       # @!attribute status
       #   The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.

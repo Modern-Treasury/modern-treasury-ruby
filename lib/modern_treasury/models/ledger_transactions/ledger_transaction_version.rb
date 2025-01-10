@@ -55,9 +55,9 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry>]
         required :ledger_entries,
-                 ModernTreasury::ArrayOf[-> {
-                   ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]
+                 }
 
         # @!attribute ledger_id
         #   The ID of the ledger this ledger transaction belongs to.
@@ -217,7 +217,7 @@ module ModernTreasury
         #   id: String,
         #   amount: Integer,
         #   created_at: Time,
-        #   direction: ModernTreasury::Models::TransactionDirection,
+        #   direction: enum: ModernTreasury::Models::TransactionDirection,
         #   ledger_account_currency: String,
         #   **_
         # }

@@ -12,9 +12,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
       optional :account_details,
-               ModernTreasury::ArrayOf[-> {
-                 ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail]
+               }
 
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
@@ -26,9 +26,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
       optional :contact_details,
-               ModernTreasury::ArrayOf[-> {
-                 ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail]
+               }
 
       # @!attribute ledger_account
       #   Specifies a ledger account object that will be created with the external account. The resulting ledger account is linked to the external account for auto-ledgering Payment objects. See https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects for more details.
@@ -81,9 +81,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
       optional :routing_details,
-               ModernTreasury::ArrayOf[-> {
-                 ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
+               }
 
       # @!parse
       #   # @param counterparty_id [String, nil]
@@ -145,7 +145,7 @@ module ModernTreasury
       # ```ruby
       # account_detail => {
       #   account_number: String,
-      #   account_number_type: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType
+      #   account_number_type: enum: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType
       # }
       # ```
       class AccountDetail < ModernTreasury::BaseModel
@@ -209,7 +209,7 @@ module ModernTreasury
       # ```ruby
       # contact_detail => {
       #   contact_identifier: String,
-      #   contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType
+      #   contact_identifier_type: enum: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType
       # }
       # ```
       class ContactDetail < ModernTreasury::BaseModel
@@ -262,7 +262,7 @@ module ModernTreasury
       #   currency: String,
       #   ledger_id: String,
       #   name: String,
-      #   normal_balance: ModernTreasury::Models::TransactionDirection,
+      #   normal_balance: enum: ModernTreasury::Models::TransactionDirection,
       #   currency_exponent: Integer,
       #   **_
       # }
@@ -497,8 +497,8 @@ module ModernTreasury
       # ```ruby
       # routing_detail => {
       #   routing_number: String,
-      #   routing_number_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType,
-      #   payment_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType
+      #   routing_number_type: enum: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType,
+      #   payment_type: enum: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType
       # }
       # ```
       class RoutingDetail < ModernTreasury::BaseModel

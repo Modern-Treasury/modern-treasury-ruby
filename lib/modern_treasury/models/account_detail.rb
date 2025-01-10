@@ -8,7 +8,7 @@ module ModernTreasury
     # account_detail => {
     #   id: String,
     #   account_number_safe: String,
-    #   account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
+    #   account_number_type: enum: ModernTreasury::Models::AccountDetail::AccountNumberType,
     #   created_at: Time,
     #   discarded_at: Time,
     #   **_

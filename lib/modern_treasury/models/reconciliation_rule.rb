@@ -8,7 +8,7 @@ module ModernTreasury
     # reconciliation_rule => {
     #   amount_lower_bound: Integer,
     #   amount_upper_bound: Integer,
-    #   direction: ModernTreasury::Models::ReconciliationRule::Direction,
+    #   direction: enum: ModernTreasury::Models::ReconciliationRule::Direction,
     #   internal_account_id: String,
     #   counterparty_id: String,
     #   **_

@@ -559,8 +559,12 @@ module ModernTreasury
         case [enum, union, item_type]
         in [Proc, nil, nil]
           enum
+        in [Class | ModernTreasury::Converter, nil, nil]
+          -> { enum }
         in [nil, Proc, nil]
           union
+        in [nil, Class | ModernTreasury::Converter, nil]
+          -> { union }
         in [nil, nil, Proc]
           item_type
         in [nil, nil, Class | ModernTreasury::Converter]
@@ -688,8 +692,12 @@ module ModernTreasury
         case [enum, union, item_type]
         in [Proc, nil, nil]
           enum
+        in [Class | ModernTreasury::Converter, nil, nil]
+          -> { enum }
         in [nil, Proc, nil]
           union
+        in [nil, Class | ModernTreasury::Converter, nil]
+          -> { union }
         in [nil, nil, Proc]
           item_type
         in [nil, nil, Class | ModernTreasury::Converter]
