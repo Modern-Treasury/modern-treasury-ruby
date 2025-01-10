@@ -20,9 +20,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
       optional :fields,
-               ModernTreasury::ArrayOf[enum: -> {
-                 ModernTreasury::Models::CounterpartyCollectAccountParams::Field
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field]
+               }
 
       # @!attribute send_email
       #   By default, Modern Treasury will send an email to your counterparty that includes a link to the form they must fill out. However, if you would like to send the counterparty the link, you can set this parameter to `false`. The JSON body will include the link to the secure Modern Treasury form.

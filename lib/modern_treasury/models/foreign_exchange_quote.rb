@@ -140,7 +140,7 @@ module ModernTreasury
       # ```ruby
       # foreign_exchange_rate => {
       #   base_amount: Integer,
-      #   base_currency: ModernTreasury::Models::Currency,
+      #   base_currency: enum: ModernTreasury::Models::Currency,
       #   exponent: Integer,
       #   rate_string: String,
       #   target_amount: Integer,

@@ -9,7 +9,7 @@ module ModernTreasury
     #   bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
     #   bank_name: String,
     #   routing_number: String,
-    #   routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType,
+    #   routing_number_type: enum: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType,
     #   sanctions: -> { ModernTreasury::HashOf[ModernTreasury::Unknown] === _1 }
     # }
     # ```
@@ -50,9 +50,9 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
       optional :supported_payment_types,
-               ModernTreasury::ArrayOf[enum: -> {
-                 ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType]
+               }
 
       # @!parse
       #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress] The address of the bank.

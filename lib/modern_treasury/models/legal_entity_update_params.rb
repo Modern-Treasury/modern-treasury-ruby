@@ -8,7 +8,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>]
       optional :addresses,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntityUpdateParams::Address }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::Address] }
 
       # @!attribute bank_settings
       #
@@ -61,7 +61,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
       optional :identifications,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntityUpdateParams::Identification }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::Identification] }
 
       # @!attribute last_name
       #   An individual's last name.
@@ -91,7 +91,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
       optional :phone_numbers,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber] }
 
       # @!attribute politically_exposed_person
       #   Whether the individual is a politically exposed person.
@@ -257,9 +257,9 @@ module ModernTreasury
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>]
         optional :address_types,
-                 ModernTreasury::ArrayOf[enum: -> {
-                   ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType
-                 }]
+                 -> {
+                   ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType]
+                 }
 
         # @!attribute line2
         #
@@ -317,7 +317,7 @@ module ModernTreasury
       # ```ruby
       # identification => {
       #   id_number: String,
-      #   id_type: ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType,
+      #   id_type: enum: ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType,
       #   issuing_country: String
       # }
       # ```

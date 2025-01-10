@@ -37,9 +37,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::Invoice::ContactDetail>]
       required :contact_details,
-               ModernTreasury::ArrayOf[-> {
-                 ModernTreasury::Models::Invoice::ContactDetail
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail]
+               }
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
@@ -90,7 +90,7 @@ module ModernTreasury
       #   The expected payments created for an unpaid invoice.
       #
       #   @return [Array<ModernTreasury::Models::ExpectedPayment>]
-      required :expected_payments, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ExpectedPayment }]
+      required :expected_payments, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPayment] }
 
       # @!attribute fallback_payment_method
       #   When payment_method is automatic, the fallback payment method to use when an automatic payment fails. One of `manual` or `ui`.
@@ -173,7 +173,7 @@ module ModernTreasury
       #   The payment orders created for paying the invoice through the invoice payment UI.
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder>]
-      required :payment_orders, ModernTreasury::ArrayOf[-> { ModernTreasury::Models::PaymentOrder }]
+      required :payment_orders, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder] }
 
       # @!attribute payment_type
       #   One of `ach` or `eft`.
@@ -382,7 +382,7 @@ module ModernTreasury
       # contact_detail => {
       #   id: String,
       #   contact_identifier: String,
-      #   contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType,
+      #   contact_identifier_type: enum: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType,
       #   created_at: Time,
       #   discarded_at: Time,
       #   **_

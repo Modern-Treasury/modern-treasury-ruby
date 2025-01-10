@@ -8,9 +8,9 @@ module ModernTreasury
     # return_object => {
     #   id: String,
     #   amount: Integer,
-    #   code: ModernTreasury::Models::ReturnObject::Code,
+    #   code: enum: ModernTreasury::Models::ReturnObject::Code,
     #   created_at: Time,
-    #   currency: ModernTreasury::Models::Currency,
+    #   currency: enum: ModernTreasury::Models::Currency,
     #   **_
     # }
     # ```
@@ -95,7 +95,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
       required :reference_numbers,
-               ModernTreasury::ArrayOf[-> { ModernTreasury::Models::ReturnObject::ReferenceNumber }]
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber] }
 
       # @!attribute returnable_id
       #   The ID of the object being returned or `null`.

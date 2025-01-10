@@ -20,9 +20,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>]
       optional :account_details,
-               ModernTreasury::ArrayOf[-> {
-                 ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
+               }
 
       # @!attribute counterparty_id
       #   The ID of the counterparty that the virtual account belongs to.
@@ -65,9 +65,9 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
       optional :routing_details,
-               ModernTreasury::ArrayOf[-> {
-                 ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail
-               }]
+               -> {
+                 ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
+               }
 
       # @!parse
       #   # @param internal_account_id [String] The ID of the internal account that this virtual account is associated with.
@@ -120,7 +120,7 @@ module ModernTreasury
       # ```ruby
       # account_detail => {
       #   account_number: String,
-      #   account_number_type: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType
+      #   account_number_type: enum: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType
       # }
       # ```
       class AccountDetail < ModernTreasury::BaseModel
@@ -192,7 +192,7 @@ module ModernTreasury
       #   currency: String,
       #   ledger_id: String,
       #   name: String,
-      #   normal_balance: ModernTreasury::Models::TransactionDirection,
+      #   normal_balance: enum: ModernTreasury::Models::TransactionDirection,
       #   currency_exponent: Integer,
       #   **_
       # }
@@ -340,8 +340,8 @@ module ModernTreasury
       # ```ruby
       # routing_detail => {
       #   routing_number: String,
-      #   routing_number_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType,
-      #   payment_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType
+      #   routing_number_type: enum: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType,
+      #   payment_type: enum: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType
       # }
       # ```
       class RoutingDetail < ModernTreasury::BaseModel

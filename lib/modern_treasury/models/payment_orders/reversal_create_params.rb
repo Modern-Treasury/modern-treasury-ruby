@@ -85,9 +85,9 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>]
           required :ledger_entries,
-                   ModernTreasury::ArrayOf[-> {
-                     ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry
-                   }]
+                   -> {
+                     ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
+                   }
 
           # @!attribute description
           #   An optional description for internal use.
@@ -196,7 +196,7 @@ module ModernTreasury
           # ```ruby
           # ledger_entry => {
           #   amount: Integer,
-          #   direction: ModernTreasury::Models::TransactionDirection,
+          #   direction: enum: ModernTreasury::Models::TransactionDirection,
           #   ledger_account_id: String,
           #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
           #   lock_version: Integer,
