@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class Connections
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Get a list of all connections.
       #
       # @param params [ModernTreasury::Models::ConnectionListParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -35,6 +29,12 @@ module ModernTreasury
           model: ModernTreasury::Models::Connection
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

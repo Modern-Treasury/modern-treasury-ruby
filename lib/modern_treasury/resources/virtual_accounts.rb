@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class VirtualAccounts
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # create virtual_account
       #
       # @param params [ModernTreasury::Models::VirtualAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -148,6 +142,12 @@ module ModernTreasury
           model: ModernTreasury::Models::VirtualAccount
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

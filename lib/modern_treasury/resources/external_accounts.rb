@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class ExternalAccounts
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # create external account
       #
       # @param params [ModernTreasury::Models::ExternalAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -220,6 +214,12 @@ module ModernTreasury
           model: ModernTreasury::Models::ExternalAccountVerifyResponse
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

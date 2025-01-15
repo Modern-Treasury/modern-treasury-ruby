@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class LegalEntities
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # create legal_entity
       #
       # @param params [ModernTreasury::Models::LegalEntityCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -190,6 +184,12 @@ module ModernTreasury
           model: ModernTreasury::Models::LegalEntity
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

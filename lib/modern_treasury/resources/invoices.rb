@@ -6,13 +6,6 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::Invoices::LineItems]
       attr_reader :line_items
 
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-        @line_items = ModernTreasury::Resources::Invoices::LineItems.new(client: client)
-      end
-
       # create invoice
       #
       # @param params [ModernTreasury::Models::InvoiceCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -283,6 +276,13 @@ module ModernTreasury
           model: NilClass
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
+        @line_items = ModernTreasury::Resources::Invoices::LineItems.new(client: client)
       end
     end
   end

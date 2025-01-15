@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class LedgerAccounts
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a ledger account.
       #
       # @param params [ModernTreasury::Models::LedgerAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -187,6 +181,12 @@ module ModernTreasury
           model: ModernTreasury::Models::LedgerAccount
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class PaymentReferences
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # get payment_reference
       #
       # @param id [String] id
@@ -75,6 +69,12 @@ module ModernTreasury
           model: ModernTreasury::Models::PaymentReference
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

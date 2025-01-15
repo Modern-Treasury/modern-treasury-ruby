@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class Returns
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a return.
       #
       # @param params [ModernTreasury::Models::ReturnCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -94,6 +88,12 @@ module ModernTreasury
           model: ModernTreasury::Models::ReturnObject
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end
