@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class LedgerableEvents
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a ledgerable event.
       #
       # @param params [ModernTreasury::Models::LedgerableEventCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -52,6 +46,12 @@ module ModernTreasury
           model: ModernTreasury::Models::LedgerableEvent
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

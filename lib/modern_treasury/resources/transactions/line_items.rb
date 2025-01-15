@@ -4,12 +4,6 @@ module ModernTreasury
   module Resources
     class Transactions
       class LineItems
-        # @param client [ModernTreasury::Client]
-        #
-        def initialize(client:)
-          @client = client
-        end
-
         # create transaction line items
         #
         # @param params [ModernTreasury::Models::Transactions::LineItemCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -98,6 +92,12 @@ module ModernTreasury
             model: NilClass
           }
           @client.request(req, opts)
+        end
+
+        # @param client [ModernTreasury::Client]
+        #
+        def initialize(client:)
+          @client = client
         end
       end
     end

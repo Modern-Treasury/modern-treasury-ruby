@@ -6,13 +6,6 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::LedgerTransactions::Versions]
       attr_reader :versions
 
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-        @versions = ModernTreasury::Resources::LedgerTransactions::Versions.new(client: client)
-      end
-
       # Create a ledger transaction.
       #
       # @param params [ModernTreasury::Models::LedgerTransactionCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -225,6 +218,13 @@ module ModernTreasury
           model: ModernTreasury::Models::LedgerTransaction
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
+        @versions = ModernTreasury::Resources::LedgerTransactions::Versions.new(client: client)
       end
     end
   end

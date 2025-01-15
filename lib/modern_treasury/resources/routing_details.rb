@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class RoutingDetails
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a routing detail for a single external account.
       #
       # @param account_id [String] Path param: The ID of the account.
@@ -133,6 +127,12 @@ module ModernTreasury
           model: NilClass
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

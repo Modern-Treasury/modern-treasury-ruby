@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class PaperItems
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Get details on a single paper item.
       #
       # @param id [String] id
@@ -55,6 +49,12 @@ module ModernTreasury
           model: ModernTreasury::Models::PaperItem
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

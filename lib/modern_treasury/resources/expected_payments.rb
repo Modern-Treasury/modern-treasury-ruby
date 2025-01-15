@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class ExpectedPayments
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # create expected payment
       #
       # @param params [ModernTreasury::Models::ExpectedPaymentCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -223,6 +217,12 @@ module ModernTreasury
           model: ModernTreasury::Models::ExpectedPayment
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

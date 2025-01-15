@@ -6,13 +6,6 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::PaymentOrders::Reversals]
       attr_reader :reversals
 
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-        @reversals = ModernTreasury::Resources::PaymentOrders::Reversals.new(client: client)
-      end
-
       # Create a new Payment Order
       #
       # @param params [ModernTreasury::Models::PaymentOrderCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -515,6 +508,13 @@ module ModernTreasury
           model: ModernTreasury::Models::AsyncResponse
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
+        @reversals = ModernTreasury::Resources::PaymentOrders::Reversals.new(client: client)
       end
     end
   end

@@ -4,12 +4,6 @@ module ModernTreasury
   module Resources
     class InternalAccounts
       class BalanceReports
-        # @param client [ModernTreasury::Client]
-        #
-        def initialize(client:)
-          @client = client
-        end
-
         # create balance reports
         #
         # @param internal_account_id [String]
@@ -121,6 +115,12 @@ module ModernTreasury
             model: NilClass
           }
           @client.request(req, opts)
+        end
+
+        # @param client [ModernTreasury::Client]
+        #
+        def initialize(client:)
+          @client = client
         end
       end
     end

@@ -6,13 +6,6 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::InternalAccounts::BalanceReports]
       attr_reader :balance_reports
 
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-        @balance_reports = ModernTreasury::Resources::InternalAccounts::BalanceReports.new(client: client)
-      end
-
       # create internal account
       #
       # @param params [ModernTreasury::Models::InternalAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -137,6 +130,13 @@ module ModernTreasury
           model: ModernTreasury::Models::InternalAccount
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
+        @balance_reports = ModernTreasury::Resources::InternalAccounts::BalanceReports.new(client: client)
       end
     end
   end

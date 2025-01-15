@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class LedgerAccountCategories
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a ledger account category.
       #
       # @param params [ModernTreasury::Models::LedgerAccountCategoryCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -260,6 +254,12 @@ module ModernTreasury
           model: NilClass
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

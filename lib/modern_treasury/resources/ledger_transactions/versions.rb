@@ -4,12 +4,6 @@ module ModernTreasury
   module Resources
     class LedgerTransactions
       class Versions
-        # @param client [ModernTreasury::Client]
-        #
-        def initialize(client:)
-          @client = client
-        end
-
         # Get a list of ledger transaction versions.
         #
         # @param params [ModernTreasury::Models::LedgerTransactions::VersionListParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -45,6 +39,12 @@ module ModernTreasury
             model: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion
           }
           @client.request(req, opts)
+        end
+
+        # @param client [ModernTreasury::Client]
+        #
+        def initialize(client:)
+          @client = client
         end
       end
     end
