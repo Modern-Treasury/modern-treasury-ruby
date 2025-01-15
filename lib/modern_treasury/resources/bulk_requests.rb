@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class BulkRequests
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # create bulk_request
       #
       # @param params [ModernTreasury::Models::BulkRequestCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -87,6 +81,12 @@ module ModernTreasury
           model: ModernTreasury::Models::BulkRequest
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

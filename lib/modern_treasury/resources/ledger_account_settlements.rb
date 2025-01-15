@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class LedgerAccountSettlements
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a ledger account settlement.
       #
       # @param params [ModernTreasury::Models::LedgerAccountSettlementCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -144,6 +138,12 @@ module ModernTreasury
           model: ModernTreasury::Models::LedgerAccountSettlement
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

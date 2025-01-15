@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class IncomingPaymentDetails
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Get an existing Incoming Payment Detail.
       #
       # @param id [String] The unique identifier of the incoming payment detail.
@@ -130,6 +124,12 @@ module ModernTreasury
           model: ModernTreasury::Models::AsyncResponse
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

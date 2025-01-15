@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class BulkResults
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # get bulk_result
       #
       # @param id [String] id
@@ -61,6 +55,12 @@ module ModernTreasury
           model: ModernTreasury::Models::BulkResult
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

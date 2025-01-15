@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class AccountCollectionFlows
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # create account_collection_flow
       #
       # @param params [ModernTreasury::Models::AccountCollectionFlowCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -105,6 +99,12 @@ module ModernTreasury
           model: ModernTreasury::Models::AccountCollectionFlow
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

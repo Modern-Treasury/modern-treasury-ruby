@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class Validations
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Validates the routing number information supplied without creating a routing
       #   detail
       #
@@ -34,6 +28,12 @@ module ModernTreasury
           model: ModernTreasury::Models::RoutingNumberLookupRequest
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

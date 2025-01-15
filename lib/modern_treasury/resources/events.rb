@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class Events
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # get event
       #
       # @param id [String] event id
@@ -58,6 +52,12 @@ module ModernTreasury
           model: ModernTreasury::Models::Event
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

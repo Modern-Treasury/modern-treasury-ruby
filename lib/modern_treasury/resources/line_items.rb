@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class LineItems
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Get a single line item
       #
       # @param id [String] The ID of the line item.
@@ -102,6 +96,12 @@ module ModernTreasury
           model: ModernTreasury::Models::LineItem
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

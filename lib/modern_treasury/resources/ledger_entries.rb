@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class LedgerEntries
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Get details on a single ledger entry.
       #
       # @param id [String] id
@@ -135,6 +129,12 @@ module ModernTreasury
           model: ModernTreasury::Models::LedgerEntry
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

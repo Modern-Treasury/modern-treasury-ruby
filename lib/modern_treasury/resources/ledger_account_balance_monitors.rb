@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class LedgerAccountBalanceMonitors
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a ledger account balance monitor.
       #
       # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -128,6 +122,12 @@ module ModernTreasury
           model: ModernTreasury::Models::LedgerAccountBalanceMonitor
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end
