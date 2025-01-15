@@ -4,12 +4,6 @@ module ModernTreasury
   module Resources
     class PaymentOrders
       class Reversals
-        # @param client [ModernTreasury::Client]
-        #
-        def initialize(client:)
-          @client = client
-        end
-
         # Create a reversal for a payment order.
         #
         # @param payment_order_id [String] The id of the payment order being reversed.
@@ -91,6 +85,12 @@ module ModernTreasury
             model: ModernTreasury::Models::PaymentOrders::Reversal
           }
           @client.request(req, opts)
+        end
+
+        # @param client [ModernTreasury::Client]
+        #
+        def initialize(client:)
+          @client = client
         end
       end
     end

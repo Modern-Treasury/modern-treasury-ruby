@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class Documents
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a document.
       #
       # @param params [ModernTreasury::Models::DocumentCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -82,6 +76,12 @@ module ModernTreasury
           model: ModernTreasury::Models::Document
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

@@ -6,13 +6,6 @@ module ModernTreasury
       # @return [ModernTreasury::Resources::Transactions::LineItems]
       attr_reader :line_items
 
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-        @line_items = ModernTreasury::Resources::Transactions::LineItems.new(client: client)
-      end
-
       # create transaction
       #
       # @param params [ModernTreasury::Models::TransactionCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -170,6 +163,13 @@ module ModernTreasury
           model: NilClass
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
+        @line_items = ModernTreasury::Resources::Transactions::LineItems.new(client: client)
       end
     end
   end

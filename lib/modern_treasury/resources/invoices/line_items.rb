@@ -4,12 +4,6 @@ module ModernTreasury
   module Resources
     class Invoices
       class LineItems
-        # @param client [ModernTreasury::Client]
-        #
-        def initialize(client:)
-          @client = client
-        end
-
         # create invoice_line_item
         #
         # @param invoice_id [String] invoice_id
@@ -173,6 +167,12 @@ module ModernTreasury
             model: ModernTreasury::Models::Invoices::InvoiceLineItem
           }
           @client.request(req, opts)
+        end
+
+        # @param client [ModernTreasury::Client]
+        #
+        def initialize(client:)
+          @client = client
         end
       end
     end

@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class ForeignExchangeQuotes
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # create foreign_exchange_quote
       #
       # @param params [ModernTreasury::Models::ForeignExchangeQuoteCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -97,6 +91,12 @@ module ModernTreasury
           model: ModernTreasury::Models::ForeignExchangeQuote
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end

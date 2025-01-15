@@ -3,12 +3,6 @@
 module ModernTreasury
   module Resources
     class Counterparties
-      # @param client [ModernTreasury::Client]
-      #
-      def initialize(client:)
-        @client = client
-      end
-
       # Create a new counterparty.
       #
       # @param params [ModernTreasury::Models::CounterpartyCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
@@ -200,6 +194,12 @@ module ModernTreasury
           model: ModernTreasury::Models::CounterpartyCollectAccountResponse
         }
         @client.request(req, opts)
+      end
+
+      # @param client [ModernTreasury::Client]
+      #
+      def initialize(client:)
+        @client = client
       end
     end
   end
