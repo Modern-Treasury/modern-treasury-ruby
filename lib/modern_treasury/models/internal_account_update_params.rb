@@ -18,7 +18,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing an empty string or `null` as the value.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
@@ -38,7 +38,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_account_id [String] The Ledger Account associated to this account.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   #   an empty string or `null` as the value.
       #   #
       #   # @param name [String] The nickname for the internal account.

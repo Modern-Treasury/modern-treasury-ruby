@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # case accounts_type
     # in :external_accounts

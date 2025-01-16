@@ -17,7 +17,7 @@ module ModernTreasury
       # @!attribute created_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash{Symbol => Time}]
+      #   @return [Hash{Symbol=>Time}]
       optional :created_at, ModernTreasury::HashOf[Time]
 
       # @!attribute ledger_id
@@ -33,7 +33,7 @@ module ModernTreasury
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute per_page
@@ -54,7 +54,7 @@ module ModernTreasury
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash{Symbol => Time}]
+      #   @return [Hash{Symbol=>Time}]
       optional :updated_at, ModernTreasury::HashOf[Time]
 
       # @!parse
@@ -63,7 +63,7 @@ module ModernTreasury
       #   #
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param created_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param created_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #
@@ -71,7 +71,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_transaction_id [String]
       #   #
-      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
@@ -81,7 +81,7 @@ module ModernTreasury
       #   #
       #   # @param settlement_entry_direction [String]
       #   #
-      #   # @param updated_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param updated_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #

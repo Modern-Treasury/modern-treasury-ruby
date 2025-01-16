@@ -34,7 +34,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # case accounts_type
       # in :external_accounts
@@ -50,7 +49,6 @@ module ModernTreasury
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
       #
       # @example
-      #
       # ```ruby
       # case account_number_type
       # in :au_number

@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # paper_item => {
     #   id: String,
@@ -187,7 +186,6 @@ module ModernTreasury
       # The current status of the paper item. One of `pending`, `completed`, or `returned`.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :completed

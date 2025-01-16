@@ -5,7 +5,6 @@ module ModernTreasury
     # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sepa, signet, wire.
     #
     # @example
-    #
     # ```ruby
     # case expected_payment_type
     # in :ach

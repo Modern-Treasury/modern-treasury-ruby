@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # external_account => {
     #   id: String,
@@ -67,7 +66,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
@@ -140,7 +139,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
@@ -190,7 +189,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # contact_detail => {
       #   id: String,
@@ -279,7 +277,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # case contact_identifier_type
         # in :email
@@ -300,7 +297,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # party_address => {
       #   id: String,
@@ -421,7 +417,6 @@ module ModernTreasury
       # Either `individual` or `business`.
       #
       # @example
-      #
       # ```ruby
       # case party_type
       # in :business
@@ -438,7 +433,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # case verification_source
       # in :ach_prenote
@@ -458,7 +452,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # case verification_status
       # in :pending_verification

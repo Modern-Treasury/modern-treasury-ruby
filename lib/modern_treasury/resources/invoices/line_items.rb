@@ -8,7 +8,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String] :name The name of the line item, typically a product or SKU name.
         #
@@ -21,7 +21,7 @@ module ModernTreasury
         #     money and increases the invoice's `total_amount` due. `credit` has the opposite
         #     intention and effect.
         #
-        #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+        #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
         #   @option params [Integer] :quantity The number of units of a product or service that this line item is for. Must be
@@ -31,7 +31,7 @@ module ModernTreasury
         #     specified in the invoice currency's smallest unit. Accepts decimal strings with
         #     up to 12 decimals
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
@@ -50,11 +50,11 @@ module ModernTreasury
         #
         # @param id [String] id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemRetrieveParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String] :invoice_id invoice_id
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
@@ -75,7 +75,7 @@ module ModernTreasury
         #
         # @param id [String] Path param: id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String] :invoice_id Path param: invoice_id
         #
@@ -85,7 +85,7 @@ module ModernTreasury
         #     business money and increases the invoice's `total_amount` due. `credit` has the
         #     opposite intention and effect.
         #
-        #   @option params [Hash{Symbol => String}] :metadata Body param: Additional data represented as key-value pairs. Both the key and
+        #   @option params [Hash{Symbol=>String}] :metadata Body param: Additional data represented as key-value pairs. Both the key and
         #     value must be strings.
         #
         #   @option params [String] :name Body param: The name of the line item, typically a product or SKU name.
@@ -100,7 +100,7 @@ module ModernTreasury
         #     for, specified in the invoice currency's smallest unit. Accepts decimal strings
         #     with up to 12 decimals
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
@@ -122,13 +122,13 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemListParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemListParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String, nil] :after_cursor
         #
         #   @option params [Integer] :per_page
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
         #
@@ -148,11 +148,11 @@ module ModernTreasury
         #
         # @param id [String] id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemDeleteParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemDeleteParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String] :invoice_id invoice_id
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #

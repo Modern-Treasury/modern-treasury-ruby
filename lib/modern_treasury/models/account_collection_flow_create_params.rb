@@ -36,7 +36,6 @@ module ModernTreasury
       # Optional. Array of 3-digit ISO country codes.
       #
       # @example
-      #
       # ```ruby
       # case receiving_country
       # in :USA

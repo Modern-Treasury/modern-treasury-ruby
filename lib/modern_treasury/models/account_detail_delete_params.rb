@@ -22,7 +22,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # case accounts_type
       # in :external_accounts

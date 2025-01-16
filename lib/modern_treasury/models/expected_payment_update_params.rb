@@ -60,7 +60,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute reconciliation_filters
@@ -128,7 +128,7 @@ module ModernTreasury
       #   #
       #   # @param internal_account_id [String, nil] The ID of the Internal Account for the expected payment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param reconciliation_filters [Object, nil] The reconciliation filters you have for this payment.
@@ -180,7 +180,6 @@ module ModernTreasury
       # One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
       #
       # @example
-      #
       # ```ruby
       # case direction
       # in :credit
@@ -199,7 +198,6 @@ module ModernTreasury
       # The Expected Payment's status can be updated from partially_reconciled to reconciled.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :reconciled

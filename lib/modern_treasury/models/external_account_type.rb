@@ -5,7 +5,6 @@ module ModernTreasury
     # Can be `checking`, `savings` or `other`.
     #
     # @example
-    #
     # ```ruby
     # case external_account_type
     # in :cash

@@ -37,7 +37,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data to be added to the reversal ledger transaction as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute status
@@ -62,7 +62,7 @@ module ModernTreasury
       #   # @param ledgerable_type [String] Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   #   object like Return or Reversal.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data to be added to the reversal ledger transaction as key-value
+      #   # @param metadata [Hash{Symbol=>String}] Additional data to be added to the reversal ledger transaction as key-value
       #   #   pairs. Both the key and value must be strings.
       #   #
       #   # @param status [String] Status of the reversal ledger transaction. It defaults to `posted` if not
@@ -86,7 +86,6 @@ module ModernTreasury
       # Specify this if you'd like to link the reversal ledger transaction to a Payment object like Return or Reversal.
       #
       # @example
-      #
       # ```ruby
       # case ledgerable_type
       # in :expected_payment
@@ -117,7 +116,6 @@ module ModernTreasury
       # Status of the reversal ledger transaction. It defaults to `posted` if not provided.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :archived

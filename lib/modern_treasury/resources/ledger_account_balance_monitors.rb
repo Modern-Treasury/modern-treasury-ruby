@@ -5,7 +5,7 @@ module ModernTreasury
     class LedgerAccountBalanceMonitors
       # Create a ledger account balance monitor.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] :alert_condition Describes the condition that must be satisfied for the monitor to be triggered.
       #
@@ -13,10 +13,10 @@ module ModernTreasury
       #
       #   @option params [String] :description An optional, free-form description for internal use.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       #
@@ -35,7 +35,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       #
@@ -52,14 +52,14 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :description An optional, free-form description for internal use.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       #
@@ -76,7 +76,7 @@ module ModernTreasury
 
       # Get a list of ledger account balance monitors.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountBalanceMonitorListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -85,13 +85,13 @@ module ModernTreasury
       #
       #   @option params [String] :ledger_account_id Query the balance monitors for a single ledger account.
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
       #
@@ -111,7 +111,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
       #

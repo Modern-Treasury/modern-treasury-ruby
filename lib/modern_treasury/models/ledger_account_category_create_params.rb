@@ -48,7 +48,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!parse
@@ -67,7 +67,7 @@ module ModernTreasury
       #   # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account category
       #   #   should be a child of.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(

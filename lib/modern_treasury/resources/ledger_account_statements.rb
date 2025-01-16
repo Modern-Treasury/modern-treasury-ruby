@@ -5,7 +5,7 @@ module ModernTreasury
     class LedgerAccountStatements
       # Create a ledger account statement.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountStatementCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountStatementCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Time] :effective_at_lower_bound The inclusive lower bound of the effective_at timestamp of the ledger entries to
       #     be included in the ledger account statement.
@@ -18,10 +18,10 @@ module ModernTreasury
       #
       #   @option params [String, nil] :description The description of the ledger account statement.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse]
       #
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse]
       #

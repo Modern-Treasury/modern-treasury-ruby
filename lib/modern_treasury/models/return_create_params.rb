@@ -73,7 +73,6 @@ module ModernTreasury
       # The type of object being returned. Currently, this may only be incoming_payment_detail.
       #
       # @example
-      #
       # ```ruby
       # case returnable_type
       # in :incoming_payment_detail
@@ -89,7 +88,6 @@ module ModernTreasury
       # The return code. For ACH returns, this is the required ACH return code.
       #
       # @example
-      #
       # ```ruby
       # case code
       # in :"901"

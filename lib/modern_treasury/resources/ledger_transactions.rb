@@ -8,7 +8,7 @@ module ModernTreasury
 
       # Create a ledger transaction.
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>] :ledger_entries An array of ledger entry objects.
       #
@@ -31,12 +31,12 @@ module ModernTreasury
       #     payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #     reversal.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status] :status To post a ledger transaction at creation, use `posted`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
@@ -55,7 +55,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
@@ -72,7 +72,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :description An optional description for internal use.
       #
@@ -89,12 +89,12 @@ module ModernTreasury
       #     payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #     reversal.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status] :status To post a ledger transaction at creation, use `posted`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
@@ -111,18 +111,18 @@ module ModernTreasury
 
       # Get a list of ledger transactions.
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [Hash{Symbol => Time}] :effective_at Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
+      #   @option params [Hash{Symbol=>Time}] :effective_at Use "gt" (>), "gte" (>=), "lt" (<), "lte" (<=), or "eq" (=) to filter by
       #     effective at. For example, for all transactions after Jan 1 2000, use
       #     effective_at%5Bgt%5D=2000-01-01T00:00:00:00.000Z.
       #
-      #   @option params [Hash{Symbol => Time}] :effective_date Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
+      #   @option params [Hash{Symbol=>Time}] :effective_date Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by
       #     effective date. For example, for all dates after Jan 1 2000, use
       #     effective_date%5Bgt%5D=2000-01-01.
       #
@@ -140,7 +140,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType] :ledgerable_type
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -150,7 +150,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      #   @option params [Hash{Symbol => Time}] :posted_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol=>Time}] :posted_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     posted_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
@@ -158,11 +158,11 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status] :status
       #
-      #   @option params [Hash{Symbol => Time}] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol=>Time}] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransaction>]
       #
@@ -182,7 +182,7 @@ module ModernTreasury
       #
       # @param id [String] The id of ledger transaction to reverse.
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionCreateReversalParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionCreateReversalParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :description An optional free-form description for the reversal ledger transaction. Maximum
       #     of 1000 characters allowed.
@@ -199,13 +199,13 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType] :ledgerable_type Specify this if you'd like to link the reversal ledger transaction to a Payment
       #     object like Return or Reversal.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data to be added to the reversal ledger transaction as key-value
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data to be added to the reversal ledger transaction as key-value
       #     pairs. Both the key and value must be strings.
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status] :status Status of the reversal ledger transaction. It defaults to `posted` if not
       #     provided.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #

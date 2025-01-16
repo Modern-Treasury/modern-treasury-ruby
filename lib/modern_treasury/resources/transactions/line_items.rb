@@ -6,7 +6,7 @@ module ModernTreasury
       class LineItems
         # create transaction line items
         #
-        # @param params [ModernTreasury::Models::Transactions::LineItemCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Transactions::LineItemCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [Integer] :amount If a matching object exists in Modern Treasury, `amount` will be populated.
         #     Value in specified currency's smallest unit (taken from parent Transaction).
@@ -15,7 +15,7 @@ module ModernTreasury
         #
         #   @option params [String] :transaction_id The ID of the parent transaction.
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
@@ -34,7 +34,7 @@ module ModernTreasury
         #
         # @param id [String] id
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
@@ -49,9 +49,9 @@ module ModernTreasury
 
         # list transaction_line_items
         #
-        # @param params [ModernTreasury::Models::Transactions::LineItemListParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Transactions::LineItemListParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
-        #   @option params [Hash{Symbol => String}] :id
+        #   @option params [Hash{Symbol=>String}] :id
         #
         #   @option params [String, nil] :after_cursor
         #
@@ -61,7 +61,7 @@ module ModernTreasury
         #
         #   @option params [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil] :type
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
         #
@@ -81,7 +81,7 @@ module ModernTreasury
         #
         # @param id [String] id
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [nil]
         #

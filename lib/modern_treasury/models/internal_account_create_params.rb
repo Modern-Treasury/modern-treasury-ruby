@@ -54,7 +54,7 @@ module ModernTreasury
       # @!attribute vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account at the vendor specified by the given connection.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :vendor_attributes, ModernTreasury::HashOf[String]
 
       # @!parse
@@ -75,7 +75,7 @@ module ModernTreasury
       #   #
       #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
       #   #
-      #   # @param vendor_attributes [Hash{Symbol => String}] A hash of vendor specific attributes that will be used when creating the account
+      #   # @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
       #   #   at the vendor specified by the given connection.
       #   #
       #   def initialize(
@@ -98,7 +98,6 @@ module ModernTreasury
       # Either "USD" or "CAD". Internal accounts created at Increase only supports "USD".
       #
       # @example
-      #
       # ```ruby
       # case currency
       # in :USD
@@ -115,7 +114,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # party_address => {
       #   country: String,

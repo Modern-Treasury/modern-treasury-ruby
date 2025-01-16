@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # ledger_event_handler_variable => {
     #   query: ModernTreasury::Models::LedgerEventHandlerVariable::Query,
@@ -33,7 +32,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # query => {
       #   field: String,

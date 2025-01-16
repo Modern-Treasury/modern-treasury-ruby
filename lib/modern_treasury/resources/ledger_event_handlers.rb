@@ -5,7 +5,7 @@ module ModernTreasury
     class LedgerEventHandlers
       # create ledger_event_handler
       #
-      # @param params [ModernTreasury::Models::LedgerEventHandlerCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEventHandlerCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate] :ledger_transaction_template
       #
@@ -17,12 +17,12 @@ module ModernTreasury
       #
       #   @option params [String] :ledger_id The id of the ledger that this account belongs to.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      #   @option params [Hash{Symbol => ModernTreasury::Models::LedgerEventHandlerVariable}, nil] :variables
+      #   @option params [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil] :variables
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #
@@ -41,7 +41,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #
@@ -56,15 +56,15 @@ module ModernTreasury
 
       # Get a list of ledger event handlers.
       #
-      # @param params [ModernTreasury::Models::LedgerEventHandlerListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEventHandlerListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
-      #   @option params [Hash{Symbol => Time}] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol=>Time}] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -72,7 +72,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
       #
@@ -92,7 +92,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #

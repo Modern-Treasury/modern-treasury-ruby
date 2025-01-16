@@ -5,7 +5,7 @@ module ModernTreasury
     class AccountCollectionFlows
       # create account_collection_flow
       #
-      # @param params [ModernTreasury::Models::AccountCollectionFlowCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountCollectionFlowCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :counterparty_id Required.
       #
@@ -13,7 +13,7 @@ module ModernTreasury
       #
       #   @option params [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>] :receiving_countries
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
@@ -32,7 +32,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
@@ -49,12 +49,12 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::AccountCollectionFlowUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountCollectionFlowUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] :status Required. The updated status of the account collection flow. Can only be used to
       #     mark a flow as `cancelled`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
@@ -71,7 +71,7 @@ module ModernTreasury
 
       # list account_collection_flows
       #
-      # @param params [ModernTreasury::Models::AccountCollectionFlowListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountCollectionFlowListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -85,7 +85,7 @@ module ModernTreasury
       #
       #   @option params [String] :status
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountCollectionFlow>]
       #
