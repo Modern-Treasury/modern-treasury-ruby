@@ -78,7 +78,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute middle_name
@@ -159,7 +159,7 @@ module ModernTreasury
       #   #
       #   # @param legal_structure [String, nil] The business's legal structure.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param middle_name [String, nil] An individual's middle name.
@@ -211,7 +211,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # address => {
       #   country: String,
@@ -286,7 +285,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # case address_type
         # in :business
@@ -313,7 +311,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # identification => {
       #   id_number: String,
@@ -358,7 +355,6 @@ module ModernTreasury
         # The type of ID number.
         #
         # @example
-        #
         # ```ruby
         # case id_type
         # in :ar_cuil
@@ -405,7 +401,6 @@ module ModernTreasury
       # The business's legal structure.
       #
       # @example
-      #
       # ```ruby
       # case legal_structure
       # in :corporation
@@ -434,7 +429,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # phone_number => {
       #   phone_number: String
@@ -459,7 +453,6 @@ module ModernTreasury
       # The risk rating of the legal entity. One of low, medium, high.
       #
       # @example
-      #
       # ```ruby
       # case risk_rating
       # in :low

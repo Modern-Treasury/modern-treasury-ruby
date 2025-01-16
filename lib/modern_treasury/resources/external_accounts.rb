@@ -5,7 +5,7 @@ module ModernTreasury
     class ExternalAccounts
       # create external account
       #
-      # @param params [ModernTreasury::Models::ExternalAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :counterparty_id
       #
@@ -21,7 +21,7 @@ module ModernTreasury
       #     https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
       #     for more details.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [String, nil] :name A nickname for the external account. This is only for internal usage and won't
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>] :routing_details
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       #
@@ -59,7 +59,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       #
@@ -76,13 +76,13 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [ModernTreasury::Models::ExternalAccountUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::ExternalAccountType] :account_type Can be `checking`, `savings` or `other`.
       #
       #   @option params [String, nil] :counterparty_id
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
       #   @option params [String, nil] :name A nickname for the external account. This is only for internal usage and won't
@@ -94,7 +94,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil] :party_type Either `individual` or `business`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       #
@@ -111,13 +111,13 @@ module ModernTreasury
 
       # list external accounts
       #
-      # @param params [ModernTreasury::Models::ExternalAccountListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
       #   @option params [String] :counterparty_id
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -125,7 +125,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExternalAccount>]
       #
@@ -145,7 +145,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       #
@@ -162,11 +162,11 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [ModernTreasury::Models::ExternalAccountCompleteVerificationParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountCompleteVerificationParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Array<Integer>] :amounts
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount]
       #
@@ -185,7 +185,7 @@ module ModernTreasury
       #
       # @param id [String] external account id
       #
-      # @param params [ModernTreasury::Models::ExternalAccountVerifyParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExternalAccountVerifyParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :originating_account_id The ID of the internal account where the micro-deposits originate from. Both
       #     credit and debit capabilities must be enabled.
@@ -201,7 +201,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority] :priority Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #     transfer. This will apply to both `payment_type` and `fallback_type`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
       #

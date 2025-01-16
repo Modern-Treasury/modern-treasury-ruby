@@ -30,7 +30,7 @@ module ModernTreasury
       # @!attribute created_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash{Symbol => Time}]
+      #   @return [Hash{Symbol=>Time}]
       optional :created_at, ModernTreasury::HashOf[Time]
 
       # @!attribute currency
@@ -51,7 +51,7 @@ module ModernTreasury
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
@@ -82,7 +82,7 @@ module ModernTreasury
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash{Symbol => Time}]
+      #   @return [Hash{Symbol=>Time}]
       optional :updated_at, ModernTreasury::HashOf[Time]
 
       # @!parse
@@ -100,7 +100,7 @@ module ModernTreasury
       #   #   the provided timestamps. If no value is supplied the balances will be retrieved
       #   #   not including that bound.
       #   #
-      #   # @param created_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param created_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #
@@ -110,7 +110,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_id [String]
       #   #
-      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
@@ -125,7 +125,7 @@ module ModernTreasury
       #   # @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   #   filter by balance amount.
       #   #
-      #   # @param updated_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param updated_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #
@@ -152,7 +152,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # available_balance_amount => {
       #   eq: Integer,
@@ -210,7 +209,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # balances => {
       #   as_of_date: Date,
@@ -258,7 +256,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # pending_balance_amount => {
       #   eq: Integer,
@@ -316,7 +313,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # posted_balance_amount => {
       #   eq: Integer,

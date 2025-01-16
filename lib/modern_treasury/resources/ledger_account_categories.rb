@@ -5,7 +5,7 @@ module ModernTreasury
     class LedgerAccountCategories
       # Create a ledger account category.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCategoryCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :currency The currency of the ledger account category.
       #
@@ -22,10 +22,10 @@ module ModernTreasury
       #   @option params [Array<String>] :ledger_account_category_ids The array of ledger account category ids that this ledger account category
       #     should be a child of.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       #
@@ -44,13 +44,13 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] :balances For example, if you want the balances as of a particular time (ISO8601), the
       #     encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #     The balances as of a time are inclusive of entries with that exact time.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       #
@@ -69,16 +69,16 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCategoryUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :description The description of the ledger account category.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [String] :name The name of the ledger account category.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       #
@@ -95,7 +95,7 @@ module ModernTreasury
 
       # Get a list of ledger account categories.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCategoryListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -113,7 +113,7 @@ module ModernTreasury
       #
       #   @option params [String] :ledger_id
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -123,7 +123,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountCategory>]
       #
@@ -143,7 +143,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
       #
@@ -160,11 +160,11 @@ module ModernTreasury
       #
       # @param ledger_account_id [String] ledger_account_id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       #
@@ -185,11 +185,11 @@ module ModernTreasury
       #
       # @param sub_category_id [String] sub_category_id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       #
@@ -210,11 +210,11 @@ module ModernTreasury
       #
       # @param ledger_account_id [String] ledger_account_id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       #
@@ -235,11 +235,11 @@ module ModernTreasury
       #
       # @param sub_category_id [String] sub_category_id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       #

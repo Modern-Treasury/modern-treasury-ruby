@@ -5,7 +5,7 @@ module ModernTreasury
     class PaymentFlows
       # create payment_flow
       #
-      # @param params [ModernTreasury::Models::PaymentFlowCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentFlowCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Integer] :amount Required. Value in specified currency's smallest unit. e.g. $10 would be
       #     represented as 1000. Can be any integer up to 36 digits.
@@ -24,7 +24,7 @@ module ModernTreasury
       #     `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #     they are selecting a payment `effective_date`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -43,7 +43,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -60,12 +60,12 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::PaymentFlowUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentFlowUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status] :status Required. The updated status of the payment flow. Can only be used to mark a
       #     flow as `cancelled`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -82,7 +82,7 @@ module ModernTreasury
 
       # list payment_flows
       #
-      # @param params [ModernTreasury::Models::PaymentFlowListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentFlowListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -100,7 +100,7 @@ module ModernTreasury
       #
       #   @option params [String] :status
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentFlow>]
       #

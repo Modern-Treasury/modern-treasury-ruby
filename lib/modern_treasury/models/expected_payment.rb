@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # expected_payment => {
     #   id: String,
@@ -94,7 +93,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
@@ -200,7 +199,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
@@ -272,7 +271,6 @@ module ModernTreasury
       # One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
       #
       # @example
-      #
       # ```ruby
       # case direction
       # in :credit
@@ -291,7 +289,6 @@ module ModernTreasury
       # One of manual if this expected payment was manually reconciled in the dashboard, automatic if it was automatically reconciled by Modern Treasury, or null if it is unreconciled.
       #
       # @example
-      #
       # ```ruby
       # case reconciliation_method
       # in :automatic
@@ -310,7 +307,6 @@ module ModernTreasury
       # One of unreconciled, partially_reconciled, reconciled, or archived.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :archived

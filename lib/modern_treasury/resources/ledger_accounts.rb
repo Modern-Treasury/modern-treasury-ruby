@@ -5,7 +5,7 @@ module ModernTreasury
     class LedgerAccounts
       # Create a ledger account.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :currency The currency of the ledger account.
       #
@@ -29,10 +29,10 @@ module ModernTreasury
       #     be populated here, otherwise null. The value is one of internal_account or
       #     external_account.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccount]
       #
@@ -51,7 +51,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountRetrieveParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances] :balances Use `balances[effective_at_lower_bound]` and
       #     `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -60,7 +60,7 @@ module ModernTreasury
       #     not including that bound. Use `balances[as_of_lock_version]` to retrieve a
       #     balance as of a specific Ledger Account `lock_version`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccount]
       #
@@ -79,16 +79,16 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :description The description of the ledger account.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [String] :name The name of the ledger account.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccount]
       #
@@ -105,7 +105,7 @@ module ModernTreasury
 
       # Get a list of ledger accounts.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -121,7 +121,7 @@ module ModernTreasury
       #     the provided timestamps. If no value is supplied the balances will be retrieved
       #     not including that bound.
       #
-      #   @option params [Hash{Symbol => Time}] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol=>Time}] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
@@ -131,7 +131,7 @@ module ModernTreasury
       #
       #   @option params [String] :ledger_id
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -146,11 +146,11 @@ module ModernTreasury
       #   @option params [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount] :posted_balance_amount Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #     filter by balance amount.
       #
-      #   @option params [Hash{Symbol => Time}] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   @option params [Hash{Symbol=>Time}] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #     updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccount>]
       #
@@ -170,7 +170,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerAccount]
       #

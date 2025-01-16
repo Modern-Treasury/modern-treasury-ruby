@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # ledger_entry => {
     #   id: String,
@@ -81,7 +80,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
@@ -138,7 +137,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
@@ -181,7 +180,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # resulting_ledger_account_balances => {
       #   available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
@@ -234,7 +232,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # available_balance => {
         #   amount: Integer,
@@ -294,7 +291,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # pending_balance => {
         #   amount: Integer,
@@ -351,7 +347,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # posted_balance => {
         #   amount: Integer,
@@ -411,7 +406,6 @@ module ModernTreasury
       # Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :archived

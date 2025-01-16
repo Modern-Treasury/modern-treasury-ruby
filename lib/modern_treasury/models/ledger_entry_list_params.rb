@@ -29,13 +29,13 @@ module ModernTreasury
       # @!attribute effective_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the transaction's effective time. Format ISO8601
       #
-      #   @return [Hash{Symbol => Time}]
+      #   @return [Hash{Symbol=>Time}]
       optional :effective_at, ModernTreasury::HashOf[Time]
 
       # @!attribute effective_date
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the transaction's effective date. Format YYYY-MM-DD
       #
-      #   @return [Hash{Symbol => Date}]
+      #   @return [Hash{Symbol=>Date}]
       optional :effective_date, ModernTreasury::HashOf[Date]
 
       # @!attribute ledger_account_category_id
@@ -52,7 +52,7 @@ module ModernTreasury
       # @!attribute ledger_account_lock_version
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the lock_version of a ledger account. For example, for all entries created at or before before lock_version 1000 of a ledger account, use `ledger_account_lock_version%5Blte%5D=1000`.
       #
-      #   @return [Hash{Symbol => Integer}]
+      #   @return [Hash{Symbol=>Integer}]
       optional :ledger_account_lock_version, ModernTreasury::HashOf[Integer]
 
       # @!attribute ledger_account_payout_id
@@ -79,7 +79,7 @@ module ModernTreasury
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute order_by
@@ -114,7 +114,7 @@ module ModernTreasury
       # @!attribute updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash{Symbol => Time}]
+      #   @return [Hash{Symbol=>Time}]
       optional :updated_at, ModernTreasury::HashOf[Time]
 
       # @!parse
@@ -130,10 +130,10 @@ module ModernTreasury
       #   #   a ledger transaction to specify a new set of entries, the previous entries are
       #   #   deleted.
       #   #
-      #   # @param effective_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param effective_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   transaction's effective time. Format ISO8601
       #   #
-      #   # @param effective_date [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param effective_date [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   transaction's effective date. Format YYYY-MM-DD
       #   #
       #   # @param ledger_account_category_id [String] Get all ledger entries that match the direction specified. One of `credit`,
@@ -141,7 +141,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_account_id [String]
       #   #
-      #   # @param ledger_account_lock_version [Hash{Symbol => Integer}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param ledger_account_lock_version [Hash{Symbol=>Integer}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   lock_version of a ledger account. For example, for all entries created at or
       #   #   before before lock_version 1000 of a ledger account, use
       #   #   `ledger_account_lock_version%5Blte%5D=1000`.
@@ -154,7 +154,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_transaction_id [String]
       #   #
-      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
@@ -174,7 +174,7 @@ module ModernTreasury
       #   # @param status [String] Get all ledger entries that match the status specified. One of `pending`,
       #   #   `posted`, or `archived`.
       #   #
-      #   # @param updated_at [Hash{Symbol => String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   # @param updated_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #   #
@@ -207,7 +207,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # order_by => {
       #   created_at: enum: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt,
@@ -241,7 +240,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # case created_at
         # in :asc
@@ -258,7 +256,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # case effective_at
         # in :asc
@@ -278,7 +275,6 @@ module ModernTreasury
       # Get all ledger entries that match the status specified. One of `pending`, `posted`, or `archived`.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :pending

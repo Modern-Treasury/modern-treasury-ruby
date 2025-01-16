@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # transaction => {
     #   id: String,
@@ -58,7 +57,7 @@ module ModernTreasury
       # @!attribute custom_identifiers
       #   An object containing key-value pairs, each with a custom identifier as the key and a string value.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :custom_identifiers, ModernTreasury::HashOf[String]
 
       # @!attribute direction
@@ -93,7 +92,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
@@ -151,7 +150,7 @@ module ModernTreasury
       # @!attribute details
       #   This field contains additional information that the bank provided about the transaction. This is structured data. Some of the data in here might overlap with what is in the `vendor_description`. For example, the OBI could be a part of the vendor description, and it would also be included in here. The attributes that are passed through the details field will vary based on your banking partner. Currently, the following keys may be in the details object: `originator_name`, `originator_to_beneficiary_information`.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :details, ModernTreasury::HashOf[String]
 
       # @!attribute vendor_description
@@ -178,7 +177,7 @@ module ModernTreasury
       #   #
       #   # @param currency [String] Currency that this transaction is denominated in.
       #   #
-      #   # @param custom_identifiers [Hash{Symbol => String}] An object containing key-value pairs, each with a custom identifier as the key
+      #   # @param custom_identifiers [Hash{Symbol=>String}] An object containing key-value pairs, each with a custom identifier as the key
       #   #   and a string value.
       #   #
       #   # @param direction [String] Either `credit` or `debit`.
@@ -192,7 +191,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
@@ -220,7 +219,7 @@ module ModernTreasury
       #   #
       #   # @param vendor_id [String, nil] An identifier given to this transaction by the bank.
       #   #
-      #   # @param details [Hash{Symbol => String}] This field contains additional information that the bank provided about the
+      #   # @param details [Hash{Symbol=>String}] This field contains additional information that the bank provided about the
       #   #   transaction. This is structured data. Some of the data in here might overlap
       #   #   with what is in the `vendor_description`. For example, the OBI could be a part
       #   #   of the vendor description, and it would also be included in here. The attributes
@@ -265,7 +264,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # foreign_exchange_rate => {
       #   base_amount: Integer,
@@ -348,7 +346,6 @@ module ModernTreasury
       # The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
       # @example
-      #
       # ```ruby
       # case type
       # in :ach
@@ -404,7 +401,6 @@ module ModernTreasury
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, `us_bank`, or others.
       #
       # @example
-      #
       # ```ruby
       # case vendor_code_type
       # in :bai2

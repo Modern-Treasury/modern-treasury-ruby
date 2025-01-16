@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # routing_detail => {
     #   id: String,
@@ -122,7 +121,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # bank_address => {
       #   id: String,
@@ -241,7 +239,6 @@ module ModernTreasury
       # If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
       #
       # @example
-      #
       # ```ruby
       # case payment_type
       # in :ach
@@ -296,7 +293,6 @@ module ModernTreasury
       # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
       #
       # @example
-      #
       # ```ruby
       # case routing_number_type
       # in :aba

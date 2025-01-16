@@ -17,7 +17,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing an empty string or `null` as the value.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
@@ -48,7 +48,7 @@ module ModernTreasury
       #   #
       #   # @param counterparty_id [String, nil]
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   #   an empty string or `null` as the value.
       #   #
       #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
@@ -76,7 +76,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # party_address => {
       #   country: String,
@@ -142,7 +141,6 @@ module ModernTreasury
       # Either `individual` or `business`.
       #
       # @example
-      #
       # ```ruby
       # case party_type
       # in :business

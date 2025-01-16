@@ -5,7 +5,7 @@ module ModernTreasury
     class ForeignExchangeQuotes
       # create foreign_exchange_quote
       #
-      # @param params [ModernTreasury::Models::ForeignExchangeQuoteCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ForeignExchangeQuoteCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
       #
@@ -21,7 +21,7 @@ module ModernTreasury
       #   @option params [Integer] :target_amount Amount in the lowest denomination of the `target_currency`, often called the
       #     "buy" amount.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
@@ -55,7 +55,7 @@ module ModernTreasury
 
       # list foreign_exchange_quotes
       #
-      # @param params [ModernTreasury::Models::ForeignExchangeQuoteListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ForeignExchangeQuoteListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -69,7 +69,7 @@ module ModernTreasury
       #
       #   @option params [String] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -77,7 +77,7 @@ module ModernTreasury
       #
       #   @option params [String] :target_currency Currency to convert the `base_currency` to, often called the "buy" currency.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       #

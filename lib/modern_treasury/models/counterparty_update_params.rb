@@ -18,7 +18,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing an empty string or `null` as the value.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
@@ -44,7 +44,7 @@ module ModernTreasury
       #   #
       #   # @param legal_entity_id [String, nil] The id of the legal entity.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   #   an empty string or `null` as the value.
       #   #
       #   # @param name [String] A new name for the counterparty. Will only update if passed.

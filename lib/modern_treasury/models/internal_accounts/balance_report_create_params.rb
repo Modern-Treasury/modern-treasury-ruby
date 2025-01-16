@@ -51,7 +51,6 @@ module ModernTreasury
         # The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
         #
         # @example
-        #
         # ```ruby
         # case balance_report_type
         # in :intraday
@@ -74,7 +73,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # balance => {
         #   amount: Integer,
@@ -133,7 +131,6 @@ module ModernTreasury
           # The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
           #
           # @example
-          #
           # ```ruby
           # case balance_type
           # in :closing_available

@@ -63,7 +63,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!parse
@@ -89,7 +89,7 @@ module ModernTreasury
       #   #   be populated here, otherwise null. The value is one of internal_account or
       #   #   external_account.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   def initialize(
@@ -113,7 +113,6 @@ module ModernTreasury
       # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
       #
       # @example
-      #
       # ```ruby
       # case ledgerable_type
       # in :counterparty

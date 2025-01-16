@@ -5,7 +5,7 @@ module ModernTreasury
     class VirtualAccounts
       # create virtual_account
       #
-      # @param params [ModernTreasury::Models::VirtualAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::VirtualAccountCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :internal_account_id The ID of the internal account that this virtual account is associated with.
       #
@@ -29,12 +29,12 @@ module ModernTreasury
       #     The resulting ledger account is linked to the virtual account for auto-ledgering
       #     IPDs.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] :routing_details An array of routing detail objects.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       #
@@ -53,7 +53,7 @@ module ModernTreasury
       #
       # @param id [String] Virtual Acccount ID
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       #
@@ -70,17 +70,17 @@ module ModernTreasury
       #
       # @param id [String] Virtual Acccount ID
       #
-      # @param params [ModernTreasury::Models::VirtualAccountUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::VirtualAccountUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :counterparty_id
       #
       #   @option params [String] :ledger_account_id The ledger account that you'd like to link to the virtual account.
       #
-      #   @option params [Hash{Symbol => String}] :metadata
+      #   @option params [Hash{Symbol=>String}] :metadata
       #
       #   @option params [String, nil] :name
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       #
@@ -97,7 +97,7 @@ module ModernTreasury
 
       # Get a list of virtual accounts.
       #
-      # @param params [ModernTreasury::Models::VirtualAccountListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::VirtualAccountListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -105,13 +105,13 @@ module ModernTreasury
       #
       #   @option params [String] :internal_account_id
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::VirtualAccount>]
       #
@@ -131,7 +131,7 @@ module ModernTreasury
       #
       # @param id [String] Virtual Acccount ID
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       #

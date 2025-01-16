@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # routing_number_lookup_request => {
     #   bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
@@ -42,7 +41,7 @@ module ModernTreasury
       # @!attribute sanctions
       #   An object containing key-value pairs, each with a sanctions list as the key and a boolean value representing whether the bank is on that particular sanctions list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       #
-      #   @return [Hash{Symbol => Object}]
+      #   @return [Hash{Symbol=>Object}]
       optional :sanctions, ModernTreasury::HashOf[ModernTreasury::Unknown]
 
       # @!attribute supported_payment_types
@@ -66,7 +65,7 @@ module ModernTreasury
       #   #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #   #
-      #   # @param sanctions [Hash{Symbol => Object}] An object containing key-value pairs, each with a sanctions list as the key and
+      #   # @param sanctions [Hash{Symbol=>Object}] An object containing key-value pairs, each with a sanctions list as the key and
       #   #   a boolean value representing whether the bank is on that particular sanctions
       #   #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       #   #
@@ -88,7 +87,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # bank_address => {
       #   country: String,
@@ -156,7 +154,6 @@ module ModernTreasury
       # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details. In sandbox mode we currently only support `aba` and `swift` with routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
       # @example
-      #
       # ```ruby
       # case routing_number_type
       # in :aba
@@ -187,7 +184,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # case supported_payment_type
       # in :ach

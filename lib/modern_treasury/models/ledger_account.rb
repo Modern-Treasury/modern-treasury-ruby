@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # ledger_account => {
     #   id: String,
@@ -75,7 +74,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
@@ -129,7 +128,7 @@ module ModernTreasury
       #   #
       #   # @param lock_version [Integer] Lock version of the ledger account.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param name [String] The name of the ledger account.
@@ -164,7 +163,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # balances => {
       #   available_balance: ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance,
@@ -241,7 +239,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # available_balance => {
         #   amount: Integer,
@@ -301,7 +298,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # pending_balance => {
         #   amount: Integer,
@@ -358,7 +354,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # posted_balance => {
         #   amount: Integer,
@@ -418,7 +413,6 @@ module ModernTreasury
       # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
       #
       # @example
-      #
       # ```ruby
       # case ledgerable_type
       # in :counterparty

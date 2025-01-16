@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # account_collection_flow => {
     #   counterparty_id: String,
@@ -130,7 +129,6 @@ module ModernTreasury
       # An account created with this flow will support payments of one of these types.
       #
       # @example
-      #
       # ```ruby
       # case payment_type
       # in :ach
@@ -149,7 +147,6 @@ module ModernTreasury
       # An account created with this flow will support wires from the US to these countries.
       #
       # @example
-      #
       # ```ruby
       # case receiving_country
       # in :USA
@@ -192,7 +189,6 @@ module ModernTreasury
       # The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :cancelled
