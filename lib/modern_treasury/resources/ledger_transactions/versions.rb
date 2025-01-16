@@ -6,11 +6,11 @@ module ModernTreasury
       class Versions
         # Get a list of ledger transaction versions.
         #
-        # @param params [ModernTreasury::Models::LedgerTransactions::VersionListParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::LedgerTransactions::VersionListParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String, nil] :after_cursor
         #
-        #   @option params [Hash{Symbol => Time}] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   @option params [Hash{Symbol=>Time}] :created_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #     created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use
         #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         #
@@ -22,10 +22,10 @@ module ModernTreasury
         #
         #   @option params [Integer] :per_page
         #
-        #   @option params [Hash{Symbol => Integer}] :version Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   @option params [Hash{Symbol=>Integer}] :version Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #     version. For example, for all versions after 2, use version%5Bgt%5D=2.
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
         #

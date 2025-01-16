@@ -136,7 +136,7 @@ module ModernTreasury
 
     # @private
     #
-    # @return [Hash{String => String}]
+    # @return [Hash{String=>String}]
     #
     private def auth_headers
       # Strict base64 encoding that ensures no control characters.

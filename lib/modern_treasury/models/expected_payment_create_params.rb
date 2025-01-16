@@ -79,7 +79,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute reconciliation_filters
@@ -153,7 +153,7 @@ module ModernTreasury
       #   #
       #   # @param line_items [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>]
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param reconciliation_filters [Object, nil] The reconciliation filters you have for this payment.
@@ -204,7 +204,6 @@ module ModernTreasury
       # One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
       #
       # @example
-      #
       # ```ruby
       # case direction
       # in :credit
@@ -221,7 +220,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # ledger_transaction => {
       #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry] === _1 },
@@ -284,7 +282,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute status
@@ -321,7 +319,7 @@ module ModernTreasury
         #   #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   #   reversal.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param status [String] To post a ledger transaction at creation, use `posted`.
@@ -344,7 +342,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # ledger_entry => {
         #   amount: Integer,
@@ -377,7 +374,7 @@ module ModernTreasury
           # @!attribute available_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s available balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
-          #   @return [Hash{Symbol => Integer}, nil]
+          #   @return [Hash{Symbol=>Integer}, nil]
           optional :available_balance_amount, ModernTreasury::HashOf[Integer]
 
           # @!attribute lock_version
@@ -389,19 +386,19 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash{Symbol => String}]
+          #   @return [Hash{Symbol=>String}]
           optional :metadata, ModernTreasury::HashOf[String]
 
           # @!attribute pending_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s pending balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
-          #   @return [Hash{Symbol => Integer}, nil]
+          #   @return [Hash{Symbol=>Integer}, nil]
           optional :pending_balance_amount, ModernTreasury::HashOf[Integer]
 
           # @!attribute posted_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s posted balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
-          #   @return [Hash{Symbol => Integer}, nil]
+          #   @return [Hash{Symbol=>Integer}, nil]
           optional :posted_balance_amount, ModernTreasury::HashOf[Integer]
 
           # @!attribute show_resulting_ledger_account_balances
@@ -421,7 +418,7 @@ module ModernTreasury
           #   #
           #   # @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
           #   #
-          #   # @param available_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+          #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   #   account’s available balance. If any of these conditions would be false after the
           #   #   transaction is created, the entire call will fail with error code 422.
           #   #
@@ -430,14 +427,14 @@ module ModernTreasury
           #   #   given version. See our post about Designing the Ledgers API with Optimistic
           #   #   Locking for more details.
           #   #
-          #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
-          #   # @param pending_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+          #   # @param pending_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   #   account’s pending balance. If any of these conditions would be false after the
           #   #   transaction is created, the entire call will fail with error code 422.
           #   #
-          #   # @param posted_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+          #   # @param posted_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   #   account’s posted balance. If any of these conditions would be false after the
           #   #   transaction is created, the entire call will fail with error code 422.
           #   #
@@ -465,7 +462,6 @@ module ModernTreasury
         # If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
         #
         # @example
-        #
         # ```ruby
         # case ledgerable_type
         # in :expected_payment
@@ -496,7 +492,6 @@ module ModernTreasury
         # To post a ledger transaction at creation, use `posted`.
         #
         # @example
-        #
         # ```ruby
         # case status
         # in :archived
@@ -517,7 +512,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # line_item => {
       #   amount: Integer,
@@ -548,7 +542,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!parse
@@ -560,7 +554,7 @@ module ModernTreasury
         #   #
         #   # @param description [String, nil] A free-form description of the line item.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super

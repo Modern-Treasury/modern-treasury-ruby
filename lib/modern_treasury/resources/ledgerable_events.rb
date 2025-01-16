@@ -5,7 +5,7 @@ module ModernTreasury
     class LedgerableEvents
       # Create a ledgerable event.
       #
-      # @param params [ModernTreasury::Models::LedgerableEventCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerableEventCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :name Name of the ledgerable event.
       #
@@ -13,10 +13,10 @@ module ModernTreasury
       #
       #   @option params [String, nil] :description Description of the ledgerable event.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
       #
@@ -35,7 +35,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
       #

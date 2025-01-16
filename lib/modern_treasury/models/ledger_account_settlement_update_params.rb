@@ -12,7 +12,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute status
@@ -24,7 +24,7 @@ module ModernTreasury
       # @!parse
       #   # @param description [String, nil] The description of the ledger account settlement.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param status [String] To post a pending ledger account settlement, use `posted`. To archive a pending
@@ -37,7 +37,6 @@ module ModernTreasury
       # To post a pending ledger account settlement, use `posted`. To archive a pending ledger transaction, use `archived`.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :posted

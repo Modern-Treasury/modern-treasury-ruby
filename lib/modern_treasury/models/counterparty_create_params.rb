@@ -47,7 +47,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute send_remittance_advice
@@ -85,7 +85,7 @@ module ModernTreasury
       #   #
       #   # @param legal_entity_id [String, nil] The id of the legal entity.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param send_remittance_advice [Boolean] Send an email to the counterparty whenever an associated payment order is sent
@@ -115,7 +115,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # accounting => {
       #   type: enum: ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type
@@ -139,7 +138,6 @@ module ModernTreasury
         # An optional type to auto-sync the counterparty to your ledger. Either `customer` or `vendor`.
         #
         # @example
-        #
         # ```ruby
         # case type
         # in :customer
@@ -157,7 +155,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # account => {
       #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail] === _1 },
@@ -203,7 +200,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute name
@@ -268,7 +265,7 @@ module ModernTreasury
         #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         #   #   for more details.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
@@ -308,7 +305,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # account_detail => {
         #   account_number: String,
@@ -338,7 +334,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @example
-          #
           # ```ruby
           # case account_number_type
           # in :au_number
@@ -372,7 +367,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # contact_detail => {
         #   contact_identifier: String,
@@ -402,7 +396,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @example
-          #
           # ```ruby
           # case contact_identifier_type
           # in :email
@@ -423,7 +416,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # ledger_account => {
         #   currency: String,
@@ -495,7 +487,7 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash{Symbol => String}]
+          #   @return [Hash{Symbol=>String}]
           optional :metadata, ModernTreasury::HashOf[String]
 
           # @!parse
@@ -527,7 +519,7 @@ module ModernTreasury
           #   #   be populated here, otherwise null. The value is one of internal_account or
           #   #   external_account.
           #   #
-          #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
           #   def initialize(
@@ -551,7 +543,6 @@ module ModernTreasury
           # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
           #
           # @example
-          #
           # ```ruby
           # case ledgerable_type
           # in :counterparty
@@ -575,7 +566,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # party_address => {
         #   country: String,
@@ -643,7 +633,6 @@ module ModernTreasury
         # Either `individual` or `business`.
         #
         # @example
-        #
         # ```ruby
         # case party_type
         # in :business
@@ -660,7 +649,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # routing_detail => {
         #   routing_number: String,
@@ -700,7 +688,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @example
-          #
           # ```ruby
           # case routing_number_type
           # in :aba
@@ -743,7 +730,6 @@ module ModernTreasury
           end
 
           # @example
-          #
           # ```ruby
           # case payment_type
           # in :ach
@@ -802,7 +788,6 @@ module ModernTreasury
       # An optional type to auto-sync the counterparty to your ledger. Either `customer` or `vendor`.
       #
       # @example
-      #
       # ```ruby
       # case ledger_type
       # in :customer
@@ -819,7 +804,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # legal_entity => {
       #   legal_entity_type: enum: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType,
@@ -927,7 +911,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute middle_name
@@ -1015,7 +999,7 @@ module ModernTreasury
         #   #
         #   # @param legal_structure [String, nil] The business's legal structure.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param middle_name [String, nil] An individual's middle name.
@@ -1071,7 +1055,6 @@ module ModernTreasury
         # The type of legal entity.
         #
         # @example
-        #
         # ```ruby
         # case legal_entity_type
         # in :business
@@ -1088,7 +1071,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # address => {
         #   country: String,
@@ -1163,7 +1145,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @example
-          #
           # ```ruby
           # case address_type
           # in :business
@@ -1190,7 +1171,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # identification => {
         #   id_number: String,
@@ -1235,7 +1215,6 @@ module ModernTreasury
           # The type of ID number.
           #
           # @example
-          #
           # ```ruby
           # case id_type
           # in :ar_cuil
@@ -1280,7 +1259,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # legal_entity_association => {
         #   relationship_types: -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType] === _1 },
@@ -1351,7 +1329,6 @@ module ModernTreasury
           # A list of relationship types for how the child entity relates to parent entity.
           #
           # @example
-          #
           # ```ruby
           # case relationship_type
           # in :beneficial_owner
@@ -1368,7 +1345,6 @@ module ModernTreasury
           end
 
           # @example
-          #
           # ```ruby
           # child_legal_entity => {
           #   addresses: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address] === _1 },
@@ -1471,7 +1447,7 @@ module ModernTreasury
             # @!attribute metadata
             #   Additional data represented as key-value pairs. Both the key and value must be strings.
             #
-            #   @return [Hash{Symbol => String}]
+            #   @return [Hash{Symbol=>String}]
             optional :metadata, ModernTreasury::HashOf[String]
 
             # @!attribute middle_name
@@ -1561,7 +1537,7 @@ module ModernTreasury
             #   #
             #   # @param legal_structure [String, nil] The business's legal structure.
             #   #
-            #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+            #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
             #   #   strings.
             #   #
             #   # @param middle_name [String, nil] An individual's middle name.
@@ -1614,7 +1590,6 @@ module ModernTreasury
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
             # @example
-            #
             # ```ruby
             # address => {
             #   country: String,
@@ -1689,7 +1664,6 @@ module ModernTreasury
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
               # @example
-              #
               # ```ruby
               # case address_type
               # in :business
@@ -1716,7 +1690,6 @@ module ModernTreasury
             end
 
             # @example
-            #
             # ```ruby
             # identification => {
             #   id_number: String,
@@ -1761,7 +1734,6 @@ module ModernTreasury
               # The type of ID number.
               #
               # @example
-              #
               # ```ruby
               # case id_type
               # in :ar_cuil
@@ -1808,7 +1780,6 @@ module ModernTreasury
             # The type of legal entity.
             #
             # @example
-            #
             # ```ruby
             # case legal_entity_type
             # in :business
@@ -1827,7 +1798,6 @@ module ModernTreasury
             # The business's legal structure.
             #
             # @example
-            #
             # ```ruby
             # case legal_structure
             # in :corporation
@@ -1856,7 +1826,6 @@ module ModernTreasury
             end
 
             # @example
-            #
             # ```ruby
             # phone_number => {
             #   phone_number: String
@@ -1881,7 +1850,6 @@ module ModernTreasury
             # The risk rating of the legal entity. One of low, medium, high.
             #
             # @example
-            #
             # ```ruby
             # case risk_rating
             # in :low
@@ -1905,7 +1873,6 @@ module ModernTreasury
         # The business's legal structure.
         #
         # @example
-        #
         # ```ruby
         # case legal_structure
         # in :corporation
@@ -1934,7 +1901,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # phone_number => {
         #   phone_number: String
@@ -1959,7 +1925,6 @@ module ModernTreasury
         # The risk rating of the legal entity. One of low, medium, high.
         #
         # @example
-        #
         # ```ruby
         # case risk_rating
         # in :low
@@ -1982,7 +1947,6 @@ module ModernTreasury
       # The verification status of the counterparty.
       #
       # @example
-      #
       # ```ruby
       # case verification_status
       # in :denied

@@ -5,7 +5,7 @@ module ModernTreasury
     class LegalEntities
       # create legal_entity
       #
-      # @param params [ModernTreasury::Models::LegalEntityCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] :legal_entity_type The type of legal entity.
       #
@@ -35,7 +35,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil] :legal_structure The business's legal structure.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [String, nil] :middle_name An individual's middle name.
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :website The entity's primary website URL.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -75,7 +75,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -92,7 +92,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LegalEntityUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>] :addresses A list of addresses for the entity.
       #
@@ -118,7 +118,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure, nil] :legal_structure The business's legal structure.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [String, nil] :middle_name An individual's middle name.
@@ -139,7 +139,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :website The entity's primary website URL.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -156,13 +156,13 @@ module ModernTreasury
 
       # Get a list of all legal entities.
       #
-      # @param params [ModernTreasury::Models::LegalEntityListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType] :legal_entity_type
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -170,7 +170,7 @@ module ModernTreasury
       #
       #   @option params [String] :show_deleted
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
       #

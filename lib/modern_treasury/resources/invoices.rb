@@ -8,7 +8,7 @@ module ModernTreasury
 
       # create invoice
       #
-      # @param params [ModernTreasury::Models::InvoiceCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :counterparty_id The ID of the counterparty receiving the invoice.
       #
@@ -45,7 +45,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ledger_account_settlement_id The ID of the virtual account the invoice should be paid to.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Array<String>, nil] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
@@ -83,7 +83,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
       #
@@ -102,7 +102,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
       #
@@ -119,7 +119,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::InvoiceUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>] :contact_details The invoicer's contact details displayed at the top of the invoice.
       #
@@ -150,7 +150,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ledger_account_settlement_id The ID of the virtual account the invoice should be paid to.
       #
-      #   @option params [Hash{Symbol => String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Array<String>, nil] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
@@ -194,7 +194,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Invoice]
       #
@@ -211,7 +211,7 @@ module ModernTreasury
 
       # list invoices
       #
-      # @param params [ModernTreasury::Models::InvoiceListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -223,7 +223,7 @@ module ModernTreasury
       #
       #   @option params [String] :expected_payment_id
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -237,7 +237,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::InvoiceListParams::Status] :status
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Invoice>]
       #
@@ -257,11 +257,11 @@ module ModernTreasury
       #
       # @param payment_order_id [String] payment_order_id
       #
-      # @param params [ModernTreasury::Models::InvoiceAddPaymentOrderParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceAddPaymentOrderParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :id id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       #

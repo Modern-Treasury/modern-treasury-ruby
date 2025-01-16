@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # wealth_and_employment_details => {
     #   id: String,
@@ -189,7 +188,6 @@ module ModernTreasury
       # The employment status of the individual.
       #
       # @example
-      #
       # ```ruby
       # case employment_status
       # in :employed
@@ -217,7 +215,6 @@ module ModernTreasury
       # The source of the individual's income.
       #
       # @example
-      #
       # ```ruby
       # case income_source
       # in :family_support
@@ -250,7 +247,6 @@ module ModernTreasury
       # The industry of the individual.
       #
       # @example
-      #
       # ```ruby
       # case industry
       # in :accounting
@@ -308,7 +304,6 @@ module ModernTreasury
       # The occupation of the individual.
       #
       # @example
-      #
       # ```ruby
       # case occupation
       # in :consulting
@@ -345,7 +340,6 @@ module ModernTreasury
       # The source of the individual's funds.
       #
       # @example
-      #
       # ```ruby
       # case source_of_funds
       # in :alimony
@@ -387,7 +381,6 @@ module ModernTreasury
       # The source of the individual's wealth.
       #
       # @example
-      #
       # ```ruby
       # case wealth_source
       # in :business_sale

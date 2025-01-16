@@ -7,7 +7,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param params [ModernTreasury::Models::AccountDetailCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountDetailCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType] :accounts_type Path param:
       #
@@ -16,7 +16,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] :account_number_type Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
       #     the bank account number is in a generic format.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountDetail]
       #
@@ -38,13 +38,13 @@ module ModernTreasury
       #
       # @param id [String] The ID of the account detail.
       #
-      # @param params [ModernTreasury::Models::AccountDetailRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountDetailRetrieveParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::AccountsType] :accounts_type
       #
       #   @option params [String] :account_id The ID of the account.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AccountDetail]
       #
@@ -68,7 +68,7 @@ module ModernTreasury
       #
       # @param account_id [String] Path param: The ID of the account.
       #
-      # @param params [ModernTreasury::Models::AccountDetailListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountDetailListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::AccountsType] :accounts_type Path param:
       #
@@ -76,7 +76,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page Query param:
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountDetail>]
       #
@@ -99,13 +99,13 @@ module ModernTreasury
       #
       # @param id [String] The ID of the account detail.
       #
-      # @param params [ModernTreasury::Models::AccountDetailDeleteParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::AccountDetailDeleteParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType] :accounts_type
       #
       #   @option params [String] :account_id The ID of the account.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       #

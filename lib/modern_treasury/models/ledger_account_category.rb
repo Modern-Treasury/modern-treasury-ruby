@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # ledger_account_category => {
     #   id: String,
@@ -57,7 +56,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
@@ -102,7 +101,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param name [String] The name of the ledger account category.
@@ -134,7 +133,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # balances => {
       #   available_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance,
@@ -189,7 +187,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # available_balance => {
         #   amount: Integer,
@@ -249,7 +246,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # pending_balance => {
         #   amount: Integer,
@@ -306,7 +302,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # posted_balance => {
         #   amount: Integer,

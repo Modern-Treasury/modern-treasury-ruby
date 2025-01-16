@@ -8,7 +8,7 @@ module ModernTreasury
         #
         # @param internal_account_id [String]
         #
-        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [Date] :as_of_date The date of the balance report in local time.
         #
@@ -19,7 +19,7 @@ module ModernTreasury
         #
         #   @option params [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] :balances An array of `Balance` objects.
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         #
@@ -39,11 +39,11 @@ module ModernTreasury
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
         #
-        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String] :internal_account_id
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         #
@@ -64,7 +64,7 @@ module ModernTreasury
         #
         # @param internal_account_id [String]
         #
-        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportListParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportListParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String, nil] :after_cursor
         #
@@ -75,7 +75,7 @@ module ModernTreasury
         #
         #   @option params [Integer] :per_page
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
         #
@@ -96,11 +96,11 @@ module ModernTreasury
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
         #
-        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams, Hash{Symbol => Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams, Hash{Symbol=>Object}] Attributes to send in this request.
         #
         #   @option params [String] :internal_account_id
         #
-        # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
         #
         # @return [nil]
         #

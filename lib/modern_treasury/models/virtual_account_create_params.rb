@@ -57,7 +57,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute routing_details
@@ -92,7 +92,7 @@ module ModernTreasury
       #   #   The resulting ledger account is linked to the virtual account for auto-ledgering
       #   #   IPDs.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] An array of routing detail objects.
@@ -116,7 +116,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # account_detail => {
       #   account_number: String,
@@ -152,7 +151,6 @@ module ModernTreasury
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
         #
         # @example
-        #
         # ```ruby
         # case account_number_type
         # in :au_number
@@ -186,7 +184,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # ledger_account => {
       #   currency: String,
@@ -258,7 +255,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!parse
@@ -288,7 +285,7 @@ module ModernTreasury
         #   #   be populated here, otherwise null. The value is one of internal_account or
         #   #   external_account.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   def initialize(
@@ -312,7 +309,6 @@ module ModernTreasury
         # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
         #
         # @example
-        #
         # ```ruby
         # case ledgerable_type
         # in :counterparty
@@ -336,7 +332,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # routing_detail => {
       #   routing_number: String,
@@ -384,7 +379,6 @@ module ModernTreasury
         # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
         #
         # @example
-        #
         # ```ruby
         # case routing_number_type
         # in :aba
@@ -429,7 +423,6 @@ module ModernTreasury
         # If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
         #
         # @example
-        #
         # ```ruby
         # case payment_type
         # in :ach

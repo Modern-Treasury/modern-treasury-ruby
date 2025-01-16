@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # counterparty_collect_account_response => {
     #   id: String,

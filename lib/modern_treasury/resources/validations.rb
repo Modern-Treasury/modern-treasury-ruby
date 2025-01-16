@@ -6,7 +6,7 @@ module ModernTreasury
       # Validates the routing number information supplied without creating a routing
       #   detail
       #
-      # @param params [ModernTreasury::Models::ValidationValidateRoutingNumberParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ValidationValidateRoutingNumberParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :routing_number The routing number that is being validated.
       #
@@ -15,7 +15,7 @@ module ModernTreasury
       #     more details. In sandbox mode we currently only support `aba` and `swift` with
       #     routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::RoutingNumberLookupRequest]
       #

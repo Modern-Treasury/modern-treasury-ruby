@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # reconciliation_rule => {
     #   amount_lower_bound: Integer,
@@ -54,7 +53,7 @@ module ModernTreasury
       # @!attribute custom_identifiers
       #   A hash of custom identifiers for this payment
       #
-      #   @return [Hash{Symbol => String}, nil]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :custom_identifiers, ModernTreasury::HashOf[String]
 
       # @!attribute date_lower_bound
@@ -91,7 +90,7 @@ module ModernTreasury
       #   #
       #   # @param currency [String] Must conform to ISO 4217. Defaults to the currency of the internal account
       #   #
-      #   # @param custom_identifiers [Hash{Symbol => String}, nil] A hash of custom identifiers for this payment
+      #   # @param custom_identifiers [Hash{Symbol=>String}, nil] A hash of custom identifiers for this payment
       #   #
       #   # @param date_lower_bound [String, nil] The earliest date the payment may come in. Format is yyyy-mm-dd
       #   #
@@ -121,7 +120,6 @@ module ModernTreasury
       # One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
       #
       # @example
-      #
       # ```ruby
       # case direction
       # in :credit
@@ -140,7 +138,6 @@ module ModernTreasury
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sepa, signet wire
       #
       # @example
-      #
       # ```ruby
       # case type
       # in :ach

@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # payment_order => {
     #   id: String,
@@ -52,7 +51,7 @@ module ModernTreasury
       # @!attribute compliance_rule_metadata
       #   Custom key-value pair for usage in compliance rules. Please contact support before making changes to this field.
       #
-      #   @return [Hash{Symbol => Object}, nil]
+      #   @return [Hash{Symbol=>Object}, nil]
       required :compliance_rule_metadata, ModernTreasury::HashOf[ModernTreasury::Unknown]
 
       # @!attribute counterparty_id
@@ -142,7 +141,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute nsf_protected
@@ -330,7 +329,7 @@ module ModernTreasury
       #   #   payment orders. Can be one of shared, sender, or receiver, which correspond
       #   #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       #   #
-      #   # @param compliance_rule_metadata [Hash{Symbol => Object}, nil] Custom key-value pair for usage in compliance rules. Please contact support
+      #   # @param compliance_rule_metadata [Hash{Symbol=>Object}, nil] Custom key-value pair for usage in compliance rules. Please contact support
       #   #   before making changes to this field.
       #   #
       #   # @param counterparty_id [String, nil] If the payment order is tied to a specific Counterparty, their id will appear,
@@ -373,7 +372,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param nsf_protected [Boolean] A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -524,7 +523,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # accounting => {
       #   account_id: String,
@@ -560,7 +558,6 @@ module ModernTreasury
       # The party that will pay the fees for the payment order. Only applies to wire payment orders. Can be one of shared, sender, or receiver, which correspond respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       #
       # @example
-      #
       # ```ruby
       # case charge_bearer
       # in :shared
@@ -582,7 +579,6 @@ module ModernTreasury
       # One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
       #
       # @example
-      #
       # ```ruby
       # case direction
       # in :credit
@@ -601,7 +597,6 @@ module ModernTreasury
       # Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
       #
       # @example
-      #
       # ```ruby
       # case foreign_exchange_indicator
       # in :fixed_to_variable
@@ -618,7 +613,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # foreign_exchange_rate => {
       #   base_amount: Integer,
@@ -701,7 +695,6 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
       #
       # @example
-      #
       # ```ruby
       # case priority
       # in :high
@@ -718,7 +711,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # case receiving_account_type
       # in :internal_account
@@ -735,7 +727,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # reference_number => {
       #   id: String,
@@ -809,7 +800,6 @@ module ModernTreasury
         # The type of the reference number. Referring to the vendor payment id.
         #
         # @example
-        #
         # ```ruby
         # case reference_number_type
         # in :ach_original_trace_number
@@ -906,7 +896,6 @@ module ModernTreasury
       # The current status of the payment order.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :approved
@@ -942,7 +931,6 @@ module ModernTreasury
       # The account to which the originating of this payment should be attributed to. Can be a `virtual_account` or `internal_account`.
       #
       # @example
-      #
       # ```ruby
       # case ultimate_originating_account
       # in ModernTreasury::Models::VirtualAccount
@@ -958,7 +946,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # case ultimate_originating_account_type
       # in :internal_account

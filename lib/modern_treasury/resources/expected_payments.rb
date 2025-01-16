@@ -5,7 +5,7 @@ module ModernTreasury
     class ExpectedPayments
       # create expected payment
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>] :line_items
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
@@ -61,7 +61,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #     sepa, signet, wire.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
@@ -80,7 +80,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
@@ -97,7 +97,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -120,7 +120,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :internal_account_id The ID of the Internal Account for the expected payment.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
@@ -144,7 +144,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #     sepa, signet, wire.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
@@ -161,7 +161,7 @@ module ModernTreasury
 
       # list expected_payments
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -175,7 +175,7 @@ module ModernTreasury
       #
       #   @option params [String] :internal_account_id Specify internal_account_id to see expected_payments for a specific account.
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -186,7 +186,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #     sepa, signet, wire
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
       #
@@ -206,7 +206,7 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #

@@ -5,7 +5,6 @@ module ModernTreasury
     # Three-letter ISO currency code.
     #
     # @example
-    #
     # ```ruby
     # case currency
     # in :AED

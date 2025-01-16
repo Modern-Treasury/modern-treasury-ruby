@@ -90,7 +90,6 @@ module ModernTreasury
       # One of `credit`, `debit`.
       #
       # @example
-      #
       # ```ruby
       # case direction
       # in :credit
@@ -109,7 +108,6 @@ module ModernTreasury
       # One of `ach`, `wire`, `check`.
       #
       # @example
-      #
       # ```ruby
       # case type
       # in :ach

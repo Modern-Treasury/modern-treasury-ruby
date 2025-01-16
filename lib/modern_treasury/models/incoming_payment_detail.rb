@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # incoming_payment_detail => {
     #   id: String,
@@ -46,7 +45,7 @@ module ModernTreasury
       # @!attribute data
       #   The raw data from the payment pre-notification file that we get from the bank.
       #
-      #   @return [Hash{Symbol => Object}]
+      #   @return [Hash{Symbol=>Object}]
       required :data, ModernTreasury::HashOf[ModernTreasury::Unknown]
 
       # @!attribute direction
@@ -76,7 +75,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
@@ -175,7 +174,7 @@ module ModernTreasury
       #   #
       #   # @param currency [String] The currency of the incoming payment detail.
       #   #
-      #   # @param data [Hash{Symbol => Object}] The raw data from the payment pre-notification file that we get from the bank.
+      #   # @param data [Hash{Symbol=>Object}] The raw data from the payment pre-notification file that we get from the bank.
       #   #
       #   # @param direction [String] One of `credit` or `debit`.
       #   #
@@ -188,7 +187,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
@@ -260,7 +259,6 @@ module ModernTreasury
       # The type of the originating account number for the incoming payment detail.
       #
       # @example
-      #
       # ```ruby
       # case originating_account_number_type
       # in :au_number
@@ -295,7 +293,6 @@ module ModernTreasury
       # The type of the originating routing number for the incoming payment detail.
       #
       # @example
-      #
       # ```ruby
       # case originating_routing_number_type
       # in :aba
@@ -340,7 +337,6 @@ module ModernTreasury
       # The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :completed
@@ -362,7 +358,6 @@ module ModernTreasury
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
       #
       # @example
-      #
       # ```ruby
       # case type
       # in :ach

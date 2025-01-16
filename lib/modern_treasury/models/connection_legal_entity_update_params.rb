@@ -19,7 +19,6 @@ module ModernTreasury
       # The status of the connection legal entity.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :processing

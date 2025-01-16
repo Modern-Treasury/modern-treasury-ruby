@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # document => {
     #   id: String,
@@ -130,7 +129,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # document_detail => {
       #   id: String,
@@ -221,7 +219,6 @@ module ModernTreasury
       # The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
       #
       # @example
-      #
       # ```ruby
       # case documentable_type
       # in :case
@@ -256,7 +253,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # file => {
       #   content_type: String,
