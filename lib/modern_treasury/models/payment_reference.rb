@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # payment_reference => {
     #   id: String,
@@ -108,7 +107,6 @@ module ModernTreasury
       # The type of reference number.
       #
       # @example
-      #
       # ```ruby
       # case reference_number_type
       # in :ach_original_trace_number
@@ -204,7 +202,6 @@ module ModernTreasury
       # One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
       #
       # @example
-      #
       # ```ruby
       # case referenceable_type
       # in :payment_order

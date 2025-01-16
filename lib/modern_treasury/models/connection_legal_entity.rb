@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # connection_legal_entity => {
     #   id: String,
@@ -113,7 +112,6 @@ module ModernTreasury
       # The status of the connection legal entity.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :completed

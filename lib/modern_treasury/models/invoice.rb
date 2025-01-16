@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # invoice => {
     #   id: String,
@@ -125,7 +124,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}, nil]
+      #   @return [Hash{Symbol=>String}, nil]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute notification_email_addresses
@@ -279,7 +278,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param notification_email_addresses [Array<String>, nil] Emails in addition to the counterparty email to send invoice status
@@ -377,7 +376,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # contact_detail => {
       #   id: String,
@@ -466,7 +464,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # case contact_identifier_type
         # in :email
@@ -487,7 +484,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # counterparty_billing_address => {
       #   country: String,
@@ -553,7 +549,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # counterparty_shipping_address => {
       #   country: String,
@@ -619,7 +614,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # invoicer_address => {
       #   country: String,
@@ -687,7 +681,6 @@ module ModernTreasury
       # When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
       #
       # @example
-      #
       # ```ruby
       # case payment_method
       # in :ui
@@ -709,7 +702,6 @@ module ModernTreasury
       # One of `ach` or `eft`.
       #
       # @example
-      #
       # ```ruby
       # case payment_type
       # in :eft
@@ -728,7 +720,6 @@ module ModernTreasury
       # The status of the invoice.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :draft

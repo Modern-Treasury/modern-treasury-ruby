@@ -5,7 +5,7 @@ module ModernTreasury
     class Returns
       # Create a return.
       #
-      # @param params [ModernTreasury::Models::ReturnCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ReturnCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :returnable_id The ID of the object being returned or `null`.
       #
@@ -23,7 +23,7 @@ module ModernTreasury
       #   @option params [String, nil] :reason An optional description of the reason for the return. This is for internal usage
       #     and will not be transmitted to the bank.”
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ReturnObject]
       #
@@ -42,7 +42,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of an existing return.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::ReturnObject]
       #
@@ -57,7 +57,7 @@ module ModernTreasury
 
       # Get a list of returns.
       #
-      # @param params [ModernTreasury::Models::ReturnListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ReturnListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -74,7 +74,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] :returnable_type One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #     Must be accompanied by `returnable_id`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
       #

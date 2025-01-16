@@ -79,7 +79,6 @@ module ModernTreasury
       # The type of the request that created this result. bulk_request is the only supported `request_type`
       #
       # @example
-      #
       # ```ruby
       # case entity_type
       # in :payment_order
@@ -107,7 +106,6 @@ module ModernTreasury
       # The type of the request that created this result. bulk_request is the only supported `request_type`
       #
       # @example
-      #
       # ```ruby
       # case request_type
       # in :bulk_request
@@ -123,7 +121,6 @@ module ModernTreasury
       # One of successful or failed.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :pending

@@ -35,12 +35,12 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}, nil]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute variables
       #
-      #   @return [Hash{Symbol => ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
+      #   @return [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       optional :variables, -> { ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable] }
 
       # @!parse
@@ -54,10 +54,10 @@ module ModernTreasury
       #   #
       #   # @param ledger_id [String] The id of the ledger that this account belongs to.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   # @param variables [Hash{Symbol => ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
+      #   # @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       #   #
       #   def initialize(
       #     ledger_transaction_template:,
@@ -75,7 +75,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # ledger_transaction_template => {
       #   description: String,
@@ -127,7 +126,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # ledger_entry => {
         #   amount: String,
@@ -168,7 +166,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # conditions => {
       #   field: String,

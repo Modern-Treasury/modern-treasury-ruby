@@ -4,7 +4,6 @@ module ModernTreasury
   module Models
     module LedgerTransactions
       # @example
-      #
       # ```ruby
       # ledger_transaction_version => {
       #   id: String,
@@ -95,7 +94,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         required :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute object
@@ -166,7 +165,7 @@ module ModernTreasury
         #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
         #   #   if it exists in the test environment.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param object [String]
@@ -211,7 +210,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # ledger_entry => {
         #   id: String,
@@ -284,7 +282,7 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash{Symbol => String}]
+          #   @return [Hash{Symbol=>String}]
           required :metadata, ModernTreasury::HashOf[String]
 
           # @!attribute object
@@ -337,7 +335,7 @@ module ModernTreasury
           #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
           #   #   if it exists in the test environment.
           #   #
-          #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
           #   # @param object [String]
@@ -376,7 +374,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @example
-          #
           # ```ruby
           # resulting_ledger_account_balances => {
           #   available_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
@@ -429,7 +426,6 @@ module ModernTreasury
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
             # @example
-            #
             # ```ruby
             # available_balance => {
             #   amount: Integer,
@@ -489,7 +485,6 @@ module ModernTreasury
             end
 
             # @example
-            #
             # ```ruby
             # pending_balance => {
             #   amount: Integer,
@@ -546,7 +541,6 @@ module ModernTreasury
             end
 
             # @example
-            #
             # ```ruby
             # posted_balance => {
             #   amount: Integer,
@@ -606,7 +600,6 @@ module ModernTreasury
           # Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
           #
           # @example
-          #
           # ```ruby
           # case status
           # in :archived
@@ -629,7 +622,6 @@ module ModernTreasury
         # If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, or reversal.
         #
         # @example
-        #
         # ```ruby
         # case ledgerable_type
         # in :expected_payment
@@ -660,7 +652,6 @@ module ModernTreasury
         # One of `pending`, `posted`, or `archived`.
         #
         # @example
-        #
         # ```ruby
         # case status
         # in :archived

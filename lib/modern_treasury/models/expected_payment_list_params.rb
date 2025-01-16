@@ -41,7 +41,7 @@ module ModernTreasury
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute per_page
@@ -74,7 +74,7 @@ module ModernTreasury
       #   #
       #   # @param internal_account_id [String] Specify internal_account_id to see expected_payments for a specific account.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
@@ -106,7 +106,6 @@ module ModernTreasury
       # One of unreconciled, reconciled, or archived.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :archived
@@ -131,7 +130,6 @@ module ModernTreasury
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sepa, signet, wire
       #
       # @example
-      #
       # ```ruby
       # case type
       # in :ach

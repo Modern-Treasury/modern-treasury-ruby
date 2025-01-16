@@ -17,7 +17,7 @@ module ModernTreasury
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute per_page
@@ -42,7 +42,7 @@ module ModernTreasury
       #   #
       #   # @param after_cursor [String, nil]
       #   #
-      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
@@ -59,7 +59,6 @@ module ModernTreasury
       # One of create, or update.
       #
       # @example
-      #
       # ```ruby
       # case action_type
       # in :create
@@ -81,7 +80,6 @@ module ModernTreasury
       # One of payment_order, expected_payment, or ledger_transaction.
       #
       # @example
-      #
       # ```ruby
       # case resource_type
       # in :payment_order
@@ -106,7 +104,6 @@ module ModernTreasury
       # One of pending, processing, or completed.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :pending

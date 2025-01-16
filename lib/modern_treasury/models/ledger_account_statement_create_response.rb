@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # ledger_account_statement_create_response => {
     #   id: String,
@@ -83,7 +82,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
@@ -134,7 +133,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
@@ -171,7 +170,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # ending_balance => {
       #   available_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::AvailableBalance,
@@ -222,7 +220,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # available_balance => {
         #   amount: Integer,
@@ -282,7 +279,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # pending_balance => {
         #   amount: Integer,
@@ -339,7 +335,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # posted_balance => {
         #   amount: Integer,
@@ -397,7 +392,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # starting_balance => {
       #   available_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::AvailableBalance,
@@ -448,7 +442,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # available_balance => {
         #   amount: Integer,
@@ -508,7 +501,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # pending_balance => {
         #   amount: Integer,
@@ -565,7 +557,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # posted_balance => {
         #   amount: Integer,

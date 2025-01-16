@@ -8,7 +8,7 @@ module ModernTreasury
 
       # create internal account
       #
-      # @param params [ModernTreasury::Models::InternalAccountCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :connection_id The identifier of the financial institution the account belongs to.
       #
@@ -27,10 +27,10 @@ module ModernTreasury
       #
       #   @option params [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] :party_address The address associated with the owner or null.
       #
-      #   @option params [Hash{Symbol => String}] :vendor_attributes A hash of vendor specific attributes that will be used when creating the account
+      #   @option params [Hash{Symbol=>String}] :vendor_attributes A hash of vendor specific attributes that will be used when creating the account
       #     at the vendor specified by the given connection.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -49,7 +49,7 @@ module ModernTreasury
       #
       # @param id [String] Unique identifier for the account.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -66,20 +66,20 @@ module ModernTreasury
       #
       # @param id [String] Unique identifier for the account.
       #
-      # @param params [ModernTreasury::Models::InternalAccountUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :counterparty_id The Counterparty associated to this account.
       #
       #   @option params [String] :ledger_account_id The Ledger Account associated to this account.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
       #   @option params [String] :name The nickname for the internal account.
       #
       #   @option params [String] :parent_account_id The parent internal account for this account.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -96,7 +96,7 @@ module ModernTreasury
 
       # list internal accounts
       #
-      # @param params [ModernTreasury::Models::InternalAccountListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -106,7 +106,7 @@ module ModernTreasury
       #
       #   @option params [String] :legal_entity_id Only return internal accounts associated with this legal entity.
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -116,7 +116,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
       #

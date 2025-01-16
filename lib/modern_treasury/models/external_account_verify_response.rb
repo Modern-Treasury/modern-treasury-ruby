@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # case external_account_verify_response
     # in ModernTreasury::Models::ExternalAccount
@@ -18,7 +17,6 @@ module ModernTreasury
       variant -> { ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt }
 
       # @example
-      #
       # ```ruby
       # external_account_verification_attempt => {
       #   id: String,
@@ -140,7 +138,6 @@ module ModernTreasury
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or `rtp`.
         #
         # @example
-        #
         # ```ruby
         # case payment_type
         # in :ach
@@ -195,7 +192,6 @@ module ModernTreasury
         # The priority of the payment. Can be `normal` or `high`.
         #
         # @example
-        #
         # ```ruby
         # case priority
         # in :high
@@ -214,7 +210,6 @@ module ModernTreasury
         # The status of the verification attempt. Can be `pending_verification`, `verified`, `failed`, or `cancelled`.
         #
         # @example
-        #
         # ```ruby
         # case status
         # in :cancelled

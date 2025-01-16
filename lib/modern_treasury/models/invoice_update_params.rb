@@ -82,7 +82,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}, nil]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute notification_email_addresses
@@ -187,7 +187,7 @@ module ModernTreasury
       #   #
       #   # @param ledger_account_settlement_id [String, nil] The ID of the virtual account the invoice should be paid to.
       #   #
-      #   # @param metadata [Hash{Symbol => String}, nil] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param notification_email_addresses [Array<String>, nil] Emails in addition to the counterparty email to send invoice status
@@ -265,7 +265,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @example
-      #
       # ```ruby
       # contact_detail => {
       #   id: String,
@@ -356,7 +355,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # case contact_identifier_type
         # in :email
@@ -377,7 +375,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # counterparty_billing_address => {
       #   country: String,
@@ -443,7 +440,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # counterparty_shipping_address => {
       #   country: String,
@@ -509,7 +505,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # invoice_line_item => {
       #   name: String,
@@ -548,7 +543,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute quantity
@@ -575,7 +570,7 @@ module ModernTreasury
         #   #   money and increases the invoice's `total_amount` due. `credit` has the opposite
         #   #   intention and effect.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param quantity [Integer] The number of units of a product or service that this line item is for. Must be
@@ -602,7 +597,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # invoicer_address => {
       #   country: String,
@@ -670,7 +664,6 @@ module ModernTreasury
       # The method by which the invoice can be paid. `ui` will show the embedded payment collection flow. `automatic` will automatically initiate payment based upon the account details of the receiving_account id.\nIf the invoice amount is positive, the automatically initiated payment order's direction will be debit. If the invoice amount is negative, the automatically initiated payment order's direction will be credit. One of `manual`, `ui`, or `automatic`.
       #
       # @example
-      #
       # ```ruby
       # case payment_method
       # in :ui

@@ -122,7 +122,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute nsf_protected
@@ -282,7 +282,7 @@ module ModernTreasury
       #   #
       #   # @param line_items [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>] An array of line items that must sum up to the amount of the payment order.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param nsf_protected [Boolean] A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -391,7 +391,6 @@ module ModernTreasury
       # One of `credit`, `debit`. Describes the direction money is flowing in the transaction. A `credit` moves money from your account to someone else's. A `debit` pulls money from someone else's account to your own. Note that wire, rtp, and check payments will always be `credit`.
       #
       # @example
-      #
       # ```ruby
       # case direction
       # in :credit
@@ -408,7 +407,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # accounting => {
       #   account_id: String,
@@ -444,7 +442,6 @@ module ModernTreasury
       # The party that will pay the fees for the payment order. Only applies to wire payment orders. Can be one of shared, sender, or receiver, which correspond respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       #
       # @example
-      #
       # ```ruby
       # case charge_bearer
       # in :shared
@@ -466,7 +463,6 @@ module ModernTreasury
       # A payment type to fallback to if the original type is not valid for the receiving account. Currently, this only supports falling back from RTP to ACH (type=rtp and fallback_type=ach)
       #
       # @example
-      #
       # ```ruby
       # case fallback_type
       # in :ach
@@ -482,7 +478,6 @@ module ModernTreasury
       # Indicates the type of FX transfer to initiate, can be either `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order currency matches the originating account currency.
       #
       # @example
-      #
       # ```ruby
       # case foreign_exchange_indicator
       # in :fixed_to_variable
@@ -499,7 +494,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # ledger_transaction => {
       #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry] === _1 },
@@ -562,7 +556,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute status
@@ -599,7 +593,7 @@ module ModernTreasury
         #   #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   #   reversal.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param status [String] To post a ledger transaction at creation, use `posted`.
@@ -622,7 +616,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # ledger_entry => {
         #   amount: Integer,
@@ -655,7 +648,7 @@ module ModernTreasury
           # @!attribute available_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s available balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
-          #   @return [Hash{Symbol => Integer}, nil]
+          #   @return [Hash{Symbol=>Integer}, nil]
           optional :available_balance_amount, ModernTreasury::HashOf[Integer]
 
           # @!attribute lock_version
@@ -667,19 +660,19 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash{Symbol => String}]
+          #   @return [Hash{Symbol=>String}]
           optional :metadata, ModernTreasury::HashOf[String]
 
           # @!attribute pending_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s pending balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
-          #   @return [Hash{Symbol => Integer}, nil]
+          #   @return [Hash{Symbol=>Integer}, nil]
           optional :pending_balance_amount, ModernTreasury::HashOf[Integer]
 
           # @!attribute posted_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s posted balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
-          #   @return [Hash{Symbol => Integer}, nil]
+          #   @return [Hash{Symbol=>Integer}, nil]
           optional :posted_balance_amount, ModernTreasury::HashOf[Integer]
 
           # @!attribute show_resulting_ledger_account_balances
@@ -699,7 +692,7 @@ module ModernTreasury
           #   #
           #   # @param ledger_account_id [String] The ledger account that this ledger entry is associated with.
           #   #
-          #   # @param available_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+          #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   #   account’s available balance. If any of these conditions would be false after the
           #   #   transaction is created, the entire call will fail with error code 422.
           #   #
@@ -708,14 +701,14 @@ module ModernTreasury
           #   #   given version. See our post about Designing the Ledgers API with Optimistic
           #   #   Locking for more details.
           #   #
-          #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
-          #   # @param pending_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+          #   # @param pending_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   #   account’s pending balance. If any of these conditions would be false after the
           #   #   transaction is created, the entire call will fail with error code 422.
           #   #
-          #   # @param posted_balance_amount [Hash{Symbol => Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+          #   # @param posted_balance_amount [Hash{Symbol=>Integer}, nil] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   #   account’s posted balance. If any of these conditions would be false after the
           #   #   transaction is created, the entire call will fail with error code 422.
           #   #
@@ -743,7 +736,6 @@ module ModernTreasury
         # If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
         #
         # @example
-        #
         # ```ruby
         # case ledgerable_type
         # in :expected_payment
@@ -774,7 +766,6 @@ module ModernTreasury
         # To post a ledger transaction at creation, use `posted`.
         #
         # @example
-        #
         # ```ruby
         # case status
         # in :archived
@@ -795,7 +786,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # line_item => {
       #   amount: Integer,
@@ -826,7 +816,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!parse
@@ -838,7 +828,7 @@ module ModernTreasury
         #   #
         #   # @param description [String, nil] A free-form description of the line item.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil, **) = super
@@ -849,7 +839,6 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
       #
       # @example
-      #
       # ```ruby
       # case priority
       # in :high
@@ -866,7 +855,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # receiving_account => {
       #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail] === _1 },
@@ -910,7 +898,7 @@ module ModernTreasury
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol => String}]
+        #   @return [Hash{Symbol=>String}]
         optional :metadata, ModernTreasury::HashOf[String]
 
         # @!attribute name
@@ -977,7 +965,7 @@ module ModernTreasury
         #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         #   #   for more details.
         #   #
-        #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
         #   #   strings.
         #   #
         #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
@@ -1017,7 +1005,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @example
-        #
         # ```ruby
         # account_detail => {
         #   account_number: String,
@@ -1047,7 +1034,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @example
-          #
           # ```ruby
           # case account_number_type
           # in :au_number
@@ -1081,7 +1067,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # contact_detail => {
         #   contact_identifier: String,
@@ -1111,7 +1096,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @example
-          #
           # ```ruby
           # case contact_identifier_type
           # in :email
@@ -1132,7 +1116,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # ledger_account => {
         #   currency: String,
@@ -1204,7 +1187,7 @@ module ModernTreasury
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash{Symbol => String}]
+          #   @return [Hash{Symbol=>String}]
           optional :metadata, ModernTreasury::HashOf[String]
 
           # @!parse
@@ -1236,7 +1219,7 @@ module ModernTreasury
           #   #   be populated here, otherwise null. The value is one of internal_account or
           #   #   external_account.
           #   #
-          #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+          #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
           #   #   strings.
           #   #
           #   def initialize(
@@ -1260,7 +1243,6 @@ module ModernTreasury
           # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
           #
           # @example
-          #
           # ```ruby
           # case ledgerable_type
           # in :counterparty
@@ -1284,7 +1266,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # party_address => {
         #   country: String,
@@ -1352,7 +1333,6 @@ module ModernTreasury
         # Either `individual` or `business`.
         #
         # @example
-        #
         # ```ruby
         # case party_type
         # in :business
@@ -1369,7 +1349,6 @@ module ModernTreasury
         end
 
         # @example
-        #
         # ```ruby
         # routing_detail => {
         #   routing_number: String,
@@ -1409,7 +1388,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @example
-          #
           # ```ruby
           # case routing_number_type
           # in :aba
@@ -1452,7 +1430,6 @@ module ModernTreasury
           end
 
           # @example
-          #
           # ```ruby
           # case payment_type
           # in :ach

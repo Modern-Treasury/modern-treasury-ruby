@@ -36,7 +36,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute skip_settlement_ledger_transaction
@@ -68,7 +68,7 @@ module ModernTreasury
       #   #   be included in the ledger account settlement. The default value is the
       #   #   created_at timestamp of the ledger account settlement.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param skip_settlement_ledger_transaction [Boolean, nil] It is set to `false` by default. It should be set to `true` when migrating
@@ -96,7 +96,6 @@ module ModernTreasury
       # The status of the ledger account settlement. It is set to `pending` by default. To post a ledger account settlement at creation, use `posted`.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :pending

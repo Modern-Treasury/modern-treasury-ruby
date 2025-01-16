@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # return_object => {
     #   id: String,
@@ -239,7 +238,6 @@ module ModernTreasury
       # The return code. For ACH returns, this is the required ACH return code.
       #
       # @example
-      #
       # ```ruby
       # case code
       # in :"901"
@@ -315,7 +313,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # reference_number => {
       #   id: String,
@@ -389,7 +386,6 @@ module ModernTreasury
         # The type of the reference number. Referring to the vendor payment id.
         #
         # @example
-        #
         # ```ruby
         # case reference_number_type
         # in :ach_original_trace_number
@@ -486,7 +482,6 @@ module ModernTreasury
       # The type of object being returned or `null`.
       #
       # @example
-      #
       # ```ruby
       # case returnable_type
       # in :incoming_payment_detail
@@ -514,7 +509,6 @@ module ModernTreasury
       # The role of the return, can be `originating` or `receiving`.
       #
       # @example
-      #
       # ```ruby
       # case role
       # in :originating
@@ -533,7 +527,6 @@ module ModernTreasury
       # The current status of the return.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :completed
@@ -564,7 +557,6 @@ module ModernTreasury
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `interac`, `manual`, `paper_item`, `wire`.
       #
       # @example
-      #
       # ```ruby
       # case type
       # in :ach

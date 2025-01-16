@@ -4,7 +4,6 @@ module ModernTreasury
   module Models
     module Transactions
       # @example
-      #
       # ```ruby
       # transaction_line_item => {
       #   id: String,
@@ -169,7 +168,6 @@ module ModernTreasury
         # If a matching object exists in Modern Treasury, the type will be populated here, otherwise `null`.
         #
         # @example
-        #
         # ```ruby
         # case transactable_type
         # in :incoming_payment_detail
@@ -200,7 +198,6 @@ module ModernTreasury
         # Indicates whether the line item is `originating` or `receiving` (see https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         #
         # @example
-        #
         # ```ruby
         # case type
         # in :originating

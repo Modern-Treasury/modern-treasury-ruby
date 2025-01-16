@@ -45,7 +45,7 @@ module ModernTreasury
       # @!attribute metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       optional :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute originating_account_id
@@ -113,7 +113,7 @@ module ModernTreasury
       #   #
       #   # @param effective_date_start [String] An inclusive lower bound for searching effective_date
       #   #
-      #   # @param metadata [Hash{Symbol => String}] For example, if you want to query for records with metadata key `Type` and value
+      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
       #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   #   parameters.
       #   #
@@ -165,7 +165,6 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
       #
       # @example
-      #
       # ```ruby
       # case priority
       # in :high
@@ -182,7 +181,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # case status
       # in :approved
@@ -216,7 +214,6 @@ module ModernTreasury
       end
 
       # @example
-      #
       # ```ruby
       # case type
       # in :ach

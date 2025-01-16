@@ -70,7 +70,6 @@ module ModernTreasury
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`. Must be accompanied by `returnable_id`.
       #
       # @example
-      #
       # ```ruby
       # case returnable_type
       # in :incoming_payment_detail

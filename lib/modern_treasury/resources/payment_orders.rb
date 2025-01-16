@@ -8,7 +8,7 @@ module ModernTreasury
 
       # Create a new Payment Order
       #
-      # @param params [ModernTreasury::Models::PaymentOrderCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -72,7 +72,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -135,7 +135,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ultimate_receiving_party_name Name of the ultimate funds recipient.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
@@ -154,7 +154,7 @@ module ModernTreasury
       #
       # @param id [String]
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
@@ -171,7 +171,7 @@ module ModernTreasury
       #
       # @param id [String]
       #
-      # @param params [ModernTreasury::Models::PaymentOrderUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting] :accounting
       #
@@ -218,7 +218,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::PaymentOrderUpdateParams::LineItem>] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -296,7 +296,7 @@ module ModernTreasury
       #     initiating an ACH payment with CIE subtype. Only the first 15 characters of this
       #     string will be used. Any additional characters will be truncated.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
@@ -313,7 +313,7 @@ module ModernTreasury
 
       # Get a list of all payment orders
       #
-      # @param params [ModernTreasury::Models::PaymentOrderListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -329,7 +329,7 @@ module ModernTreasury
       #
       #   @option params [Date] :effective_date_start An inclusive lower bound for searching effective_date
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -353,7 +353,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type] :type
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrder>]
       #
@@ -371,7 +371,7 @@ module ModernTreasury
 
       # Create a new payment order asynchronously
       #
-      # @param params [ModernTreasury::Models::PaymentOrderCreateAsyncParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderCreateAsyncParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -432,7 +432,7 @@ module ModernTreasury
       #
       #   @option params [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>] :line_items An array of line items that must sum up to the amount of the payment order.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean] :nsf_protected A boolean to determine if NSF Protection is enabled for this payment order. Note
@@ -495,7 +495,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ultimate_receiving_party_name Name of the ultimate funds recipient.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       #

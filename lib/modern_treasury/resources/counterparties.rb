@@ -5,7 +5,7 @@ module ModernTreasury
     class Counterparties
       # Create a new counterparty.
       #
-      # @param params [ModernTreasury::Models::CounterpartyCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :name A human friendly name for this counterparty.
       #
@@ -22,7 +22,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :legal_entity_id The id of the legal entity.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @option params [Boolean] :send_remittance_advice Send an email to the counterparty whenever an associated payment order is sent
@@ -32,7 +32,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus] :verification_status The verification status of the counterparty.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
@@ -51,7 +51,7 @@ module ModernTreasury
       #
       # @param id [String] The id of an existing counterparty.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
@@ -68,13 +68,13 @@ module ModernTreasury
       #
       # @param id [String] The id of an existing counterparty.
       #
-      # @param params [ModernTreasury::Models::CounterpartyUpdateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :email A new email for the counterparty.
       #
       #   @option params [String, nil] :legal_entity_id The id of the legal entity.
       #
-      #   @option params [Hash{Symbol => String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
       #   @option params [String] :name A new name for the counterparty. Will only update if passed.
@@ -84,7 +84,7 @@ module ModernTreasury
       #
       #   @option params [String] :taxpayer_identifier Either a valid SSN or EIN.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
@@ -101,7 +101,7 @@ module ModernTreasury
 
       # Get a paginated list of all counterparties.
       #
-      # @param params [ModernTreasury::Models::CounterpartyListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -114,7 +114,7 @@ module ModernTreasury
       #
       #   @option params [String] :legal_entity_id Filters for counterparties with the given legal entity ID.
       #
-      #   @option params [Hash{Symbol => String}] :metadata For example, if you want to query for records with metadata key `Type` and value
+      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
       #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #     parameters.
       #
@@ -123,7 +123,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
       #
@@ -143,7 +143,7 @@ module ModernTreasury
       #
       # @param id [String] The id of an existing counterparty.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [nil]
       #
@@ -160,7 +160,7 @@ module ModernTreasury
       #
       # @param id [String] counterparty id
       #
-      # @param params [ModernTreasury::Models::CounterpartyCollectAccountParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyCollectAccountParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [Symbol, ModernTreasury::Models::TransactionDirection] :direction One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       #     Use `debit` when you need to charge a counterparty. This field helps us send a
@@ -181,7 +181,7 @@ module ModernTreasury
       #     send the counterparty the link, you can set this parameter to `false`. The JSON
       #     body will include the link to the secure Modern Treasury form.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
       #

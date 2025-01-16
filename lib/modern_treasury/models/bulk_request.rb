@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @example
-    #
     # ```ruby
     # bulk_request => {
     #   id: String,
@@ -46,7 +45,7 @@ module ModernTreasury
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol => String}]
+      #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute object
@@ -95,7 +94,7 @@ module ModernTreasury
       #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
       #   #   if it exists in the test environment.
       #   #
-      #   # @param metadata [Hash{Symbol => String}] Additional data represented as key-value pairs. Both the key and value must be
+      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
       #   # @param object [String]
@@ -135,7 +134,6 @@ module ModernTreasury
       # One of create, or update.
       #
       # @example
-      #
       # ```ruby
       # case action_type
       # in :create
@@ -157,7 +155,6 @@ module ModernTreasury
       # One of payment_order, expected_payment, or ledger_transaction.
       #
       # @example
-      #
       # ```ruby
       # case resource_type
       # in :payment_order
@@ -182,7 +179,6 @@ module ModernTreasury
       # One of pending, processing, or completed.
       #
       # @example
-      #
       # ```ruby
       # case status
       # in :pending

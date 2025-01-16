@@ -5,7 +5,7 @@ module ModernTreasury
     class Documents
       # Create a document.
       #
-      # @param params [ModernTreasury::Models::DocumentCreateParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::DocumentCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String] :documentable_id The unique identifier for the associated object.
       #
@@ -15,7 +15,7 @@ module ModernTreasury
       #
       #   @option params [String] :document_type A category given to the document, can be `null`.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Document]
       #
@@ -35,7 +35,7 @@ module ModernTreasury
       #
       # @param id [String] The ID of the document.
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Models::Document]
       #
@@ -50,7 +50,7 @@ module ModernTreasury
 
       # Get a list of documents.
       #
-      # @param params [ModernTreasury::Models::DocumentListParams, Hash{Symbol => Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::DocumentListParams, Hash{Symbol=>Object}] Attributes to send in this request.
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -62,7 +62,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol => Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Document>]
       #
