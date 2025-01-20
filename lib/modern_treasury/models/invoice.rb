@@ -45,9 +45,8 @@ module ModernTreasury
       #
       #   @return [ModernTreasury::Models::Invoice::CounterpartyBillingAddress, nil]
       required :counterparty_billing_address,
-               -> {
-                 ModernTreasury::Models::Invoice::CounterpartyBillingAddress
-               }
+               -> { ModernTreasury::Models::Invoice::CounterpartyBillingAddress },
+               nil?: true
 
       # @!attribute counterparty_id
       #   The ID of the counterparty receiving the invoice.
@@ -60,7 +59,8 @@ module ModernTreasury
       #
       #   @return [ModernTreasury::Models::Invoice::CounterpartyShippingAddress, nil]
       required :counterparty_shipping_address,
-               -> { ModernTreasury::Models::Invoice::CounterpartyShippingAddress }
+               -> { ModernTreasury::Models::Invoice::CounterpartyShippingAddress },
+               nil?: true
 
       # @!attribute created_at
       #
@@ -95,7 +95,7 @@ module ModernTreasury
       #   When payment_method is automatic, the fallback payment method to use when an automatic payment fails. One of `manual` or `ui`.
       #
       #   @return [String, nil]
-      required :fallback_payment_method, String
+      required :fallback_payment_method, String, nil?: true
 
       # @!attribute hosted_url
       #   The URL of the hosted web UI where the invoice can be viewed.
@@ -107,13 +107,13 @@ module ModernTreasury
       #   The invoice issuer's business address.
       #
       #   @return [ModernTreasury::Models::Invoice::InvoicerAddress, nil]
-      required :invoicer_address, -> { ModernTreasury::Models::Invoice::InvoicerAddress }
+      required :invoicer_address, -> { ModernTreasury::Models::Invoice::InvoicerAddress }, nil?: true
 
       # @!attribute ledger_account_settlement_id
       #   The ledger account settlement object linked to the invoice.
       #
       #   @return [String, nil]
-      required :ledger_account_settlement_id, String
+      required :ledger_account_settlement_id, String, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -125,13 +125,13 @@ module ModernTreasury
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::HashOf[String], nil?: true
 
       # @!attribute notification_email_addresses
       #   Emails in addition to the counterparty email to send invoice status notifications to. At least one email is required if notifications are enabled and the counterparty doesn't have an email.
       #
-      #   @return [Array<String>, nil]
-      required :notification_email_addresses, ModernTreasury::ArrayOf[String]
+      #   @return [Array<String>]
+      required :notification_email_addresses, ModernTreasury::ArrayOf[String], nil?: true
 
       # @!attribute notifications_enabled
       #   If true, the invoice will send email notifications to the invoice recipients about invoice status changes.
@@ -160,13 +160,13 @@ module ModernTreasury
       #   Date transactions are to be posted to the participants' account. Defaults to the current business day or the next business day if the current day is a bank holiday or weekend. Format: yyyy-mm-dd.
       #
       #   @return [Date, nil]
-      required :payment_effective_date, Date
+      required :payment_effective_date, Date, nil?: true
 
       # @!attribute payment_method
       #   When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
       #
       #   @return [Symbol, ModernTreasury::Models::Invoice::PaymentMethod, nil]
-      required :payment_method, enum: -> { ModernTreasury::Models::Invoice::PaymentMethod }
+      required :payment_method, enum: -> { ModernTreasury::Models::Invoice::PaymentMethod }, nil?: true
 
       # @!attribute payment_orders
       #   The payment orders created for paying the invoice through the invoice payment UI.
@@ -178,37 +178,37 @@ module ModernTreasury
       #   One of `ach` or `eft`.
       #
       #   @return [Symbol, ModernTreasury::Models::Invoice::PaymentType, nil]
-      required :payment_type, enum: -> { ModernTreasury::Models::Invoice::PaymentType }
+      required :payment_type, enum: -> { ModernTreasury::Models::Invoice::PaymentType }, nil?: true
 
       # @!attribute pdf_url
       #   The URL where the invoice PDF can be downloaded.
       #
       #   @return [String, nil]
-      required :pdf_url, String
+      required :pdf_url, String, nil?: true
 
       # @!attribute receiving_account_id
       #   The receiving account ID. Can be an `internal_account`.
       #
       #   @return [String, nil]
-      required :receiving_account_id, String
+      required :receiving_account_id, String, nil?: true
 
       # @!attribute recipient_email
       #   The email of the recipient of the invoice. Leaving this value as null will fallback to using the counterparty's name.
       #
       #   @return [String, nil]
-      required :recipient_email, String
+      required :recipient_email, String, nil?: true
 
       # @!attribute recipient_name
       #   The name of the recipient of the invoice. Leaving this value as null will fallback to using the counterparty's name.
       #
       #   @return [String, nil]
-      required :recipient_name, String
+      required :recipient_name, String, nil?: true
 
       # @!attribute remind_after_overdue_days
       #   Number of days after due date when overdue reminder emails will be sent out to invoice recipients.
       #
-      #   @return [Array<Integer>, nil]
-      required :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer]
+      #   @return [Array<Integer>]
+      required :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer], nil?: true
 
       # @!attribute status
       #   The status of the invoice.
@@ -237,7 +237,7 @@ module ModernTreasury
       #   The ID of the virtual account the invoice should be paid to.
       #
       #   @return [String, nil]
-      required :virtual_account_id, String
+      required :virtual_account_id, String, nil?: true
 
       # @!parse
       #   # @param id [String]
@@ -281,7 +281,7 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   # @param notification_email_addresses [Array<String>, nil] Emails in addition to the counterparty email to send invoice status
+      #   # @param notification_email_addresses [Array<String>] Emails in addition to the counterparty email to send invoice status
       #   #   notifications to. At least one email is required if notifications are enabled
       #   #   and the counterparty doesn't have an email.
       #   #
@@ -316,7 +316,7 @@ module ModernTreasury
       #   # @param recipient_name [String, nil] The name of the recipient of the invoice. Leaving this value as null will
       #   #   fallback to using the counterparty's name.
       #   #
-      #   # @param remind_after_overdue_days [Array<Integer>, nil] Number of days after due date when overdue reminder emails will be sent out to
+      #   # @param remind_after_overdue_days [Array<Integer>] Number of days after due date when overdue reminder emails will be sent out to
       #   #   invoice recipients.
       #   #
       #   # @param status [String] The status of the invoice.
@@ -411,7 +411,7 @@ module ModernTreasury
         # @!attribute discarded_at
         #
         #   @return [Time, nil]
-        required :discarded_at, Time
+        required :discarded_at, Time, nil?: true
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -523,10 +523,14 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute line2
+        # @!attribute [r] line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :line2
 
         # @!parse
         #   # The counterparty's billing address.
@@ -588,10 +592,14 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute line2
+        # @!attribute [r] line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :line2
 
         # @!parse
         #   # The counterparty's shipping address where physical goods should be delivered.
@@ -653,10 +661,14 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute line2
+        # @!attribute [r] line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :line2
 
         # @!parse
         #   # The invoice issuer's business address.

@@ -3,39 +3,59 @@
 module ModernTreasury
   module Models
     class BulkRequestListParams < ModernTreasury::BaseModel
-      # @!attribute action_type
+      # @!attribute [r] action_type
       #   One of create, or update.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType, nil]
       optional :action_type, enum: -> { ModernTreasury::Models::BulkRequestListParams::ActionType }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType]
+      #   attr_writer :action_type
 
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute metadata
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute resource_type
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] resource_type
       #   One of payment_order, expected_payment, or ledger_transaction.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType, nil]
       optional :resource_type, enum: -> { ModernTreasury::Models::BulkRequestListParams::ResourceType }
 
-      # @!attribute status
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType]
+      #   attr_writer :resource_type
+
+      # @!attribute [r] status
       #   One of pending, processing, or completed.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::BulkRequestListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::BulkRequestListParams::Status }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
+      #   attr_writer :status
 
       # @!parse
       #   # @param action_type [String] One of create, or update.

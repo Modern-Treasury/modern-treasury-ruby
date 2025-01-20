@@ -7,117 +7,136 @@ module ModernTreasury
       #   The lowest amount this expected payment may be equal to. Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #
       #   @return [Integer, nil]
-      optional :amount_lower_bound, Integer
+      optional :amount_lower_bound, Integer, nil?: true
 
       # @!attribute amount_upper_bound
       #   The highest amount this expected payment may be equal to. Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
       #
       #   @return [Integer, nil]
-      optional :amount_upper_bound, Integer
+      optional :amount_upper_bound, Integer, nil?: true
 
       # @!attribute counterparty_id
       #   The ID of the counterparty you expect for this payment.
       #
       #   @return [String, nil]
-      optional :counterparty_id, String
+      optional :counterparty_id, String, nil?: true
 
       # @!attribute currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account.
       #
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
-      optional :currency, enum: -> { ModernTreasury::Models::Currency }
+      optional :currency, enum: -> { ModernTreasury::Models::Currency }, nil?: true
 
       # @!attribute date_lower_bound
       #   The earliest date the payment may come in. Format: yyyy-mm-dd
       #
       #   @return [Date, nil]
-      optional :date_lower_bound, Date
+      optional :date_lower_bound, Date, nil?: true
 
       # @!attribute date_upper_bound
       #   The latest date the payment may come in. Format: yyyy-mm-dd
       #
       #   @return [Date, nil]
-      optional :date_upper_bound, Date
+      optional :date_upper_bound, Date, nil?: true
 
       # @!attribute description
       #   An optional description for internal use.
       #
       #   @return [String, nil]
-      optional :description, String
+      optional :description, String, nil?: true
 
       # @!attribute direction
       #   One of credit or debit. When you are receiving money, use credit. When you are being charged, use debit.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil]
-      optional :direction, enum: -> { ModernTreasury::Models::ExpectedPaymentCreateParams::Direction }
+      optional :direction,
+               enum: -> { ModernTreasury::Models::ExpectedPaymentCreateParams::Direction },
+               nil?: true
 
       # @!attribute internal_account_id
       #   The ID of the Internal Account for the expected payment.
       #
       #   @return [String, nil]
-      optional :internal_account_id, String
+      optional :internal_account_id, String, nil?: true
 
-      # @!attribute ledger_transaction
+      # @!attribute [r] ledger_transaction
       #   Specifies a ledger transaction object that will be created with the expected payment. If the ledger transaction cannot be created, then the expected payment creation will fail. The resulting ledger transaction will mirror the status of the expected payment.
       #
-      #   @return [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction]
+      #   @return [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction, nil]
       optional :ledger_transaction,
                -> { ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction }
 
-      # @!attribute ledger_transaction_id
+      # @!parse
+      #   # @return [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction]
+      #   attr_writer :ledger_transaction
+
+      # @!attribute [r] ledger_transaction_id
       #   Either ledger_transaction or ledger_transaction_id can be provided. Only a pending ledger transaction can be attached upon expected payment creation. Once the expected payment is created, the status of the ledger transaction tracks the expected payment automatically.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :ledger_transaction_id, String
 
-      # @!attribute line_items
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :ledger_transaction_id
+
+      # @!attribute [r] line_items
       #
       #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>]
       optional :line_items,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem] }
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>]
+      #   attr_writer :line_items
+
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!attribute reconciliation_filters
       #   The reconciliation filters you have for this payment.
       #
       #   @return [Object, nil]
-      optional :reconciliation_filters, ModernTreasury::Unknown
+      optional :reconciliation_filters, ModernTreasury::Unknown, nil?: true
 
       # @!attribute reconciliation_groups
       #   The reconciliation groups you have for this payment.
       #
       #   @return [Object, nil]
-      optional :reconciliation_groups, ModernTreasury::Unknown
+      optional :reconciliation_groups, ModernTreasury::Unknown, nil?: true
 
       # @!attribute reconciliation_rule_variables
       #   An array of reconciliation rule variables for this payment.
       #
-      #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+      #   @return [Array<ModernTreasury::Models::ReconciliationRule>]
       optional :reconciliation_rule_variables,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
+               nil?: true
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire` payments the field will be passed through as the "Originator to Beneficiary Information", also known as OBI or Fedwire tag 6000.
       #
       #   @return [String, nil]
-      optional :remittance_information, String
+      optional :remittance_information, String, nil?: true
 
       # @!attribute statement_descriptor
       #   The statement description you expect to see on the transaction. For ACH payments, this will be the full line item passed from the bank. For wire payments, this will be the OBI field on the wire. For check payments, this will be the memo field.
       #
       #   @return [String, nil]
-      optional :statement_descriptor, String
+      optional :statement_descriptor, String, nil?: true
 
       # @!attribute type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sepa, signet, wire.
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
-      optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }
+      optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentType }, nil?: true
 
       # @!parse
       #   # @param amount_lower_bound [Integer, nil] The lowest amount this expected payment may be equal to. Value in specified
@@ -160,7 +179,7 @@ module ModernTreasury
       #   #
       #   # @param reconciliation_groups [Object, nil] The reconciliation groups you have for this payment.
       #   #
-      #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil] An array of reconciliation rule variables for this payment.
+      #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>] An array of reconciliation rule variables for this payment.
       #   #
       #   # @param remittance_information [String, nil] For `ach`, this field will be passed through on an addenda record. For `wire`
       #   #   payments the field will be passed through as the "Originator to Beneficiary
@@ -244,53 +263,81 @@ module ModernTreasury
         #   An optional description for internal use.
         #
         #   @return [String, nil]
-        optional :description, String
+        optional :description, String, nil?: true
 
-        # @!attribute effective_at
+        # @!attribute [r] effective_at
         #   The timestamp (ISO8601 format) at which the ledger transaction happened for reporting purposes.
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         optional :effective_at, Time
 
-        # @!attribute effective_date
+        # @!parse
+        #   # @return [Time]
+        #   attr_writer :effective_at
+
+        # @!attribute [r] effective_date
         #   The date (YYYY-MM-DD) on which the ledger transaction happened for reporting purposes.
         #
-        #   @return [Date]
+        #   @return [Date, nil]
         optional :effective_date, Date
 
-        # @!attribute external_id
+        # @!parse
+        #   # @return [Date]
+        #   attr_writer :effective_date
+
+        # @!attribute [r] external_id
         #   A unique string to represent the ledger transaction. Only one pending or posted ledger transaction may have this ID in the ledger.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :external_id, String
 
-        # @!attribute ledgerable_id
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :external_id
+
+        # @!attribute [r] ledgerable_id
         #   If the ledger transaction can be reconciled to another object in Modern Treasury, the id will be populated here, otherwise null.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :ledgerable_id, String
 
-        # @!attribute ledgerable_type
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :ledgerable_id
+
+        # @!attribute [r] ledgerable_type
         #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
         #
-        #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType]
+        #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType, nil]
         optional :ledgerable_type,
                  enum: -> {
                    ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType
                  }
 
-        # @!attribute metadata
+        # @!parse
+        #   # @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType]
+        #   attr_writer :ledgerable_type
+
+        # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol=>String}]
+        #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::HashOf[String]
 
-        # @!attribute status
+        # @!parse
+        #   # @return [Hash{Symbol=>String}]
+        #   attr_writer :metadata
+
+        # @!attribute [r] status
         #   To post a ledger transaction at creation, use `posted`.
         #
-        #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status]
+        #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status, nil]
         optional :status,
                  enum: -> { ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status }
+
+        # @!parse
+        #   # @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status]
+        #   attr_writer :status
 
         # @!parse
         #   # Specifies a ledger transaction object that will be created with the expected
@@ -375,37 +422,41 @@ module ModernTreasury
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s available balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
           #   @return [Hash{Symbol=>Integer}, nil]
-          optional :available_balance_amount, ModernTreasury::HashOf[Integer]
+          optional :available_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
 
           # @!attribute lock_version
           #   Lock version of the ledger account. This can be passed when creating a ledger transaction to only succeed if no ledger transactions have posted since the given version. See our post about Designing the Ledgers API with Optimistic Locking for more details.
           #
           #   @return [Integer, nil]
-          optional :lock_version, Integer
+          optional :lock_version, Integer, nil?: true
 
-          # @!attribute metadata
+          # @!attribute [r] metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash{Symbol=>String}]
+          #   @return [Hash{Symbol=>String}, nil]
           optional :metadata, ModernTreasury::HashOf[String]
+
+          # @!parse
+          #   # @return [Hash{Symbol=>String}]
+          #   attr_writer :metadata
 
           # @!attribute pending_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s pending balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
           #   @return [Hash{Symbol=>Integer}, nil]
-          optional :pending_balance_amount, ModernTreasury::HashOf[Integer]
+          optional :pending_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
 
           # @!attribute posted_balance_amount
           #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s posted balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
           #
           #   @return [Hash{Symbol=>Integer}, nil]
-          optional :posted_balance_amount, ModernTreasury::HashOf[Integer]
+          optional :posted_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
 
           # @!attribute show_resulting_ledger_account_balances
           #   If true, response will include the balance of the associated ledger account for the entry.
           #
           #   @return [Boolean, nil]
-          optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel
+          optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel, nil?: true
 
           # @!parse
           #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -531,19 +582,23 @@ module ModernTreasury
         #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
         #
         #   @return [String, nil]
-        optional :accounting_category_id, String
+        optional :accounting_category_id, String, nil?: true
 
         # @!attribute description
         #   A free-form description of the line item.
         #
         #   @return [String, nil]
-        optional :description, String
+        optional :description, String, nil?: true
 
-        # @!attribute metadata
+        # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol=>String}]
+        #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::HashOf[String]
+
+        # @!parse
+        #   # @return [Hash{Symbol=>String}]
+        #   attr_writer :metadata
 
         # @!parse
         #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented

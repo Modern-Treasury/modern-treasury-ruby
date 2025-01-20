@@ -23,7 +23,7 @@ module ModernTreasury
       #   The annual income of the individual.
       #
       #   @return [Integer, nil]
-      required :annual_income, Integer
+      required :annual_income, Integer, nil?: true
 
       # @!attribute created_at
       #
@@ -33,56 +33,63 @@ module ModernTreasury
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute employer_country
       #   The country in which the employer is located.
       #
       #   @return [String, nil]
-      required :employer_country, String
+      required :employer_country, String, nil?: true
 
       # @!attribute employer_name
       #   The name of the employer.
       #
       #   @return [String, nil]
-      required :employer_name, String
+      required :employer_name, String, nil?: true
 
       # @!attribute employer_state
       #   The state in which the employer is located.
       #
       #   @return [String, nil]
-      required :employer_state, String
+      required :employer_state, String, nil?: true
 
       # @!attribute employment_status
       #   The employment status of the individual.
       #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus, nil]
       required :employment_status,
-               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus }
+               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus },
+               nil?: true
 
       # @!attribute income_country
       #   The country in which the individual's income is earned.
       #
       #   @return [String, nil]
-      required :income_country, String
+      required :income_country, String, nil?: true
 
       # @!attribute income_source
       #   The source of the individual's income.
       #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource, nil]
-      required :income_source, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource }
+      required :income_source,
+               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource },
+               nil?: true
 
       # @!attribute income_state
       #   The state in which the individual's income is earned.
       #
       #   @return [String, nil]
-      required :income_state, String
+      required :income_state, String, nil?: true
 
       # @!attribute industry
       #   The industry of the individual.
       #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry, nil]
-      required :industry, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Industry }
+      required :industry,
+               enum: -> {
+                 ModernTreasury::Models::WealthAndEmploymentDetails::Industry
+               },
+               nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -99,16 +106,17 @@ module ModernTreasury
       #   The occupation of the individual.
       #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation, nil]
-      required :occupation, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Occupation }
+      required :occupation,
+               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Occupation },
+               nil?: true
 
       # @!attribute source_of_funds
       #   The source of the individual's funds.
       #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds, nil]
       required :source_of_funds,
-               enum: -> {
-                 ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds
-               }
+               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds },
+               nil?: true
 
       # @!attribute updated_at
       #
@@ -119,7 +127,9 @@ module ModernTreasury
       #   The source of the individual's wealth.
       #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource, nil]
-      required :wealth_source, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource }
+      required :wealth_source,
+               enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource },
+               nil?: true
 
       # @!parse
       #   # @param id [String]

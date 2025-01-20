@@ -3,11 +3,15 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
-      # @!attribute balances
+      # @!attribute [r] balances
       #   For example, if you want the balances as of a particular time (ISO8601), the encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`. The balances as of a time are inclusive of entries with that exact time.
       #
-      #   @return [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances]
+      #   @return [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances, nil]
       optional :balances, -> { ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances }
+
+      # @!parse
+      #   # @return [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances]
+      #   attr_writer :balances
 
       # @!parse
       #   # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances] For example, if you want the balances as of a particular time (ISO8601), the
@@ -26,15 +30,23 @@ module ModernTreasury
       # }
       # ```
       class Balances < ModernTreasury::BaseModel
-        # @!attribute as_of_date
+        # @!attribute [r] as_of_date
         #
-        #   @return [Date]
+        #   @return [Date, nil]
         optional :as_of_date, Date
 
-        # @!attribute effective_at
+        # @!parse
+        #   # @return [Date]
+        #   attr_writer :as_of_date
+
+        # @!attribute [r] effective_at
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         optional :effective_at, Time
+
+        # @!parse
+        #   # @return [Time]
+        #   attr_writer :effective_at
 
         # @!parse
         #   # For example, if you want the balances as of a particular time (ISO8601), the

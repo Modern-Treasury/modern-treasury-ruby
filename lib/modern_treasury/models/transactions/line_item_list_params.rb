@@ -4,30 +4,46 @@ module ModernTreasury
   module Models
     module Transactions
       class LineItemListParams < ModernTreasury::BaseModel
-        # @!attribute id
+        # @!attribute [r] id
         #
-        #   @return [Hash{Symbol=>String}]
+        #   @return [Hash{Symbol=>String}, nil]
         optional :id, ModernTreasury::HashOf[String]
+
+        # @!parse
+        #   # @return [Hash{Symbol=>String}]
+        #   attr_writer :id
 
         # @!attribute after_cursor
         #
         #   @return [String, nil]
-        optional :after_cursor, String
+        optional :after_cursor, String, nil?: true
 
-        # @!attribute per_page
+        # @!attribute [r] per_page
         #
-        #   @return [Integer]
+        #   @return [Integer, nil]
         optional :per_page, Integer
 
-        # @!attribute transaction_id
+        # @!parse
+        #   # @return [Integer]
+        #   attr_writer :per_page
+
+        # @!attribute [r] transaction_id
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :transaction_id, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :transaction_id
 
         # @!attribute type
         #
         #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
-        optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }
+        optional :type,
+                 enum: -> {
+                   ModernTreasury::Models::Transactions::LineItemListParams::Type
+                 },
+                 nil?: true
 
         # @!parse
         #   # @param id [Hash{Symbol=>String}]

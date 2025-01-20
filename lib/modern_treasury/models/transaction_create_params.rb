@@ -13,7 +13,7 @@ module ModernTreasury
       #   The date on which the transaction occurred.
       #
       #   @return [Date, nil]
-      required :as_of_date, Date
+      required :as_of_date, Date, nil?: true
 
       # @!attribute direction
       #   Either `credit` or `debit`.
@@ -31,37 +31,45 @@ module ModernTreasury
       #   When applicable, the bank-given code that determines the transaction's category. For most banks this is the BAI2/BTRS transaction code.
       #
       #   @return [String, nil]
-      required :vendor_code, String
+      required :vendor_code, String, nil?: true
 
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, `us_bank`, or others.
       #
       #   @return [String, nil]
-      required :vendor_code_type, String
+      required :vendor_code_type, String, nil?: true
 
-      # @!attribute metadata
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute posted
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] posted
       #   This field will be `true` if the transaction has posted to the account.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       optional :posted, ModernTreasury::BooleanModel
+
+      # @!parse
+      #   # @return [Boolean]
+      #   attr_writer :posted
 
       # @!attribute type
       #   The type of the transaction. Examples could be `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
       #   @return [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
-      optional :type, enum: -> { ModernTreasury::Models::TransactionCreateParams::Type }
+      optional :type, enum: -> { ModernTreasury::Models::TransactionCreateParams::Type }, nil?: true
 
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in your banking portal.
       #
       #   @return [String, nil]
-      optional :vendor_description, String
+      optional :vendor_description, String, nil?: true
 
       # @!parse
       #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented

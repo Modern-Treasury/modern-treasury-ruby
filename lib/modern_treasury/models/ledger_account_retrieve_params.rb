@@ -3,11 +3,15 @@
 module ModernTreasury
   module Models
     class LedgerAccountRetrieveParams < ModernTreasury::BaseModel
-      # @!attribute balances
+      # @!attribute [r] balances
       #   Use `balances[effective_at_lower_bound]` and `balances[effective_at_upper_bound]` to get the balances change between the two timestamps. The lower bound is inclusive while the upper bound is exclusive of the provided timestamps. If no value is supplied the balances will be retrieved not including that bound. Use `balances[as_of_lock_version]` to retrieve a balance as of a specific Ledger Account `lock_version`.
       #
-      #   @return [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances]
+      #   @return [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, nil]
       optional :balances, -> { ModernTreasury::Models::LedgerAccountRetrieveParams::Balances }
+
+      # @!parse
+      #   # @return [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances]
+      #   attr_writer :balances
 
       # @!parse
       #   # @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances] Use `balances[effective_at_lower_bound]` and
@@ -32,30 +36,50 @@ module ModernTreasury
       # }
       # ```
       class Balances < ModernTreasury::BaseModel
-        # @!attribute as_of_date
+        # @!attribute [r] as_of_date
         #
-        #   @return [Date]
+        #   @return [Date, nil]
         optional :as_of_date, Date
 
-        # @!attribute as_of_lock_version
+        # @!parse
+        #   # @return [Date]
+        #   attr_writer :as_of_date
+
+        # @!attribute [r] as_of_lock_version
         #
-        #   @return [Integer]
+        #   @return [Integer, nil]
         optional :as_of_lock_version, Integer
 
-        # @!attribute effective_at
+        # @!parse
+        #   # @return [Integer]
+        #   attr_writer :as_of_lock_version
+
+        # @!attribute [r] effective_at
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         optional :effective_at, Time
 
-        # @!attribute effective_at_lower_bound
+        # @!parse
+        #   # @return [Time]
+        #   attr_writer :effective_at
+
+        # @!attribute [r] effective_at_lower_bound
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         optional :effective_at_lower_bound, Time
 
-        # @!attribute effective_at_upper_bound
+        # @!parse
+        #   # @return [Time]
+        #   attr_writer :effective_at_lower_bound
+
+        # @!attribute [r] effective_at_upper_bound
         #
-        #   @return [Time]
+        #   @return [Time, nil]
         optional :effective_at_upper_bound, Time
+
+        # @!parse
+        #   # @return [Time]
+        #   attr_writer :effective_at_upper_bound
 
         # @!parse
         #   # Use `balances[effective_at_lower_bound]` and

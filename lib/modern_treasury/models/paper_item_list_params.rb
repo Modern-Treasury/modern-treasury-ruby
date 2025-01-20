@@ -6,30 +6,46 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute deposit_date_end
+      # @!attribute [r] deposit_date_end
       #   Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :deposit_date_end, Date
 
-      # @!attribute deposit_date_start
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :deposit_date_end
+
+      # @!attribute [r] deposit_date_start
       #   Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :deposit_date_start, Date
 
-      # @!attribute lockbox_number
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :deposit_date_start
+
+      # @!attribute [r] lockbox_number
       #   Specify `lockbox_number` if you wish to see paper items that are associated with a specific lockbox number.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :lockbox_number, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :lockbox_number
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
 
       # @!parse
       #   # @param after_cursor [String, nil]

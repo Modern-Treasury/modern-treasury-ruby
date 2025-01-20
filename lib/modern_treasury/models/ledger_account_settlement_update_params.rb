@@ -7,19 +7,27 @@ module ModernTreasury
       #   The description of the ledger account settlement.
       #
       #   @return [String, nil]
-      optional :description, String
+      optional :description, String, nil?: true
 
-      # @!attribute metadata
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute status
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] status
       #   To post a pending ledger account settlement, use `posted`. To archive a pending ledger transaction, use `archived`.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status]
+      #   attr_writer :status
 
       # @!parse
       #   # @param description [String, nil] The description of the ledger account settlement.

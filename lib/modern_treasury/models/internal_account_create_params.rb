@@ -27,35 +27,55 @@ module ModernTreasury
       #   @return [String]
       required :party_name, String
 
-      # @!attribute counterparty_id
+      # @!attribute [r] counterparty_id
       #   The Counterparty associated to this account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute legal_entity_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] legal_entity_id
       #   The LegalEntity associated to this account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :legal_entity_id, String
 
-      # @!attribute parent_account_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :legal_entity_id
+
+      # @!attribute [r] parent_account_id
       #   The parent internal account of this new account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :parent_account_id, String
 
-      # @!attribute party_address
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :parent_account_id
+
+      # @!attribute [r] party_address
       #   The address associated with the owner or null.
       #
-      #   @return [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
+      #   @return [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, nil]
       optional :party_address, -> { ModernTreasury::Models::InternalAccountCreateParams::PartyAddress }
 
-      # @!attribute vendor_attributes
+      # @!parse
+      #   # @return [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
+      #   attr_writer :party_address
+
+      # @!attribute [r] vendor_attributes
       #   A hash of vendor specific attributes that will be used when creating the account at the vendor specified by the given connection.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :vendor_attributes
 
       # @!parse
       #   # @param connection_id [String] The identifier of the financial institution the account belongs to.
@@ -153,10 +173,14 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute line2
+        # @!attribute [r] line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :line2
 
         # @!parse
         #   # The address associated with the owner or null.

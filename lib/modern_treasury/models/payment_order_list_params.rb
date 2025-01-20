@@ -6,97 +6,161 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute counterparty_id
+      # @!attribute [r] counterparty_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute created_at_end
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] created_at_end
       #   An inclusive upper bound for searching created_at
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :created_at_end, Date
 
-      # @!attribute created_at_start
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :created_at_end
+
+      # @!attribute [r] created_at_start
       #   An inclusive lower bound for searching created_at
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :created_at_start, Date
 
-      # @!attribute direction
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :created_at_start
+
+      # @!attribute [r] direction
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
       optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute effective_date_end
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   attr_writer :direction
+
+      # @!attribute [r] effective_date_end
       #   An inclusive upper bound for searching effective_date
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :effective_date_end, Date
 
-      # @!attribute effective_date_start
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :effective_date_end
+
+      # @!attribute [r] effective_date_start
       #   An inclusive lower bound for searching effective_date
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :effective_date_start, Date
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :effective_date_start
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute originating_account_id
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] originating_account_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :originating_account_id, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :originating_account_id
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute priority
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] priority
       #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority, nil]
       optional :priority, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Priority }
 
-      # @!attribute process_after_end
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority]
+      #   attr_writer :priority
+
+      # @!attribute [r] process_after_end
       #   An inclusive upper bound for searching process_after
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :process_after_end, Time
 
-      # @!attribute process_after_start
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :process_after_end
+
+      # @!attribute [r] process_after_start
       #   An inclusive lower bound for searching process_after
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :process_after_start, Time
 
-      # @!attribute reference_number
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :process_after_start
+
+      # @!attribute [r] reference_number
       #   Query for records with the provided reference number
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :reference_number, String
 
-      # @!attribute status
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :reference_number
+
+      # @!attribute [r] status
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Status }
 
-      # @!attribute transaction_id
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Status]
+      #   attr_writer :status
+
+      # @!attribute [r] transaction_id
       #   The ID of a transaction that the payment order has been reconciled to.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :transaction_id, String
 
-      # @!attribute type
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :transaction_id
+
+      # @!attribute [r] type
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Type }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type]
+      #   attr_writer :type
 
       # @!parse
       #   # @param after_cursor [String, nil]
