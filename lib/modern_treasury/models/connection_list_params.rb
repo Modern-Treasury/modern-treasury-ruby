@@ -6,24 +6,36 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute entity
+      # @!attribute [r] entity
       #   A string code representing the vendor (i.e. bank).
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :entity, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :entity
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute vendor_customer_id
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] vendor_customer_id
       #   An identifier assigned by the vendor to your organization.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :vendor_customer_id, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :vendor_customer_id
 
       # @!parse
       #   # @param after_cursor [String, nil]

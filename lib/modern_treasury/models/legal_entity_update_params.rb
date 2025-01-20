@@ -3,136 +3,162 @@
 module ModernTreasury
   module Models
     class LegalEntityUpdateParams < ModernTreasury::BaseModel
-      # @!attribute addresses
+      # @!attribute [r] addresses
       #   A list of addresses for the entity.
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>]
       optional :addresses,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::Address] }
 
+      # @!parse
+      #   # @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>]
+      #   attr_writer :addresses
+
       # @!attribute bank_settings
       #
       #   @return [ModernTreasury::Models::BankSettings, nil]
-      optional :bank_settings, -> { ModernTreasury::Models::BankSettings }
+      optional :bank_settings, -> { ModernTreasury::Models::BankSettings }, nil?: true
 
       # @!attribute business_name
       #   The business's legal business name.
       #
       #   @return [String, nil]
-      optional :business_name, String
+      optional :business_name, String, nil?: true
 
       # @!attribute citizenship_country
       #   The country of citizenship for an individual.
       #
       #   @return [String, nil]
-      optional :citizenship_country, String
+      optional :citizenship_country, String, nil?: true
 
       # @!attribute date_formed
       #   A business's formation date (YYYY-MM-DD).
       #
       #   @return [Date, nil]
-      optional :date_formed, Date
+      optional :date_formed, Date, nil?: true
 
       # @!attribute date_of_birth
       #   An individual's date of birth (YYYY-MM-DD).
       #
       #   @return [Date, nil]
-      optional :date_of_birth, Date
+      optional :date_of_birth, Date, nil?: true
 
-      # @!attribute doing_business_as_names
+      # @!attribute [r] doing_business_as_names
       #
       #   @return [Array<String>]
       optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
+
+      # @!parse
+      #   # @return [Array<String>]
+      #   attr_writer :doing_business_as_names
 
       # @!attribute email
       #   The entity's primary email.
       #
       #   @return [String, nil]
-      optional :email, String
+      optional :email, String, nil?: true
 
       # @!attribute first_name
       #   An individual's first name.
       #
       #   @return [String, nil]
-      optional :first_name, String
+      optional :first_name, String, nil?: true
 
-      # @!attribute identifications
+      # @!attribute [r] identifications
       #   A list of identifications for the legal entity.
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
       optional :identifications,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::Identification] }
 
+      # @!parse
+      #   # @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
+      #   attr_writer :identifications
+
       # @!attribute last_name
       #   An individual's last name.
       #
       #   @return [String, nil]
-      optional :last_name, String
+      optional :last_name, String, nil?: true
 
       # @!attribute legal_structure
       #   The business's legal structure.
       #
       #   @return [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure, nil]
-      optional :legal_structure, enum: -> { ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure }
+      optional :legal_structure,
+               enum: -> { ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure },
+               nil?: true
 
-      # @!attribute metadata
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!attribute middle_name
       #   An individual's middle name.
       #
       #   @return [String, nil]
-      optional :middle_name, String
+      optional :middle_name, String, nil?: true
 
-      # @!attribute phone_numbers
+      # @!attribute [r] phone_numbers
       #
       #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
       optional :phone_numbers,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber] }
 
+      # @!parse
+      #   # @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
+      #   attr_writer :phone_numbers
+
       # @!attribute politically_exposed_person
       #   Whether the individual is a politically exposed person.
       #
       #   @return [Boolean, nil]
-      optional :politically_exposed_person, ModernTreasury::BooleanModel
+      optional :politically_exposed_person, ModernTreasury::BooleanModel, nil?: true
 
       # @!attribute preferred_name
       #   An individual's preferred name.
       #
       #   @return [String, nil]
-      optional :preferred_name, String
+      optional :preferred_name, String, nil?: true
 
       # @!attribute prefix
       #   An individual's prefix.
       #
       #   @return [String, nil]
-      optional :prefix, String
+      optional :prefix, String, nil?: true
 
       # @!attribute risk_rating
       #   The risk rating of the legal entity. One of low, medium, high.
       #
       #   @return [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil]
-      optional :risk_rating, enum: -> { ModernTreasury::Models::LegalEntityUpdateParams::RiskRating }
+      optional :risk_rating,
+               enum: -> { ModernTreasury::Models::LegalEntityUpdateParams::RiskRating },
+               nil?: true
 
       # @!attribute suffix
       #   An individual's suffix.
       #
       #   @return [String, nil]
-      optional :suffix, String
+      optional :suffix, String, nil?: true
 
       # @!attribute wealth_and_employment_details
       #
       #   @return [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
-      optional :wealth_and_employment_details, -> { ModernTreasury::Models::WealthAndEmploymentDetails }
+      optional :wealth_and_employment_details,
+               -> { ModernTreasury::Models::WealthAndEmploymentDetails },
+               nil?: true
 
       # @!attribute website
       #   The entity's primary website URL.
       #
       #   @return [String, nil]
-      optional :website, String
+      optional :website, String, nil?: true
 
       # @!parse
       #   # @param addresses [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>] A list of addresses for the entity.
@@ -226,32 +252,32 @@ module ModernTreasury
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @return [String, nil]
-        required :country, String
+        required :country, String, nil?: true
 
         # @!attribute line1
         #
         #   @return [String, nil]
-        required :line1, String
+        required :line1, String, nil?: true
 
         # @!attribute locality
         #   Locality or City.
         #
         #   @return [String, nil]
-        required :locality, String
+        required :locality, String, nil?: true
 
         # @!attribute postal_code
         #   The postal code of the address.
         #
         #   @return [String, nil]
-        required :postal_code, String
+        required :postal_code, String, nil?: true
 
         # @!attribute region
         #   Region or State.
         #
         #   @return [String, nil]
-        required :region, String
+        required :region, String, nil?: true
 
-        # @!attribute address_types
+        # @!attribute [r] address_types
         #   The types of this address.
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>]
@@ -260,10 +286,14 @@ module ModernTreasury
                    ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType]
                  }
 
+        # @!parse
+        #   # @return [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>]
+        #   attr_writer :address_types
+
         # @!attribute line2
         #
         #   @return [String, nil]
-        optional :line2, String
+        optional :line2, String, nil?: true
 
         # @!parse
         #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
@@ -338,7 +368,7 @@ module ModernTreasury
         #   The ISO 3166-1 alpha-2 country code of the country that issued the identification
         #
         #   @return [String, nil]
-        optional :issuing_country, String
+        optional :issuing_country, String, nil?: true
 
         # @!parse
         #   # @param id_number [String] The ID number of identification document.
@@ -435,10 +465,14 @@ module ModernTreasury
       # }
       # ```
       class PhoneNumber < ModernTreasury::BaseModel
-        # @!attribute phone_number
+        # @!attribute [r] phone_number
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :phone_number, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :phone_number
 
         # @!parse
         #   # A list of phone numbers in E.164 format.

@@ -3,26 +3,38 @@
 module ModernTreasury
   module Models
     class VirtualAccountUpdateParams < ModernTreasury::BaseModel
-      # @!attribute counterparty_id
+      # @!attribute [r] counterparty_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute ledger_account_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] ledger_account_id
       #   The ledger account that you'd like to link to the virtual account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :ledger_account_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :ledger_account_id
+
+      # @!attribute [r] metadata
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!attribute name
       #
       #   @return [String, nil]
-      optional :name, String
+      optional :name, String, nil?: true
 
       # @!parse
       #   # @param counterparty_id [String]

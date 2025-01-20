@@ -29,7 +29,7 @@ module ModernTreasury
       #   The return code. For ACH returns, this is the required ACH return code.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::Code, nil]
-      required :code, enum: -> { ModernTreasury::Models::ReturnObject::Code }
+      required :code, enum: -> { ModernTreasury::Models::ReturnObject::Code }, nil?: true
 
       # @!attribute created_at
       #
@@ -46,31 +46,31 @@ module ModernTreasury
       #   If the return's status is `returned`, this will include the return object's data that is returning this return.
       #
       #   @return [ModernTreasury::Models::ReturnObject, nil]
-      required :current_return, -> { ModernTreasury::Models::ReturnObject }
+      required :current_return, -> { ModernTreasury::Models::ReturnObject }, nil?: true
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty passed away.
       #
       #   @return [Date, nil]
-      required :date_of_death, Date
+      required :date_of_death, Date, nil?: true
 
       # @!attribute failure_reason
       #   If an originating return failed to be processed by the bank, a description of the failure reason will be available.
       #
       #   @return [String, nil]
-      required :failure_reason, String
+      required :failure_reason, String, nil?: true
 
       # @!attribute internal_account_id
       #   The ID of the relevant Internal Account.
       #
       #   @return [String, nil]
-      required :internal_account_id, String
+      required :internal_account_id, String, nil?: true
 
       # @!attribute ledger_transaction_id
       #   The ID of the ledger transaction linked to the return.
       #
       #   @return [String, nil]
-      required :ledger_transaction_id, String
+      required :ledger_transaction_id, String, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -87,7 +87,7 @@ module ModernTreasury
       #   Often the bank will provide an explanation for the return, which is a short human readable string.
       #
       #   @return [String, nil]
-      required :reason, String
+      required :reason, String, nil?: true
 
       # @!attribute reference_numbers
       #   An array of Payment Reference objects.
@@ -100,13 +100,13 @@ module ModernTreasury
       #   The ID of the object being returned or `null`.
       #
       #   @return [String, nil]
-      required :returnable_id, String
+      required :returnable_id, String, nil?: true
 
       # @!attribute returnable_type
       #   The type of object being returned or `null`.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil]
-      required :returnable_type, enum: -> { ModernTreasury::Models::ReturnObject::ReturnableType }
+      required :returnable_type, enum: -> { ModernTreasury::Models::ReturnObject::ReturnableType }, nil?: true
 
       # @!attribute role
       #   The role of the return, can be `originating` or `receiving`.
@@ -124,13 +124,13 @@ module ModernTreasury
       #   The ID of the relevant Transaction or `null`.
       #
       #   @return [String, nil]
-      required :transaction_id, String
+      required :transaction_id, String, nil?: true
 
       # @!attribute transaction_line_item_id
       #   The ID of the relevant Transaction Line Item or `null`.
       #
       #   @return [String, nil]
-      required :transaction_line_item_id, String
+      required :transaction_line_item_id, String, nil?: true
 
       # @!attribute type
       #   The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `interac`, `manual`, `paper_item`, `wire`.
@@ -147,7 +147,7 @@ module ModernTreasury
       #   Some returns may include additional information from the bank. In these cases, this string will be present.
       #
       #   @return [String, nil]
-      optional :additional_information, String
+      optional :additional_information, String, nil?: true
 
       # @!parse
       #   # @param id [String]

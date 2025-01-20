@@ -34,12 +34,12 @@ module ModernTreasury
       #   The description of the ledger account.
       #
       #   @return [String, nil]
-      required :description, String
+      required :description, String, nil?: true
 
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute ledger_id
       #   The id of the ledger that this account belongs to.
@@ -51,13 +51,17 @@ module ModernTreasury
       #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.
       #
       #   @return [String, nil]
-      required :ledgerable_id, String
+      required :ledgerable_id, String, nil?: true
 
       # @!attribute ledgerable_type
       #   If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType, nil]
-      required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerAccount::LedgerableType }
+      required :ledgerable_type,
+               enum: -> {
+                 ModernTreasury::Models::LedgerAccount::LedgerableType
+               },
+               nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -183,13 +187,13 @@ module ModernTreasury
         #   The inclusive lower bound of the effective_at timestamp for the returned balances.
         #
         #   @return [Time, nil]
-        required :effective_at_lower_bound, Time
+        required :effective_at_lower_bound, Time, nil?: true
 
         # @!attribute effective_at_upper_bound
         #   The exclusive upper bound of the effective_at timestamp for the returned balances.
         #
         #   @return [Time, nil]
-        required :effective_at_upper_bound, Time
+        required :effective_at_upper_bound, Time, nil?: true
 
         # @!attribute pending_balance
         #   The pending_balance is the sum of all pending and posted entries.

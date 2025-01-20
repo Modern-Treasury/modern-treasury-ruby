@@ -6,54 +6,86 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute as_of_date_end
+      # @!attribute [r] as_of_date_end
       #   Filters incoming payment details with an as_of_date starting on or before the specified date (YYYY-MM-DD).
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :as_of_date_end, Date
 
-      # @!attribute as_of_date_start
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :as_of_date_end
+
+      # @!attribute [r] as_of_date_start
       #   Filters incoming payment details with an as_of_date starting on or after the specified date (YYYY-MM-DD).
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :as_of_date_start, Date
 
-      # @!attribute direction
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :as_of_date_start
+
+      # @!attribute [r] direction
       #   One of `credit` or `debit`.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
       optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   attr_writer :direction
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute status
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] status
       #   The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::IncomingPaymentDetailListParams::Status }
 
-      # @!attribute type
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status]
+      #   attr_writer :status
+
+      # @!attribute [r] type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
       #
-      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type]
+      #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::IncomingPaymentDetailListParams::Type }
 
-      # @!attribute virtual_account_id
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type]
+      #   attr_writer :type
+
+      # @!attribute [r] virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual Account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :virtual_account_id, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :virtual_account_id
 
       # @!parse
       #   # @param after_cursor [String, nil]

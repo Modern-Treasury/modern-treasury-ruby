@@ -6,39 +6,63 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute entity_id
+      # @!attribute [r] entity_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :entity_id, String
 
-      # @!attribute event_name
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :entity_id
+
+      # @!attribute [r] event_name
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :event_name, String
 
-      # @!attribute event_time_end
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :event_name
+
+      # @!attribute [r] event_time_end
       #   An inclusive upper bound for when the event occurred
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :event_time_end, Time
 
-      # @!attribute event_time_start
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :event_time_end
+
+      # @!attribute [r] event_time_start
       #   An inclusive lower bound for when the event occurred
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :event_time_start, Time
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :event_time_start
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute resource
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] resource
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :resource, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :resource
 
       # @!parse
       #   # @param after_cursor [String, nil]

@@ -31,25 +31,33 @@ module ModernTreasury
       #   The currency exponent of the ledger account category.
       #
       #   @return [Integer, nil]
-      optional :currency_exponent, Integer
+      optional :currency_exponent, Integer, nil?: true
 
       # @!attribute description
       #   The description of the ledger account category.
       #
       #   @return [String, nil]
-      optional :description, String
+      optional :description, String, nil?: true
 
-      # @!attribute ledger_account_category_ids
+      # @!attribute [r] ledger_account_category_ids
       #   The array of ledger account category ids that this ledger account category should be a child of.
       #
       #   @return [Array<String>]
       optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [Array<String>]
+      #   attr_writer :ledger_account_category_ids
+
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!parse
       #   # @param currency [String] The currency of the ledger account category.

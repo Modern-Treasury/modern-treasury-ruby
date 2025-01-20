@@ -79,11 +79,15 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!attribute vendor_id
+      # @!attribute [r] vendor_id
       #   This vendor assigned ID for this quote.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :vendor_id, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :vendor_id
 
       # @!parse
       #   # @param id [String]

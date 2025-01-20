@@ -6,48 +6,76 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute created_at_lower_bound
+      # @!attribute [r] created_at_lower_bound
       #   Used to return counterparties created after some datetime.
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :created_at_lower_bound, Time
 
-      # @!attribute created_at_upper_bound
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :created_at_lower_bound
+
+      # @!attribute [r] created_at_upper_bound
       #   Used to return counterparties created before some datetime.
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :created_at_upper_bound, Time
 
-      # @!attribute email
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :created_at_upper_bound
+
+      # @!attribute [r] email
       #   Performs a partial string match of the email field. This is also case insensitive.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :email, String
 
-      # @!attribute legal_entity_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :email
+
+      # @!attribute [r] legal_entity_id
       #   Filters for counterparties with the given legal entity ID.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :legal_entity_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :legal_entity_id
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute name
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] name
       #   Performs a partial string match of the name field. This is also case insensitive.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :name, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :name
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
 
       # @!parse
       #   # @param after_cursor [String, nil]

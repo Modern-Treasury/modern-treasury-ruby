@@ -6,31 +6,47 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute per_page
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute reference_number
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] reference_number
       #   The actual reference number assigned by the bank.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :reference_number, String
 
-      # @!attribute referenceable_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :reference_number
+
+      # @!attribute [r] referenceable_id
       #   The id of the referenceable to search for. Must be accompanied by the referenceable_type or will return an error.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :referenceable_id, String
 
-      # @!attribute referenceable_type
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :referenceable_id
+
+      # @!attribute [r] referenceable_type
       #   One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType]
+      #   @return [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType, nil]
       optional :referenceable_type,
                enum: -> { ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType]
+      #   attr_writer :referenceable_type
 
       # @!parse
       #   # @param after_cursor [String, nil]

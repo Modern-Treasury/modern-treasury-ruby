@@ -29,7 +29,7 @@ module ModernTreasury
       #   Can be checking, savings or other.
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil]
-      required :account_type, enum: -> { ModernTreasury::Models::InternalAccount::AccountType }
+      required :account_type, enum: -> { ModernTreasury::Models::InternalAccount::AccountType }, nil?: true
 
       # @!attribute connection
       #   Specifies which financial institution the accounts belong to.
@@ -41,7 +41,7 @@ module ModernTreasury
       #   The Counterparty associated to this account.
       #
       #   @return [String, nil]
-      required :counterparty_id, String
+      required :counterparty_id, String, nil?: true
 
       # @!attribute created_at
       #
@@ -58,13 +58,13 @@ module ModernTreasury
       #   If the internal account links to a ledger account in Modern Treasury, the id of the ledger account will be populated here.
       #
       #   @return [String, nil]
-      required :ledger_account_id, String
+      required :ledger_account_id, String, nil?: true
 
       # @!attribute legal_entity_id
       #   The Legal Entity associated to this account
       #
       #   @return [String, nil]
-      required :legal_entity_id, String
+      required :legal_entity_id, String, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -82,7 +82,7 @@ module ModernTreasury
       #   A nickname for the account.
       #
       #   @return [String, nil]
-      required :name, String
+      required :name, String, nil?: true
 
       # @!attribute object
       #
@@ -93,13 +93,13 @@ module ModernTreasury
       #   The parent InternalAccount of this account.
       #
       #   @return [String, nil]
-      required :parent_account_id, String
+      required :parent_account_id, String, nil?: true
 
       # @!attribute party_address
       #   The address associated with the owner or null.
       #
       #   @return [ModernTreasury::Models::InternalAccount::PartyAddress, nil]
-      required :party_address, -> { ModernTreasury::Models::InternalAccount::PartyAddress }
+      required :party_address, -> { ModernTreasury::Models::InternalAccount::PartyAddress }, nil?: true
 
       # @!attribute party_name
       #   The legal name of the entity which owns the account.
@@ -111,7 +111,7 @@ module ModernTreasury
       #   Either individual or business.
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil]
-      required :party_type, enum: -> { ModernTreasury::Models::InternalAccount::PartyType }
+      required :party_type, enum: -> { ModernTreasury::Models::InternalAccount::PartyType }, nil?: true
 
       # @!attribute routing_details
       #   An array of routing detail objects.
@@ -246,7 +246,7 @@ module ModernTreasury
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @return [String, nil]
-        required :country, String
+        required :country, String, nil?: true
 
         # @!attribute created_at
         #
@@ -256,12 +256,12 @@ module ModernTreasury
         # @!attribute line1
         #
         #   @return [String, nil]
-        required :line1, String
+        required :line1, String, nil?: true
 
         # @!attribute line2
         #
         #   @return [String, nil]
-        required :line2, String
+        required :line2, String, nil?: true
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -273,7 +273,7 @@ module ModernTreasury
         #   Locality or City.
         #
         #   @return [String, nil]
-        required :locality, String
+        required :locality, String, nil?: true
 
         # @!attribute object
         #
@@ -284,13 +284,13 @@ module ModernTreasury
         #   The postal code of the address.
         #
         #   @return [String, nil]
-        required :postal_code, String
+        required :postal_code, String, nil?: true
 
         # @!attribute region
         #   Region or State.
         #
         #   @return [String, nil]
-        required :region, String
+        required :region, String, nil?: true
 
         # @!attribute updated_at
         #

@@ -3,11 +3,15 @@
 module ModernTreasury
   module Models
     class ConnectionLegalEntityUpdateParams < ModernTreasury::BaseModel
-      # @!attribute status
+      # @!attribute [r] status
       #   The status of the connection legal entity.
       #
-      #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
+      #   attr_writer :status
 
       # @!parse
       #   # @param status [String] The status of the connection legal entity.

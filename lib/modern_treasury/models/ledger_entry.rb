@@ -39,7 +39,7 @@ module ModernTreasury
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute ledger_account_currency
       #   The currency of the ledger account.
@@ -63,7 +63,7 @@ module ModernTreasury
       #   Lock version of the ledger account. This can be passed when creating a ledger transaction to only succeed if no ledger transactions have posted since the given version. See our post about Designing the Ledgers API with Optimistic Locking for more details.
       #
       #   @return [Integer, nil]
-      required :ledger_account_lock_version, Integer
+      required :ledger_account_lock_version, Integer, nil?: true
 
       # @!attribute ledger_transaction_id
       #   The ledger transaction that this ledger entry is associated with.
@@ -93,7 +93,8 @@ module ModernTreasury
       #
       #   @return [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil]
       required :resulting_ledger_account_balances,
-               -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances }
+               -> { ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances },
+               nil?: true
 
       # @!attribute status
       #   Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.
