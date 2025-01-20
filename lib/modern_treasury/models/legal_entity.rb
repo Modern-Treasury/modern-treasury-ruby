@@ -28,19 +28,19 @@ module ModernTreasury
       # @!attribute bank_settings
       #
       #   @return [ModernTreasury::Models::BankSettings, nil]
-      required :bank_settings, -> { ModernTreasury::Models::BankSettings }
+      required :bank_settings, -> { ModernTreasury::Models::BankSettings }, nil?: true
 
       # @!attribute business_name
       #   The business's legal business name.
       #
       #   @return [String, nil]
-      required :business_name, String
+      required :business_name, String, nil?: true
 
       # @!attribute citizenship_country
       #   The country of citizenship for an individual.
       #
       #   @return [String, nil]
-      required :citizenship_country, String
+      required :citizenship_country, String, nil?: true
 
       # @!attribute created_at
       #
@@ -51,18 +51,18 @@ module ModernTreasury
       #   A business's formation date (YYYY-MM-DD).
       #
       #   @return [Date, nil]
-      required :date_formed, Date
+      required :date_formed, Date, nil?: true
 
       # @!attribute date_of_birth
       #   An individual's date of birth (YYYY-MM-DD).
       #
       #   @return [Date, nil]
-      required :date_of_birth, Date
+      required :date_of_birth, Date, nil?: true
 
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute doing_business_as_names
       #
@@ -73,13 +73,13 @@ module ModernTreasury
       #   The entity's primary email.
       #
       #   @return [String, nil]
-      required :email, String
+      required :email, String, nil?: true
 
       # @!attribute first_name
       #   An individual's first name.
       #
       #   @return [String, nil]
-      required :first_name, String
+      required :first_name, String, nil?: true
 
       # @!attribute identifications
       #   A list of identifications for the legal entity.
@@ -92,14 +92,15 @@ module ModernTreasury
       #   An individual's last name.
       #
       #   @return [String, nil]
-      required :last_name, String
+      required :last_name, String, nil?: true
 
       # @!attribute legal_entity_associations
       #   The legal entity associations and its child legal entities.
       #
-      #   @return [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
+      #   @return [Array<ModernTreasury::Models::LegalEntityAssociation>]
       required :legal_entity_associations,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation] }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation] },
+               nil?: true
 
       # @!attribute legal_entity_type
       #   The type of legal entity.
@@ -111,7 +112,7 @@ module ModernTreasury
       #   The business's legal structure.
       #
       #   @return [Symbol, ModernTreasury::Models::LegalEntity::LegalStructure, nil]
-      required :legal_structure, enum: -> { ModernTreasury::Models::LegalEntity::LegalStructure }
+      required :legal_structure, enum: -> { ModernTreasury::Models::LegalEntity::LegalStructure }, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -129,7 +130,7 @@ module ModernTreasury
       #   An individual's middle name.
       #
       #   @return [String, nil]
-      required :middle_name, String
+      required :middle_name, String, nil?: true
 
       # @!attribute object
       #
@@ -148,31 +149,31 @@ module ModernTreasury
       #   Whether the individual is a politically exposed person.
       #
       #   @return [Boolean, nil]
-      required :politically_exposed_person, ModernTreasury::BooleanModel
+      required :politically_exposed_person, ModernTreasury::BooleanModel, nil?: true
 
       # @!attribute preferred_name
       #   An individual's preferred name.
       #
       #   @return [String, nil]
-      required :preferred_name, String
+      required :preferred_name, String, nil?: true
 
       # @!attribute prefix
       #   An individual's prefix.
       #
       #   @return [String, nil]
-      required :prefix, String
+      required :prefix, String, nil?: true
 
       # @!attribute risk_rating
       #   The risk rating of the legal entity. One of low, medium, high.
       #
       #   @return [Symbol, ModernTreasury::Models::LegalEntity::RiskRating, nil]
-      required :risk_rating, enum: -> { ModernTreasury::Models::LegalEntity::RiskRating }
+      required :risk_rating, enum: -> { ModernTreasury::Models::LegalEntity::RiskRating }, nil?: true
 
       # @!attribute suffix
       #   An individual's suffix.
       #
       #   @return [String, nil]
-      required :suffix, String
+      required :suffix, String, nil?: true
 
       # @!attribute updated_at
       #
@@ -182,13 +183,15 @@ module ModernTreasury
       # @!attribute wealth_and_employment_details
       #
       #   @return [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
-      required :wealth_and_employment_details, -> { ModernTreasury::Models::WealthAndEmploymentDetails }
+      required :wealth_and_employment_details,
+               -> { ModernTreasury::Models::WealthAndEmploymentDetails },
+               nil?: true
 
       # @!attribute website
       #   The entity's primary website URL.
       #
       #   @return [String, nil]
-      required :website, String
+      required :website, String, nil?: true
 
       # @!parse
       #   # @param id [String]
@@ -219,7 +222,7 @@ module ModernTreasury
       #   #
       #   # @param last_name [String, nil] An individual's last name.
       #   #
-      #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>, nil] The legal entity associations and its child legal entities.
+      #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>] The legal entity associations and its child legal entities.
       #   #
       #   # @param legal_entity_type [String] The type of legal entity.
       #   #
@@ -321,7 +324,7 @@ module ModernTreasury
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
         #   @return [String, nil]
-        required :country, String
+        required :country, String, nil?: true
 
         # @!attribute created_at
         #
@@ -331,17 +334,17 @@ module ModernTreasury
         # @!attribute discarded_at
         #
         #   @return [Time, nil]
-        required :discarded_at, Time
+        required :discarded_at, Time, nil?: true
 
         # @!attribute line1
         #
         #   @return [String, nil]
-        required :line1, String
+        required :line1, String, nil?: true
 
         # @!attribute line2
         #
         #   @return [String, nil]
-        required :line2, String
+        required :line2, String, nil?: true
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -353,7 +356,7 @@ module ModernTreasury
         #   Locality or City.
         #
         #   @return [String, nil]
-        required :locality, String
+        required :locality, String, nil?: true
 
         # @!attribute object
         #
@@ -364,13 +367,13 @@ module ModernTreasury
         #   The postal code of the address.
         #
         #   @return [String, nil]
-        required :postal_code, String
+        required :postal_code, String, nil?: true
 
         # @!attribute region
         #   Region or State.
         #
         #   @return [String, nil]
-        required :region, String
+        required :region, String, nil?: true
 
         # @!attribute updated_at
         #
@@ -477,7 +480,7 @@ module ModernTreasury
         # @!attribute discarded_at
         #
         #   @return [Time, nil]
-        required :discarded_at, Time
+        required :discarded_at, Time, nil?: true
 
         # @!attribute id_type
         #   The type of ID number.
@@ -489,7 +492,7 @@ module ModernTreasury
         #   The ISO 3166-1 alpha-2 country code of the country that issued the identification
         #
         #   @return [String, nil]
-        required :issuing_country, String
+        required :issuing_country, String, nil?: true
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -634,10 +637,14 @@ module ModernTreasury
       # }
       # ```
       class PhoneNumber < ModernTreasury::BaseModel
-        # @!attribute phone_number
+        # @!attribute [r] phone_number
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :phone_number, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :phone_number
 
         # @!parse
         #   # A list of phone numbers in E.164 format.

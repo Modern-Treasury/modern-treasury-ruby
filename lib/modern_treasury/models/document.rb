@@ -27,7 +27,7 @@ module ModernTreasury
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute document_details
       #
@@ -39,7 +39,7 @@ module ModernTreasury
       #   A category given to the document, can be `null`.
       #
       #   @return [String, nil]
-      required :document_type, String
+      required :document_type, String, nil?: true
 
       # @!attribute documentable_id
       #   The unique identifier for the associated object.
@@ -153,7 +153,7 @@ module ModernTreasury
         # @!attribute discarded_at
         #
         #   @return [Time, nil]
-        required :discarded_at, Time
+        required :discarded_at, Time, nil?: true
 
         # @!attribute document_identifier
         #
@@ -261,23 +261,35 @@ module ModernTreasury
       # }
       # ```
       class File < ModernTreasury::BaseModel
-        # @!attribute content_type
+        # @!attribute [r] content_type
         #   The MIME content type of the document.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :content_type, String
 
-        # @!attribute filename
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :content_type
+
+        # @!attribute [r] filename
         #   The original filename of the document.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :filename, String
 
-        # @!attribute size
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :filename
+
+        # @!attribute [r] size
         #   The size of the document in bytes.
         #
-        #   @return [Integer]
+        #   @return [Integer, nil]
         optional :size, Integer
+
+        # @!parse
+        #   # @return [Integer]
+        #   attr_writer :size
 
         # @!parse
         #   # @param content_type [String] The MIME content type of the document.

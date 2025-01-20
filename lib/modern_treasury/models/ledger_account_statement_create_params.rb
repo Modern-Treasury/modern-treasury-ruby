@@ -25,13 +25,17 @@ module ModernTreasury
       #   The description of the ledger account statement.
       #
       #   @return [String, nil]
-      optional :description, String
+      optional :description, String, nil?: true
 
-      # @!attribute metadata
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!parse
       #   # @param effective_at_lower_bound [String] The inclusive lower bound of the effective_at timestamp of the ledger entries to

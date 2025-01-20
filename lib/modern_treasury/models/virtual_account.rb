@@ -29,7 +29,7 @@ module ModernTreasury
       #   The ID of a counterparty that the virtual account belongs to. Optional.
       #
       #   @return [String, nil]
-      required :counterparty_id, String
+      required :counterparty_id, String, nil?: true
 
       # @!attribute created_at
       #
@@ -40,24 +40,24 @@ module ModernTreasury
       #   The ID of a credit normal ledger account. When money enters the virtual account, this ledger account will be credited. Must be accompanied by a debit_ledger_account_id if present.
       #
       #   @return [String, nil]
-      required :credit_ledger_account_id, String
+      required :credit_ledger_account_id, String, nil?: true
 
       # @!attribute debit_ledger_account_id
       #   The ID of a debit normal ledger account. When money enters the virtual account, this ledger account will be debited. Must be accompanied by a credit_ledger_account_id if present.
       #
       #   @return [String, nil]
-      required :debit_ledger_account_id, String
+      required :debit_ledger_account_id, String, nil?: true
 
       # @!attribute description
       #   An optional free-form description for internal use.
       #
       #   @return [String, nil]
-      required :description, String
+      required :description, String, nil?: true
 
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute internal_account_id
       #   The ID of the internal account that the virtual account is in.
@@ -69,7 +69,7 @@ module ModernTreasury
       #   If the virtual account links to a ledger account in Modern Treasury, the id of the ledger account will be populated here.
       #
       #   @return [String, nil]
-      required :ledger_account_id, String
+      required :ledger_account_id, String, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.

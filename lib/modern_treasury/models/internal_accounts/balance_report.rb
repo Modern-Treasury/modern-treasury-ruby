@@ -30,7 +30,7 @@ module ModernTreasury
         #   The time (24-hour clock) of the balance report in local time.
         #
         #   @return [String, nil]
-        required :as_of_time, String
+        required :as_of_time, String, nil?: true
 
         # @!attribute balance_report_type
         #   The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
@@ -167,13 +167,13 @@ module ModernTreasury
           #   The date on which the balance became true for the account.
           #
           #   @return [Date, nil]
-          required :as_of_date, Date
+          required :as_of_date, Date, nil?: true
 
           # @!attribute as_of_time
           #   The time on which the balance became true for the account.
           #
           #   @return [String, nil]
-          required :as_of_time, String
+          required :as_of_time, String, nil?: true
 
           # @!attribute balance_type
           #   The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
@@ -213,7 +213,7 @@ module ModernTreasury
           #   The date on which the balance becomes available.
           #
           #   @return [Date, nil]
-          required :value_date, Date
+          required :value_date, Date, nil?: true
 
           # @!attribute vendor_code
           #   The code used by the bank when reporting this specific balance.
@@ -225,7 +225,7 @@ module ModernTreasury
           #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, or `us_bank`.
           #
           #   @return [String, nil]
-          required :vendor_code_type, String
+          required :vendor_code_type, String, nil?: true
 
           # @!parse
           #   # @param id [String]

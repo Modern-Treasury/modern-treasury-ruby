@@ -29,19 +29,19 @@ module ModernTreasury
       #   The date on which the transaction occurred.
       #
       #   @return [Date, nil]
-      required :as_of_date, Date
+      required :as_of_date, Date, nil?: true
 
       # @!attribute as_of_time
       #   The time on which the transaction occurred. Depending on the granularity of the timestamp information received from the bank, it may be `null`.
       #
       #   @return [String, nil]
-      required :as_of_time, String
+      required :as_of_time, String, nil?: true
 
       # @!attribute as_of_timezone
       #   The timezone in which the `as_of_time` is represented. Can be `null` if the bank does not provide timezone info.
       #
       #   @return [String, nil]
-      required :as_of_timezone, String
+      required :as_of_timezone, String, nil?: true
 
       # @!attribute created_at
       #
@@ -69,13 +69,15 @@ module ModernTreasury
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute foreign_exchange_rate
       #   Associated serialized foreign exchange rate information.
       #
       #   @return [ModernTreasury::Models::Transaction::ForeignExchangeRate, nil]
-      required :foreign_exchange_rate, -> { ModernTreasury::Models::Transaction::ForeignExchangeRate }
+      required :foreign_exchange_rate,
+               -> { ModernTreasury::Models::Transaction::ForeignExchangeRate },
+               nil?: true
 
       # @!attribute internal_account_id
       #   The ID of the relevant Internal Account.
@@ -127,37 +129,41 @@ module ModernTreasury
       #   When applicable, the bank-given code that determines the transaction's category. For most banks this is the BAI2/BTRS transaction code.
       #
       #   @return [String, nil]
-      required :vendor_code, String
+      required :vendor_code, String, nil?: true
 
       # @!attribute vendor_code_type
       #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, `us_bank`, or others.
       #
       #   @return [Symbol, ModernTreasury::Models::Transaction::VendorCodeType, nil]
-      required :vendor_code_type, enum: -> { ModernTreasury::Models::Transaction::VendorCodeType }
+      required :vendor_code_type, enum: -> { ModernTreasury::Models::Transaction::VendorCodeType }, nil?: true
 
       # @!attribute vendor_customer_id
       #   An identifier given to this transaction by the bank, often `null`.
       #
       #   @return [String, nil]
-      required :vendor_customer_id, String
+      required :vendor_customer_id, String, nil?: true
 
       # @!attribute vendor_id
       #   An identifier given to this transaction by the bank.
       #
       #   @return [String, nil]
-      required :vendor_id, String
+      required :vendor_id, String, nil?: true
 
-      # @!attribute details
+      # @!attribute [r] details
       #   This field contains additional information that the bank provided about the transaction. This is structured data. Some of the data in here might overlap with what is in the `vendor_description`. For example, the OBI could be a part of the vendor description, and it would also be included in here. The attributes that are passed through the details field will vary based on your banking partner. Currently, the following keys may be in the details object: `originator_name`, `originator_to_beneficiary_information`.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :details, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :details
 
       # @!attribute vendor_description
       #   The transaction detail text that often appears in on your bank statement and in your banking portal.
       #
       #   @return [String, nil]
-      optional :vendor_description, String
+      optional :vendor_description, String, nil?: true
 
       # @!parse
       #   # @param id [String]

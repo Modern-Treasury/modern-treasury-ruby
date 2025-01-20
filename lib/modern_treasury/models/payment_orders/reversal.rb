@@ -29,7 +29,7 @@ module ModernTreasury
         #   The ID of the ledger transaction linked to the reversal.
         #
         #   @return [String, nil]
-        required :ledger_transaction_id, String
+        required :ledger_transaction_id, String, nil?: true
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -52,7 +52,7 @@ module ModernTreasury
         #   The ID of the relevant Payment Order.
         #
         #   @return [String, nil]
-        required :payment_order_id, String
+        required :payment_order_id, String, nil?: true
 
         # @!attribute reason
         #   The reason for the reversal.

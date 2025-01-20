@@ -6,60 +6,96 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute counterparty_id
+      # @!attribute [r] counterparty_id
       #   Specify counterparty_id to see expected_payments for a specific account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute created_at_lower_bound
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] created_at_lower_bound
       #   Used to return expected payments created after some datetime
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :created_at_lower_bound, Time
 
-      # @!attribute created_at_upper_bound
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :created_at_lower_bound
+
+      # @!attribute [r] created_at_upper_bound
       #   Used to return expected payments created before some datetime
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :created_at_upper_bound, Time
 
-      # @!attribute direction
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :created_at_upper_bound
+
+      # @!attribute [r] direction
       #   One of credit, debit
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
       optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute internal_account_id
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   attr_writer :direction
+
+      # @!attribute [r] internal_account_id
       #   Specify internal_account_id to see expected_payments for a specific account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :internal_account_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :internal_account_id
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute status
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] status
       #   One of unreconciled, reconciled, or archived.
       #
-      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Status }
 
-      # @!attribute type
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status]
+      #   attr_writer :status
+
+      # @!attribute [r] type
       #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sepa, signet, wire
       #
-      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
+      #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Type }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
+      #   attr_writer :type
 
       # @!parse
       #   # @param after_cursor [String, nil]

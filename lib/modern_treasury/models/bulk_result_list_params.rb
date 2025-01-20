@@ -6,42 +6,66 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute entity_id
+      # @!attribute [r] entity_id
       #   Unique identifier for the result entity object.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :entity_id, String
 
-      # @!attribute entity_type
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :entity_id
+
+      # @!attribute [r] entity_type
       #   The type of the request that created this result. bulk_request is the only supported `request_type`
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType]
+      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType, nil]
       optional :entity_type, enum: -> { ModernTreasury::Models::BulkResultListParams::EntityType }
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType]
+      #   attr_writer :entity_type
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute request_id
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] request_id
       #   Unique identifier for the request that created this bulk result. This is the ID of the bulk request when `request_type` is bulk_request
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :request_id, String
 
-      # @!attribute request_type
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :request_id
+
+      # @!attribute [r] request_type
       #   The type of the request that created this result. bulk_request is the only supported `request_type`
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType]
+      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType, nil]
       optional :request_type, enum: -> { ModernTreasury::Models::BulkResultListParams::RequestType }
 
-      # @!attribute status
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType]
+      #   attr_writer :request_type
+
+      # @!attribute [r] status
       #   One of successful or failed.
       #
-      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::BulkResultListParams::Status }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
+      #   attr_writer :status
 
       # @!parse
       #   # @param after_cursor [String, nil]

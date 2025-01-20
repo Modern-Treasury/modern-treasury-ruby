@@ -6,32 +6,52 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute client_token
+      # @!attribute [r] client_token
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :client_token, String
 
-      # @!attribute counterparty_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :client_token
+
+      # @!attribute [r] counterparty_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute external_account_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] external_account_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :external_account_id, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :external_account_id
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute status
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] status
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :status, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :status
 
       # @!parse
       #   # @param after_cursor [String, nil]

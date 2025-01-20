@@ -31,40 +31,56 @@ module ModernTreasury
       #   The currency exponent of the ledger account.
       #
       #   @return [Integer, nil]
-      optional :currency_exponent, Integer
+      optional :currency_exponent, Integer, nil?: true
 
       # @!attribute description
       #   The description of the ledger account.
       #
       #   @return [String, nil]
-      optional :description, String
+      optional :description, String, nil?: true
 
-      # @!attribute ledger_account_category_ids
+      # @!attribute [r] ledger_account_category_ids
       #   The array of ledger account category ids that this ledger account should be a child of.
       #
       #   @return [Array<String>]
       optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
-      # @!attribute ledgerable_id
+      # @!parse
+      #   # @return [Array<String>]
+      #   attr_writer :ledger_account_category_ids
+
+      # @!attribute [r] ledgerable_id
       #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :ledgerable_id, String
 
-      # @!attribute ledgerable_type
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :ledgerable_id
+
+      # @!attribute [r] ledgerable_type
       #   If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
       #
-      #   @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType]
+      #   @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType, nil]
       optional :ledgerable_type,
                enum: -> {
                  ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType
                }
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType]
+      #   attr_writer :ledgerable_type
+
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!parse
       #   # @param currency [String] The currency of the ledger account.

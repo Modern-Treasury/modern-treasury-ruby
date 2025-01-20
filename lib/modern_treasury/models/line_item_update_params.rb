@@ -13,11 +13,15 @@ module ModernTreasury
       #   @return [String]
       required :itemizable_id, String
 
-      # @!attribute metadata
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!parse
       #   # @param itemizable_type [String]

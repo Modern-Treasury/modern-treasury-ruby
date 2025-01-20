@@ -6,27 +6,43 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute connection_id
+      # @!attribute [r] connection_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :connection_id, String
 
-      # @!attribute legal_entity_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :connection_id
+
+      # @!attribute [r] legal_entity_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :legal_entity_id, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :legal_entity_id
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute status
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] status
       #
-      #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::ConnectionLegalEntityListParams::Status }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
+      #   attr_writer :status
 
       # @!parse
       #   # @param after_cursor [String, nil]

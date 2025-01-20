@@ -39,7 +39,7 @@ module ModernTreasury
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -57,11 +57,15 @@ module ModernTreasury
       #   @return [Time]
       required :updated_at, Time
 
-      # @!attribute account_number
+      # @!attribute [r] account_number
       #   The account number for the bank account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :account_number, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :account_number
 
       # @!parse
       #   # @param id [String]

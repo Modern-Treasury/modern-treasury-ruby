@@ -13,13 +13,17 @@ module ModernTreasury
       #   An optional free-form description for internal use.
       #
       #   @return [String, nil]
-      optional :description, String
+      optional :description, String, nil?: true
 
-      # @!attribute metadata
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!parse
       #   # @param name [String] The name of the ledger.

@@ -9,13 +9,17 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
       required :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute custom_redirect
+      # @!attribute [r] custom_redirect
       #   The URL you want your customer to visit upon filling out the form. By default, they will be sent to a Modern Treasury landing page. This must be a valid HTTPS URL if set.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :custom_redirect, String
 
-      # @!attribute fields
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :custom_redirect
+
+      # @!attribute [r] fields
       #   The list of fields you want on the form. This field is optional and if it is not set, will default to [\"nameOnAccount\", \"accountType\", \"accountNumber\", \"routingNumber\", \"address\"]. The full list of options is [\"name\", \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\", \"routingNumber\", \"address\", \"ibanNumber\", \"swiftCode\"].
       #
       #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
@@ -24,11 +28,19 @@ module ModernTreasury
                  ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field]
                }
 
-      # @!attribute send_email
+      # @!parse
+      #   # @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
+      #   attr_writer :fields
+
+      # @!attribute [r] send_email
       #   By default, Modern Treasury will send an email to your counterparty that includes a link to the form they must fill out. However, if you would like to send the counterparty the link, you can set this parameter to `false`. The JSON body will include the link to the secure Modern Treasury form.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       optional :send_email, ModernTreasury::BooleanModel
+
+      # @!parse
+      #   # @return [Boolean]
+      #   attr_writer :send_email
 
       # @!parse
       #   # @param direction [String] One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.

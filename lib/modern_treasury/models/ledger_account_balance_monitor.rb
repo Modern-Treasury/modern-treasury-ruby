@@ -41,12 +41,12 @@ module ModernTreasury
       #   An optional, free-form description for internal use.
       #
       #   @return [String, nil]
-      required :description, String
+      required :description, String, nil?: true
 
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute ledger_account_id
       #   The ledger account associated with this balance monitor.

@@ -6,29 +6,45 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute counterparty_id
+      # @!attribute [r] counterparty_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute party_name
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] party_name
       #   Searches the ExternalAccount's party_name AND the Counterparty's party_name
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :party_name, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :party_name
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
 
       # @!parse
       #   # @param after_cursor [String, nil]
