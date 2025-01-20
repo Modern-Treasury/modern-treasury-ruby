@@ -14,13 +14,17 @@ module ModernTreasury
       #   @return [Array<String>]
       required :payment_types, ModernTreasury::ArrayOf[String]
 
-      # @!attribute receiving_countries
+      # @!attribute [r] receiving_countries
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
       optional :receiving_countries,
                -> {
                  ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry]
                }
+
+      # @!parse
+      #   # @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
+      #   attr_writer :receiving_countries
 
       # @!parse
       #   # @param counterparty_id [String] Required.

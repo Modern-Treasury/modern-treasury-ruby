@@ -15,29 +15,45 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::Currency]
       required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute base_amount
+      # @!attribute [r] base_amount
       #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :base_amount, Integer
 
-      # @!attribute base_currency
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :base_amount
+
+      # @!attribute [r] base_currency
       #   Currency to convert, often called the "sell" currency.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :base_currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute effective_at
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::Currency]
+      #   attr_writer :base_currency
+
+      # @!attribute [r] effective_at
       #   The timestamp until when the quoted rate is valid.
       #
-      #   @return [Time]
+      #   @return [Time, nil]
       optional :effective_at, Time
 
-      # @!attribute target_amount
+      # @!parse
+      #   # @return [Time]
+      #   attr_writer :effective_at
+
+      # @!attribute [r] target_amount
       #   Amount in the lowest denomination of the `target_currency`, often called the "buy" amount.
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :target_amount, Integer
+
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :target_amount
 
       # @!parse
       #   # @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.

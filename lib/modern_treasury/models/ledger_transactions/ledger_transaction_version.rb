@@ -29,7 +29,7 @@ module ModernTreasury
         #   An optional description for internal use.
         #
         #   @return [String, nil]
-        required :description, String
+        required :description, String, nil?: true
 
         # @!attribute effective_at
         #   The timestamp (ISO8601 format) at which the ledger transaction happened for reporting purposes.
@@ -47,7 +47,7 @@ module ModernTreasury
         #   A unique string to represent the ledger transaction. Only one pending or posted ledger transaction may have this ID in the ledger.
         #
         #   @return [String, nil]
-        required :external_id, String
+        required :external_id, String, nil?: true
 
         # @!attribute ledger_entries
         #   An array of ledger entry objects.
@@ -74,7 +74,7 @@ module ModernTreasury
         #   If the ledger transaction can be reconciled to another object in Modern Treasury, the id will be populated here, otherwise null.
         #
         #   @return [String, nil]
-        required :ledgerable_id, String
+        required :ledgerable_id, String, nil?: true
 
         # @!attribute ledgerable_type
         #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, or reversal.
@@ -83,7 +83,8 @@ module ModernTreasury
         required :ledgerable_type,
                  enum: -> {
                    ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType
-                 }
+                 },
+                 nil?: true
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -106,19 +107,19 @@ module ModernTreasury
         #   The time on which the ledger transaction posted. This is null if the ledger transaction is pending.
         #
         #   @return [Time, nil]
-        required :posted_at, Time
+        required :posted_at, Time, nil?: true
 
         # @!attribute reversed_by_ledger_transaction_id
         #   The ID of the ledger transaction that reversed this ledger transaction.
         #
         #   @return [String, nil]
-        required :reversed_by_ledger_transaction_id, String
+        required :reversed_by_ledger_transaction_id, String, nil?: true
 
         # @!attribute reverses_ledger_transaction_id
         #   The ID of the original ledger transaction. that this ledger transaction reverses.
         #
         #   @return [String, nil]
-        required :reverses_ledger_transaction_id, String
+        required :reverses_ledger_transaction_id, String, nil?: true
 
         # @!attribute status
         #   One of `pending`, `posted`, or `archived`.
@@ -265,7 +266,7 @@ module ModernTreasury
           #   Lock version of the ledger account. This can be passed when creating a ledger transaction to only succeed if no ledger transactions have posted since the given version. See our post about Designing the Ledgers API with Optimistic Locking for more details.
           #
           #   @return [Integer, nil]
-          required :ledger_account_lock_version, Integer
+          required :ledger_account_lock_version, Integer, nil?: true
 
           # @!attribute ledger_transaction_id
           #   The ledger transaction that this ledger entry is associated with.
@@ -295,7 +296,10 @@ module ModernTreasury
           #
           #   @return [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances, nil]
           required :resulting_ledger_account_balances,
-                   -> { ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances }
+                   -> {
+                     ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances
+                   },
+                   nil?: true
 
           # @!attribute status
           #   Equal to the state of the ledger transaction when the ledger entry was created. One of `pending`, `posted`, or `archived`.

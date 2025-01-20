@@ -16,17 +16,25 @@ module ModernTreasury
       #   @return [String]
       required :ledger_account_id, String
 
-      # @!attribute description
+      # @!attribute [r] description
       #   An optional, free-form description for internal use.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :description
+
+      # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
 
       # @!parse
       #   # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition] Describes the condition that must be satisfied for the monitor to be triggered.

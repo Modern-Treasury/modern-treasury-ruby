@@ -23,13 +23,13 @@ module ModernTreasury
       #   The account number on the paper item.
       #
       #   @return [String, nil]
-      required :account_number, String
+      required :account_number, String, nil?: true
 
       # @!attribute account_number_safe
       #   The last 4 digits of the account_number.
       #
       #   @return [String, nil]
-      required :account_number_safe, String
+      required :account_number_safe, String, nil?: true
 
       # @!attribute amount
       #   The amount of the paper item.
@@ -41,7 +41,7 @@ module ModernTreasury
       #   The check number on the paper item.
       #
       #   @return [String, nil]
-      required :check_number, String
+      required :check_number, String, nil?: true
 
       # @!attribute created_at
       #
@@ -76,7 +76,7 @@ module ModernTreasury
       #   The memo field on the paper item.
       #
       #   @return [String, nil]
-      required :memo_field, String
+      required :memo_field, String, nil?: true
 
       # @!attribute object
       #
@@ -87,13 +87,13 @@ module ModernTreasury
       #   The name of the remitter on the paper item.
       #
       #   @return [String, nil]
-      required :remitter_name, String
+      required :remitter_name, String, nil?: true
 
       # @!attribute routing_number
       #   The routing number on the paper item.
       #
       #   @return [String, nil]
-      required :routing_number, String
+      required :routing_number, String, nil?: true
 
       # @!attribute status
       #   The current status of the paper item. One of `pending`, `completed`, or `returned`.
@@ -105,13 +105,13 @@ module ModernTreasury
       #   The ID of the reconciled Transaction or `null`.
       #
       #   @return [String, nil]
-      required :transaction_id, String
+      required :transaction_id, String, nil?: true
 
       # @!attribute transaction_line_item_id
       #   The ID of the reconciled Transaction Line Item or `null`.
       #
       #   @return [String, nil]
-      required :transaction_line_item_id, String
+      required :transaction_line_item_id, String, nil?: true
 
       # @!attribute updated_at
       #

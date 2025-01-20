@@ -27,7 +27,7 @@ module ModernTreasury
       # @!attribute discarded_at
       #
       #   @return [Time, nil]
-      required :discarded_at, Time
+      required :discarded_at, Time, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -49,7 +49,7 @@ module ModernTreasury
       #   An identifier given to this connection by the bank.
       #
       #   @return [String, nil]
-      required :vendor_customer_id, String
+      required :vendor_customer_id, String, nil?: true
 
       # @!attribute vendor_id
       #   Unique identifier for the bank or vendor.

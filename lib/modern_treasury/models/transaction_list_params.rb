@@ -6,79 +6,131 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute as_of_date_end
+      # @!attribute [r] as_of_date_end
       #   Filters transactions with an `as_of_date` starting on or before the specified date (YYYY-MM-DD).
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :as_of_date_end, Date
 
-      # @!attribute as_of_date_start
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :as_of_date_end
+
+      # @!attribute [r] as_of_date_start
       #   Filters transactions with an `as_of_date` starting on or after the specified date (YYYY-MM-DD).
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :as_of_date_start, Date
 
-      # @!attribute counterparty_id
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :as_of_date_start
+
+      # @!attribute [r] counterparty_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute description
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] description
       #   Filters for transactions including the queried string in the description.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
 
-      # @!attribute direction
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :description
+
+      # @!attribute [r] direction
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :direction, String
 
-      # @!attribute internal_account_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :direction
+
+      # @!attribute [r] internal_account_id
       #   Specify `internal_account_id` if you wish to see transactions to/from a specific account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :internal_account_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :internal_account_id
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute payment_type
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] payment_type
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :payment_type, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :payment_type
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute posted
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] posted
       #   Either `true` or `false`.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       optional :posted, ModernTreasury::BooleanModel
 
-      # @!attribute transactable_type
+      # @!parse
+      #   # @return [Boolean]
+      #   attr_writer :posted
+
+      # @!attribute [r] transactable_type
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :transactable_type, String
 
-      # @!attribute vendor_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :transactable_type
+
+      # @!attribute [r] vendor_id
       #   Filters for transactions including the queried vendor id (an identifier given to transactions by the bank).
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :vendor_id, String
 
-      # @!attribute virtual_account_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :vendor_id
+
+      # @!attribute [r] virtual_account_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :virtual_account_id, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :virtual_account_id
 
       # @!parse
       #   # @param after_cursor [String, nil]

@@ -3,10 +3,14 @@
 module ModernTreasury
   module Models
     class ExternalAccountCompleteVerificationParams < ModernTreasury::BaseModel
-      # @!attribute amounts
+      # @!attribute [r] amounts
       #
       #   @return [Array<Integer>]
       optional :amounts, ModernTreasury::ArrayOf[Integer]
+
+      # @!parse
+      #   # @return [Array<Integer>]
+      #   attr_writer :amounts
 
       # @!parse
       #   # @param amounts [Array<Integer>]

@@ -28,7 +28,7 @@ module ModernTreasury
       #   The description of the ledger account statement.
       #
       #   @return [String, nil]
-      required :description, String
+      required :description, String, nil?: true
 
       # @!attribute effective_at_lower_bound
       #   The inclusive lower bound of the effective_at timestamp of the ledger entries to be included in the ledger account statement.

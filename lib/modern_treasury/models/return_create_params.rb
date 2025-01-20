@@ -7,7 +7,7 @@ module ModernTreasury
       #   The ID of the object being returned or `null`.
       #
       #   @return [String, nil]
-      required :returnable_id, String
+      required :returnable_id, String, nil?: true
 
       # @!attribute returnable_type
       #   The type of object being returned. Currently, this may only be incoming_payment_detail.
@@ -19,25 +19,25 @@ module ModernTreasury
       #   Some returns may include additional information from the bank. In these cases, this string will be present.
       #
       #   @return [String, nil]
-      optional :additional_information, String
+      optional :additional_information, String, nil?: true
 
       # @!attribute code
       #   The return code. For ACH returns, this is the required ACH return code.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
-      optional :code, enum: -> { ModernTreasury::Models::ReturnCreateParams::Code }
+      optional :code, enum: -> { ModernTreasury::Models::ReturnCreateParams::Code }, nil?: true
 
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty passed away.
       #
       #   @return [Date, nil]
-      optional :date_of_death, Date
+      optional :date_of_death, Date, nil?: true
 
       # @!attribute reason
       #   An optional description of the reason for the return. This is for internal usage and will not be transmitted to the bank.”
       #
       #   @return [String, nil]
-      optional :reason, String
+      optional :reason, String, nil?: true
 
       # @!parse
       #   # @param returnable_id [String, nil] The ID of the object being returned or `null`.

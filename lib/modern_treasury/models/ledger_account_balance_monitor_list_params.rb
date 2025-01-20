@@ -3,33 +3,49 @@
 module ModernTreasury
   module Models
     class LedgerAccountBalanceMonitorListParams < ModernTreasury::BaseModel
-      # @!attribute id
+      # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>]
       optional :id, ModernTreasury::ArrayOf[String]
 
+      # @!parse
+      #   # @return [Array<String>]
+      #   attr_writer :id
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute ledger_account_id
+      # @!attribute [r] ledger_account_id
       #   Query the balance monitors for a single ledger account.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :ledger_account_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :ledger_account_id
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
 
       # @!parse
       #   # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query

@@ -7,27 +7,39 @@ module ModernTreasury
         # @!attribute after_cursor
         #
         #   @return [String, nil]
-        optional :after_cursor, String
+        optional :after_cursor, String, nil?: true
 
-        # @!attribute as_of_date
+        # @!attribute [r] as_of_date
         #   The date of the balance report in local time.
         #
-        #   @return [Date]
+        #   @return [Date, nil]
         optional :as_of_date, Date
 
-        # @!attribute balance_report_type
+        # @!parse
+        #   # @return [Date]
+        #   attr_writer :as_of_date
+
+        # @!attribute [r] balance_report_type
         #   The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
         #
-        #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]
+        #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType, nil]
         optional :balance_report_type,
                  enum: -> {
                    ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType
                  }
 
-        # @!attribute per_page
+        # @!parse
+        #   # @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]
+        #   attr_writer :balance_report_type
+
+        # @!attribute [r] per_page
         #
-        #   @return [Integer]
+        #   @return [Integer, nil]
         optional :per_page, Integer
+
+        # @!parse
+        #   # @return [Integer]
+        #   attr_writer :per_page
 
         # @!parse
         #   # @param after_cursor [String, nil]

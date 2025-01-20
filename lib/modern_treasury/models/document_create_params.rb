@@ -19,11 +19,15 @@ module ModernTreasury
       #   @return [String]
       required :file, String
 
-      # @!attribute document_type
+      # @!attribute [r] document_type
       #   A category given to the document, can be `null`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :document_type, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :document_type
 
       # @!parse
       #   # @param documentable_id [String] The unique identifier for the associated object.

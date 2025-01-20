@@ -42,37 +42,41 @@ module ModernTreasury
       #   The ID of the counterparty you expect for this payment
       #
       #   @return [String, nil]
-      optional :counterparty_id, String
+      optional :counterparty_id, String, nil?: true
 
-      # @!attribute currency
+      # @!attribute [r] currency
       #   Must conform to ISO 4217. Defaults to the currency of the internal account
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::Currency]
+      #   attr_writer :currency
 
       # @!attribute custom_identifiers
       #   A hash of custom identifiers for this payment
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :custom_identifiers, ModernTreasury::HashOf[String]
+      optional :custom_identifiers, ModernTreasury::HashOf[String], nil?: true
 
       # @!attribute date_lower_bound
       #   The earliest date the payment may come in. Format is yyyy-mm-dd
       #
       #   @return [Date, nil]
-      optional :date_lower_bound, Date
+      optional :date_lower_bound, Date, nil?: true
 
       # @!attribute date_upper_bound
       #   The latest date the payment may come in. Format is yyyy-mm-dd
       #
       #   @return [Date, nil]
-      optional :date_upper_bound, Date
+      optional :date_upper_bound, Date, nil?: true
 
       # @!attribute type
       #   One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen, sepa, signet wire
       #
       #   @return [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
-      optional :type, enum: -> { ModernTreasury::Models::ReconciliationRule::Type }
+      optional :type, enum: -> { ModernTreasury::Models::ReconciliationRule::Type }, nil?: true
 
       # @!parse
       #   # @param amount_lower_bound [Integer] The lowest amount this expected payment may be equal to. Value in specified

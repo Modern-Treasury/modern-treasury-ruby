@@ -33,11 +33,15 @@ module ModernTreasury
       #   @return [String]
       required :originating_account_id, String
 
-      # @!attribute due_date
+      # @!attribute [r] due_date
       #   Optional. Can only be passed in when `effective_date_selection_enabled` is `true`. When set, the due date is shown to your end-user in the pre-built UI as they are selecting a payment `effective_date`.
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :due_date, Date
+
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :due_date
 
       # @!parse
       #   # @param amount [Integer] Required. Value in specified currency's smallest unit. e.g. $10 would be

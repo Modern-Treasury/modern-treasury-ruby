@@ -47,7 +47,7 @@ module ModernTreasury
       #
       #   @option params [Object, nil] :reconciliation_groups The reconciliation groups you have for this payment.
       #
-      #   @option params [Array<ModernTreasury::Models::ReconciliationRule>, nil] :reconciliation_rule_variables An array of reconciliation rule variables for this payment.
+      #   @option params [Array<ModernTreasury::Models::ReconciliationRule>] :reconciliation_rule_variables An array of reconciliation rule variables for this payment.
       #
       #   @option params [String, nil] :remittance_information For `ach`, this field will be passed through on an addenda record. For `wire`
       #     payments the field will be passed through as the "Originator to Beneficiary
@@ -127,7 +127,7 @@ module ModernTreasury
       #
       #   @option params [Object, nil] :reconciliation_groups The reconciliation groups you have for this payment.
       #
-      #   @option params [Array<ModernTreasury::Models::ReconciliationRule>, nil] :reconciliation_rule_variables An array of reconciliation rule variables for this payment.
+      #   @option params [Array<ModernTreasury::Models::ReconciliationRule>] :reconciliation_rule_variables An array of reconciliation rule variables for this payment.
       #
       #   @option params [String, nil] :remittance_information For `ach`, this field will be passed through on an addenda record. For `wire`
       #     payments the field will be passed through as the "Originator to Beneficiary

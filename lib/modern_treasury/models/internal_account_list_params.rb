@@ -6,48 +6,76 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute counterparty_id
+      # @!attribute [r] counterparty_id
       #   Only return internal accounts associated with this counterparty.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute currency
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] currency
       #   Only return internal accounts with this currency.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute legal_entity_id
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::Currency]
+      #   attr_writer :currency
+
+      # @!attribute [r] legal_entity_id
       #   Only return internal accounts associated with this legal entity.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :legal_entity_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :legal_entity_id
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute payment_direction
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] payment_direction
       #   Only return internal accounts that can originate payments with this direction.
       #
-      #   @return [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
       optional :payment_direction, enum: -> { ModernTreasury::Models::TransactionDirection }
 
-      # @!attribute payment_type
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   attr_writer :payment_direction
+
+      # @!attribute [r] payment_type
       #   Only return internal accounts that can make this type of payment.
       #
-      #   @return [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType]
+      #   @return [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType, nil]
       optional :payment_type, enum: -> { ModernTreasury::Models::InternalAccountListParams::PaymentType }
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType]
+      #   attr_writer :payment_type
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
+
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
 
       # @!parse
       #   # @param after_cursor [String, nil]

@@ -25,137 +25,174 @@ module ModernTreasury
       #   When true, the invoice will progress to unpaid automatically and cannot be edited after entering that state. If the invoice fails to progress to unpaid, the errors will be returned and the invoice will not be created.
       #
       #   @return [Boolean, nil]
-      optional :auto_advance, ModernTreasury::BooleanModel
+      optional :auto_advance, ModernTreasury::BooleanModel, nil?: true
 
-      # @!attribute contact_details
+      # @!attribute [r] contact_details
       #   The invoicer's contact details displayed at the top of the invoice.
       #
       #   @return [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>]
       optional :contact_details,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceCreateParams::ContactDetail] }
 
+      # @!parse
+      #   # @return [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>]
+      #   attr_writer :contact_details
+
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.
       #
       #   @return [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil]
       optional :counterparty_billing_address,
-               -> { ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress }
+               -> { ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress },
+               nil?: true
 
       # @!attribute counterparty_shipping_address
       #   The counterparty's shipping address where physical goods should be delivered.
       #
       #   @return [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil]
       optional :counterparty_shipping_address,
-               -> { ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress }
+               -> { ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress },
+               nil?: true
 
-      # @!attribute currency
+      # @!attribute [r] currency
       #   Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       #
-      #   @return [Symbol, ModernTreasury::Models::Currency]
+      #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }
 
-      # @!attribute description
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::Currency]
+      #   attr_writer :currency
+
+      # @!attribute [r] description
       #   A free-form description of the invoice.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :description, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :description
 
       # @!attribute fallback_payment_method
       #   When payment_method is automatic, the fallback payment method to use when an automatic payment fails. One of `manual` or `ui`.
       #
       #   @return [String, nil]
-      optional :fallback_payment_method, String
+      optional :fallback_payment_method, String, nil?: true
 
       # @!attribute ingest_ledger_entries
       #   Whether to ingest the ledger_entries to populate the invoice line items. If this is false, then a line item must be provided. If this is true, line_items must be empty. Ignored if ledger_account_settlement_id is empty.
       #
       #   @return [Boolean, nil]
-      optional :ingest_ledger_entries, ModernTreasury::BooleanModel
+      optional :ingest_ledger_entries, ModernTreasury::BooleanModel, nil?: true
 
       # @!attribute invoice_line_items
       #   An array of invoice line items. The API supports a maximum of 50 invoice line items per invoice. If a greater number of invoice line items is required, please contact support.
       #
-      #   @return [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil]
+      #   @return [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>]
       optional :invoice_line_items,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem] }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem] },
+               nil?: true
 
       # @!attribute invoicer_address
       #   The invoice issuer's business address.
       #
       #   @return [ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, nil]
-      optional :invoicer_address, -> { ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress }
+      optional :invoicer_address,
+               -> { ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress },
+               nil?: true
 
       # @!attribute ledger_account_settlement_id
       #   The ID of the virtual account the invoice should be paid to.
       #
       #   @return [String, nil]
-      optional :ledger_account_settlement_id, String
+      optional :ledger_account_settlement_id, String, nil?: true
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::HashOf[String], nil?: true
 
       # @!attribute notification_email_addresses
       #   Emails in addition to the counterparty email to send invoice status notifications to. At least one email is required if notifications are enabled and the counterparty doesn't have an email.
       #
-      #   @return [Array<String>, nil]
-      optional :notification_email_addresses, ModernTreasury::ArrayOf[String]
+      #   @return [Array<String>]
+      optional :notification_email_addresses, ModernTreasury::ArrayOf[String], nil?: true
 
-      # @!attribute notifications_enabled
+      # @!attribute [r] notifications_enabled
       #   If true, the invoice will send email notifications to the invoice recipients about invoice status changes.
       #
-      #   @return [Boolean]
+      #   @return [Boolean, nil]
       optional :notifications_enabled, ModernTreasury::BooleanModel
 
-      # @!attribute payment_effective_date
+      # @!parse
+      #   # @return [Boolean]
+      #   attr_writer :notifications_enabled
+
+      # @!attribute [r] payment_effective_date
       #   Date transactions are to be posted to the participants' account. Defaults to the current business day or the next business day if the current day is a bank holiday or weekend. Format: yyyy-mm-dd.
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :payment_effective_date, Date
 
-      # @!attribute payment_method
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :payment_effective_date
+
+      # @!attribute [r] payment_method
       #   The method by which the invoice can be paid. `ui` will show the embedded payment collection flow. `automatic` will automatically initiate payment based upon the account details of the receiving_account id.\nIf the invoice amount is positive, the automatically initiated payment order's direction will be debit. If the invoice amount is negative, the automatically initiated payment order's direction will be credit. One of `manual`, `ui`, or `automatic`.
       #
-      #   @return [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod]
+      #   @return [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod, nil]
       optional :payment_method, enum: -> { ModernTreasury::Models::InvoiceCreateParams::PaymentMethod }
 
-      # @!attribute payment_type
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod]
+      #   attr_writer :payment_method
+
+      # @!attribute [r] payment_type
       #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`, `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`, `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       #
-      #   @return [Symbol, ModernTreasury::Models::PaymentOrderType]
+      #   @return [Symbol, ModernTreasury::Models::PaymentOrderType, nil]
       optional :payment_type, enum: -> { ModernTreasury::Models::PaymentOrderType }
 
-      # @!attribute receiving_account_id
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::PaymentOrderType]
+      #   attr_writer :payment_type
+
+      # @!attribute [r] receiving_account_id
       #   The receiving account ID. Can be an `external_account`.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :receiving_account_id, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :receiving_account_id
 
       # @!attribute recipient_email
       #   The email of the recipient of the invoice. Leaving this value as null will fallback to using the counterparty's name.
       #
       #   @return [String, nil]
-      optional :recipient_email, String
+      optional :recipient_email, String, nil?: true
 
       # @!attribute recipient_name
       #   The name of the recipient of the invoice. Leaving this value as null will fallback to using the counterparty's name.
       #
       #   @return [String, nil]
-      optional :recipient_name, String
+      optional :recipient_name, String, nil?: true
 
       # @!attribute remind_after_overdue_days
       #   Number of days after due date when overdue reminder emails will be sent out to invoice recipients.
       #
-      #   @return [Array<Integer>, nil]
-      optional :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer]
+      #   @return [Array<Integer>]
+      optional :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer], nil?: true
 
       # @!attribute virtual_account_id
       #   The ID of the virtual account the invoice should be paid to.
       #
       #   @return [String, nil]
-      optional :virtual_account_id, String
+      optional :virtual_account_id, String, nil?: true
 
       # @!parse
       #   # @param counterparty_id [String] The ID of the counterparty receiving the invoice.
@@ -185,7 +222,7 @@ module ModernTreasury
       #   #   is false, then a line item must be provided. If this is true, line_items must be
       #   #   empty. Ignored if ledger_account_settlement_id is empty.
       #   #
-      #   # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil] An array of invoice line items. The API supports a maximum of 50 invoice line
+      #   # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>] An array of invoice line items. The API supports a maximum of 50 invoice line
       #   #   items per invoice. If a greater number of invoice line items is required, please
       #   #   contact support.
       #   #
@@ -196,7 +233,7 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be
       #   #   strings.
       #   #
-      #   # @param notification_email_addresses [Array<String>, nil] Emails in addition to the counterparty email to send invoice status
+      #   # @param notification_email_addresses [Array<String>] Emails in addition to the counterparty email to send invoice status
       #   #   notifications to. At least one email is required if notifications are enabled
       #   #   and the counterparty doesn't have an email.
       #   #
@@ -226,7 +263,7 @@ module ModernTreasury
       #   # @param recipient_name [String, nil] The name of the recipient of the invoice. Leaving this value as null will
       #   #   fallback to using the counterparty's name.
       #   #
-      #   # @param remind_after_overdue_days [Array<Integer>, nil] Number of days after due date when overdue reminder emails will be sent out to
+      #   # @param remind_after_overdue_days [Array<Integer>] Number of days after due date when overdue reminder emails will be sent out to
       #   #   invoice recipients.
       #   #
       #   # @param virtual_account_id [String, nil] The ID of the virtual account the invoice should be paid to.
@@ -302,7 +339,7 @@ module ModernTreasury
         # @!attribute discarded_at
         #
         #   @return [Time, nil]
-        required :discarded_at, Time
+        required :discarded_at, Time, nil?: true
 
         # @!attribute live_mode
         #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -414,10 +451,14 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute line2
+        # @!attribute [r] line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :line2
 
         # @!parse
         #   # The counterparty's billing address.
@@ -479,10 +520,14 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute line2
+        # @!attribute [r] line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :line2
 
         # @!parse
         #   # The counterparty's shipping address where physical goods should be delivered.
@@ -528,35 +573,55 @@ module ModernTreasury
         #   @return [Integer]
         required :unit_amount, Integer
 
-        # @!attribute description
+        # @!attribute [r] description
         #   An optional free-form description of the line item.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :description, String
 
-        # @!attribute direction
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :description
+
+        # @!attribute [r] direction
         #   Either `debit` or `credit`. `debit` indicates that a client owes the business money           and increases the invoice's `total_amount` due. `credit` has the opposite intention and effect.
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :direction, String
 
-        # @!attribute metadata
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :direction
+
+        # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol=>String}]
+        #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::HashOf[String]
 
-        # @!attribute quantity
+        # @!parse
+        #   # @return [Hash{Symbol=>String}]
+        #   attr_writer :metadata
+
+        # @!attribute [r] quantity
         #   The number of units of a product or service that this line item is for.           Must be a whole number. Defaults to 1 if not provided.
         #
-        #   @return [Integer]
+        #   @return [Integer, nil]
         optional :quantity, Integer
 
-        # @!attribute unit_amount_decimal
+        # @!parse
+        #   # @return [Integer]
+        #   attr_writer :quantity
+
+        # @!attribute [r] unit_amount_decimal
         #   The cost per unit of the product or service that this line item is for,           specified in the invoice currency's smallest unit. Accepts decimal strings with up to 12 decimals
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :unit_amount_decimal, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :unit_amount_decimal
 
         # @!parse
         #   # @param name [String] The name of the line item, typically a product or SKU name.
@@ -636,10 +701,14 @@ module ModernTreasury
         #   @return [String]
         required :region, String
 
-        # @!attribute line2
+        # @!attribute [r] line2
         #
-        #   @return [String]
+        #   @return [String, nil]
         optional :line2, String
+
+        # @!parse
+        #   # @return [String]
+        #   attr_writer :line2
 
         # @!parse
         #   # The invoice issuer's business address.

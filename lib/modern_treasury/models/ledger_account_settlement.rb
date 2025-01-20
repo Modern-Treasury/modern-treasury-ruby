@@ -23,7 +23,7 @@ module ModernTreasury
       #   The amount of the ledger account settlement.
       #
       #   @return [Integer, nil]
-      required :amount, Integer
+      required :amount, Integer, nil?: true
 
       # @!attribute contra_ledger_account_id
       #   The id of the contra ledger account that sends to or receives funds from the settled ledger account.
@@ -46,13 +46,13 @@ module ModernTreasury
       #   The currency exponent of the ledger account settlement.
       #
       #   @return [Integer, nil]
-      required :currency_exponent, Integer
+      required :currency_exponent, Integer, nil?: true
 
       # @!attribute description
       #   The description of the ledger account settlement.
       #
       #   @return [String, nil]
-      required :description, String
+      required :description, String, nil?: true
 
       # @!attribute effective_at_upper_bound
       #   The exclusive upper bound of the effective_at timestamp of the ledger entries to be included in the ledger account settlement. The default value is the created_at timestamp of the ledger account settlement.
@@ -70,7 +70,7 @@ module ModernTreasury
       #   The id of the ledger transaction that this settlement is associated with.
       #
       #   @return [String, nil]
-      required :ledger_transaction_id, String
+      required :ledger_transaction_id, String, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -99,7 +99,7 @@ module ModernTreasury
       #   The direction of the ledger entry with the settlement_ledger_account.
       #
       #   @return [String, nil]
-      required :settlement_entry_direction, String
+      required :settlement_entry_direction, String, nil?: true
 
       # @!attribute status
       #   The status of the ledger account settlement. One of `processing`, `pending`, `posted`, `archiving` or `archived`.

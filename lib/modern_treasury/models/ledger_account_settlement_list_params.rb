@@ -3,59 +3,95 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlementListParams < ModernTreasury::BaseModel
-      # @!attribute id
+      # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>]
       optional :id, ModernTreasury::ArrayOf[String]
 
+      # @!parse
+      #   # @return [Array<String>]
+      #   attr_writer :id
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute created_at
+      # @!attribute [r] created_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash{Symbol=>Time}]
+      #   @return [Hash{Symbol=>Time}, nil]
       optional :created_at, ModernTreasury::HashOf[Time]
 
-      # @!attribute ledger_id
+      # @!parse
+      #   # @return [Hash{Symbol=>Time}]
+      #   attr_writer :created_at
+
+      # @!attribute [r] ledger_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :ledger_id, String
 
-      # @!attribute ledger_transaction_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :ledger_id
+
+      # @!attribute [r] ledger_transaction_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :ledger_transaction_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :ledger_transaction_id
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute settled_ledger_account_id
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] settled_ledger_account_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :settled_ledger_account_id, String
 
-      # @!attribute settlement_entry_direction
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :settled_ledger_account_id
+
+      # @!attribute [r] settlement_entry_direction
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :settlement_entry_direction, String
 
-      # @!attribute updated_at
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :settlement_entry_direction
+
+      # @!attribute [r] updated_at
       #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @return [Hash{Symbol=>Time}]
+      #   @return [Hash{Symbol=>Time}, nil]
       optional :updated_at, ModernTreasury::HashOf[Time]
+
+      # @!parse
+      #   # @return [Hash{Symbol=>Time}]
+      #   attr_writer :updated_at
 
       # @!parse
       #   # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query

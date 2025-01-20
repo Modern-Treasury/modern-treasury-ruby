@@ -6,61 +6,101 @@ module ModernTreasury
       # @!attribute after_cursor
       #
       #   @return [String, nil]
-      optional :after_cursor, String
+      optional :after_cursor, String, nil?: true
 
-      # @!attribute counterparty_id
+      # @!attribute [r] counterparty_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :counterparty_id, String
 
-      # @!attribute due_date_end
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :counterparty_id
+
+      # @!attribute [r] due_date_end
       #   An inclusive upper bound for searching due_date
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :due_date_end, Date
 
-      # @!attribute due_date_start
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :due_date_end
+
+      # @!attribute [r] due_date_start
       #   An inclusive lower bound for searching due_date
       #
-      #   @return [Date]
+      #   @return [Date, nil]
       optional :due_date_start, Date
 
-      # @!attribute expected_payment_id
+      # @!parse
+      #   # @return [Date]
+      #   attr_writer :due_date_start
+
+      # @!attribute [r] expected_payment_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :expected_payment_id, String
 
-      # @!attribute metadata
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :expected_payment_id
+
+      # @!attribute [r] metadata
       #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
       #
-      #   @return [Hash{Symbol=>String}]
+      #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
 
-      # @!attribute number
+      # @!parse
+      #   # @return [Hash{Symbol=>String}]
+      #   attr_writer :metadata
+
+      # @!attribute [r] number
       #   A unique record number assigned to each invoice that is issued.
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :number, String
 
-      # @!attribute originating_account_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :number
+
+      # @!attribute [r] originating_account_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :originating_account_id, String
 
-      # @!attribute payment_order_id
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :originating_account_id
+
+      # @!attribute [r] payment_order_id
       #
-      #   @return [String]
+      #   @return [String, nil]
       optional :payment_order_id, String
 
-      # @!attribute per_page
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :payment_order_id
+
+      # @!attribute [r] per_page
       #
-      #   @return [Integer]
+      #   @return [Integer, nil]
       optional :per_page, Integer
 
-      # @!attribute status
+      # @!parse
+      #   # @return [Integer]
+      #   attr_writer :per_page
+
+      # @!attribute [r] status
       #
-      #   @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
+      #   @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::InvoiceListParams::Status }
+
+      # @!parse
+      #   # @return [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
+      #   attr_writer :status
 
       # @!parse
       #   # @param after_cursor [String, nil]

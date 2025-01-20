@@ -64,7 +64,7 @@ module ModernTreasury
       #   The ID of the ledger transaction linked to the incoming payment detail or `null`.
       #
       #   @return [String, nil]
-      required :ledger_transaction_id, String
+      required :ledger_transaction_id, String, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
@@ -87,27 +87,29 @@ module ModernTreasury
       #   The last 4 digits of the originating account_number for the incoming payment detail.
       #
       #   @return [String, nil]
-      required :originating_account_number_safe, String
+      required :originating_account_number_safe, String, nil?: true
 
       # @!attribute originating_account_number_type
       #   The type of the originating account number for the incoming payment detail.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType, nil]
       required :originating_account_number_type,
-               enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType }
+               enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType },
+               nil?: true
 
       # @!attribute originating_routing_number
       #   The routing number of the originating account for the incoming payment detail.
       #
       #   @return [String, nil]
-      required :originating_routing_number, String
+      required :originating_routing_number, String, nil?: true
 
       # @!attribute originating_routing_number_type
       #   The type of the originating routing number for the incoming payment detail.
       #
       #   @return [Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType, nil]
       required :originating_routing_number_type,
-               enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType }
+               enum: -> { ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType },
+               nil?: true
 
       # @!attribute status
       #   The current status of the incoming payment order. One of `pending`, `completed`, or `returned`.
@@ -119,13 +121,13 @@ module ModernTreasury
       #   The ID of the reconciled Transaction or `null`.
       #
       #   @return [String, nil]
-      required :transaction_id, String
+      required :transaction_id, String, nil?: true
 
       # @!attribute transaction_line_item_id
       #   The ID of the reconciled Transaction Line Item or `null`.
       #
       #   @return [String, nil]
-      required :transaction_line_item_id, String
+      required :transaction_line_item_id, String, nil?: true
 
       # @!attribute type
       #   One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or `wire`.
@@ -142,25 +144,25 @@ module ModernTreasury
       #   The identifier of the vendor bank.
       #
       #   @return [String, nil]
-      required :vendor_id, String
+      required :vendor_id, String, nil?: true
 
       # @!attribute virtual_account
       #   If the incoming payment detail is in a virtual account, the serialized virtual account object.
       #
       #   @return [ModernTreasury::Models::VirtualAccount, nil]
-      required :virtual_account, -> { ModernTreasury::Models::VirtualAccount }
+      required :virtual_account, -> { ModernTreasury::Models::VirtualAccount }, nil?: true
 
       # @!attribute virtual_account_id
       #   If the incoming payment detail is in a virtual account, the ID of the Virtual Account.
       #
       #   @return [String, nil]
-      required :virtual_account_id, String
+      required :virtual_account_id, String, nil?: true
 
       # @!attribute originating_account_number
       #   The account number of the originating account for the incoming payment detail.
       #
       #   @return [String, nil]
-      optional :originating_account_number, String
+      optional :originating_account_number, String, nil?: true
 
       # @!parse
       #   # @param id [String]

@@ -10,18 +10,26 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason]
         required :reason, enum: -> { ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason }
 
-        # @!attribute ledger_transaction
+        # @!attribute [r] ledger_transaction
         #   Specifies a ledger transaction object that will be created with the reversal. If the ledger transaction cannot be created, then the reversal creation will fail. The resulting ledger transaction will mirror the status of the reversal.
         #
-        #   @return [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction]
+        #   @return [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction, nil]
         optional :ledger_transaction,
                  -> { ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction }
 
-        # @!attribute metadata
+        # @!parse
+        #   # @return [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction]
+        #   attr_writer :ledger_transaction
+
+        # @!attribute [r] metadata
         #   Additional data represented as key-value pairs. Both the key and value must be strings.
         #
-        #   @return [Hash{Symbol=>String}]
+        #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::HashOf[String]
+
+        # @!parse
+        #   # @return [Hash{Symbol=>String}]
+        #   attr_writer :metadata
 
         # @!parse
         #   # @param reason [String] The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
@@ -91,55 +99,83 @@ module ModernTreasury
           #   An optional description for internal use.
           #
           #   @return [String, nil]
-          optional :description, String
+          optional :description, String, nil?: true
 
-          # @!attribute effective_at
+          # @!attribute [r] effective_at
           #   The timestamp (ISO8601 format) at which the ledger transaction happened for reporting purposes.
           #
-          #   @return [Time]
+          #   @return [Time, nil]
           optional :effective_at, Time
 
-          # @!attribute effective_date
+          # @!parse
+          #   # @return [Time]
+          #   attr_writer :effective_at
+
+          # @!attribute [r] effective_date
           #   The date (YYYY-MM-DD) on which the ledger transaction happened for reporting purposes.
           #
-          #   @return [Date]
+          #   @return [Date, nil]
           optional :effective_date, Date
 
-          # @!attribute external_id
+          # @!parse
+          #   # @return [Date]
+          #   attr_writer :effective_date
+
+          # @!attribute [r] external_id
           #   A unique string to represent the ledger transaction. Only one pending or posted ledger transaction may have this ID in the ledger.
           #
-          #   @return [String]
+          #   @return [String, nil]
           optional :external_id, String
 
-          # @!attribute ledgerable_id
+          # @!parse
+          #   # @return [String]
+          #   attr_writer :external_id
+
+          # @!attribute [r] ledgerable_id
           #   If the ledger transaction can be reconciled to another object in Modern Treasury, the id will be populated here, otherwise null.
           #
-          #   @return [String]
+          #   @return [String, nil]
           optional :ledgerable_id, String
 
-          # @!attribute ledgerable_type
+          # @!parse
+          #   # @return [String]
+          #   attr_writer :ledgerable_id
+
+          # @!attribute [r] ledgerable_type
           #   If the ledger transaction can be reconciled to another object in Modern Treasury, the type will be populated here, otherwise null. This can be one of payment_order, incoming_payment_detail, expected_payment, return, paper_item, or reversal.
           #
-          #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType, nil]
           optional :ledgerable_type,
                    enum: -> {
                      ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType
                    }
 
-          # @!attribute metadata
+          # @!parse
+          #   # @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType]
+          #   attr_writer :ledgerable_type
+
+          # @!attribute [r] metadata
           #   Additional data represented as key-value pairs. Both the key and value must be strings.
           #
-          #   @return [Hash{Symbol=>String}]
+          #   @return [Hash{Symbol=>String}, nil]
           optional :metadata, ModernTreasury::HashOf[String]
 
-          # @!attribute status
+          # @!parse
+          #   # @return [Hash{Symbol=>String}]
+          #   attr_writer :metadata
+
+          # @!attribute [r] status
           #   To post a ledger transaction at creation, use `posted`.
           #
-          #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status]
+          #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status, nil]
           optional :status,
                    enum: -> {
                      ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status
                    }
+
+          # @!parse
+          #   # @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status]
+          #   attr_writer :status
 
           # @!parse
           #   # Specifies a ledger transaction object that will be created with the reversal. If
@@ -223,37 +259,41 @@ module ModernTreasury
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s available balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :available_balance_amount, ModernTreasury::HashOf[Integer]
+            optional :available_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
 
             # @!attribute lock_version
             #   Lock version of the ledger account. This can be passed when creating a ledger transaction to only succeed if no ledger transactions have posted since the given version. See our post about Designing the Ledgers API with Optimistic Locking for more details.
             #
             #   @return [Integer, nil]
-            optional :lock_version, Integer
+            optional :lock_version, Integer, nil?: true
 
-            # @!attribute metadata
+            # @!attribute [r] metadata
             #   Additional data represented as key-value pairs. Both the key and value must be strings.
             #
-            #   @return [Hash{Symbol=>String}]
+            #   @return [Hash{Symbol=>String}, nil]
             optional :metadata, ModernTreasury::HashOf[String]
+
+            # @!parse
+            #   # @return [Hash{Symbol=>String}]
+            #   attr_writer :metadata
 
             # @!attribute pending_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s pending balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :pending_balance_amount, ModernTreasury::HashOf[Integer]
+            optional :pending_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
 
             # @!attribute posted_balance_amount
             #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the account’s posted balance. If any of these conditions would be false after the transaction is created, the entire call will fail with error code 422.
             #
             #   @return [Hash{Symbol=>Integer}, nil]
-            optional :posted_balance_amount, ModernTreasury::HashOf[Integer]
+            optional :posted_balance_amount, ModernTreasury::HashOf[Integer], nil?: true
 
             # @!attribute show_resulting_ledger_account_balances
             #   If true, response will include the balance of the associated ledger account for the entry.
             #
             #   @return [Boolean, nil]
-            optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel
+            optional :show_resulting_ledger_account_balances, ModernTreasury::BooleanModel, nil?: true
 
             # @!parse
             #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented

@@ -7,12 +7,16 @@ module ModernTreasury
         # @!attribute after_cursor
         #
         #   @return [String, nil]
-        optional :after_cursor, String
+        optional :after_cursor, String, nil?: true
 
-        # @!attribute per_page
+        # @!attribute [r] per_page
         #
-        #   @return [Integer]
+        #   @return [Integer, nil]
         optional :per_page, Integer
+
+        # @!parse
+        #   # @return [Integer]
+        #   attr_writer :per_page
 
         # @!parse
         #   # @param after_cursor [String, nil]

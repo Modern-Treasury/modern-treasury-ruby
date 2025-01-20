@@ -77,7 +77,8 @@ module ModernTreasury
         required :priority,
                  enum: -> {
                    ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority
-                 }
+                 },
+                 nil?: true
 
         # @!attribute status
         #   The status of the verification attempt. Can be `pending_verification`, `verified`, `failed`, or `cancelled`.

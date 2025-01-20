@@ -63,7 +63,7 @@ module ModernTreasury
       #   An optional object that contains the provided input params for the request that created this result. This is an item in the `resources` array for the bulk_request
       #
       #   @return [Hash{Symbol=>String}, nil]
-      required :request_params, ModernTreasury::HashOf[String]
+      required :request_params, ModernTreasury::HashOf[String], nil?: true
 
       # @!attribute request_type
       #   The type of the request that created this result. bulk_request is the only supported `request_type`
@@ -236,20 +236,32 @@ module ModernTreasury
           # }
           # ```
           class RequestError < ModernTreasury::BaseModel
-            # @!attribute code
+            # @!attribute [r] code
             #
-            #   @return [String]
+            #   @return [String, nil]
             optional :code, String
 
-            # @!attribute message
+            # @!parse
+            #   # @return [String]
+            #   attr_writer :code
+
+            # @!attribute [r] message
             #
-            #   @return [String]
+            #   @return [String, nil]
             optional :message, String
 
-            # @!attribute parameter
+            # @!parse
+            #   # @return [String]
+            #   attr_writer :message
+
+            # @!attribute [r] parameter
             #
-            #   @return [String]
+            #   @return [String, nil]
             optional :parameter, String
+
+            # @!parse
+            #   # @return [String]
+            #   attr_writer :parameter
 
             # @!parse
             #   # @param code [String]
