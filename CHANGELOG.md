@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2025-01-21)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Features
+
+* ruby add nilability annotations ([#181](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/181)) ([8a1b7e8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8a1b7e8ca44adc77d200bd33a0356c7cef58a1ad))
+* run rubocop in multiple processes when formatting ([#176](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/176)) ([53f1afc](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/53f1afc6b3b4a10fe4b5e55b332842d14bb13b56))
+
+
+### Chores
+
+* minor formatting changes ([#182](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/182)) ([e9e4d65](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e9e4d65691b9f22c5c93c4db39ebf517f29e2413))
+* more detailed yard docs for base client ([#184](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/184)) ([30c8a39](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/30c8a3915cd0ee8a9753a4c6472c96cd1e4d64a8))
+* more detailed yard docs for sdk utils ([#183](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/183)) ([ff7948d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ff7948d98b7cb3bffbcb73262259999b639b1ffa))
+* re-order init params in accordance with their optionality ([#180](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/180)) ([ad95042](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ad95042c1dd3b228976d866a89f49b7581b05ccd))
+* re-order resource classes constructor position ([#178](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/178)) ([2c83d22](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/2c83d224ade5da91bf51f486f72d49898bdd8aea))
+* touch up yard docs with more spec compliant syntax ([#179](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/179)) ([675187f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/675187f42480ad28fc1350a28ba0104b2ff1049f))
+
 ## 0.1.0-alpha.11 (2025-01-13)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
