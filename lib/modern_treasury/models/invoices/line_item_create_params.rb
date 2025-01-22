@@ -11,7 +11,8 @@ module ModernTreasury
         required :name, String
 
         # @!attribute unit_amount
-        #   The cost per unit of the product or service that this line item is for,           specified in the invoice currency's smallest unit.
+        #   The cost per unit of the product or service that this line item is for,
+        #     specified in the invoice currency's smallest unit.
         #
         #   @return [Integer]
         required :unit_amount, Integer
@@ -27,7 +28,9 @@ module ModernTreasury
         #   attr_writer :description
 
         # @!attribute [r] direction
-        #   Either `debit` or `credit`. `debit` indicates that a client owes the business money           and increases the invoice's `total_amount` due. `credit` has the opposite intention and effect.
+        #   Either `debit` or `credit`. `debit` indicates that a client owes the business
+        #     money and increases the invoice's `total_amount` due. `credit` has the opposite
+        #     intention and effect.
         #
         #   @return [String, nil]
         optional :direction, String
@@ -37,7 +40,8 @@ module ModernTreasury
         #   attr_writer :direction
 
         # @!attribute [r] metadata
-        #   Additional data represented as key-value pairs. Both the key and value must be strings.
+        #   Additional data represented as key-value pairs. Both the key and value must be
+        #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::HashOf[String]
@@ -47,7 +51,8 @@ module ModernTreasury
         #   attr_writer :metadata
 
         # @!attribute [r] quantity
-        #   The number of units of a product or service that this line item is for.           Must be a whole number. Defaults to 1 if not provided.
+        #   The number of units of a product or service that this line item is for. Must be
+        #     a whole number. Defaults to 1 if not provided.
         #
         #   @return [Integer, nil]
         optional :quantity, Integer
@@ -57,7 +62,9 @@ module ModernTreasury
         #   attr_writer :quantity
 
         # @!attribute [r] unit_amount_decimal
-        #   The cost per unit of the product or service that this line item is for,           specified in the invoice currency's smallest unit. Accepts decimal strings with up to 12 decimals
+        #   The cost per unit of the product or service that this line item is for,
+        #     specified in the invoice currency's smallest unit. Accepts decimal strings with
+        #     up to 12 decimals
         #
         #   @return [String, nil]
         optional :unit_amount_decimal, String
@@ -67,26 +74,13 @@ module ModernTreasury
         #   attr_writer :unit_amount_decimal
 
         # @!parse
-        #   # @param name [String] The name of the line item, typically a product or SKU name.
-        #   #
-        #   # @param unit_amount [Integer] The cost per unit of the product or service that this line item is for,
-        #   #   specified in the invoice currency's smallest unit.
-        #   #
-        #   # @param description [String] An optional free-form description of the line item.
-        #   #
-        #   # @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business
-        #   #   money and increases the invoice's `total_amount` due. `credit` has the opposite
-        #   #   intention and effect.
-        #   #
-        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-        #   #   strings.
-        #   #
-        #   # @param quantity [Integer] The number of units of a product or service that this line item is for. Must be
-        #   #   a whole number. Defaults to 1 if not provided.
-        #   #
-        #   # @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for,
-        #   #   specified in the invoice currency's smallest unit. Accepts decimal strings with
-        #   #   up to 12 decimals
+        #   # @param name [String]
+        #   # @param unit_amount [Integer]
+        #   # @param description [String]
+        #   # @param direction [String]
+        #   # @param metadata [Hash{Symbol=>String}]
+        #   # @param quantity [Integer]
+        #   # @param unit_amount_decimal [String]
         #   #
         #   def initialize(
         #     name:,

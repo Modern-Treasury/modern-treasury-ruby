@@ -42,7 +42,8 @@ module ModernTreasury
       required :legal_entity_id, String
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -71,25 +72,15 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param connection_id [String] The ID of the connection.
-      #   #
+      #   # @param connection_id [String]
       #   # @param created_at [String]
-      #   #
       #   # @param discarded_at [String, nil]
-      #   #
-      #   # @param legal_entity_id [String] The ID of the legal entity.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param legal_entity_id [String]
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
-      #   # @param status [String] The status of the connection legal entity.
-      #   #
+      #   # @param status [String]
       #   # @param updated_at [String]
-      #   #
-      #   # @param vendor_id [String] The ID of the legal entity at the vendor.
+      #   # @param vendor_id [String]
       #   #
       #   def initialize(
       #     id:,

@@ -19,7 +19,9 @@ module ModernTreasury
       optional :after_cursor, String, nil?: true
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -58,19 +60,12 @@ module ModernTreasury
       #   attr_writer :status
 
       # @!parse
-      #   # @param action_type [String] One of create, or update.
-      #   #
+      #   # @param action_type [String]
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
-      #   #
-      #   # @param resource_type [String] One of payment_order, expected_payment, or ledger_transaction.
-      #   #
-      #   # @param status [String] One of pending, processing, or completed.
+      #   # @param resource_type [String]
+      #   # @param status [String]
       #   #
       #   def initialize(action_type: nil, after_cursor: nil, metadata: nil, per_page: nil, resource_type: nil, status: nil, **) = super
 

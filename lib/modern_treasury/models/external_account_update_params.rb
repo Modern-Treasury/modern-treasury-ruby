@@ -19,7 +19,8 @@ module ModernTreasury
       optional :counterparty_id, String, nil?: true
 
       # @!attribute [r] metadata
-      #   Additional data in the form of key-value pairs. Pairs can be removed by passing an empty string or `null` as the value.
+      #   Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -29,7 +30,8 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!attribute name
-      #   A nickname for the external account. This is only for internal usage and won't affect any payments
+      #   A nickname for the external account. This is only for internal usage and won't
+      #     affect any payments
       #
       #   @return [String, nil]
       optional :name, String, nil?: true
@@ -62,21 +64,13 @@ module ModernTreasury
                nil?: true
 
       # @!parse
-      #   # @param account_type [String] Can be `checking`, `savings` or `other`.
-      #   #
+      #   # @param account_type [String]
       #   # @param counterparty_id [String, nil]
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   #   an empty string or `null` as the value.
-      #   #
-      #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
-      #   #   affect any payments
-      #   #
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String, nil]
       #   # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
-      #   #
-      #   # @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
-      #   #
-      #   # @param party_type [String, nil] Either `individual` or `business`.
+      #   # @param party_name [String]
+      #   # @param party_type [String, nil]
       #   #
       #   def initialize(
       #     account_type: nil,
@@ -139,17 +133,12 @@ module ModernTreasury
         optional :region, String, nil?: true
 
         # @!parse
-        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String, nil]
         #   # @param line1 [String, nil]
-        #   #
         #   # @param line2 [String, nil]
-        #   #
-        #   # @param locality [String, nil] Locality or City.
-        #   #
-        #   # @param postal_code [String, nil] The postal code of the address.
-        #   #
-        #   # @param region [String, nil] Region or State.
+        #   # @param locality [String, nil]
+        #   # @param postal_code [String, nil]
+        #   # @param region [String, nil]
         #   #
         #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 

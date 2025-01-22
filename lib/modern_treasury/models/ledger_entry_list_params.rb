@@ -4,7 +4,8 @@ module ModernTreasury
   module Models
     class LedgerEntryListParams < ModernTreasury::BaseModel
       # @!attribute [r] id
-      #   If you have specific IDs to retrieve in bulk, you can pass them as query parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      #   If you have specific IDs to retrieve in bulk, you can pass them as query
+      #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>]
       optional :id, ModernTreasury::ArrayOf[String]
@@ -19,7 +20,8 @@ module ModernTreasury
       optional :after_cursor, String, nil?: true
 
       # @!attribute [r] as_of_lock_version
-      #   Shows all ledger entries that were present on a ledger account at a particular `lock_version`. You must also specify `ledger_account_id`.
+      #   Shows all ledger entries that were present on a ledger account at a particular
+      #     `lock_version`. You must also specify `ledger_account_id`.
       #
       #   @return [Integer, nil]
       optional :as_of_lock_version, Integer
@@ -29,7 +31,9 @@ module ModernTreasury
       #   attr_writer :as_of_lock_version
 
       # @!attribute [r] direction
-      #   If true, response will include ledger entries that were deleted. When you update a ledger transaction to specify a new set of entries, the previous entries are deleted.
+      #   If true, response will include ledger entries that were deleted. When you update
+      #     a ledger transaction to specify a new set of entries, the previous entries are
+      #     deleted.
       #
       #   @return [Symbol, ModernTreasury::Models::TransactionDirection, nil]
       optional :direction, enum: -> { ModernTreasury::Models::TransactionDirection }
@@ -39,7 +43,8 @@ module ModernTreasury
       #   attr_writer :direction
 
       # @!attribute [r] effective_at
-      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the transaction's effective time. Format ISO8601
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #     transaction's effective time. Format ISO8601
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :effective_at, ModernTreasury::HashOf[Time]
@@ -49,7 +54,8 @@ module ModernTreasury
       #   attr_writer :effective_at
 
       # @!attribute [r] effective_date
-      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the transaction's effective date. Format YYYY-MM-DD
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #     transaction's effective date. Format YYYY-MM-DD
       #
       #   @return [Hash{Symbol=>Date}, nil]
       optional :effective_date, ModernTreasury::HashOf[Date]
@@ -59,7 +65,8 @@ module ModernTreasury
       #   attr_writer :effective_date
 
       # @!attribute [r] ledger_account_category_id
-      #   Get all ledger entries that match the direction specified. One of `credit`, `debit`.
+      #   Get all ledger entries that match the direction specified. One of `credit`,
+      #     `debit`.
       #
       #   @return [String, nil]
       optional :ledger_account_category_id, String
@@ -78,7 +85,10 @@ module ModernTreasury
       #   attr_writer :ledger_account_id
 
       # @!attribute [r] ledger_account_lock_version
-      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the lock_version of a ledger account. For example, for all entries created at or before before lock_version 1000 of a ledger account, use `ledger_account_lock_version%5Blte%5D=1000`.
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #     lock_version of a ledger account. For example, for all entries created at or
+      #     before before lock_version 1000 of a ledger account, use
+      #     `ledger_account_lock_version%5Blte%5D=1000`.
       #
       #   @return [Hash{Symbol=>Integer}, nil]
       optional :ledger_account_lock_version, ModernTreasury::HashOf[Integer]
@@ -125,7 +135,9 @@ module ModernTreasury
       #   attr_writer :ledger_transaction_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -135,7 +147,9 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!attribute [r] order_by
-      #   Order by `created_at` or `effective_at` in `asc` or `desc` order. For example, to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering by only one field at a time is supported.
+      #   Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
+      #     to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
+      #     by only one field at a time is supported.
       #
       #   @return [ModernTreasury::Models::LedgerEntryListParams::OrderBy, nil]
       optional :order_by, -> { ModernTreasury::Models::LedgerEntryListParams::OrderBy }
@@ -154,7 +168,8 @@ module ModernTreasury
       #   attr_writer :per_page
 
       # @!attribute [r] show_balances
-      #   If true, response will include the balances attached to the ledger entry. If there is no balance available, null will be returned instead.
+      #   If true, response will include the balances attached to the ledger entry. If
+      #     there is no balance available, null will be returned instead.
       #
       #   @return [Boolean, nil]
       optional :show_balances, ModernTreasury::BooleanModel
@@ -164,7 +179,9 @@ module ModernTreasury
       #   attr_writer :show_balances
 
       # @!attribute [r] show_deleted
-      #   If true, response will include ledger entries that were deleted. When you update a ledger transaction to specify a new set of entries, the previous entries are deleted.
+      #   If true, response will include ledger entries that were deleted. When you update
+      #     a ledger transaction to specify a new set of entries, the previous entries are
+      #     deleted.
       #
       #   @return [Boolean, nil]
       optional :show_deleted, ModernTreasury::BooleanModel
@@ -174,7 +191,8 @@ module ModernTreasury
       #   attr_writer :show_deleted
 
       # @!attribute [r] status
-      #   Get all ledger entries that match the status specified. One of `pending`, `posted`, or `archived`.
+      #   Get all ledger entries that match the status specified. One of `pending`,
+      #     `posted`, or `archived`.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::LedgerEntryListParams::Status }
@@ -184,7 +202,9 @@ module ModernTreasury
       #   attr_writer :status
 
       # @!attribute [r] updated_at
-      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :updated_at, ModernTreasury::HashOf[Time]
@@ -194,65 +214,26 @@ module ModernTreasury
       #   attr_writer :updated_at
 
       # @!parse
-      #   # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query
-      #   #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
-      #   #
+      #   # @param id [Array<String>]
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param as_of_lock_version [Integer] Shows all ledger entries that were present on a ledger account at a particular
-      #   #   `lock_version`. You must also specify `ledger_account_id`.
-      #   #
-      #   # @param direction [String] If true, response will include ledger entries that were deleted. When you update
-      #   #   a ledger transaction to specify a new set of entries, the previous entries are
-      #   #   deleted.
-      #   #
-      #   # @param effective_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   #   transaction's effective time. Format ISO8601
-      #   #
-      #   # @param effective_date [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   #   transaction's effective date. Format YYYY-MM-DD
-      #   #
-      #   # @param ledger_account_category_id [String] Get all ledger entries that match the direction specified. One of `credit`,
-      #   #   `debit`.
-      #   #
+      #   # @param as_of_lock_version [Integer]
+      #   # @param direction [String]
+      #   # @param effective_at [Hash{Symbol=>String}]
+      #   # @param effective_date [Hash{Symbol=>String}]
+      #   # @param ledger_account_category_id [String]
       #   # @param ledger_account_id [String]
-      #   #
-      #   # @param ledger_account_lock_version [Hash{Symbol=>Integer}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   #   lock_version of a ledger account. For example, for all entries created at or
-      #   #   before before lock_version 1000 of a ledger account, use
-      #   #   `ledger_account_lock_version%5Blte%5D=1000`.
-      #   #
+      #   # @param ledger_account_lock_version [Hash{Symbol=>Integer}]
       #   # @param ledger_account_payout_id [String]
-      #   #
       #   # @param ledger_account_settlement_id [String]
-      #   #
-      #   # @param ledger_account_statement_id [String] Get all ledger entries that are included in the ledger account statement.
-      #   #
+      #   # @param ledger_account_statement_id [String]
       #   # @param ledger_transaction_id [String]
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
-      #   # @param order_by [ModernTreasury::Models::LedgerEntryListParams::OrderBy] Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
-      #   #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
-      #   #   by only one field at a time is supported.
-      #   #
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param order_by [ModernTreasury::Models::LedgerEntryListParams::OrderBy]
       #   # @param per_page [Integer]
-      #   #
-      #   # @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If
-      #   #   there is no balance available, null will be returned instead.
-      #   #
-      #   # @param show_deleted [Boolean] If true, response will include ledger entries that were deleted. When you update
-      #   #   a ledger transaction to specify a new set of entries, the previous entries are
-      #   #   deleted.
-      #   #
-      #   # @param status [String] Get all ledger entries that match the status specified. One of `pending`,
-      #   #   `posted`, or `archived`.
-      #   #
-      #   # @param updated_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   # @param show_balances [Boolean]
+      #   # @param show_deleted [Boolean]
+      #   # @param status [String]
+      #   # @param updated_at [Hash{Symbol=>String}]
       #   #
       #   def initialize(
       #     id: nil,
@@ -285,8 +266,8 @@ module ModernTreasury
       # @example
       # ```ruby
       # order_by => {
-      #   created_at: enum: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt,
-      #   effective_at: enum: ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt
+      #   created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt,
+      #   effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt
       # }
       # ```
       class OrderBy < ModernTreasury::BaseModel
@@ -356,7 +337,8 @@ module ModernTreasury
         end
       end
 
-      # Get all ledger entries that match the status specified. One of `pending`, `posted`, or `archived`.
+      # Get all ledger entries that match the status specified. One of `pending`,
+      #   `posted`, or `archived`.
       #
       # @example
       # ```ruby

@@ -20,7 +20,8 @@ module ModernTreasury
         #   attr_writer :as_of_date
 
         # @!attribute [r] balance_report_type
-        #   The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
+        #   The specific type of balance report. One of `intraday`, `previous_day`,
+        #     `real_time`, or `other`.
         #
         #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType, nil]
         optional :balance_report_type,
@@ -43,19 +44,16 @@ module ModernTreasury
 
         # @!parse
         #   # @param after_cursor [String, nil]
-        #   #
-        #   # @param as_of_date [String] The date of the balance report in local time.
-        #   #
-        #   # @param balance_report_type [String] The specific type of balance report. One of `intraday`, `previous_day`,
-        #   #   `real_time`, or `other`.
-        #   #
+        #   # @param as_of_date [String]
+        #   # @param balance_report_type [String]
         #   # @param per_page [Integer]
         #   #
         #   def initialize(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
+        # The specific type of balance report. One of `intraday`, `previous_day`,
+        #   `real_time`, or `other`.
         #
         # @example
         # ```ruby

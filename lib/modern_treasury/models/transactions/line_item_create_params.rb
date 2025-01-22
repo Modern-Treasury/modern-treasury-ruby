@@ -5,7 +5,8 @@ module ModernTreasury
     module Transactions
       class LineItemCreateParams < ModernTreasury::BaseModel
         # @!attribute amount
-        #   If a matching object exists in Modern Treasury, `amount` will be populated. Value in specified currency's smallest unit (taken from parent Transaction).
+        #   If a matching object exists in Modern Treasury, `amount` will be populated.
+        #     Value in specified currency's smallest unit (taken from parent Transaction).
         #
         #   @return [Integer]
         required :amount, Integer
@@ -23,12 +24,9 @@ module ModernTreasury
         required :transaction_id, String
 
         # @!parse
-        #   # @param amount [Integer] If a matching object exists in Modern Treasury, `amount` will be populated.
-        #   #   Value in specified currency's smallest unit (taken from parent Transaction).
-        #   #
-        #   # @param expected_payment_id [String] The ID of the reconciled Expected Payment, otherwise `null`.
-        #   #
-        #   # @param transaction_id [String] The ID of the parent transaction.
+        #   # @param amount [Integer]
+        #   # @param expected_payment_id [String]
+        #   # @param transaction_id [String]
         #   #
         #   def initialize(amount:, expected_payment_id:, transaction_id:, **) = super
 

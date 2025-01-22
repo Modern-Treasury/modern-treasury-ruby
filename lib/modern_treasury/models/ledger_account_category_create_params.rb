@@ -40,7 +40,8 @@ module ModernTreasury
       optional :description, String, nil?: true
 
       # @!attribute [r] ledger_account_category_ids
-      #   The array of ledger account category ids that this ledger account category should be a child of.
+      #   The array of ledger account category ids that this ledger account category
+      #     should be a child of.
       #
       #   @return [Array<String>]
       optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
@@ -50,7 +51,8 @@ module ModernTreasury
       #   attr_writer :ledger_account_category_ids
 
       # @!attribute [r] metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -60,23 +62,14 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!parse
-      #   # @param currency [String] The currency of the ledger account category.
-      #   #
-      #   # @param ledger_id [String] The id of the ledger that this account category belongs to.
-      #   #
-      #   # @param name [String] The name of the ledger account category.
-      #   #
-      #   # @param normal_balance [String] The normal balance of the ledger account category.
-      #   #
-      #   # @param currency_exponent [Integer, nil] The currency exponent of the ledger account category.
-      #   #
-      #   # @param description [String, nil] The description of the ledger account category.
-      #   #
-      #   # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account category
-      #   #   should be a child of.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
+      #   # @param currency [String]
+      #   # @param ledger_id [String]
+      #   # @param name [String]
+      #   # @param normal_balance [String]
+      #   # @param currency_exponent [Integer, nil]
+      #   # @param description [String, nil]
+      #   # @param ledger_account_category_ids [Array<String>]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   #
       #   def initialize(
       #     currency:,

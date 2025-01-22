@@ -9,7 +9,8 @@ module ModernTreasury
       optional :after_cursor, String, nil?: true
 
       # @!attribute [r] as_of_date_end
-      #   Filters transactions with an `as_of_date` starting on or before the specified date (YYYY-MM-DD).
+      #   Filters transactions with an `as_of_date` starting on or before the specified
+      #     date (YYYY-MM-DD).
       #
       #   @return [Date, nil]
       optional :as_of_date_end, Date
@@ -19,7 +20,8 @@ module ModernTreasury
       #   attr_writer :as_of_date_end
 
       # @!attribute [r] as_of_date_start
-      #   Filters transactions with an `as_of_date` starting on or after the specified date (YYYY-MM-DD).
+      #   Filters transactions with an `as_of_date` starting on or after the specified
+      #     date (YYYY-MM-DD).
       #
       #   @return [Date, nil]
       optional :as_of_date_start, Date
@@ -57,7 +59,8 @@ module ModernTreasury
       #   attr_writer :direction
 
       # @!attribute [r] internal_account_id
-      #   Specify `internal_account_id` if you wish to see transactions to/from a specific account.
+      #   Specify `internal_account_id` if you wish to see transactions to/from a specific
+      #     account.
       #
       #   @return [String, nil]
       optional :internal_account_id, String
@@ -67,7 +70,9 @@ module ModernTreasury
       #   attr_writer :internal_account_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -114,7 +119,8 @@ module ModernTreasury
       #   attr_writer :transactable_type
 
       # @!attribute [r] vendor_id
-      #   Filters for transactions including the queried vendor id (an identifier given to transactions by the bank).
+      #   Filters for transactions including the queried vendor id (an identifier given to
+      #     transactions by the bank).
       #
       #   @return [String, nil]
       optional :vendor_id, String
@@ -134,37 +140,18 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param as_of_date_end [String] Filters transactions with an `as_of_date` starting on or before the specified
-      #   #   date (YYYY-MM-DD).
-      #   #
-      #   # @param as_of_date_start [String] Filters transactions with an `as_of_date` starting on or after the specified
-      #   #   date (YYYY-MM-DD).
-      #   #
+      #   # @param as_of_date_end [String]
+      #   # @param as_of_date_start [String]
       #   # @param counterparty_id [String]
-      #   #
-      #   # @param description [String] Filters for transactions including the queried string in the description.
-      #   #
+      #   # @param description [String]
       #   # @param direction [String]
-      #   #
-      #   # @param internal_account_id [String] Specify `internal_account_id` if you wish to see transactions to/from a specific
-      #   #   account.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
+      #   # @param internal_account_id [String]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param payment_type [String]
-      #   #
       #   # @param per_page [Integer]
-      #   #
-      #   # @param posted [Boolean] Either `true` or `false`.
-      #   #
+      #   # @param posted [Boolean]
       #   # @param transactable_type [String]
-      #   #
-      #   # @param vendor_id [String] Filters for transactions including the queried vendor id (an identifier given to
-      #   #   transactions by the bank).
-      #   #
+      #   # @param vendor_id [String]
       #   # @param virtual_account_id [String]
       #   #
       #   def initialize(

@@ -14,7 +14,7 @@ module ModernTreasury
       #   attr_writer :status
 
       # @!parse
-      #   # @param status [String] The status of the connection legal entity.
+      #   # @param status [String]
       #   #
       #   def initialize(status: nil, **) = super
 

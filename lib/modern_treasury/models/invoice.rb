@@ -20,13 +20,15 @@ module ModernTreasury
       required :id, String
 
       # @!attribute amount_paid
-      #   Amount paid on the invoice in specified currency's smallest unit, e.g., $10 USD would be represented as 1000.
+      #   Amount paid on the invoice in specified currency's smallest unit, e.g., $10 USD
+      #     would be represented as 1000.
       #
       #   @return [Integer]
       required :amount_paid, Integer
 
       # @!attribute amount_remaining
-      #   Amount remaining due on the invoice in specified currency's smallest unit, e.g., $10 USD would be represented as 1000.
+      #   Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
+      #     $10 USD would be represented as 1000.
       #
       #   @return [Integer]
       required :amount_remaining, Integer
@@ -92,7 +94,8 @@ module ModernTreasury
       required :expected_payments, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPayment] }
 
       # @!attribute fallback_payment_method
-      #   When payment_method is automatic, the fallback payment method to use when an automatic payment fails. One of `manual` or `ui`.
+      #   When payment_method is automatic, the fallback payment method to use when an
+      #     automatic payment fails. One of `manual` or `ui`.
       #
       #   @return [String, nil]
       required :fallback_payment_method, String, nil?: true
@@ -116,25 +119,30 @@ module ModernTreasury
       required :ledger_account_settlement_id, String, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       required :metadata, ModernTreasury::HashOf[String], nil?: true
 
       # @!attribute notification_email_addresses
-      #   Emails in addition to the counterparty email to send invoice status notifications to. At least one email is required if notifications are enabled and the counterparty doesn't have an email.
+      #   Emails in addition to the counterparty email to send invoice status
+      #     notifications to. At least one email is required if notifications are enabled
+      #     and the counterparty doesn't have an email.
       #
       #   @return [Array<String>]
       required :notification_email_addresses, ModernTreasury::ArrayOf[String], nil?: true
 
       # @!attribute notifications_enabled
-      #   If true, the invoice will send email notifications to the invoice recipients about invoice status changes.
+      #   If true, the invoice will send email notifications to the invoice recipients
+      #     about invoice status changes.
       #
       #   @return [Boolean]
       required :notifications_enabled, ModernTreasury::BooleanModel
@@ -157,19 +165,23 @@ module ModernTreasury
       required :originating_account_id, String
 
       # @!attribute payment_effective_date
-      #   Date transactions are to be posted to the participants' account. Defaults to the current business day or the next business day if the current day is a bank holiday or weekend. Format: yyyy-mm-dd.
+      #   Date transactions are to be posted to the participants' account. Defaults to the
+      #     current business day or the next business day if the current day is a bank
+      #     holiday or weekend. Format: yyyy-mm-dd.
       #
       #   @return [Date, nil]
       required :payment_effective_date, Date, nil?: true
 
       # @!attribute payment_method
-      #   When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
+      #   When opening an invoice, whether to show the embedded payment UI , automatically
+      #     debit the recipient, or rely on manual payment from the recipient.
       #
       #   @return [Symbol, ModernTreasury::Models::Invoice::PaymentMethod, nil]
       required :payment_method, enum: -> { ModernTreasury::Models::Invoice::PaymentMethod }, nil?: true
 
       # @!attribute payment_orders
-      #   The payment orders created for paying the invoice through the invoice payment UI.
+      #   The payment orders created for paying the invoice through the invoice payment
+      #     UI.
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder>]
       required :payment_orders, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder] }
@@ -193,19 +205,22 @@ module ModernTreasury
       required :receiving_account_id, String, nil?: true
 
       # @!attribute recipient_email
-      #   The email of the recipient of the invoice. Leaving this value as null will fallback to using the counterparty's name.
+      #   The email of the recipient of the invoice. Leaving this value as null will
+      #     fallback to using the counterparty's name.
       #
       #   @return [String, nil]
       required :recipient_email, String, nil?: true
 
       # @!attribute recipient_name
-      #   The name of the recipient of the invoice. Leaving this value as null will fallback to using the counterparty's name.
+      #   The name of the recipient of the invoice. Leaving this value as null will
+      #     fallback to using the counterparty's name.
       #
       #   @return [String, nil]
       required :recipient_name, String, nil?: true
 
       # @!attribute remind_after_overdue_days
-      #   Number of days after due date when overdue reminder emails will be sent out to invoice recipients.
+      #   Number of days after due date when overdue reminder emails will be sent out to
+      #     invoice recipients.
       #
       #   @return [Array<Integer>]
       required :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer], nil?: true
@@ -217,7 +232,8 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::Invoice::Status }
 
       # @!attribute total_amount
-      #   Total amount due in specified currency's smallest unit, e.g., $10 USD would be represented as 1000.
+      #   Total amount due in specified currency's smallest unit, e.g., $10 USD would be
+      #     represented as 1000.
       #
       #   @return [Integer]
       required :total_amount, Integer
@@ -241,94 +257,42 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param amount_paid [Integer] Amount paid on the invoice in specified currency's smallest unit, e.g., $10 USD
-      #   #   would be represented as 1000.
-      #   #
-      #   # @param amount_remaining [Integer] Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
-      #   #   $10 USD would be represented as 1000.
-      #   #
-      #   # @param contact_details [Array<ModernTreasury::Models::Invoice::ContactDetail>] The invoicer's contact details displayed at the top of the invoice.
-      #   #
-      #   # @param counterparty_billing_address [ModernTreasury::Models::Invoice::CounterpartyBillingAddress, nil] The counterparty's billing address.
-      #   #
-      #   # @param counterparty_id [String] The ID of the counterparty receiving the invoice.
-      #   #
-      #   # @param counterparty_shipping_address [ModernTreasury::Models::Invoice::CounterpartyShippingAddress, nil] The counterparty's shipping address where physical goods should be delivered.
-      #   #
+      #   # @param amount_paid [Integer]
+      #   # @param amount_remaining [Integer]
+      #   # @param contact_details [Array<ModernTreasury::Models::Invoice::ContactDetail>]
+      #   # @param counterparty_billing_address [ModernTreasury::Models::Invoice::CounterpartyBillingAddress, nil]
+      #   # @param counterparty_id [String]
+      #   # @param counterparty_shipping_address [ModernTreasury::Models::Invoice::CounterpartyShippingAddress, nil]
       #   # @param created_at [String]
-      #   #
-      #   # @param currency [String] Currency that the invoice is denominated in. Defaults to `USD` if not provided.
-      #   #
-      #   # @param description [String] A free-form description of the invoice.
-      #   #
-      #   # @param due_date [String] A future date by when the invoice needs to be paid.
-      #   #
-      #   # @param expected_payments [Array<ModernTreasury::Models::ExpectedPayment>] The expected payments created for an unpaid invoice.
-      #   #
-      #   # @param fallback_payment_method [String, nil] When payment_method is automatic, the fallback payment method to use when an
-      #   #   automatic payment fails. One of `manual` or `ui`.
-      #   #
-      #   # @param hosted_url [String] The URL of the hosted web UI where the invoice can be viewed.
-      #   #
-      #   # @param invoicer_address [ModernTreasury::Models::Invoice::InvoicerAddress, nil] The invoice issuer's business address.
-      #   #
-      #   # @param ledger_account_settlement_id [String, nil] The ledger account settlement object linked to the invoice.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
-      #   # @param notification_email_addresses [Array<String>] Emails in addition to the counterparty email to send invoice status
-      #   #   notifications to. At least one email is required if notifications are enabled
-      #   #   and the counterparty doesn't have an email.
-      #   #
-      #   # @param notifications_enabled [Boolean] If true, the invoice will send email notifications to the invoice recipients
-      #   #   about invoice status changes.
-      #   #
-      #   # @param number [String] A unique record number assigned to each invoice that is issued.
-      #   #
+      #   # @param currency [String]
+      #   # @param description [String]
+      #   # @param due_date [String]
+      #   # @param expected_payments [Array<ModernTreasury::Models::ExpectedPayment>]
+      #   # @param fallback_payment_method [String, nil]
+      #   # @param hosted_url [String]
+      #   # @param invoicer_address [ModernTreasury::Models::Invoice::InvoicerAddress, nil]
+      #   # @param ledger_account_settlement_id [String, nil]
+      #   # @param live_mode [Boolean]
+      #   # @param metadata [Hash{Symbol=>String}, nil]
+      #   # @param notification_email_addresses [Array<String>]
+      #   # @param notifications_enabled [Boolean]
+      #   # @param number [String]
       #   # @param object [String]
-      #   #
-      #   # @param originating_account_id [String] The ID of the internal account the invoice should be paid to.
-      #   #
-      #   # @param payment_effective_date [String, nil] Date transactions are to be posted to the participants' account. Defaults to the
-      #   #   current business day or the next business day if the current day is a bank
-      #   #   holiday or weekend. Format: yyyy-mm-dd.
-      #   #
-      #   # @param payment_method [String, nil] When opening an invoice, whether to show the embedded payment UI , automatically
-      #   #   debit the recipient, or rely on manual payment from the recipient.
-      #   #
-      #   # @param payment_orders [Array<ModernTreasury::Models::PaymentOrder>] The payment orders created for paying the invoice through the invoice payment
-      #   #   UI.
-      #   #
-      #   # @param payment_type [String, nil] One of `ach` or `eft`.
-      #   #
-      #   # @param pdf_url [String, nil] The URL where the invoice PDF can be downloaded.
-      #   #
-      #   # @param receiving_account_id [String, nil] The receiving account ID. Can be an `internal_account`.
-      #   #
-      #   # @param recipient_email [String, nil] The email of the recipient of the invoice. Leaving this value as null will
-      #   #   fallback to using the counterparty's name.
-      #   #
-      #   # @param recipient_name [String, nil] The name of the recipient of the invoice. Leaving this value as null will
-      #   #   fallback to using the counterparty's name.
-      #   #
-      #   # @param remind_after_overdue_days [Array<Integer>] Number of days after due date when overdue reminder emails will be sent out to
-      #   #   invoice recipients.
-      #   #
-      #   # @param status [String] The status of the invoice.
-      #   #
-      #   # @param total_amount [Integer] Total amount due in specified currency's smallest unit, e.g., $10 USD would be
-      #   #   represented as 1000.
-      #   #
-      #   # @param transaction_line_item_ids [Array<String>] IDs of transaction line items associated with an invoice.
-      #   #
+      #   # @param originating_account_id [String]
+      #   # @param payment_effective_date [String, nil]
+      #   # @param payment_method [String, nil]
+      #   # @param payment_orders [Array<ModernTreasury::Models::PaymentOrder>]
+      #   # @param payment_type [String, nil]
+      #   # @param pdf_url [String, nil]
+      #   # @param receiving_account_id [String, nil]
+      #   # @param recipient_email [String, nil]
+      #   # @param recipient_name [String, nil]
+      #   # @param remind_after_overdue_days [Array<Integer>]
+      #   # @param status [String]
+      #   # @param total_amount [Integer]
+      #   # @param transaction_line_item_ids [Array<String>]
       #   # @param updated_at [String]
-      #   #
-      #   # @param virtual_account_id [String, nil] The ID of the virtual account the invoice should be paid to.
+      #   # @param virtual_account_id [String, nil]
       #   #
       #   def initialize(
       #     id:,
@@ -380,7 +344,7 @@ module ModernTreasury
       # contact_detail => {
       #   id: String,
       #   contact_identifier: String,
-      #   contact_identifier_type: enum: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType,
+      #   contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType,
       #   created_at: Time,
       #   discarded_at: Time,
       #   **_
@@ -414,7 +378,8 @@ module ModernTreasury
         required :discarded_at, Time, nil?: true
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
@@ -431,20 +396,12 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   #
         #   # @param contact_identifier [String]
-        #   #
         #   # @param contact_identifier_type [String]
-        #   #
         #   # @param created_at [String]
-        #   #
         #   # @param discarded_at [String, nil]
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
+        #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   #
         #   # @param updated_at [String]
         #   #
         #   def initialize(
@@ -535,16 +492,11 @@ module ModernTreasury
         # @!parse
         #   # The counterparty's billing address.
         #   #
-        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String]
         #   # @param line1 [String]
-        #   #
-        #   # @param locality [String] Locality or City.
-        #   #
-        #   # @param postal_code [String] The postal code of the address.
-        #   #
-        #   # @param region [String] Region or State.
-        #   #
+        #   # @param locality [String]
+        #   # @param postal_code [String]
+        #   # @param region [String]
         #   # @param line2 [String]
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
@@ -604,16 +556,11 @@ module ModernTreasury
         # @!parse
         #   # The counterparty's shipping address where physical goods should be delivered.
         #   #
-        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String]
         #   # @param line1 [String]
-        #   #
-        #   # @param locality [String] Locality or City.
-        #   #
-        #   # @param postal_code [String] The postal code of the address.
-        #   #
-        #   # @param region [String] Region or State.
-        #   #
+        #   # @param locality [String]
+        #   # @param postal_code [String]
+        #   # @param region [String]
         #   # @param line2 [String]
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
@@ -673,16 +620,11 @@ module ModernTreasury
         # @!parse
         #   # The invoice issuer's business address.
         #   #
-        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String]
         #   # @param line1 [String]
-        #   #
-        #   # @param locality [String] Locality or City.
-        #   #
-        #   # @param postal_code [String] The postal code of the address.
-        #   #
-        #   # @param region [String] Region or State.
-        #   #
+        #   # @param locality [String]
+        #   # @param postal_code [String]
+        #   # @param region [String]
         #   # @param line2 [String]
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
@@ -690,7 +632,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # When opening an invoice, whether to show the embedded payment UI , automatically debit the recipient, or rely on manual payment from the recipient.
+      # When opening an invoice, whether to show the embedded payment UI , automatically
+      #   debit the recipient, or rely on manual payment from the recipient.
       #
       # @example
       # ```ruby

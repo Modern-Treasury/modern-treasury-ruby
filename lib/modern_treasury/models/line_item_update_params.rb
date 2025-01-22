@@ -14,7 +14,8 @@ module ModernTreasury
       required :itemizable_id, String
 
       # @!attribute [r] metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -25,11 +26,8 @@ module ModernTreasury
 
       # @!parse
       #   # @param itemizable_type [String]
-      #   #
       #   # @param itemizable_id [String]
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
+      #   # @param metadata [Hash{Symbol=>String}]
       #   #
       #   def initialize(itemizable_type:, itemizable_id:, metadata: nil, **) = super
 
