@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2025-01-22)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Chores
+
+* **api:** adds new APIs for LedgerAccountSettlement LedgerEntries ([#188](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/188)) ([1ca1a78](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1ca1a7819de400f5656689553387377f0ba3c846))
+* improve yard doc folding and reduce repetition ([#187](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/187)) ([aa11ac4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/aa11ac47e63f2a6023082cbf810565d843074459))
+* use more descriptive rubocop output format ([#185](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/185)) ([6be7f8c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6be7f8c4e1cfb0e040860aaecdf3fdecf224c856))
+
 ## 0.1.0-alpha.12 (2025-01-21)
 
 Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
