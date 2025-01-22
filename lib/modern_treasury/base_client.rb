@@ -79,7 +79,7 @@ module ModernTreasury
     #
     #   @option req [Class, nil] :page
     #
-    #   @option req [Class, ModernTreasury::Converter] :model
+    #   @option req [Class, ModernTreasury::Converter, Symbol, Boolean, Integer, Float] :model
     #
     # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] .
     #
@@ -374,7 +374,7 @@ module ModernTreasury
     #
     #   @option req [Class, nil] :page
     #
-    #   @option req [Class, ModernTreasury::Converter] :model
+    #   @option req [Class, ModernTreasury::Converter, Symbol, Boolean, Integer, Float] :model
     #
     # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] .
     #
@@ -427,7 +427,7 @@ module ModernTreasury
     #
     #   @option req [Class, nil] :page
     #
-    #   @option req [Class, ModernTreasury::Converter] :model
+    #   @option req [Class, ModernTreasury::Converter, Symbol, Boolean, Integer, Float] :model
     #
     # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] .
     #
