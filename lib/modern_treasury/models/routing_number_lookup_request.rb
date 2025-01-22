@@ -8,7 +8,7 @@ module ModernTreasury
     #   bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
     #   bank_name: String,
     #   routing_number: String,
-    #   routing_number_type: enum: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType,
+    #   routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType,
     #   sanctions: -> { ModernTreasury::HashOf[ModernTreasury::Unknown] === _1 }
     # }
     # ```
@@ -44,7 +44,10 @@ module ModernTreasury
       #   attr_writer :routing_number
 
       # @!attribute [r] routing_number_type
-      #   The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details. In sandbox mode we currently only support `aba` and `swift` with routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      #   The type of routing number. See
+      #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #     more details. In sandbox mode we currently only support `aba` and `swift` with
+      #     routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType, nil]
       optional :routing_number_type,
@@ -55,7 +58,9 @@ module ModernTreasury
       #   attr_writer :routing_number_type
 
       # @!attribute [r] sanctions
-      #   An object containing key-value pairs, each with a sanctions list as the key and a boolean value representing whether the bank is on that particular sanctions list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
+      #   An object containing key-value pairs, each with a sanctions list as the key and
+      #     a boolean value representing whether the bank is on that particular sanctions
+      #     list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :sanctions, ModernTreasury::HashOf[ModernTreasury::Unknown]
@@ -65,7 +70,8 @@ module ModernTreasury
       #   attr_writer :sanctions
 
       # @!attribute [r] supported_payment_types
-      #   An array of payment types that are supported for this routing number. This can include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs` currently.
+      #   An array of payment types that are supported for this routing number. This can
+      #     include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs` currently.
       #
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
       optional :supported_payment_types,
@@ -78,23 +84,12 @@ module ModernTreasury
       #   attr_writer :supported_payment_types
 
       # @!parse
-      #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress] The address of the bank.
-      #   #
-      #   # @param bank_name [String] The name of the bank.
-      #   #
-      #   # @param routing_number [String] The routing number of the bank.
-      #   #
-      #   # @param routing_number_type [String] The type of routing number. See
-      #   #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   #   more details. In sandbox mode we currently only support `aba` and `swift` with
-      #   #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
-      #   #
-      #   # @param sanctions [Hash{Symbol=>Object}] An object containing key-value pairs, each with a sanctions list as the key and
-      #   #   a boolean value representing whether the bank is on that particular sanctions
-      #   #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
-      #   #
-      #   # @param supported_payment_types [Array<String>] An array of payment types that are supported for this routing number. This can
-      #   #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs` currently.
+      #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
+      #   # @param bank_name [String]
+      #   # @param routing_number [String]
+      #   # @param routing_number_type [String]
+      #   # @param sanctions [Hash{Symbol=>Object}]
+      #   # @param supported_payment_types [Array<String>]
       #   #
       #   def initialize(
       #     bank_address: nil,
@@ -158,24 +153,22 @@ module ModernTreasury
         # @!parse
         #   # The address of the bank.
         #   #
-        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String, nil]
         #   # @param line1 [String, nil]
-        #   #
         #   # @param line2 [String, nil]
-        #   #
-        #   # @param locality [String, nil] Locality or City.
-        #   #
-        #   # @param postal_code [String, nil] The postal code of the address.
-        #   #
-        #   # @param region [String, nil] Region or State.
+        #   # @param locality [String, nil]
+        #   # @param postal_code [String, nil]
+        #   # @param region [String, nil]
         #   #
         #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details. In sandbox mode we currently only support `aba` and `swift` with routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details. In sandbox mode we currently only support `aba` and `swift` with
+      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
       # @example
       # ```ruby

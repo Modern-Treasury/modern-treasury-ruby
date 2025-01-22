@@ -29,7 +29,8 @@ module ModernTreasury
       #   attr_writer :deposit_date_start
 
       # @!attribute [r] lockbox_number
-      #   Specify `lockbox_number` if you wish to see paper items that are associated with a specific lockbox number.
+      #   Specify `lockbox_number` if you wish to see paper items that are associated with
+      #     a specific lockbox number.
       #
       #   @return [String, nil]
       optional :lockbox_number, String
@@ -49,14 +50,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param deposit_date_end [String] Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
-      #   #
-      #   # @param deposit_date_start [String] Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
-      #   #
-      #   # @param lockbox_number [String] Specify `lockbox_number` if you wish to see paper items that are associated with
-      #   #   a specific lockbox number.
-      #   #
+      #   # @param deposit_date_end [String]
+      #   # @param deposit_date_start [String]
+      #   # @param lockbox_number [String]
       #   # @param per_page [Integer]
       #   #
       #   def initialize(after_cursor: nil, deposit_date_end: nil, deposit_date_start: nil, lockbox_number: nil, per_page: nil, **) = super

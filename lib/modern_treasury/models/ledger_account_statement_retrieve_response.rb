@@ -31,26 +31,33 @@ module ModernTreasury
       required :description, String, nil?: true
 
       # @!attribute effective_at_lower_bound
-      #   The inclusive lower bound of the effective_at timestamp of the ledger entries to be included in the ledger account statement.
+      #   The inclusive lower bound of the effective_at timestamp of the ledger entries to
+      #     be included in the ledger account statement.
       #
       #   @return [Time]
       required :effective_at_lower_bound, Time
 
       # @!attribute effective_at_upper_bound
-      #   The exclusive upper bound of the effective_at timestamp of the ledger entries to be included in the ledger account statement.
+      #   The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      #     be included in the ledger account statement.
       #
       #   @return [Time]
       required :effective_at_upper_bound, Time
 
       # @!attribute ending_balance
-      #   The pending, posted, and available balances for this ledger account at the `effective_at_upper_bound`. The posted balance is the sum of all posted entries on the account. The pending balance is the sum of all pending and posted entries on the account. The available balance is the posted incoming entries minus the sum of the pending and posted outgoing amounts.
+      #   The pending, posted, and available balances for this ledger account at the
+      #     `effective_at_upper_bound`. The posted balance is the sum of all posted entries
+      #     on the account. The pending balance is the sum of all pending and posted entries
+      #     on the account. The available balance is the posted incoming entries minus the
+      #     sum of the pending and posted outgoing amounts.
       #
       #   @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance]
       required :ending_balance,
                -> { ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance }
 
       # @!attribute ledger_account_id
-      #   The id of the ledger account whose ledger entries are queried against, and its balances are computed as a result.
+      #   The id of the ledger account whose ledger entries are queried against, and its
+      #     balances are computed as a result.
       #
       #   @return [String]
       required :ledger_account_id, String
@@ -74,13 +81,15 @@ module ModernTreasury
       required :ledger_id, String
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
@@ -91,7 +100,11 @@ module ModernTreasury
       required :object, String
 
       # @!attribute starting_balance
-      #   The pending, posted, and available balances for this ledger account at the `effective_at_lower_bound`. The posted balance is the sum of all posted entries on the account. The pending balance is the sum of all pending and posted entries on the account. The available balance is the posted incoming entries minus the sum of the pending and posted outgoing amounts.
+      #   The pending, posted, and available balances for this ledger account at the
+      #     `effective_at_lower_bound`. The posted balance is the sum of all posted entries
+      #     on the account. The pending balance is the sum of all pending and posted entries
+      #     on the account. The available balance is the posted incoming entries minus the
+      #     sum of the pending and posted outgoing amounts.
       #
       #   @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance]
       required :starting_balance,
@@ -104,46 +117,19 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param created_at [String]
-      #   #
-      #   # @param description [String, nil] The description of the ledger account statement.
-      #   #
-      #   # @param effective_at_lower_bound [String] The inclusive lower bound of the effective_at timestamp of the ledger entries to
-      #   #   be included in the ledger account statement.
-      #   #
-      #   # @param effective_at_upper_bound [String] The exclusive upper bound of the effective_at timestamp of the ledger entries to
-      #   #   be included in the ledger account statement.
-      #   #
-      #   # @param ending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance] The pending, posted, and available balances for this ledger account at the
-      #   #   `effective_at_upper_bound`. The posted balance is the sum of all posted entries
-      #   #   on the account. The pending balance is the sum of all pending and posted entries
-      #   #   on the account. The available balance is the posted incoming entries minus the
-      #   #   sum of the pending and posted outgoing amounts.
-      #   #
-      #   # @param ledger_account_id [String] The id of the ledger account whose ledger entries are queried against, and its
-      #   #   balances are computed as a result.
-      #   #
-      #   # @param ledger_account_lock_version [Integer] Lock version of the ledger account at the time of statement generation.
-      #   #
-      #   # @param ledger_account_normal_balance [String] The normal balance of the ledger account.
-      #   #
-      #   # @param ledger_id [String] The id of the ledger that this ledger account statement belongs to.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
+      #   # @param description [String, nil]
+      #   # @param effective_at_lower_bound [String]
+      #   # @param effective_at_upper_bound [String]
+      #   # @param ending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance]
+      #   # @param ledger_account_id [String]
+      #   # @param ledger_account_lock_version [Integer]
+      #   # @param ledger_account_normal_balance [String]
+      #   # @param ledger_id [String]
+      #   # @param live_mode [Boolean]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
-      #   #
-      #   # @param starting_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance] The pending, posted, and available balances for this ledger account at the
-      #   #   `effective_at_lower_bound`. The posted balance is the sum of all posted entries
-      #   #   on the account. The pending balance is the sum of all pending and posted entries
-      #   #   on the account. The available balance is the posted incoming entries minus the
-      #   #   sum of the pending and posted outgoing amounts.
-      #   #
+      #   # @param starting_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance]
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -179,7 +165,10 @@ module ModernTreasury
       # ```
       class EndingBalance < ModernTreasury::BaseModel
         # @!attribute available_balance
-        #   The available_balance is the sum of all posted inbound entries and pending outbound entries. For credit normal, available_amount = posted_credits - pending_debits; for debit normal, available_amount = posted_debits - pending_credits.
+        #   The available_balance is the sum of all posted inbound entries and pending
+        #     outbound entries. For credit normal, available_amount = posted_credits -
+        #     pending_debits; for debit normal, available_amount = posted_debits -
+        #     pending_credits.
         #
         #   @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance]
         required :available_balance,
@@ -206,14 +195,9 @@ module ModernTreasury
         #   #   on the account. The available balance is the posted incoming entries minus the
         #   #   sum of the pending and posted outgoing amounts.
         #   #
-        #   # @param available_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending
-        #   #   outbound entries. For credit normal, available_amount = posted_credits -
-        #   #   pending_debits; for debit normal, available_amount = posted_debits -
-        #   #   pending_credits.
-        #   #
-        #   # @param pending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance] The pending_balance is the sum of all pending and posted entries.
-        #   #
-        #   # @param posted_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance] The posted_balance is the sum of all posted entries.
+        #   # @param available_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance]
+        #   # @param pending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance]
+        #   # @param posted_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance]
         #   #
         #   def initialize(available_balance:, pending_balance:, posted_balance:, **) = super
 
@@ -264,13 +248,9 @@ module ModernTreasury
           #   #   pending_credits.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
@@ -320,13 +300,9 @@ module ModernTreasury
           #   # The pending_balance is the sum of all pending and posted entries.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
@@ -376,13 +352,9 @@ module ModernTreasury
           #   # The posted_balance is the sum of all posted entries.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
@@ -401,7 +373,10 @@ module ModernTreasury
       # ```
       class StartingBalance < ModernTreasury::BaseModel
         # @!attribute available_balance
-        #   The available_balance is the sum of all posted inbound entries and pending outbound entries. For credit normal, available_amount = posted_credits - pending_debits; for debit normal, available_amount = posted_debits - pending_credits.
+        #   The available_balance is the sum of all posted inbound entries and pending
+        #     outbound entries. For credit normal, available_amount = posted_credits -
+        #     pending_debits; for debit normal, available_amount = posted_debits -
+        #     pending_credits.
         #
         #   @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance]
         required :available_balance,
@@ -428,14 +403,9 @@ module ModernTreasury
         #   #   on the account. The available balance is the posted incoming entries minus the
         #   #   sum of the pending and posted outgoing amounts.
         #   #
-        #   # @param available_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending
-        #   #   outbound entries. For credit normal, available_amount = posted_credits -
-        #   #   pending_debits; for debit normal, available_amount = posted_debits -
-        #   #   pending_credits.
-        #   #
-        #   # @param pending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance] The pending_balance is the sum of all pending and posted entries.
-        #   #
-        #   # @param posted_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance] The posted_balance is the sum of all posted entries.
+        #   # @param available_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance]
+        #   # @param pending_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance]
+        #   # @param posted_balance [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance]
         #   #
         #   def initialize(available_balance:, pending_balance:, posted_balance:, **) = super
 
@@ -486,13 +456,9 @@ module ModernTreasury
           #   #   pending_credits.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
@@ -542,13 +508,9 @@ module ModernTreasury
           #   # The pending_balance is the sum of all pending and posted entries.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
@@ -598,13 +560,9 @@ module ModernTreasury
           #   # The posted_balance is the sum of all posted entries.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super

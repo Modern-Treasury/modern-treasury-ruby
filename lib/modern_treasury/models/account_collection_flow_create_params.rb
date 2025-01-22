@@ -27,10 +27,8 @@ module ModernTreasury
       #   attr_writer :receiving_countries
 
       # @!parse
-      #   # @param counterparty_id [String] Required.
-      #   #
+      #   # @param counterparty_id [String]
       #   # @param payment_types [Array<String>]
-      #   #
       #   # @param receiving_countries [Array<String>]
       #   #
       #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil, **) = super

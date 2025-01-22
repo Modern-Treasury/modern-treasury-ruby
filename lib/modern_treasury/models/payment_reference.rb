@@ -25,7 +25,8 @@ module ModernTreasury
       required :created_at, Time
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -49,13 +50,15 @@ module ModernTreasury
                enum: -> { ModernTreasury::Models::PaymentReference::ReferenceNumberType }
 
       # @!attribute referenceable_id
-      #   The id of the referenceable to search for. Must be accompanied by the referenceable_type or will return an error.
+      #   The id of the referenceable to search for. Must be accompanied by the
+      #     referenceable_type or will return an error.
       #
       #   @return [String]
       required :referenceable_id, String
 
       # @!attribute referenceable_type
-      #   One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
+      #   One of the referenceable types. This must be accompanied by the id of the
+      #     referenceable or will return an error.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
       required :referenceable_type, enum: -> { ModernTreasury::Models::PaymentReference::ReferenceableType }
@@ -67,24 +70,13 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param created_at [String]
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
-      #   # @param reference_number [String] The actual reference number assigned by the bank.
-      #   #
-      #   # @param reference_number_type [String] The type of reference number.
-      #   #
-      #   # @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the
-      #   #   referenceable_type or will return an error.
-      #   #
-      #   # @param referenceable_type [String] One of the referenceable types. This must be accompanied by the id of the
-      #   #   referenceable or will return an error.
-      #   #
+      #   # @param reference_number [String]
+      #   # @param reference_number_type [String]
+      #   # @param referenceable_id [String]
+      #   # @param referenceable_type [String]
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -199,7 +191,8 @@ module ModernTreasury
         finalize!
       end
 
-      # One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
+      # One of the referenceable types. This must be accompanied by the id of the
+      #   referenceable or will return an error.
       #
       # @example
       # ```ruby

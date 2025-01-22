@@ -27,7 +27,9 @@ module ModernTreasury
       #   attr_writer :internal_account_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -47,15 +49,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
       #   # @param counterparty_id [String]
-      #   #
       #   # @param internal_account_id [String]
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
       #   #
       #   def initialize(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, **) = super

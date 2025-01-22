@@ -9,7 +9,8 @@ module ModernTreasury
       optional :after_cursor, String, nil?: true
 
       # @!attribute [r] counterparty_id
-      #   Specify `counterparty_id` if you wish to see returns that occurred with a specific counterparty.
+      #   Specify `counterparty_id` if you wish to see returns that occurred with a
+      #     specific counterparty.
       #
       #   @return [String, nil]
       optional :counterparty_id, String
@@ -19,7 +20,8 @@ module ModernTreasury
       #   attr_writer :counterparty_id
 
       # @!attribute [r] internal_account_id
-      #   Specify `internal_account_id` if you wish to see returns to/from a specific account.
+      #   Specify `internal_account_id` if you wish to see returns to/from a specific
+      #     account.
       #
       #   @return [String, nil]
       optional :internal_account_id, String
@@ -48,7 +50,8 @@ module ModernTreasury
       #   attr_writer :returnable_id
 
       # @!attribute [r] returnable_type
-      #   One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`. Must be accompanied by `returnable_id`.
+      #   One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #     Must be accompanied by `returnable_id`.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType, nil]
       optional :returnable_type, enum: -> { ModernTreasury::Models::ReturnListParams::ReturnableType }
@@ -59,19 +62,11 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param counterparty_id [String] Specify `counterparty_id` if you wish to see returns that occurred with a
-      #   #   specific counterparty.
-      #   #
-      #   # @param internal_account_id [String] Specify `internal_account_id` if you wish to see returns to/from a specific
-      #   #   account.
-      #   #
+      #   # @param counterparty_id [String]
+      #   # @param internal_account_id [String]
       #   # @param per_page [Integer]
-      #   #
-      #   # @param returnable_id [String] The ID of a valid returnable. Must be accompanied by `returnable_type`.
-      #   #
-      #   # @param returnable_type [String] One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
-      #   #   Must be accompanied by `returnable_id`.
+      #   # @param returnable_id [String]
+      #   # @param returnable_type [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -87,7 +82,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`. Must be accompanied by `returnable_id`.
+      # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #   Must be accompanied by `returnable_id`.
       #
       # @example
       # ```ruby

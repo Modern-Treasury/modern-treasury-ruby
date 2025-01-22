@@ -21,7 +21,8 @@ module ModernTreasury
         required :id, String
 
         # @!attribute amount
-        #   The total amount for this line item specified in the invoice currency's smallest unit.
+        #   The total amount for this line item specified in the invoice currency's smallest
+        #     unit.
         #
         #   @return [Integer]
         required :amount, Integer
@@ -38,19 +39,23 @@ module ModernTreasury
         required :description, String
 
         # @!attribute direction
-        #   Either `debit` or `credit`. `debit` indicates that a client owes the business money           and increases the invoice's `total_amount` due. `credit` has the opposite intention and effect.
+        #   Either `debit` or `credit`. `debit` indicates that a client owes the business
+        #     money and increases the invoice's `total_amount` due. `credit` has the opposite
+        #     intention and effect.
         #
         #   @return [String]
         required :direction, String
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
         # @!attribute metadata
-        #   Additional data represented as key-value pairs. Both the key and value must be strings.
+        #   Additional data represented as key-value pairs. Both the key and value must be
+        #     strings.
         #
         #   @return [Hash{Symbol=>String}]
         required :metadata, ModernTreasury::HashOf[String]
@@ -67,19 +72,23 @@ module ModernTreasury
         required :object, String
 
         # @!attribute quantity
-        #   The number of units of a product or service that this line item is for.           Must be a whole number. Defaults to 1 if not provided.
+        #   The number of units of a product or service that this line item is for. Must be
+        #     a whole number. Defaults to 1 if not provided.
         #
         #   @return [Integer]
         required :quantity, Integer
 
         # @!attribute unit_amount
-        #   The cost per unit of the product or service that this line item is for,           specified in the invoice currency's smallest unit.
+        #   The cost per unit of the product or service that this line item is for,
+        #     specified in the invoice currency's smallest unit.
         #
         #   @return [Integer]
         required :unit_amount, Integer
 
         # @!attribute unit_amount_decimal
-        #   The cost per unit of the product or service that this line item is for,           specified in the invoice currency's smallest unit. Accepts decimal strings with up to 12 decimals
+        #   The cost per unit of the product or service that this line item is for,
+        #     specified in the invoice currency's smallest unit. Accepts decimal strings with
+        #     up to 12 decimals
         #
         #   @return [String]
         required :unit_amount_decimal, String
@@ -91,38 +100,17 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   #
-        #   # @param amount [Integer] The total amount for this line item specified in the invoice currency's smallest
-        #   #   unit.
-        #   #
+        #   # @param amount [Integer]
         #   # @param created_at [String]
-        #   #
-        #   # @param description [String] An optional free-form description of the line item.
-        #   #
-        #   # @param direction [String] Either `debit` or `credit`. `debit` indicates that a client owes the business
-        #   #   money and increases the invoice's `total_amount` due. `credit` has the opposite
-        #   #   intention and effect.
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
-        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-        #   #   strings.
-        #   #
-        #   # @param name [String] The name of the line item, typically a product or SKU name.
-        #   #
+        #   # @param description [String]
+        #   # @param direction [String]
+        #   # @param live_mode [Boolean]
+        #   # @param metadata [Hash{Symbol=>String}]
+        #   # @param name [String]
         #   # @param object [String]
-        #   #
-        #   # @param quantity [Integer] The number of units of a product or service that this line item is for. Must be
-        #   #   a whole number. Defaults to 1 if not provided.
-        #   #
-        #   # @param unit_amount [Integer] The cost per unit of the product or service that this line item is for,
-        #   #   specified in the invoice currency's smallest unit.
-        #   #
-        #   # @param unit_amount_decimal [String] The cost per unit of the product or service that this line item is for,
-        #   #   specified in the invoice currency's smallest unit. Accepts decimal strings with
-        #   #   up to 12 decimals
-        #   #
+        #   # @param quantity [Integer]
+        #   # @param unit_amount [Integer]
+        #   # @param unit_amount_decimal [String]
         #   # @param updated_at [String]
         #   #
         #   def initialize(

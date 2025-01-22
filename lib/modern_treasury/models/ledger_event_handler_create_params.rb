@@ -39,7 +39,8 @@ module ModernTreasury
       #   attr_writer :ledger_id
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String], nil?: true
@@ -53,18 +54,11 @@ module ModernTreasury
 
       # @!parse
       #   # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
-      #   #
-      #   # @param name [String] Name of the ledger event handler.
-      #   #
+      #   # @param name [String]
       #   # @param conditions [ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, nil]
-      #   #
-      #   # @param description [String, nil] An optional description.
-      #   #
-      #   # @param ledger_id [String] The id of the ledger that this account belongs to.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}, nil] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
+      #   # @param description [String, nil]
+      #   # @param ledger_id [String]
+      #   # @param metadata [Hash{Symbol=>String}, nil]
       #   # @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       #   #
       #   def initialize(
@@ -99,7 +93,8 @@ module ModernTreasury
         required :description, String, nil?: true
 
         # @!attribute effective_at
-        #   The timestamp (ISO8601 format) at which the ledger transaction happened for reporting purposes.
+        #   The timestamp (ISO8601 format) at which the ledger transaction happened for
+        #     reporting purposes.
         #
         #   @return [String, nil]
         required :effective_at, String, nil?: true
@@ -120,14 +115,10 @@ module ModernTreasury
         required :status, String, nil?: true
 
         # @!parse
-        #   # @param description [String, nil] An optional description for internal use.
-        #   #
-        #   # @param effective_at [String, nil] The timestamp (ISO8601 format) at which the ledger transaction happened for
-        #   #   reporting purposes.
-        #   #
-        #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>] An array of ledger entry objects.
-        #   #
-        #   # @param status [String, nil] To post a ledger transaction at creation, use `posted`.
+        #   # @param description [String, nil]
+        #   # @param effective_at [String, nil]
+        #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry>]
+        #   # @param status [String, nil]
         #   #
         #   def initialize(description:, effective_at:, ledger_entries:, status:, **) = super
 
@@ -161,11 +152,9 @@ module ModernTreasury
           required :ledger_account_id, String
 
           # @!parse
-          #   # @param amount [String] The LHS of the conditional.
-          #   #
-          #   # @param direction [String] What the operator between the `field` and `value` is.
-          #   #
-          #   # @param ledger_account_id [String] The RHS of the conditional.
+          #   # @param amount [String]
+          #   # @param direction [String]
+          #   # @param ledger_account_id [String]
           #   #
           #   def initialize(amount:, direction:, ledger_account_id:, **) = super
 
@@ -201,11 +190,9 @@ module ModernTreasury
         required :value, String
 
         # @!parse
-        #   # @param field [String] The LHS of the conditional.
-        #   #
-        #   # @param operator [String] What the operator between the `field` and `value` is.
-        #   #
-        #   # @param value [String] The RHS of the conditional.
+        #   # @param field [String]
+        #   # @param operator [String]
+        #   # @param value [String]
         #   #
         #   def initialize(field:, operator:, value:, **) = super
 

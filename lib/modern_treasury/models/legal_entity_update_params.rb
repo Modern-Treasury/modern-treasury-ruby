@@ -90,7 +90,8 @@ module ModernTreasury
                nil?: true
 
       # @!attribute [r] metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -161,50 +162,28 @@ module ModernTreasury
       optional :website, String, nil?: true
 
       # @!parse
-      #   # @param addresses [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>] A list of addresses for the entity.
-      #   #
+      #   # @param addresses [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>]
       #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
-      #   #
-      #   # @param business_name [String, nil] The business's legal business name.
-      #   #
-      #   # @param citizenship_country [String, nil] The country of citizenship for an individual.
-      #   #
-      #   # @param date_formed [String, nil] A business's formation date (YYYY-MM-DD).
-      #   #
-      #   # @param date_of_birth [String, nil] An individual's date of birth (YYYY-MM-DD).
-      #   #
+      #   # @param business_name [String, nil]
+      #   # @param citizenship_country [String, nil]
+      #   # @param date_formed [String, nil]
+      #   # @param date_of_birth [String, nil]
       #   # @param doing_business_as_names [Array<String>]
-      #   #
-      #   # @param email [String, nil] The entity's primary email.
-      #   #
-      #   # @param first_name [String, nil] An individual's first name.
-      #   #
-      #   # @param identifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>] A list of identifications for the legal entity.
-      #   #
-      #   # @param last_name [String, nil] An individual's last name.
-      #   #
-      #   # @param legal_structure [String, nil] The business's legal structure.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
-      #   # @param middle_name [String, nil] An individual's middle name.
-      #   #
+      #   # @param email [String, nil]
+      #   # @param first_name [String, nil]
+      #   # @param identifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
+      #   # @param last_name [String, nil]
+      #   # @param legal_structure [String, nil]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param middle_name [String, nil]
       #   # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
-      #   #
-      #   # @param politically_exposed_person [Boolean, nil] Whether the individual is a politically exposed person.
-      #   #
-      #   # @param preferred_name [String, nil] An individual's preferred name.
-      #   #
-      #   # @param prefix [String, nil] An individual's prefix.
-      #   #
-      #   # @param risk_rating [String, nil] The risk rating of the legal entity. One of low, medium, high.
-      #   #
-      #   # @param suffix [String, nil] An individual's suffix.
-      #   #
+      #   # @param politically_exposed_person [Boolean, nil]
+      #   # @param preferred_name [String, nil]
+      #   # @param prefix [String, nil]
+      #   # @param risk_rating [String, nil]
+      #   # @param suffix [String, nil]
       #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
-      #   #
-      #   # @param website [String, nil] The entity's primary website URL.
+      #   # @param website [String, nil]
       #   #
       #   def initialize(
       #     addresses: nil,
@@ -296,18 +275,12 @@ module ModernTreasury
         optional :line2, String, nil?: true
 
         # @!parse
-        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String, nil]
         #   # @param line1 [String, nil]
-        #   #
-        #   # @param locality [String, nil] Locality or City.
-        #   #
-        #   # @param postal_code [String, nil] The postal code of the address.
-        #   #
-        #   # @param region [String, nil] Region or State.
-        #   #
-        #   # @param address_types [Array<String>] The types of this address.
-        #   #
+        #   # @param locality [String, nil]
+        #   # @param postal_code [String, nil]
+        #   # @param region [String, nil]
+        #   # @param address_types [Array<String>]
         #   # @param line2 [String, nil]
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
@@ -344,7 +317,7 @@ module ModernTreasury
       # ```ruby
       # identification => {
       #   id_number: String,
-      #   id_type: enum: ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType,
+      #   id_type: ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType,
       #   issuing_country: String
       # }
       # ```
@@ -365,18 +338,16 @@ module ModernTreasury
                  }
 
         # @!attribute issuing_country
-        #   The ISO 3166-1 alpha-2 country code of the country that issued the identification
+        #   The ISO 3166-1 alpha-2 country code of the country that issued the
+        #     identification
         #
         #   @return [String, nil]
         optional :issuing_country, String, nil?: true
 
         # @!parse
-        #   # @param id_number [String] The ID number of identification document.
-        #   #
-        #   # @param id_type [String] The type of ID number.
-        #   #
-        #   # @param issuing_country [String, nil] The ISO 3166-1 alpha-2 country code of the country that issued the
-        #   #   identification
+        #   # @param id_number [String]
+        #   # @param id_type [String]
+        #   # @param issuing_country [String, nil]
         #   #
         #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super
 

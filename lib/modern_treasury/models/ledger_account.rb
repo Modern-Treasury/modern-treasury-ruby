@@ -20,7 +20,11 @@ module ModernTreasury
       required :id, String
 
       # @!attribute balances
-      #   The pending, posted, and available balances for this ledger account. The posted balance is the sum of all posted entries on the account. The pending balance is the sum of all pending and posted entries on the account. The available balance is the posted incoming entries minus the sum of the pending and posted outgoing amounts.
+      #   The pending, posted, and available balances for this ledger account. The posted
+      #     balance is the sum of all posted entries on the account. The pending balance is
+      #     the sum of all pending and posted entries on the account. The available balance
+      #     is the posted incoming entries minus the sum of the pending and posted outgoing
+      #     amounts.
       #
       #   @return [ModernTreasury::Models::LedgerAccount::Balances]
       required :balances, -> { ModernTreasury::Models::LedgerAccount::Balances }
@@ -48,13 +52,16 @@ module ModernTreasury
       required :ledger_id, String
 
       # @!attribute ledgerable_id
-      #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.
+      #   If the ledger account links to another object in Modern Treasury, the id will be
+      #     populated here, otherwise null.
       #
       #   @return [String, nil]
       required :ledgerable_id, String, nil?: true
 
       # @!attribute ledgerable_type
-      #   If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+      #   If the ledger account links to another object in Modern Treasury, the type will
+      #     be populated here, otherwise null. The value is one of internal_account or
+      #     external_account.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType, nil]
       required :ledgerable_type,
@@ -64,7 +71,8 @@ module ModernTreasury
                nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -76,7 +84,8 @@ module ModernTreasury
       required :lock_version, Integer
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
@@ -105,42 +114,19 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param balances [ModernTreasury::Models::LedgerAccount::Balances] The pending, posted, and available balances for this ledger account. The posted
-      #   #   balance is the sum of all posted entries on the account. The pending balance is
-      #   #   the sum of all pending and posted entries on the account. The available balance
-      #   #   is the posted incoming entries minus the sum of the pending and posted outgoing
-      #   #   amounts.
-      #   #
+      #   # @param balances [ModernTreasury::Models::LedgerAccount::Balances]
       #   # @param created_at [String]
-      #   #
-      #   # @param description [String, nil] The description of the ledger account.
-      #   #
+      #   # @param description [String, nil]
       #   # @param discarded_at [String, nil]
-      #   #
-      #   # @param ledger_id [String] The id of the ledger that this account belongs to.
-      #   #
-      #   # @param ledgerable_id [String, nil] If the ledger account links to another object in Modern Treasury, the id will be
-      #   #   populated here, otherwise null.
-      #   #
-      #   # @param ledgerable_type [String, nil] If the ledger account links to another object in Modern Treasury, the type will
-      #   #   be populated here, otherwise null. The value is one of internal_account or
-      #   #   external_account.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param lock_version [Integer] Lock version of the ledger account.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
-      #   # @param name [String] The name of the ledger account.
-      #   #
-      #   # @param normal_balance [String] The normal balance of the ledger account.
-      #   #
+      #   # @param ledger_id [String]
+      #   # @param ledgerable_id [String, nil]
+      #   # @param ledgerable_type [String, nil]
+      #   # @param live_mode [Boolean]
+      #   # @param lock_version [Integer]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String]
+      #   # @param normal_balance [String]
       #   # @param object [String]
-      #   #
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -178,19 +164,24 @@ module ModernTreasury
       # ```
       class Balances < ModernTreasury::BaseModel
         # @!attribute available_balance
-        #   The available_balance is the sum of all posted inbound entries and pending outbound entries. For credit normal, available_amount = posted_credits - pending_debits; for debit normal, available_amount = posted_debits - pending_credits.
+        #   The available_balance is the sum of all posted inbound entries and pending
+        #     outbound entries. For credit normal, available_amount = posted_credits -
+        #     pending_debits; for debit normal, available_amount = posted_debits -
+        #     pending_credits.
         #
         #   @return [ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance]
         required :available_balance, -> { ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance }
 
         # @!attribute effective_at_lower_bound
-        #   The inclusive lower bound of the effective_at timestamp for the returned balances.
+        #   The inclusive lower bound of the effective_at timestamp for the returned
+        #     balances.
         #
         #   @return [Time, nil]
         required :effective_at_lower_bound, Time, nil?: true
 
         # @!attribute effective_at_upper_bound
-        #   The exclusive upper bound of the effective_at timestamp for the returned balances.
+        #   The exclusive upper bound of the effective_at timestamp for the returned
+        #     balances.
         #
         #   @return [Time, nil]
         required :effective_at_upper_bound, Time, nil?: true
@@ -214,20 +205,11 @@ module ModernTreasury
         #   #   is the posted incoming entries minus the sum of the pending and posted outgoing
         #   #   amounts.
         #   #
-        #   # @param available_balance [ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance] The available_balance is the sum of all posted inbound entries and pending
-        #   #   outbound entries. For credit normal, available_amount = posted_credits -
-        #   #   pending_debits; for debit normal, available_amount = posted_debits -
-        #   #   pending_credits.
-        #   #
-        #   # @param effective_at_lower_bound [String, nil] The inclusive lower bound of the effective_at timestamp for the returned
-        #   #   balances.
-        #   #
-        #   # @param effective_at_upper_bound [String, nil] The exclusive upper bound of the effective_at timestamp for the returned
-        #   #   balances.
-        #   #
-        #   # @param pending_balance [ModernTreasury::Models::LedgerAccount::Balances::PendingBalance] The pending_balance is the sum of all pending and posted entries.
-        #   #
-        #   # @param posted_balance [ModernTreasury::Models::LedgerAccount::Balances::PostedBalance] The posted_balance is the sum of all posted entries.
+        #   # @param available_balance [ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance]
+        #   # @param effective_at_lower_bound [String, nil]
+        #   # @param effective_at_upper_bound [String, nil]
+        #   # @param pending_balance [ModernTreasury::Models::LedgerAccount::Balances::PendingBalance]
+        #   # @param posted_balance [ModernTreasury::Models::LedgerAccount::Balances::PostedBalance]
         #   #
         #   def initialize(
         #     available_balance:,
@@ -287,13 +269,9 @@ module ModernTreasury
           #   #   pending_credits.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
@@ -343,13 +321,9 @@ module ModernTreasury
           #   # The pending_balance is the sum of all pending and posted entries.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
@@ -399,13 +373,9 @@ module ModernTreasury
           #   # The posted_balance is the sum of all posted entries.
           #   #
           #   # @param amount [Integer]
-          #   #
           #   # @param credits [Integer]
-          #   #
-          #   # @param currency [String] The currency of the ledger account.
-          #   #
-          #   # @param currency_exponent [Integer] The currency exponent of the ledger account.
-          #   #
+          #   # @param currency [String]
+          #   # @param currency_exponent [Integer]
           #   # @param debits [Integer]
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
@@ -414,7 +384,9 @@ module ModernTreasury
         end
       end
 
-      # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+      # If the ledger account links to another object in Modern Treasury, the type will
+      #   be populated here, otherwise null. The value is one of internal_account or
+      #   external_account.
       #
       # @example
       # ```ruby

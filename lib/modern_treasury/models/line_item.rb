@@ -25,19 +25,23 @@ module ModernTreasury
       required :accounting, -> { ModernTreasury::Models::LineItem::Accounting }
 
       # @!attribute accounting_category_id
-      #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
+      #   The ID of one of your accounting categories. Note that these will only be
+      #     accessible if your accounting system has been connected.
       #
       #   @return [String, nil]
       required :accounting_category_id, String, nil?: true
 
       # @!attribute accounting_ledger_class_id
-      #   The ID of one of the class objects in your accounting system. Class objects track segments of your business independent of client or project. Note that these will only be accessible if your accounting system has been connected.
+      #   The ID of one of the class objects in your accounting system. Class objects
+      #     track segments of your business independent of client or project. Note that
+      #     these will only be accessible if your accounting system has been connected.
       #
       #   @return [String, nil]
       required :accounting_ledger_class_id, String, nil?: true
 
       # @!attribute amount
-      #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   Value in specified currency's smallest unit. e.g. $10 would be represented
+      #     as 1000.
       #
       #   @return [Integer]
       required :amount, Integer
@@ -66,13 +70,15 @@ module ModernTreasury
       required :itemizable_type, enum: -> { ModernTreasury::Models::LineItem::ItemizableType }
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
@@ -89,35 +95,17 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param accounting [ModernTreasury::Models::LineItem::Accounting]
-      #   #
-      #   # @param accounting_category_id [String, nil] The ID of one of your accounting categories. Note that these will only be
-      #   #   accessible if your accounting system has been connected.
-      #   #
-      #   # @param accounting_ledger_class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects
-      #   #   track segments of your business independent of client or project. Note that
-      #   #   these will only be accessible if your accounting system has been connected.
-      #   #
-      #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   #   as 1000.
-      #   #
+      #   # @param accounting_category_id [String, nil]
+      #   # @param accounting_ledger_class_id [String, nil]
+      #   # @param amount [Integer]
       #   # @param created_at [String]
-      #   #
-      #   # @param description [String, nil] A free-form description of the line item.
-      #   #
-      #   # @param itemizable_id [String] The ID of the payment order or expected payment.
-      #   #
-      #   # @param itemizable_type [String] One of `payment_orders` or `expected_payments`.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
+      #   # @param description [String, nil]
+      #   # @param itemizable_id [String]
+      #   # @param itemizable_type [String]
+      #   # @param live_mode [Boolean]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
-      #   #
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -150,24 +138,23 @@ module ModernTreasury
       # ```
       class Accounting < ModernTreasury::BaseModel
         # @!attribute account_id
-        #   The ID of one of your accounting categories. Note that these will only be accessible if your accounting system has been connected.
+        #   The ID of one of your accounting categories. Note that these will only be
+        #     accessible if your accounting system has been connected.
         #
         #   @return [String, nil]
         optional :account_id, String, nil?: true
 
         # @!attribute class_id
-        #   The ID of one of the class objects in your accounting system. Class objects track segments of your business independent of client or project. Note that these will only be accessible if your accounting system has been connected.
+        #   The ID of one of the class objects in your accounting system. Class objects
+        #     track segments of your business independent of client or project. Note that
+        #     these will only be accessible if your accounting system has been connected.
         #
         #   @return [String, nil]
         optional :class_id, String, nil?: true
 
         # @!parse
-        #   # @param account_id [String, nil] The ID of one of your accounting categories. Note that these will only be
-        #   #   accessible if your accounting system has been connected.
-        #   #
-        #   # @param class_id [String, nil] The ID of one of the class objects in your accounting system. Class objects
-        #   #   track segments of your business independent of client or project. Note that
-        #   #   these will only be accessible if your accounting system has been connected.
+        #   # @param account_id [String, nil]
+        #   # @param class_id [String, nil]
         #   #
         #   def initialize(account_id: nil, class_id: nil, **) = super
 

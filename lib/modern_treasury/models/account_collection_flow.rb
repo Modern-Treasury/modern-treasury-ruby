@@ -15,7 +15,8 @@ module ModernTreasury
     # ```
     class AccountCollectionFlow < ModernTreasury::BaseModel
       # @!attribute counterparty_id
-      #   The ID of a counterparty. An external account created with this flow will be associated with this counterparty.
+      #   The ID of a counterparty. An external account created with this flow will be
+      #     associated with this counterparty.
       #
       #   @return [String]
       required :counterparty_id, String
@@ -38,7 +39,8 @@ module ModernTreasury
       #   attr_writer :id
 
       # @!attribute [r] client_token
-      #   The client token of the account collection flow.  This token can be used to embed account collection in your client-side application.
+      #   The client token of the account collection flow. This token can be used to embed
+      #     account collection in your client-side application.
       #
       #   @return [String, nil]
       optional :client_token, String
@@ -63,7 +65,8 @@ module ModernTreasury
       optional :external_account_id, String, nil?: true
 
       # @!attribute [r] live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean, nil]
       optional :live_mode, ModernTreasury::BooleanModel
@@ -94,7 +97,8 @@ module ModernTreasury
       #   attr_writer :receiving_countries
 
       # @!attribute [r] status
-      #   The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
+      #   The current status of the account collection flow. One of `pending`,
+      #     `completed`, `expired`, or `cancelled`.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::AccountCollectionFlow::Status }
@@ -113,30 +117,16 @@ module ModernTreasury
       #   attr_writer :updated_at
 
       # @!parse
-      #   # @param counterparty_id [String] The ID of a counterparty. An external account created with this flow will be
-      #   #   associated with this counterparty.
-      #   #
+      #   # @param counterparty_id [String]
       #   # @param payment_types [Array<String>]
-      #   #
       #   # @param id [String]
-      #   #
-      #   # @param client_token [String] The client token of the account collection flow. This token can be used to embed
-      #   #   account collection in your client-side application.
-      #   #
+      #   # @param client_token [String]
       #   # @param created_at [String]
-      #   #
-      #   # @param external_account_id [String, nil] If present, the ID of the external account created using this flow.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param external_account_id [String, nil]
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
       #   # @param receiving_countries [Array<String>]
-      #   #
-      #   # @param status [String] The current status of the account collection flow. One of `pending`,
-      #   #   `completed`, `expired`, or `cancelled`.
-      #   #
+      #   # @param status [String]
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -176,7 +166,8 @@ module ModernTreasury
         finalize!
       end
 
-      # An account created with this flow will support wires from the US to these countries.
+      # An account created with this flow will support wires from the US to these
+      #   countries.
       #
       # @example
       # ```ruby
@@ -218,7 +209,8 @@ module ModernTreasury
         finalize!
       end
 
-      # The current status of the account collection flow. One of `pending`, `completed`, `expired`, or `cancelled`.
+      # The current status of the account collection flow. One of `pending`,
+      #   `completed`, `expired`, or `cancelled`.
       #
       # @example
       # ```ruby

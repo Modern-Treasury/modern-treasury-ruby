@@ -59,7 +59,9 @@ module ModernTreasury
       #   attr_writer :internal_account_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -88,7 +90,8 @@ module ModernTreasury
       #   attr_writer :status
 
       # @!attribute [r] type
-      #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sepa, signet, wire
+      #   One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      #     sepa, signet, wire
       #
       #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type, nil]
       optional :type, enum: -> { ModernTreasury::Models::ExpectedPaymentListParams::Type }
@@ -99,27 +102,15 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param counterparty_id [String] Specify counterparty_id to see expected_payments for a specific account.
-      #   #
-      #   # @param created_at_lower_bound [String] Used to return expected payments created after some datetime
-      #   #
-      #   # @param created_at_upper_bound [String] Used to return expected payments created before some datetime
-      #   #
-      #   # @param direction [String] One of credit, debit
-      #   #
-      #   # @param internal_account_id [String] Specify internal_account_id to see expected_payments for a specific account.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
+      #   # @param counterparty_id [String]
+      #   # @param created_at_lower_bound [String]
+      #   # @param created_at_upper_bound [String]
+      #   # @param direction [String]
+      #   # @param internal_account_id [String]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
-      #   #
-      #   # @param status [String] One of unreconciled, reconciled, or archived.
-      #   #
-      #   # @param type [String] One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
-      #   #   sepa, signet, wire
+      #   # @param status [String]
+      #   # @param type [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -163,7 +154,8 @@ module ModernTreasury
         finalize!
       end
 
-      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen, sepa, signet, wire
+      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      #   sepa, signet, wire
       #
       # @example
       # ```ruby

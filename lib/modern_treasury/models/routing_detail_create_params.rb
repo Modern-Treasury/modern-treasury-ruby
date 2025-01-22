@@ -15,14 +15,17 @@ module ModernTreasury
       required :routing_number, String
 
       # @!attribute routing_number_type
-      #   The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
+      #   The type of routing number. See
+      #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #     more details.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType]
       required :routing_number_type,
                enum: -> { ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType }
 
       # @!attribute payment_type
-      #   If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
+      #   If the routing detail is to be used for a specific payment type this field will
+      #     be populated, otherwise null.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
       optional :payment_type,
@@ -31,15 +34,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param accounts_type [String]
-      #   #
-      #   # @param routing_number [String] The routing number of the bank.
-      #   #
-      #   # @param routing_number_type [String] The type of routing number. See
-      #   #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   #   more details.
-      #   #
-      #   # @param payment_type [String, nil] If the routing detail is to be used for a specific payment type this field will
-      #   #   be populated, otherwise null.
+      #   # @param routing_number [String]
+      #   # @param routing_number_type [String]
+      #   # @param payment_type [String, nil]
       #   #
       #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, **) = super
 
@@ -58,7 +55,9 @@ module ModernTreasury
         finalize!
       end
 
-      # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details.
       #
       # @example
       # ```ruby
@@ -102,7 +101,8 @@ module ModernTreasury
         finalize!
       end
 
-      # If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
+      # If the routing detail is to be used for a specific payment type this field will
+      #   be populated, otherwise null.
       #
       # @example
       # ```ruby

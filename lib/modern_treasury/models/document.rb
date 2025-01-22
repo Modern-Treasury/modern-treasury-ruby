@@ -48,7 +48,9 @@ module ModernTreasury
       required :documentable_id, String
 
       # @!attribute documentable_type
-      #   The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      #   The type of the associated object. Currently can be one of `payment_order`,
+      #     `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #     `case`, `internal_account`, `decision`, or `external_account`.
       #
       #   @return [Symbol, ModernTreasury::Models::Document::DocumentableType]
       required :documentable_type, enum: -> { ModernTreasury::Models::Document::DocumentableType }
@@ -59,7 +61,8 @@ module ModernTreasury
       required :file, -> { ModernTreasury::Models::Document::File }
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -82,30 +85,16 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param created_at [String]
-      #   #
       #   # @param discarded_at [String, nil]
-      #   #
       #   # @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
-      #   #
-      #   # @param document_type [String, nil] A category given to the document, can be `null`.
-      #   #
-      #   # @param documentable_id [String] The unique identifier for the associated object.
-      #   #
-      #   # @param documentable_type [String] The type of the associated object. Currently can be one of `payment_order`,
-      #   #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      #   #   `case`, `internal_account`, `decision`, or `external_account`.
-      #   #
+      #   # @param document_type [String, nil]
+      #   # @param documentable_id [String]
+      #   # @param documentable_type [String]
       #   # @param file [ModernTreasury::Models::Document::File]
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
-      #   # @param source [String] The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
-      #   #
+      #   # @param source [String]
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -166,7 +155,8 @@ module ModernTreasury
         required :document_identifier_type, String
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
@@ -183,20 +173,12 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   #
         #   # @param created_at [String]
-        #   #
         #   # @param discarded_at [String, nil]
-        #   #
         #   # @param document_identifier [String]
-        #   #
         #   # @param document_identifier_type [String]
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
+        #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   #
         #   # @param updated_at [String]
         #   #
         #   def initialize(
@@ -216,7 +198,9 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      # The type of the associated object. Currently can be one of `payment_order`,
+      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #   `case`, `internal_account`, `decision`, or `external_account`.
       #
       # @example
       # ```ruby
@@ -292,11 +276,9 @@ module ModernTreasury
         #   attr_writer :size
 
         # @!parse
-        #   # @param content_type [String] The MIME content type of the document.
-        #   #
-        #   # @param filename [String] The original filename of the document.
-        #   #
-        #   # @param size [Integer] The size of the document in bytes.
+        #   # @param content_type [String]
+        #   # @param filename [String]
+        #   # @param size [Integer]
         #   #
         #   def initialize(content_type: nil, filename: nil, size: nil, **) = super
 

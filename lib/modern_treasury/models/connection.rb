@@ -30,7 +30,8 @@ module ModernTreasury
       required :discarded_at, Time, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -65,23 +66,14 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param created_at [String]
-      #   #
       #   # @param discarded_at [String, nil]
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
       #   # @param updated_at [String]
-      #   #
-      #   # @param vendor_customer_id [String, nil] An identifier given to this connection by the bank.
-      #   #
-      #   # @param vendor_id [String] Unique identifier for the bank or vendor.
-      #   #
-      #   # @param vendor_name [String] A human-friendly name for the bank or vendor.
+      #   # @param vendor_customer_id [String, nil]
+      #   # @param vendor_id [String]
+      #   # @param vendor_name [String]
       #   #
       #   def initialize(
       #     id:,

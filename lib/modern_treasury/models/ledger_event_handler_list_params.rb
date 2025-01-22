@@ -9,7 +9,9 @@ module ModernTreasury
       optional :after_cursor, String, nil?: true
 
       # @!attribute [r] created_at
-      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use created_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :created_at, ModernTreasury::HashOf[Time]
@@ -19,7 +21,9 @@ module ModernTreasury
       #   attr_writer :created_at
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -48,17 +52,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param created_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
+      #   # @param created_at [Hash{Symbol=>String}]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param name [String]
-      #   #
       #   # @param per_page [Integer]
       #   #
       #   def initialize(after_cursor: nil, created_at: nil, metadata: nil, name: nil, per_page: nil, **) = super

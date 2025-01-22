@@ -4,7 +4,8 @@ module ModernTreasury
   module Models
     class IncomingPaymentDetailUpdateParams < ModernTreasury::BaseModel
       # @!attribute [r] metadata
-      #   Additional data in the form of key-value pairs. Pairs can be removed by passing an empty string or `null` as the value.
+      #   Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -14,8 +15,7 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!parse
-      #   # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   #   an empty string or `null` as the value.
+      #   # @param metadata [Hash{Symbol=>String}]
       #   #
       #   def initialize(metadata: nil, **) = super
 

@@ -40,7 +40,8 @@ module ModernTreasury
       optional :description, String, nil?: true
 
       # @!attribute [r] ledger_account_category_ids
-      #   The array of ledger account category ids that this ledger account should be a child of.
+      #   The array of ledger account category ids that this ledger account should be a
+      #     child of.
       #
       #   @return [Array<String>]
       optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
@@ -50,7 +51,8 @@ module ModernTreasury
       #   attr_writer :ledger_account_category_ids
 
       # @!attribute [r] ledgerable_id
-      #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.
+      #   If the ledger account links to another object in Modern Treasury, the id will be
+      #     populated here, otherwise null.
       #
       #   @return [String, nil]
       optional :ledgerable_id, String
@@ -60,7 +62,9 @@ module ModernTreasury
       #   attr_writer :ledgerable_id
 
       # @!attribute [r] ledgerable_type
-      #   If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+      #   If the ledger account links to another object in Modern Treasury, the type will
+      #     be populated here, otherwise null. The value is one of internal_account or
+      #     external_account.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType, nil]
       optional :ledgerable_type,
@@ -73,7 +77,8 @@ module ModernTreasury
       #   attr_writer :ledgerable_type
 
       # @!attribute [r] metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -83,30 +88,16 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!parse
-      #   # @param currency [String] The currency of the ledger account.
-      #   #
-      #   # @param ledger_id [String] The id of the ledger that this account belongs to.
-      #   #
-      #   # @param name [String] The name of the ledger account.
-      #   #
-      #   # @param normal_balance [String] The normal balance of the ledger account.
-      #   #
-      #   # @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
-      #   #
-      #   # @param description [String, nil] The description of the ledger account.
-      #   #
-      #   # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a
-      #   #   child of.
-      #   #
-      #   # @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
-      #   #   populated here, otherwise null.
-      #   #
-      #   # @param ledgerable_type [String] If the ledger account links to another object in Modern Treasury, the type will
-      #   #   be populated here, otherwise null. The value is one of internal_account or
-      #   #   external_account.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
+      #   # @param currency [String]
+      #   # @param ledger_id [String]
+      #   # @param name [String]
+      #   # @param normal_balance [String]
+      #   # @param currency_exponent [Integer, nil]
+      #   # @param description [String, nil]
+      #   # @param ledger_account_category_ids [Array<String>]
+      #   # @param ledgerable_id [String]
+      #   # @param ledgerable_type [String]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   #
       #   def initialize(
       #     currency:,
@@ -126,7 +117,9 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+      # If the ledger account links to another object in Modern Treasury, the type will
+      #   be populated here, otherwise null. The value is one of internal_account or
+      #   external_account.
       #
       # @example
       # ```ruby

@@ -4,7 +4,8 @@ module ModernTreasury
   module Models
     class LedgerEntryRetrieveParams < ModernTreasury::BaseModel
       # @!attribute [r] show_balances
-      #   If true, response will include the balances attached to the ledger entry. If there is no balance available, null will be returned instead.
+      #   If true, response will include the balances attached to the ledger entry. If
+      #     there is no balance available, null will be returned instead.
       #
       #   @return [Boolean, nil]
       optional :show_balances, ModernTreasury::BooleanModel
@@ -14,8 +15,7 @@ module ModernTreasury
       #   attr_writer :show_balances
 
       # @!parse
-      #   # @param show_balances [Boolean] If true, response will include the balances attached to the ledger entry. If
-      #   #   there is no balance available, null will be returned instead.
+      #   # @param show_balances [Boolean]
       #   #
       #   def initialize(show_balances: nil, **) = super
 

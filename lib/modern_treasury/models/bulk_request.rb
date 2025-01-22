@@ -6,7 +6,7 @@ module ModernTreasury
     # ```ruby
     # bulk_request => {
     #   id: String,
-    #   action_type: enum: ModernTreasury::Models::BulkRequest::ActionType,
+    #   action_type: ModernTreasury::Models::BulkRequest::ActionType,
     #   created_at: Time,
     #   failed_result_count: Integer,
     #   live_mode: ModernTreasury::BooleanModel,
@@ -37,13 +37,15 @@ module ModernTreasury
       required :failed_result_count, Integer
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
@@ -72,7 +74,9 @@ module ModernTreasury
       required :success_result_count, Integer
 
       # @!attribute total_resource_count
-      #   Total number of items in the `resources` array. Once a bulk request is completed, `success_result_count` + `failed_result_count` will be equal to `total_result_count`.
+      #   Total number of items in the `resources` array. Once a bulk request is
+      #     completed, `success_result_count` + `failed_result_count` will be equal to
+      #     `total_result_count`.
       #
       #   @return [Integer]
       required :total_resource_count, Integer
@@ -84,31 +88,16 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param action_type [String] One of create, or update.
-      #   #
+      #   # @param action_type [String]
       #   # @param created_at [String]
-      #   #
-      #   # @param failed_result_count [Integer] Total number of failed bulk results so far for this request
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
+      #   # @param failed_result_count [Integer]
+      #   # @param live_mode [Boolean]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
-      #   #
-      #   # @param resource_type [String] One of payment_order, expected_payment, or ledger_transaction.
-      #   #
-      #   # @param status [String] One of pending, processing, or completed.
-      #   #
-      #   # @param success_result_count [Integer] Total number of successful bulk results so far for this request
-      #   #
-      #   # @param total_resource_count [Integer] Total number of items in the `resources` array. Once a bulk request is
-      #   #   completed, `success_result_count` + `failed_result_count` will be equal to
-      #   #   `total_result_count`.
-      #   #
+      #   # @param resource_type [String]
+      #   # @param status [String]
+      #   # @param success_result_count [Integer]
+      #   # @param total_resource_count [Integer]
       #   # @param updated_at [String]
       #   #
       #   def initialize(

@@ -47,7 +47,9 @@ module ModernTreasury
       #   attr_writer :expected_payment_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -104,27 +106,15 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
       #   # @param counterparty_id [String]
-      #   #
-      #   # @param due_date_end [String] An inclusive upper bound for searching due_date
-      #   #
-      #   # @param due_date_start [String] An inclusive lower bound for searching due_date
-      #   #
+      #   # @param due_date_end [String]
+      #   # @param due_date_start [String]
       #   # @param expected_payment_id [String]
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
-      #   # @param number [String] A unique record number assigned to each invoice that is issued.
-      #   #
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param number [String]
       #   # @param originating_account_id [String]
-      #   #
       #   # @param payment_order_id [String]
-      #   #
       #   # @param per_page [Integer]
-      #   #
       #   # @param status [String]
       #   #
       #   def initialize(

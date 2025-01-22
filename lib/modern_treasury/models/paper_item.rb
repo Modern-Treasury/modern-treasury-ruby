@@ -61,7 +61,8 @@ module ModernTreasury
       required :deposit_date, Date
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -96,7 +97,8 @@ module ModernTreasury
       required :routing_number, String, nil?: true
 
       # @!attribute status
-      #   The current status of the paper item. One of `pending`, `completed`, or `returned`.
+      #   The current status of the paper item. One of `pending`, `completed`, or
+      #     `returned`.
       #
       #   @return [Symbol, ModernTreasury::Models::PaperItem::Status]
       required :status, enum: -> { ModernTreasury::Models::PaperItem::Status }
@@ -120,41 +122,22 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param account_number [String, nil] The account number on the paper item.
-      #   #
-      #   # @param account_number_safe [String, nil] The last 4 digits of the account_number.
-      #   #
-      #   # @param amount [Integer] The amount of the paper item.
-      #   #
-      #   # @param check_number [String, nil] The check number on the paper item.
-      #   #
+      #   # @param account_number [String, nil]
+      #   # @param account_number_safe [String, nil]
+      #   # @param amount [Integer]
+      #   # @param check_number [String, nil]
       #   # @param created_at [String]
-      #   #
-      #   # @param currency [String] The currency of the paper item.
-      #   #
-      #   # @param deposit_date [String] The date the paper item was deposited into your organization's bank account.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param lockbox_number [String] The identifier for the lockbox assigned by the bank.
-      #   #
-      #   # @param memo_field [String, nil] The memo field on the paper item.
-      #   #
+      #   # @param currency [String]
+      #   # @param deposit_date [String]
+      #   # @param live_mode [Boolean]
+      #   # @param lockbox_number [String]
+      #   # @param memo_field [String, nil]
       #   # @param object [String]
-      #   #
-      #   # @param remitter_name [String, nil] The name of the remitter on the paper item.
-      #   #
-      #   # @param routing_number [String, nil] The routing number on the paper item.
-      #   #
-      #   # @param status [String] The current status of the paper item. One of `pending`, `completed`, or
-      #   #   `returned`.
-      #   #
-      #   # @param transaction_id [String, nil] The ID of the reconciled Transaction or `null`.
-      #   #
-      #   # @param transaction_line_item_id [String, nil] The ID of the reconciled Transaction Line Item or `null`.
-      #   #
+      #   # @param remitter_name [String, nil]
+      #   # @param routing_number [String, nil]
+      #   # @param status [String]
+      #   # @param transaction_id [String, nil]
+      #   # @param transaction_line_item_id [String, nil]
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -183,7 +166,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # The current status of the paper item. One of `pending`, `completed`, or `returned`.
+      # The current status of the paper item. One of `pending`, `completed`, or
+      #   `returned`.
       #
       # @example
       # ```ruby
