@@ -148,6 +148,8 @@ module ModernTreasury
       #     to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
       #     by only one field at a time is supported.
       #
+      #   @option params [String] :partially_posts_ledger_transaction_id
+      #
       #   @option params [Integer] :per_page
       #
       #   @option params [Hash{Symbol=>Time}] :posted_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
@@ -173,6 +175,40 @@ module ModernTreasury
           path: "api/ledger_transactions",
           query: parsed,
           page: ModernTreasury::Page,
+          model: ModernTreasury::Models::LedgerTransaction
+        }
+        @client.request(req, opts)
+      end
+
+      # Create a ledger transaction that partially posts another ledger transaction.
+      #
+      # @param id [String] The ID of the ledger transaction to partially post.
+      #
+      # @param params [ModernTreasury::Models::LedgerTransactionCreatePartialPostParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      #
+      #   @option params [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] :posted_ledger_entries An array of ledger entry objects to be set on the posted ledger transaction.
+      #     There must be one entry for each of the existing entries with a lesser amount
+      #     than the existing entry.
+      #
+      #   @option params [String] :description An optional free-form description for the posted ledger transaction. Maximum of
+      #     1000 characters allowed.
+      #
+      #   @option params [Time] :effective_at The timestamp (IS08601 format) at which the posted ledger transaction happened
+      #     for reporting purposes.
+      #
+      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
+      #
+      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #
+      # @return [ModernTreasury::Models::LedgerTransaction]
+      #
+      def create_partial_post(id, params = {}, opts = {})
+        parsed = ModernTreasury::Models::LedgerTransactionCreatePartialPostParams.dump(params)
+        req = {
+          method: :post,
+          path: ["api/ledger_transactions/%0s/partial_post", id],
+          body: parsed,
           model: ModernTreasury::Models::LedgerTransaction
         }
         @client.request(req, opts)

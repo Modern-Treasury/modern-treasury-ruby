@@ -90,7 +90,7 @@ module ModernTreasury
           #   The specific type of balance reported. One of `opening_ledger`,
           #     `closing_ledger`, `current_ledger`, `opening_available`,
           #     `opening_available_next_business_day`, `closing_available`, `current_available`,
-          #     or `other`.
+          #     'previously_closed_book', or `other`.
           #
           #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
           required :balance_type,
@@ -126,7 +126,7 @@ module ModernTreasury
           # The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
-          #   or `other`.
+          #   'previously_closed_book', or `other`.
           #
           # @example
           # ```ruby
@@ -154,6 +154,7 @@ module ModernTreasury
             OPENING_AVAILABLE_NEXT_BUSINESS_DAY = :opening_available_next_business_day
             OPENING_LEDGER = :opening_ledger
             OTHER = :other
+            PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
 
             finalize!
           end
