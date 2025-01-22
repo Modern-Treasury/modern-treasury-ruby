@@ -111,6 +111,12 @@ module ModernTreasury
         #   @return [String]
         required :object, String
 
+        # @!attribute partially_posts_ledger_transaction_id
+        #   The ID of the ledger transaction that this ledger transaction partially posts.
+        #
+        #   @return [String, nil]
+        required :partially_posts_ledger_transaction_id, String, nil?: true
+
         # @!attribute posted_at
         #   The time on which the ledger transaction posted. This is null if the ledger
         #     transaction is pending.
@@ -159,6 +165,7 @@ module ModernTreasury
         #   # @param live_mode [Boolean]
         #   # @param metadata [Hash{Symbol=>String}]
         #   # @param object [String]
+        #   # @param partially_posts_ledger_transaction_id [String, nil]
         #   # @param posted_at [String, nil]
         #   # @param reversed_by_ledger_transaction_id [String, nil]
         #   # @param reverses_ledger_transaction_id [String, nil]
@@ -180,6 +187,7 @@ module ModernTreasury
         #     live_mode:,
         #     metadata:,
         #     object:,
+        #     partially_posts_ledger_transaction_id:,
         #     posted_at:,
         #     reversed_by_ledger_transaction_id:,
         #     reverses_ledger_transaction_id:,

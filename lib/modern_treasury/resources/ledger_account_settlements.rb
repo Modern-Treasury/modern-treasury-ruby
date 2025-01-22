@@ -3,6 +3,9 @@
 module ModernTreasury
   module Resources
     class LedgerAccountSettlements
+      # @return [ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries]
+      attr_reader :account_entries
+
       # Create a ledger account settlement.
       #
       # @param params [ModernTreasury::Models::LedgerAccountSettlementCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
@@ -144,6 +147,7 @@ module ModernTreasury
       #
       def initialize(client:)
         @client = client
+        @account_entries = ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries.new(client: client)
       end
     end
   end
