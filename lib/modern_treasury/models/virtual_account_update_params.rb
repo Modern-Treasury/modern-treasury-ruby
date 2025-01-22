@@ -38,11 +38,8 @@ module ModernTreasury
 
       # @!parse
       #   # @param counterparty_id [String]
-      #   #
-      #   # @param ledger_account_id [String] The ledger account that you'd like to link to the virtual account.
-      #   #
+      #   # @param ledger_account_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
-      #   #
       #   # @param name [String, nil]
       #   #
       #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, **) = super

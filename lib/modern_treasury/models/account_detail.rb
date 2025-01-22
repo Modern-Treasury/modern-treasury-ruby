@@ -7,7 +7,7 @@ module ModernTreasury
     # account_detail => {
     #   id: String,
     #   account_number_safe: String,
-    #   account_number_type: enum: ModernTreasury::Models::AccountDetail::AccountNumberType,
+    #   account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
     #   created_at: Time,
     #   discarded_at: Time,
     #   **_
@@ -26,7 +26,8 @@ module ModernTreasury
       required :account_number_safe, String
 
       # @!attribute account_number_type
-      #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
+      #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #     account number is in a generic format.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
       required :account_number_type, enum: -> { ModernTreasury::Models::AccountDetail::AccountNumberType }
@@ -42,7 +43,8 @@ module ModernTreasury
       required :discarded_at, Time, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -69,24 +71,14 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param account_number_safe [String] The last 4 digits of the account_number.
-      #   #
-      #   # @param account_number_type [String] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   #   account number is in a generic format.
-      #   #
+      #   # @param account_number_safe [String]
+      #   # @param account_number_type [String]
       #   # @param created_at [String]
-      #   #
       #   # @param discarded_at [String, nil]
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
       #   # @param updated_at [String]
-      #   #
-      #   # @param account_number [String] The account number for the bank account.
+      #   # @param account_number [String]
       #   #
       #   def initialize(
       #     id:,
@@ -105,7 +97,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   account number is in a generic format.
       #
       # @example
       # ```ruby

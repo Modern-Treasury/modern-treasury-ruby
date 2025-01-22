@@ -67,7 +67,9 @@ module ModernTreasury
       #   attr_writer :effective_date_start
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -95,7 +97,9 @@ module ModernTreasury
       #   attr_writer :per_page
 
       # @!attribute [r] priority
-      #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
+      #   Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #     same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      #     an overnight check rather than standard mail.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority, nil]
       optional :priority, enum: -> { ModernTreasury::Models::PaymentOrderListParams::Priority }
@@ -164,41 +168,21 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
       #   # @param counterparty_id [String]
-      #   #
-      #   # @param created_at_end [String] An inclusive upper bound for searching created_at
-      #   #
-      #   # @param created_at_start [String] An inclusive lower bound for searching created_at
-      #   #
+      #   # @param created_at_end [String]
+      #   # @param created_at_start [String]
       #   # @param direction [String]
-      #   #
-      #   # @param effective_date_end [String] An inclusive upper bound for searching effective_date
-      #   #
-      #   # @param effective_date_start [String] An inclusive lower bound for searching effective_date
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
+      #   # @param effective_date_end [String]
+      #   # @param effective_date_start [String]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param originating_account_id [String]
-      #   #
       #   # @param per_page [Integer]
-      #   #
-      #   # @param priority [String] Either `normal` or `high`. For ACH and EFT payments, `high` represents a
-      #   #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
-      #   #   an overnight check rather than standard mail.
-      #   #
-      #   # @param process_after_end [String] An inclusive upper bound for searching process_after
-      #   #
-      #   # @param process_after_start [String] An inclusive lower bound for searching process_after
-      #   #
-      #   # @param reference_number [String] Query for records with the provided reference number
-      #   #
+      #   # @param priority [String]
+      #   # @param process_after_end [String]
+      #   # @param process_after_start [String]
+      #   # @param reference_number [String]
       #   # @param status [String]
-      #   #
-      #   # @param transaction_id [String] The ID of a transaction that the payment order has been reconciled to.
-      #   #
+      #   # @param transaction_id [String]
       #   # @param type [String]
       #   #
       #   def initialize(
@@ -226,7 +210,9 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # Either `normal` or `high`. For ACH and EFT payments, `high` represents a same-day ACH or EFT transfer, respectively. For check payments, `high` can mean an overnight check rather than standard mail.
+      # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      #   an overnight check rather than standard mail.
       #
       # @example
       # ```ruby

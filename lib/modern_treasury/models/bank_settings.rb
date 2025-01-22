@@ -36,13 +36,15 @@ module ModernTreasury
       required :discarded_at, Time, nil?: true
 
       # @!attribute enable_backup_withholding
-      #   Whether backup withholding is enabled. See more here - https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
+      #   Whether backup withholding is enabled. See more here -
+      #     https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
       #
       #   @return [Boolean, nil]
       required :enable_backup_withholding, ModernTreasury::BooleanModel, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -59,7 +61,10 @@ module ModernTreasury
       required :privacy_opt_out, ModernTreasury::BooleanModel, nil?: true
 
       # @!attribute regulation_o
-      #   It covers, among other types of insider loans, extensions of credit by a member bank to an executive officer, director, or principal shareholder of the member bank; a bank holding company of which the member bank is a subsidiary; and any other subsidiary of that bank holding company.
+      #   It covers, among other types of insider loans, extensions of credit by a member
+      #     bank to an executive officer, director, or principal shareholder of the member
+      #     bank; a bank holding company of which the member bank is a subsidiary; and any
+      #     other subsidiary of that bank holding company.
       #
       #   @return [Boolean, nil]
       required :regulation_o, ModernTreasury::BooleanModel, nil?: true
@@ -71,28 +76,14 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param backup_withholding_percentage [Integer, nil] The percentage of backup withholding to apply to the legal entity.
-      #   #
+      #   # @param backup_withholding_percentage [Integer, nil]
       #   # @param created_at [String]
-      #   #
       #   # @param discarded_at [String, nil]
-      #   #
-      #   # @param enable_backup_withholding [Boolean, nil] Whether backup withholding is enabled. See more here -
-      #   #   https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param enable_backup_withholding [Boolean, nil]
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
-      #   # @param privacy_opt_out [Boolean, nil] Cross River Bank specific setting to opt out of privacy policy.
-      #   #
-      #   # @param regulation_o [Boolean, nil] It covers, among other types of insider loans, extensions of credit by a member
-      #   #   bank to an executive officer, director, or principal shareholder of the member
-      #   #   bank; a bank holding company of which the member bank is a subsidiary; and any
-      #   #   other subsidiary of that bank holding company.
-      #   #
+      #   # @param privacy_opt_out [Boolean, nil]
+      #   # @param regulation_o [Boolean, nil]
       #   # @param updated_at [String]
       #   #
       #   def initialize(

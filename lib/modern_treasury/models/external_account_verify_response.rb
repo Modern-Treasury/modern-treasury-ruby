@@ -45,7 +45,8 @@ module ModernTreasury
         required :external_account_id, String
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
@@ -62,7 +63,8 @@ module ModernTreasury
         required :originating_account_id, String
 
         # @!attribute payment_type
-        #   The type of payment that can be made to this account. Can be `ach`, `eft`, or `rtp`.
+        #   The type of payment that can be made to this account. Can be `ach`, `eft`, or
+        #     `rtp`.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType]
         required :payment_type,
@@ -81,7 +83,8 @@ module ModernTreasury
                  nil?: true
 
         # @!attribute status
-        #   The status of the verification attempt. Can be `pending_verification`, `verified`, `failed`, or `cancelled`.
+        #   The status of the verification attempt. Can be `pending_verification`,
+        #     `verified`, `failed`, or `cancelled`.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status]
         required :status,
@@ -96,26 +99,14 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   #
         #   # @param created_at [String]
-        #   #
-        #   # @param external_account_id [String] The ID of the external account.
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
+        #   # @param external_account_id [String]
+        #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   #
-        #   # @param originating_account_id [String] The ID of the internal account where the micro-deposits originate from.
-        #   #
-        #   # @param payment_type [String] The type of payment that can be made to this account. Can be `ach`, `eft`, or
-        #   #   `rtp`.
-        #   #
-        #   # @param priority [String, nil] The priority of the payment. Can be `normal` or `high`.
-        #   #
-        #   # @param status [String] The status of the verification attempt. Can be `pending_verification`,
-        #   #   `verified`, `failed`, or `cancelled`.
-        #   #
+        #   # @param originating_account_id [String]
+        #   # @param payment_type [String]
+        #   # @param priority [String, nil]
+        #   # @param status [String]
         #   # @param updated_at [String]
         #   #
         #   def initialize(
@@ -136,7 +127,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # The type of payment that can be made to this account. Can be `ach`, `eft`, or `rtp`.
+        # The type of payment that can be made to this account. Can be `ach`, `eft`, or
+        #   `rtp`.
         #
         # @example
         # ```ruby
@@ -208,7 +200,8 @@ module ModernTreasury
           finalize!
         end
 
-        # The status of the verification attempt. Can be `pending_verification`, `verified`, `failed`, or `cancelled`.
+        # The status of the verification attempt. Can be `pending_verification`,
+        #   `verified`, `failed`, or `cancelled`.
         #
         # @example
         # ```ruby

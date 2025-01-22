@@ -39,7 +39,9 @@ module ModernTreasury
       #   attr_writer :legal_entity_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -79,21 +81,12 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param counterparty_id [String] Only return internal accounts associated with this counterparty.
-      #   #
-      #   # @param currency [String] Only return internal accounts with this currency.
-      #   #
-      #   # @param legal_entity_id [String] Only return internal accounts associated with this legal entity.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
-      #   # @param payment_direction [String] Only return internal accounts that can originate payments with this direction.
-      #   #
-      #   # @param payment_type [String] Only return internal accounts that can make this type of payment.
-      #   #
+      #   # @param counterparty_id [String]
+      #   # @param currency [String]
+      #   # @param legal_entity_id [String]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param payment_direction [String]
+      #   # @param payment_type [String]
       #   # @param per_page [Integer]
       #   #
       #   def initialize(

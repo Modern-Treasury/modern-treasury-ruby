@@ -10,13 +10,15 @@ module ModernTreasury
       required :returnable_id, String, nil?: true
 
       # @!attribute returnable_type
-      #   The type of object being returned. Currently, this may only be incoming_payment_detail.
+      #   The type of object being returned. Currently, this may only be
+      #     incoming_payment_detail.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
       required :returnable_type, enum: -> { ModernTreasury::Models::ReturnCreateParams::ReturnableType }
 
       # @!attribute additional_information
-      #   Some returns may include additional information from the bank. In these cases, this string will be present.
+      #   Some returns may include additional information from the bank. In these cases,
+      #     this string will be present.
       #
       #   @return [String, nil]
       optional :additional_information, String, nil?: true
@@ -28,33 +30,26 @@ module ModernTreasury
       optional :code, enum: -> { ModernTreasury::Models::ReturnCreateParams::Code }, nil?: true
 
       # @!attribute date_of_death
-      #   If the return code is `R14` or `R15` this is the date the deceased counterparty passed away.
+      #   If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #     passed away.
       #
       #   @return [Date, nil]
       optional :date_of_death, Date, nil?: true
 
       # @!attribute reason
-      #   An optional description of the reason for the return. This is for internal usage and will not be transmitted to the bank.”
+      #   An optional description of the reason for the return. This is for internal usage
+      #     and will not be transmitted to the bank.”
       #
       #   @return [String, nil]
       optional :reason, String, nil?: true
 
       # @!parse
-      #   # @param returnable_id [String, nil] The ID of the object being returned or `null`.
-      #   #
-      #   # @param returnable_type [String] The type of object being returned. Currently, this may only be
-      #   #   incoming_payment_detail.
-      #   #
-      #   # @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases,
-      #   #   this string will be present.
-      #   #
-      #   # @param code [String, nil] The return code. For ACH returns, this is the required ACH return code.
-      #   #
-      #   # @param date_of_death [String, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
-      #   #   passed away.
-      #   #
-      #   # @param reason [String, nil] An optional description of the reason for the return. This is for internal usage
-      #   #   and will not be transmitted to the bank.”
+      #   # @param returnable_id [String, nil]
+      #   # @param returnable_type [String]
+      #   # @param additional_information [String, nil]
+      #   # @param code [String, nil]
+      #   # @param date_of_death [String, nil]
+      #   # @param reason [String, nil]
       #   #
       #   def initialize(
       #     returnable_id:,
@@ -70,7 +65,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # The type of object being returned. Currently, this may only be incoming_payment_detail.
+      # The type of object being returned. Currently, this may only be
+      #   incoming_payment_detail.
       #
       # @example
       # ```ruby

@@ -7,9 +7,9 @@ module ModernTreasury
     # return_object => {
     #   id: String,
     #   amount: Integer,
-    #   code: enum: ModernTreasury::Models::ReturnObject::Code,
+    #   code: ModernTreasury::Models::ReturnObject::Code,
     #   created_at: Time,
-    #   currency: enum: ModernTreasury::Models::Currency,
+    #   currency: ModernTreasury::Models::Currency,
     #   **_
     # }
     # ```
@@ -20,7 +20,8 @@ module ModernTreasury
       required :id, String
 
       # @!attribute amount
-      #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   Value in specified currency's smallest unit. e.g. $10 would be represented
+      #     as 1000.
       #
       #   @return [Integer]
       required :amount, Integer
@@ -43,19 +44,22 @@ module ModernTreasury
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute current_return
-      #   If the return's status is `returned`, this will include the return object's data that is returning this return.
+      #   If the return's status is `returned`, this will include the return object's data
+      #     that is returning this return.
       #
       #   @return [ModernTreasury::Models::ReturnObject, nil]
       required :current_return, -> { ModernTreasury::Models::ReturnObject }, nil?: true
 
       # @!attribute date_of_death
-      #   If the return code is `R14` or `R15` this is the date the deceased counterparty passed away.
+      #   If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #     passed away.
       #
       #   @return [Date, nil]
       required :date_of_death, Date, nil?: true
 
       # @!attribute failure_reason
-      #   If an originating return failed to be processed by the bank, a description of the failure reason will be available.
+      #   If an originating return failed to be processed by the bank, a description of
+      #     the failure reason will be available.
       #
       #   @return [String, nil]
       required :failure_reason, String, nil?: true
@@ -73,7 +77,8 @@ module ModernTreasury
       required :ledger_transaction_id, String, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -84,7 +89,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute reason
-      #   Often the bank will provide an explanation for the return, which is a short human readable string.
+      #   Often the bank will provide an explanation for the return, which is a short
+      #     human readable string.
       #
       #   @return [String, nil]
       required :reason, String, nil?: true
@@ -133,7 +139,8 @@ module ModernTreasury
       required :transaction_line_item_id, String, nil?: true
 
       # @!attribute type
-      #   The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `interac`, `manual`, `paper_item`, `wire`.
+      #   The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
+      #     `interac`, `manual`, `paper_item`, `wire`.
       #
       #   @return [Symbol, ModernTreasury::Models::ReturnObject::Type]
       required :type, enum: -> { ModernTreasury::Models::ReturnObject::Type }
@@ -144,65 +151,36 @@ module ModernTreasury
       required :updated_at, Time
 
       # @!attribute additional_information
-      #   Some returns may include additional information from the bank. In these cases, this string will be present.
+      #   Some returns may include additional information from the bank. In these cases,
+      #     this string will be present.
       #
       #   @return [String, nil]
       optional :additional_information, String, nil?: true
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   #   as 1000.
-      #   #
-      #   # @param code [String, nil] The return code. For ACH returns, this is the required ACH return code.
-      #   #
+      #   # @param amount [Integer]
+      #   # @param code [String, nil]
       #   # @param created_at [String]
-      #   #
-      #   # @param currency [String] Currency that this transaction is denominated in.
-      #   #
-      #   # @param current_return [Object, nil] If the return's status is `returned`, this will include the return object's data
-      #   #   that is returning this return.
-      #   #
-      #   # @param date_of_death [String, nil] If the return code is `R14` or `R15` this is the date the deceased counterparty
-      #   #   passed away.
-      #   #
-      #   # @param failure_reason [String, nil] If an originating return failed to be processed by the bank, a description of
-      #   #   the failure reason will be available.
-      #   #
-      #   # @param internal_account_id [String, nil] The ID of the relevant Internal Account.
-      #   #
-      #   # @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the return.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param currency [String]
+      #   # @param current_return [Object, nil]
+      #   # @param date_of_death [String, nil]
+      #   # @param failure_reason [String, nil]
+      #   # @param internal_account_id [String, nil]
+      #   # @param ledger_transaction_id [String, nil]
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
-      #   # @param reason [String, nil] Often the bank will provide an explanation for the return, which is a short
-      #   #   human readable string.
-      #   #
-      #   # @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>] An array of Payment Reference objects.
-      #   #
-      #   # @param returnable_id [String, nil] The ID of the object being returned or `null`.
-      #   #
-      #   # @param returnable_type [String, nil] The type of object being returned or `null`.
-      #   #
-      #   # @param role [String] The role of the return, can be `originating` or `receiving`.
-      #   #
-      #   # @param status [String] The current status of the return.
-      #   #
-      #   # @param transaction_id [String, nil] The ID of the relevant Transaction or `null`.
-      #   #
-      #   # @param transaction_line_item_id [String, nil] The ID of the relevant Transaction Line Item or `null`.
-      #   #
-      #   # @param type [String] The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
-      #   #   `interac`, `manual`, `paper_item`, `wire`.
-      #   #
+      #   # @param reason [String, nil]
+      #   # @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
+      #   # @param returnable_id [String, nil]
+      #   # @param returnable_type [String, nil]
+      #   # @param role [String]
+      #   # @param status [String]
+      #   # @param transaction_id [String, nil]
+      #   # @param transaction_line_item_id [String, nil]
+      #   # @param type [String]
       #   # @param updated_at [String]
-      #   #
-      #   # @param additional_information [String, nil] Some returns may include additional information from the bank. In these cases,
-      #   #   this string will be present.
+      #   # @param additional_information [String, nil]
       #   #
       #   def initialize(
       #     id:,
@@ -335,7 +313,8 @@ module ModernTreasury
         required :created_at, Time
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
@@ -365,18 +344,11 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   #
         #   # @param created_at [String]
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
+        #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   #
-        #   # @param reference_number [String] The vendor reference number.
-        #   #
-        #   # @param reference_number_type [String] The type of the reference number. Referring to the vendor payment id.
-        #   #
+        #   # @param reference_number [String]
+        #   # @param reference_number_type [String]
         #   # @param updated_at [String]
         #   #
         #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:, **) = super
@@ -554,7 +526,8 @@ module ModernTreasury
         finalize!
       end
 
-      # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`, `interac`, `manual`, `paper_item`, `wire`.
+      # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
+      #   `interac`, `manual`, `paper_item`, `wire`.
       #
       # @example
       # ```ruby

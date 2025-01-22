@@ -15,7 +15,8 @@ module ModernTreasury
       required :account_number, String
 
       # @!attribute [r] account_number_type
-      #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
+      #   One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #     account number is in a generic format.
       #
       #   @return [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType, nil]
       optional :account_number_type,
@@ -27,11 +28,8 @@ module ModernTreasury
 
       # @!parse
       #   # @param accounts_type [String]
-      #   #
-      #   # @param account_number [String] The account number for the bank account.
-      #   #
-      #   # @param account_number_type [String] One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
-      #   #   account number is in a generic format.
+      #   # @param account_number [String]
+      #   # @param account_number_type [String]
       #   #
       #   def initialize(accounts_type:, account_number:, account_number_type: nil, **) = super
 
@@ -50,7 +48,8 @@ module ModernTreasury
         finalize!
       end
 
-      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank account number is in a generic format.
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   account number is in a generic format.
       #
       # @example
       # ```ruby

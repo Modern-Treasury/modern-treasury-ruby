@@ -7,7 +7,7 @@ module ModernTreasury
     # internal_account => {
     #   id: String,
     #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] === _1 },
-    #   account_type: enum: ModernTreasury::Models::InternalAccount::AccountType,
+    #   account_type: ModernTreasury::Models::InternalAccount::AccountType,
     #   connection: ModernTreasury::Models::Connection,
     #   counterparty_id: String,
     #   **_
@@ -55,7 +55,8 @@ module ModernTreasury
       required :currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute ledger_account_id
-      #   If the internal account links to a ledger account in Modern Treasury, the id of the ledger account will be populated here.
+      #   If the internal account links to a ledger account in Modern Treasury, the id of
+      #     the ledger account will be populated here.
       #
       #   @return [String, nil]
       required :ledger_account_id, String, nil?: true
@@ -67,13 +68,15 @@ module ModernTreasury
       required :legal_entity_id, String, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
@@ -126,44 +129,23 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
-      #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>] An array of account detail objects.
-      #   #
-      #   # @param account_type [String, nil] Can be checking, savings or other.
-      #   #
-      #   # @param connection [ModernTreasury::Models::Connection] Specifies which financial institution the accounts belong to.
-      #   #
-      #   # @param counterparty_id [String, nil] The Counterparty associated to this account.
-      #   #
+      #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
+      #   # @param account_type [String, nil]
+      #   # @param connection [ModernTreasury::Models::Connection]
+      #   # @param counterparty_id [String, nil]
       #   # @param created_at [String]
-      #   #
-      #   # @param currency [String] The currency of the account.
-      #   #
-      #   # @param ledger_account_id [String, nil] If the internal account links to a ledger account in Modern Treasury, the id of
-      #   #   the ledger account will be populated here.
-      #   #
-      #   # @param legal_entity_id [String, nil] The Legal Entity associated to this account
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
-      #   # @param name [String, nil] A nickname for the account.
-      #   #
+      #   # @param currency [String]
+      #   # @param ledger_account_id [String, nil]
+      #   # @param legal_entity_id [String, nil]
+      #   # @param live_mode [Boolean]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String, nil]
       #   # @param object [String]
-      #   #
-      #   # @param parent_account_id [String, nil] The parent InternalAccount of this account.
-      #   #
-      #   # @param party_address [ModernTreasury::Models::InternalAccount::PartyAddress, nil] The address associated with the owner or null.
-      #   #
-      #   # @param party_name [String] The legal name of the entity which owns the account.
-      #   #
-      #   # @param party_type [String, nil] Either individual or business.
-      #   #
-      #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>] An array of routing detail objects.
-      #   #
+      #   # @param parent_account_id [String, nil]
+      #   # @param party_address [ModernTreasury::Models::InternalAccount::PartyAddress, nil]
+      #   # @param party_name [String]
+      #   # @param party_type [String, nil]
+      #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -264,7 +246,8 @@ module ModernTreasury
         required :line2, String, nil?: true
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
@@ -301,26 +284,15 @@ module ModernTreasury
         #   # The address associated with the owner or null.
         #   #
         #   # @param id [String]
-        #   #
-        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String, nil]
         #   # @param created_at [String]
-        #   #
         #   # @param line1 [String, nil]
-        #   #
         #   # @param line2 [String, nil]
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
-        #   # @param locality [String, nil] Locality or City.
-        #   #
+        #   # @param live_mode [Boolean]
+        #   # @param locality [String, nil]
         #   # @param object [String]
-        #   #
-        #   # @param postal_code [String, nil] The postal code of the address.
-        #   #
-        #   # @param region [String, nil] Region or State.
-        #   #
+        #   # @param postal_code [String, nil]
+        #   # @param region [String, nil]
         #   # @param updated_at [String]
         #   #
         #   def initialize(

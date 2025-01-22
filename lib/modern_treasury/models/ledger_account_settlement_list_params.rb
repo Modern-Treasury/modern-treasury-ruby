@@ -4,7 +4,8 @@ module ModernTreasury
   module Models
     class LedgerAccountSettlementListParams < ModernTreasury::BaseModel
       # @!attribute [r] id
-      #   If you have specific IDs to retrieve in bulk, you can pass them as query parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
+      #   If you have specific IDs to retrieve in bulk, you can pass them as query
+      #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>]
       optional :id, ModernTreasury::ArrayOf[String]
@@ -19,7 +20,9 @@ module ModernTreasury
       optional :after_cursor, String, nil?: true
 
       # @!attribute [r] created_at
-      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use created_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #     created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :created_at, ModernTreasury::HashOf[Time]
@@ -47,7 +50,9 @@ module ModernTreasury
       #   attr_writer :ledger_transaction_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -84,7 +89,9 @@ module ModernTreasury
       #   attr_writer :settlement_entry_direction
 
       # @!attribute [r] updated_at
-      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #     updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
       #   @return [Hash{Symbol=>Time}, nil]
       optional :updated_at, ModernTreasury::HashOf[Time]
@@ -94,32 +101,16 @@ module ModernTreasury
       #   attr_writer :updated_at
 
       # @!parse
-      #   # @param id [Array<String>] If you have specific IDs to retrieve in bulk, you can pass them as query
-      #   #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
-      #   #
+      #   # @param id [Array<String>]
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param created_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
-      #   #
+      #   # @param created_at [Hash{Symbol=>String}]
       #   # @param ledger_id [String]
-      #   #
       #   # @param ledger_transaction_id [String]
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
-      #   #
       #   # @param settled_ledger_account_id [String]
-      #   #
       #   # @param settlement_entry_direction [String]
-      #   #
-      #   # @param updated_at [Hash{Symbol=>String}] Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #   #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #   #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
+      #   # @param updated_at [Hash{Symbol=>String}]
       #   #
       #   def initialize(
       #     id: nil,

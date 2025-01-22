@@ -28,7 +28,8 @@ module ModernTreasury
       #   attr_writer :reference_number
 
       # @!attribute [r] referenceable_id
-      #   The id of the referenceable to search for. Must be accompanied by the referenceable_type or will return an error.
+      #   The id of the referenceable to search for. Must be accompanied by the
+      #     referenceable_type or will return an error.
       #
       #   @return [String, nil]
       optional :referenceable_id, String
@@ -38,7 +39,8 @@ module ModernTreasury
       #   attr_writer :referenceable_id
 
       # @!attribute [r] referenceable_type
-      #   One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
+      #   One of the referenceable types. This must be accompanied by the id of the
+      #     referenceable or will return an error.
       #
       #   @return [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType, nil]
       optional :referenceable_type,
@@ -50,16 +52,10 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
       #   # @param per_page [Integer]
-      #   #
-      #   # @param reference_number [String] The actual reference number assigned by the bank.
-      #   #
-      #   # @param referenceable_id [String] The id of the referenceable to search for. Must be accompanied by the
-      #   #   referenceable_type or will return an error.
-      #   #
-      #   # @param referenceable_type [String] One of the referenceable types. This must be accompanied by the id of the
-      #   #   referenceable or will return an error.
+      #   # @param reference_number [String]
+      #   # @param referenceable_id [String]
+      #   # @param referenceable_type [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -74,7 +70,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # One of the referenceable types. This must be accompanied by the id of the referenceable or will return an error.
+      # One of the referenceable types. This must be accompanied by the id of the
+      #   referenceable or will return an error.
       #
       # @example
       # ```ruby

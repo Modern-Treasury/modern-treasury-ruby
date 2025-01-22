@@ -7,7 +7,7 @@ module ModernTreasury
     # external_account => {
     #   id: String,
     #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] === _1 },
-    #   account_type: enum: ModernTreasury::Models::ExternalAccountType,
+    #   account_type: ModernTreasury::Models::ExternalAccountType,
     #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail] === _1 },
     #   counterparty_id: String,
     #   **_
@@ -52,25 +52,29 @@ module ModernTreasury
       required :discarded_at, Time, nil?: true
 
       # @!attribute ledger_account_id
-      #   If the external account links to a ledger account in Modern Treasury, the id of the ledger account will be populated here.
+      #   If the external account links to a ledger account in Modern Treasury, the id of
+      #     the ledger account will be populated here.
       #
       #   @return [String, nil]
       required :ledger_account_id, String, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
 
       # @!attribute name
-      #   A nickname for the external account. This is only for internal usage and won't affect any payments
+      #   A nickname for the external account. This is only for internal usage and won't
+      #     affect any payments
       #
       #   @return [String, nil]
       required :name, String, nil?: true
@@ -122,45 +126,23 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
-      #   #
-      #   # @param account_type [String] Can be `checking`, `savings` or `other`.
-      #   #
+      #   # @param account_type [String]
       #   # @param contact_details [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
-      #   #
       #   # @param counterparty_id [String, nil]
-      #   #
       #   # @param created_at [String]
-      #   #
       #   # @param discarded_at [String, nil]
-      #   #
-      #   # @param ledger_account_id [String, nil] If the external account links to a ledger account in Modern Treasury, the id of
-      #   #   the ledger account will be populated here.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
-      #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
-      #   #   affect any payments
-      #   #
+      #   # @param ledger_account_id [String, nil]
+      #   # @param live_mode [Boolean]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String, nil]
       #   # @param object [String]
-      #   #
-      #   # @param party_address [ModernTreasury::Models::ExternalAccount::PartyAddress, nil] The address associated with the owner or `null`.
-      #   #
-      #   # @param party_name [String] The legal name of the entity which owns the account.
-      #   #
-      #   # @param party_type [String, nil] Either `individual` or `business`.
-      #   #
+      #   # @param party_address [ModernTreasury::Models::ExternalAccount::PartyAddress, nil]
+      #   # @param party_name [String]
+      #   # @param party_type [String, nil]
       #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
-      #   #
       #   # @param updated_at [String]
-      #   #
       #   # @param verification_source [String, nil]
-      #   #
       #   # @param verification_status [String]
       #   #
       #   def initialize(
@@ -195,7 +177,7 @@ module ModernTreasury
       # contact_detail => {
       #   id: String,
       #   contact_identifier: String,
-      #   contact_identifier_type: enum: ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType,
+      #   contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType,
       #   created_at: Time,
       #   discarded_at: Time,
       #   **_
@@ -229,7 +211,8 @@ module ModernTreasury
         required :discarded_at, Time, nil?: true
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
@@ -246,20 +229,12 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   #
         #   # @param contact_identifier [String]
-        #   #
         #   # @param contact_identifier_type [String]
-        #   #
         #   # @param created_at [String]
-        #   #
         #   # @param discarded_at [String, nil]
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
+        #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   #
         #   # @param updated_at [String]
         #   #
         #   def initialize(
@@ -337,7 +312,8 @@ module ModernTreasury
         required :line2, String, nil?: true
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
@@ -374,26 +350,15 @@ module ModernTreasury
         #   # The address associated with the owner or `null`.
         #   #
         #   # @param id [String]
-        #   #
-        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String, nil]
         #   # @param created_at [String]
-        #   #
         #   # @param line1 [String, nil]
-        #   #
         #   # @param line2 [String, nil]
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
-        #   # @param locality [String, nil] Locality or City.
-        #   #
+        #   # @param live_mode [Boolean]
+        #   # @param locality [String, nil]
         #   # @param object [String]
-        #   #
-        #   # @param postal_code [String, nil] The postal code of the address.
-        #   #
-        #   # @param region [String, nil] Region or State.
-        #   #
+        #   # @param postal_code [String, nil]
+        #   # @param region [String, nil]
         #   # @param updated_at [String]
         #   #
         #   def initialize(

@@ -43,7 +43,11 @@ module ModernTreasury
       #   attr_writer :contact_details
 
       # @!attribute [r] ledger_account
-      #   Specifies a ledger account object that will be created with the external account. The resulting ledger account is linked to the external account for auto-ledgering Payment objects. See https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects for more details.
+      #   Specifies a ledger account object that will be created with the external
+      #     account. The resulting ledger account is linked to the external account for
+      #     auto-ledgering Payment objects. See
+      #     https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+      #     for more details.
       #
       #   @return [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, nil]
       optional :ledger_account, -> { ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount }
@@ -53,7 +57,8 @@ module ModernTreasury
       #   attr_writer :ledger_account
 
       # @!attribute [r] metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -63,7 +68,8 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!attribute name
-      #   A nickname for the external account. This is only for internal usage and won't affect any payments
+      #   A nickname for the external account. This is only for internal usage and won't
+      #     affect any payments
       #
       #   @return [String, nil]
       optional :name, String, nil?: true
@@ -106,7 +112,8 @@ module ModernTreasury
                nil?: true
 
       # @!attribute [r] plaid_processor_token
-      #   If you've enabled the Modern Treasury + Plaid integration in your Plaid account, you can pass the processor token in this field.
+      #   If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+      #     you can pass the processor token in this field.
       #
       #   @return [String, nil]
       optional :plaid_processor_token, String
@@ -129,36 +136,17 @@ module ModernTreasury
 
       # @!parse
       #   # @param counterparty_id [String, nil]
-      #   #
       #   # @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
-      #   #
-      #   # @param account_type [String] Can be `checking`, `savings` or `other`.
-      #   #
+      #   # @param account_type [String]
       #   # @param contact_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
-      #   #
-      #   # @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount] Specifies a ledger account object that will be created with the external
-      #   #   account. The resulting ledger account is linked to the external account for
-      #   #   auto-ledgering Payment objects. See
-      #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
-      #   #   for more details.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
-      #   # @param name [String, nil] A nickname for the external account. This is only for internal usage and won't
-      #   #   affect any payments
-      #   #
-      #   # @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress] Required if receiving wire payments.
-      #   #
+      #   # @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String, nil]
+      #   # @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress]
       #   # @param party_identifier [String]
-      #   #
-      #   # @param party_name [String] If this value isn't provided, it will be inherited from the counterparty's name.
-      #   #
-      #   # @param party_type [String, nil] Either `individual` or `business`.
-      #   #
-      #   # @param plaid_processor_token [String] If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
-      #   #   you can pass the processor token in this field.
-      #   #
+      #   # @param party_name [String]
+      #   # @param party_type [String, nil]
+      #   # @param plaid_processor_token [String]
       #   # @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
       #   #
       #   def initialize(
@@ -186,7 +174,7 @@ module ModernTreasury
       # ```ruby
       # account_detail => {
       #   account_number: String,
-      #   account_number_type: enum: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType
+      #   account_number_type: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType
       # }
       # ```
       class AccountDetail < ModernTreasury::BaseModel
@@ -252,7 +240,7 @@ module ModernTreasury
       # ```ruby
       # contact_detail => {
       #   contact_identifier: String,
-      #   contact_identifier_type: enum: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType
+      #   contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType
       # }
       # ```
       class ContactDetail < ModernTreasury::BaseModel
@@ -311,7 +299,7 @@ module ModernTreasury
       #   currency: String,
       #   ledger_id: String,
       #   name: String,
-      #   normal_balance: enum: ModernTreasury::Models::TransactionDirection,
+      #   normal_balance: ModernTreasury::Models::TransactionDirection,
       #   currency_exponent: Integer,
       #   **_
       # }
@@ -354,7 +342,8 @@ module ModernTreasury
         optional :description, String, nil?: true
 
         # @!attribute [r] ledger_account_category_ids
-        #   The array of ledger account category ids that this ledger account should be a child of.
+        #   The array of ledger account category ids that this ledger account should be a
+        #     child of.
         #
         #   @return [Array<String>]
         optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
@@ -364,7 +353,8 @@ module ModernTreasury
         #   attr_writer :ledger_account_category_ids
 
         # @!attribute [r] ledgerable_id
-        #   If the ledger account links to another object in Modern Treasury, the id will be populated here, otherwise null.
+        #   If the ledger account links to another object in Modern Treasury, the id will be
+        #     populated here, otherwise null.
         #
         #   @return [String, nil]
         optional :ledgerable_id, String
@@ -374,7 +364,9 @@ module ModernTreasury
         #   attr_writer :ledgerable_id
 
         # @!attribute [r] ledgerable_type
-        #   If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+        #   If the ledger account links to another object in Modern Treasury, the type will
+        #     be populated here, otherwise null. The value is one of internal_account or
+        #     external_account.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType, nil]
         optional :ledgerable_type,
@@ -387,7 +379,8 @@ module ModernTreasury
         #   attr_writer :ledgerable_type
 
         # @!attribute [r] metadata
-        #   Additional data represented as key-value pairs. Both the key and value must be strings.
+        #   Additional data represented as key-value pairs. Both the key and value must be
+        #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
         optional :metadata, ModernTreasury::HashOf[String]
@@ -403,30 +396,16 @@ module ModernTreasury
         #   #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         #   #   for more details.
         #   #
-        #   # @param currency [String] The currency of the ledger account.
-        #   #
-        #   # @param ledger_id [String] The id of the ledger that this account belongs to.
-        #   #
-        #   # @param name [String] The name of the ledger account.
-        #   #
-        #   # @param normal_balance [String] The normal balance of the ledger account.
-        #   #
-        #   # @param currency_exponent [Integer, nil] The currency exponent of the ledger account.
-        #   #
-        #   # @param description [String, nil] The description of the ledger account.
-        #   #
-        #   # @param ledger_account_category_ids [Array<String>] The array of ledger account category ids that this ledger account should be a
-        #   #   child of.
-        #   #
-        #   # @param ledgerable_id [String] If the ledger account links to another object in Modern Treasury, the id will be
-        #   #   populated here, otherwise null.
-        #   #
-        #   # @param ledgerable_type [String] If the ledger account links to another object in Modern Treasury, the type will
-        #   #   be populated here, otherwise null. The value is one of internal_account or
-        #   #   external_account.
-        #   #
-        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-        #   #   strings.
+        #   # @param currency [String]
+        #   # @param ledger_id [String]
+        #   # @param name [String]
+        #   # @param normal_balance [String]
+        #   # @param currency_exponent [Integer, nil]
+        #   # @param description [String, nil]
+        #   # @param ledger_account_category_ids [Array<String>]
+        #   # @param ledgerable_id [String]
+        #   # @param ledgerable_type [String]
+        #   # @param metadata [Hash{Symbol=>String}]
         #   #
         #   def initialize(
         #     currency:,
@@ -446,7 +425,9 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # If the ledger account links to another object in Modern Treasury, the type will be populated here, otherwise null. The value is one of internal_account or external_account.
+        # If the ledger account links to another object in Modern Treasury, the type will
+        #   be populated here, otherwise null. The value is one of internal_account or
+        #   external_account.
         #
         # @example
         # ```ruby
@@ -519,17 +500,12 @@ module ModernTreasury
         # @!parse
         #   # Required if receiving wire payments.
         #   #
-        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String, nil]
         #   # @param line1 [String, nil]
-        #   #
         #   # @param line2 [String, nil]
-        #   #
-        #   # @param locality [String, nil] Locality or City.
-        #   #
-        #   # @param postal_code [String, nil] The postal code of the address.
-        #   #
-        #   # @param region [String, nil] Region or State.
+        #   # @param locality [String, nil]
+        #   # @param postal_code [String, nil]
+        #   # @param region [String, nil]
         #   #
         #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
@@ -558,8 +534,8 @@ module ModernTreasury
       # ```ruby
       # routing_detail => {
       #   routing_number: String,
-      #   routing_number_type: enum: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType,
-      #   payment_type: enum: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType
+      #   routing_number_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType,
+      #   payment_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType
       # }
       # ```
       class RoutingDetail < ModernTreasury::BaseModel

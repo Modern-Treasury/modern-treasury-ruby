@@ -66,17 +66,11 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
       #   # @param entity_id [String]
-      #   #
       #   # @param event_name [String]
-      #   #
-      #   # @param event_time_end [String] An inclusive upper bound for when the event occurred
-      #   #
-      #   # @param event_time_start [String] An inclusive lower bound for when the event occurred
-      #   #
+      #   # @param event_time_end [String]
+      #   # @param event_time_start [String]
       #   # @param per_page [Integer]
-      #   #
       #   # @param resource [String]
       #   #
       #   def initialize(

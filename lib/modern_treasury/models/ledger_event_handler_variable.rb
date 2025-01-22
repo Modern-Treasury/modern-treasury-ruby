@@ -16,16 +16,15 @@ module ModernTreasury
       required :query, -> { ModernTreasury::Models::LedgerEventHandlerVariable::Query }
 
       # @!attribute type
-      #   The type of object this variable is. Currently, only "ledger_account" is supported.
+      #   The type of object this variable is. Currently, only "ledger_account" is
+      #     supported.
       #
       #   @return [String]
       required :type, String
 
       # @!parse
       #   # @param query [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
-      #   #
-      #   # @param type [String] The type of object this variable is. Currently, only "ledger_account" is
-      #   #   supported.
+      #   # @param type [String]
       #   #
       #   def initialize(query:, type:, **) = super
 
@@ -59,11 +58,9 @@ module ModernTreasury
         required :value, String
 
         # @!parse
-        #   # @param field [String] The LHS of the conditional.
-        #   #
-        #   # @param operator [String] What the operator between the `field` and `value` is.
-        #   #
-        #   # @param value [String] The RHS of the conditional.
+        #   # @param field [String]
+        #   # @param operator [String]
+        #   # @param value [String]
         #   #
         #   def initialize(field:, operator:, value:, **) = super
 

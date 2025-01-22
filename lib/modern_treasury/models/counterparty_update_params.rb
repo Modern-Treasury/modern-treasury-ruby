@@ -20,7 +20,8 @@ module ModernTreasury
       optional :legal_entity_id, String, nil?: true
 
       # @!attribute [r] metadata
-      #   Additional data in the form of key-value pairs. Pairs can be removed by passing an empty string or `null` as the value.
+      #   Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -40,7 +41,8 @@ module ModernTreasury
       #   attr_writer :name
 
       # @!attribute [r] send_remittance_advice
-      #   If this is `true`, Modern Treasury will send an email to the counterparty whenever an associated payment order is sent to the bank.
+      #   If this is `true`, Modern Treasury will send an email to the counterparty
+      #     whenever an associated payment order is sent to the bank.
       #
       #   @return [Boolean, nil]
       optional :send_remittance_advice, ModernTreasury::BooleanModel
@@ -60,19 +62,12 @@ module ModernTreasury
       #   attr_writer :taxpayer_identifier
 
       # @!parse
-      #   # @param email [String] A new email for the counterparty.
-      #   #
-      #   # @param legal_entity_id [String, nil] The id of the legal entity.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   #   an empty string or `null` as the value.
-      #   #
-      #   # @param name [String] A new name for the counterparty. Will only update if passed.
-      #   #
-      #   # @param send_remittance_advice [Boolean] If this is `true`, Modern Treasury will send an email to the counterparty
-      #   #   whenever an associated payment order is sent to the bank.
-      #   #
-      #   # @param taxpayer_identifier [String] Either a valid SSN or EIN.
+      #   # @param email [String]
+      #   # @param legal_entity_id [String, nil]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String]
+      #   # @param send_remittance_advice [Boolean]
+      #   # @param taxpayer_identifier [String]
       #   #
       #   def initialize(
       #     email: nil,

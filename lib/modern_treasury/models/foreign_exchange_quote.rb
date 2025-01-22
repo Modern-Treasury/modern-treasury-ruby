@@ -37,7 +37,9 @@ module ModernTreasury
       required :expires_at, Time
 
       # @!attribute foreign_exchange_indicator
-      #   Either `fixed_to_variable` if the `base_amount` was specified, or `variable_to_fixed` if the `target_amount` was specified when requesting the quote.
+      #   Either `fixed_to_variable` if the `base_amount` was specified, or
+      #     `variable_to_fixed` if the `target_amount` was specified when requesting the
+      #     quote.
       #
       #   @return [String]
       required :foreign_exchange_indicator, String
@@ -58,13 +60,15 @@ module ModernTreasury
       required :internal_account_id, String
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
@@ -91,32 +95,17 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param created_at [String]
-      #   #
-      #   # @param effective_at [String] The timestamp until when the quoted rate is valid.
-      #   #
-      #   # @param expires_at [String] The timestamp until which the quote must be booked by.
-      #   #
-      #   # @param foreign_exchange_indicator [String] Either `fixed_to_variable` if the `base_amount` was specified, or
-      #   #   `variable_to_fixed` if the `target_amount` was specified when requesting the
-      #   #   quote.
-      #   #
-      #   # @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate] The serialized rate information represented by this quote.
-      #   #
-      #   # @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
+      #   # @param effective_at [String]
+      #   # @param expires_at [String]
+      #   # @param foreign_exchange_indicator [String]
+      #   # @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate]
+      #   # @param internal_account_id [String]
+      #   # @param live_mode [Boolean]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
-      #   #
       #   # @param updated_at [String]
-      #   #
-      #   # @param vendor_id [String] This vendor assigned ID for this quote.
+      #   # @param vendor_id [String]
       #   #
       #   def initialize(
       #     id:,
@@ -142,7 +131,7 @@ module ModernTreasury
       # ```ruby
       # foreign_exchange_rate => {
       #   base_amount: Integer,
-      #   base_currency: enum: ModernTreasury::Models::Currency,
+      #   base_currency: ModernTreasury::Models::Currency,
       #   exponent: Integer,
       #   rate_string: String,
       #   target_amount: Integer,
@@ -151,7 +140,8 @@ module ModernTreasury
       # ```
       class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute base_amount
-        #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
+        #   Amount in the lowest denomination of the `base_currency` to convert, often
+        #     called the "sell" amount.
         #
         #   @return [Integer]
         required :base_amount, Integer
@@ -163,7 +153,8 @@ module ModernTreasury
         required :base_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute exponent
-        #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
+        #   The exponent component of the rate. The decimal is calculated as `value` / (10 ^
+        #     `exponent`).
         #
         #   @return [Integer]
         required :exponent, Integer
@@ -175,7 +166,8 @@ module ModernTreasury
         required :rate_string, String
 
         # @!attribute target_amount
-        #   Amount in the lowest denomination of the `target_currency`, often called the "buy" amount.
+        #   Amount in the lowest denomination of the `target_currency`, often called the
+        #     "buy" amount.
         #
         #   @return [Integer]
         required :target_amount, Integer
@@ -187,7 +179,8 @@ module ModernTreasury
         required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
         # @!attribute value
-        #   The whole number component of the rate. The decimal is calculated as `value` / (10 ^ `exponent`).
+        #   The whole number component of the rate. The decimal is calculated as `value` /
+        #     (10 ^ `exponent`).
         #
         #   @return [Integer]
         required :value, Integer
@@ -195,23 +188,13 @@ module ModernTreasury
         # @!parse
         #   # The serialized rate information represented by this quote.
         #   #
-        #   # @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often
-        #   #   called the "sell" amount.
-        #   #
-        #   # @param base_currency [String] Currency to convert, often called the "sell" currency.
-        #   #
-        #   # @param exponent [Integer] The exponent component of the rate. The decimal is calculated as `value` / (10 ^
-        #   #   `exponent`).
-        #   #
-        #   # @param rate_string [String] A string representation of the rate.
-        #   #
-        #   # @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the
-        #   #   "buy" amount.
-        #   #
-        #   # @param target_currency [String] Currency to convert the `base_currency` to, often called the "buy" currency.
-        #   #
-        #   # @param value [Integer] The whole number component of the rate. The decimal is calculated as `value` /
-        #   #   (10 ^ `exponent`).
+        #   # @param base_amount [Integer]
+        #   # @param base_currency [String]
+        #   # @param exponent [Integer]
+        #   # @param rate_string [String]
+        #   # @param target_amount [Integer]
+        #   # @param target_currency [String]
+        #   # @param value [Integer]
         #   #
         #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
 
