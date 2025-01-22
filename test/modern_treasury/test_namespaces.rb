@@ -9,6 +9,9 @@ module ModernTreasury
       module Invoices
       end
 
+      module LedgerAccountSettlements
+      end
+
       module LedgerTransactions
       end
 

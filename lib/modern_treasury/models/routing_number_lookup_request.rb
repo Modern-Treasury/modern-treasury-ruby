@@ -71,7 +71,7 @@ module ModernTreasury
 
       # @!attribute [r] supported_payment_types
       #   An array of payment types that are supported for this routing number. This can
-      #     include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs` currently.
+      #     include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
       #
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
       optional :supported_payment_types,

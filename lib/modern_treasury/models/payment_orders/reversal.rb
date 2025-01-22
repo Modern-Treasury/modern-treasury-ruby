@@ -68,6 +68,11 @@ module ModernTreasury
         #   @return [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status]
         required :status, enum: -> { ModernTreasury::Models::PaymentOrders::Reversal::Status }
 
+        # @!attribute transaction_ids
+        #
+        #   @return [Array<Object>, nil]
+        required :transaction_ids, ModernTreasury::ArrayOf[ModernTreasury::Unknown]
+
         # @!attribute updated_at
         #
         #   @return [Time]
@@ -83,6 +88,7 @@ module ModernTreasury
         #   # @param payment_order_id [String, nil]
         #   # @param reason [String]
         #   # @param status [String]
+        #   # @param transaction_ids [Array<Object>, nil]
         #   # @param updated_at [String]
         #   #
         #   def initialize(
@@ -95,6 +101,7 @@ module ModernTreasury
         #     payment_order_id:,
         #     reason:,
         #     status:,
+        #     transaction_ids:,
         #     updated_at:,
         #     **
         #   )
