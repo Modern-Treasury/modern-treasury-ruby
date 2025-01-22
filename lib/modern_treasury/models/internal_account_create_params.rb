@@ -10,7 +10,8 @@ module ModernTreasury
       required :connection_id, String
 
       # @!attribute currency
-      #   Either "USD" or "CAD". Internal accounts created at Increase only supports "USD".
+      #   Either "USD" or "CAD". Internal accounts created at Increase only supports
+      #     "USD".
       #
       #   @return [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
       required :currency, enum: -> { ModernTreasury::Models::InternalAccountCreateParams::Currency }
@@ -68,7 +69,8 @@ module ModernTreasury
       #   attr_writer :party_address
 
       # @!attribute [r] vendor_attributes
-      #   A hash of vendor specific attributes that will be used when creating the account at the vendor specified by the given connection.
+      #   A hash of vendor specific attributes that will be used when creating the account
+      #     at the vendor specified by the given connection.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :vendor_attributes, ModernTreasury::HashOf[String]
@@ -78,25 +80,15 @@ module ModernTreasury
       #   attr_writer :vendor_attributes
 
       # @!parse
-      #   # @param connection_id [String] The identifier of the financial institution the account belongs to.
-      #   #
-      #   # @param currency [String] Either "USD" or "CAD". Internal accounts created at Increase only supports
-      #   #   "USD".
-      #   #
-      #   # @param name [String] The nickname of the account.
-      #   #
-      #   # @param party_name [String] The legal name of the entity which owns the account.
-      #   #
-      #   # @param counterparty_id [String] The Counterparty associated to this account.
-      #   #
-      #   # @param legal_entity_id [String] The LegalEntity associated to this account.
-      #   #
-      #   # @param parent_account_id [String] The parent internal account of this new account.
-      #   #
-      #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] The address associated with the owner or null.
-      #   #
-      #   # @param vendor_attributes [Hash{Symbol=>String}] A hash of vendor specific attributes that will be used when creating the account
-      #   #   at the vendor specified by the given connection.
+      #   # @param connection_id [String]
+      #   # @param currency [String]
+      #   # @param name [String]
+      #   # @param party_name [String]
+      #   # @param counterparty_id [String]
+      #   # @param legal_entity_id [String]
+      #   # @param parent_account_id [String]
+      #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
+      #   # @param vendor_attributes [Hash{Symbol=>String}]
       #   #
       #   def initialize(
       #     connection_id:,
@@ -115,7 +107,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # Either "USD" or "CAD". Internal accounts created at Increase only supports "USD".
+      # Either "USD" or "CAD". Internal accounts created at Increase only supports
+      #   "USD".
       #
       # @example
       # ```ruby
@@ -185,16 +178,11 @@ module ModernTreasury
         # @!parse
         #   # The address associated with the owner or null.
         #   #
-        #   # @param country [String] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String]
         #   # @param line1 [String]
-        #   #
-        #   # @param locality [String] Locality or City.
-        #   #
-        #   # @param postal_code [String] The postal code of the address.
-        #   #
-        #   # @param region [String] Region or State.
-        #   #
+        #   # @param locality [String]
+        #   # @param postal_code [String]
+        #   # @param region [String]
         #   # @param line2 [String]
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super

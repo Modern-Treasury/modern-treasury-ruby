@@ -59,7 +59,9 @@ module ModernTreasury
       #   attr_writer :internal_account_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -89,24 +91,14 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param base_currency [String] Currency to convert, often called the "sell" currency.
-      #   #
-      #   # @param effective_at_end [String] An inclusive upper bound for searching effective_at
-      #   #
-      #   # @param effective_at_start [String] An inclusive lower bound for searching effective_at
-      #   #
-      #   # @param expires_at [String] The timestamp until which the quote must be booked by.
-      #   #
-      #   # @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
+      #   # @param base_currency [String]
+      #   # @param effective_at_end [String]
+      #   # @param effective_at_start [String]
+      #   # @param expires_at [String]
+      #   # @param internal_account_id [String]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
-      #   #
-      #   # @param target_currency [String] Currency to convert the `base_currency` to, often called the "buy" currency.
+      #   # @param target_currency [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,

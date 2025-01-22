@@ -19,7 +19,8 @@ module ModernTreasury
       #   attr_writer :entity_id
 
       # @!attribute [r] entity_type
-      #   The type of the request that created this result. bulk_request is the only supported `request_type`
+      #   The type of the request that created this result. bulk_request is the only
+      #     supported `request_type`
       #
       #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType, nil]
       optional :entity_type, enum: -> { ModernTreasury::Models::BulkResultListParams::EntityType }
@@ -38,7 +39,8 @@ module ModernTreasury
       #   attr_writer :per_page
 
       # @!attribute [r] request_id
-      #   Unique identifier for the request that created this bulk result. This is the ID of the bulk request when `request_type` is bulk_request
+      #   Unique identifier for the request that created this bulk result. This is the ID
+      #     of the bulk request when `request_type` is bulk_request
       #
       #   @return [String, nil]
       optional :request_id, String
@@ -48,7 +50,8 @@ module ModernTreasury
       #   attr_writer :request_id
 
       # @!attribute [r] request_type
-      #   The type of the request that created this result. bulk_request is the only supported `request_type`
+      #   The type of the request that created this result. bulk_request is the only
+      #     supported `request_type`
       #
       #   @return [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType, nil]
       optional :request_type, enum: -> { ModernTreasury::Models::BulkResultListParams::RequestType }
@@ -69,21 +72,12 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param entity_id [String] Unique identifier for the result entity object.
-      #   #
-      #   # @param entity_type [String] The type of the request that created this result. bulk_request is the only
-      #   #   supported `request_type`
-      #   #
+      #   # @param entity_id [String]
+      #   # @param entity_type [String]
       #   # @param per_page [Integer]
-      #   #
-      #   # @param request_id [String] Unique identifier for the request that created this bulk result. This is the ID
-      #   #   of the bulk request when `request_type` is bulk_request
-      #   #
-      #   # @param request_type [String] The type of the request that created this result. bulk_request is the only
-      #   #   supported `request_type`
-      #   #
-      #   # @param status [String] One of successful or failed.
+      #   # @param request_id [String]
+      #   # @param request_type [String]
+      #   # @param status [String]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -100,7 +94,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # The type of the request that created this result. bulk_request is the only supported `request_type`
+      # The type of the request that created this result. bulk_request is the only
+      #   supported `request_type`
       #
       # @example
       # ```ruby
@@ -127,7 +122,8 @@ module ModernTreasury
         finalize!
       end
 
-      # The type of the request that created this result. bulk_request is the only supported `request_type`
+      # The type of the request that created this result. bulk_request is the only
+      #   supported `request_type`
       #
       # @example
       # ```ruby

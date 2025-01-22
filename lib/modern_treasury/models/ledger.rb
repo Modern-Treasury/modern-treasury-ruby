@@ -36,13 +36,15 @@ module ModernTreasury
       required :discarded_at, Time, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
 
       # @!attribute metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}]
       required :metadata, ModernTreasury::HashOf[String]
@@ -65,23 +67,13 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param created_at [String]
-      #   #
-      #   # @param description [String, nil] An optional free-form description for internal use.
-      #   #
+      #   # @param description [String, nil]
       #   # @param discarded_at [String, nil]
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
-      #   # @param name [String] The name of the ledger.
-      #   #
+      #   # @param live_mode [Boolean]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String]
       #   # @param object [String]
-      #   #
       #   # @param updated_at [String]
       #   #
       #   def initialize(id:, created_at:, description:, discarded_at:, live_mode:, metadata:, name:, object:, updated_at:, **) = super

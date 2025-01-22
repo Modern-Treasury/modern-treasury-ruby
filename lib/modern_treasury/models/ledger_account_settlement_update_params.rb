@@ -10,7 +10,8 @@ module ModernTreasury
       optional :description, String, nil?: true
 
       # @!attribute [r] metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -20,7 +21,8 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!attribute [r] status
-      #   To post a pending ledger account settlement, use `posted`. To archive a pending ledger transaction, use `archived`.
+      #   To post a pending ledger account settlement, use `posted`. To archive a pending
+      #     ledger transaction, use `archived`.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status, nil]
       optional :status, enum: -> { ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status }
@@ -30,19 +32,16 @@ module ModernTreasury
       #   attr_writer :status
 
       # @!parse
-      #   # @param description [String, nil] The description of the ledger account settlement.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
-      #   #
-      #   # @param status [String] To post a pending ledger account settlement, use `posted`. To archive a pending
-      #   #   ledger transaction, use `archived`.
+      #   # @param description [String, nil]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param status [String]
       #   #
       #   def initialize(description: nil, metadata: nil, status: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # To post a pending ledger account settlement, use `posted`. To archive a pending ledger transaction, use `archived`.
+      # To post a pending ledger account settlement, use `posted`. To archive a pending
+      #   ledger transaction, use `archived`.
       #
       # @example
       # ```ruby

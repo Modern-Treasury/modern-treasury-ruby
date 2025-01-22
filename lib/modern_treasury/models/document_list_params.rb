@@ -19,7 +19,9 @@ module ModernTreasury
       #   attr_writer :documentable_id
 
       # @!attribute [r] documentable_type
-      #   The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      #   The type of the associated object. Currently can be one of `payment_order`,
+      #     `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #     `case`, `internal_account`, `decision`, or `external_account`.
       #
       #   @return [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType, nil]
       optional :documentable_type, enum: -> { ModernTreasury::Models::DocumentListParams::DocumentableType }
@@ -39,20 +41,17 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param documentable_id [String] The unique identifier for the associated object.
-      #   #
-      #   # @param documentable_type [String] The type of the associated object. Currently can be one of `payment_order`,
-      #   #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
-      #   #   `case`, `internal_account`, `decision`, or `external_account`.
-      #   #
+      #   # @param documentable_id [String]
+      #   # @param documentable_type [String]
       #   # @param per_page [Integer]
       #   #
       #   def initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # The type of the associated object. Currently can be one of `payment_order`, `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`, `case`, `internal_account`, `decision`, or `external_account`.
+      # The type of the associated object. Currently can be one of `payment_order`,
+      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #   `case`, `internal_account`, `decision`, or `external_account`.
       #
       # @example
       # ```ruby

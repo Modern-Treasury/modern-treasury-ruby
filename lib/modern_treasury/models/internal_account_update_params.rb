@@ -24,7 +24,8 @@ module ModernTreasury
       #   attr_writer :ledger_account_id
 
       # @!attribute [r] metadata
-      #   Additional data in the form of key-value pairs. Pairs can be removed by passing an empty string or `null` as the value.
+      #   Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -54,16 +55,11 @@ module ModernTreasury
       #   attr_writer :parent_account_id
 
       # @!parse
-      #   # @param counterparty_id [String] The Counterparty associated to this account.
-      #   #
-      #   # @param ledger_account_id [String] The Ledger Account associated to this account.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #   #   an empty string or `null` as the value.
-      #   #
-      #   # @param name [String] The nickname for the internal account.
-      #   #
-      #   # @param parent_account_id [String] The parent internal account for this account.
+      #   # @param counterparty_id [String]
+      #   # @param ledger_account_id [String]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String]
+      #   # @param parent_account_id [String]
       #   #
       #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, **) = super
 

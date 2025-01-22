@@ -14,7 +14,8 @@ module ModernTreasury
       #   attr_writer :description
 
       # @!attribute [r] metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -24,10 +25,8 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!parse
-      #   # @param description [String] An optional, free-form description for internal use.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
+      #   # @param description [String]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   #
       #   def initialize(description: nil, metadata: nil, **) = super
 

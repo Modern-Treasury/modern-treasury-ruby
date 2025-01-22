@@ -29,7 +29,8 @@ module ModernTreasury
       #   attr_writer :created_at_upper_bound
 
       # @!attribute [r] email
-      #   Performs a partial string match of the email field. This is also case insensitive.
+      #   Performs a partial string match of the email field. This is also case
+      #     insensitive.
       #
       #   @return [String, nil]
       optional :email, String
@@ -49,7 +50,9 @@ module ModernTreasury
       #   attr_writer :legal_entity_id
 
       # @!attribute [r] metadata
-      #   For example, if you want to query for records with metadata key `Type` and value `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query parameters.
+      #   For example, if you want to query for records with metadata key `Type` and value
+      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -59,7 +62,8 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!attribute [r] name
-      #   Performs a partial string match of the name field. This is also case insensitive.
+      #   Performs a partial string match of the name field. This is also case
+      #     insensitive.
       #
       #   @return [String, nil]
       optional :name, String
@@ -79,23 +83,12 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   #
-      #   # @param created_at_lower_bound [String] Used to return counterparties created after some datetime.
-      #   #
-      #   # @param created_at_upper_bound [String] Used to return counterparties created before some datetime.
-      #   #
-      #   # @param email [String] Performs a partial string match of the email field. This is also case
-      #   #   insensitive.
-      #   #
-      #   # @param legal_entity_id [String] Filters for counterparties with the given legal entity ID.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] For example, if you want to query for records with metadata key `Type` and value
-      #   #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #   #   parameters.
-      #   #
-      #   # @param name [String] Performs a partial string match of the name field. This is also case
-      #   #   insensitive.
-      #   #
+      #   # @param created_at_lower_bound [String]
+      #   # @param created_at_upper_bound [String]
+      #   # @param email [String]
+      #   # @param legal_entity_id [String]
+      #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param name [String]
       #   # @param per_page [Integer]
       #   #
       #   def initialize(

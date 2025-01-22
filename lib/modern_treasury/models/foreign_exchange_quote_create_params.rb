@@ -16,7 +16,8 @@ module ModernTreasury
       required :target_currency, enum: -> { ModernTreasury::Models::Currency }
 
       # @!attribute [r] base_amount
-      #   Amount in the lowest denomination of the `base_currency` to convert, often called the "sell" amount.
+      #   Amount in the lowest denomination of the `base_currency` to convert, often
+      #     called the "sell" amount.
       #
       #   @return [Integer, nil]
       optional :base_amount, Integer
@@ -46,7 +47,8 @@ module ModernTreasury
       #   attr_writer :effective_at
 
       # @!attribute [r] target_amount
-      #   Amount in the lowest denomination of the `target_currency`, often called the "buy" amount.
+      #   Amount in the lowest denomination of the `target_currency`, often called the
+      #     "buy" amount.
       #
       #   @return [Integer, nil]
       optional :target_amount, Integer
@@ -56,19 +58,12 @@ module ModernTreasury
       #   attr_writer :target_amount
 
       # @!parse
-      #   # @param internal_account_id [String] The ID for the `InternalAccount` this quote is associated with.
-      #   #
-      #   # @param target_currency [String] Currency to convert the `base_currency` to, often called the "buy" currency.
-      #   #
-      #   # @param base_amount [Integer] Amount in the lowest denomination of the `base_currency` to convert, often
-      #   #   called the "sell" amount.
-      #   #
-      #   # @param base_currency [String] Currency to convert, often called the "sell" currency.
-      #   #
-      #   # @param effective_at [String] The timestamp until when the quoted rate is valid.
-      #   #
-      #   # @param target_amount [Integer] Amount in the lowest denomination of the `target_currency`, often called the
-      #   #   "buy" amount.
+      #   # @param internal_account_id [String]
+      #   # @param target_currency [String]
+      #   # @param base_amount [Integer]
+      #   # @param base_currency [String]
+      #   # @param effective_at [String]
+      #   # @param target_amount [Integer]
       #   #
       #   def initialize(
       #     internal_account_id:,

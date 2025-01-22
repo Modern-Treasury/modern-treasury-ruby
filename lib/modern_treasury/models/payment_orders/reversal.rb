@@ -32,13 +32,15 @@ module ModernTreasury
         required :ledger_transaction_id, String, nil?: true
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
 
         # @!attribute metadata
-        #   Additional data represented as key-value pairs. Both the key and value must be strings.
+        #   Additional data represented as key-value pairs. Both the key and value must be
+        #     strings.
         #
         #   @return [Hash{Symbol=>String}]
         required :metadata, ModernTreasury::HashOf[String]
@@ -73,25 +75,14 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   #
         #   # @param created_at [String]
-        #   #
-        #   # @param ledger_transaction_id [String, nil] The ID of the ledger transaction linked to the reversal.
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
-        #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-        #   #   strings.
-        #   #
+        #   # @param ledger_transaction_id [String, nil]
+        #   # @param live_mode [Boolean]
+        #   # @param metadata [Hash{Symbol=>String}]
         #   # @param object [String]
-        #   #
-        #   # @param payment_order_id [String, nil] The ID of the relevant Payment Order.
-        #   #
-        #   # @param reason [String] The reason for the reversal.
-        #   #
-        #   # @param status [String] The current status of the reversal.
-        #   #
+        #   # @param payment_order_id [String, nil]
+        #   # @param reason [String]
+        #   # @param status [String]
         #   # @param updated_at [String]
         #   #
         #   def initialize(

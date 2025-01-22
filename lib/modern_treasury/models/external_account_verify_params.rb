@@ -4,7 +4,8 @@ module ModernTreasury
   module Models
     class ExternalAccountVerifyParams < ModernTreasury::BaseModel
       # @!attribute originating_account_id
-      #   The ID of the internal account where the micro-deposits originate from. Both credit and debit capabilities must be enabled.
+      #   The ID of the internal account where the micro-deposits originate from. Both
+      #     credit and debit capabilities must be enabled.
       #
       #   @return [String]
       required :originating_account_id, String
@@ -26,7 +27,9 @@ module ModernTreasury
       #   attr_writer :currency
 
       # @!attribute [r] fallback_type
-      #   A payment type to fallback to if the original type is not valid for the receiving account. Currently, this only supports falling back from RTP to ACH (payment_type=rtp and fallback_type=ach)
+      #   A payment type to fallback to if the original type is not valid for the
+      #     receiving account. Currently, this only supports falling back from RTP to ACH
+      #     (payment_type=rtp and fallback_type=ach)
       #
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType, nil]
       optional :fallback_type, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType }
@@ -36,7 +39,8 @@ module ModernTreasury
       #   attr_writer :fallback_type
 
       # @!attribute [r] priority
-      #   Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH transfer. This will apply to both `payment_type` and `fallback_type`.
+      #   Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
+      #     transfer. This will apply to both `payment_type` and `fallback_type`.
       #
       #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority, nil]
       optional :priority, enum: -> { ModernTreasury::Models::ExternalAccountVerifyParams::Priority }
@@ -46,19 +50,11 @@ module ModernTreasury
       #   attr_writer :priority
 
       # @!parse
-      #   # @param originating_account_id [String] The ID of the internal account where the micro-deposits originate from. Both
-      #   #   credit and debit capabilities must be enabled.
-      #   #
-      #   # @param payment_type [String] Can be `ach`, `eft`, or `rtp`.
-      #   #
-      #   # @param currency [String] Defaults to the currency of the originating account.
-      #   #
-      #   # @param fallback_type [String] A payment type to fallback to if the original type is not valid for the
-      #   #   receiving account. Currently, this only supports falling back from RTP to ACH
-      #   #   (payment_type=rtp and fallback_type=ach)
-      #   #
-      #   # @param priority [String] Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
-      #   #   transfer. This will apply to both `payment_type` and `fallback_type`.
+      #   # @param originating_account_id [String]
+      #   # @param payment_type [String]
+      #   # @param currency [String]
+      #   # @param fallback_type [String]
+      #   # @param priority [String]
       #   #
       #   def initialize(originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, **) = super
 
@@ -118,7 +114,9 @@ module ModernTreasury
         finalize!
       end
 
-      # A payment type to fallback to if the original type is not valid for the receiving account. Currently, this only supports falling back from RTP to ACH (payment_type=rtp and fallback_type=ach)
+      # A payment type to fallback to if the original type is not valid for the
+      #   receiving account. Currently, this only supports falling back from RTP to ACH
+      #   (payment_type=rtp and fallback_type=ach)
       #
       # @example
       # ```ruby
@@ -133,7 +131,8 @@ module ModernTreasury
         finalize!
       end
 
-      # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH transfer. This will apply to both `payment_type` and `fallback_type`.
+      # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
+      #   transfer. This will apply to both `payment_type` and `fallback_type`.
       #
       # @example
       # ```ruby

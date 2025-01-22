@@ -4,7 +4,8 @@ module ModernTreasury
   module Models
     class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
       # @!attribute [r] amount
-      #   Value in specified currency's smallest unit. e.g. $10 would be represented as 1000.
+      #   Value in specified currency's smallest unit. e.g. $10 would be represented
+      #     as 1000.
       #
       #   @return [Integer, nil]
       optional :amount, Integer
@@ -63,29 +64,21 @@ module ModernTreasury
       #   attr_writer :type
 
       # @!attribute virtual_account_id
-      #   An optional parameter to associate the incoming payment detail to a virtual account.
+      #   An optional parameter to associate the incoming payment detail to a virtual
+      #     account.
       #
       #   @return [String, nil]
       optional :virtual_account_id, String, nil?: true
 
       # @!parse
-      #   # @param amount [Integer] Value in specified currency's smallest unit. e.g. $10 would be represented
-      #   #   as 1000.
-      #   #
-      #   # @param as_of_date [String, nil] Defaults to today.
-      #   #
-      #   # @param currency [String, nil] Defaults to the currency of the originating account.
-      #   #
-      #   # @param description [String, nil] Defaults to a random description.
-      #   #
-      #   # @param direction [String] One of `credit`, `debit`.
-      #   #
-      #   # @param internal_account_id [String] The ID of one of your internal accounts.
-      #   #
-      #   # @param type [String] One of `ach`, `wire`, `check`.
-      #   #
-      #   # @param virtual_account_id [String, nil] An optional parameter to associate the incoming payment detail to a virtual
-      #   #   account.
+      #   # @param amount [Integer]
+      #   # @param as_of_date [String, nil]
+      #   # @param currency [String, nil]
+      #   # @param description [String, nil]
+      #   # @param direction [String]
+      #   # @param internal_account_id [String]
+      #   # @param type [String]
+      #   # @param virtual_account_id [String, nil]
       #   #
       #   def initialize(
       #     amount: nil,

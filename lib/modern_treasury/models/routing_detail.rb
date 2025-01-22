@@ -41,7 +41,8 @@ module ModernTreasury
       required :discarded_at, Time, nil?: true
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -52,7 +53,8 @@ module ModernTreasury
       required :object, String
 
       # @!attribute payment_type
-      #   If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
+      #   If the routing detail is to be used for a specific payment type this field will
+      #     be populated, otherwise null.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetail::PaymentType, nil]
       required :payment_type, enum: -> { ModernTreasury::Models::RoutingDetail::PaymentType }, nil?: true
@@ -64,7 +66,9 @@ module ModernTreasury
       required :routing_number, String
 
       # @!attribute routing_number_type
-      #   The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
+      #   The type of routing number. See
+      #     https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #     more details.
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType]
       required :routing_number_type, enum: -> { ModernTreasury::Models::RoutingDetail::RoutingNumberType }
@@ -76,29 +80,15 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param bank_address [ModernTreasury::Models::RoutingDetail::BankAddress, nil]
-      #   #
-      #   # @param bank_name [String] The name of the bank.
-      #   #
+      #   # @param bank_name [String]
       #   # @param created_at [String]
-      #   #
       #   # @param discarded_at [String, nil]
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
-      #   # @param payment_type [String, nil] If the routing detail is to be used for a specific payment type this field will
-      #   #   be populated, otherwise null.
-      #   #
-      #   # @param routing_number [String] The routing number of the bank.
-      #   #
-      #   # @param routing_number_type [String] The type of routing number. See
-      #   #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
-      #   #   more details.
-      #   #
+      #   # @param payment_type [String, nil]
+      #   # @param routing_number [String]
+      #   # @param routing_number_type [String]
       #   # @param updated_at [String]
       #   #
       #   def initialize(
@@ -159,7 +149,8 @@ module ModernTreasury
         required :line2, String, nil?: true
 
         # @!attribute live_mode
-        #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+        #   This field will be true if this object exists in the live environment or false
+        #     if it exists in the test environment.
         #
         #   @return [Boolean]
         required :live_mode, ModernTreasury::BooleanModel
@@ -194,26 +185,15 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   #
-        #   # @param country [String, nil] Country code conforms to [ISO 3166-1 alpha-2]
-        #   #
+        #   # @param country [String, nil]
         #   # @param created_at [String]
-        #   #
         #   # @param line1 [String, nil]
-        #   #
         #   # @param line2 [String, nil]
-        #   #
-        #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-        #   #   if it exists in the test environment.
-        #   #
-        #   # @param locality [String, nil] Locality or City.
-        #   #
+        #   # @param live_mode [Boolean]
+        #   # @param locality [String, nil]
         #   # @param object [String]
-        #   #
-        #   # @param postal_code [String, nil] The postal code of the address.
-        #   #
-        #   # @param region [String, nil] Region or State.
-        #   #
+        #   # @param postal_code [String, nil]
+        #   # @param region [String, nil]
         #   # @param updated_at [String]
         #   #
         #   def initialize(
@@ -236,7 +216,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # If the routing detail is to be used for a specific payment type this field will be populated, otherwise null.
+      # If the routing detail is to be used for a specific payment type this field will
+      #   be populated, otherwise null.
       #
       # @example
       # ```ruby
@@ -290,7 +271,9 @@ module ModernTreasury
         finalize!
       end
 
-      # The type of routing number. See https://docs.moderntreasury.com/platform/reference/routing-detail-object for more details.
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details.
       #
       # @example
       # ```ruby

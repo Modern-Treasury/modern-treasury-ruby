@@ -16,7 +16,8 @@ module ModernTreasury
       optional :description, String, nil?: true
 
       # @!attribute [r] metadata
-      #   Additional data represented as key-value pairs. Both the key and value must be strings.
+      #   Additional data represented as key-value pairs. Both the key and value must be
+      #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
       optional :metadata, ModernTreasury::HashOf[String]
@@ -26,12 +27,9 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!parse
-      #   # @param name [String] The name of the ledger.
-      #   #
-      #   # @param description [String, nil] An optional free-form description for internal use.
-      #   #
-      #   # @param metadata [Hash{Symbol=>String}] Additional data represented as key-value pairs. Both the key and value must be
-      #   #   strings.
+      #   # @param name [String]
+      #   # @param description [String, nil]
+      #   # @param metadata [Hash{Symbol=>String}]
       #   #
       #   def initialize(name:, description: nil, metadata: nil, **) = super
 

@@ -17,7 +17,8 @@ module ModernTreasury
         required :as_of_time, String
 
         # @!attribute balance_report_type
-        #   The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
+        #   The specific type of balance report. One of `intraday`, `previous_day`,
+        #     `real_time`, or `other`.
         #
         #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType]
         required :balance_report_type,
@@ -35,20 +36,17 @@ module ModernTreasury
                  }
 
         # @!parse
-        #   # @param as_of_date [String] The date of the balance report in local time.
-        #   #
-        #   # @param as_of_time [String] The time (24-hour clock) of the balance report in local time.
-        #   #
-        #   # @param balance_report_type [String] The specific type of balance report. One of `intraday`, `previous_day`,
-        #   #   `real_time`, or `other`.
-        #   #
-        #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] An array of `Balance` objects.
+        #   # @param as_of_date [String]
+        #   # @param as_of_time [String]
+        #   # @param balance_report_type [String]
+        #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
         #   #
         #   def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # The specific type of balance report. One of `intraday`, `previous_day`, `real_time`, or `other`.
+        # The specific type of balance report. One of `intraday`, `previous_day`,
+        #   `real_time`, or `other`.
         #
         # @example
         # ```ruby
@@ -76,7 +74,7 @@ module ModernTreasury
         # ```ruby
         # balance => {
         #   amount: Integer,
-        #   balance_type: enum: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType,
+        #   balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType,
         #   vendor_code: String,
         #   vendor_code_type: String
         # }
@@ -89,7 +87,10 @@ module ModernTreasury
           required :amount, Integer
 
           # @!attribute balance_type
-          #   The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
+          #   The specific type of balance reported. One of `opening_ledger`,
+          #     `closing_ledger`, `current_ledger`, `opening_available`,
+          #     `opening_available_next_business_day`, `closing_available`, `current_available`,
+          #     or `other`.
           #
           #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
           required :balance_type,
@@ -104,31 +105,28 @@ module ModernTreasury
           required :vendor_code, String
 
           # @!attribute vendor_code_type
-          #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`, `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`, `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`, `swift`, or `us_bank`.
+          #   The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+          #     `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+          #     `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+          #     `swift`, or `us_bank`.
           #
           #   @return [String, nil]
           required :vendor_code_type, String, nil?: true
 
           # @!parse
-          #   # @param amount [Integer] The balance amount.
-          #   #
-          #   # @param balance_type [String] The specific type of balance reported. One of `opening_ledger`,
-          #   #   `closing_ledger`, `current_ledger`, `opening_available`,
-          #   #   `opening_available_next_business_day`, `closing_available`, `current_available`,
-          #   #   or `other`.
-          #   #
-          #   # @param vendor_code [String] The code used by the bank when reporting this specific balance.
-          #   #
-          #   # @param vendor_code_type [String, nil] The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-          #   #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-          #   #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-          #   #   `swift`, or `us_bank`.
+          #   # @param amount [Integer]
+          #   # @param balance_type [String]
+          #   # @param vendor_code [String]
+          #   # @param vendor_code_type [String, nil]
           #   #
           #   def initialize(amount:, balance_type:, vendor_code:, vendor_code_type:, **) = super
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-          # The specific type of balance reported. One of `opening_ledger`, `closing_ledger`, `current_ledger`, `opening_available`, `opening_available_next_business_day`, `closing_available`, `current_available`, or `other`.
+          # The specific type of balance reported. One of `opening_ledger`,
+          #   `closing_ledger`, `current_ledger`, `opening_available`,
+          #   `opening_available_next_business_day`, `closing_available`, `current_available`,
+          #   or `other`.
           #
           # @example
           # ```ruby

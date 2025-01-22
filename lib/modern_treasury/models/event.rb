@@ -49,7 +49,8 @@ module ModernTreasury
       required :event_time, Time
 
       # @!attribute live_mode
-      #   This field will be true if this object exists in the live environment or false if it exists in the test environment.
+      #   This field will be true if this object exists in the live environment or false
+      #     if it exists in the test environment.
       #
       #   @return [Boolean]
       required :live_mode, ModernTreasury::BooleanModel
@@ -72,24 +73,14 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   #
       #   # @param created_at [String]
-      #   #
-      #   # @param data [Hash{Symbol=>Object}] The body of the event.
-      #   #
-      #   # @param entity_id [String] The ID of the entity for the event.
-      #   #
-      #   # @param event_name [String] The name of the event.
-      #   #
-      #   # @param event_time [String] The time of the event.
-      #   #
-      #   # @param live_mode [Boolean] This field will be true if this object exists in the live environment or false
-      #   #   if it exists in the test environment.
-      #   #
+      #   # @param data [Hash{Symbol=>Object}]
+      #   # @param entity_id [String]
+      #   # @param event_name [String]
+      #   # @param event_time [String]
+      #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   #
-      #   # @param resource [String] The type of resource for the event.
-      #   #
+      #   # @param resource [String]
       #   # @param updated_at [String]
       #   #
       #   def initialize(
