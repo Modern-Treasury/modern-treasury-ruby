@@ -56,6 +56,23 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < Minitest::Test
     end
   end
 
+  def test_create_partial_post_required_params
+    response = @modern_treasury.ledger_transactions.create_partial_post(
+      "id",
+      posted_ledger_entries: [
+        {
+          "amount" => 0,
+          "direction" => "credit",
+          "ledger_account_id" => "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
+        }
+      ]
+    )
+
+    assert_pattern do
+      response => ModernTreasury::Models::LedgerTransaction
+    end
+  end
+
   def test_create_reversal
     response = @modern_treasury.ledger_transactions.create_reversal("id")
 

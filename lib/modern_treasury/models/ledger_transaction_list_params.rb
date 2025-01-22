@@ -131,6 +131,15 @@ module ModernTreasury
       #   # @return [ModernTreasury::Models::LedgerTransactionListParams::OrderBy]
       #   attr_writer :order_by
 
+      # @!attribute [r] partially_posts_ledger_transaction_id
+      #
+      #   @return [String, nil]
+      optional :partially_posts_ledger_transaction_id, String
+
+      # @!parse
+      #   # @return [String]
+      #   attr_writer :partially_posts_ledger_transaction_id
+
       # @!attribute [r] per_page
       #
       #   @return [Integer, nil]
@@ -196,6 +205,7 @@ module ModernTreasury
       #   # @param ledgerable_type [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param order_by [ModernTreasury::Models::LedgerTransactionListParams::OrderBy]
+      #   # @param partially_posts_ledger_transaction_id [String]
       #   # @param per_page [Integer]
       #   # @param posted_at [Hash{Symbol=>String}]
       #   # @param reverses_ledger_transaction_id [String]
@@ -216,6 +226,7 @@ module ModernTreasury
       #     ledgerable_type: nil,
       #     metadata: nil,
       #     order_by: nil,
+      #     partially_posts_ledger_transaction_id: nil,
       #     per_page: nil,
       #     posted_at: nil,
       #     reverses_ledger_transaction_id: nil,
