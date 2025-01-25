@@ -99,7 +99,7 @@ module ModernTreasury
     #
     #   @option req [Symbol, nil] :unwrap
     #
-    #   @option req [Class, nil, nil] :page
+    #   @option req [Class, nil] :page
     #
     #   @option req [ModernTreasury::Converter, Class, nil] :model
     #
@@ -396,7 +396,7 @@ module ModernTreasury
     #
     #   @option req [Symbol, nil] :unwrap
     #
-    #   @option req [Class, nil, nil] :page
+    #   @option req [Class, nil] :page
     #
     #   @option req [ModernTreasury::Converter, Class, nil] :model
     #
@@ -439,7 +439,7 @@ module ModernTreasury
     #
     #   @option req [Symbol, nil] :unwrap
     #
-    #   @option req [Class, nil, nil] :page
+    #   @option req [Class, nil] :page
     #
     #   @option req [ModernTreasury::Converter, Class, nil] :model
     #
