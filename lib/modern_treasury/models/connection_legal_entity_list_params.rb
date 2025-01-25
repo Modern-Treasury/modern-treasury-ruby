@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ConnectionLegalEntityListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -50,8 +54,19 @@ module ModernTreasury
       #   # @param legal_entity_id [String]
       #   # @param per_page [Integer]
       #   # @param status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(after_cursor: nil, connection_id: nil, legal_entity_id: nil, per_page: nil, status: nil, **) = super
+      #   def initialize(
+      #     after_cursor: nil,
+      #     connection_id: nil,
+      #     legal_entity_id: nil,
+      #     per_page: nil,
+      #     status: nil,
+      #     request_options: {},
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

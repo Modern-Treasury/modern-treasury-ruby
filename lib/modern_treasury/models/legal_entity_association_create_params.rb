@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LegalEntityAssociationCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute parent_legal_entity_id
       #   The ID of the parent legal entity. This must be a business or joint legal
       #     entity.
@@ -58,6 +62,7 @@ module ModernTreasury
       #   # @param child_legal_entity_id [String]
       #   # @param ownership_percentage [Integer, nil]
       #   # @param title [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     parent_legal_entity_id:,
@@ -66,6 +71,7 @@ module ModernTreasury
       #     child_legal_entity_id: nil,
       #     ownership_percentage: nil,
       #     title: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

@@ -8,7 +8,7 @@ module ModernTreasury
 
       # Create a ledger account settlement.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountSettlementCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountSettlementCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :contra_ledger_account_id The id of the contra ledger account that sends to or receives funds from the
       #     settled ledger account.
@@ -35,43 +35,45 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil] :status The status of the ledger account settlement. It is set to `pending` by default.
       #     To post a ledger account settlement at creation, use `posted`.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerAccountSettlementCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::LedgerAccountSettlementCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/ledger_account_settlements",
           body: parsed,
-          model: ModernTreasury::Models::LedgerAccountSettlement
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerAccountSettlement,
+          options: options
+        )
       end
 
       # Get details on a single ledger account settlement.
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::LedgerAccountSettlementRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/ledger_account_settlements/%0s", id],
-          model: ModernTreasury::Models::LedgerAccountSettlement
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerAccountSettlement,
+          options: params[:request_options]
+        )
       end
 
       # Update the details of a ledger account settlement.
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerAccountSettlementUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountSettlementUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :description The description of the ledger account settlement.
       #
@@ -81,24 +83,24 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status] :status To post a pending ledger account settlement, use `posted`. To archive a pending
       #     ledger transaction, use `archived`.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerAccountSettlementUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::LedgerAccountSettlementUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/ledger_account_settlements/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::LedgerAccountSettlement
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerAccountSettlement,
+          options: options
+        )
       end
 
       # Get a list of ledger account settlements.
       #
-      # @param params [ModernTreasury::Models::LedgerAccountSettlementListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerAccountSettlementListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -127,20 +129,20 @@ module ModernTreasury
       #     updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountSettlement>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerAccountSettlementListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::LedgerAccountSettlementListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/ledger_account_settlements",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::LedgerAccountSettlement
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerAccountSettlement,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

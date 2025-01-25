@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] balances
       #   For example, if you want the balances as of a particular time (ISO8601), the
       #     encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
@@ -17,8 +21,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param balances [ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(balances: nil, **) = super
+      #   def initialize(balances: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

@@ -7,53 +7,53 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerEntryRetrieveParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEntryRetrieveParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Boolean] :show_balances If true, response will include the balances attached to the ledger entry. If
       #     there is no balance available, null will be returned instead.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEntry]
       #
-      def retrieve(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerEntryRetrieveParams.dump(params)
-        req = {
+      def retrieve(id, params = {})
+        parsed, options = ModernTreasury::Models::LedgerEntryRetrieveParams.dump_request(params)
+        @client.request(
           method: :get,
           path: ["api/ledger_entries/%0s", id],
           query: parsed,
-          model: ModernTreasury::Models::LedgerEntry
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerEntry,
+          options: options
+        )
       end
 
       # Update the details of a ledger entry.
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerEntryUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEntryUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEntry]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerEntryUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::LedgerEntryUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/ledger_entries/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::LedgerEntry
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerEntry,
+          options: options
+        )
       end
 
       # Get a list of all ledger entries.
       #
-      # @param params [ModernTreasury::Models::LedgerEntryListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEntryListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -115,20 +115,20 @@ module ModernTreasury
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEntry>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerEntryListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::LedgerEntryListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/ledger_entries",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::LedgerEntry
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerEntry,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

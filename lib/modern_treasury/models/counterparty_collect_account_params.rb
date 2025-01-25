@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute direction
       #   One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       #     Use `debit` when you need to charge a counterparty. This field helps us send a
@@ -58,8 +62,9 @@ module ModernTreasury
       #   # @param custom_redirect [String]
       #   # @param fields [Array<String>]
       #   # @param send_email [Boolean]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, **) = super
+      #   def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

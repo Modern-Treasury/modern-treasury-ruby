@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class BulkRequestListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] action_type
       #   One of create, or update.
       #
@@ -66,8 +70,20 @@ module ModernTreasury
       #   # @param per_page [Integer]
       #   # @param resource_type [String]
       #   # @param status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(action_type: nil, after_cursor: nil, metadata: nil, per_page: nil, resource_type: nil, status: nil, **) = super
+      #   def initialize(
+      #     action_type: nil,
+      #     after_cursor: nil,
+      #     metadata: nil,
+      #     per_page: nil,
+      #     resource_type: nil,
+      #     status: nil,
+      #     request_options: {},
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

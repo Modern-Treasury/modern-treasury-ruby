@@ -8,7 +8,7 @@ module ModernTreasury
 
       # create transaction
       #
-      # @param params [ModernTreasury::Models::TransactionCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::TransactionCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
       #     as 1000.
@@ -38,65 +38,67 @@ module ModernTreasury
       #   @option params [String, nil] :vendor_description The transaction detail text that often appears in on your bank statement and in
       #     your banking portal.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Transaction]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::TransactionCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::TransactionCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/transactions",
           body: parsed,
-          model: ModernTreasury::Models::Transaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Transaction,
+          options: options
+        )
       end
 
       # Get details on a single transaction.
       #
       # @param id [String] Transaction ID
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::TransactionRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Transaction]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/transactions/%0s", id],
-          model: ModernTreasury::Models::Transaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Transaction,
+          options: params[:request_options]
+        )
       end
 
       # Update a single transaction.
       #
       # @param id [String] Transaction ID
       #
-      # @param params [ModernTreasury::Models::TransactionUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::TransactionUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Transaction]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::TransactionUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::TransactionUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/transactions/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::Transaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Transaction,
+          options: options
+        )
       end
 
       # Get a list of all transactions.
       #
-      # @param params [ModernTreasury::Models::TransactionListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::TransactionListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -132,37 +134,39 @@ module ModernTreasury
       #
       #   @option params [String] :virtual_account_id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Transaction>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::TransactionListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::TransactionListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/transactions",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::Transaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Transaction,
+          options: options
+        )
       end
 
       # delete transaction
       #
       # @param id [String] Transaction ID
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::TransactionDeleteParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [nil]
       #
-      def delete(id, opts = {})
-        req = {
+      def delete(id, params = {})
+        @client.request(
           method: :delete,
           path: ["api/transactions/%0s", id],
-          model: NilClass
-        }
-        @client.request(req, opts)
+          model: NilClass,
+          options: params[:request_options]
+        )
       end
 
       # @param client [ModernTreasury::Client]

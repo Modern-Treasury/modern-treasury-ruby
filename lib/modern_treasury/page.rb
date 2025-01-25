@@ -32,11 +32,10 @@ module ModernTreasury
     #
     # @param client [ModernTreasury::BaseClient]
     # @param req [Hash{Symbol=>Object}]
-    # @param opts [Hash{Symbol=>Object}]
     # @param headers [Hash{String=>String}]
     # @param unwrapped [Hash{Symbol=>Object}]
     #
-    def initialize(client:, req:, opts:, headers:, unwrapped:)
+    def initialize(client:, req:, headers:, unwrapped:)
       model = req.fetch(:model)
 
       case unwrapped
@@ -48,7 +47,6 @@ module ModernTreasury
 
       @client = client
       @req = req
-      @opts = opts
 
       @per_page = ModernTreasury::Util.coerce_integer(headers["X-Per-Page"])
 
@@ -70,7 +68,7 @@ module ModernTreasury
       end
 
       req = ModernTreasury::Util.deep_merge(@req, {query: {after_cursor: after_cursor}})
-      @client.request(req, @opts)
+      @client.request(req)
     end
 
     # @param blk [Proc]

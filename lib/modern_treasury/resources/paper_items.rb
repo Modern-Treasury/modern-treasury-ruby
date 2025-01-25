@@ -7,22 +7,24 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::PaperItemRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaperItem]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/paper_items/%0s", id],
-          model: ModernTreasury::Models::PaperItem
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaperItem,
+          options: params[:request_options]
+        )
       end
 
       # Get a list of all paper items.
       #
-      # @param params [ModernTreasury::Models::PaperItemListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaperItemListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -35,20 +37,20 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaperItem>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaperItemListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::PaperItemListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/paper_items",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::PaperItem
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaperItem,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

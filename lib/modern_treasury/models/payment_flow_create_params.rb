@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class PaymentFlowCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute amount
       #   Required. Value in specified currency's smallest unit. e.g. $10 would be
       #     represented as 1000. Can be any integer up to 36 digits.
@@ -55,8 +59,20 @@ module ModernTreasury
       #   # @param direction [String]
       #   # @param originating_account_id [String]
       #   # @param due_date [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(amount:, counterparty_id:, currency:, direction:, originating_account_id:, due_date: nil, **) = super
+      #   def initialize(
+      #     amount:,
+      #     counterparty_id:,
+      #     currency:,
+      #     direction:,
+      #     originating_account_id:,
+      #     due_date: nil,
+      #     request_options: {},
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

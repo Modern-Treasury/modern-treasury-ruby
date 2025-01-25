@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class RoutingDetailCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute accounts_type
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
@@ -37,8 +41,9 @@ module ModernTreasury
       #   # @param routing_number [String]
       #   # @param routing_number_type [String]
       #   # @param payment_type [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, **) = super
+      #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

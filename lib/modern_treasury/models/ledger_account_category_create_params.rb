@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute currency
       #   The currency of the ledger account category.
       #
@@ -70,6 +74,7 @@ module ModernTreasury
       #   # @param description [String, nil]
       #   # @param ledger_account_category_ids [Array<String>]
       #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     currency:,
@@ -80,6 +85,7 @@ module ModernTreasury
       #     description: nil,
       #     ledger_account_category_ids: nil,
       #     metadata: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

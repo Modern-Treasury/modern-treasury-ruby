@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class AccountCollectionFlowCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute counterparty_id
       #   Required.
       #
@@ -30,8 +34,9 @@ module ModernTreasury
       #   # @param counterparty_id [String]
       #   # @param payment_types [Array<String>]
       #   # @param receiving_countries [Array<String>]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil, **) = super
+      #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

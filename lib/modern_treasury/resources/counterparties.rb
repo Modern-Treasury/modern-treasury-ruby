@@ -5,7 +5,7 @@ module ModernTreasury
     class Counterparties
       # Create a new counterparty.
       #
-      # @param params [ModernTreasury::Models::CounterpartyCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :name A human friendly name for this counterparty.
       #
@@ -32,43 +32,45 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus] :verification_status The verification status of the counterparty.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::CounterpartyCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::CounterpartyCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/counterparties",
           body: parsed,
-          model: ModernTreasury::Models::Counterparty
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Counterparty,
+          options: options
+        )
       end
 
       # Get details on a single counterparty.
       #
       # @param id [String] The id of an existing counterparty.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::CounterpartyRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/counterparties/%0s", id],
-          model: ModernTreasury::Models::Counterparty
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Counterparty,
+          options: params[:request_options]
+        )
       end
 
       # Updates a given counterparty with new information.
       #
       # @param id [String] The id of an existing counterparty.
       #
-      # @param params [ModernTreasury::Models::CounterpartyUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :email A new email for the counterparty.
       #
@@ -84,24 +86,24 @@ module ModernTreasury
       #
       #   @option params [String] :taxpayer_identifier Either a valid SSN or EIN.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::CounterpartyUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::CounterpartyUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/counterparties/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::Counterparty
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Counterparty,
+          options: options
+        )
       end
 
       # Get a paginated list of all counterparties.
       #
-      # @param params [ModernTreasury::Models::CounterpartyListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -123,44 +125,46 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::CounterpartyListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::CounterpartyListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/counterparties",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::Counterparty
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Counterparty,
+          options: options
+        )
       end
 
       # Deletes a given counterparty.
       #
       # @param id [String] The id of an existing counterparty.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::CounterpartyDeleteParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [nil]
       #
-      def delete(id, opts = {})
-        req = {
+      def delete(id, params = {})
+        @client.request(
           method: :delete,
           path: ["api/counterparties/%0s", id],
-          model: NilClass
-        }
-        @client.request(req, opts)
+          model: NilClass,
+          options: params[:request_options]
+        )
       end
 
       # Send an email requesting account details.
       #
       # @param id [String] counterparty id
       #
-      # @param params [ModernTreasury::Models::CounterpartyCollectAccountParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::CounterpartyCollectAccountParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Symbol, ModernTreasury::Models::TransactionDirection] :direction One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       #     Use `debit` when you need to charge a counterparty. This field helps us send a
@@ -181,19 +185,19 @@ module ModernTreasury
       #     send the counterparty the link, you can set this parameter to `false`. The JSON
       #     body will include the link to the secure Modern Treasury form.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
       #
-      def collect_account(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::CounterpartyCollectAccountParams.dump(params)
-        req = {
+      def collect_account(id, params)
+        parsed, options = ModernTreasury::Models::CounterpartyCollectAccountParams.dump_request(params)
+        @client.request(
           method: :post,
           path: ["api/counterparties/%0s/collect_account", id],
           body: parsed,
-          model: ModernTreasury::Models::CounterpartyCollectAccountResponse
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::CounterpartyCollectAccountResponse,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

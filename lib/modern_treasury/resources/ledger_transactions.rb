@@ -8,7 +8,7 @@ module ModernTreasury
 
       # Create a ledger transaction.
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>] :ledger_entries An array of ledger entry objects.
       #
@@ -36,43 +36,45 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status] :status To post a ledger transaction at creation, use `posted`.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerTransactionCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::LedgerTransactionCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/ledger_transactions",
           body: parsed,
-          model: ModernTreasury::Models::LedgerTransaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerTransaction,
+          options: options
+        )
       end
 
       # Get details on a single ledger transaction.
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/ledger_transactions/%0s", id],
-          model: ModernTreasury::Models::LedgerTransaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerTransaction,
+          options: params[:request_options]
+        )
       end
 
       # Update the details of a ledger transaction.
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :description An optional description for internal use.
       #
@@ -94,24 +96,24 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status] :status To post a ledger transaction at creation, use `posted`.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerTransactionUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::LedgerTransactionUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/ledger_transactions/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::LedgerTransaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerTransaction,
+          options: options
+        )
       end
 
       # Get a list of ledger transactions.
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -164,27 +166,27 @@ module ModernTreasury
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransaction>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerTransactionListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::LedgerTransactionListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/ledger_transactions",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::LedgerTransaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerTransaction,
+          options: options
+        )
       end
 
       # Create a ledger transaction that partially posts another ledger transaction.
       #
       # @param id [String] The ID of the ledger transaction to partially post.
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionCreatePartialPostParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionCreatePartialPostParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>] :posted_ledger_entries An array of ledger entry objects to be set on the posted ledger transaction.
       #     There must be one entry for each of the existing entries with a lesser amount
@@ -199,26 +201,26 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
-      def create_partial_post(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerTransactionCreatePartialPostParams.dump(params)
-        req = {
+      def create_partial_post(id, params)
+        parsed, options = ModernTreasury::Models::LedgerTransactionCreatePartialPostParams.dump_request(params)
+        @client.request(
           method: :post,
           path: ["api/ledger_transactions/%0s/partial_post", id],
           body: parsed,
-          model: ModernTreasury::Models::LedgerTransaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerTransaction,
+          options: options
+        )
       end
 
       # Create a ledger transaction reversal.
       #
       # @param id [String] The id of ledger transaction to reverse.
       #
-      # @param params [ModernTreasury::Models::LedgerTransactionCreateReversalParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerTransactionCreateReversalParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :description An optional free-form description for the reversal ledger transaction. Maximum
       #     of 1000 characters allowed.
@@ -241,19 +243,19 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status] :status Status of the reversal ledger transaction. It defaults to `posted` if not
       #     provided.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
-      def create_reversal(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerTransactionCreateReversalParams.dump(params)
-        req = {
+      def create_reversal(id, params = {})
+        parsed, options = ModernTreasury::Models::LedgerTransactionCreateReversalParams.dump_request(params)
+        @client.request(
           method: :post,
           path: ["api/ledger_transactions/%0s/reversal", id],
           body: parsed,
-          model: ModernTreasury::Models::LedgerTransaction
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerTransaction,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

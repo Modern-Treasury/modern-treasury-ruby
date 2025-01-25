@@ -5,7 +5,7 @@ module ModernTreasury
     class Connections
       # Get a list of all connections.
       #
-      # @param params [ModernTreasury::Models::ConnectionListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ConnectionListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -15,20 +15,20 @@ module ModernTreasury
       #
       #   @option params [String] :vendor_customer_id An identifier assigned by the vendor to your organization.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Connection>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::ConnectionListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::ConnectionListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/connections",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::Connection
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Connection,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

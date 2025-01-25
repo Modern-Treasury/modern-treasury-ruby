@@ -8,7 +8,7 @@ module ModernTreasury
 
       # create internal account
       #
-      # @param params [ModernTreasury::Models::InternalAccountCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :connection_id The identifier of the financial institution the account belongs to.
       #
@@ -30,43 +30,45 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}] :vendor_attributes A hash of vendor specific attributes that will be used when creating the account
       #     at the vendor specified by the given connection.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::InternalAccountCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::InternalAccountCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/internal_accounts",
           body: parsed,
-          model: ModernTreasury::Models::InternalAccount
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::InternalAccount,
+          options: options
+        )
       end
 
       # get internal account
       #
       # @param id [String] Unique identifier for the account.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::InternalAccountRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/internal_accounts/%0s", id],
-          model: ModernTreasury::Models::InternalAccount
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::InternalAccount,
+          options: params[:request_options]
+        )
       end
 
       # update internal account
       #
       # @param id [String] Unique identifier for the account.
       #
-      # @param params [ModernTreasury::Models::InternalAccountUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :counterparty_id The Counterparty associated to this account.
       #
@@ -79,24 +81,24 @@ module ModernTreasury
       #
       #   @option params [String] :parent_account_id The parent internal account for this account.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::InternalAccountUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::InternalAccountUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/internal_accounts/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::InternalAccount
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::InternalAccount,
+          options: options
+        )
       end
 
       # list internal accounts
       #
-      # @param params [ModernTreasury::Models::InternalAccountListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InternalAccountListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -116,20 +118,20 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::InternalAccountListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::InternalAccountListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/internal_accounts",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::InternalAccount
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::InternalAccount,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

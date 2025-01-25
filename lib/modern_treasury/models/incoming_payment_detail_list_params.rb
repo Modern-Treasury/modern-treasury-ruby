@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class IncomingPaymentDetailListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -104,6 +108,7 @@ module ModernTreasury
       #   # @param status [String]
       #   # @param type [String]
       #   # @param virtual_account_id [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -115,6 +120,7 @@ module ModernTreasury
       #     status: nil,
       #     type: nil,
       #     virtual_account_id: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

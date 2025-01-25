@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class PaymentOrderListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -184,6 +188,7 @@ module ModernTreasury
       #   # @param status [String]
       #   # @param transaction_id [String]
       #   # @param type [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -203,6 +208,7 @@ module ModernTreasury
       #     status: nil,
       #     transaction_id: nil,
       #     type: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

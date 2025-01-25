@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerTransactionCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute ledger_entries
       #   An array of ledger entry objects.
       #
@@ -107,6 +111,7 @@ module ModernTreasury
       #   # @param ledgerable_type [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     ledger_entries:,
@@ -118,6 +123,7 @@ module ModernTreasury
       #     ledgerable_type: nil,
       #     metadata: nil,
       #     status: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

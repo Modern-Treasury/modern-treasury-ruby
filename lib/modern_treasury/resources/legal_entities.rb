@@ -5,7 +5,7 @@ module ModernTreasury
     class LegalEntities
       # create legal_entity
       #
-      # @param params [ModernTreasury::Models::LegalEntityCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] :legal_entity_type The type of legal entity.
       #
@@ -56,43 +56,45 @@ module ModernTreasury
       #
       #   @option params [String, nil] :website The entity's primary website URL.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LegalEntityCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::LegalEntityCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/legal_entities",
           body: parsed,
-          model: ModernTreasury::Models::LegalEntity
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LegalEntity,
+          options: options
+        )
       end
 
       # Get details on a single legal entity.
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::LegalEntityRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/legal_entities/%0s", id],
-          model: ModernTreasury::Models::LegalEntity
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LegalEntity,
+          options: params[:request_options]
+        )
       end
 
       # Update a legal entity.
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LegalEntityUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>] :addresses A list of addresses for the entity.
       #
@@ -139,24 +141,24 @@ module ModernTreasury
       #
       #   @option params [String, nil] :website The entity's primary website URL.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::LegalEntityUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::LegalEntityUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/legal_entities/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::LegalEntity
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LegalEntity,
+          options: options
+        )
       end
 
       # Get a list of all legal entities.
       #
-      # @param params [ModernTreasury::Models::LegalEntityListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -170,20 +172,20 @@ module ModernTreasury
       #
       #   @option params [String] :show_deleted
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LegalEntityListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::LegalEntityListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/legal_entities",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::LegalEntity
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LegalEntity,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

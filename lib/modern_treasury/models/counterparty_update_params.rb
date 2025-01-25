@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class CounterpartyUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] email
       #   A new email for the counterparty.
       #
@@ -68,6 +72,7 @@ module ModernTreasury
       #   # @param name [String]
       #   # @param send_remittance_advice [Boolean]
       #   # @param taxpayer_identifier [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     email: nil,
@@ -76,6 +81,7 @@ module ModernTreasury
       #     name: nil,
       #     send_remittance_advice: nil,
       #     taxpayer_identifier: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

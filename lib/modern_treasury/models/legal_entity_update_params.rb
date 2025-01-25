@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LegalEntityUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] addresses
       #   A list of addresses for the entity.
       #
@@ -184,6 +188,7 @@ module ModernTreasury
       #   # @param suffix [String, nil]
       #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       #   # @param website [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     addresses: nil,
@@ -208,6 +213,7 @@ module ModernTreasury
       #     suffix: nil,
       #     wealth_and_employment_details: nil,
       #     website: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

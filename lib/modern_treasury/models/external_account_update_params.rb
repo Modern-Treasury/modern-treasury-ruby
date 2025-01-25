@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ExternalAccountUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] account_type
       #   Can be `checking`, `savings` or `other`.
       #
@@ -71,6 +75,7 @@ module ModernTreasury
       #   # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
       #   # @param party_name [String]
       #   # @param party_type [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     account_type: nil,
@@ -80,6 +85,7 @@ module ModernTreasury
       #     party_address: nil,
       #     party_name: nil,
       #     party_type: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super
