@@ -4,6 +4,10 @@ module ModernTreasury
   module Models
     module Invoices
       class LineItemListParams < ModernTreasury::BaseModel
+        # @!parse
+        #   extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
         # @!attribute after_cursor
         #
         #   @return [String, nil]
@@ -21,8 +25,9 @@ module ModernTreasury
         # @!parse
         #   # @param after_cursor [String, nil]
         #   # @param per_page [Integer]
+        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
-        #   def initialize(after_cursor: nil, per_page: nil, **) = super
+        #   def initialize(after_cursor: nil, per_page: nil, request_options: {}, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

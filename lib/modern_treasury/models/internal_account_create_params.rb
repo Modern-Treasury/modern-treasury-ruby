@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class InternalAccountCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute connection_id
       #   The identifier of the financial institution the account belongs to.
       #
@@ -89,6 +93,7 @@ module ModernTreasury
       #   # @param parent_account_id [String]
       #   # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
       #   # @param vendor_attributes [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     connection_id:,
@@ -100,6 +105,7 @@ module ModernTreasury
       #     parent_account_id: nil,
       #     party_address: nil,
       #     vendor_attributes: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

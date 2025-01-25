@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerTransactionCreatePartialPostParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute posted_ledger_entries
       #   An array of ledger entry objects to be set on the posted ledger transaction.
       #     There must be one entry for each of the existing entries with a lesser amount
@@ -52,8 +56,9 @@ module ModernTreasury
       #   # @param description [String]
       #   # @param effective_at [String]
       #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, **) = super
+      #   def initialize(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

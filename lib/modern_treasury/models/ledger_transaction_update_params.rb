@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerTransactionUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute description
       #   An optional description for internal use.
       #
@@ -87,6 +91,7 @@ module ModernTreasury
       #   # @param ledgerable_type [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     description: nil,
@@ -96,6 +101,7 @@ module ModernTreasury
       #     ledgerable_type: nil,
       #     metadata: nil,
       #     status: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class TransactionCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
       #     as 1000.
@@ -90,6 +94,7 @@ module ModernTreasury
       #   # @param posted [Boolean]
       #   # @param type [String, nil]
       #   # @param vendor_description [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     amount:,
@@ -102,6 +107,7 @@ module ModernTreasury
       #     posted: nil,
       #     type: nil,
       #     vendor_description: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

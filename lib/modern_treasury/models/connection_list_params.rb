@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ConnectionListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -42,8 +46,9 @@ module ModernTreasury
       #   # @param entity [String]
       #   # @param per_page [Integer]
       #   # @param vendor_customer_id [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, **) = super
+      #   def initialize(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

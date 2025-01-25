@@ -8,7 +8,7 @@ module ModernTreasury
         #
         # @param internal_account_id [String]
         #
-        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams, Hash{Symbol=>Object}] .
         #
         #   @option params [Date] :as_of_date The date of the balance report in local time.
         #
@@ -19,19 +19,19 @@ module ModernTreasury
         #
         #   @option params [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] :balances An array of `Balance` objects.
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         #
-        def create(internal_account_id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump(params)
-          req = {
+        def create(internal_account_id, params)
+          parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump_request(params)
+          @client.request(
             method: :post,
             path: ["api/internal_accounts/%0s/balance_reports", internal_account_id],
             body: parsed,
-            model: ModernTreasury::Models::InternalAccounts::BalanceReport
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::InternalAccounts::BalanceReport,
+            options: options
+          )
         end
 
         # Get a single balance report for a given internal account.
@@ -39,32 +39,32 @@ module ModernTreasury
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
         #
-        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String] :internal_account_id
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         #
-        def retrieve(id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump(params)
+        def retrieve(id, params)
+          parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump_request(params)
           internal_account_id = parsed.fetch(:internal_account_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
-          req = {
+          @client.request(
             method: :get,
             path: ["api/internal_accounts/%0s/balance_reports/%1s", internal_account_id, id],
-            model: ModernTreasury::Models::InternalAccounts::BalanceReport
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::InternalAccounts::BalanceReport,
+            options: options
+          )
         end
 
         # Get all balance reports for a given internal account.
         #
         # @param internal_account_id [String]
         #
-        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportListParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String, nil] :after_cursor
         #
@@ -75,20 +75,20 @@ module ModernTreasury
         #
         #   @option params [Integer] :per_page
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
         #
-        def list(internal_account_id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::InternalAccounts::BalanceReportListParams.dump(params)
-          req = {
+        def list(internal_account_id, params = {})
+          parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportListParams.dump_request(params)
+          @client.request(
             method: :get,
             path: ["api/internal_accounts/%0s/balance_reports", internal_account_id],
             query: parsed,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::InternalAccounts::BalanceReport
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::InternalAccounts::BalanceReport,
+            options: options
+          )
         end
 
         # Deletes a given balance report.
@@ -96,25 +96,25 @@ module ModernTreasury
         # @param id [String] Either the unique identifier of the balance report or latest for the latest
         #   balance report.
         #
-        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String] :internal_account_id
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [nil]
         #
-        def delete(id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump(params)
+        def delete(id, params)
+          parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump_request(params)
           internal_account_id = parsed.fetch(:internal_account_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
-          req = {
+          @client.request(
             method: :delete,
             path: ["api/internal_accounts/%0s/balance_reports/%1s", internal_account_id, id],
-            model: NilClass
-          }
-          @client.request(req, opts)
+            model: NilClass,
+            options: options
+          )
         end
 
         # @param client [ModernTreasury::Client]

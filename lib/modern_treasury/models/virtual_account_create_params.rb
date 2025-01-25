@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class VirtualAccountCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute internal_account_id
       #   The ID of the internal account that this virtual account is associated with.
       #
@@ -119,6 +123,7 @@ module ModernTreasury
       #   # @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     internal_account_id:,
@@ -131,6 +136,7 @@ module ModernTreasury
       #     ledger_account: nil,
       #     metadata: nil,
       #     routing_details: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

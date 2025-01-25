@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class PaymentFlowListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -80,6 +84,7 @@ module ModernTreasury
       #   # @param per_page [Integer]
       #   # @param receiving_account_id [String]
       #   # @param status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -90,6 +95,7 @@ module ModernTreasury
       #     per_page: nil,
       #     receiving_account_id: nil,
       #     status: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

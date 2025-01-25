@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class VirtualAccountUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] counterparty_id
       #
       #   @return [String, nil]
@@ -41,8 +45,9 @@ module ModernTreasury
       #   # @param ledger_account_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param name [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, **) = super
+      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

@@ -6,7 +6,7 @@ module ModernTreasury
       class LineItems
         # create transaction line items
         #
-        # @param params [ModernTreasury::Models::Transactions::LineItemCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Transactions::LineItemCreateParams, Hash{Symbol=>Object}] .
         #
         #   @option params [Integer] :amount If a matching object exists in Modern Treasury, `amount` will be populated.
         #     Value in specified currency's smallest unit (taken from parent Transaction).
@@ -15,41 +15,43 @@ module ModernTreasury
         #
         #   @option params [String] :transaction_id The ID of the parent transaction.
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
-        def create(params = {}, opts = {})
-          parsed = ModernTreasury::Models::Transactions::LineItemCreateParams.dump(params)
-          req = {
+        def create(params)
+          parsed, options = ModernTreasury::Models::Transactions::LineItemCreateParams.dump_request(params)
+          @client.request(
             method: :post,
             path: "api/transaction_line_items",
             body: parsed,
-            model: ModernTreasury::Models::Transactions::TransactionLineItem
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::Transactions::TransactionLineItem,
+            options: options
+          )
         end
 
         # get transaction line item
         #
         # @param id [String] id
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param params [ModernTreasury::Models::Transactions::LineItemRetrieveParams, Hash{Symbol=>Object}] .
+        #
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
-        def retrieve(id, opts = {})
-          req = {
+        def retrieve(id, params = {})
+          @client.request(
             method: :get,
             path: ["api/transaction_line_items/%0s", id],
-            model: ModernTreasury::Models::Transactions::TransactionLineItem
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::Transactions::TransactionLineItem,
+            options: params[:request_options]
+          )
         end
 
         # list transaction_line_items
         #
-        # @param params [ModernTreasury::Models::Transactions::LineItemListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Transactions::LineItemListParams, Hash{Symbol=>Object}] .
         #
         #   @option params [Hash{Symbol=>String}] :id
         #
@@ -61,37 +63,39 @@ module ModernTreasury
         #
         #   @option params [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil] :type
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
         #
-        def list(params = {}, opts = {})
-          parsed = ModernTreasury::Models::Transactions::LineItemListParams.dump(params)
-          req = {
+        def list(params = {})
+          parsed, options = ModernTreasury::Models::Transactions::LineItemListParams.dump_request(params)
+          @client.request(
             method: :get,
             path: "api/transaction_line_items",
             query: parsed,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::Transactions::TransactionLineItem
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::Transactions::TransactionLineItem,
+            options: options
+          )
         end
 
         # delete transaction line item
         #
         # @param id [String] id
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        # @param params [ModernTreasury::Models::Transactions::LineItemDeleteParams, Hash{Symbol=>Object}] .
+        #
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [nil]
         #
-        def delete(id, opts = {})
-          req = {
+        def delete(id, params = {})
+          @client.request(
             method: :delete,
             path: ["api/transaction_line_items/%0s", id],
-            model: NilClass
-          }
-          @client.request(req, opts)
+            model: NilClass,
+            options: params[:request_options]
+          )
         end
 
         # @param client [ModernTreasury::Client]

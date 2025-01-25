@@ -5,7 +5,7 @@ module ModernTreasury
     class LegalEntityAssociations
       # create legal_entity_association
       #
-      # @param params [ModernTreasury::Models::LegalEntityAssociationCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LegalEntityAssociationCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :parent_legal_entity_id The ID of the parent legal entity. This must be a business or joint legal
       #     entity.
@@ -20,19 +20,19 @@ module ModernTreasury
       #
       #   @option params [String, nil] :title The job title of the child entity at the parent entity.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntityAssociation]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LegalEntityAssociationCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::LegalEntityAssociationCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/legal_entity_associations",
           body: parsed,
-          model: ModernTreasury::Models::LegalEntityAssociation
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LegalEntityAssociation,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

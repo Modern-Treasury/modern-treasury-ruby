@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class BulkRequestCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute action_type
       #   One of create, or update.
       #
@@ -41,8 +45,9 @@ module ModernTreasury
       #   # @param resource_type [String]
       #   # @param resources [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID>]
       #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(action_type:, resource_type:, resources:, metadata: nil, **) = super
+      #   def initialize(action_type:, resource_type:, resources:, metadata: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

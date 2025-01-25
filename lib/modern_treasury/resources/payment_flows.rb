@@ -5,7 +5,7 @@ module ModernTreasury
     class PaymentFlows
       # create payment_flow
       #
-      # @param params [ModernTreasury::Models::PaymentFlowCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentFlowCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Integer] :amount Required. Value in specified currency's smallest unit. e.g. $10 would be
       #     represented as 1000. Can be any integer up to 36 digits.
@@ -24,65 +24,67 @@ module ModernTreasury
       #     `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #     they are selecting a payment `effective_date`.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaymentFlowCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::PaymentFlowCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/payment_flows",
           body: parsed,
-          model: ModernTreasury::Models::PaymentFlow
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentFlow,
+          options: options
+        )
       end
 
       # get payment_flow
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::PaymentFlowRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/payment_flows/%0s", id],
-          model: ModernTreasury::Models::PaymentFlow
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentFlow,
+          options: params[:request_options]
+        )
       end
 
       # update payment_flow
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::PaymentFlowUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentFlowUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status] :status Required. The updated status of the payment flow. Can only be used to mark a
       #     flow as `cancelled`.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaymentFlowUpdateParams.dump(params)
-        req = {
+      def update(id, params)
+        parsed, options = ModernTreasury::Models::PaymentFlowUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/payment_flows/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::PaymentFlow
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentFlow,
+          options: options
+        )
       end
 
       # list payment_flows
       #
-      # @param params [ModernTreasury::Models::PaymentFlowListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentFlowListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -100,20 +102,20 @@ module ModernTreasury
       #
       #   @option params [String] :status
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentFlow>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaymentFlowListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::PaymentFlowListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/payment_flows",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::PaymentFlow
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentFlow,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

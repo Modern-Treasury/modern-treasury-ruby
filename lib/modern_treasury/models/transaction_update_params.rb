@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class TransactionUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] metadata
       #   Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
@@ -16,8 +20,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(metadata: nil, **) = super
+      #   def initialize(metadata: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

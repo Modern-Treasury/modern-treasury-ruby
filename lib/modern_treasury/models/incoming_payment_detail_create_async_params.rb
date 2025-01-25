@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented
       #     as 1000.
@@ -79,6 +83,7 @@ module ModernTreasury
       #   # @param internal_account_id [String]
       #   # @param type [String]
       #   # @param virtual_account_id [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     amount: nil,
@@ -89,6 +94,7 @@ module ModernTreasury
       #     internal_account_id: nil,
       #     type: nil,
       #     virtual_account_id: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

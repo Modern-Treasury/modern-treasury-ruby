@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlementListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -111,6 +115,7 @@ module ModernTreasury
       #   # @param settled_ledger_account_id [String]
       #   # @param settlement_entry_direction [String]
       #   # @param updated_at [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     id: nil,
@@ -123,6 +128,7 @@ module ModernTreasury
       #     settled_ledger_account_id: nil,
       #     settlement_entry_direction: nil,
       #     updated_at: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

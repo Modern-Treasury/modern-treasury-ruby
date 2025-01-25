@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class AccountDetailListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute accounts_type
       #
       #   @return [Symbol, ModernTreasury::Models::AccountsType]
@@ -26,8 +30,9 @@ module ModernTreasury
       #   # @param accounts_type [String]
       #   # @param after_cursor [String, nil]
       #   # @param per_page [Integer]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(accounts_type:, after_cursor: nil, per_page: nil, **) = super
+      #   def initialize(accounts_type:, after_cursor: nil, per_page: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

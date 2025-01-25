@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class CounterpartyCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute name
       #   A human friendly name for this counterparty.
       #
@@ -116,6 +120,7 @@ module ModernTreasury
       #   # @param send_remittance_advice [Boolean]
       #   # @param taxpayer_identifier [String]
       #   # @param verification_status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     name:,
@@ -129,6 +134,7 @@ module ModernTreasury
       #     send_remittance_advice: nil,
       #     taxpayer_identifier: nil,
       #     verification_status: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

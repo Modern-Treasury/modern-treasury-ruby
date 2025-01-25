@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LegalEntityListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -53,8 +57,19 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
       #   # @param show_deleted [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, **) = super
+      #   def initialize(
+      #     after_cursor: nil,
+      #     legal_entity_type: nil,
+      #     metadata: nil,
+      #     per_page: nil,
+      #     show_deleted: nil,
+      #     request_options: {},
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

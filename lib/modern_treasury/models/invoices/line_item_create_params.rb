@@ -4,6 +4,10 @@ module ModernTreasury
   module Models
     module Invoices
       class LineItemCreateParams < ModernTreasury::BaseModel
+        # @!parse
+        #   extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
         # @!attribute name
         #   The name of the line item, typically a product or SKU name.
         #
@@ -81,6 +85,7 @@ module ModernTreasury
         #   # @param metadata [Hash{Symbol=>String}]
         #   # @param quantity [Integer]
         #   # @param unit_amount_decimal [String]
+        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
         #   def initialize(
         #     name:,
@@ -90,6 +95,7 @@ module ModernTreasury
         #     metadata: nil,
         #     quantity: nil,
         #     unit_amount_decimal: nil,
+        #     request_options: {},
         #     **
         #   )
         #     super

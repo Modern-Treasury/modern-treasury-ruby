@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class DocumentCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute documentable_id
       #   The unique identifier for the associated object.
       #
@@ -34,8 +38,9 @@ module ModernTreasury
       #   # @param documentable_type [String]
       #   # @param file [String]
       #   # @param document_type [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(documentable_id:, documentable_type:, file:, document_type: nil, **) = super
+      #   def initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

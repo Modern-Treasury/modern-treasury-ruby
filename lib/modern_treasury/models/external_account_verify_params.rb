@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ExternalAccountVerifyParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute originating_account_id
       #   The ID of the internal account where the micro-deposits originate from. Both
       #     credit and debit capabilities must be enabled.
@@ -55,8 +59,19 @@ module ModernTreasury
       #   # @param currency [String]
       #   # @param fallback_type [String]
       #   # @param priority [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(originating_account_id:, payment_type:, currency: nil, fallback_type: nil, priority: nil, **) = super
+      #   def initialize(
+      #     originating_account_id:,
+      #     payment_type:,
+      #     currency: nil,
+      #     fallback_type: nil,
+      #     priority: nil,
+      #     request_options: {},
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

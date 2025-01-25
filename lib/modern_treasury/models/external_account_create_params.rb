@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ExternalAccountCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute counterparty_id
       #
       #   @return [String, nil]
@@ -148,6 +152,7 @@ module ModernTreasury
       #   # @param party_type [String, nil]
       #   # @param plaid_processor_token [String]
       #   # @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     counterparty_id:,
@@ -163,6 +168,7 @@ module ModernTreasury
       #     party_type: nil,
       #     plaid_processor_token: nil,
       #     routing_details: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

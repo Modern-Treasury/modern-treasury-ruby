@@ -7,22 +7,24 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::PaymentReferenceRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaymentReference]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/payment_references/%0s", id],
-          model: ModernTreasury::Models::PaymentReference
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentReference,
+          options: params[:request_options]
+        )
       end
 
       # list payment_references
       #
-      # @param params [ModernTreasury::Models::PaymentReferenceListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentReferenceListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -36,20 +38,20 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType] :referenceable_type One of the referenceable types. This must be accompanied by the id of the
       #     referenceable or will return an error.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentReference>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaymentReferenceListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::PaymentReferenceListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/payment_references",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::PaymentReference
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentReference,
+          options: options
+        )
       end
 
       # @deprecated use `retrieve` instead
@@ -58,17 +60,19 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::PaymentReferenceRetireveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaymentReference]
       #
-      def retireve(id, opts = {})
-        req = {
+      def retireve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/payment_references/%0s", id],
-          model: ModernTreasury::Models::PaymentReference
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentReference,
+          options: params[:request_options]
+        )
       end
 
       # @param client [ModernTreasury::Client]

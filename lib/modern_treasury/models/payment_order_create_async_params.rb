@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class PaymentOrderCreateAsyncParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -362,6 +366,7 @@ module ModernTreasury
       #   # @param ultimate_originating_party_name [String, nil]
       #   # @param ultimate_receiving_party_identifier [String, nil]
       #   # @param ultimate_receiving_party_name [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     amount:,
@@ -399,6 +404,7 @@ module ModernTreasury
       #     ultimate_originating_party_name: nil,
       #     ultimate_receiving_party_identifier: nil,
       #     ultimate_receiving_party_name: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

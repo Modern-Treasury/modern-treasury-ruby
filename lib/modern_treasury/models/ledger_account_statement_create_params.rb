@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountStatementCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute effective_at_lower_bound
       #   The inclusive lower bound of the effective_at timestamp of the ledger entries to
       #     be included in the ledger account statement.
@@ -47,6 +51,7 @@ module ModernTreasury
       #   # @param ledger_account_id [String]
       #   # @param description [String, nil]
       #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     effective_at_lower_bound:,
@@ -54,6 +59,7 @@ module ModernTreasury
       #     ledger_account_id:,
       #     description: nil,
       #     metadata: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super
