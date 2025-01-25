@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class DocumentListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -44,8 +48,9 @@ module ModernTreasury
       #   # @param documentable_id [String]
       #   # @param documentable_type [String]
       #   # @param per_page [Integer]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, **) = super
+      #   def initialize(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

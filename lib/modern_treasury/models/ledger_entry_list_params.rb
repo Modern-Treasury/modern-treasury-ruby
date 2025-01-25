@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerEntryListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -234,6 +238,7 @@ module ModernTreasury
       #   # @param show_deleted [Boolean]
       #   # @param status [String]
       #   # @param updated_at [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     id: nil,
@@ -256,6 +261,7 @@ module ModernTreasury
       #     show_deleted: nil,
       #     status: nil,
       #     updated_at: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

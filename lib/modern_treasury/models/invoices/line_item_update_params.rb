@@ -4,6 +4,10 @@ module ModernTreasury
   module Models
     module Invoices
       class LineItemUpdateParams < ModernTreasury::BaseModel
+        # @!parse
+        #   extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
         # @!attribute invoice_id
         #
         #   @return [String]
@@ -95,6 +99,7 @@ module ModernTreasury
         #   # @param quantity [Integer]
         #   # @param unit_amount [Integer]
         #   # @param unit_amount_decimal [String]
+        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
         #   def initialize(
         #     invoice_id:,
@@ -105,6 +110,7 @@ module ModernTreasury
         #     quantity: nil,
         #     unit_amount: nil,
         #     unit_amount_decimal: nil,
+        #     request_options: {},
         #     **
         #   )
         #     super

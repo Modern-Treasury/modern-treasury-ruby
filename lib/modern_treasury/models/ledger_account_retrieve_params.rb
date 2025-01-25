@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountRetrieveParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] balances
       #   Use `balances[effective_at_lower_bound]` and
       #     `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -20,8 +24,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param balances [ModernTreasury::Models::LedgerAccountRetrieveParams::Balances]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(balances: nil, **) = super
+      #   def initialize(balances: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

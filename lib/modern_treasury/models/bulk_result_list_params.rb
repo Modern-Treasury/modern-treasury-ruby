@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class BulkResultListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -78,6 +82,7 @@ module ModernTreasury
       #   # @param request_id [String]
       #   # @param request_type [String]
       #   # @param status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -87,6 +92,7 @@ module ModernTreasury
       #     request_id: nil,
       #     request_type: nil,
       #     status: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

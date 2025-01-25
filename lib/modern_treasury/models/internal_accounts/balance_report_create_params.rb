@@ -4,6 +4,10 @@ module ModernTreasury
   module Models
     module InternalAccounts
       class BalanceReportCreateParams < ModernTreasury::BaseModel
+        # @!parse
+        #   extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
         # @!attribute as_of_date
         #   The date of the balance report in local time.
         #
@@ -40,8 +44,9 @@ module ModernTreasury
         #   # @param as_of_time [String]
         #   # @param balance_report_type [String]
         #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
+        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
-        #   def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, **) = super
+        #   def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {}, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

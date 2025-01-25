@@ -132,7 +132,7 @@ class ModernTreasuryTest < Minitest::Test
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
-      modern_treasury.counterparties.create({name: "name"}, max_retries: 3)
+      modern_treasury.counterparties.create(name: "name", request_options: {max_retries: 3})
     end
 
     assert_equal(4, requester.attempts.length)
@@ -149,7 +149,7 @@ class ModernTreasuryTest < Minitest::Test
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
-      modern_treasury.counterparties.create({name: "name"}, max_retries: 4)
+      modern_treasury.counterparties.create(name: "name", request_options: {max_retries: 4})
     end
 
     assert_equal(5, requester.attempts.length)
@@ -238,7 +238,10 @@ class ModernTreasuryTest < Minitest::Test
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
-      modern_treasury.counterparties.create({name: "name"}, extra_headers: {"x-stainless-retry-count" => nil})
+      modern_treasury.counterparties.create(
+        name: "name",
+        request_options: {extra_headers: {"x-stainless-retry-count" => nil}}
+      )
     end
 
     retry_count_headers = requester.attempts.map { |a| a[:headers]["x-stainless-retry-count"] }
@@ -256,8 +259,8 @@ class ModernTreasuryTest < Minitest::Test
 
     assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create(
-        {name: "name"},
-        extra_headers: {"x-stainless-retry-count" => "42"}
+        name: "name",
+        request_options: {extra_headers: {"x-stainless-retry-count" => "42"}}
       )
     end
 
@@ -275,7 +278,7 @@ class ModernTreasuryTest < Minitest::Test
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::APIConnectionError) do
-      modern_treasury.counterparties.create({name: "name"}, extra_headers: {})
+      modern_treasury.counterparties.create(name: "name", request_options: {extra_headers: {}})
     end
 
     assert_equal("/redirected", requester.attempts.last[:url].path)
@@ -297,7 +300,7 @@ class ModernTreasuryTest < Minitest::Test
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::APIConnectionError) do
-      modern_treasury.counterparties.create({name: "name"}, extra_headers: {})
+      modern_treasury.counterparties.create(name: "name", request_options: {extra_headers: {}})
     end
 
     assert_equal("/redirected", requester.attempts.last[:url].path)
@@ -316,7 +319,10 @@ class ModernTreasuryTest < Minitest::Test
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::APIConnectionError) do
-      modern_treasury.counterparties.create({name: "name"}, extra_headers: {"Authorization" => "Bearer xyz"})
+      modern_treasury.counterparties.create(
+        name: "name",
+        request_options: {extra_headers: {"Authorization" => "Bearer xyz"}}
+      )
     end
 
     assert_equal(
@@ -335,7 +341,10 @@ class ModernTreasuryTest < Minitest::Test
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::APIConnectionError) do
-      modern_treasury.counterparties.create({name: "name"}, extra_headers: {"Authorization" => "Bearer xyz"})
+      modern_treasury.counterparties.create(
+        name: "name",
+        request_options: {extra_headers: {"Authorization" => "Bearer xyz"}}
+      )
     end
 
     assert_nil(requester.attempts.last[:headers]["Authorization"])
@@ -351,7 +360,7 @@ class ModernTreasuryTest < Minitest::Test
     modern_treasury.requester = requester
 
     assert_raises(ModernTreasury::InternalServerError) do
-      modern_treasury.counterparties.create({name: "name"}, max_retries: 1)
+      modern_treasury.counterparties.create(name: "name", request_options: {max_retries: 1})
     end
 
     idempotency_headers = requester.attempts.map { |a| a[:headers]["Idempotency-Key".downcase] }
@@ -372,9 +381,8 @@ class ModernTreasuryTest < Minitest::Test
 
     assert_raises(ModernTreasury::InternalServerError) do
       modern_treasury.counterparties.create(
-        {name: "name"},
-        max_retries: 1,
-        idempotency_key: "user-supplied-key"
+        name: "name",
+        request_options: {max_retries: 1, idempotency_key: "user-supplied-key"}
       )
     end
 

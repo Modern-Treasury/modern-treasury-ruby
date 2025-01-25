@@ -5,7 +5,7 @@ module ModernTreasury
     class ForeignExchangeQuotes
       # create foreign_exchange_quote
       #
-      # @param params [ModernTreasury::Models::ForeignExchangeQuoteCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ForeignExchangeQuoteCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
       #
@@ -21,41 +21,43 @@ module ModernTreasury
       #   @option params [Integer] :target_amount Amount in the lowest denomination of the `target_currency`, often called the
       #     "buy" amount.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::ForeignExchangeQuoteCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::ForeignExchangeQuoteCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/foreign_exchange_quotes",
           body: parsed,
-          model: ModernTreasury::Models::ForeignExchangeQuote
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ForeignExchangeQuote,
+          options: options
+        )
       end
 
       # get foreign_exchange_quote
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::ForeignExchangeQuoteRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/foreign_exchange_quotes/%0s", id],
-          model: ModernTreasury::Models::ForeignExchangeQuote
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ForeignExchangeQuote,
+          options: params[:request_options]
+        )
       end
 
       # list foreign_exchange_quotes
       #
-      # @param params [ModernTreasury::Models::ForeignExchangeQuoteListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ForeignExchangeQuoteListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -77,20 +79,20 @@ module ModernTreasury
       #
       #   @option params [String] :target_currency Currency to convert the `base_currency` to, often called the "buy" currency.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::ForeignExchangeQuoteListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::ForeignExchangeQuoteListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/foreign_exchange_quotes",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::ForeignExchangeQuote
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ForeignExchangeQuote,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

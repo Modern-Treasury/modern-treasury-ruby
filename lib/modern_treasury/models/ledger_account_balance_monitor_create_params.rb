@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute alert_condition
       #   Describes the condition that must be satisfied for the monitor to be triggered.
       #
@@ -42,8 +46,9 @@ module ModernTreasury
       #   # @param ledger_account_id [String]
       #   # @param description [String]
       #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, **) = super
+      #   def initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ConnectionLegalEntityUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] status
       #   The status of the connection legal entity.
       #
@@ -15,8 +19,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(status: nil, **) = super
+      #   def initialize(status: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

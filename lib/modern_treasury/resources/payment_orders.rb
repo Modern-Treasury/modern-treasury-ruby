@@ -8,7 +8,7 @@ module ModernTreasury
 
       # Create a new Payment Order
       #
-      # @param params [ModernTreasury::Models::PaymentOrderCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -135,43 +135,45 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ultimate_receiving_party_name Name of the ultimate funds recipient.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaymentOrderCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::PaymentOrderCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/payment_orders",
           body: parsed,
-          model: ModernTreasury::Models::PaymentOrder
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentOrder,
+          options: options
+        )
       end
 
       # Get details on a single payment order
       #
       # @param id [String]
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::PaymentOrderRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/payment_orders/%0s", id],
-          model: ModernTreasury::Models::PaymentOrder
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentOrder,
+          options: params[:request_options]
+        )
       end
 
       # Update a payment order
       #
       # @param id [String]
       #
-      # @param params [ModernTreasury::Models::PaymentOrderUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting] :accounting
       #
@@ -296,24 +298,24 @@ module ModernTreasury
       #     initiating an ACH payment with CIE subtype. Only the first 15 characters of this
       #     string will be used. Any additional characters will be truncated.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaymentOrderUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::PaymentOrderUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/payment_orders/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::PaymentOrder
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentOrder,
+          options: options
+        )
       end
 
       # Get a list of all payment orders
       #
-      # @param params [ModernTreasury::Models::PaymentOrderListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -353,25 +355,25 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type] :type
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrder>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaymentOrderListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::PaymentOrderListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/payment_orders",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::PaymentOrder
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::PaymentOrder,
+          options: options
+        )
       end
 
       # Create a new payment order asynchronously
       #
-      # @param params [ModernTreasury::Models::PaymentOrderCreateAsyncParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::PaymentOrderCreateAsyncParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented as
       #     1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
@@ -495,19 +497,19 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ultimate_receiving_party_name Name of the ultimate funds recipient.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       #
-      def create_async(params = {}, opts = {})
-        parsed = ModernTreasury::Models::PaymentOrderCreateAsyncParams.dump(params)
-        req = {
+      def create_async(params)
+        parsed, options = ModernTreasury::Models::PaymentOrderCreateAsyncParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/payment_orders/create_async",
           body: parsed,
-          model: ModernTreasury::Models::AsyncResponse
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::AsyncResponse,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

@@ -5,7 +5,7 @@ module ModernTreasury
     class Documents
       # Create a document.
       #
-      # @param params [ModernTreasury::Models::DocumentCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::DocumentCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :documentable_id The unique identifier for the associated object.
       #
@@ -15,42 +15,44 @@ module ModernTreasury
       #
       #   @option params [String] :document_type A category given to the document, can be `null`.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Document]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::DocumentCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::DocumentCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/documents",
           headers: {"Content-Type" => "multipart/form-data"},
           body: parsed,
-          model: ModernTreasury::Models::Document
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Document,
+          options: options
+        )
       end
 
       # Get an existing document.
       #
       # @param id [String] The ID of the document.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::DocumentRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Document]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/documents/%0s", id],
-          model: ModernTreasury::Models::Document
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Document,
+          options: params[:request_options]
+        )
       end
 
       # Get a list of documents.
       #
-      # @param params [ModernTreasury::Models::DocumentListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::DocumentListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -62,20 +64,20 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Document>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::DocumentListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::DocumentListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/documents",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::Document
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Document,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

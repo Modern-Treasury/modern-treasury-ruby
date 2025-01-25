@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ValidationValidateRoutingNumberParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute routing_number
       #   The routing number that is being validated.
       #
@@ -22,8 +26,9 @@ module ModernTreasury
       # @!parse
       #   # @param routing_number [String]
       #   # @param routing_number_type [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(routing_number:, routing_number_type:, **) = super
+      #   def initialize(routing_number:, routing_number_type:, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

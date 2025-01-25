@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class InvoiceUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] contact_details
       #   The invoicer's contact details displayed at the top of the invoice.
       #
@@ -259,6 +263,7 @@ module ModernTreasury
       #   # @param remind_after_overdue_days [Array<Integer>]
       #   # @param status [String]
       #   # @param virtual_account_id [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     contact_details: nil,
@@ -286,6 +291,7 @@ module ModernTreasury
       #     remind_after_overdue_days: nil,
       #     status: nil,
       #     virtual_account_id: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

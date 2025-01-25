@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class PaymentOrderUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] accounting
       #
       #   @return [ModernTreasury::Models::PaymentOrderUpdateParams::Accounting, nil]
@@ -361,6 +365,7 @@ module ModernTreasury
       #   # @param ultimate_originating_party_name [String, nil]
       #   # @param ultimate_receiving_party_identifier [String, nil]
       #   # @param ultimate_receiving_party_name [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     accounting: nil,
@@ -397,6 +402,7 @@ module ModernTreasury
       #     ultimate_originating_party_name: nil,
       #     ultimate_receiving_party_identifier: nil,
       #     ultimate_receiving_party_name: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

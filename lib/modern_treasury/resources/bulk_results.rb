@@ -7,22 +7,24 @@ module ModernTreasury
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::BulkResultRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::BulkResult]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/bulk_results/%0s", id],
-          model: ModernTreasury::Models::BulkResult
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::BulkResult,
+          options: params[:request_options]
+        )
       end
 
       # list bulk_results
       #
-      # @param params [ModernTreasury::Models::BulkResultListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::BulkResultListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -41,20 +43,20 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::BulkResultListParams::Status] :status One of successful or failed.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkResult>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::BulkResultListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::BulkResultListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/bulk_results",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::BulkResult
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::BulkResult,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

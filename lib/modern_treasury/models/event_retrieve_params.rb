@@ -4,7 +4,13 @@ module ModernTreasury
   module Models
     class EventRetrieveParams < ModernTreasury::BaseModel
       # @!parse
-      #   def initialize(**) = super
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      # @!parse
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
+      #   #
+      #   def initialize(request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

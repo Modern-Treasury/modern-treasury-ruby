@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class InternalAccountListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -88,6 +92,7 @@ module ModernTreasury
       #   # @param payment_direction [String]
       #   # @param payment_type [String]
       #   # @param per_page [Integer]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -98,6 +103,7 @@ module ModernTreasury
       #     payment_direction: nil,
       #     payment_type: nil,
       #     per_page: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

@@ -7,46 +7,48 @@ module ModernTreasury
       #
       # @param id [String] The unique identifier of the incoming payment detail.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::IncomingPaymentDetailRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/incoming_payment_details/%0s", id],
-          model: ModernTreasury::Models::IncomingPaymentDetail
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::IncomingPaymentDetail,
+          options: params[:request_options]
+        )
       end
 
       # Update an existing Incoming Payment Detail.
       #
       # @param id [String] The unique identifier of the incoming payment detail.
       #
-      # @param params [ModernTreasury::Models::IncomingPaymentDetailUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::IncomingPaymentDetailUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::IncomingPaymentDetailUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::IncomingPaymentDetailUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/incoming_payment_details/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::IncomingPaymentDetail
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::IncomingPaymentDetail,
+          options: options
+        )
       end
 
       # Get a list of Incoming Payment Details.
       #
-      # @param params [ModernTreasury::Models::IncomingPaymentDetailListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::IncomingPaymentDetailListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -73,25 +75,25 @@ module ModernTreasury
       #   @option params [String] :virtual_account_id If the incoming payment detail is in a virtual account, the ID of the Virtual
       #     Account.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::IncomingPaymentDetail>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::IncomingPaymentDetailListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::IncomingPaymentDetailListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/incoming_payment_details",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::IncomingPaymentDetail
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::IncomingPaymentDetail,
+          options: options
+        )
       end
 
       # Simulate Incoming Payment Detail
       #
-      # @param params [ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
       #     as 1000.
@@ -111,19 +113,19 @@ module ModernTreasury
       #   @option params [String, nil] :virtual_account_id An optional parameter to associate the incoming payment detail to a virtual
       #     account.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       #
-      def create_async(params = {}, opts = {})
-        parsed = ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams.dump(params)
-        req = {
+      def create_async(params = {})
+        parsed, options = ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/simulations/incoming_payment_details/create_async",
           body: parsed,
-          model: ModernTreasury::Models::AsyncResponse
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::AsyncResponse,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

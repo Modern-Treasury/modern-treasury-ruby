@@ -4,6 +4,10 @@ module ModernTreasury
   module Models
     module LedgerTransactions
       class VersionListParams < ModernTreasury::BaseModel
+        # @!parse
+        #   extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
         # @!attribute after_cursor
         #
         #   @return [String, nil]
@@ -70,6 +74,7 @@ module ModernTreasury
         #   # @param ledger_transaction_id [String]
         #   # @param per_page [Integer]
         #   # @param version [Hash{Symbol=>Integer}]
+        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
         #   def initialize(
         #     after_cursor: nil,
@@ -78,6 +83,7 @@ module ModernTreasury
         #     ledger_transaction_id: nil,
         #     per_page: nil,
         #     version: nil,
+        #     request_options: {},
         #     **
         #   )
         #     super

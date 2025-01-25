@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LineItemListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute itemizable_type
       #
       #   @return [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType]
@@ -26,8 +30,9 @@ module ModernTreasury
       #   # @param itemizable_type [String]
       #   # @param after_cursor [String, nil]
       #   # @param per_page [Integer]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(itemizable_type:, after_cursor: nil, per_page: nil, **) = super
+      #   def initialize(itemizable_type:, after_cursor: nil, per_page: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

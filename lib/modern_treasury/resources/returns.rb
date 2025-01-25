@@ -5,7 +5,7 @@ module ModernTreasury
     class Returns
       # Create a return.
       #
-      # @param params [ModernTreasury::Models::ReturnCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ReturnCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :returnable_id The ID of the object being returned or `null`.
       #
@@ -23,41 +23,43 @@ module ModernTreasury
       #   @option params [String, nil] :reason An optional description of the reason for the return. This is for internal usage
       #     and will not be transmitted to the bank.”
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::ReturnObject]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::ReturnCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::ReturnCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/returns",
           body: parsed,
-          model: ModernTreasury::Models::ReturnObject
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ReturnObject,
+          options: options
+        )
       end
 
       # Get a single return.
       #
       # @param id [String] The ID of an existing return.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::ReturnRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::ReturnObject]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/returns/%0s", id],
-          model: ModernTreasury::Models::ReturnObject
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ReturnObject,
+          options: params[:request_options]
+        )
       end
 
       # Get a list of returns.
       #
-      # @param params [ModernTreasury::Models::ReturnListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ReturnListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -74,20 +76,20 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] :returnable_type One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #     Must be accompanied by `returnable_id`.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::ReturnListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::ReturnListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/returns",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::ReturnObject
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ReturnObject,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

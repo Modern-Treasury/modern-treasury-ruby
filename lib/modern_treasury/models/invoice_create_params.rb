@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class InvoiceCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute counterparty_id
       #   The ID of the counterparty receiving the invoice.
       #
@@ -243,6 +247,7 @@ module ModernTreasury
       #   # @param recipient_name [String, nil]
       #   # @param remind_after_overdue_days [Array<Integer>]
       #   # @param virtual_account_id [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     counterparty_id:,
@@ -270,6 +275,7 @@ module ModernTreasury
       #     recipient_name: nil,
       #     remind_after_overdue_days: nil,
       #     virtual_account_id: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

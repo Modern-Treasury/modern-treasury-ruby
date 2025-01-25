@@ -4,6 +4,10 @@ module ModernTreasury
   module Models
     module PaymentOrders
       class ReversalCreateParams < ModernTreasury::BaseModel
+        # @!parse
+        #   extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
         # @!attribute reason
         #   The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #     `incorrect_receiving_account`, `date_earlier_than_intended`,
@@ -40,8 +44,9 @@ module ModernTreasury
         #   # @param reason [String]
         #   # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction]
         #   # @param metadata [Hash{Symbol=>String}]
+        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
-        #   def initialize(reason:, ledger_transaction: nil, metadata: nil, **) = super
+        #   def initialize(reason:, ledger_transaction: nil, metadata: nil, request_options: {}, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ExpectedPaymentUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -142,6 +146,7 @@ module ModernTreasury
       #   # @param statement_descriptor [String, nil]
       #   # @param status [String, nil]
       #   # @param type [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     amount_lower_bound: nil,
@@ -161,6 +166,7 @@ module ModernTreasury
       #     statement_descriptor: nil,
       #     status: nil,
       #     type: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

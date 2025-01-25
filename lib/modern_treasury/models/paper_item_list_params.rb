@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class PaperItemListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -54,8 +58,19 @@ module ModernTreasury
       #   # @param deposit_date_start [String]
       #   # @param lockbox_number [String]
       #   # @param per_page [Integer]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(after_cursor: nil, deposit_date_end: nil, deposit_date_start: nil, lockbox_number: nil, per_page: nil, **) = super
+      #   def initialize(
+      #     after_cursor: nil,
+      #     deposit_date_end: nil,
+      #     deposit_date_start: nil,
+      #     lockbox_number: nil,
+      #     per_page: nil,
+      #     request_options: {},
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

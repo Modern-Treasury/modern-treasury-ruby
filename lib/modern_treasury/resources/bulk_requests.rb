@@ -5,7 +5,7 @@ module ModernTreasury
     class BulkRequests
       # create bulk_request
       #
-      # @param params [ModernTreasury::Models::BulkRequestCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::BulkRequestCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ActionType] :action_type One of create, or update.
       #
@@ -17,41 +17,43 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::BulkRequest]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::BulkRequestCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::BulkRequestCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/bulk_requests",
           body: parsed,
-          model: ModernTreasury::Models::BulkRequest
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::BulkRequest,
+          options: options
+        )
       end
 
       # get bulk_request
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::BulkRequestRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::BulkRequest]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/bulk_requests/%0s", id],
-          model: ModernTreasury::Models::BulkRequest
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::BulkRequest,
+          options: params[:request_options]
+        )
       end
 
       # list bulk_requests
       #
-      # @param params [ModernTreasury::Models::BulkRequestListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::BulkRequestListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType] :action_type One of create, or update.
       #
@@ -67,20 +69,20 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::BulkRequestListParams::Status] :status One of pending, processing, or completed.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkRequest>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::BulkRequestListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::BulkRequestListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/bulk_requests",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::BulkRequest
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::BulkRequest,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]

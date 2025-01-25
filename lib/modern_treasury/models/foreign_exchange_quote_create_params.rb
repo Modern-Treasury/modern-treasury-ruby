@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ForeignExchangeQuoteCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute internal_account_id
       #   The ID for the `InternalAccount` this quote is associated with.
       #
@@ -64,6 +68,7 @@ module ModernTreasury
       #   # @param base_currency [String]
       #   # @param effective_at [String]
       #   # @param target_amount [Integer]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     internal_account_id:,
@@ -72,6 +77,7 @@ module ModernTreasury
       #     base_currency: nil,
       #     effective_at: nil,
       #     target_amount: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

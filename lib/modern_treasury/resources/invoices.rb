@@ -8,7 +8,7 @@ module ModernTreasury
 
       # create invoice
       #
-      # @param params [ModernTreasury::Models::InvoiceCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :counterparty_id The ID of the counterparty receiving the invoice.
       #
@@ -83,43 +83,45 @@ module ModernTreasury
       #
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::InvoiceCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::InvoiceCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/invoices",
           body: parsed,
-          model: ModernTreasury::Models::Invoice
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Invoice,
+          options: options
+        )
       end
 
       # get invoice
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::InvoiceRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/invoices/%0s", id],
-          model: ModernTreasury::Models::Invoice
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Invoice,
+          options: params[:request_options]
+        )
       end
 
       # update invoice
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::InvoiceUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>] :contact_details The invoicer's contact details displayed at the top of the invoice.
       #
@@ -194,24 +196,24 @@ module ModernTreasury
       #
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::InvoiceUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::InvoiceUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/invoices/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::Invoice
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Invoice,
+          options: options
+        )
       end
 
       # list invoices
       #
-      # @param params [ModernTreasury::Models::InvoiceListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -237,45 +239,45 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::InvoiceListParams::Status] :status
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Invoice>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::InvoiceListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::InvoiceListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/invoices",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::Invoice
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Invoice,
+          options: options
+        )
       end
 
       # Add a payment order to an invoice.
       #
       # @param payment_order_id [String] payment_order_id
       #
-      # @param params [ModernTreasury::Models::InvoiceAddPaymentOrderParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::InvoiceAddPaymentOrderParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :id id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [nil]
       #
-      def add_payment_order(payment_order_id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::InvoiceAddPaymentOrderParams.dump(params)
+      def add_payment_order(payment_order_id, params)
+        parsed, options = ModernTreasury::Models::InvoiceAddPaymentOrderParams.dump_request(params)
         id = parsed.fetch(:id) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
-        req = {
+        @client.request(
           method: :put,
           path: ["api/invoices/%0s/payment_orders/%1s", id, payment_order_id],
-          model: NilClass
-        }
-        @client.request(req, opts)
+          model: NilClass,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]
