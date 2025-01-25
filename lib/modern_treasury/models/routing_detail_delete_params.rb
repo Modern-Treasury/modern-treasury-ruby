@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class RoutingDetailDeleteParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute accounts_type
       #
       #   @return [Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType]
@@ -16,8 +20,9 @@ module ModernTreasury
       # @!parse
       #   # @param accounts_type [String]
       #   # @param account_id [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(accounts_type:, account_id:, **) = super
+      #   def initialize(accounts_type:, account_id:, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

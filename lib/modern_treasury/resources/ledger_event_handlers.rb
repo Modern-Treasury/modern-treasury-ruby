@@ -5,7 +5,7 @@ module ModernTreasury
     class LedgerEventHandlers
       # create ledger_event_handler
       #
-      # @param params [ModernTreasury::Models::LedgerEventHandlerCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEventHandlerCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate] :ledger_transaction_template
       #
@@ -22,41 +22,43 @@ module ModernTreasury
       #
       #   @option params [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil] :variables
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerEventHandlerCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::LedgerEventHandlerCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/ledger_event_handlers",
           body: parsed,
-          model: ModernTreasury::Models::LedgerEventHandler
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerEventHandler,
+          options: options
+        )
       end
 
       # Get details on a single ledger event handler.
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::LedgerEventHandlerRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/ledger_event_handlers/%0s", id],
-          model: ModernTreasury::Models::LedgerEventHandler
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerEventHandler,
+          options: params[:request_options]
+        )
       end
 
       # Get a list of ledger event handlers.
       #
-      # @param params [ModernTreasury::Models::LedgerEventHandlerListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerEventHandlerListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -72,37 +74,39 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerEventHandlerListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::LedgerEventHandlerListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/ledger_event_handlers",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::LedgerEventHandler
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerEventHandler,
+          options: options
+        )
       end
 
       # Archive a ledger event handler.
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::LedgerEventHandlerDeleteParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #
-      def delete(id, opts = {})
-        req = {
+      def delete(id, params = {})
+        @client.request(
           method: :delete,
           path: ["api/ledger_event_handlers/%0s", id],
-          model: ModernTreasury::Models::LedgerEventHandler
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::LedgerEventHandler,
+          options: params[:request_options]
+        )
       end
 
       # @param client [ModernTreasury::Client]

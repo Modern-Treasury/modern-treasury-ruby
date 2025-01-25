@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -111,6 +115,7 @@ module ModernTreasury
       #   # @param name [String]
       #   # @param parent_ledger_account_category_id [String]
       #   # @param per_page [Integer]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     id: nil,
@@ -123,6 +128,7 @@ module ModernTreasury
       #     name: nil,
       #     parent_ledger_account_category_id: nil,
       #     per_page: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

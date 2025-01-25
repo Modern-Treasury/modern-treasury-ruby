@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerTransactionListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] id
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -211,6 +215,7 @@ module ModernTreasury
       #   # @param reverses_ledger_transaction_id [String]
       #   # @param status [String]
       #   # @param updated_at [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     id: nil,
@@ -232,6 +237,7 @@ module ModernTreasury
       #     reverses_ledger_transaction_id: nil,
       #     status: nil,
       #     updated_at: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

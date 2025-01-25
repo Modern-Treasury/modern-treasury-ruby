@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ConnectionLegalEntityCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute connection_id
       #   The ID of the connection.
       #
@@ -33,8 +37,9 @@ module ModernTreasury
       #   # @param connection_id [String]
       #   # @param legal_entity [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity]
       #   # @param legal_entity_id [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(connection_id:, legal_entity: nil, legal_entity_id: nil, **) = super
+      #   def initialize(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

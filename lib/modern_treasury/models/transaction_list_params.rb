@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class TransactionListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -153,6 +157,7 @@ module ModernTreasury
       #   # @param transactable_type [String]
       #   # @param vendor_id [String]
       #   # @param virtual_account_id [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -169,6 +174,7 @@ module ModernTreasury
       #     transactable_type: nil,
       #     vendor_id: nil,
       #     virtual_account_id: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

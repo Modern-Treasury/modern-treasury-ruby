@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlementUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute description
       #   The description of the ledger account settlement.
       #
@@ -35,8 +39,9 @@ module ModernTreasury
       #   # @param description [String, nil]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param status [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(description: nil, metadata: nil, status: nil, **) = super
+      #   def initialize(description: nil, metadata: nil, status: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

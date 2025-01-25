@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LineItemUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute itemizable_type
       #
       #   @return [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType]
@@ -28,8 +32,9 @@ module ModernTreasury
       #   # @param itemizable_type [String]
       #   # @param itemizable_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(itemizable_type:, itemizable_id:, metadata: nil, **) = super
+      #   def initialize(itemizable_type:, itemizable_id:, metadata: nil, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 

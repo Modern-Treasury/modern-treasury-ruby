@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class InternalAccountUpdateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute [r] counterparty_id
       #   The Counterparty associated to this account.
       #
@@ -60,8 +64,19 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param name [String]
       #   # @param parent_account_id [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, **) = super
+      #   def initialize(
+      #     counterparty_id: nil,
+      #     ledger_account_id: nil,
+      #     metadata: nil,
+      #     name: nil,
+      #     parent_account_id: nil,
+      #     request_options: {},
+      #     **
+      #   )
+      #     super
+      #   end
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

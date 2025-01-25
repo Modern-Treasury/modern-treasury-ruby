@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ReturnCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute returnable_id
       #   The ID of the object being returned or `null`.
       #
@@ -50,6 +54,7 @@ module ModernTreasury
       #   # @param code [String, nil]
       #   # @param date_of_death [String, nil]
       #   # @param reason [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     returnable_id:,
@@ -58,6 +63,7 @@ module ModernTreasury
       #     code: nil,
       #     date_of_death: nil,
       #     reason: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

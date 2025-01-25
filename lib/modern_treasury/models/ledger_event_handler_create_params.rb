@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerEventHandlerCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute ledger_transaction_template
       #
       #   @return [ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate]
@@ -60,6 +64,7 @@ module ModernTreasury
       #   # @param ledger_id [String]
       #   # @param metadata [Hash{Symbol=>String}, nil]
       #   # @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     ledger_transaction_template:,
@@ -69,6 +74,7 @@ module ModernTreasury
       #     ledger_id: nil,
       #     metadata: nil,
       #     variables: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

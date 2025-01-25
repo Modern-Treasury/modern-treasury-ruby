@@ -5,7 +5,7 @@ module ModernTreasury
     class Ledgers
       # Create a ledger.
       #
-      # @param params [ModernTreasury::Models::LedgerCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String] :name The name of the ledger.
       #
@@ -14,43 +14,45 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Ledger]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerCreateParams.dump(params)
-        req = {
+      def create(params)
+        parsed, options = ModernTreasury::Models::LedgerCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/ledgers",
           body: parsed,
-          model: ModernTreasury::Models::Ledger
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Ledger,
+          options: options
+        )
       end
 
       # Get details on a single ledger.
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::LedgerRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Ledger]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/ledgers/%0s", id],
-          model: ModernTreasury::Models::Ledger
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Ledger,
+          options: params[:request_options]
+        )
       end
 
       # Update the details of a ledger.
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::LedgerUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :description An optional free-form description for internal use.
       #
@@ -59,24 +61,24 @@ module ModernTreasury
       #
       #   @option params [String] :name The name of the ledger.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Ledger]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::LedgerUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/ledgers/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::Ledger
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Ledger,
+          options: options
+        )
       end
 
       # Get a list of ledgers.
       #
-      # @param params [ModernTreasury::Models::LedgerListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::LedgerListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
@@ -93,37 +95,39 @@ module ModernTreasury
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Ledger>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::LedgerListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::LedgerListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/ledgers",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::Ledger
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Ledger,
+          options: options
+        )
       end
 
       # Delete a ledger.
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::LedgerDeleteParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Ledger]
       #
-      def delete(id, opts = {})
-        req = {
+      def delete(id, params = {})
+        @client.request(
           method: :delete,
           path: ["api/ledgers/%0s", id],
-          model: ModernTreasury::Models::Ledger
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Ledger,
+          options: params[:request_options]
+        )
       end
 
       # @param client [ModernTreasury::Client]

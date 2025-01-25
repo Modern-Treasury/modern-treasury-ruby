@@ -6,7 +6,7 @@ module ModernTreasury
       class Versions
         # Get a list of ledger transaction versions.
         #
-        # @param params [ModernTreasury::Models::LedgerTransactions::VersionListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::LedgerTransactions::VersionListParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String, nil] :after_cursor
         #
@@ -25,20 +25,20 @@ module ModernTreasury
         #   @option params [Hash{Symbol=>Integer}] :version Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #     version. For example, for all versions after 2, use version%5Bgt%5D=2.
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
         #
-        def list(params = {}, opts = {})
-          parsed = ModernTreasury::Models::LedgerTransactions::VersionListParams.dump(params)
-          req = {
+        def list(params = {})
+          parsed, options = ModernTreasury::Models::LedgerTransactions::VersionListParams.dump_request(params)
+          @client.request(
             method: :get,
             path: "api/ledger_transaction_versions",
             query: parsed,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion,
+            options: options
+          )
         end
 
         # @param client [ModernTreasury::Client]

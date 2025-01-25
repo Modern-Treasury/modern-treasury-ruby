@@ -8,7 +8,7 @@ module ModernTreasury
         #
         # @param invoice_id [String] invoice_id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemCreateParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String] :name The name of the line item, typically a product or SKU name.
         #
@@ -31,51 +31,51 @@ module ModernTreasury
         #     specified in the invoice currency's smallest unit. Accepts decimal strings with
         #     up to 12 decimals
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
-        def create(invoice_id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::Invoices::LineItemCreateParams.dump(params)
-          req = {
+        def create(invoice_id, params)
+          parsed, options = ModernTreasury::Models::Invoices::LineItemCreateParams.dump_request(params)
+          @client.request(
             method: :post,
             path: ["api/invoices/%0s/invoice_line_items", invoice_id],
             body: parsed,
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            options: options
+          )
         end
 
         # get invoice_line_item
         #
         # @param id [String] id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemRetrieveParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemRetrieveParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String] :invoice_id invoice_id
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
-        def retrieve(id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump(params)
+        def retrieve(id, params)
+          parsed, options = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump_request(params)
           invoice_id = parsed.fetch(:invoice_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
-          req = {
+          @client.request(
             method: :get,
             path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            options: options
+          )
         end
 
         # update invoice_line_item
         #
         # @param id [String] Path param: id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemUpdateParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String] :invoice_id Path param: invoice_id
         #
@@ -100,73 +100,73 @@ module ModernTreasury
         #     for, specified in the invoice currency's smallest unit. Accepts decimal strings
         #     with up to 12 decimals
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
-        def update(id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump(params)
+        def update(id, params)
+          parsed, options = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump_request(params)
           invoice_id = parsed.fetch(:invoice_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
-          req = {
+          @client.request(
             method: :patch,
             path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
             body: parsed.except(:invoice_id),
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            options: options
+          )
         end
 
         # list invoice_line_items
         #
         # @param invoice_id [String] invoice_id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemListParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String, nil] :after_cursor
         #
         #   @option params [Integer] :per_page
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
         #
-        def list(invoice_id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::Invoices::LineItemListParams.dump(params)
-          req = {
+        def list(invoice_id, params = {})
+          parsed, options = ModernTreasury::Models::Invoices::LineItemListParams.dump_request(params)
+          @client.request(
             method: :get,
             path: ["api/invoices/%0s/invoice_line_items", invoice_id],
             query: parsed,
             page: ModernTreasury::Page,
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            options: options
+          )
         end
 
         # delete invoice_line_item
         #
         # @param id [String] id
         #
-        # @param params [ModernTreasury::Models::Invoices::LineItemDeleteParams, Hash{Symbol=>Object}] Attributes to send in this request.
+        # @param params [ModernTreasury::Models::Invoices::LineItemDeleteParams, Hash{Symbol=>Object}] .
         #
         #   @option params [String] :invoice_id invoice_id
         #
-        # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
-        def delete(id, params = {}, opts = {})
-          parsed = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump(params)
+        def delete(id, params)
+          parsed, options = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump_request(params)
           invoice_id = parsed.fetch(:invoice_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
-          req = {
+          @client.request(
             method: :delete,
             path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
-            model: ModernTreasury::Models::Invoices::InvoiceLineItem
-          }
-          @client.request(req, opts)
+            model: ModernTreasury::Models::Invoices::InvoiceLineItem,
+            options: options
+          )
         end
 
         # @param client [ModernTreasury::Client]

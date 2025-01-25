@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LegalEntityCreateParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute legal_entity_type
       #   The type of legal entity.
       #
@@ -205,6 +209,7 @@ module ModernTreasury
       #   # @param suffix [String, nil]
       #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       #   # @param website [String, nil]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     legal_entity_type:,
@@ -231,6 +236,7 @@ module ModernTreasury
       #     suffix: nil,
       #     wealth_and_employment_details: nil,
       #     website: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

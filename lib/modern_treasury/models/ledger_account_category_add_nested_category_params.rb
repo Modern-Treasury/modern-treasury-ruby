@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryAddNestedCategoryParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute id
       #
       #   @return [String]
@@ -10,8 +14,9 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
-      #   def initialize(id:, **) = super
+      #   def initialize(id:, request_options: {}, **) = super
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
     end

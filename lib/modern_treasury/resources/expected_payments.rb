@@ -5,7 +5,7 @@ module ModernTreasury
     class ExpectedPayments
       # create expected payment
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentCreateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentCreateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -61,43 +61,45 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #     sepa, signet, wire.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
-      def create(params = {}, opts = {})
-        parsed = ModernTreasury::Models::ExpectedPaymentCreateParams.dump(params)
-        req = {
+      def create(params = {})
+        parsed, options = ModernTreasury::Models::ExpectedPaymentCreateParams.dump_request(params)
+        @client.request(
           method: :post,
           path: "api/expected_payments",
           body: parsed,
-          model: ModernTreasury::Models::ExpectedPayment
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ExpectedPayment,
+          options: options
+        )
       end
 
       # get expected payment
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/expected_payments/%0s", id],
-          model: ModernTreasury::Models::ExpectedPayment
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ExpectedPayment,
+          options: params[:request_options]
+        )
       end
 
       # update expected payment
       #
       # @param id [String] id
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentUpdateParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentUpdateParams, Hash{Symbol=>Object}] .
       #
       #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -144,24 +146,24 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #     sepa, signet, wire.
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
-      def update(id, params = {}, opts = {})
-        parsed = ModernTreasury::Models::ExpectedPaymentUpdateParams.dump(params)
-        req = {
+      def update(id, params = {})
+        parsed, options = ModernTreasury::Models::ExpectedPaymentUpdateParams.dump_request(params)
+        @client.request(
           method: :patch,
           path: ["api/expected_payments/%0s", id],
           body: parsed,
-          model: ModernTreasury::Models::ExpectedPayment
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ExpectedPayment,
+          options: options
+        )
       end
 
       # list expected_payments
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -186,37 +188,39 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #     sepa, signet, wire
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::ExpectedPaymentListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::ExpectedPaymentListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/expected_payments",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::ExpectedPayment
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ExpectedPayment,
+          options: options
+        )
       end
 
       # delete expected payment
       #
       # @param id [String] id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::ExpectedPaymentDeleteParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
-      def delete(id, opts = {})
-        req = {
+      def delete(id, params = {})
+        @client.request(
           method: :delete,
           path: ["api/expected_payments/%0s", id],
-          model: ModernTreasury::Models::ExpectedPayment
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::ExpectedPayment,
+          options: params[:request_options]
+        )
       end
 
       # @param client [ModernTreasury::Client]

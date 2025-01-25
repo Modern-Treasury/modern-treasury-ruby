@@ -3,6 +3,10 @@
 module ModernTreasury
   module Models
     class ExpectedPaymentListParams < ModernTreasury::BaseModel
+      # @!parse
+      #   extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
       # @!attribute after_cursor
       #
       #   @return [String, nil]
@@ -111,6 +115,7 @@ module ModernTreasury
       #   # @param per_page [Integer]
       #   # @param status [String]
       #   # @param type [String]
+      #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
       #     after_cursor: nil,
@@ -123,6 +128,7 @@ module ModernTreasury
       #     per_page: nil,
       #     status: nil,
       #     type: nil,
+      #     request_options: {},
       #     **
       #   )
       #     super

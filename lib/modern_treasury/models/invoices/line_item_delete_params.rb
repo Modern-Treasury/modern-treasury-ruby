@@ -4,6 +4,10 @@ module ModernTreasury
   module Models
     module Invoices
       class LineItemDeleteParams < ModernTreasury::BaseModel
+        # @!parse
+        #   extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
         # @!attribute invoice_id
         #
         #   @return [String]
@@ -11,8 +15,9 @@ module ModernTreasury
 
         # @!parse
         #   # @param invoice_id [String]
+        #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
-        #   def initialize(invoice_id:, **) = super
+        #   def initialize(invoice_id:, request_options: {}, **) = super
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end

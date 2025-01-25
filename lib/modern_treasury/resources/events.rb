@@ -7,22 +7,24 @@ module ModernTreasury
       #
       # @param id [String] event id
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      # @param params [ModernTreasury::Models::EventRetrieveParams, Hash{Symbol=>Object}] .
+      #
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Models::Event]
       #
-      def retrieve(id, opts = {})
-        req = {
+      def retrieve(id, params = {})
+        @client.request(
           method: :get,
           path: ["api/events/%0s", id],
-          model: ModernTreasury::Models::Event
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Event,
+          options: params[:request_options]
+        )
       end
 
       # list events
       #
-      # @param params [ModernTreasury::Models::EventListParams, Hash{Symbol=>Object}] Attributes to send in this request.
+      # @param params [ModernTreasury::Models::EventListParams, Hash{Symbol=>Object}] .
       #
       #   @option params [String, nil] :after_cursor
       #
@@ -38,20 +40,20 @@ module ModernTreasury
       #
       #   @option params [String] :resource
       #
-      # @param opts [Hash{Symbol=>Object}, ModernTreasury::RequestOptions] Options to specify HTTP behaviour for this request.
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Event>]
       #
-      def list(params = {}, opts = {})
-        parsed = ModernTreasury::Models::EventListParams.dump(params)
-        req = {
+      def list(params = {})
+        parsed, options = ModernTreasury::Models::EventListParams.dump_request(params)
+        @client.request(
           method: :get,
           path: "api/events",
           query: parsed,
           page: ModernTreasury::Page,
-          model: ModernTreasury::Models::Event
-        }
-        @client.request(req, opts)
+          model: ModernTreasury::Models::Event,
+          options: options
+        )
       end
 
       # @param client [ModernTreasury::Client]
