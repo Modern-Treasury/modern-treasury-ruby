@@ -150,15 +150,8 @@ module ModernTreasury
           ModernTreasury::Util.deep_merge(*[req[:body], opts[:extra_body]].compact)
         end
 
-      encoded =
-        case [headers["content-type"], body]
-        in ["application/json", Hash | Array]
-          JSON.fast_generate(body)
-        else
-          body
-        end
-
       url = ModernTreasury::Util.join_parsed_uri(@base_url, {**req, path: path})
+      encoded = ModernTreasury::Util.encode_body(headers, body)
       max_retries = opts.fetch(:max_retries, @max_retries)
       timeout = opts.fetch(:timeout, @timeout)
       {method: method, url: url, headers: headers, body: encoded, max_retries: max_retries, timeout: timeout}
@@ -335,7 +328,7 @@ module ModernTreasury
       in ModernTreasury::APIConnectionError if retry_count >= max_retries
         raise status
       in (400..) if retry_count >= max_retries || (response && !should_retry?(status, headers: response))
-        body = parse_body(response, suppress_error: true)
+        body = ModernTreasury::Util.decode_body(response, suppress_error: true)
 
         raise ModernTreasury::APIStatusError.for(
           url: url,
@@ -354,29 +347,6 @@ module ModernTreasury
           retry_count: retry_count + 1,
           send_retry_header: send_retry_header
         )
-      end
-    end
-
-    # @private
-    #
-    # @param response [Net::HTTPResponse]
-    # @param suppress_error [Boolean]
-    #
-    # @raise [JSON::ParserError]
-    # @return [Object]
-    #
-    private def parse_body(response, suppress_error: false)
-      case response.content_type
-      in "application/json"
-        begin
-          JSON.parse(response.body, symbolize_names: true)
-        rescue JSON::ParserError => e
-          raise e unless suppress_error
-          response.body
-        end
-      else
-        # TODO: parsing other response types
-        response.body
       end
     end
 
@@ -407,7 +377,7 @@ module ModernTreasury
     # @return [Object]
     #
     private def parse_response(req, response)
-      parsed = parse_body(response)
+      parsed = ModernTreasury::Util.decode_body(response)
       unwrapped = ModernTreasury::Util.dig(parsed, req[:unwrap])
 
       page = req[:page]
