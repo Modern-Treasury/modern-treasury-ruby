@@ -151,7 +151,7 @@ module ModernTreasury
         end
 
       url = ModernTreasury::Util.join_parsed_uri(@base_url, {**req, path: path})
-      encoded = ModernTreasury::Util.encode_body(headers, body)
+      headers, encoded = ModernTreasury::Util.encode_content(headers, body)
       max_retries = opts.fetch(:max_retries, @max_retries)
       timeout = opts.fetch(:timeout, @timeout)
       {method: method, url: url, headers: headers, body: encoded, max_retries: max_retries, timeout: timeout}
@@ -328,7 +328,7 @@ module ModernTreasury
       in ModernTreasury::APIConnectionError if retry_count >= max_retries
         raise status
       in (400..) if retry_count >= max_retries || (response && !should_retry?(status, headers: response))
-        body = ModernTreasury::Util.decode_body(response, suppress_error: true)
+        body = ModernTreasury::Util.decode_content(response, suppress_error: true)
 
         raise ModernTreasury::APIStatusError.for(
           url: url,
@@ -377,7 +377,7 @@ module ModernTreasury
     # @return [Object]
     #
     private def parse_response(req, response)
-      parsed = ModernTreasury::Util.decode_body(response)
+      parsed = ModernTreasury::Util.decode_content(response)
       unwrapped = ModernTreasury::Util.dig(parsed, req[:unwrap])
 
       page = req[:page]
