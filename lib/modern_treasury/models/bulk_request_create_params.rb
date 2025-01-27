@@ -41,8 +41,8 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!parse
-      #   # @param action_type [String]
-      #   # @param resource_type [String]
+      #   # @param action_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ActionType]
+      #   # @param resource_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::ResourceType]
       #   # @param resources [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID>]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
@@ -500,35 +500,35 @@ module ModernTreasury
 
           # @!parse
           #   # @param amount [Integer]
-          #   # @param direction [String]
+          #   # @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction]
           #   # @param originating_account_id [String]
-          #   # @param type [String]
+          #   # @param type [Symbol, ModernTreasury::Models::PaymentOrderType]
           #   # @param accounting [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting]
           #   # @param accounting_category_id [String, nil]
           #   # @param accounting_ledger_class_id [String, nil]
-          #   # @param charge_bearer [String, nil]
-          #   # @param currency [String]
+          #   # @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil]
+          #   # @param currency [Symbol, ModernTreasury::Models::Currency]
           #   # @param description [String, nil]
-          #   # @param effective_date [String]
-          #   # @param expires_at [String, nil]
-          #   # @param fallback_type [String]
+          #   # @param effective_date [Date]
+          #   # @param expires_at [Time, nil]
+          #   # @param fallback_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType]
           #   # @param foreign_exchange_contract [String, nil]
-          #   # @param foreign_exchange_indicator [String, nil]
+          #   # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator, nil]
           #   # @param ledger_transaction [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction]
           #   # @param ledger_transaction_id [String]
           #   # @param line_items [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>]
           #   # @param metadata [Hash{Symbol=>String}]
           #   # @param nsf_protected [Boolean]
           #   # @param originating_party_name [String, nil]
-          #   # @param priority [String]
-          #   # @param process_after [String, nil]
+          #   # @param priority [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority]
+          #   # @param process_after [Time, nil]
           #   # @param purpose [String, nil]
           #   # @param receiving_account [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount]
           #   # @param receiving_account_id [String]
           #   # @param remittance_information [String, nil]
           #   # @param send_remittance_advice [Boolean, nil]
           #   # @param statement_descriptor [String, nil]
-          #   # @param subtype [String, nil]
+          #   # @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
           #   # @param transaction_monitoring_enabled [Boolean]
           #   # @param ultimate_originating_party_identifier [String, nil]
           #   # @param ultimate_originating_party_name [String, nil]
@@ -810,13 +810,13 @@ module ModernTreasury
             #   #
             #   # @param ledger_entries [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry>]
             #   # @param description [String, nil]
-            #   # @param effective_at [String]
-            #   # @param effective_date [String]
+            #   # @param effective_at [Time]
+            #   # @param effective_date [Date]
             #   # @param external_id [String]
             #   # @param ledgerable_id [String]
-            #   # @param ledgerable_type [String]
+            #   # @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType]
             #   # @param metadata [Hash{Symbol=>String}]
-            #   # @param status [String]
+            #   # @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status]
             #   #
             #   def initialize(
             #     ledger_entries:,
@@ -922,7 +922,7 @@ module ModernTreasury
 
               # @!parse
               #   # @param amount [Integer]
-              #   # @param direction [String]
+              #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
               #   # @param ledger_account_id [String]
               #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil]
               #   # @param lock_version [Integer, nil]
@@ -1224,7 +1224,7 @@ module ModernTreasury
             #   #   internal account.
             #   #
             #   # @param account_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>]
-            #   # @param account_type [String]
+            #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
             #   # @param contact_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>]
             #   # @param ledger_account [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount]
             #   # @param metadata [Hash{Symbol=>String}]
@@ -1232,7 +1232,7 @@ module ModernTreasury
             #   # @param party_address [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress]
             #   # @param party_identifier [String]
             #   # @param party_name [String]
-            #   # @param party_type [String, nil]
+            #   # @param party_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType, nil]
             #   # @param plaid_processor_token [String]
             #   # @param routing_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>]
             #   #
@@ -1283,7 +1283,7 @@ module ModernTreasury
 
               # @!parse
               #   # @param account_number [String]
-              #   # @param account_number_type [String]
+              #   # @param account_number_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType]
               #   #
               #   def initialize(account_number:, account_number_type: nil, **) = super
 
@@ -1353,7 +1353,7 @@ module ModernTreasury
 
               # @!parse
               #   # @param contact_identifier [String]
-              #   # @param contact_identifier_type [String]
+              #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType]
               #   #
               #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
@@ -1485,12 +1485,12 @@ module ModernTreasury
               #   # @param currency [String]
               #   # @param ledger_id [String]
               #   # @param name [String]
-              #   # @param normal_balance [String]
+              #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
               #   # @param currency_exponent [Integer, nil]
               #   # @param description [String, nil]
               #   # @param ledger_account_category_ids [Array<String>]
               #   # @param ledgerable_id [String]
-              #   # @param ledgerable_type [String]
+              #   # @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType]
               #   # @param metadata [Hash{Symbol=>String}]
               #   #
               #   def initialize(
@@ -1652,8 +1652,8 @@ module ModernTreasury
 
               # @!parse
               #   # @param routing_number [String]
-              #   # @param routing_number_type [String]
-              #   # @param payment_type [String]
+              #   # @param routing_number_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType]
+              #   # @param payment_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType]
               #   #
               #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
@@ -1928,11 +1928,11 @@ module ModernTreasury
           #   # @param amount_lower_bound [Integer, nil]
           #   # @param amount_upper_bound [Integer, nil]
           #   # @param counterparty_id [String, nil]
-          #   # @param currency [String, nil]
-          #   # @param date_lower_bound [String, nil]
-          #   # @param date_upper_bound [String, nil]
+          #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+          #   # @param date_lower_bound [Date, nil]
+          #   # @param date_upper_bound [Date, nil]
           #   # @param description [String, nil]
-          #   # @param direction [String, nil]
+          #   # @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction, nil]
           #   # @param internal_account_id [String, nil]
           #   # @param ledger_transaction [ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction]
           #   # @param ledger_transaction_id [String]
@@ -1943,7 +1943,7 @@ module ModernTreasury
           #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>]
           #   # @param remittance_information [String, nil]
           #   # @param statement_descriptor [String, nil]
-          #   # @param type [String, nil]
+          #   # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
           #   #
           #   def initialize(
           #     amount_lower_bound: nil,
@@ -2110,13 +2110,13 @@ module ModernTreasury
             #   #
             #   # @param ledger_entries [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry>]
             #   # @param description [String, nil]
-            #   # @param effective_at [String]
-            #   # @param effective_date [String]
+            #   # @param effective_at [Time]
+            #   # @param effective_date [Date]
             #   # @param external_id [String]
             #   # @param ledgerable_id [String]
-            #   # @param ledgerable_type [String]
+            #   # @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType]
             #   # @param metadata [Hash{Symbol=>String}]
-            #   # @param status [String]
+            #   # @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status]
             #   #
             #   def initialize(
             #     ledger_entries:,
@@ -2222,7 +2222,7 @@ module ModernTreasury
 
               # @!parse
               #   # @param amount [Integer]
-              #   # @param direction [String]
+              #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
               #   # @param ledger_account_id [String]
               #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil]
               #   # @param lock_version [Integer, nil]
@@ -2471,13 +2471,13 @@ module ModernTreasury
           # @!parse
           #   # @param ledger_entries [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry>]
           #   # @param description [String, nil]
-          #   # @param effective_at [String]
-          #   # @param effective_date [String]
+          #   # @param effective_at [Time]
+          #   # @param effective_date [Date]
           #   # @param external_id [String]
           #   # @param ledgerable_id [String]
-          #   # @param ledgerable_type [String]
+          #   # @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType]
           #   # @param metadata [Hash{Symbol=>String}]
-          #   # @param status [String]
+          #   # @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status]
           #   #
           #   def initialize(
           #     ledger_entries:,
@@ -2583,7 +2583,7 @@ module ModernTreasury
 
             # @!parse
             #   # @param amount [Integer]
-            #   # @param direction [String]
+            #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
             #   # @param ledger_account_id [String]
             #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil]
             #   # @param lock_version [Integer, nil]
@@ -2759,14 +2759,14 @@ module ModernTreasury
 
           # @!parse
           #   # @param amount [Integer]
-          #   # @param as_of_date [String, nil]
+          #   # @param as_of_date [Date, nil]
           #   # @param direction [String]
           #   # @param internal_account_id [String]
           #   # @param vendor_code [String, nil]
           #   # @param vendor_code_type [String, nil]
           #   # @param metadata [Hash{Symbol=>String}]
           #   # @param posted [Boolean]
-          #   # @param type [String, nil]
+          #   # @param type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil]
           #   # @param vendor_description [String, nil]
           #   #
           #   def initialize(
@@ -3238,32 +3238,32 @@ module ModernTreasury
           #   # @param accounting_category_id [String, nil]
           #   # @param accounting_ledger_class_id [String, nil]
           #   # @param amount [Integer]
-          #   # @param charge_bearer [String, nil]
+          #   # @param charge_bearer [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil]
           #   # @param counterparty_id [String, nil]
-          #   # @param currency [String]
+          #   # @param currency [Symbol, ModernTreasury::Models::Currency]
           #   # @param description [String, nil]
-          #   # @param direction [String]
-          #   # @param effective_date [String]
-          #   # @param expires_at [String, nil]
-          #   # @param fallback_type [String]
+          #   # @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction]
+          #   # @param effective_date [Date]
+          #   # @param expires_at [Time, nil]
+          #   # @param fallback_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType]
           #   # @param foreign_exchange_contract [String, nil]
-          #   # @param foreign_exchange_indicator [String, nil]
+          #   # @param foreign_exchange_indicator [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator, nil]
           #   # @param line_items [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>]
           #   # @param metadata [Hash{Symbol=>String}]
           #   # @param nsf_protected [Boolean]
           #   # @param originating_account_id [String]
           #   # @param originating_party_name [String, nil]
-          #   # @param priority [String]
-          #   # @param process_after [String, nil]
+          #   # @param priority [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority]
+          #   # @param process_after [Time, nil]
           #   # @param purpose [String, nil]
           #   # @param receiving_account [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount]
           #   # @param receiving_account_id [String]
           #   # @param remittance_information [String, nil]
           #   # @param send_remittance_advice [Boolean, nil]
           #   # @param statement_descriptor [String, nil]
-          #   # @param status [String]
-          #   # @param subtype [String, nil]
-          #   # @param type [String]
+          #   # @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status]
+          #   # @param subtype [Symbol, ModernTreasury::Models::PaymentOrderSubtype, nil]
+          #   # @param type [Symbol, ModernTreasury::Models::PaymentOrderType]
           #   # @param ultimate_originating_party_identifier [String, nil]
           #   # @param ultimate_originating_party_name [String, nil]
           #   # @param ultimate_receiving_party_identifier [String, nil]
@@ -3645,7 +3645,7 @@ module ModernTreasury
             #   #   internal account.
             #   #
             #   # @param account_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>]
-            #   # @param account_type [String]
+            #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
             #   # @param contact_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>]
             #   # @param ledger_account [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount]
             #   # @param metadata [Hash{Symbol=>String}]
@@ -3653,7 +3653,7 @@ module ModernTreasury
             #   # @param party_address [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress]
             #   # @param party_identifier [String]
             #   # @param party_name [String]
-            #   # @param party_type [String, nil]
+            #   # @param party_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType, nil]
             #   # @param plaid_processor_token [String]
             #   # @param routing_details [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>]
             #   #
@@ -3704,7 +3704,7 @@ module ModernTreasury
 
               # @!parse
               #   # @param account_number [String]
-              #   # @param account_number_type [String]
+              #   # @param account_number_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType]
               #   #
               #   def initialize(account_number:, account_number_type: nil, **) = super
 
@@ -3774,7 +3774,7 @@ module ModernTreasury
 
               # @!parse
               #   # @param contact_identifier [String]
-              #   # @param contact_identifier_type [String]
+              #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType]
               #   #
               #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
@@ -3906,12 +3906,12 @@ module ModernTreasury
               #   # @param currency [String]
               #   # @param ledger_id [String]
               #   # @param name [String]
-              #   # @param normal_balance [String]
+              #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
               #   # @param currency_exponent [Integer, nil]
               #   # @param description [String, nil]
               #   # @param ledger_account_category_ids [Array<String>]
               #   # @param ledgerable_id [String]
-              #   # @param ledgerable_type [String]
+              #   # @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType]
               #   # @param metadata [Hash{Symbol=>String}]
               #   #
               #   def initialize(
@@ -4073,8 +4073,8 @@ module ModernTreasury
 
               # @!parse
               #   # @param routing_number [String]
-              #   # @param routing_number_type [String]
-              #   # @param payment_type [String]
+              #   # @param routing_number_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType]
+              #   # @param payment_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType]
               #   #
               #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
@@ -4368,11 +4368,11 @@ module ModernTreasury
           #   # @param amount_lower_bound [Integer, nil]
           #   # @param amount_upper_bound [Integer, nil]
           #   # @param counterparty_id [String, nil]
-          #   # @param currency [String, nil]
-          #   # @param date_lower_bound [String, nil]
-          #   # @param date_upper_bound [String, nil]
+          #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+          #   # @param date_lower_bound [Date, nil]
+          #   # @param date_upper_bound [Date, nil]
           #   # @param description [String, nil]
-          #   # @param direction [String, nil]
+          #   # @param direction [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction, nil]
           #   # @param internal_account_id [String, nil]
           #   # @param metadata [Hash{Symbol=>String}]
           #   # @param reconciliation_filters [Object, nil]
@@ -4380,8 +4380,8 @@ module ModernTreasury
           #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>]
           #   # @param remittance_information [String, nil]
           #   # @param statement_descriptor [String, nil]
-          #   # @param status [String, nil]
-          #   # @param type [String, nil]
+          #   # @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status, nil]
+          #   # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
           #   #
           #   def initialize(
           #     id: nil,
@@ -4587,12 +4587,12 @@ module ModernTreasury
           # @!parse
           #   # @param id [String]
           #   # @param description [String, nil]
-          #   # @param effective_at [String]
+          #   # @param effective_at [Time]
           #   # @param ledger_entries [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>]
           #   # @param ledgerable_id [String]
-          #   # @param ledgerable_type [String]
+          #   # @param ledgerable_type [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType]
           #   # @param metadata [Hash{Symbol=>String}]
-          #   # @param status [String]
+          #   # @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status]
           #   #
           #   def initialize(
           #     id: nil,
@@ -4697,7 +4697,7 @@ module ModernTreasury
 
             # @!parse
             #   # @param amount [Integer]
-            #   # @param direction [String]
+            #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
             #   # @param ledger_account_id [String]
             #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil]
             #   # @param lock_version [Integer, nil]

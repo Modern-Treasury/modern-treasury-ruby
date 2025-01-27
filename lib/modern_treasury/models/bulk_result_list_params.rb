@@ -77,11 +77,11 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   # @param entity_id [String]
-      #   # @param entity_type [String]
+      #   # @param entity_type [Symbol, ModernTreasury::Models::BulkResultListParams::EntityType]
       #   # @param per_page [Integer]
       #   # @param request_id [String]
-      #   # @param request_type [String]
-      #   # @param status [String]
+      #   # @param request_type [Symbol, ModernTreasury::Models::BulkResultListParams::RequestType]
+      #   # @param status [Symbol, ModernTreasury::Models::BulkResultListParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

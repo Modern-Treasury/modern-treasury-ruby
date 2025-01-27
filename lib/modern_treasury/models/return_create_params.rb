@@ -49,10 +49,10 @@ module ModernTreasury
 
       # @!parse
       #   # @param returnable_id [String, nil]
-      #   # @param returnable_type [String]
+      #   # @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
       #   # @param additional_information [String, nil]
-      #   # @param code [String, nil]
-      #   # @param date_of_death [String, nil]
+      #   # @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
+      #   # @param date_of_death [Date, nil]
       #   # @param reason [String, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #

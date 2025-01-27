@@ -83,12 +83,12 @@ module ModernTreasury
 
       # @!parse
       #   # @param description [String]
-      #   # @param effective_at [String, nil]
+      #   # @param effective_at [Time, nil]
       #   # @param external_id [String]
       #   # @param ledgerable_id [String]
-      #   # @param ledgerable_type [String]
+      #   # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType]
       #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param status [String]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

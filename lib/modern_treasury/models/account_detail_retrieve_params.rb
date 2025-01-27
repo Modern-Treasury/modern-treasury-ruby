@@ -18,7 +18,7 @@ module ModernTreasury
       required :account_id, String
 
       # @!parse
-      #   # @param accounts_type [String]
+      #   # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
       #   # @param account_id [String]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #

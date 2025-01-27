@@ -80,16 +80,16 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param ledger_transaction_id [String, nil]
         #   # @param live_mode [Boolean]
         #   # @param metadata [Hash{Symbol=>String}]
         #   # @param object [String]
         #   # @param payment_order_id [String, nil]
-        #   # @param reason [String]
-        #   # @param status [String]
+        #   # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason]
+        #   # @param status [Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status]
         #   # @param transaction_ids [Array<Object>, nil]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,

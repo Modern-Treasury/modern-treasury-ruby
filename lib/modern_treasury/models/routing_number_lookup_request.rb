@@ -87,9 +87,9 @@ module ModernTreasury
       #   # @param bank_address [ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress]
       #   # @param bank_name [String]
       #   # @param routing_number [String]
-      #   # @param routing_number_type [String]
+      #   # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType]
       #   # @param sanctions [Hash{Symbol=>Object}]
-      #   # @param supported_payment_types [Array<String>]
+      #   # @param supported_payment_types [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
       #   #
       #   def initialize(
       #     bank_address: nil,

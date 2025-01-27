@@ -46,7 +46,7 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   # @param documentable_id [String]
-      #   # @param documentable_type [String]
+      #   # @param documentable_type [Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType]
       #   # @param per_page [Integer]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #

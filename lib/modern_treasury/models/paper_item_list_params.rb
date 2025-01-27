@@ -54,8 +54,8 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   # @param deposit_date_end [String]
-      #   # @param deposit_date_start [String]
+      #   # @param deposit_date_end [Date]
+      #   # @param deposit_date_start [Date]
       #   # @param lockbox_number [String]
       #   # @param per_page [Integer]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

@@ -31,9 +31,9 @@ module ModernTreasury
       #   attr_writer :account_number_type
 
       # @!parse
-      #   # @param accounts_type [String]
+      #   # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
       #   # @param account_number [String]
-      #   # @param account_number_type [String]
+      #   # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(accounts_type:, account_number:, account_number_type: nil, request_options: {}, **) = super

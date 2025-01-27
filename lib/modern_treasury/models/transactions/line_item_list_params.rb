@@ -54,7 +54,7 @@ module ModernTreasury
         #   # @param after_cursor [String, nil]
         #   # @param per_page [Integer]
         #   # @param transaction_id [String]
-        #   # @param type [String, nil]
+        #   # @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
         #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
         #   def initialize(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {}, **) = super

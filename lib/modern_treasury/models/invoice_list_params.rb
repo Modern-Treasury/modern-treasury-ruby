@@ -111,15 +111,15 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   # @param counterparty_id [String]
-      #   # @param due_date_end [String]
-      #   # @param due_date_start [String]
+      #   # @param due_date_end [Date]
+      #   # @param due_date_start [Date]
       #   # @param expected_payment_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param number [String]
       #   # @param originating_account_id [String]
       #   # @param payment_order_id [String]
       #   # @param per_page [Integer]
-      #   # @param status [String]
+      #   # @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

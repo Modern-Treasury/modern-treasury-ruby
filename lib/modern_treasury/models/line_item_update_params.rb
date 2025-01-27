@@ -29,7 +29,7 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!parse
-      #   # @param itemizable_type [String]
+      #   # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType]
       #   # @param itemizable_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

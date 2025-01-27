@@ -79,15 +79,15 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   # @param as_of_date [String]
+        #   # @param as_of_date [Date]
         #   # @param as_of_time [String, nil]
-        #   # @param balance_report_type [String]
+        #   # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType]
         #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param internal_account_id [String]
         #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,
@@ -229,15 +229,15 @@ module ModernTreasury
           # @!parse
           #   # @param id [String]
           #   # @param amount [Integer]
-          #   # @param as_of_date [String, nil]
+          #   # @param as_of_date [Date, nil]
           #   # @param as_of_time [String, nil]
-          #   # @param balance_type [String]
-          #   # @param created_at [String]
-          #   # @param currency [String]
+          #   # @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType]
+          #   # @param created_at [Time]
+          #   # @param currency [Symbol, ModernTreasury::Models::Currency]
           #   # @param live_mode [Boolean]
           #   # @param object [String]
-          #   # @param updated_at [String]
-          #   # @param value_date [String, nil]
+          #   # @param updated_at [Time]
+          #   # @param value_date [Date, nil]
           #   # @param vendor_code [String]
           #   # @param vendor_code_type [String, nil]
           #   #

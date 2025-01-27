@@ -69,7 +69,7 @@ module ModernTreasury
       #   # @param currency [String]
       #   # @param ledger_id [String]
       #   # @param name [String]
-      #   # @param normal_balance [String]
+      #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
       #   # @param currency_exponent [Integer, nil]
       #   # @param description [String, nil]
       #   # @param ledger_account_category_ids [Array<String>]

@@ -75,10 +75,10 @@ module ModernTreasury
       #   # @param settled_ledger_account_id [String]
       #   # @param allow_either_direction [Boolean, nil]
       #   # @param description [String, nil]
-      #   # @param effective_at_upper_bound [String, nil]
+      #   # @param effective_at_upper_bound [Time, nil]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param skip_settlement_ledger_transaction [Boolean, nil]
-      #   # @param status [String, nil]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

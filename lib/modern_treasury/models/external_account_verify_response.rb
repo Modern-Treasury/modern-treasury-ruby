@@ -99,15 +99,15 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param external_account_id [String]
         #   # @param live_mode [Boolean]
         #   # @param object [String]
         #   # @param originating_account_id [String]
-        #   # @param payment_type [String]
-        #   # @param priority [String, nil]
-        #   # @param status [String]
-        #   # @param updated_at [String]
+        #   # @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType]
+        #   # @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority, nil]
+        #   # @param status [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,

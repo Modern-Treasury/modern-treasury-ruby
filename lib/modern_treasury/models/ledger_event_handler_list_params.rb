@@ -56,7 +56,7 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   # @param created_at [Hash{Symbol=>String}]
+      #   # @param created_at [Hash{Symbol=>Time}]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param name [String]
       #   # @param per_page [Integer]

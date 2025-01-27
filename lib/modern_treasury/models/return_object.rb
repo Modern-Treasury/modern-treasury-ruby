@@ -160,11 +160,11 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param amount [Integer]
-      #   # @param code [String, nil]
-      #   # @param created_at [String]
-      #   # @param currency [String]
-      #   # @param current_return [Object, nil]
-      #   # @param date_of_death [String, nil]
+      #   # @param code [Symbol, ModernTreasury::Models::ReturnObject::Code, nil]
+      #   # @param created_at [Time]
+      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   # @param current_return [ModernTreasury::Models::ReturnObject, nil]
+      #   # @param date_of_death [Date, nil]
       #   # @param failure_reason [String, nil]
       #   # @param internal_account_id [String, nil]
       #   # @param ledger_transaction_id [String, nil]
@@ -173,13 +173,13 @@ module ModernTreasury
       #   # @param reason [String, nil]
       #   # @param reference_numbers [Array<ModernTreasury::Models::ReturnObject::ReferenceNumber>]
       #   # @param returnable_id [String, nil]
-      #   # @param returnable_type [String, nil]
-      #   # @param role [String]
-      #   # @param status [String]
+      #   # @param returnable_type [Symbol, ModernTreasury::Models::ReturnObject::ReturnableType, nil]
+      #   # @param role [Symbol, ModernTreasury::Models::ReturnObject::Role]
+      #   # @param status [Symbol, ModernTreasury::Models::ReturnObject::Status]
       #   # @param transaction_id [String, nil]
       #   # @param transaction_line_item_id [String, nil]
-      #   # @param type [String]
-      #   # @param updated_at [String]
+      #   # @param type [Symbol, ModernTreasury::Models::ReturnObject::Type]
+      #   # @param updated_at [Time]
       #   # @param additional_information [String, nil]
       #   #
       #   def initialize(
@@ -344,12 +344,12 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param live_mode [Boolean]
         #   # @param object [String]
         #   # @param reference_number [String]
-        #   # @param reference_number_type [String]
-        #   # @param updated_at [String]
+        #   # @param reference_number_type [Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:, **) = super
 

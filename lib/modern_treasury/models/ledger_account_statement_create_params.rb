@@ -46,8 +46,8 @@ module ModernTreasury
       #   attr_writer :metadata
 
       # @!parse
-      #   # @param effective_at_lower_bound [String]
-      #   # @param effective_at_upper_bound [String]
+      #   # @param effective_at_lower_bound [Time]
+      #   # @param effective_at_upper_bound [Time]
       #   # @param ledger_account_id [String]
       #   # @param description [String, nil]
       #   # @param metadata [Hash{Symbol=>String}]

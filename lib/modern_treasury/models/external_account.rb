@@ -127,11 +127,11 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
-      #   # @param account_type [String]
+      #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
       #   # @param contact_details [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
       #   # @param counterparty_id [String, nil]
-      #   # @param created_at [String]
-      #   # @param discarded_at [String, nil]
+      #   # @param created_at [Time]
+      #   # @param discarded_at [Time, nil]
       #   # @param ledger_account_id [String, nil]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}]
@@ -139,11 +139,11 @@ module ModernTreasury
       #   # @param object [String]
       #   # @param party_address [ModernTreasury::Models::ExternalAccount::PartyAddress, nil]
       #   # @param party_name [String]
-      #   # @param party_type [String, nil]
+      #   # @param party_type [Symbol, ModernTreasury::Models::ExternalAccount::PartyType, nil]
       #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
-      #   # @param updated_at [String]
-      #   # @param verification_source [String, nil]
-      #   # @param verification_status [String]
+      #   # @param updated_at [Time]
+      #   # @param verification_source [Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource, nil]
+      #   # @param verification_status [Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus]
       #   #
       #   def initialize(
       #     id:,
@@ -230,12 +230,12 @@ module ModernTreasury
         # @!parse
         #   # @param id [String]
         #   # @param contact_identifier [String]
-        #   # @param contact_identifier_type [String]
-        #   # @param created_at [String]
-        #   # @param discarded_at [String, nil]
+        #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType]
+        #   # @param created_at [Time]
+        #   # @param discarded_at [Time, nil]
         #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,
@@ -351,7 +351,7 @@ module ModernTreasury
         #   #
         #   # @param id [String]
         #   # @param country [String, nil]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param line1 [String, nil]
         #   # @param line2 [String, nil]
         #   # @param live_mode [Boolean]
@@ -359,7 +359,7 @@ module ModernTreasury
         #   # @param object [String]
         #   # @param postal_code [String, nil]
         #   # @param region [String, nil]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,

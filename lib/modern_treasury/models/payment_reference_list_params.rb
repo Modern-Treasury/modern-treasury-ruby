@@ -59,7 +59,7 @@ module ModernTreasury
       #   # @param per_page [Integer]
       #   # @param reference_number [String]
       #   # @param referenceable_id [String]
-      #   # @param referenceable_type [String]
+      #   # @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
