@@ -22,6 +22,8 @@ module ModernTreasury
   # items => Array
   # ```
   class Page < ::Array
+    include ModernTreasury::BasePage
+
     # @return [Integer]
     attr_accessor :per_page
 
@@ -36,6 +38,9 @@ module ModernTreasury
     # @param unwrapped [Hash{Symbol=>Object}]
     #
     def initialize(client:, req:, headers:, unwrapped:)
+      @client = client
+      @req = req
+
       model = req.fetch(:model)
 
       case unwrapped
