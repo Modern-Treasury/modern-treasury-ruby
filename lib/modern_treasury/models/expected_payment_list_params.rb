@@ -107,14 +107,14 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   # @param counterparty_id [String]
-      #   # @param created_at_lower_bound [String]
-      #   # @param created_at_upper_bound [String]
-      #   # @param direction [String]
+      #   # @param created_at_lower_bound [Time]
+      #   # @param created_at_upper_bound [Time]
+      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
       #   # @param internal_account_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
-      #   # @param status [String]
-      #   # @param type [String]
+      #   # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status]
+      #   # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

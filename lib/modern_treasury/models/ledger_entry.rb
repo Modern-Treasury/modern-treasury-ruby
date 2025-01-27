@@ -126,9 +126,9 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param amount [Integer]
-      #   # @param created_at [String]
-      #   # @param direction [String]
-      #   # @param discarded_at [String, nil]
+      #   # @param created_at [Time]
+      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   # @param discarded_at [Time, nil]
       #   # @param ledger_account_currency [String]
       #   # @param ledger_account_currency_exponent [Integer]
       #   # @param ledger_account_id [String]
@@ -138,8 +138,8 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
       #   # @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, nil]
-      #   # @param status [String]
-      #   # @param updated_at [String]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerEntry::Status]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

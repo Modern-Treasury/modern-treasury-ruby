@@ -162,11 +162,11 @@ module ModernTreasury
       #   # @param amount_lower_bound [Integer, nil]
       #   # @param amount_upper_bound [Integer, nil]
       #   # @param counterparty_id [String, nil]
-      #   # @param currency [String, nil]
-      #   # @param date_lower_bound [String, nil]
-      #   # @param date_upper_bound [String, nil]
+      #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+      #   # @param date_lower_bound [Date, nil]
+      #   # @param date_upper_bound [Date, nil]
       #   # @param description [String, nil]
-      #   # @param direction [String, nil]
+      #   # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil]
       #   # @param internal_account_id [String, nil]
       #   # @param ledger_transaction [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction]
       #   # @param ledger_transaction_id [String]
@@ -177,7 +177,7 @@ module ModernTreasury
       #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>]
       #   # @param remittance_information [String, nil]
       #   # @param statement_descriptor [String, nil]
-      #   # @param type [String, nil]
+      #   # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
@@ -344,13 +344,13 @@ module ModernTreasury
         #   #
         #   # @param ledger_entries [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>]
         #   # @param description [String, nil]
-        #   # @param effective_at [String]
-        #   # @param effective_date [String]
+        #   # @param effective_at [Time]
+        #   # @param effective_date [Date]
         #   # @param external_id [String]
         #   # @param ledgerable_id [String]
-        #   # @param ledgerable_type [String]
+        #   # @param ledgerable_type [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType]
         #   # @param metadata [Hash{Symbol=>String}]
-        #   # @param status [String]
+        #   # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status]
         #   #
         #   def initialize(
         #     ledger_entries:,
@@ -456,7 +456,7 @@ module ModernTreasury
 
           # @!parse
           #   # @param amount [Integer]
-          #   # @param direction [String]
+          #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
           #   # @param ledger_account_id [String]
           #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil]
           #   # @param lock_version [Integer, nil]

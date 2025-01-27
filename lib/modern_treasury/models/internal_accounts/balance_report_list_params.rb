@@ -48,8 +48,8 @@ module ModernTreasury
 
         # @!parse
         #   # @param after_cursor [String, nil]
-        #   # @param as_of_date [String]
-        #   # @param balance_report_type [String]
+        #   # @param as_of_date [Date]
+        #   # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]
         #   # @param per_page [Integer]
         #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #

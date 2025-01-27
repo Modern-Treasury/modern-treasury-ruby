@@ -152,24 +152,24 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param description [String, nil]
-        #   # @param effective_at [String]
-        #   # @param effective_date [String]
+        #   # @param effective_at [Time]
+        #   # @param effective_date [Date]
         #   # @param external_id [String, nil]
         #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry>]
         #   # @param ledger_id [String]
         #   # @param ledger_transaction_id [String]
         #   # @param ledgerable_id [String, nil]
-        #   # @param ledgerable_type [String, nil]
+        #   # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType, nil]
         #   # @param live_mode [Boolean]
         #   # @param metadata [Hash{Symbol=>String}]
         #   # @param object [String]
         #   # @param partially_posts_ledger_transaction_id [String, nil]
-        #   # @param posted_at [String, nil]
+        #   # @param posted_at [Time, nil]
         #   # @param reversed_by_ledger_transaction_id [String, nil]
         #   # @param reverses_ledger_transaction_id [String, nil]
-        #   # @param status [String]
+        #   # @param status [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status]
         #   # @param version [Integer]
         #   #
         #   def initialize(
@@ -319,8 +319,8 @@ module ModernTreasury
           # @!parse
           #   # @param id [String]
           #   # @param amount [Integer]
-          #   # @param created_at [String]
-          #   # @param direction [String]
+          #   # @param created_at [Time]
+          #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
           #   # @param ledger_account_currency [String]
           #   # @param ledger_account_currency_exponent [Integer]
           #   # @param ledger_account_id [String]
@@ -330,7 +330,7 @@ module ModernTreasury
           #   # @param metadata [Hash{Symbol=>String}]
           #   # @param object [String]
           #   # @param resulting_ledger_account_balances [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances, nil]
-          #   # @param status [String]
+          #   # @param status [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status]
           #   #
           #   def initialize(
           #     id:,

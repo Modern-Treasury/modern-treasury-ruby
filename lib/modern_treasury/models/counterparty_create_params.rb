@@ -113,13 +113,13 @@ module ModernTreasury
       #   # @param accounting [ModernTreasury::Models::CounterpartyCreateParams::Accounting]
       #   # @param accounts [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>]
       #   # @param email [String, nil]
-      #   # @param ledger_type [String]
+      #   # @param ledger_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType]
       #   # @param legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity]
       #   # @param legal_entity_id [String, nil]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param send_remittance_advice [Boolean]
       #   # @param taxpayer_identifier [String]
-      #   # @param verification_status [String]
+      #   # @param verification_status [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
@@ -161,7 +161,7 @@ module ModernTreasury
         #   attr_writer :type
 
         # @!parse
-        #   # @param type [String]
+        #   # @param type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type]
         #   #
         #   def initialize(type: nil, **) = super
 
@@ -333,7 +333,7 @@ module ModernTreasury
 
         # @!parse
         #   # @param account_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>]
-        #   # @param account_type [String]
+        #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
         #   # @param contact_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>]
         #   # @param ledger_account [ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount]
         #   # @param metadata [Hash{Symbol=>String}]
@@ -341,7 +341,7 @@ module ModernTreasury
         #   # @param party_address [ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress]
         #   # @param party_identifier [String]
         #   # @param party_name [String]
-        #   # @param party_type [String, nil]
+        #   # @param party_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType, nil]
         #   # @param plaid_processor_token [String]
         #   # @param routing_details [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>]
         #   #
@@ -392,7 +392,7 @@ module ModernTreasury
 
           # @!parse
           #   # @param account_number [String]
-          #   # @param account_number_type [String]
+          #   # @param account_number_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType]
           #   #
           #   def initialize(account_number:, account_number_type: nil, **) = super
 
@@ -462,7 +462,7 @@ module ModernTreasury
 
           # @!parse
           #   # @param contact_identifier [String]
-          #   # @param contact_identifier_type [String]
+          #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType]
           #   #
           #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
@@ -594,12 +594,12 @@ module ModernTreasury
           #   # @param currency [String]
           #   # @param ledger_id [String]
           #   # @param name [String]
-          #   # @param normal_balance [String]
+          #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
           #   # @param currency_exponent [Integer, nil]
           #   # @param description [String, nil]
           #   # @param ledger_account_category_ids [Array<String>]
           #   # @param ledgerable_id [String]
-          #   # @param ledgerable_type [String]
+          #   # @param ledgerable_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType]
           #   # @param metadata [Hash{Symbol=>String}]
           #   #
           #   def initialize(
@@ -761,8 +761,8 @@ module ModernTreasury
 
           # @!parse
           #   # @param routing_number [String]
-          #   # @param routing_number_type [String]
-          #   # @param payment_type [String]
+          #   # @param routing_number_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType]
+          #   # @param payment_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType]
           #   #
           #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
@@ -1080,27 +1080,27 @@ module ModernTreasury
         optional :website, String, nil?: true
 
         # @!parse
-        #   # @param legal_entity_type [String]
+        #   # @param legal_entity_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType]
         #   # @param addresses [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>]
         #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
         #   # @param business_name [String, nil]
         #   # @param citizenship_country [String, nil]
-        #   # @param date_formed [String, nil]
-        #   # @param date_of_birth [String, nil]
+        #   # @param date_formed [Date, nil]
+        #   # @param date_of_birth [Date, nil]
         #   # @param doing_business_as_names [Array<String>]
         #   # @param email [String, nil]
         #   # @param first_name [String, nil]
         #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
         #   # @param last_name [String, nil]
         #   # @param legal_entity_associations [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>]
-        #   # @param legal_structure [String, nil]
+        #   # @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure, nil]
         #   # @param metadata [Hash{Symbol=>String}]
         #   # @param middle_name [String, nil]
         #   # @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>]
         #   # @param politically_exposed_person [Boolean, nil]
         #   # @param preferred_name [String, nil]
         #   # @param prefix [String, nil]
-        #   # @param risk_rating [String, nil]
+        #   # @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating, nil]
         #   # @param suffix [String, nil]
         #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
         #   # @param website [String, nil]
@@ -1220,7 +1220,7 @@ module ModernTreasury
           #   # @param locality [String, nil]
           #   # @param postal_code [String, nil]
           #   # @param region [String, nil]
-          #   # @param address_types [Array<String>]
+          #   # @param address_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType>]
           #   # @param line2 [String, nil]
           #   #
           #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
@@ -1286,7 +1286,7 @@ module ModernTreasury
 
           # @!parse
           #   # @param id_number [String]
-          #   # @param id_type [String]
+          #   # @param id_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType]
           #   # @param issuing_country [String, nil]
           #   #
           #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super
@@ -1392,7 +1392,7 @@ module ModernTreasury
           optional :title, String, nil?: true
 
           # @!parse
-          #   # @param relationship_types [Array<String>]
+          #   # @param relationship_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType>]
           #   # @param child_legal_entity [ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity]
           #   # @param child_legal_entity_id [String]
           #   # @param ownership_percentage [Integer, nil]
@@ -1629,22 +1629,22 @@ module ModernTreasury
             #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
             #   # @param business_name [String, nil]
             #   # @param citizenship_country [String, nil]
-            #   # @param date_formed [String, nil]
-            #   # @param date_of_birth [String, nil]
+            #   # @param date_formed [Date, nil]
+            #   # @param date_of_birth [Date, nil]
             #   # @param doing_business_as_names [Array<String>]
             #   # @param email [String, nil]
             #   # @param first_name [String, nil]
             #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>]
             #   # @param last_name [String, nil]
-            #   # @param legal_entity_type [String]
-            #   # @param legal_structure [String, nil]
+            #   # @param legal_entity_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
+            #   # @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil]
             #   # @param metadata [Hash{Symbol=>String}]
             #   # @param middle_name [String, nil]
             #   # @param phone_numbers [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
             #   # @param politically_exposed_person [Boolean, nil]
             #   # @param preferred_name [String, nil]
             #   # @param prefix [String, nil]
-            #   # @param risk_rating [String, nil]
+            #   # @param risk_rating [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating, nil]
             #   # @param suffix [String, nil]
             #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
             #   # @param website [String, nil]
@@ -1745,7 +1745,7 @@ module ModernTreasury
               #   # @param locality [String, nil]
               #   # @param postal_code [String, nil]
               #   # @param region [String, nil]
-              #   # @param address_types [Array<String>]
+              #   # @param address_types [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
               #   # @param line2 [String, nil]
               #   #
               #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
@@ -1811,7 +1811,7 @@ module ModernTreasury
 
               # @!parse
               #   # @param id_number [String]
-              #   # @param id_type [String]
+              #   # @param id_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
               #   # @param issuing_country [String, nil]
               #   #
               #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super

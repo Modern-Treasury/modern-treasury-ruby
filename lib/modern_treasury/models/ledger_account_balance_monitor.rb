@@ -82,15 +82,15 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param alert_condition [ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param current_ledger_account_balance_state [ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState]
       #   # @param description [String, nil]
-      #   # @param discarded_at [String, nil]
+      #   # @param discarded_at [Time, nil]
       #   # @param ledger_account_id [String]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

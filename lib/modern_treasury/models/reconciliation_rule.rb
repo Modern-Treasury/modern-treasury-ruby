@@ -85,14 +85,14 @@ module ModernTreasury
       # @!parse
       #   # @param amount_lower_bound [Integer]
       #   # @param amount_upper_bound [Integer]
-      #   # @param direction [String]
+      #   # @param direction [Symbol, ModernTreasury::Models::ReconciliationRule::Direction]
       #   # @param internal_account_id [String]
       #   # @param counterparty_id [String, nil]
-      #   # @param currency [String]
+      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
       #   # @param custom_identifiers [Hash{Symbol=>String}, nil]
-      #   # @param date_lower_bound [String, nil]
-      #   # @param date_upper_bound [String, nil]
-      #   # @param type [String, nil]
+      #   # @param date_lower_bound [Date, nil]
+      #   # @param date_upper_bound [Date, nil]
+      #   # @param type [Symbol, ModernTreasury::Models::ReconciliationRule::Type, nil]
       #   #
       #   def initialize(
       #     amount_lower_bound:,

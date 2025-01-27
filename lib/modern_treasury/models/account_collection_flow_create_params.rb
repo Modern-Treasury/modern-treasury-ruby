@@ -33,7 +33,7 @@ module ModernTreasury
       # @!parse
       #   # @param counterparty_id [String]
       #   # @param payment_types [Array<String>]
-      #   # @param receiving_countries [Array<String>]
+      #   # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}, **) = super

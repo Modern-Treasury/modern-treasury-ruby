@@ -41,7 +41,7 @@ module ModernTreasury
         #   attr_writer :metadata
 
         # @!parse
-        #   # @param reason [String]
+        #   # @param reason [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason]
         #   # @param ledger_transaction [ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction]
         #   # @param metadata [Hash{Symbol=>String}]
         #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
@@ -197,13 +197,13 @@ module ModernTreasury
           #   #
           #   # @param ledger_entries [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>]
           #   # @param description [String, nil]
-          #   # @param effective_at [String]
-          #   # @param effective_date [String]
+          #   # @param effective_at [Time]
+          #   # @param effective_date [Date]
           #   # @param external_id [String]
           #   # @param ledgerable_id [String]
-          #   # @param ledgerable_type [String]
+          #   # @param ledgerable_type [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType]
           #   # @param metadata [Hash{Symbol=>String}]
-          #   # @param status [String]
+          #   # @param status [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status]
           #   #
           #   def initialize(
           #     ledger_entries:,
@@ -309,7 +309,7 @@ module ModernTreasury
 
             # @!parse
             #   # @param amount [Integer]
-            #   # @param direction [String]
+            #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
             #   # @param ledger_account_id [String]
             #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil]
             #   # @param lock_version [Integer, nil]

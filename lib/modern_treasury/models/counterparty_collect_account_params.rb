@@ -58,9 +58,9 @@ module ModernTreasury
       #   attr_writer :send_email
 
       # @!parse
-      #   # @param direction [String]
+      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
       #   # @param custom_redirect [String]
-      #   # @param fields [Array<String>]
+      #   # @param fields [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
       #   # @param send_email [Boolean]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #

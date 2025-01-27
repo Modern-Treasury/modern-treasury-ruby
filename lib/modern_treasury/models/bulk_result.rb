@@ -93,17 +93,17 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param entity [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
       #   # @param entity_id [String]
-      #   # @param entity_type [String]
+      #   # @param entity_type [Symbol, ModernTreasury::Models::BulkResult::EntityType]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
       #   # @param request_id [String]
       #   # @param request_params [Hash{Symbol=>String}, nil]
-      #   # @param request_type [String]
-      #   # @param status [String]
-      #   # @param updated_at [String]
+      #   # @param request_type [Symbol, ModernTreasury::Models::BulkResult::RequestType]
+      #   # @param status [Symbol, ModernTreasury::Models::BulkResult::Status]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,
@@ -203,11 +203,11 @@ module ModernTreasury
 
           # @!parse
           #   # @param id [String]
-          #   # @param created_at [String]
+          #   # @param created_at [Time]
           #   # @param live_mode [Boolean]
           #   # @param object [String]
           #   # @param request_errors [Array<ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError>]
-          #   # @param updated_at [String]
+          #   # @param updated_at [Time]
           #   #
           #   def initialize(id:, created_at:, live_mode:, object:, request_errors:, updated_at:, **) = super
 

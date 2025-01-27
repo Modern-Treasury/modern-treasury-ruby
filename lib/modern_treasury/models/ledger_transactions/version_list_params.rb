@@ -69,7 +69,7 @@ module ModernTreasury
 
         # @!parse
         #   # @param after_cursor [String, nil]
-        #   # @param created_at [Hash{Symbol=>String}]
+        #   # @param created_at [Hash{Symbol=>Time}]
         #   # @param ledger_account_statement_id [String]
         #   # @param ledger_transaction_id [String]
         #   # @param per_page [Integer]

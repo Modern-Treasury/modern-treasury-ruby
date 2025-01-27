@@ -118,16 +118,16 @@ module ModernTreasury
 
       # @!parse
       #   # @param counterparty_id [String]
-      #   # @param payment_types [Array<String>]
+      #   # @param payment_types [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       #   # @param id [String]
       #   # @param client_token [String]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param external_account_id [String, nil]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   # @param receiving_countries [Array<String>]
-      #   # @param status [String]
-      #   # @param updated_at [String]
+      #   # @param receiving_countries [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
+      #   # @param status [Symbol, ModernTreasury::Models::AccountCollectionFlow::Status]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     counterparty_id:,

@@ -56,9 +56,9 @@ module ModernTreasury
       #   # @param amount [Integer]
       #   # @param counterparty_id [String]
       #   # @param currency [String]
-      #   # @param direction [String]
+      #   # @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
       #   # @param originating_account_id [String]
-      #   # @param due_date [String]
+      #   # @param due_date [Date]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

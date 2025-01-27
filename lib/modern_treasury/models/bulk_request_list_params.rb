@@ -64,12 +64,12 @@ module ModernTreasury
       #   attr_writer :status
 
       # @!parse
-      #   # @param action_type [String]
+      #   # @param action_type [Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType]
       #   # @param after_cursor [String, nil]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
-      #   # @param resource_type [String]
-      #   # @param status [String]
+      #   # @param resource_type [Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType]
+      #   # @param status [Symbol, ModernTreasury::Models::BulkRequestListParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

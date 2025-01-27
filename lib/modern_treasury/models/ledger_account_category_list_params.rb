@@ -157,7 +157,7 @@ module ModernTreasury
         #   #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
         #   #   The balances as of a time are inclusive of entries with that exact time.
         #   #
-        #   # @param effective_at [String]
+        #   # @param effective_at [Time]
         #   #
         #   def initialize(effective_at: nil, **) = super
 

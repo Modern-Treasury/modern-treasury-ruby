@@ -55,10 +55,10 @@ module ModernTreasury
 
       # @!parse
       #   # @param originating_account_id [String]
-      #   # @param payment_type [String]
-      #   # @param currency [String]
-      #   # @param fallback_type [String]
-      #   # @param priority [String]
+      #   # @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType]
+      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
+      #   # @param fallback_type [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType]
+      #   # @param priority [Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

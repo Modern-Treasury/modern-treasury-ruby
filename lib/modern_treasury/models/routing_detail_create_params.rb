@@ -37,10 +37,10 @@ module ModernTreasury
                nil?: true
 
       # @!parse
-      #   # @param accounts_type [String]
+      #   # @param accounts_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType]
       #   # @param routing_number [String]
-      #   # @param routing_number_type [String]
-      #   # @param payment_type [String, nil]
+      #   # @param routing_number_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType]
+      #   # @param payment_type [Symbol, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {}, **) = super

@@ -40,9 +40,9 @@ module ModernTreasury
                  }
 
         # @!parse
-        #   # @param as_of_date [String]
+        #   # @param as_of_date [Date]
         #   # @param as_of_time [String]
-        #   # @param balance_report_type [String]
+        #   # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType]
         #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>]
         #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
@@ -120,7 +120,7 @@ module ModernTreasury
 
           # @!parse
           #   # @param amount [Integer]
-          #   # @param balance_type [String]
+          #   # @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType]
           #   # @param vendor_code [String]
           #   # @param vendor_code_type [String, nil]
           #   #

@@ -85,17 +85,17 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
-      #   # @param discarded_at [String, nil]
+      #   # @param created_at [Time]
+      #   # @param discarded_at [Time, nil]
       #   # @param document_details [Array<ModernTreasury::Models::Document::DocumentDetail>]
       #   # @param document_type [String, nil]
       #   # @param documentable_id [String]
-      #   # @param documentable_type [String]
+      #   # @param documentable_type [Symbol, ModernTreasury::Models::Document::DocumentableType]
       #   # @param file [ModernTreasury::Models::Document::File]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
       #   # @param source [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,
@@ -173,13 +173,13 @@ module ModernTreasury
 
         # @!parse
         #   # @param id [String]
-        #   # @param created_at [String]
-        #   # @param discarded_at [String, nil]
+        #   # @param created_at [Time]
+        #   # @param discarded_at [Time, nil]
         #   # @param document_identifier [String]
         #   # @param document_identifier_type [String]
         #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,

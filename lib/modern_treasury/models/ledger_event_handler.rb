@@ -92,16 +92,16 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param conditions [ModernTreasury::Models::LedgerEventHandler::Conditions, nil]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param description [String, nil]
-      #   # @param discarded_at [String, nil]
+      #   # @param discarded_at [Time, nil]
       #   # @param ledger_id [String, nil]
       #   # @param ledger_transaction_template [ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}, nil]
       #   # @param name [String]
       #   # @param object [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   # @param variables [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil]
       #   #
       #   def initialize(

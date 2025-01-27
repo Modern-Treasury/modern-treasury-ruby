@@ -68,13 +68,13 @@ module ModernTreasury
                nil?: true
 
       # @!parse
-      #   # @param account_type [String]
+      #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
       #   # @param counterparty_id [String, nil]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param name [String, nil]
       #   # @param party_address [ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress]
       #   # @param party_name [String]
-      #   # @param party_type [String, nil]
+      #   # @param party_type [Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

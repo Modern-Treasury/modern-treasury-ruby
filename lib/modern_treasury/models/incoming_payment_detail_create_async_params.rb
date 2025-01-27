@@ -76,12 +76,12 @@ module ModernTreasury
 
       # @!parse
       #   # @param amount [Integer]
-      #   # @param as_of_date [String, nil]
-      #   # @param currency [String, nil]
+      #   # @param as_of_date [Date, nil]
+      #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
       #   # @param description [String, nil]
-      #   # @param direction [String]
+      #   # @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction]
       #   # @param internal_account_id [String]
-      #   # @param type [String]
+      #   # @param type [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type]
       #   # @param virtual_account_id [String, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #

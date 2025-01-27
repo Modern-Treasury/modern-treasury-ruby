@@ -141,7 +141,7 @@ module ModernTreasury
       # @!parse
       #   # @param counterparty_id [String, nil]
       #   # @param account_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
-      #   # @param account_type [String]
+      #   # @param account_type [Symbol, ModernTreasury::Models::ExternalAccountType]
       #   # @param contact_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
       #   # @param ledger_account [ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount]
       #   # @param metadata [Hash{Symbol=>String}]
@@ -149,7 +149,7 @@ module ModernTreasury
       #   # @param party_address [ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress]
       #   # @param party_identifier [String]
       #   # @param party_name [String]
-      #   # @param party_type [String, nil]
+      #   # @param party_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType, nil]
       #   # @param plaid_processor_token [String]
       #   # @param routing_details [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
@@ -203,7 +203,7 @@ module ModernTreasury
 
         # @!parse
         #   # @param account_number [String]
-        #   # @param account_number_type [String]
+        #   # @param account_number_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType]
         #   #
         #   def initialize(account_number:, account_number_type: nil, **) = super
 
@@ -273,7 +273,7 @@ module ModernTreasury
 
         # @!parse
         #   # @param contact_identifier [String]
-        #   # @param contact_identifier_type [String]
+        #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType]
         #   #
         #   def initialize(contact_identifier: nil, contact_identifier_type: nil, **) = super
 
@@ -405,12 +405,12 @@ module ModernTreasury
         #   # @param currency [String]
         #   # @param ledger_id [String]
         #   # @param name [String]
-        #   # @param normal_balance [String]
+        #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
         #   # @param currency_exponent [Integer, nil]
         #   # @param description [String, nil]
         #   # @param ledger_account_category_ids [Array<String>]
         #   # @param ledgerable_id [String]
-        #   # @param ledgerable_type [String]
+        #   # @param ledgerable_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType]
         #   # @param metadata [Hash{Symbol=>String}]
         #   #
         #   def initialize(
@@ -570,8 +570,8 @@ module ModernTreasury
 
         # @!parse
         #   # @param routing_number [String]
-        #   # @param routing_number_type [String]
-        #   # @param payment_type [String]
+        #   # @param routing_number_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType]
+        #   # @param payment_type [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType]
         #   #
         #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 
