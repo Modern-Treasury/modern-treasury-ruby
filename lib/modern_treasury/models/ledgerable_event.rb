@@ -74,7 +74,7 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param custom_data [Object, nil]
       #   # @param description [String, nil]
       #   # @param ledger_event_handler_id [String]
@@ -82,7 +82,7 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol=>String}, nil]
       #   # @param name [String]
       #   # @param object [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

@@ -63,10 +63,10 @@ module ModernTreasury
 
       # @!parse
       #   # @param internal_account_id [String]
-      #   # @param target_currency [String]
+      #   # @param target_currency [Symbol, ModernTreasury::Models::Currency]
       #   # @param base_amount [Integer]
-      #   # @param base_currency [String]
-      #   # @param effective_at [String]
+      #   # @param base_currency [Symbol, ModernTreasury::Models::Currency]
+      #   # @param effective_at [Time]
       #   # @param target_amount [Integer]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #

@@ -25,7 +25,7 @@ module ModernTreasury
 
       # @!parse
       #   # @param routing_number [String]
-      #   # @param routing_number_type [String]
+      #   # @param routing_number_type [Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(routing_number:, routing_number_type:, request_options: {}, **) = super

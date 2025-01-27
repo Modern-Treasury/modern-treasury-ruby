@@ -27,7 +27,7 @@ module ModernTreasury
       #   attr_writer :per_page
 
       # @!parse
-      #   # @param accounts_type [String]
+      #   # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
       #   # @param after_cursor [String, nil]
       #   # @param per_page [Integer]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

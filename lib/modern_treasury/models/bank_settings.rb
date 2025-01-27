@@ -77,14 +77,14 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param backup_withholding_percentage [Integer, nil]
-      #   # @param created_at [String]
-      #   # @param discarded_at [String, nil]
+      #   # @param created_at [Time]
+      #   # @param discarded_at [Time, nil]
       #   # @param enable_backup_withholding [Boolean, nil]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
       #   # @param privacy_opt_out [Boolean, nil]
       #   # @param regulation_o [Boolean, nil]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

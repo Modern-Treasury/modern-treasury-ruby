@@ -72,12 +72,12 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param account_number_safe [String]
-      #   # @param account_number_type [String]
-      #   # @param created_at [String]
-      #   # @param discarded_at [String, nil]
+      #   # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType]
+      #   # @param created_at [Time]
+      #   # @param discarded_at [Time, nil]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   # @param account_number [String]
       #   #
       #   def initialize(

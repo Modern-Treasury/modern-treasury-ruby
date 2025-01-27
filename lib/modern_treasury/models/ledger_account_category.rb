@@ -90,16 +90,16 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param balances [ModernTreasury::Models::LedgerAccountCategory::Balances]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param description [String, nil]
-      #   # @param discarded_at [String, nil]
+      #   # @param discarded_at [Time, nil]
       #   # @param ledger_id [String]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param name [String]
-      #   # @param normal_balance [String]
+      #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
       #   # @param object [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

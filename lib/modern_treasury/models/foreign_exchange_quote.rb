@@ -95,16 +95,16 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
-      #   # @param effective_at [String]
-      #   # @param expires_at [String]
+      #   # @param created_at [Time]
+      #   # @param effective_at [Time]
+      #   # @param expires_at [Time]
       #   # @param foreign_exchange_indicator [String]
       #   # @param foreign_exchange_rate [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate]
       #   # @param internal_account_id [String]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   # @param vendor_id [String]
       #   #
       #   def initialize(
@@ -189,11 +189,11 @@ module ModernTreasury
         #   # The serialized rate information represented by this quote.
         #   #
         #   # @param base_amount [Integer]
-        #   # @param base_currency [String]
+        #   # @param base_currency [Symbol, ModernTreasury::Models::Currency]
         #   # @param exponent [Integer]
         #   # @param rate_string [String]
         #   # @param target_amount [Integer]
-        #   # @param target_currency [String]
+        #   # @param target_currency [Symbol, ModernTreasury::Models::Currency]
         #   # @param value [Integer]
         #   #
         #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super

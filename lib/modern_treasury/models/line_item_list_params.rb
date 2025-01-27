@@ -27,7 +27,7 @@ module ModernTreasury
       #   attr_writer :per_page
 
       # @!parse
-      #   # @param itemizable_type [String]
+      #   # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType]
       #   # @param after_cursor [String, nil]
       #   # @param per_page [Integer]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

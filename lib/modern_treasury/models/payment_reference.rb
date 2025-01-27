@@ -70,14 +70,14 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
       #   # @param reference_number [String]
-      #   # @param reference_number_type [String]
+      #   # @param reference_number_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType]
       #   # @param referenceable_id [String]
-      #   # @param referenceable_type [String]
-      #   # @param updated_at [String]
+      #   # @param referenceable_type [Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

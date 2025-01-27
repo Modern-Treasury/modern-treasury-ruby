@@ -117,20 +117,20 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param description [String, nil]
-      #   # @param effective_at_lower_bound [String]
-      #   # @param effective_at_upper_bound [String]
+      #   # @param effective_at_lower_bound [Time]
+      #   # @param effective_at_upper_bound [Time]
       #   # @param ending_balance [ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance]
       #   # @param ledger_account_id [String]
       #   # @param ledger_account_lock_version [Integer]
-      #   # @param ledger_account_normal_balance [String]
+      #   # @param ledger_account_normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
       #   # @param ledger_id [String]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
       #   # @param starting_balance [ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

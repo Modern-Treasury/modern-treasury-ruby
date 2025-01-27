@@ -54,7 +54,7 @@ module ModernTreasury
       # @!parse
       #   # @param posted_ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
       #   # @param description [String]
-      #   # @param effective_at [String]
+      #   # @param effective_at [Time]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
@@ -110,7 +110,7 @@ module ModernTreasury
 
         # @!parse
         #   # @param amount [Integer]
-        #   # @param direction [String]
+        #   # @param direction [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
         #   # @param ledger_account_id [String]
         #   # @param metadata [Hash{Symbol=>String}]
         #   #

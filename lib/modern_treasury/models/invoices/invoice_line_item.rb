@@ -101,7 +101,7 @@ module ModernTreasury
         # @!parse
         #   # @param id [String]
         #   # @param amount [Integer]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param description [String]
         #   # @param direction [String]
         #   # @param live_mode [Boolean]
@@ -111,7 +111,7 @@ module ModernTreasury
         #   # @param quantity [Integer]
         #   # @param unit_amount [Integer]
         #   # @param unit_amount_decimal [String]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,

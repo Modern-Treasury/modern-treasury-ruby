@@ -161,7 +161,7 @@ module ModernTreasury
       #   # @param after_cursor [String, nil]
       #   # @param available_balance_amount [ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount]
       #   # @param balances [ModernTreasury::Models::LedgerAccountListParams::Balances]
-      #   # @param created_at [Hash{Symbol=>String}]
+      #   # @param created_at [Hash{Symbol=>Time}]
       #   # @param currency [String]
       #   # @param ledger_account_category_id [String]
       #   # @param ledger_id [String]
@@ -170,7 +170,7 @@ module ModernTreasury
       #   # @param pending_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount]
       #   # @param per_page [Integer]
       #   # @param posted_balance_amount [ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount]
-      #   # @param updated_at [Hash{Symbol=>String}]
+      #   # @param updated_at [Hash{Symbol=>Time}]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
@@ -330,10 +330,10 @@ module ModernTreasury
         #   #   the provided timestamps. If no value is supplied the balances will be retrieved
         #   #   not including that bound.
         #   #
-        #   # @param as_of_date [String]
-        #   # @param effective_at [String]
-        #   # @param effective_at_lower_bound [String]
-        #   # @param effective_at_upper_bound [String]
+        #   # @param as_of_date [Date]
+        #   # @param effective_at [Time]
+        #   # @param effective_at_lower_bound [Time]
+        #   # @param effective_at_upper_bound [Time]
         #   #
         #   def initialize(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil, **) = super
 

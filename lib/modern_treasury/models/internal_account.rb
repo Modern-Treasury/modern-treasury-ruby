@@ -130,11 +130,11 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
-      #   # @param account_type [String, nil]
+      #   # @param account_type [Symbol, ModernTreasury::Models::InternalAccount::AccountType, nil]
       #   # @param connection [ModernTreasury::Models::Connection]
       #   # @param counterparty_id [String, nil]
-      #   # @param created_at [String]
-      #   # @param currency [String]
+      #   # @param created_at [Time]
+      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
       #   # @param ledger_account_id [String, nil]
       #   # @param legal_entity_id [String, nil]
       #   # @param live_mode [Boolean]
@@ -144,9 +144,9 @@ module ModernTreasury
       #   # @param parent_account_id [String, nil]
       #   # @param party_address [ModernTreasury::Models::InternalAccount::PartyAddress, nil]
       #   # @param party_name [String]
-      #   # @param party_type [String, nil]
+      #   # @param party_type [Symbol, ModernTreasury::Models::InternalAccount::PartyType, nil]
       #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,
@@ -285,7 +285,7 @@ module ModernTreasury
         #   #
         #   # @param id [String]
         #   # @param country [String, nil]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param line1 [String, nil]
         #   # @param line2 [String, nil]
         #   # @param live_mode [Boolean]
@@ -293,7 +293,7 @@ module ModernTreasury
         #   # @param object [String]
         #   # @param postal_code [String, nil]
         #   # @param region [String, nil]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,

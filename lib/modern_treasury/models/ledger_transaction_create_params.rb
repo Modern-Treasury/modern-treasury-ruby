@@ -104,13 +104,13 @@ module ModernTreasury
       # @!parse
       #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry>]
       #   # @param description [String, nil]
-      #   # @param effective_at [String]
-      #   # @param effective_date [String]
+      #   # @param effective_at [Time]
+      #   # @param effective_date [Date]
       #   # @param external_id [String]
       #   # @param ledgerable_id [String]
-      #   # @param ledgerable_type [String]
+      #   # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType]
       #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param status [String]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
@@ -218,7 +218,7 @@ module ModernTreasury
 
         # @!parse
         #   # @param amount [Integer]
-        #   # @param direction [String]
+        #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
         #   # @param ledger_account_id [String]
         #   # @param available_balance_amount [Hash{Symbol=>Integer}, nil]
         #   # @param lock_version [Integer, nil]

@@ -35,7 +35,7 @@ module ModernTreasury
 
       # @!parse
       #   # @param documentable_id [String]
-      #   # @param documentable_type [String]
+      #   # @param documentable_type [Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType]
       #   # @param file [String]
       #   # @param document_type [String]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

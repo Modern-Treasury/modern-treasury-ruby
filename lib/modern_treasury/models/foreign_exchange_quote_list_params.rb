@@ -96,9 +96,9 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   # @param base_currency [String]
-      #   # @param effective_at_end [String]
-      #   # @param effective_at_start [String]
-      #   # @param expires_at [String]
+      #   # @param effective_at_end [Date]
+      #   # @param effective_at_start [Date]
+      #   # @param expires_at [Time]
       #   # @param internal_account_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]

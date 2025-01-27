@@ -223,13 +223,13 @@ module ModernTreasury
 
       # @!parse
       #   # @param counterparty_id [String]
-      #   # @param due_date [String]
+      #   # @param due_date [Time]
       #   # @param originating_account_id [String]
       #   # @param auto_advance [Boolean, nil]
       #   # @param contact_details [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>]
       #   # @param counterparty_billing_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress, nil]
       #   # @param counterparty_shipping_address [ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress, nil]
-      #   # @param currency [String]
+      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
       #   # @param description [String]
       #   # @param fallback_payment_method [String, nil]
       #   # @param ingest_ledger_entries [Boolean, nil]
@@ -239,9 +239,9 @@ module ModernTreasury
       #   # @param metadata [Hash{Symbol=>String}, nil]
       #   # @param notification_email_addresses [Array<String>]
       #   # @param notifications_enabled [Boolean]
-      #   # @param payment_effective_date [String]
-      #   # @param payment_method [String]
-      #   # @param payment_type [String]
+      #   # @param payment_effective_date [Date]
+      #   # @param payment_method [Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod]
+      #   # @param payment_type [Symbol, ModernTreasury::Models::PaymentOrderType]
       #   # @param receiving_account_id [String]
       #   # @param recipient_email [String, nil]
       #   # @param recipient_name [String, nil]
@@ -343,12 +343,12 @@ module ModernTreasury
         # @!parse
         #   # @param id [String]
         #   # @param contact_identifier [String]
-        #   # @param contact_identifier_type [String]
-        #   # @param created_at [String]
-        #   # @param discarded_at [String, nil]
+        #   # @param contact_identifier_type [Symbol, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType]
+        #   # @param created_at [Time]
+        #   # @param discarded_at [Time, nil]
         #   # @param live_mode [Boolean]
         #   # @param object [String]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,

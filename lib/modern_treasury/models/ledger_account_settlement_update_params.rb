@@ -38,7 +38,7 @@ module ModernTreasury
       # @!parse
       #   # @param description [String, nil]
       #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param status [String]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(description: nil, metadata: nil, status: nil, request_options: {}, **) = super

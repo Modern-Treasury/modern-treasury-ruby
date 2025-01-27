@@ -53,7 +53,7 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   # @param legal_entity_type [String]
+      #   # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
       #   # @param show_deleted [String]

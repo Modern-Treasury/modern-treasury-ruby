@@ -221,9 +221,9 @@ module ModernTreasury
       #   # @param id [Array<String>]
       #   # @param after_cursor [String, nil]
       #   # @param as_of_lock_version [Integer]
-      #   # @param direction [String]
-      #   # @param effective_at [Hash{Symbol=>String}]
-      #   # @param effective_date [Hash{Symbol=>String}]
+      #   # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   # @param effective_at [Hash{Symbol=>Time}]
+      #   # @param effective_date [Hash{Symbol=>Date}]
       #   # @param ledger_account_category_id [String]
       #   # @param ledger_account_id [String]
       #   # @param ledger_account_lock_version [Hash{Symbol=>Integer}]
@@ -236,8 +236,8 @@ module ModernTreasury
       #   # @param per_page [Integer]
       #   # @param show_balances [Boolean]
       #   # @param show_deleted [Boolean]
-      #   # @param status [String]
-      #   # @param updated_at [Hash{Symbol=>String}]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerEntryListParams::Status]
+      #   # @param updated_at [Hash{Symbol=>Time}]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
@@ -303,8 +303,8 @@ module ModernTreasury
         #   #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
         #   #   by only one field at a time is supported.
         #   #
-        #   # @param created_at [String]
-        #   # @param effective_at [String]
+        #   # @param created_at [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt]
+        #   # @param effective_at [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt]
         #   #
         #   def initialize(created_at: nil, effective_at: nil, **) = super
 

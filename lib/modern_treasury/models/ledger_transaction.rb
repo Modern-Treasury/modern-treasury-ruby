@@ -138,24 +138,24 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param description [String, nil]
-      #   # @param effective_at [String]
-      #   # @param effective_date [String]
+      #   # @param effective_at [Time]
+      #   # @param effective_date [Date]
       #   # @param external_id [String, nil]
       #   # @param ledger_entries [Array<ModernTreasury::Models::LedgerEntry>]
       #   # @param ledger_id [String]
       #   # @param ledgerable_id [String, nil]
-      #   # @param ledgerable_type [String, nil]
+      #   # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType, nil]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
       #   # @param partially_posts_ledger_transaction_id [String, nil]
-      #   # @param posted_at [String, nil]
+      #   # @param posted_at [Time, nil]
       #   # @param reversed_by_ledger_transaction_id [String, nil]
       #   # @param reverses_ledger_transaction_id [String, nil]
-      #   # @param status [String]
-      #   # @param updated_at [String]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerTransaction::Status]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

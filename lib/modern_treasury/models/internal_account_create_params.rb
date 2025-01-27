@@ -85,7 +85,7 @@ module ModernTreasury
 
       # @!parse
       #   # @param connection_id [String]
-      #   # @param currency [String]
+      #   # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
       #   # @param name [String]
       #   # @param party_name [String]
       #   # @param counterparty_id [String]

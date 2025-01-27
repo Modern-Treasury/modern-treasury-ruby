@@ -15,7 +15,7 @@ module ModernTreasury
       required :status, enum: -> { ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status }
 
       # @!parse
-      #   # @param status [String]
+      #   # @param status [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(status:, request_options: {}, **) = super
