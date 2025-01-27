@@ -94,7 +94,7 @@ module ModernTreasury
     #
     # @param exceptions [Array<Exception>]
     # @param sentinel [Object, nil]
-    # @param blk [Proc]
+    # @param blk [Proc, nil]
     #
     # @return [Object, nil]
     #
