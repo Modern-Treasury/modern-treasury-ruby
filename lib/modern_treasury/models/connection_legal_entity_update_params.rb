@@ -18,7 +18,7 @@ module ModernTreasury
       #   attr_writer :status
 
       # @!parse
-      #   # @param status [String]
+      #   # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(status: nil, request_options: {}, **) = super

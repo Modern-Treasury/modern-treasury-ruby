@@ -117,11 +117,11 @@ module ModernTreasury
       #   # @param id [String]
       #   # @param account_details [Array<ModernTreasury::Models::AccountDetail>]
       #   # @param counterparty_id [String, nil]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param credit_ledger_account_id [String, nil]
       #   # @param debit_ledger_account_id [String, nil]
       #   # @param description [String, nil]
-      #   # @param discarded_at [String, nil]
+      #   # @param discarded_at [Time, nil]
       #   # @param internal_account_id [String]
       #   # @param ledger_account_id [String, nil]
       #   # @param live_mode [Boolean]
@@ -129,7 +129,7 @@ module ModernTreasury
       #   # @param name [String]
       #   # @param object [String]
       #   # @param routing_details [Array<ModernTreasury::Models::RoutingDetail>]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

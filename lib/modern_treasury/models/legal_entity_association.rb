@@ -82,15 +82,15 @@ module ModernTreasury
       # @!parse
       #   # @param id [String]
       #   # @param child_legal_entity [ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity]
-      #   # @param created_at [String]
-      #   # @param discarded_at [String, nil]
+      #   # @param created_at [Time]
+      #   # @param discarded_at [Time, nil]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
       #   # @param ownership_percentage [Integer, nil]
       #   # @param parent_legal_entity_id [String]
-      #   # @param relationship_types [Array<String>]
+      #   # @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType>]
       #   # @param title [String, nil]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,
@@ -318,17 +318,17 @@ module ModernTreasury
         #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
         #   # @param business_name [String, nil]
         #   # @param citizenship_country [String, nil]
-        #   # @param created_at [String]
-        #   # @param date_formed [String, nil]
-        #   # @param date_of_birth [String, nil]
-        #   # @param discarded_at [String, nil]
+        #   # @param created_at [Time]
+        #   # @param date_formed [Date, nil]
+        #   # @param date_of_birth [Date, nil]
+        #   # @param discarded_at [Time, nil]
         #   # @param doing_business_as_names [Array<String>]
         #   # @param email [String, nil]
         #   # @param first_name [String, nil]
         #   # @param identifications [Array<ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification>]
         #   # @param last_name [String, nil]
-        #   # @param legal_entity_type [String]
-        #   # @param legal_structure [String, nil]
+        #   # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
+        #   # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil]
         #   # @param live_mode [Boolean]
         #   # @param metadata [Hash{Symbol=>String}]
         #   # @param middle_name [String, nil]
@@ -337,9 +337,9 @@ module ModernTreasury
         #   # @param politically_exposed_person [Boolean, nil]
         #   # @param preferred_name [String, nil]
         #   # @param prefix [String, nil]
-        #   # @param risk_rating [String, nil]
+        #   # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating, nil]
         #   # @param suffix [String, nil]
-        #   # @param updated_at [String]
+        #   # @param updated_at [Time]
         #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
         #   # @param website [String, nil]
         #   #
@@ -469,10 +469,10 @@ module ModernTreasury
 
           # @!parse
           #   # @param id [String]
-          #   # @param address_types [Array<String>]
+          #   # @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
           #   # @param country [String, nil]
-          #   # @param created_at [String]
-          #   # @param discarded_at [String, nil]
+          #   # @param created_at [Time]
+          #   # @param discarded_at [Time, nil]
           #   # @param line1 [String, nil]
           #   # @param line2 [String, nil]
           #   # @param live_mode [Boolean]
@@ -480,7 +480,7 @@ module ModernTreasury
           #   # @param object [String]
           #   # @param postal_code [String, nil]
           #   # @param region [String, nil]
-          #   # @param updated_at [String]
+          #   # @param updated_at [Time]
           #   #
           #   def initialize(
           #     id:,
@@ -591,13 +591,13 @@ module ModernTreasury
 
           # @!parse
           #   # @param id [String]
-          #   # @param created_at [String]
-          #   # @param discarded_at [String, nil]
-          #   # @param id_type [String]
+          #   # @param created_at [Time]
+          #   # @param discarded_at [Time, nil]
+          #   # @param id_type [Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType]
           #   # @param issuing_country [String, nil]
           #   # @param live_mode [Boolean]
           #   # @param object [String]
-          #   # @param updated_at [String]
+          #   # @param updated_at [Time]
           #   #
           #   def initialize(id:, created_at:, discarded_at:, id_type:, issuing_country:, live_mode:, object:, updated_at:, **) = super
 

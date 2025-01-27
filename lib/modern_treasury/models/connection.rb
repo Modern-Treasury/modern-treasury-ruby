@@ -66,11 +66,11 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
-      #   # @param discarded_at [String, nil]
+      #   # @param created_at [Time]
+      #   # @param discarded_at [Time, nil]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   # @param vendor_customer_id [String, nil]
       #   # @param vendor_id [String]
       #   # @param vendor_name [String]

@@ -116,18 +116,18 @@ module ModernTreasury
         #   # @param id [String]
         #   # @param amount [Integer]
         #   # @param counterparty_id [String, nil]
-        #   # @param created_at [String]
+        #   # @param created_at [Time]
         #   # @param description [String]
-        #   # @param discarded_at [String, nil]
+        #   # @param discarded_at [Time, nil]
         #   # @param expected_payment_id [String, nil]
         #   # @param live_mode [Boolean]
         #   # @param object [String]
         #   # @param reconcilable [Boolean]
         #   # @param transactable_id [String, nil]
-        #   # @param transactable_type [String, nil]
+        #   # @param transactable_type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType, nil]
         #   # @param transaction_id [String]
-        #   # @param type [String]
-        #   # @param updated_at [String]
+        #   # @param type [Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type]
+        #   # @param updated_at [Time]
         #   #
         #   def initialize(
         #     id:,

@@ -53,7 +53,7 @@ module ModernTreasury
       #   # @param connection_id [String]
       #   # @param legal_entity_id [String]
       #   # @param per_page [Integer]
-      #   # @param status [String]
+      #   # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

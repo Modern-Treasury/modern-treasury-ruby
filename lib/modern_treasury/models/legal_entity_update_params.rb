@@ -170,21 +170,21 @@ module ModernTreasury
       #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #   # @param business_name [String, nil]
       #   # @param citizenship_country [String, nil]
-      #   # @param date_formed [String, nil]
-      #   # @param date_of_birth [String, nil]
+      #   # @param date_formed [Date, nil]
+      #   # @param date_of_birth [Date, nil]
       #   # @param doing_business_as_names [Array<String>]
       #   # @param email [String, nil]
       #   # @param first_name [String, nil]
       #   # @param identifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
       #   # @param last_name [String, nil]
-      #   # @param legal_structure [String, nil]
+      #   # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure, nil]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param middle_name [String, nil]
       #   # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
       #   # @param politically_exposed_person [Boolean, nil]
       #   # @param preferred_name [String, nil]
       #   # @param prefix [String, nil]
-      #   # @param risk_rating [String, nil]
+      #   # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil]
       #   # @param suffix [String, nil]
       #   # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
       #   # @param website [String, nil]
@@ -286,7 +286,7 @@ module ModernTreasury
         #   # @param locality [String, nil]
         #   # @param postal_code [String, nil]
         #   # @param region [String, nil]
-        #   # @param address_types [Array<String>]
+        #   # @param address_types [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>]
         #   # @param line2 [String, nil]
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
@@ -352,7 +352,7 @@ module ModernTreasury
 
         # @!parse
         #   # @param id_number [String]
-        #   # @param id_type [String]
+        #   # @param id_type [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType]
         #   # @param issuing_country [String, nil]
         #   #
         #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super

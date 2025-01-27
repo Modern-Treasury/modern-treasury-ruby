@@ -99,14 +99,14 @@ module ModernTreasury
       #   # @param accounting_category_id [String, nil]
       #   # @param accounting_ledger_class_id [String, nil]
       #   # @param amount [Integer]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param description [String, nil]
       #   # @param itemizable_id [String]
-      #   # @param itemizable_type [String]
+      #   # @param itemizable_type [Symbol, ModernTreasury::Models::LineItem::ItemizableType]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

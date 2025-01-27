@@ -107,14 +107,14 @@ module ModernTreasury
       # @!parse
       #   # @param id [Array<String>]
       #   # @param after_cursor [String, nil]
-      #   # @param created_at [Hash{Symbol=>String}]
+      #   # @param created_at [Hash{Symbol=>Time}]
       #   # @param ledger_id [String]
       #   # @param ledger_transaction_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param per_page [Integer]
       #   # @param settled_ledger_account_id [String]
       #   # @param settlement_entry_direction [String]
-      #   # @param updated_at [Hash{Symbol=>String}]
+      #   # @param updated_at [Hash{Symbol=>Time}]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

@@ -123,11 +123,11 @@ module ModernTreasury
       #   # @param id [String]
       #   # @param amount [Integer, nil]
       #   # @param contra_ledger_account_id [String]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param currency [String]
       #   # @param currency_exponent [Integer, nil]
       #   # @param description [String, nil]
-      #   # @param effective_at_upper_bound [String]
+      #   # @param effective_at_upper_bound [Time]
       #   # @param ledger_id [String]
       #   # @param ledger_transaction_id [String, nil]
       #   # @param live_mode [Boolean]
@@ -135,8 +135,8 @@ module ModernTreasury
       #   # @param object [String]
       #   # @param settled_ledger_account_id [String]
       #   # @param settlement_entry_direction [String, nil]
-      #   # @param status [String]
-      #   # @param updated_at [String]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

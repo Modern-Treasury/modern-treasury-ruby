@@ -86,11 +86,11 @@ module ModernTreasury
       # @!parse
       #   # @param after_cursor [String, nil]
       #   # @param counterparty_id [String]
-      #   # @param currency [String]
+      #   # @param currency [Symbol, ModernTreasury::Models::Currency]
       #   # @param legal_entity_id [String]
       #   # @param metadata [Hash{Symbol=>String}]
-      #   # @param payment_direction [String]
-      #   # @param payment_type [String]
+      #   # @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      #   # @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType]
       #   # @param per_page [Integer]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #

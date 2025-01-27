@@ -73,15 +73,15 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param created_at [String]
+      #   # @param created_at [Time]
       #   # @param data [Hash{Symbol=>Object}]
       #   # @param entity_id [String]
       #   # @param event_name [String]
-      #   # @param event_time [String]
+      #   # @param event_time [Time]
       #   # @param live_mode [Boolean]
       #   # @param object [String]
       #   # @param resource [String]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

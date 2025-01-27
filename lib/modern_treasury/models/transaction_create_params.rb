@@ -85,14 +85,14 @@ module ModernTreasury
 
       # @!parse
       #   # @param amount [Integer]
-      #   # @param as_of_date [String, nil]
+      #   # @param as_of_date [Date, nil]
       #   # @param direction [String]
       #   # @param internal_account_id [String]
       #   # @param vendor_code [String, nil]
       #   # @param vendor_code_type [String, nil]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param posted [Boolean]
-      #   # @param type [String, nil]
+      #   # @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
       #   # @param vendor_description [String, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #

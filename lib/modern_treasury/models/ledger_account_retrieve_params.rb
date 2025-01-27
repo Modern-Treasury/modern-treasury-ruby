@@ -94,11 +94,11 @@ module ModernTreasury
         #   #   not including that bound. Use `balances[as_of_lock_version]` to retrieve a
         #   #   balance as of a specific Ledger Account `lock_version`.
         #   #
-        #   # @param as_of_date [String]
+        #   # @param as_of_date [Date]
         #   # @param as_of_lock_version [Integer]
-        #   # @param effective_at [String]
-        #   # @param effective_at_lower_bound [String]
-        #   # @param effective_at_upper_bound [String]
+        #   # @param effective_at [Time]
+        #   # @param effective_at_lower_bound [Time]
+        #   # @param effective_at_upper_bound [Time]
         #   #
         #   def initialize(
         #     as_of_date: nil,

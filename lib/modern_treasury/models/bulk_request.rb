@@ -88,17 +88,17 @@ module ModernTreasury
 
       # @!parse
       #   # @param id [String]
-      #   # @param action_type [String]
-      #   # @param created_at [String]
+      #   # @param action_type [Symbol, ModernTreasury::Models::BulkRequest::ActionType]
+      #   # @param created_at [Time]
       #   # @param failed_result_count [Integer]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param object [String]
-      #   # @param resource_type [String]
-      #   # @param status [String]
+      #   # @param resource_type [Symbol, ModernTreasury::Models::BulkRequest::ResourceType]
+      #   # @param status [Symbol, ModernTreasury::Models::BulkRequest::Status]
       #   # @param success_result_count [Integer]
       #   # @param total_resource_count [Integer]
-      #   # @param updated_at [String]
+      #   # @param updated_at [Time]
       #   #
       #   def initialize(
       #     id:,

@@ -87,8 +87,8 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   # @param created_at_lower_bound [String]
-      #   # @param created_at_upper_bound [String]
+      #   # @param created_at_lower_bound [Time]
+      #   # @param created_at_upper_bound [Time]
       #   # @param email [String]
       #   # @param legal_entity_id [String]
       #   # @param metadata [Hash{Symbol=>String}]

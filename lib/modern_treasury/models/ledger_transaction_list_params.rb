@@ -198,23 +198,23 @@ module ModernTreasury
       # @!parse
       #   # @param id [Array<String>]
       #   # @param after_cursor [String, nil]
-      #   # @param effective_at [Hash{Symbol=>String}]
-      #   # @param effective_date [Hash{Symbol=>String}]
+      #   # @param effective_at [Hash{Symbol=>Time}]
+      #   # @param effective_date [Hash{Symbol=>Time}]
       #   # @param external_id [String]
       #   # @param ledger_account_category_id [String]
       #   # @param ledger_account_id [String]
       #   # @param ledger_account_settlement_id [String]
       #   # @param ledger_id [String]
       #   # @param ledgerable_id [String]
-      #   # @param ledgerable_type [String]
+      #   # @param ledgerable_type [Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType]
       #   # @param metadata [Hash{Symbol=>String}]
       #   # @param order_by [ModernTreasury::Models::LedgerTransactionListParams::OrderBy]
       #   # @param partially_posts_ledger_transaction_id [String]
       #   # @param per_page [Integer]
-      #   # @param posted_at [Hash{Symbol=>String}]
+      #   # @param posted_at [Hash{Symbol=>Time}]
       #   # @param reverses_ledger_transaction_id [String]
-      #   # @param status [String]
-      #   # @param updated_at [Hash{Symbol=>String}]
+      #   # @param status [Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status]
+      #   # @param updated_at [Hash{Symbol=>Time}]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(
@@ -308,8 +308,8 @@ module ModernTreasury
         #   #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
         #   #   by only one field at a time is supported.
         #   #
-        #   # @param created_at [String]
-        #   # @param effective_at [String]
+        #   # @param created_at [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt]
+        #   # @param effective_at [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt]
         #   #
         #   def initialize(created_at: nil, effective_at: nil, **) = super
 

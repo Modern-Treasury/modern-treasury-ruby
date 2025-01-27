@@ -70,7 +70,7 @@ module ModernTreasury
       #   # @param internal_account_id [String]
       #   # @param per_page [Integer]
       #   # @param returnable_id [String]
-      #   # @param returnable_type [String]
+      #   # @param returnable_type [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
       #   #
       #   def initialize(

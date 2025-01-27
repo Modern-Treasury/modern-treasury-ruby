@@ -174,7 +174,7 @@ module ModernTreasury
 
         # @!parse
         #   # @param account_number [String]
-        #   # @param account_number_type [String]
+        #   # @param account_number_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType]
         #   #
         #   def initialize(account_number:, account_number_type: nil, **) = super
 
@@ -320,12 +320,12 @@ module ModernTreasury
         #   # @param currency [String]
         #   # @param ledger_id [String]
         #   # @param name [String]
-        #   # @param normal_balance [String]
+        #   # @param normal_balance [Symbol, ModernTreasury::Models::TransactionDirection]
         #   # @param currency_exponent [Integer, nil]
         #   # @param description [String, nil]
         #   # @param ledger_account_category_ids [Array<String>]
         #   # @param ledgerable_id [String]
-        #   # @param ledgerable_type [String]
+        #   # @param ledgerable_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType]
         #   # @param metadata [Hash{Symbol=>String}]
         #   #
         #   def initialize(
@@ -410,8 +410,8 @@ module ModernTreasury
 
         # @!parse
         #   # @param routing_number [String]
-        #   # @param routing_number_type [String]
-        #   # @param payment_type [String, nil]
+        #   # @param routing_number_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType]
+        #   # @param payment_type [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType, nil]
         #   #
         #   def initialize(routing_number:, routing_number_type:, payment_type: nil, **) = super
 

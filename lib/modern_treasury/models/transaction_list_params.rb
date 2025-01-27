@@ -144,8 +144,8 @@ module ModernTreasury
 
       # @!parse
       #   # @param after_cursor [String, nil]
-      #   # @param as_of_date_end [String]
-      #   # @param as_of_date_start [String]
+      #   # @param as_of_date_end [Date]
+      #   # @param as_of_date_start [Date]
       #   # @param counterparty_id [String]
       #   # @param description [String]
       #   # @param direction [String]
