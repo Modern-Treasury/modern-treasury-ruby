@@ -1,0 +1,187 @@
+module ModernTreasury
+  module Models
+    type internal_account =
+      {
+        id: String,
+        account_details: Array[ModernTreasury::Models::AccountDetail],
+        account_type: ModernTreasury::Models::InternalAccount::account_type?,
+        connection: ModernTreasury::Models::Connection,
+        counterparty_id: String?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        ledger_account_id: String?,
+        legal_entity_id: String?,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        name: String?,
+        object: String,
+        parent_account_id: String?,
+        party_address: ModernTreasury::Models::InternalAccount::PartyAddress?,
+        party_name: String,
+        party_type: ModernTreasury::Models::InternalAccount::party_type?,
+        routing_details: Array[ModernTreasury::Models::RoutingDetail],
+        updated_at: Time
+      }
+
+    class InternalAccount < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor account_details: Array[ModernTreasury::Models::AccountDetail]
+
+      attr_accessor account_type: ModernTreasury::Models::InternalAccount::account_type?
+
+      attr_accessor connection: ModernTreasury::Models::Connection
+
+      attr_accessor counterparty_id: String?
+
+      attr_accessor created_at: Time
+
+      attr_accessor currency: ModernTreasury::Models::currency
+
+      attr_accessor ledger_account_id: String?
+
+      attr_accessor legal_entity_id: String?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor name: String?
+
+      attr_accessor object: String
+
+      attr_accessor parent_account_id: String?
+
+      attr_accessor party_address: ModernTreasury::Models::InternalAccount::PartyAddress?
+
+      attr_accessor party_name: String
+
+      attr_accessor party_type: ModernTreasury::Models::InternalAccount::party_type?
+
+      attr_accessor routing_details: Array[ModernTreasury::Models::RoutingDetail]
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          account_details: Array[ModernTreasury::Models::AccountDetail],
+          account_type: ModernTreasury::Models::InternalAccount::account_type?,
+          connection: ModernTreasury::Models::Connection,
+          counterparty_id: String?,
+          created_at: Time,
+          currency: ModernTreasury::Models::currency,
+          ledger_account_id: String?,
+          legal_entity_id: String?,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          name: String?,
+          object: String,
+          parent_account_id: String?,
+          party_address: ModernTreasury::Models::InternalAccount::PartyAddress?,
+          party_name: String,
+          party_type: ModernTreasury::Models::InternalAccount::party_type?,
+          routing_details: Array[ModernTreasury::Models::RoutingDetail],
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::internal_account
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::internal_account
+
+      type account_type =
+        :cash
+        | :checking
+        | :general_ledger
+        | :loan
+        | :non_resident
+        | :other
+        | :overdraft
+        | :savings
+
+      class AccountType < ModernTreasury::Enum
+        CASH: :cash
+        CHECKING: :checking
+        GENERAL_LEDGER: :general_ledger
+        LOAN: :loan
+        NON_RESIDENT: :non_resident
+        OTHER: :other
+        OVERDRAFT: :overdraft
+        SAVINGS: :savings
+
+        def self.values: -> Array[ModernTreasury::Models::InternalAccount::account_type]
+      end
+
+      type party_address =
+        {
+          id: String,
+          country: String?,
+          created_at: Time,
+          :line1 => String?,
+          :line2 => String?,
+          live_mode: bool,
+          locality: String?,
+          object: String,
+          postal_code: String?,
+          region: String?,
+          updated_at: Time
+        }
+
+      class PartyAddress < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor country: String?
+
+        attr_accessor created_at: Time
+
+        attr_accessor line1: String?
+
+        attr_accessor line2: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor locality: String?
+
+        attr_accessor object: String
+
+        attr_accessor postal_code: String?
+
+        attr_accessor region: String?
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            country: String?,
+            created_at: Time,
+            line1: String?,
+            line2: String?,
+            live_mode: bool,
+            locality: String?,
+            object: String,
+            postal_code: String?,
+            region: String?,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::InternalAccount::party_address
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::InternalAccount::party_address
+      end
+
+      type party_type = :business | :individual
+
+      class PartyType < ModernTreasury::Enum
+        BUSINESS: :business
+        INDIVIDUAL: :individual
+
+        def self.values: -> Array[ModernTreasury::Models::InternalAccount::party_type]
+      end
+    end
+  end
+end

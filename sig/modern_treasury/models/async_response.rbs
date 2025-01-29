@@ -1,0 +1,20 @@
+module ModernTreasury
+  module Models
+    type async_response = { id: String, object: String }
+
+    class AsyncResponse < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor object: String
+
+      def initialize:
+        (id: String, object: String) -> void
+        | (
+          ?ModernTreasury::Models::async_response
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::async_response
+    end
+  end
+end

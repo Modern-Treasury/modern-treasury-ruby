@@ -1,0 +1,70 @@
+module ModernTreasury
+  module Models
+    type expected_payment_type =
+      :ach
+      | :au_becs
+      | :bacs
+      | :book
+      | :card
+      | :chats
+      | :check
+      | :cross_border
+      | :dk_nets
+      | :eft
+      | :hu_ics
+      | :interac
+      | :masav
+      | :mx_ccen
+      | :neft
+      | :nics
+      | :nz_becs
+      | :pl_elixir
+      | :provxchange
+      | :ro_sent
+      | :rtp
+      | :se_bankgirot
+      | :sen
+      | :sepa
+      | :sg_giro
+      | :sic
+      | :signet
+      | :sknbi
+      | :wire
+      | :zengin
+
+    class ExpectedPaymentType < ModernTreasury::Enum
+      ACH: :ach
+      AU_BECS: :au_becs
+      BACS: :bacs
+      BOOK: :book
+      CARD: :card
+      CHATS: :chats
+      CHECK: :check
+      CROSS_BORDER: :cross_border
+      DK_NETS: :dk_nets
+      EFT: :eft
+      HU_ICS: :hu_ics
+      INTERAC: :interac
+      MASAV: :masav
+      MX_CCEN: :mx_ccen
+      NEFT: :neft
+      NICS: :nics
+      NZ_BECS: :nz_becs
+      PL_ELIXIR: :pl_elixir
+      PROVXCHANGE: :provxchange
+      RO_SENT: :ro_sent
+      RTP: :rtp
+      SE_BANKGIROT: :se_bankgirot
+      SEN: :sen
+      SEPA: :sepa
+      SG_GIRO: :sg_giro
+      SIC: :sic
+      SIGNET: :signet
+      SKNBI: :sknbi
+      WIRE: :wire
+      ZENGIN: :zengin
+
+      def self.values: -> Array[ModernTreasury::Models::expected_payment_type]
+    end
+  end
+end

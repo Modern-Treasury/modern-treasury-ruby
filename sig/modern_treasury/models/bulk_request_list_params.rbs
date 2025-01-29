@@ -1,0 +1,96 @@
+module ModernTreasury
+  module Models
+    type bulk_request_list_params =
+      {
+        action_type: ModernTreasury::Models::BulkRequestListParams::action_type,
+        after_cursor: String?,
+        metadata: Hash[Symbol, String],
+        per_page: Integer,
+        resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type,
+        status: ModernTreasury::Models::BulkRequestListParams::status
+      }
+      & ModernTreasury::request_parameters
+
+    class BulkRequestListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader action_type: ModernTreasury::Models::BulkRequestListParams::action_type?
+
+      def action_type=: (
+        ModernTreasury::Models::BulkRequestListParams::action_type
+      ) -> void
+
+      attr_accessor after_cursor: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type?
+
+      def resource_type=: (
+        ModernTreasury::Models::BulkRequestListParams::resource_type
+      ) -> void
+
+      attr_reader status: ModernTreasury::Models::BulkRequestListParams::status?
+
+      def status=: (
+        ModernTreasury::Models::BulkRequestListParams::status
+      ) -> void
+
+      def initialize:
+        (
+          action_type: ModernTreasury::Models::BulkRequestListParams::action_type,
+          after_cursor: String?,
+          metadata: Hash[Symbol, String],
+          per_page: Integer,
+          resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type,
+          status: ModernTreasury::Models::BulkRequestListParams::status,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::bulk_request_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::bulk_request_list_params
+
+      type action_type = :create | :update | :delete
+
+      class ActionType < ModernTreasury::Enum
+        CREATE: :create
+        UPDATE: :update
+        DELETE: :delete
+
+        def self.values: -> Array[ModernTreasury::Models::BulkRequestListParams::action_type]
+      end
+
+      type resource_type =
+        :payment_order | :ledger_transaction | :transaction | :expected_payment
+
+      class ResourceType < ModernTreasury::Enum
+        PAYMENT_ORDER: :payment_order
+        LEDGER_TRANSACTION: :ledger_transaction
+        TRANSACTION: :transaction
+        EXPECTED_PAYMENT: :expected_payment
+
+        def self.values: -> Array[ModernTreasury::Models::BulkRequestListParams::resource_type]
+      end
+
+      type status = :pending | :processing | :completed
+
+      class Status < ModernTreasury::Enum
+        PENDING: :pending
+        PROCESSING: :processing
+        COMPLETED: :completed
+
+        def self.values: -> Array[ModernTreasury::Models::BulkRequestListParams::status]
+      end
+    end
+  end
+end

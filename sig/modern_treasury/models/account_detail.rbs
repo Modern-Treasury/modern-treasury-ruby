@@ -1,0 +1,84 @@
+module ModernTreasury
+  module Models
+    type account_detail =
+      {
+        id: String,
+        account_number_safe: String,
+        account_number_type: ModernTreasury::Models::AccountDetail::account_number_type,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time,
+        account_number: String
+      }
+
+    class AccountDetail < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor account_number_safe: String
+
+      attr_accessor account_number_type: ModernTreasury::Models::AccountDetail::account_number_type
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor updated_at: Time
+
+      attr_reader account_number: String?
+
+      def account_number=: (String) -> void
+
+      def initialize:
+        (
+          id: String,
+          account_number_safe: String,
+          account_number_type: ModernTreasury::Models::AccountDetail::account_number_type,
+          created_at: Time,
+          discarded_at: Time?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time,
+          account_number: String
+        ) -> void
+        | (
+          ?ModernTreasury::Models::account_detail
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::account_detail
+
+      type account_number_type =
+        :au_number
+        | :clabe
+        | :hk_number
+        | :iban
+        | :id_number
+        | :nz_number
+        | :other
+        | :pan
+        | :sg_number
+        | :wallet_address
+
+      class AccountNumberType < ModernTreasury::Enum
+        AU_NUMBER: :au_number
+        CLABE: :clabe
+        HK_NUMBER: :hk_number
+        IBAN: :iban
+        ID_NUMBER: :id_number
+        NZ_NUMBER: :nz_number
+        OTHER: :other
+        PAN: :pan
+        SG_NUMBER: :sg_number
+        WALLET_ADDRESS: :wallet_address
+
+        def self.values: -> Array[ModernTreasury::Models::AccountDetail::account_number_type]
+      end
+    end
+  end
+end

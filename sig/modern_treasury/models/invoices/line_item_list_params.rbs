@@ -1,0 +1,33 @@
+module ModernTreasury
+  module Models
+    module Invoices
+      type line_item_list_params =
+        { after_cursor: String?, per_page: Integer }
+        & ModernTreasury::request_parameters
+
+      class LineItemListParams < ModernTreasury::BaseModel
+        extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
+        attr_accessor after_cursor: String?
+
+        attr_reader per_page: Integer?
+
+        def per_page=: (Integer) -> void
+
+        def initialize:
+          (
+            after_cursor: String?,
+            per_page: Integer,
+            request_options: ModernTreasury::request_opts
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Invoices::line_item_list_params
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Invoices::line_item_list_params
+      end
+    end
+  end
+end

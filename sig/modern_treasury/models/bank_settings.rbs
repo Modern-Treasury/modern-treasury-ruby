@@ -1,0 +1,59 @@
+module ModernTreasury
+  module Models
+    type bank_settings =
+      {
+        id: String,
+        backup_withholding_percentage: Integer?,
+        created_at: Time,
+        discarded_at: Time?,
+        enable_backup_withholding: bool?,
+        live_mode: bool,
+        object: String,
+        privacy_opt_out: bool?,
+        regulation_o: bool?,
+        updated_at: Time
+      }
+
+    class BankSettings < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor backup_withholding_percentage: Integer?
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor enable_backup_withholding: bool?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor privacy_opt_out: bool?
+
+      attr_accessor regulation_o: bool?
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          backup_withholding_percentage: Integer?,
+          created_at: Time,
+          discarded_at: Time?,
+          enable_backup_withholding: bool?,
+          live_mode: bool,
+          object: String,
+          privacy_opt_out: bool?,
+          regulation_o: bool?,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::bank_settings
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::bank_settings
+    end
+  end
+end

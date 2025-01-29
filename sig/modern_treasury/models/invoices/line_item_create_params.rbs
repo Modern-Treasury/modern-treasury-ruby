@@ -1,0 +1,64 @@
+module ModernTreasury
+  module Models
+    module Invoices
+      type line_item_create_params =
+        {
+          name: String,
+          unit_amount: Integer,
+          description: String,
+          direction: String,
+          metadata: Hash[Symbol, String],
+          quantity: Integer,
+          unit_amount_decimal: String
+        }
+        & ModernTreasury::request_parameters
+
+      class LineItemCreateParams < ModernTreasury::BaseModel
+        extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
+        attr_accessor name: String
+
+        attr_accessor unit_amount: Integer
+
+        attr_reader description: String?
+
+        def description=: (String) -> void
+
+        attr_reader direction: String?
+
+        def direction=: (String) -> void
+
+        attr_reader metadata: Hash[Symbol, String]?
+
+        def metadata=: (Hash[Symbol, String]) -> void
+
+        attr_reader quantity: Integer?
+
+        def quantity=: (Integer) -> void
+
+        attr_reader unit_amount_decimal: String?
+
+        def unit_amount_decimal=: (String) -> void
+
+        def initialize:
+          (
+            name: String,
+            unit_amount: Integer,
+            description: String,
+            direction: String,
+            metadata: Hash[Symbol, String],
+            quantity: Integer,
+            unit_amount_decimal: String,
+            request_options: ModernTreasury::request_opts
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Invoices::line_item_create_params
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Invoices::line_item_create_params
+      end
+    end
+  end
+end

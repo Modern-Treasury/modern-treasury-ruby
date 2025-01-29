@@ -1,0 +1,105 @@
+module ModernTreasury
+  module Models
+    type bulk_result_list_params =
+      {
+        after_cursor: String?,
+        entity_id: String,
+        entity_type: ModernTreasury::Models::BulkResultListParams::entity_type,
+        per_page: Integer,
+        request_id: String,
+        request_type: ModernTreasury::Models::BulkResultListParams::request_type,
+        status: ModernTreasury::Models::BulkResultListParams::status
+      }
+      & ModernTreasury::request_parameters
+
+    class BulkResultListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader entity_id: String?
+
+      def entity_id=: (String) -> void
+
+      attr_reader entity_type: ModernTreasury::Models::BulkResultListParams::entity_type?
+
+      def entity_type=: (
+        ModernTreasury::Models::BulkResultListParams::entity_type
+      ) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader request_id: String?
+
+      def request_id=: (String) -> void
+
+      attr_reader request_type: ModernTreasury::Models::BulkResultListParams::request_type?
+
+      def request_type=: (
+        ModernTreasury::Models::BulkResultListParams::request_type
+      ) -> void
+
+      attr_reader status: ModernTreasury::Models::BulkResultListParams::status?
+
+      def status=: (
+        ModernTreasury::Models::BulkResultListParams::status
+      ) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          entity_id: String,
+          entity_type: ModernTreasury::Models::BulkResultListParams::entity_type,
+          per_page: Integer,
+          request_id: String,
+          request_type: ModernTreasury::Models::BulkResultListParams::request_type,
+          status: ModernTreasury::Models::BulkResultListParams::status,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::bulk_result_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::bulk_result_list_params
+
+      type entity_type =
+        :payment_order
+        | :ledger_transaction
+        | :transaction
+        | :expected_payment
+        | :bulk_error
+
+      class EntityType < ModernTreasury::Enum
+        PAYMENT_ORDER: :payment_order
+        LEDGER_TRANSACTION: :ledger_transaction
+        TRANSACTION: :transaction
+        EXPECTED_PAYMENT: :expected_payment
+        BULK_ERROR: :bulk_error
+
+        def self.values: -> Array[ModernTreasury::Models::BulkResultListParams::entity_type]
+      end
+
+      type request_type = :bulk_request
+
+      class RequestType < ModernTreasury::Enum
+        BULK_REQUEST: :bulk_request
+
+        def self.values: -> Array[ModernTreasury::Models::BulkResultListParams::request_type]
+      end
+
+      type status = :pending | :successful | :failed
+
+      class Status < ModernTreasury::Enum
+        PENDING: :pending
+        SUCCESSFUL: :successful
+        FAILED: :failed
+
+        def self.values: -> Array[ModernTreasury::Models::BulkResultListParams::status]
+      end
+    end
+  end
+end

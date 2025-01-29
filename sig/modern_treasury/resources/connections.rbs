@@ -1,0 +1,20 @@
+module ModernTreasury
+  module Resources
+    class Connections
+      def list:
+        (
+          ?ModernTreasury::Models::ConnectionListParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Page[ModernTreasury::Models::Connection]
+        | (
+          after_cursor: String?,
+          entity: String,
+          per_page: Integer,
+          vendor_customer_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::Connection]
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

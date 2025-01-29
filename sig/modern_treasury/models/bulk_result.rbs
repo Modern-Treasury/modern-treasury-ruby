@@ -1,0 +1,178 @@
+module ModernTreasury
+  module Models
+    type bulk_result =
+      {
+        id: String,
+        created_at: Time,
+        entity: ModernTreasury::Models::BulkResult::entity,
+        entity_id: String,
+        entity_type: ModernTreasury::Models::BulkResult::entity_type,
+        live_mode: bool,
+        object: String,
+        request_id: String,
+        request_params: Hash[Symbol, String]?,
+        request_type: ModernTreasury::Models::BulkResult::request_type,
+        status: ModernTreasury::Models::BulkResult::status,
+        updated_at: Time
+      }
+
+    class BulkResult < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor entity: ModernTreasury::Models::BulkResult::entity
+
+      attr_accessor entity_id: String
+
+      attr_accessor entity_type: ModernTreasury::Models::BulkResult::entity_type
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor request_id: String
+
+      attr_accessor request_params: Hash[Symbol, String]?
+
+      attr_accessor request_type: ModernTreasury::Models::BulkResult::request_type
+
+      attr_accessor status: ModernTreasury::Models::BulkResult::status
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          created_at: Time,
+          entity: ModernTreasury::Models::BulkResult::entity,
+          entity_id: String,
+          entity_type: ModernTreasury::Models::BulkResult::entity_type,
+          live_mode: bool,
+          object: String,
+          request_id: String,
+          request_params: Hash[Symbol, String]?,
+          request_type: ModernTreasury::Models::BulkResult::request_type,
+          status: ModernTreasury::Models::BulkResult::status,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::bulk_result | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::bulk_result
+
+      type entity =
+        ModernTreasury::Models::PaymentOrder
+        | ModernTreasury::Models::ExpectedPayment
+        | ModernTreasury::Models::LedgerTransaction
+        | ModernTreasury::Models::Transaction
+        | ModernTreasury::Models::BulkResult::Entity::BulkError
+
+      class Entity < ModernTreasury::Union
+        type bulk_error =
+          {
+            id: String,
+            created_at: Time,
+            live_mode: bool,
+            object: String,
+            request_errors: Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
+            updated_at: Time
+          }
+
+        class BulkError < ModernTreasury::BaseModel
+          attr_accessor id: String
+
+          attr_accessor created_at: Time
+
+          attr_accessor live_mode: bool
+
+          attr_accessor object: String
+
+          attr_accessor request_errors: Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError]
+
+          attr_accessor updated_at: Time
+
+          def initialize:
+            (
+              id: String,
+              created_at: Time,
+              live_mode: bool,
+              object: String,
+              request_errors: Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
+              updated_at: Time
+            ) -> void
+            | (
+              ?ModernTreasury::Models::BulkResult::Entity::bulk_error
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::BulkResult::Entity::bulk_error
+
+          type request_error =
+            { code: String, message: String, parameter: String }
+
+          class RequestError < ModernTreasury::BaseModel
+            attr_reader code: String?
+
+            def code=: (String) -> void
+
+            attr_reader message: String?
+
+            def message=: (String) -> void
+
+            attr_reader parameter: String?
+
+            def parameter=: (String) -> void
+
+            def initialize:
+              (code: String, message: String, parameter: String) -> void
+              | (
+                ?ModernTreasury::Models::BulkResult::Entity::BulkError::request_error
+                | ModernTreasury::BaseModel data
+              ) -> void
+
+            def to_h: -> ModernTreasury::Models::BulkResult::Entity::BulkError::request_error
+          end
+        end
+
+        private def self.variants: -> [[nil, ModernTreasury::Models::PaymentOrder], [nil, ModernTreasury::Models::ExpectedPayment], [nil, ModernTreasury::Models::LedgerTransaction], [nil, ModernTreasury::Models::Transaction], [nil, ModernTreasury::Models::BulkResult::Entity::BulkError]]
+      end
+
+      type entity_type =
+        :payment_order
+        | :ledger_transaction
+        | :transaction
+        | :expected_payment
+        | :bulk_error
+
+      class EntityType < ModernTreasury::Enum
+        PAYMENT_ORDER: :payment_order
+        LEDGER_TRANSACTION: :ledger_transaction
+        TRANSACTION: :transaction
+        EXPECTED_PAYMENT: :expected_payment
+        BULK_ERROR: :bulk_error
+
+        def self.values: -> Array[ModernTreasury::Models::BulkResult::entity_type]
+      end
+
+      type request_type = :bulk_request
+
+      class RequestType < ModernTreasury::Enum
+        BULK_REQUEST: :bulk_request
+
+        def self.values: -> Array[ModernTreasury::Models::BulkResult::request_type]
+      end
+
+      type status = :pending | :successful | :failed
+
+      class Status < ModernTreasury::Enum
+        PENDING: :pending
+        SUCCESSFUL: :successful
+        FAILED: :failed
+
+        def self.values: -> Array[ModernTreasury::Models::BulkResult::status]
+      end
+    end
+  end
+end

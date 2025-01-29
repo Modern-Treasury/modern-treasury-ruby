@@ -1,0 +1,34 @@
+module ModernTreasury
+  module Models
+    type payment_flow_update_params =
+      { status: ModernTreasury::Models::PaymentFlowUpdateParams::status }
+      & ModernTreasury::request_parameters
+
+    class PaymentFlowUpdateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor status: ModernTreasury::Models::PaymentFlowUpdateParams::status
+
+      def initialize:
+        (
+          status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::payment_flow_update_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::payment_flow_update_params
+
+      type status = :cancelled
+
+      class Status < ModernTreasury::Enum
+        CANCELLED: :cancelled
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentFlowUpdateParams::status]
+      end
+    end
+  end
+end

@@ -1,0 +1,83 @@
+module ModernTreasury
+  module Models
+    type virtual_account =
+      {
+        id: String,
+        account_details: Array[ModernTreasury::Models::AccountDetail],
+        counterparty_id: String?,
+        created_at: Time,
+        credit_ledger_account_id: String?,
+        debit_ledger_account_id: String?,
+        description: String?,
+        discarded_at: Time?,
+        internal_account_id: String,
+        ledger_account_id: String?,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        name: String,
+        object: String,
+        routing_details: Array[ModernTreasury::Models::RoutingDetail],
+        updated_at: Time
+      }
+
+    class VirtualAccount < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor account_details: Array[ModernTreasury::Models::AccountDetail]
+
+      attr_accessor counterparty_id: String?
+
+      attr_accessor created_at: Time
+
+      attr_accessor credit_ledger_account_id: String?
+
+      attr_accessor debit_ledger_account_id: String?
+
+      attr_accessor description: String?
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor internal_account_id: String
+
+      attr_accessor ledger_account_id: String?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor name: String
+
+      attr_accessor object: String
+
+      attr_accessor routing_details: Array[ModernTreasury::Models::RoutingDetail]
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          account_details: Array[ModernTreasury::Models::AccountDetail],
+          counterparty_id: String?,
+          created_at: Time,
+          credit_ledger_account_id: String?,
+          debit_ledger_account_id: String?,
+          description: String?,
+          discarded_at: Time?,
+          internal_account_id: String,
+          ledger_account_id: String?,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          name: String,
+          object: String,
+          routing_details: Array[ModernTreasury::Models::RoutingDetail],
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::virtual_account
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::virtual_account
+    end
+  end
+end

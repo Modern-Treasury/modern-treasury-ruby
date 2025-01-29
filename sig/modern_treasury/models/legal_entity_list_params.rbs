@@ -1,0 +1,63 @@
+module ModernTreasury
+  module Models
+    type legal_entity_list_params =
+      {
+        after_cursor: String?,
+        legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
+        metadata: Hash[Symbol, String],
+        per_page: Integer,
+        show_deleted: String
+      }
+      & ModernTreasury::request_parameters
+
+    class LegalEntityListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type?
+
+      def legal_entity_type=: (
+        ModernTreasury::Models::LegalEntityListParams::legal_entity_type
+      ) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader show_deleted: String?
+
+      def show_deleted=: (String) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
+          metadata: Hash[Symbol, String],
+          per_page: Integer,
+          show_deleted: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::legal_entity_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::legal_entity_list_params
+
+      type legal_entity_type = :business | :individual
+
+      class LegalEntityType < ModernTreasury::Enum
+        BUSINESS: :business
+        INDIVIDUAL: :individual
+
+        def self.values: -> Array[ModernTreasury::Models::LegalEntityListParams::legal_entity_type]
+      end
+    end
+  end
+end

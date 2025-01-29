@@ -1,0 +1,70 @@
+module ModernTreasury
+  module Resources
+    class RoutingDetails
+      def create:
+        (
+          String account_id,
+          ModernTreasury::Models::RoutingDetailCreateParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::RoutingDetail
+        | (
+          String account_id,
+          ModernTreasury::Models::RoutingDetailCreateParams
+          | Hash[Symbol, top] params,
+          accounts_type: ModernTreasury::Models::RoutingDetailCreateParams::accounts_type,
+          routing_number: String,
+          routing_number_type: ModernTreasury::Models::RoutingDetailCreateParams::routing_number_type,
+          payment_type: ModernTreasury::Models::RoutingDetailCreateParams::payment_type?,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::RoutingDetail
+
+      def retrieve:
+        (
+          String id,
+          ModernTreasury::Models::RoutingDetailRetrieveParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::RoutingDetail
+        | (
+          String id,
+          ModernTreasury::Models::RoutingDetailRetrieveParams
+          | Hash[Symbol, top] params,
+          accounts_type: ModernTreasury::Models::accounts_type,
+          account_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::RoutingDetail
+
+      def list:
+        (
+          String account_id,
+          ModernTreasury::Models::RoutingDetailListParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Page[ModernTreasury::Models::RoutingDetail]
+        | (
+          String account_id,
+          ModernTreasury::Models::RoutingDetailListParams
+          | Hash[Symbol, top] params,
+          accounts_type: ModernTreasury::Models::accounts_type,
+          after_cursor: String?,
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::RoutingDetail]
+
+      def delete:
+        (
+          String id,
+          ModernTreasury::Models::RoutingDetailDeleteParams
+          | Hash[Symbol, top] params
+        ) -> nil
+        | (
+          String id,
+          ModernTreasury::Models::RoutingDetailDeleteParams
+          | Hash[Symbol, top] params,
+          accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::accounts_type,
+          account_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> nil
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

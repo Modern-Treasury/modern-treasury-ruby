@@ -1,0 +1,69 @@
+module ModernTreasury
+  module Resources
+    class InternalAccounts
+      class BalanceReports
+        def create:
+          (
+            String internal_account_id,
+            ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams
+            | Hash[Symbol, top] params
+          ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
+          | (
+            String internal_account_id,
+            ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams
+            | Hash[Symbol, top] params,
+            as_of_date: Date,
+            as_of_time: String,
+            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
+            balances: Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
+            request_options: ModernTreasury::request_opts
+          ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
+
+        def retrieve:
+          (
+            String id,
+            ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams
+            | Hash[Symbol, top] params
+          ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
+          | (
+            String id,
+            ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams
+            | Hash[Symbol, top] params,
+            internal_account_id: String,
+            request_options: ModernTreasury::request_opts
+          ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
+
+        def list:
+          (
+            String internal_account_id,
+            ?ModernTreasury::Models::InternalAccounts::BalanceReportListParams
+            | Hash[Symbol, top] params
+          ) -> ModernTreasury::Page[ModernTreasury::Models::InternalAccounts::BalanceReport]
+          | (
+            String internal_account_id,
+            after_cursor: String?,
+            as_of_date: Date,
+            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
+            per_page: Integer,
+            request_options: ModernTreasury::request_opts
+          ) -> ModernTreasury::Page[ModernTreasury::Models::InternalAccounts::BalanceReport]
+
+        def delete:
+          (
+            String id,
+            ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams
+            | Hash[Symbol, top] params
+          ) -> nil
+          | (
+            String id,
+            ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams
+            | Hash[Symbol, top] params,
+            internal_account_id: String,
+            request_options: ModernTreasury::request_opts
+          ) -> nil
+
+        def initialize: (client: ModernTreasury::Client) -> void
+      end
+    end
+  end
+end

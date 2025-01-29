@@ -1,0 +1,26 @@
+module ModernTreasury
+  module Models
+    type external_account_type =
+      :cash
+      | :checking
+      | :general_ledger
+      | :loan
+      | :non_resident
+      | :other
+      | :overdraft
+      | :savings
+
+    class ExternalAccountType < ModernTreasury::Enum
+      CASH: :cash
+      CHECKING: :checking
+      GENERAL_LEDGER: :general_ledger
+      LOAN: :loan
+      NON_RESIDENT: :non_resident
+      OTHER: :other
+      OVERDRAFT: :overdraft
+      SAVINGS: :savings
+
+      def self.values: -> Array[ModernTreasury::Models::external_account_type]
+    end
+  end
+end

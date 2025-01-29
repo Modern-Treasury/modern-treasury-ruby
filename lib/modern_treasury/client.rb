@@ -6,7 +6,7 @@ module ModernTreasury
     DEFAULT_MAX_RETRIES = 2
 
     # Default per-request timeout.
-    DEFAULT_TIMEOUT_IN_SECONDS = 60
+    DEFAULT_TIMEOUT_IN_SECONDS = 60.0
 
     # Default initial retry delay in seconds.
     # Overall delay is calculated using exponential backoff + jitter.

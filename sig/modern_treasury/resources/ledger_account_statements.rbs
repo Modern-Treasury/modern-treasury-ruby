@@ -1,0 +1,34 @@
+module ModernTreasury
+  module Resources
+    class LedgerAccountStatements
+      def create:
+        (
+          ModernTreasury::Models::LedgerAccountStatementCreateParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::LedgerAccountStatementCreateResponse
+        | (
+          ModernTreasury::Models::LedgerAccountStatementCreateParams
+          | Hash[Symbol, top] params,
+          effective_at_lower_bound: Time,
+          effective_at_upper_bound: Time,
+          ledger_account_id: String,
+          description: String?,
+          metadata: Hash[Symbol, String],
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::LedgerAccountStatementCreateResponse
+
+      def retrieve:
+        (
+          String id,
+          ?ModernTreasury::Models::LedgerAccountStatementRetrieveParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
+        | (
+          String id,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

@@ -1,0 +1,61 @@
+module ModernTreasury
+  module Models
+    module Transactions
+      type line_item_list_params =
+        {
+          id: Hash[Symbol, String],
+          after_cursor: String?,
+          per_page: Integer,
+          transaction_id: String,
+          type: ModernTreasury::Models::Transactions::LineItemListParams::type_?
+        }
+        & ModernTreasury::request_parameters
+
+      class LineItemListParams < ModernTreasury::BaseModel
+        extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
+        attr_reader id: Hash[Symbol, String]?
+
+        def id=: (Hash[Symbol, String]) -> void
+
+        attr_accessor after_cursor: String?
+
+        attr_reader per_page: Integer?
+
+        def per_page=: (Integer) -> void
+
+        attr_reader transaction_id: String?
+
+        def transaction_id=: (String) -> void
+
+        attr_accessor type: ModernTreasury::Models::Transactions::LineItemListParams::type_?
+
+        def initialize:
+          (
+            id: Hash[Symbol, String],
+            after_cursor: String?,
+            per_page: Integer,
+            transaction_id: String,
+            type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
+            request_options: ModernTreasury::request_opts
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Transactions::line_item_list_params
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Transactions::line_item_list_params
+
+        type type_ = :originating | :receiving
+
+        class Type < ModernTreasury::Enum
+          ORIGINATING: :originating
+          RECEIVING: :receiving
+
+          def self.values: -> Array[ModernTreasury::Models::Transactions::LineItemListParams::type_]
+        end
+      end
+    end
+  end
+end

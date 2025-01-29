@@ -1,0 +1,32 @@
+module ModernTreasury
+  module Models
+    type routing_detail_retrieve_params =
+      {
+        accounts_type: ModernTreasury::Models::accounts_type,
+        account_id: String
+      }
+      & ModernTreasury::request_parameters
+
+    class RoutingDetailRetrieveParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor accounts_type: ModernTreasury::Models::accounts_type
+
+      attr_accessor account_id: String
+
+      def initialize:
+        (
+          accounts_type: ModernTreasury::Models::accounts_type,
+          account_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::routing_detail_retrieve_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::routing_detail_retrieve_params
+    end
+  end
+end

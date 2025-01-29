@@ -1,0 +1,23 @@
+module ModernTreasury
+  module Models
+    type counterparty_collect_account_response =
+      { id: String, form_link: String, is_resend: bool }
+
+    class CounterpartyCollectAccountResponse < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor form_link: String
+
+      attr_accessor is_resend: bool
+
+      def initialize:
+        (id: String, form_link: String, is_resend: bool) -> void
+        | (
+          ?ModernTreasury::Models::counterparty_collect_account_response
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::counterparty_collect_account_response
+    end
+  end
+end

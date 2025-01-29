@@ -1,0 +1,96 @@
+module ModernTreasury
+  module Models
+    module PaymentOrders
+      type reversal =
+        {
+          id: String,
+          created_at: Time,
+          ledger_transaction_id: String?,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          payment_order_id: String?,
+          reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+          status: ModernTreasury::Models::PaymentOrders::Reversal::status,
+          transaction_ids: Array[top?]?,
+          updated_at: Time
+        }
+
+      class Reversal < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor created_at: Time
+
+        attr_accessor ledger_transaction_id: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor metadata: Hash[Symbol, String]
+
+        attr_accessor object: String
+
+        attr_accessor payment_order_id: String?
+
+        attr_accessor reason: ModernTreasury::Models::PaymentOrders::Reversal::reason
+
+        attr_accessor status: ModernTreasury::Models::PaymentOrders::Reversal::status
+
+        attr_accessor transaction_ids: Array[top?]?
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            created_at: Time,
+            ledger_transaction_id: String?,
+            live_mode: bool,
+            metadata: Hash[Symbol, String],
+            object: String,
+            payment_order_id: String?,
+            reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+            status: ModernTreasury::Models::PaymentOrders::Reversal::status,
+            transaction_ids: Array[top?]?,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::PaymentOrders::reversal
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::PaymentOrders::reversal
+
+        type reason =
+          :duplicate
+          | :incorrect_amount
+          | :incorrect_receiving_account
+          | :date_earlier_than_intended
+          | :date_later_than_intended
+
+        class Reason < ModernTreasury::Enum
+          DUPLICATE: :duplicate
+          INCORRECT_AMOUNT: :incorrect_amount
+          INCORRECT_RECEIVING_ACCOUNT: :incorrect_receiving_account
+          DATE_EARLIER_THAN_INTENDED: :date_earlier_than_intended
+          DATE_LATER_THAN_INTENDED: :date_later_than_intended
+
+          def self.values: -> Array[ModernTreasury::Models::PaymentOrders::Reversal::reason]
+        end
+
+        type status =
+          :completed | :failed | :pending | :processing | :returned | :sent
+
+        class Status < ModernTreasury::Enum
+          COMPLETED: :completed
+          FAILED: :failed
+          PENDING: :pending
+          PROCESSING: :processing
+          RETURNED: :returned
+          SENT: :sent
+
+          def self.values: -> Array[ModernTreasury::Models::PaymentOrders::Reversal::status]
+        end
+      end
+    end
+  end
+end
