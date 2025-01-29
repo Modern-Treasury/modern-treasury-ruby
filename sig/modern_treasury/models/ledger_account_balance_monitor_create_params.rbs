@@ -1,0 +1,63 @@
+module ModernTreasury
+  module Models
+    type ledger_account_balance_monitor_create_params =
+      {
+        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+        ledger_account_id: String,
+        description: String,
+        metadata: Hash[Symbol, String]
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition
+
+      attr_accessor ledger_account_id: String
+
+      attr_reader description: String?
+
+      def description=: (String) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      def initialize:
+        (
+          alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+          ledger_account_id: String,
+          description: String,
+          metadata: Hash[Symbol, String],
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_balance_monitor_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_balance_monitor_create_params
+
+      type alert_condition = { field: String, operator: String, value: Integer }
+
+      class AlertCondition < ModernTreasury::BaseModel
+        attr_accessor field: String
+
+        attr_accessor operator: String
+
+        attr_accessor value: Integer
+
+        def initialize:
+          (field: String, operator: String, value: Integer) -> void
+          | (
+            ?ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::alert_condition
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::alert_condition
+      end
+    end
+  end
+end

@@ -1,0 +1,64 @@
+module ModernTreasury
+  module Models
+    type payment_reference_list_params =
+      {
+        after_cursor: String?,
+        per_page: Integer,
+        reference_number: String,
+        referenceable_id: String,
+        referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type
+      }
+      & ModernTreasury::request_parameters
+
+    class PaymentReferenceListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader reference_number: String?
+
+      def reference_number=: (String) -> void
+
+      attr_reader referenceable_id: String?
+
+      def referenceable_id=: (String) -> void
+
+      attr_reader referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type?
+
+      def referenceable_type=: (
+        ModernTreasury::Models::PaymentReferenceListParams::referenceable_type
+      ) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          per_page: Integer,
+          reference_number: String,
+          referenceable_id: String,
+          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::payment_reference_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::payment_reference_list_params
+
+      type referenceable_type = :payment_order | :return | :reversal
+
+      class ReferenceableType < ModernTreasury::Enum
+        PAYMENT_ORDER: :payment_order
+        RETURN: :return
+        REVERSAL: :reversal
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentReferenceListParams::referenceable_type]
+      end
+    end
+  end
+end

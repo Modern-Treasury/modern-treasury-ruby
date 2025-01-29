@@ -1,0 +1,106 @@
+module ModernTreasury
+  module Models
+    type transaction_list_params =
+      {
+        after_cursor: String?,
+        as_of_date_end: Date,
+        as_of_date_start: Date,
+        counterparty_id: String,
+        description: String,
+        direction: String,
+        internal_account_id: String,
+        metadata: Hash[Symbol, String],
+        payment_type: String,
+        per_page: Integer,
+        posted: bool,
+        transactable_type: String,
+        vendor_id: String,
+        virtual_account_id: String
+      }
+      & ModernTreasury::request_parameters
+
+    class TransactionListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader as_of_date_end: Date?
+
+      def as_of_date_end=: (Date) -> void
+
+      attr_reader as_of_date_start: Date?
+
+      def as_of_date_start=: (Date) -> void
+
+      attr_reader counterparty_id: String?
+
+      def counterparty_id=: (String) -> void
+
+      attr_reader description: String?
+
+      def description=: (String) -> void
+
+      attr_reader direction: String?
+
+      def direction=: (String) -> void
+
+      attr_reader internal_account_id: String?
+
+      def internal_account_id=: (String) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader payment_type: String?
+
+      def payment_type=: (String) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader posted: bool?
+
+      def posted=: (bool) -> void
+
+      attr_reader transactable_type: String?
+
+      def transactable_type=: (String) -> void
+
+      attr_reader vendor_id: String?
+
+      def vendor_id=: (String) -> void
+
+      attr_reader virtual_account_id: String?
+
+      def virtual_account_id=: (String) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          as_of_date_end: Date,
+          as_of_date_start: Date,
+          counterparty_id: String,
+          description: String,
+          direction: String,
+          internal_account_id: String,
+          metadata: Hash[Symbol, String],
+          payment_type: String,
+          per_page: Integer,
+          posted: bool,
+          transactable_type: String,
+          vendor_id: String,
+          virtual_account_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::transaction_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::transaction_list_params
+    end
+  end
+end

@@ -1,0 +1,169 @@
+module ModernTreasury
+  module Models
+    type return_create_params =
+      {
+        returnable_id: String?,
+        returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
+        additional_information: String?,
+        code: ModernTreasury::Models::ReturnCreateParams::code?,
+        date_of_death: Date?,
+        reason: String?
+      }
+      & ModernTreasury::request_parameters
+
+    class ReturnCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor returnable_id: String?
+
+      attr_accessor returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type
+
+      attr_accessor additional_information: String?
+
+      attr_accessor code: ModernTreasury::Models::ReturnCreateParams::code?
+
+      attr_accessor date_of_death: Date?
+
+      attr_accessor reason: String?
+
+      def initialize:
+        (
+          returnable_id: String?,
+          returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
+          additional_information: String?,
+          code: ModernTreasury::Models::ReturnCreateParams::code?,
+          date_of_death: Date?,
+          reason: String?,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::return_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::return_create_params
+
+      type returnable_type = :incoming_payment_detail
+
+      class ReturnableType < ModernTreasury::Enum
+        INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
+
+        def self.values: -> Array[ModernTreasury::Models::ReturnCreateParams::returnable_type]
+      end
+
+      type code =
+        :"901"
+        | :"902"
+        | :"903"
+        | :"904"
+        | :"905"
+        | :"907"
+        | :"908"
+        | :"909"
+        | :"910"
+        | :"911"
+        | :"912"
+        | :"914"
+        | :C01
+        | :C02
+        | :C03
+        | :C05
+        | :C06
+        | :C07
+        | :C08
+        | :C09
+        | :C13
+        | :C14
+        | :R01
+        | :R02
+        | :R03
+        | :R04
+        | :R05
+        | :R06
+        | :R07
+        | :R08
+        | :R09
+        | :R10
+        | :R11
+        | :R12
+        | :R14
+        | :R15
+        | :R16
+        | :R17
+        | :R20
+        | :R21
+        | :R22
+        | :R23
+        | :R24
+        | :R29
+        | :R31
+        | :R33
+        | :R37
+        | :R38
+        | :R39
+        | :R51
+        | :R52
+        | :R53
+        | :currencycloud
+
+      class Code < ModernTreasury::Enum
+        NUMBER_901: :"901"
+        NUMBER_902: :"902"
+        NUMBER_903: :"903"
+        NUMBER_904: :"904"
+        NUMBER_905: :"905"
+        NUMBER_907: :"907"
+        NUMBER_908: :"908"
+        NUMBER_909: :"909"
+        NUMBER_910: :"910"
+        NUMBER_911: :"911"
+        NUMBER_912: :"912"
+        NUMBER_914: :"914"
+        C01: :C01
+        C02: :C02
+        C03: :C03
+        C05: :C05
+        C06: :C06
+        C07: :C07
+        C08: :C08
+        C09: :C09
+        C13: :C13
+        C14: :C14
+        R01: :R01
+        R02: :R02
+        R03: :R03
+        R04: :R04
+        R05: :R05
+        R06: :R06
+        R07: :R07
+        R08: :R08
+        R09: :R09
+        R10: :R10
+        R11: :R11
+        R12: :R12
+        R14: :R14
+        R15: :R15
+        R16: :R16
+        R17: :R17
+        R20: :R20
+        R21: :R21
+        R22: :R22
+        R23: :R23
+        R24: :R24
+        R29: :R29
+        R31: :R31
+        R33: :R33
+        R37: :R37
+        R38: :R38
+        R39: :R39
+        R51: :R51
+        R52: :R52
+        R53: :R53
+        CURRENCYCLOUD: :currencycloud
+
+        def self.values: -> Array[ModernTreasury::Models::ReturnCreateParams::code]
+      end
+    end
+  end
+end

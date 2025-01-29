@@ -1,0 +1,69 @@
+module ModernTreasury
+  module Resources
+    class AccountDetails
+      def create:
+        (
+          String account_id,
+          ModernTreasury::Models::AccountDetailCreateParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::AccountDetail
+        | (
+          String account_id,
+          ModernTreasury::Models::AccountDetailCreateParams
+          | Hash[Symbol, top] params,
+          accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
+          account_number: String,
+          account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::AccountDetail
+
+      def retrieve:
+        (
+          String id,
+          ModernTreasury::Models::AccountDetailRetrieveParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::AccountDetail
+        | (
+          String id,
+          ModernTreasury::Models::AccountDetailRetrieveParams
+          | Hash[Symbol, top] params,
+          accounts_type: ModernTreasury::Models::accounts_type,
+          account_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::AccountDetail
+
+      def list:
+        (
+          String account_id,
+          ModernTreasury::Models::AccountDetailListParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Page[ModernTreasury::Models::AccountDetail]
+        | (
+          String account_id,
+          ModernTreasury::Models::AccountDetailListParams
+          | Hash[Symbol, top] params,
+          accounts_type: ModernTreasury::Models::accounts_type,
+          after_cursor: String?,
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::AccountDetail]
+
+      def delete:
+        (
+          String id,
+          ModernTreasury::Models::AccountDetailDeleteParams
+          | Hash[Symbol, top] params
+        ) -> nil
+        | (
+          String id,
+          ModernTreasury::Models::AccountDetailDeleteParams
+          | Hash[Symbol, top] params,
+          accounts_type: ModernTreasury::Models::AccountDetailDeleteParams::accounts_type,
+          account_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> nil
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

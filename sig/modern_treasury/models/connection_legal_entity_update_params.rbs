@@ -1,0 +1,40 @@
+module ModernTreasury
+  module Models
+    type connection_legal_entity_update_params =
+      {
+        status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
+      }
+      & ModernTreasury::request_parameters
+
+    class ConnectionLegalEntityUpdateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status?
+
+      def status=: (
+        ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
+      ) -> void
+
+      def initialize:
+        (
+          status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::connection_legal_entity_update_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::connection_legal_entity_update_params
+
+      type status = :processing
+
+      class Status < ModernTreasury::Enum
+        PROCESSING: :processing
+
+        def self.values: -> Array[ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status]
+      end
+    end
+  end
+end

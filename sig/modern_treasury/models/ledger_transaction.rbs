@@ -1,0 +1,124 @@
+module ModernTreasury
+  module Models
+    type ledger_transaction =
+      {
+        id: String,
+        created_at: Time,
+        description: String?,
+        effective_at: Time,
+        effective_date: Date,
+        external_id: String?,
+        ledger_entries: Array[ModernTreasury::Models::LedgerEntry],
+        ledger_id: String,
+        ledgerable_id: String?,
+        ledgerable_type: ModernTreasury::Models::LedgerTransaction::ledgerable_type?,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        object: String,
+        partially_posts_ledger_transaction_id: String?,
+        posted_at: Time?,
+        reversed_by_ledger_transaction_id: String?,
+        reverses_ledger_transaction_id: String?,
+        status: ModernTreasury::Models::LedgerTransaction::status,
+        updated_at: Time
+      }
+
+    class LedgerTransaction < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor description: String?
+
+      attr_accessor effective_at: Time
+
+      attr_accessor effective_date: Date
+
+      attr_accessor external_id: String?
+
+      attr_accessor ledger_entries: Array[ModernTreasury::Models::LedgerEntry]
+
+      attr_accessor ledger_id: String
+
+      attr_accessor ledgerable_id: String?
+
+      attr_accessor ledgerable_type: ModernTreasury::Models::LedgerTransaction::ledgerable_type?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor partially_posts_ledger_transaction_id: String?
+
+      attr_accessor posted_at: Time?
+
+      attr_accessor reversed_by_ledger_transaction_id: String?
+
+      attr_accessor reverses_ledger_transaction_id: String?
+
+      attr_accessor status: ModernTreasury::Models::LedgerTransaction::status
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          created_at: Time,
+          description: String?,
+          effective_at: Time,
+          effective_date: Date,
+          external_id: String?,
+          ledger_entries: Array[ModernTreasury::Models::LedgerEntry],
+          ledger_id: String,
+          ledgerable_id: String?,
+          ledgerable_type: ModernTreasury::Models::LedgerTransaction::ledgerable_type?,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          partially_posts_ledger_transaction_id: String?,
+          posted_at: Time?,
+          reversed_by_ledger_transaction_id: String?,
+          reverses_ledger_transaction_id: String?,
+          status: ModernTreasury::Models::LedgerTransaction::status,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_transaction
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_transaction
+
+      type ledgerable_type =
+        :expected_payment
+        | :incoming_payment_detail
+        | :paper_item
+        | :payment_order
+        | :return
+        | :reversal
+
+      class LedgerableType < ModernTreasury::Enum
+        EXPECTED_PAYMENT: :expected_payment
+        INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
+        PAPER_ITEM: :paper_item
+        PAYMENT_ORDER: :payment_order
+        RETURN: :return
+        REVERSAL: :reversal
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerTransaction::ledgerable_type]
+      end
+
+      type status = :archived | :pending | :posted
+
+      class Status < ModernTreasury::Enum
+        ARCHIVED: :archived
+        PENDING: :pending
+        POSTED: :posted
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerTransaction::status]
+      end
+    end
+  end
+end

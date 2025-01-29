@@ -1,0 +1,166 @@
+module ModernTreasury
+  module Models
+    module InternalAccounts
+      type balance_report =
+        {
+          id: String,
+          as_of_date: Date,
+          as_of_time: String?,
+          balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
+          balances: Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
+          created_at: Time,
+          internal_account_id: String,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
+
+      class BalanceReport < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor as_of_date: Date
+
+        attr_accessor as_of_time: String?
+
+        attr_accessor balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type
+
+        attr_accessor balances: Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]
+
+        attr_accessor created_at: Time
+
+        attr_accessor internal_account_id: String
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            as_of_date: Date,
+            as_of_time: String?,
+            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
+            balances: Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
+            created_at: Time,
+            internal_account_id: String,
+            live_mode: bool,
+            object: String,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::InternalAccounts::balance_report
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::InternalAccounts::balance_report
+
+        type balance_report_type =
+          :intraday | :other | :previous_day | :real_time
+
+        class BalanceReportType < ModernTreasury::Enum
+          INTRADAY: :intraday
+          OTHER: :other
+          PREVIOUS_DAY: :previous_day
+          REAL_TIME: :real_time
+
+          def self.values: -> Array[ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type]
+        end
+
+        type balance =
+          {
+            id: String,
+            amount: Integer,
+            as_of_date: Date?,
+            as_of_time: String?,
+            balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
+            created_at: Time,
+            currency: ModernTreasury::Models::currency,
+            live_mode: bool,
+            object: String,
+            updated_at: Time,
+            value_date: Date?,
+            vendor_code: String,
+            vendor_code_type: String?
+          }
+
+        class Balance < ModernTreasury::BaseModel
+          attr_accessor id: String
+
+          attr_accessor amount: Integer
+
+          attr_accessor as_of_date: Date?
+
+          attr_accessor as_of_time: String?
+
+          attr_accessor balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type
+
+          attr_accessor created_at: Time
+
+          attr_accessor currency: ModernTreasury::Models::currency
+
+          attr_accessor live_mode: bool
+
+          attr_accessor object: String
+
+          attr_accessor updated_at: Time
+
+          attr_accessor value_date: Date?
+
+          attr_accessor vendor_code: String
+
+          attr_accessor vendor_code_type: String?
+
+          def initialize:
+            (
+              id: String,
+              amount: Integer,
+              as_of_date: Date?,
+              as_of_time: String?,
+              balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
+              created_at: Time,
+              currency: ModernTreasury::Models::currency,
+              live_mode: bool,
+              object: String,
+              updated_at: Time,
+              value_date: Date?,
+              vendor_code: String,
+              vendor_code_type: String?
+            ) -> void
+            | (
+              ?ModernTreasury::Models::InternalAccounts::BalanceReport::balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::InternalAccounts::BalanceReport::balance
+
+          type balance_type =
+            :closing_available
+            | :closing_ledger
+            | :current_available
+            | :current_ledger
+            | :opening_available
+            | :opening_available_next_business_day
+            | :opening_ledger
+            | :other
+            | :previously_closed_book
+
+          class BalanceType < ModernTreasury::Enum
+            CLOSING_AVAILABLE: :closing_available
+            CLOSING_LEDGER: :closing_ledger
+            CURRENT_AVAILABLE: :current_available
+            CURRENT_LEDGER: :current_ledger
+            OPENING_AVAILABLE: :opening_available
+            OPENING_AVAILABLE_NEXT_BUSINESS_DAY: :opening_available_next_business_day
+            OPENING_LEDGER: :opening_ledger
+            OTHER: :other
+            PREVIOUSLY_CLOSED_BOOK: :previously_closed_book
+
+            def self.values: -> Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type]
+          end
+        end
+      end
+    end
+  end
+end

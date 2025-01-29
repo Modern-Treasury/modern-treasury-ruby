@@ -1,0 +1,97 @@
+module ModernTreasury
+  module Models
+    type ledger_transaction_create_reversal_params =
+      {
+        description: String,
+        effective_at: Time?,
+        external_id: String,
+        ledgerable_id: String,
+        ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type,
+        metadata: Hash[Symbol, String],
+        status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerTransactionCreateReversalParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader description: String?
+
+      def description=: (String) -> void
+
+      attr_accessor effective_at: Time?
+
+      attr_reader external_id: String?
+
+      def external_id=: (String) -> void
+
+      attr_reader ledgerable_id: String?
+
+      def ledgerable_id=: (String) -> void
+
+      attr_reader ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type?
+
+      def ledgerable_type=: (
+        ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type
+      ) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status?
+
+      def status=: (
+        ModernTreasury::Models::LedgerTransactionCreateReversalParams::status
+      ) -> void
+
+      def initialize:
+        (
+          description: String,
+          effective_at: Time?,
+          external_id: String,
+          ledgerable_id: String,
+          ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type,
+          metadata: Hash[Symbol, String],
+          status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_transaction_create_reversal_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_transaction_create_reversal_params
+
+      type ledgerable_type =
+        :expected_payment
+        | :incoming_payment_detail
+        | :paper_item
+        | :payment_order
+        | :return
+        | :reversal
+
+      class LedgerableType < ModernTreasury::Enum
+        EXPECTED_PAYMENT: :expected_payment
+        INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
+        PAPER_ITEM: :paper_item
+        PAYMENT_ORDER: :payment_order
+        RETURN: :return
+        REVERSAL: :reversal
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type]
+      end
+
+      type status = :archived | :pending | :posted
+
+      class Status < ModernTreasury::Enum
+        ARCHIVED: :archived
+        PENDING: :pending
+        POSTED: :posted
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::status]
+      end
+    end
+  end
+end

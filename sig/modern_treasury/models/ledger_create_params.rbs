@@ -1,0 +1,34 @@
+module ModernTreasury
+  module Models
+    type ledger_create_params =
+      { name: String, description: String?, metadata: Hash[Symbol, String] }
+      & ModernTreasury::request_parameters
+
+    class LedgerCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor name: String
+
+      attr_accessor description: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      def initialize:
+        (
+          name: String,
+          description: String?,
+          metadata: Hash[Symbol, String],
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_create_params
+    end
+  end
+end

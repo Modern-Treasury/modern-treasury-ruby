@@ -1,0 +1,54 @@
+module ModernTreasury
+  module Models
+    type internal_account_update_params =
+      {
+        counterparty_id: String,
+        ledger_account_id: String,
+        metadata: Hash[Symbol, String],
+        name: String,
+        parent_account_id: String
+      }
+      & ModernTreasury::request_parameters
+
+    class InternalAccountUpdateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader counterparty_id: String?
+
+      def counterparty_id=: (String) -> void
+
+      attr_reader ledger_account_id: String?
+
+      def ledger_account_id=: (String) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader name: String?
+
+      def name=: (String) -> void
+
+      attr_reader parent_account_id: String?
+
+      def parent_account_id=: (String) -> void
+
+      def initialize:
+        (
+          counterparty_id: String,
+          ledger_account_id: String,
+          metadata: Hash[Symbol, String],
+          name: String,
+          parent_account_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::internal_account_update_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::internal_account_update_params
+    end
+  end
+end

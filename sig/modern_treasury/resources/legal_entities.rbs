@@ -1,0 +1,100 @@
+module ModernTreasury
+  module Resources
+    class LegalEntities
+      def create:
+        (
+          ModernTreasury::Models::LegalEntityCreateParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::LegalEntity
+        | (
+          ModernTreasury::Models::LegalEntityCreateParams
+          | Hash[Symbol, top] params,
+          legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::legal_entity_type,
+          addresses: Array[ModernTreasury::Models::LegalEntityCreateParams::Address],
+          bank_settings: ModernTreasury::Models::BankSettings?,
+          business_name: String?,
+          citizenship_country: String?,
+          date_formed: Date?,
+          date_of_birth: Date?,
+          doing_business_as_names: Array[String],
+          email: String?,
+          first_name: String?,
+          identifications: Array[ModernTreasury::Models::LegalEntityCreateParams::Identification],
+          last_name: String?,
+          legal_entity_associations: Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation],
+          legal_structure: ModernTreasury::Models::LegalEntityCreateParams::legal_structure?,
+          metadata: Hash[Symbol, String],
+          middle_name: String?,
+          phone_numbers: Array[ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber],
+          politically_exposed_person: bool?,
+          preferred_name: String?,
+          prefix: String?,
+          risk_rating: ModernTreasury::Models::LegalEntityCreateParams::risk_rating?,
+          suffix: String?,
+          wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+          website: String?,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::LegalEntity
+
+      def retrieve:
+        (
+          String id,
+          ?ModernTreasury::Models::LegalEntityRetrieveParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::LegalEntity
+        | (
+          String id,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::LegalEntity
+
+      def update:
+        (
+          String id,
+          ?ModernTreasury::Models::LegalEntityUpdateParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::LegalEntity
+        | (
+          String id,
+          addresses: Array[ModernTreasury::Models::LegalEntityUpdateParams::Address],
+          bank_settings: ModernTreasury::Models::BankSettings?,
+          business_name: String?,
+          citizenship_country: String?,
+          date_formed: Date?,
+          date_of_birth: Date?,
+          doing_business_as_names: Array[String],
+          email: String?,
+          first_name: String?,
+          identifications: Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification],
+          last_name: String?,
+          legal_structure: ModernTreasury::Models::LegalEntityUpdateParams::legal_structure?,
+          metadata: Hash[Symbol, String],
+          middle_name: String?,
+          phone_numbers: Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber],
+          politically_exposed_person: bool?,
+          preferred_name: String?,
+          prefix: String?,
+          risk_rating: ModernTreasury::Models::LegalEntityUpdateParams::risk_rating?,
+          suffix: String?,
+          wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+          website: String?,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::LegalEntity
+
+      def list:
+        (
+          ?ModernTreasury::Models::LegalEntityListParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Page[ModernTreasury::Models::LegalEntity]
+        | (
+          after_cursor: String?,
+          legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
+          metadata: Hash[Symbol, String],
+          per_page: Integer,
+          show_deleted: String,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::LegalEntity]
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

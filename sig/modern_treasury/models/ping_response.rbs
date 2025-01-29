@@ -1,0 +1,18 @@
+module ModernTreasury
+  module Models
+    type ping_response = { ping: String }
+
+    class PingResponse < ModernTreasury::BaseModel
+      attr_accessor ping: String
+
+      def initialize:
+        (ping: String) -> void
+        | (
+          ?ModernTreasury::Models::ping_response
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ping_response
+    end
+  end
+end

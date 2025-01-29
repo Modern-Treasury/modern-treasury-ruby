@@ -1,0 +1,113 @@
+module ModernTreasury
+  module Models
+    type counterparty_collect_account_params =
+      {
+        direction: ModernTreasury::Models::transaction_direction,
+        custom_redirect: String,
+        fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
+        send_email: bool
+      }
+      & ModernTreasury::request_parameters
+
+    class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor direction: ModernTreasury::Models::transaction_direction
+
+      attr_reader custom_redirect: String?
+
+      def custom_redirect=: (String) -> void
+
+      attr_reader fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
+
+      def fields=: (
+        Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
+      ) -> void
+
+      attr_reader send_email: bool?
+
+      def send_email=: (bool) -> void
+
+      def initialize:
+        (
+          direction: ModernTreasury::Models::transaction_direction,
+          custom_redirect: String,
+          fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
+          send_email: bool,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::counterparty_collect_account_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::counterparty_collect_account_params
+
+      type field =
+        :name
+        | :nameOnAccount
+        | :taxpayerIdentifier
+        | :accountType
+        | :accountNumber
+        | :ibanNumber
+        | :clabeNumber
+        | :walletAddress
+        | :panNumber
+        | :routingNumber
+        | :abaWireRoutingNumber
+        | :swiftCode
+        | :auBsb
+        | :caCpa
+        | :cnaps
+        | :gbSortCode
+        | :inIfsc
+        | :myBranchCode
+        | :brCodigo
+        | :routingNumberType
+        | :address
+        | :jpZenginCode
+        | :seBankgiroClearingCode
+        | :nzNationalClearingCode
+        | :hkInterbankClearingCode
+        | :huInterbankClearingCode
+        | :dkInterbankClearingCode
+        | :idSknbiCode
+        | :za_national_clearing_code
+
+      class Field < ModernTreasury::Enum
+        NAME: :name
+        NAME_ON_ACCOUNT: :nameOnAccount
+        TAXPAYER_IDENTIFIER: :taxpayerIdentifier
+        ACCOUNT_TYPE: :accountType
+        ACCOUNT_NUMBER: :accountNumber
+        IBAN_NUMBER: :ibanNumber
+        CLABE_NUMBER: :clabeNumber
+        WALLET_ADDRESS: :walletAddress
+        PAN_NUMBER: :panNumber
+        ROUTING_NUMBER: :routingNumber
+        ABA_WIRE_ROUTING_NUMBER: :abaWireRoutingNumber
+        SWIFT_CODE: :swiftCode
+        AU_BSB: :auBsb
+        CA_CPA: :caCpa
+        CNAPS: :cnaps
+        GB_SORT_CODE: :gbSortCode
+        IN_IFSC: :inIfsc
+        MY_BRANCH_CODE: :myBranchCode
+        BR_CODIGO: :brCodigo
+        ROUTING_NUMBER_TYPE: :routingNumberType
+        ADDRESS: :address
+        JP_ZENGIN_CODE: :jpZenginCode
+        SE_BANKGIRO_CLEARING_CODE: :seBankgiroClearingCode
+        NZ_NATIONAL_CLEARING_CODE: :nzNationalClearingCode
+        HK_INTERBANK_CLEARING_CODE: :hkInterbankClearingCode
+        HU_INTERBANK_CLEARING_CODE: :huInterbankClearingCode
+        DK_INTERBANK_CLEARING_CODE: :dkInterbankClearingCode
+        ID_SKNBI_CODE: :idSknbiCode
+        ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
+
+        def self.values: -> Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
+      end
+    end
+  end
+end

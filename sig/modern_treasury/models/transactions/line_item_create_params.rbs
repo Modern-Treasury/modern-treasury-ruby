@@ -1,0 +1,34 @@
+module ModernTreasury
+  module Models
+    module Transactions
+      type line_item_create_params =
+        { amount: Integer, expected_payment_id: String, transaction_id: String }
+        & ModernTreasury::request_parameters
+
+      class LineItemCreateParams < ModernTreasury::BaseModel
+        extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
+        attr_accessor amount: Integer
+
+        attr_accessor expected_payment_id: String
+
+        attr_accessor transaction_id: String
+
+        def initialize:
+          (
+            amount: Integer,
+            expected_payment_id: String,
+            transaction_id: String,
+            request_options: ModernTreasury::request_opts
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Transactions::line_item_create_params
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Transactions::line_item_create_params
+      end
+    end
+  end
+end

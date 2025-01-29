@@ -1,0 +1,96 @@
+module ModernTreasury
+  module Models
+    type line_item =
+      {
+        id: String,
+        accounting: ModernTreasury::Models::LineItem::Accounting,
+        accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
+        amount: Integer,
+        created_at: Time,
+        description: String?,
+        itemizable_id: String,
+        itemizable_type: ModernTreasury::Models::LineItem::itemizable_type,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        object: String,
+        updated_at: Time
+      }
+
+    class LineItem < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor accounting: ModernTreasury::Models::LineItem::Accounting
+
+      attr_accessor accounting_category_id: String?
+
+      attr_accessor accounting_ledger_class_id: String?
+
+      attr_accessor amount: Integer
+
+      attr_accessor created_at: Time
+
+      attr_accessor description: String?
+
+      attr_accessor itemizable_id: String
+
+      attr_accessor itemizable_type: ModernTreasury::Models::LineItem::itemizable_type
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          accounting: ModernTreasury::Models::LineItem::Accounting,
+          accounting_category_id: String?,
+          accounting_ledger_class_id: String?,
+          amount: Integer,
+          created_at: Time,
+          description: String?,
+          itemizable_id: String,
+          itemizable_type: ModernTreasury::Models::LineItem::itemizable_type,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::line_item | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::line_item
+
+      type accounting = { account_id: String?, class_id: String? }
+
+      class Accounting < ModernTreasury::BaseModel
+        attr_accessor account_id: String?
+
+        attr_accessor class_id: String?
+
+        def initialize:
+          (account_id: String?, class_id: String?) -> void
+          | (
+            ?ModernTreasury::Models::LineItem::accounting
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LineItem::accounting
+      end
+
+      type itemizable_type = :ExpectedPayment | :PaymentOrder
+
+      class ItemizableType < ModernTreasury::Enum
+        EXPECTED_PAYMENT: :ExpectedPayment
+        PAYMENT_ORDER: :PaymentOrder
+
+        def self.values: -> Array[ModernTreasury::Models::LineItem::itemizable_type]
+      end
+    end
+  end
+end

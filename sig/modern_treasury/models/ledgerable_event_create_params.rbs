@@ -1,0 +1,42 @@
+module ModernTreasury
+  module Models
+    type ledgerable_event_create_params =
+      {
+        name: String,
+        custom_data: top?,
+        description: String?,
+        metadata: Hash[Symbol, String]
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerableEventCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor name: String
+
+      attr_accessor custom_data: top?
+
+      attr_accessor description: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      def initialize:
+        (
+          name: String,
+          custom_data: top?,
+          description: String?,
+          metadata: Hash[Symbol, String],
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledgerable_event_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledgerable_event_create_params
+    end
+  end
+end

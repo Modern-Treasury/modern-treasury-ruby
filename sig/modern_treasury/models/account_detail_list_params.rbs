@@ -1,0 +1,38 @@
+module ModernTreasury
+  module Models
+    type account_detail_list_params =
+      {
+        accounts_type: ModernTreasury::Models::accounts_type,
+        after_cursor: String?,
+        per_page: Integer
+      }
+      & ModernTreasury::request_parameters
+
+    class AccountDetailListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor accounts_type: ModernTreasury::Models::accounts_type
+
+      attr_accessor after_cursor: String?
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      def initialize:
+        (
+          accounts_type: ModernTreasury::Models::accounts_type,
+          after_cursor: String?,
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::account_detail_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::account_detail_list_params
+    end
+  end
+end

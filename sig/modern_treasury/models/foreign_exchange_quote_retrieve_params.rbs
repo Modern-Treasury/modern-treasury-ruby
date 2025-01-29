@@ -1,0 +1,20 @@
+module ModernTreasury
+  module Models
+    type foreign_exchange_quote_retrieve_params =
+      {  } & ModernTreasury::request_parameters
+
+    class ForeignExchangeQuoteRetrieveParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      def initialize:
+        (request_options: ModernTreasury::request_opts) -> void
+        | (
+          ?ModernTreasury::Models::foreign_exchange_quote_retrieve_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::foreign_exchange_quote_retrieve_params
+    end
+  end
+end

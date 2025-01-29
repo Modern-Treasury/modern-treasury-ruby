@@ -1,0 +1,112 @@
+module ModernTreasury
+  module Models
+    
+    class TransactionLineItem = Transactions::TransactionLineItem
+
+    module Transactions
+      type transaction_line_item =
+        {
+          id: String,
+          amount: Integer,
+          counterparty_id: String?,
+          created_at: Time,
+          description: String,
+          discarded_at: Time?,
+          expected_payment_id: String?,
+          live_mode: bool,
+          object: String,
+          reconcilable: bool,
+          transactable_id: String?,
+          transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
+          transaction_id: String,
+          type: ModernTreasury::Models::Transactions::TransactionLineItem::type_,
+          updated_at: Time
+        }
+
+      class TransactionLineItem < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor amount: Integer
+
+        attr_accessor counterparty_id: String?
+
+        attr_accessor created_at: Time
+
+        attr_accessor description: String
+
+        attr_accessor discarded_at: Time?
+
+        attr_accessor expected_payment_id: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor reconcilable: bool
+
+        attr_accessor transactable_id: String?
+
+        attr_accessor transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?
+
+        attr_accessor transaction_id: String
+
+        attr_accessor type: ModernTreasury::Models::Transactions::TransactionLineItem::type_
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            amount: Integer,
+            counterparty_id: String?,
+            created_at: Time,
+            description: String,
+            discarded_at: Time?,
+            expected_payment_id: String?,
+            live_mode: bool,
+            object: String,
+            reconcilable: bool,
+            transactable_id: String?,
+            transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
+            transaction_id: String,
+            type: ModernTreasury::Models::Transactions::TransactionLineItem::type_,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Transactions::transaction_line_item
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Transactions::transaction_line_item
+
+        type transactable_type =
+          :incoming_payment_detail
+          | :paper_item
+          | :payment_order
+          | :payment_order_attempt
+          | :return
+          | :reversal
+
+        class TransactableType < ModernTreasury::Enum
+          INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
+          PAPER_ITEM: :paper_item
+          PAYMENT_ORDER: :payment_order
+          PAYMENT_ORDER_ATTEMPT: :payment_order_attempt
+          RETURN: :return
+          REVERSAL: :reversal
+
+          def self.values: -> Array[ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type]
+        end
+
+        type type_ = :originating | :receiving
+
+        class Type < ModernTreasury::Enum
+          ORIGINATING: :originating
+          RECEIVING: :receiving
+
+          def self.values: -> Array[ModernTreasury::Models::Transactions::TransactionLineItem::type_]
+        end
+      end
+    end
+  end
+end

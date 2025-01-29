@@ -1,0 +1,372 @@
+module ModernTreasury
+  module Models
+    type legal_entity =
+      {
+        id: String,
+        addresses: Array[ModernTreasury::Models::LegalEntity::Address],
+        bank_settings: ModernTreasury::Models::BankSettings?,
+        business_name: String?,
+        citizenship_country: String?,
+        created_at: Time,
+        date_formed: Date?,
+        date_of_birth: Date?,
+        discarded_at: Time?,
+        doing_business_as_names: Array[String],
+        email: String?,
+        first_name: String?,
+        identifications: Array[ModernTreasury::Models::LegalEntity::Identification],
+        last_name: String?,
+        legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation],
+        legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
+        legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        middle_name: String?,
+        object: String,
+        phone_numbers: Array[ModernTreasury::Models::LegalEntity::PhoneNumber],
+        politically_exposed_person: bool?,
+        preferred_name: String?,
+        prefix: String?,
+        risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
+        suffix: String?,
+        updated_at: Time,
+        wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+        website: String?
+      }
+
+    class LegalEntity < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor addresses: Array[ModernTreasury::Models::LegalEntity::Address]
+
+      attr_accessor bank_settings: ModernTreasury::Models::BankSettings?
+
+      attr_accessor business_name: String?
+
+      attr_accessor citizenship_country: String?
+
+      attr_accessor created_at: Time
+
+      attr_accessor date_formed: Date?
+
+      attr_accessor date_of_birth: Date?
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor doing_business_as_names: Array[String]
+
+      attr_accessor email: String?
+
+      attr_accessor first_name: String?
+
+      attr_accessor identifications: Array[ModernTreasury::Models::LegalEntity::Identification]
+
+      attr_accessor last_name: String?
+
+      attr_accessor legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation]
+
+      attr_accessor legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type
+
+      attr_accessor legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor middle_name: String?
+
+      attr_accessor object: String
+
+      attr_accessor phone_numbers: Array[ModernTreasury::Models::LegalEntity::PhoneNumber]
+
+      attr_accessor politically_exposed_person: bool?
+
+      attr_accessor preferred_name: String?
+
+      attr_accessor prefix: String?
+
+      attr_accessor risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?
+
+      attr_accessor suffix: String?
+
+      attr_accessor updated_at: Time
+
+      attr_accessor wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?
+
+      attr_accessor website: String?
+
+      def initialize:
+        (
+          id: String,
+          addresses: Array[ModernTreasury::Models::LegalEntity::Address],
+          bank_settings: ModernTreasury::Models::BankSettings?,
+          business_name: String?,
+          citizenship_country: String?,
+          created_at: Time,
+          date_formed: Date?,
+          date_of_birth: Date?,
+          discarded_at: Time?,
+          doing_business_as_names: Array[String],
+          email: String?,
+          first_name: String?,
+          identifications: Array[ModernTreasury::Models::LegalEntity::Identification],
+          last_name: String?,
+          legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation],
+          legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
+          legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          middle_name: String?,
+          object: String,
+          phone_numbers: Array[ModernTreasury::Models::LegalEntity::PhoneNumber],
+          politically_exposed_person: bool?,
+          preferred_name: String?,
+          prefix: String?,
+          risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
+          suffix: String?,
+          updated_at: Time,
+          wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+          website: String?
+        ) -> void
+        | (
+          ?ModernTreasury::Models::legal_entity | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::legal_entity
+
+      type address =
+        {
+          id: String,
+          address_types: Array[ModernTreasury::Models::LegalEntity::Address::address_type],
+          country: String?,
+          created_at: Time,
+          discarded_at: Time?,
+          :line1 => String?,
+          :line2 => String?,
+          live_mode: bool,
+          locality: String?,
+          object: String,
+          postal_code: String?,
+          region: String?,
+          updated_at: Time
+        }
+
+      class Address < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor address_types: Array[ModernTreasury::Models::LegalEntity::Address::address_type]
+
+        attr_accessor country: String?
+
+        attr_accessor created_at: Time
+
+        attr_accessor discarded_at: Time?
+
+        attr_accessor line1: String?
+
+        attr_accessor line2: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor locality: String?
+
+        attr_accessor object: String
+
+        attr_accessor postal_code: String?
+
+        attr_accessor region: String?
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            address_types: Array[ModernTreasury::Models::LegalEntity::Address::address_type],
+            country: String?,
+            created_at: Time,
+            discarded_at: Time?,
+            line1: String?,
+            line2: String?,
+            live_mode: bool,
+            locality: String?,
+            object: String,
+            postal_code: String?,
+            region: String?,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LegalEntity::address
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LegalEntity::address
+
+        type address_type =
+          :business | :mailing | :other | :po_box | :residential
+
+        class AddressType < ModernTreasury::Enum
+          BUSINESS: :business
+          MAILING: :mailing
+          OTHER: :other
+          PO_BOX: :po_box
+          RESIDENTIAL: :residential
+
+          def self.values: -> Array[ModernTreasury::Models::LegalEntity::Address::address_type]
+        end
+      end
+
+      type identification =
+        {
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          id_type: ModernTreasury::Models::LegalEntity::Identification::id_type,
+          issuing_country: String?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
+
+      class Identification < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor created_at: Time
+
+        attr_accessor discarded_at: Time?
+
+        attr_accessor id_type: ModernTreasury::Models::LegalEntity::Identification::id_type
+
+        attr_accessor issuing_country: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            created_at: Time,
+            discarded_at: Time?,
+            id_type: ModernTreasury::Models::LegalEntity::Identification::id_type,
+            issuing_country: String?,
+            live_mode: bool,
+            object: String,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LegalEntity::identification
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LegalEntity::identification
+
+        type id_type =
+          :ar_cuil
+          | :ar_cuit
+          | :br_cnpj
+          | :br_cpf
+          | :cl_run
+          | :cl_rut
+          | :co_cedulas
+          | :co_nit
+          | :hn_id
+          | :hn_rtn
+          | :in_lei
+          | :kr_brn
+          | :kr_crn
+          | :kr_rrn
+          | :passport
+          | :sa_tin
+          | :sa_vat
+          | :us_ein
+          | :us_itin
+          | :us_ssn
+          | :vn_tin
+
+        class IDType < ModernTreasury::Enum
+          AR_CUIL: :ar_cuil
+          AR_CUIT: :ar_cuit
+          BR_CNPJ: :br_cnpj
+          BR_CPF: :br_cpf
+          CL_RUN: :cl_run
+          CL_RUT: :cl_rut
+          CO_CEDULAS: :co_cedulas
+          CO_NIT: :co_nit
+          HN_ID: :hn_id
+          HN_RTN: :hn_rtn
+          IN_LEI: :in_lei
+          KR_BRN: :kr_brn
+          KR_CRN: :kr_crn
+          KR_RRN: :kr_rrn
+          PASSPORT: :passport
+          SA_TIN: :sa_tin
+          SA_VAT: :sa_vat
+          US_EIN: :us_ein
+          US_ITIN: :us_itin
+          US_SSN: :us_ssn
+          VN_TIN: :vn_tin
+
+          def self.values: -> Array[ModernTreasury::Models::LegalEntity::Identification::id_type]
+        end
+      end
+
+      type legal_entity_type = :business | :individual | :joint
+
+      class LegalEntityType < ModernTreasury::Enum
+        BUSINESS: :business
+        INDIVIDUAL: :individual
+        JOINT: :joint
+
+        def self.values: -> Array[ModernTreasury::Models::LegalEntity::legal_entity_type]
+      end
+
+      type legal_structure =
+        :corporation
+        | :llc
+        | :non_profit
+        | :partnership
+        | :sole_proprietorship
+        | :trust
+
+      class LegalStructure < ModernTreasury::Enum
+        CORPORATION: :corporation
+        LLC: :llc
+        NON_PROFIT: :non_profit
+        PARTNERSHIP: :partnership
+        SOLE_PROPRIETORSHIP: :sole_proprietorship
+        TRUST: :trust
+
+        def self.values: -> Array[ModernTreasury::Models::LegalEntity::legal_structure]
+      end
+
+      type phone_number = { phone_number: String }
+
+      class PhoneNumber < ModernTreasury::BaseModel
+        attr_reader phone_number: String?
+
+        def phone_number=: (String) -> void
+
+        def initialize:
+          (phone_number: String) -> void
+          | (
+            ?ModernTreasury::Models::LegalEntity::phone_number
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LegalEntity::phone_number
+      end
+
+      type risk_rating = :low | :medium | :high
+
+      class RiskRating < ModernTreasury::Enum
+        LOW: :low
+        MEDIUM: :medium
+        HIGH: :high
+
+        def self.values: -> Array[ModernTreasury::Models::LegalEntity::risk_rating]
+      end
+    end
+  end
+end

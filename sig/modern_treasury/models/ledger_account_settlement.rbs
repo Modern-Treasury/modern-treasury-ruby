@@ -1,0 +1,101 @@
+module ModernTreasury
+  module Models
+    type ledger_account_settlement =
+      {
+        id: String,
+        amount: Integer?,
+        contra_ledger_account_id: String,
+        created_at: Time,
+        currency: String,
+        currency_exponent: Integer?,
+        description: String?,
+        effective_at_upper_bound: Time,
+        ledger_id: String,
+        ledger_transaction_id: String?,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        object: String,
+        settled_ledger_account_id: String,
+        settlement_entry_direction: String?,
+        status: ModernTreasury::Models::LedgerAccountSettlement::status,
+        updated_at: Time
+      }
+
+    class LedgerAccountSettlement < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor amount: Integer?
+
+      attr_accessor contra_ledger_account_id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor currency: String
+
+      attr_accessor currency_exponent: Integer?
+
+      attr_accessor description: String?
+
+      attr_accessor effective_at_upper_bound: Time
+
+      attr_accessor ledger_id: String
+
+      attr_accessor ledger_transaction_id: String?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor settled_ledger_account_id: String
+
+      attr_accessor settlement_entry_direction: String?
+
+      attr_accessor status: ModernTreasury::Models::LedgerAccountSettlement::status
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          amount: Integer?,
+          contra_ledger_account_id: String,
+          created_at: Time,
+          currency: String,
+          currency_exponent: Integer?,
+          description: String?,
+          effective_at_upper_bound: Time,
+          ledger_id: String,
+          ledger_transaction_id: String?,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          settled_ledger_account_id: String,
+          settlement_entry_direction: String?,
+          status: ModernTreasury::Models::LedgerAccountSettlement::status,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_settlement
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_settlement
+
+      type status =
+        :archived | :archiving | :drafting | :pending | :posted | :processing
+
+      class Status < ModernTreasury::Enum
+        ARCHIVED: :archived
+        ARCHIVING: :archiving
+        DRAFTING: :drafting
+        PENDING: :pending
+        POSTED: :posted
+        PROCESSING: :processing
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerAccountSettlement::status]
+      end
+    end
+  end
+end

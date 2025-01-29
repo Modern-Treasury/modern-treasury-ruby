@@ -1,0 +1,111 @@
+module ModernTreasury
+  module Models
+    type expected_payment_update_params =
+      {
+        amount_lower_bound: Integer?,
+        amount_upper_bound: Integer?,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        description: String?,
+        direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        internal_account_id: String?,
+        metadata: Hash[Symbol, String],
+        reconciliation_filters: top?,
+        reconciliation_groups: top?,
+        reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule],
+        remittance_information: String?,
+        statement_descriptor: String?,
+        status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
+        type: ModernTreasury::Models::expected_payment_type?
+      }
+      & ModernTreasury::request_parameters
+
+    class ExpectedPaymentUpdateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor amount_lower_bound: Integer?
+
+      attr_accessor amount_upper_bound: Integer?
+
+      attr_accessor counterparty_id: String?
+
+      attr_accessor currency: ModernTreasury::Models::currency?
+
+      attr_accessor date_lower_bound: Date?
+
+      attr_accessor date_upper_bound: Date?
+
+      attr_accessor description: String?
+
+      attr_accessor direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?
+
+      attr_accessor internal_account_id: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_accessor reconciliation_filters: top?
+
+      attr_accessor reconciliation_groups: top?
+
+      attr_accessor reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule]
+
+      attr_accessor remittance_information: String?
+
+      attr_accessor statement_descriptor: String?
+
+      attr_accessor status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?
+
+      attr_accessor type: ModernTreasury::Models::expected_payment_type?
+
+      def initialize:
+        (
+          amount_lower_bound: Integer?,
+          amount_upper_bound: Integer?,
+          counterparty_id: String?,
+          currency: ModernTreasury::Models::currency?,
+          date_lower_bound: Date?,
+          date_upper_bound: Date?,
+          description: String?,
+          direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+          internal_account_id: String?,
+          metadata: Hash[Symbol, String],
+          reconciliation_filters: top?,
+          reconciliation_groups: top?,
+          reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule],
+          remittance_information: String?,
+          statement_descriptor: String?,
+          status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
+          type: ModernTreasury::Models::expected_payment_type?,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::expected_payment_update_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::expected_payment_update_params
+
+      type direction = :credit | :debit
+
+      class Direction < ModernTreasury::Enum
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self.values: -> Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::direction]
+      end
+
+      type status = :reconciled
+
+      class Status < ModernTreasury::Enum
+        RECONCILED: :reconciled
+
+        def self.values: -> Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::status]
+      end
+    end
+  end
+end

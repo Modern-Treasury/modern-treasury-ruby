@@ -1,0 +1,27 @@
+module ModernTreasury
+  module Models
+    module PaymentOrders
+      type reversal_retrieve_params =
+        { payment_order_id: String } & ModernTreasury::request_parameters
+
+      class ReversalRetrieveParams < ModernTreasury::BaseModel
+        extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
+        attr_accessor payment_order_id: String
+
+        def initialize:
+          (
+            payment_order_id: String,
+            request_options: ModernTreasury::request_opts
+          ) -> void
+          | (
+            ?ModernTreasury::Models::PaymentOrders::reversal_retrieve_params
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::PaymentOrders::reversal_retrieve_params
+      end
+    end
+  end
+end
