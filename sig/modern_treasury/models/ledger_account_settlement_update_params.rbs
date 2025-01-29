@@ -1,0 +1,51 @@
+module ModernTreasury
+  module Models
+    type ledger_account_settlement_update_params =
+      {
+        description: String?,
+        metadata: Hash[Symbol, String],
+        status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerAccountSettlementUpdateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor description: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status?
+
+      def status=: (
+        ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
+      ) -> void
+
+      def initialize:
+        (
+          description: String?,
+          metadata: Hash[Symbol, String],
+          status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_settlement_update_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_settlement_update_params
+
+      type status = :posted | :archived
+
+      class Status < ModernTreasury::Enum
+        POSTED: :posted
+        ARCHIVED: :archived
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status]
+      end
+    end
+  end
+end

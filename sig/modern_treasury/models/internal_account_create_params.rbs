@@ -1,0 +1,123 @@
+module ModernTreasury
+  module Models
+    type internal_account_create_params =
+      {
+        connection_id: String,
+        currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
+        name: String,
+        party_name: String,
+        counterparty_id: String,
+        legal_entity_id: String,
+        parent_account_id: String,
+        party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+        vendor_attributes: Hash[Symbol, String]
+      }
+      & ModernTreasury::request_parameters
+
+    class InternalAccountCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor connection_id: String
+
+      attr_accessor currency: ModernTreasury::Models::InternalAccountCreateParams::currency
+
+      attr_accessor name: String
+
+      attr_accessor party_name: String
+
+      attr_reader counterparty_id: String?
+
+      def counterparty_id=: (String) -> void
+
+      attr_reader legal_entity_id: String?
+
+      def legal_entity_id=: (String) -> void
+
+      attr_reader parent_account_id: String?
+
+      def parent_account_id=: (String) -> void
+
+      attr_reader party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress?
+
+      def party_address=: (
+        ModernTreasury::Models::InternalAccountCreateParams::PartyAddress
+      ) -> void
+
+      attr_reader vendor_attributes: Hash[Symbol, String]?
+
+      def vendor_attributes=: (Hash[Symbol, String]) -> void
+
+      def initialize:
+        (
+          connection_id: String,
+          currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
+          name: String,
+          party_name: String,
+          counterparty_id: String,
+          legal_entity_id: String,
+          parent_account_id: String,
+          party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+          vendor_attributes: Hash[Symbol, String],
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::internal_account_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::internal_account_create_params
+
+      type currency = :USD | :CAD
+
+      class Currency < ModernTreasury::Enum
+        USD: :USD
+        CAD: :CAD
+
+        def self.values: -> Array[ModernTreasury::Models::InternalAccountCreateParams::currency]
+      end
+
+      type party_address =
+        {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
+
+      class PartyAddress < ModernTreasury::BaseModel
+        attr_accessor country: String
+
+        attr_accessor line1: String
+
+        attr_accessor locality: String
+
+        attr_accessor postal_code: String
+
+        attr_accessor region: String
+
+        attr_reader line2: String?
+
+        def line2=: (String) -> void
+
+        def initialize:
+          (
+            country: String,
+            line1: String,
+            locality: String,
+            postal_code: String,
+            region: String,
+            line2: String
+          ) -> void
+          | (
+            ?ModernTreasury::Models::InternalAccountCreateParams::party_address
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::InternalAccountCreateParams::party_address
+      end
+    end
+  end
+end

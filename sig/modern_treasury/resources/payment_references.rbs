@@ -1,0 +1,43 @@
+module ModernTreasury
+  module Resources
+    class PaymentReferences
+      def retrieve:
+        (
+          String id,
+          ?ModernTreasury::Models::PaymentReferenceRetrieveParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::PaymentReference
+        | (
+          String id,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::PaymentReference
+
+      def list:
+        (
+          ?ModernTreasury::Models::PaymentReferenceListParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentReference]
+        | (
+          after_cursor: String?,
+          per_page: Integer,
+          reference_number: String,
+          referenceable_id: String,
+          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentReference]
+
+      def retireve:
+        (
+          String id,
+          ?ModernTreasury::Models::PaymentReferenceRetireveParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::PaymentReference
+        | (
+          String id,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::PaymentReference
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

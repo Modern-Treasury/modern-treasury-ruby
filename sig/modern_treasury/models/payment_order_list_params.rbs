@@ -1,0 +1,233 @@
+module ModernTreasury
+  module Models
+    type payment_order_list_params =
+      {
+        after_cursor: String?,
+        counterparty_id: String,
+        created_at_end: Date,
+        created_at_start: Date,
+        direction: ModernTreasury::Models::transaction_direction,
+        effective_date_end: Date,
+        effective_date_start: Date,
+        metadata: Hash[Symbol, String],
+        originating_account_id: String,
+        per_page: Integer,
+        priority: ModernTreasury::Models::PaymentOrderListParams::priority,
+        process_after_end: Time,
+        process_after_start: Time,
+        reference_number: String,
+        status: ModernTreasury::Models::PaymentOrderListParams::status,
+        transaction_id: String,
+        type: ModernTreasury::Models::PaymentOrderListParams::type_
+      }
+      & ModernTreasury::request_parameters
+
+    class PaymentOrderListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader counterparty_id: String?
+
+      def counterparty_id=: (String) -> void
+
+      attr_reader created_at_end: Date?
+
+      def created_at_end=: (Date) -> void
+
+      attr_reader created_at_start: Date?
+
+      def created_at_start=: (Date) -> void
+
+      attr_reader direction: ModernTreasury::Models::transaction_direction?
+
+      def direction=: (ModernTreasury::Models::transaction_direction) -> void
+
+      attr_reader effective_date_end: Date?
+
+      def effective_date_end=: (Date) -> void
+
+      attr_reader effective_date_start: Date?
+
+      def effective_date_start=: (Date) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader originating_account_id: String?
+
+      def originating_account_id=: (String) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader priority: ModernTreasury::Models::PaymentOrderListParams::priority?
+
+      def priority=: (
+        ModernTreasury::Models::PaymentOrderListParams::priority
+      ) -> void
+
+      attr_reader process_after_end: Time?
+
+      def process_after_end=: (Time) -> void
+
+      attr_reader process_after_start: Time?
+
+      def process_after_start=: (Time) -> void
+
+      attr_reader reference_number: String?
+
+      def reference_number=: (String) -> void
+
+      attr_reader status: ModernTreasury::Models::PaymentOrderListParams::status?
+
+      def status=: (
+        ModernTreasury::Models::PaymentOrderListParams::status
+      ) -> void
+
+      attr_reader transaction_id: String?
+
+      def transaction_id=: (String) -> void
+
+      attr_reader type: ModernTreasury::Models::PaymentOrderListParams::type_?
+
+      def type=: (ModernTreasury::Models::PaymentOrderListParams::type_) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          counterparty_id: String,
+          created_at_end: Date,
+          created_at_start: Date,
+          direction: ModernTreasury::Models::transaction_direction,
+          effective_date_end: Date,
+          effective_date_start: Date,
+          metadata: Hash[Symbol, String],
+          originating_account_id: String,
+          per_page: Integer,
+          priority: ModernTreasury::Models::PaymentOrderListParams::priority,
+          process_after_end: Time,
+          process_after_start: Time,
+          reference_number: String,
+          status: ModernTreasury::Models::PaymentOrderListParams::status,
+          transaction_id: String,
+          type: ModernTreasury::Models::PaymentOrderListParams::type_,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::payment_order_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::payment_order_list_params
+
+      type priority = :high | :normal
+
+      class Priority < ModernTreasury::Enum
+        HIGH: :high
+        NORMAL: :normal
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentOrderListParams::priority]
+      end
+
+      type status =
+        :approved
+        | :cancelled
+        | :completed
+        | :denied
+        | :failed
+        | :needs_approval
+        | :pending
+        | :processing
+        | :returned
+        | :reversed
+        | :sent
+
+      class Status < ModernTreasury::Enum
+        APPROVED: :approved
+        CANCELLED: :cancelled
+        COMPLETED: :completed
+        DENIED: :denied
+        FAILED: :failed
+        NEEDS_APPROVAL: :needs_approval
+        PENDING: :pending
+        PROCESSING: :processing
+        RETURNED: :returned
+        REVERSED: :reversed
+        SENT: :sent
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentOrderListParams::status]
+      end
+
+      type type_ =
+        :ach
+        | :au_becs
+        | :bacs
+        | :book
+        | :card
+        | :chats
+        | :check
+        | :cross_border
+        | :dk_nets
+        | :eft
+        | :hu_ics
+        | :interac
+        | :masav
+        | :mx_ccen
+        | :neft
+        | :nics
+        | :nz_becs
+        | :pl_elixir
+        | :provxchange
+        | :ro_sent
+        | :rtp
+        | :se_bankgirot
+        | :sen
+        | :sepa
+        | :sg_giro
+        | :sic
+        | :signet
+        | :sknbi
+        | :wire
+        | :zengin
+
+      class Type < ModernTreasury::Enum
+        ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
+        BOOK: :book
+        CARD: :card
+        CHATS: :chats
+        CHECK: :check
+        CROSS_BORDER: :cross_border
+        DK_NETS: :dk_nets
+        EFT: :eft
+        HU_ICS: :hu_ics
+        INTERAC: :interac
+        MASAV: :masav
+        MX_CCEN: :mx_ccen
+        NEFT: :neft
+        NICS: :nics
+        NZ_BECS: :nz_becs
+        PL_ELIXIR: :pl_elixir
+        PROVXCHANGE: :provxchange
+        RO_SENT: :ro_sent
+        RTP: :rtp
+        SE_BANKGIROT: :se_bankgirot
+        SEN: :sen
+        SEPA: :sepa
+        SG_GIRO: :sg_giro
+        SIC: :sic
+        SIGNET: :signet
+        SKNBI: :sknbi
+        WIRE: :wire
+        ZENGIN: :zengin
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentOrderListParams::type_]
+      end
+    end
+  end
+end

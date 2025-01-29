@@ -1,0 +1,351 @@
+module ModernTreasury
+  module Models
+    type ledger_account_statement_retrieve_response =
+      {
+        id: String,
+        created_at: Time,
+        description: String?,
+        effective_at_lower_bound: Time,
+        effective_at_upper_bound: Time,
+        ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer,
+        ledger_account_normal_balance: ModernTreasury::Models::transaction_direction,
+        ledger_id: String,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        object: String,
+        starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+        updated_at: Time
+      }
+
+    class LedgerAccountStatementRetrieveResponse < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor description: String?
+
+      attr_accessor effective_at_lower_bound: Time
+
+      attr_accessor effective_at_upper_bound: Time
+
+      attr_accessor ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance
+
+      attr_accessor ledger_account_id: String
+
+      attr_accessor ledger_account_lock_version: Integer
+
+      attr_accessor ledger_account_normal_balance: ModernTreasury::Models::transaction_direction
+
+      attr_accessor ledger_id: String
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          created_at: Time,
+          description: String?,
+          effective_at_lower_bound: Time,
+          effective_at_upper_bound: Time,
+          ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+          ledger_account_id: String,
+          ledger_account_lock_version: Integer,
+          ledger_account_normal_balance: ModernTreasury::Models::transaction_direction,
+          ledger_id: String,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_statement_retrieve_response
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_statement_retrieve_response
+
+      type ending_balance =
+        {
+          available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
+          pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
+          posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
+        }
+
+      class EndingBalance < ModernTreasury::BaseModel
+        attr_accessor available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance
+
+        attr_accessor pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance
+
+        attr_accessor posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
+
+        def initialize:
+          (
+            available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
+            pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
+            posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::ending_balance
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::ending_balance
+
+        type available_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class AvailableBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::available_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::available_balance
+        end
+
+        type pending_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class PendingBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::pending_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::pending_balance
+        end
+
+        type posted_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class PostedBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::posted_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::posted_balance
+        end
+      end
+
+      type starting_balance =
+        {
+          available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
+          pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
+          posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
+        }
+
+      class StartingBalance < ModernTreasury::BaseModel
+        attr_accessor available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance
+
+        attr_accessor pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance
+
+        attr_accessor posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
+
+        def initialize:
+          (
+            available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
+            pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
+            posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::starting_balance
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::starting_balance
+
+        type available_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class AvailableBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::available_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::available_balance
+        end
+
+        type pending_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class PendingBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::pending_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::pending_balance
+        end
+
+        type posted_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class PostedBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::posted_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::posted_balance
+        end
+      end
+    end
+  end
+end

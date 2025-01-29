@@ -1,0 +1,89 @@
+module ModernTreasury
+  module Models
+    type ledger_transaction_create_partial_post_params =
+      {
+        posted_ledger_entries: Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
+        description: String,
+        effective_at: Time,
+        metadata: Hash[Symbol, String]
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerTransactionCreatePartialPostParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor posted_ledger_entries: Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]
+
+      attr_reader description: String?
+
+      def description=: (String) -> void
+
+      attr_reader effective_at: Time?
+
+      def effective_at=: (Time) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      def initialize:
+        (
+          posted_ledger_entries: Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
+          description: String,
+          effective_at: Time,
+          metadata: Hash[Symbol, String],
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_transaction_create_partial_post_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_transaction_create_partial_post_params
+
+      type posted_ledger_entry =
+        {
+          amount: Integer,
+          direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
+          ledger_account_id: String,
+          metadata: Hash[Symbol, String]
+        }
+
+      class PostedLedgerEntry < ModernTreasury::BaseModel
+        attr_accessor amount: Integer
+
+        attr_accessor direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction
+
+        attr_accessor ledger_account_id: String
+
+        attr_reader metadata: Hash[Symbol, String]?
+
+        def metadata=: (Hash[Symbol, String]) -> void
+
+        def initialize:
+          (
+            amount: Integer,
+            direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
+            ledger_account_id: String,
+            metadata: Hash[Symbol, String]
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::posted_ledger_entry
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::posted_ledger_entry
+
+        type direction = :credit | :debit
+
+        class Direction < ModernTreasury::Enum
+          CREDIT: :credit
+          DEBIT: :debit
+
+          def self.values: -> Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction]
+        end
+      end
+    end
+  end
+end

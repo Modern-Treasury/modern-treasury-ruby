@@ -1,0 +1,170 @@
+module ModernTreasury
+  module Models
+    type document =
+      {
+        id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        document_details: Array[ModernTreasury::Models::Document::DocumentDetail],
+        document_type: String?,
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::Document::documentable_type,
+        file: ModernTreasury::Models::Document::File,
+        live_mode: bool,
+        object: String,
+        source: String,
+        updated_at: Time
+      }
+
+    class Document < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor document_details: Array[ModernTreasury::Models::Document::DocumentDetail]
+
+      attr_accessor document_type: String?
+
+      attr_accessor documentable_id: String
+
+      attr_accessor documentable_type: ModernTreasury::Models::Document::documentable_type
+
+      attr_accessor file: ModernTreasury::Models::Document::File
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor source: String
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          document_details: Array[ModernTreasury::Models::Document::DocumentDetail],
+          document_type: String?,
+          documentable_id: String,
+          documentable_type: ModernTreasury::Models::Document::documentable_type,
+          file: ModernTreasury::Models::Document::File,
+          live_mode: bool,
+          object: String,
+          source: String,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::document | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::document
+
+      type document_detail =
+        {
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          document_identifier: String,
+          document_identifier_type: String,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
+
+      class DocumentDetail < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor created_at: Time
+
+        attr_accessor discarded_at: Time?
+
+        attr_accessor document_identifier: String
+
+        attr_accessor document_identifier_type: String
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            created_at: Time,
+            discarded_at: Time?,
+            document_identifier: String,
+            document_identifier_type: String,
+            live_mode: bool,
+            object: String,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Document::document_detail
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Document::document_detail
+      end
+
+      type documentable_type =
+        :case
+        | :counterparty
+        | :expected_payment
+        | :external_account
+        | :incoming_payment_detail
+        | :internal_account
+        | :organization
+        | :paper_item
+        | :payment_order
+        | :transaction
+        | :decision
+        | :connection
+
+      class DocumentableType < ModernTreasury::Enum
+        CASE: :case
+        COUNTERPARTY: :counterparty
+        EXPECTED_PAYMENT: :expected_payment
+        EXTERNAL_ACCOUNT: :external_account
+        INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
+        INTERNAL_ACCOUNT: :internal_account
+        ORGANIZATION: :organization
+        PAPER_ITEM: :paper_item
+        PAYMENT_ORDER: :payment_order
+        TRANSACTION: :transaction
+        DECISION: :decision
+        CONNECTION: :connection
+
+        def self.values: -> Array[ModernTreasury::Models::Document::documentable_type]
+      end
+
+      type file = { content_type: String, filename: String, size: Integer }
+
+      class File < ModernTreasury::BaseModel
+        attr_reader content_type: String?
+
+        def content_type=: (String) -> void
+
+        attr_reader filename: String?
+
+        def filename=: (String) -> void
+
+        attr_reader size: Integer?
+
+        def size=: (Integer) -> void
+
+        def initialize:
+          (content_type: String, filename: String, size: Integer) -> void
+          | (
+            ?ModernTreasury::Models::Document::file
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Document::file
+      end
+    end
+  end
+end

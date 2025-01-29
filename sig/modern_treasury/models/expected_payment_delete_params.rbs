@@ -1,0 +1,20 @@
+module ModernTreasury
+  module Models
+    type expected_payment_delete_params =
+      {  } & ModernTreasury::request_parameters
+
+    class ExpectedPaymentDeleteParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      def initialize:
+        (request_options: ModernTreasury::request_opts) -> void
+        | (
+          ?ModernTreasury::Models::expected_payment_delete_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::expected_payment_delete_params
+    end
+  end
+end

@@ -1,0 +1,70 @@
+module ModernTreasury
+  module Models
+    type payment_flow_list_params =
+      {
+        after_cursor: String?,
+        client_token: String,
+        counterparty_id: String,
+        originating_account_id: String,
+        payment_order_id: String,
+        per_page: Integer,
+        receiving_account_id: String,
+        status: String
+      }
+      & ModernTreasury::request_parameters
+
+    class PaymentFlowListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader client_token: String?
+
+      def client_token=: (String) -> void
+
+      attr_reader counterparty_id: String?
+
+      def counterparty_id=: (String) -> void
+
+      attr_reader originating_account_id: String?
+
+      def originating_account_id=: (String) -> void
+
+      attr_reader payment_order_id: String?
+
+      def payment_order_id=: (String) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader receiving_account_id: String?
+
+      def receiving_account_id=: (String) -> void
+
+      attr_reader status: String?
+
+      def status=: (String) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          client_token: String,
+          counterparty_id: String,
+          originating_account_id: String,
+          payment_order_id: String,
+          per_page: Integer,
+          receiving_account_id: String,
+          status: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::payment_flow_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::payment_flow_list_params
+    end
+  end
+end

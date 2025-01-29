@@ -1,0 +1,52 @@
+module ModernTreasury
+  module Resources
+    class PaymentOrders
+      class Reversals
+        def create:
+          (
+            String payment_order_id,
+            ModernTreasury::Models::PaymentOrders::ReversalCreateParams
+            | Hash[Symbol, top] params
+          ) -> ModernTreasury::Models::PaymentOrders::Reversal
+          | (
+            String payment_order_id,
+            ModernTreasury::Models::PaymentOrders::ReversalCreateParams
+            | Hash[Symbol, top] params,
+            reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
+            ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+            metadata: Hash[Symbol, String],
+            request_options: ModernTreasury::request_opts
+          ) -> ModernTreasury::Models::PaymentOrders::Reversal
+
+        def retrieve:
+          (
+            String reversal_id,
+            ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams
+            | Hash[Symbol, top] params
+          ) -> ModernTreasury::Models::PaymentOrders::Reversal
+          | (
+            String reversal_id,
+            ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams
+            | Hash[Symbol, top] params,
+            payment_order_id: String,
+            request_options: ModernTreasury::request_opts
+          ) -> ModernTreasury::Models::PaymentOrders::Reversal
+
+        def list:
+          (
+            String payment_order_id,
+            ?ModernTreasury::Models::PaymentOrders::ReversalListParams
+            | Hash[Symbol, top] params
+          ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal]
+          | (
+            String payment_order_id,
+            after_cursor: String?,
+            per_page: Integer,
+            request_options: ModernTreasury::request_opts
+          ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal]
+
+        def initialize: (client: ModernTreasury::Client) -> void
+      end
+    end
+  end
+end

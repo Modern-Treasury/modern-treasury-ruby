@@ -1,0 +1,46 @@
+module ModernTreasury
+  module Models
+    type connection_list_params =
+      {
+        after_cursor: String?,
+        entity: String,
+        per_page: Integer,
+        vendor_customer_id: String
+      }
+      & ModernTreasury::request_parameters
+
+    class ConnectionListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader entity: String?
+
+      def entity=: (String) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader vendor_customer_id: String?
+
+      def vendor_customer_id=: (String) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          entity: String,
+          per_page: Integer,
+          vendor_customer_id: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::connection_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::connection_list_params
+    end
+  end
+end

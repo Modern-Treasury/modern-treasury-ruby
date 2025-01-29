@@ -1,0 +1,27 @@
+module ModernTreasury
+  module Models
+    module InternalAccounts
+      type balance_report_retrieve_params =
+        { internal_account_id: String } & ModernTreasury::request_parameters
+
+      class BalanceReportRetrieveParams < ModernTreasury::BaseModel
+        extend ModernTreasury::RequestParameters::Converter
+        include ModernTreasury::RequestParameters
+
+        attr_accessor internal_account_id: String
+
+        def initialize:
+          (
+            internal_account_id: String,
+            request_options: ModernTreasury::request_opts
+          ) -> void
+          | (
+            ?ModernTreasury::Models::InternalAccounts::balance_report_retrieve_params
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::InternalAccounts::balance_report_retrieve_params
+      end
+    end
+  end
+end

@@ -1,0 +1,65 @@
+module ModernTreasury
+  module Models
+    type connection_legal_entity_list_params =
+      {
+        after_cursor: String?,
+        connection_id: String,
+        legal_entity_id: String,
+        per_page: Integer,
+        status: ModernTreasury::Models::ConnectionLegalEntityListParams::status
+      }
+      & ModernTreasury::request_parameters
+
+    class ConnectionLegalEntityListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader connection_id: String?
+
+      def connection_id=: (String) -> void
+
+      attr_reader legal_entity_id: String?
+
+      def legal_entity_id=: (String) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader status: ModernTreasury::Models::ConnectionLegalEntityListParams::status?
+
+      def status=: (
+        ModernTreasury::Models::ConnectionLegalEntityListParams::status
+      ) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          connection_id: String,
+          legal_entity_id: String,
+          per_page: Integer,
+          status: ModernTreasury::Models::ConnectionLegalEntityListParams::status,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::connection_legal_entity_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::connection_legal_entity_list_params
+
+      type status = :completed | :denied | :failed | :processing
+
+      class Status < ModernTreasury::Enum
+        COMPLETED: :completed
+        DENIED: :denied
+        FAILED: :failed
+        PROCESSING: :processing
+
+        def self.values: -> Array[ModernTreasury::Models::ConnectionLegalEntityListParams::status]
+      end
+    end
+  end
+end

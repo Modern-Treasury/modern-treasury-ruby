@@ -1,0 +1,47 @@
+module ModernTreasury
+  module Models
+    type line_item_list_params =
+      {
+        itemizable_type: ModernTreasury::Models::LineItemListParams::itemizable_type,
+        after_cursor: String?,
+        per_page: Integer
+      }
+      & ModernTreasury::request_parameters
+
+    class LineItemListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor itemizable_type: ModernTreasury::Models::LineItemListParams::itemizable_type
+
+      attr_accessor after_cursor: String?
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      def initialize:
+        (
+          itemizable_type: ModernTreasury::Models::LineItemListParams::itemizable_type,
+          after_cursor: String?,
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::line_item_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::line_item_list_params
+
+      type itemizable_type = :expected_payments | :payment_orders
+
+      class ItemizableType < ModernTreasury::Enum
+        EXPECTED_PAYMENTS: :expected_payments
+        PAYMENT_ORDERS: :payment_orders
+
+        def self.values: -> Array[ModernTreasury::Models::LineItemListParams::itemizable_type]
+      end
+    end
+  end
+end

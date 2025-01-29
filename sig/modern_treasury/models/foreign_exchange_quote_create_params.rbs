@@ -1,0 +1,56 @@
+module ModernTreasury
+  module Models
+    type foreign_exchange_quote_create_params =
+      {
+        internal_account_id: String,
+        target_currency: ModernTreasury::Models::currency,
+        base_amount: Integer,
+        base_currency: ModernTreasury::Models::currency,
+        effective_at: Time,
+        target_amount: Integer
+      }
+      & ModernTreasury::request_parameters
+
+    class ForeignExchangeQuoteCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor internal_account_id: String
+
+      attr_accessor target_currency: ModernTreasury::Models::currency
+
+      attr_reader base_amount: Integer?
+
+      def base_amount=: (Integer) -> void
+
+      attr_reader base_currency: ModernTreasury::Models::currency?
+
+      def base_currency=: (ModernTreasury::Models::currency) -> void
+
+      attr_reader effective_at: Time?
+
+      def effective_at=: (Time) -> void
+
+      attr_reader target_amount: Integer?
+
+      def target_amount=: (Integer) -> void
+
+      def initialize:
+        (
+          internal_account_id: String,
+          target_currency: ModernTreasury::Models::currency,
+          base_amount: Integer,
+          base_currency: ModernTreasury::Models::currency,
+          effective_at: Time,
+          target_amount: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::foreign_exchange_quote_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::foreign_exchange_quote_create_params
+    end
+  end
+end

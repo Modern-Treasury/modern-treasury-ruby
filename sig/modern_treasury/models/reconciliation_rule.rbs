@@ -1,0 +1,137 @@
+module ModernTreasury
+  module Models
+    type reconciliation_rule =
+      {
+        amount_lower_bound: Integer,
+        amount_upper_bound: Integer,
+        direction: ModernTreasury::Models::ReconciliationRule::direction,
+        internal_account_id: String,
+        counterparty_id: String?,
+        currency: ModernTreasury::Models::currency,
+        custom_identifiers: Hash[Symbol, String]?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        type: ModernTreasury::Models::ReconciliationRule::type_?
+      }
+
+    class ReconciliationRule < ModernTreasury::BaseModel
+      attr_accessor amount_lower_bound: Integer
+
+      attr_accessor amount_upper_bound: Integer
+
+      attr_accessor direction: ModernTreasury::Models::ReconciliationRule::direction
+
+      attr_accessor internal_account_id: String
+
+      attr_accessor counterparty_id: String?
+
+      attr_reader currency: ModernTreasury::Models::currency?
+
+      def currency=: (ModernTreasury::Models::currency) -> void
+
+      attr_accessor custom_identifiers: Hash[Symbol, String]?
+
+      attr_accessor date_lower_bound: Date?
+
+      attr_accessor date_upper_bound: Date?
+
+      attr_accessor type: ModernTreasury::Models::ReconciliationRule::type_?
+
+      def initialize:
+        (
+          amount_lower_bound: Integer,
+          amount_upper_bound: Integer,
+          direction: ModernTreasury::Models::ReconciliationRule::direction,
+          internal_account_id: String,
+          counterparty_id: String?,
+          currency: ModernTreasury::Models::currency,
+          custom_identifiers: Hash[Symbol, String]?,
+          date_lower_bound: Date?,
+          date_upper_bound: Date?,
+          type: ModernTreasury::Models::ReconciliationRule::type_?
+        ) -> void
+        | (
+          ?ModernTreasury::Models::reconciliation_rule
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::reconciliation_rule
+
+      type direction = :credit | :debit
+
+      class Direction < ModernTreasury::Enum
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self.values: -> Array[ModernTreasury::Models::ReconciliationRule::direction]
+      end
+
+      type type_ =
+        :ach
+        | :au_becs
+        | :bacs
+        | :book
+        | :card
+        | :chats
+        | :check
+        | :cross_border
+        | :dk_nets
+        | :eft
+        | :hu_ics
+        | :interac
+        | :masav
+        | :mx_ccen
+        | :neft
+        | :nics
+        | :nz_becs
+        | :pl_elixir
+        | :provxchange
+        | :ro_sent
+        | :rtp
+        | :se_bankgirot
+        | :sen
+        | :sepa
+        | :sg_giro
+        | :sic
+        | :signet
+        | :sknbi
+        | :wire
+        | :zengin
+
+      class Type < ModernTreasury::Enum
+        ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
+        BOOK: :book
+        CARD: :card
+        CHATS: :chats
+        CHECK: :check
+        CROSS_BORDER: :cross_border
+        DK_NETS: :dk_nets
+        EFT: :eft
+        HU_ICS: :hu_ics
+        INTERAC: :interac
+        MASAV: :masav
+        MX_CCEN: :mx_ccen
+        NEFT: :neft
+        NICS: :nics
+        NZ_BECS: :nz_becs
+        PL_ELIXIR: :pl_elixir
+        PROVXCHANGE: :provxchange
+        RO_SENT: :ro_sent
+        RTP: :rtp
+        SE_BANKGIROT: :se_bankgirot
+        SEN: :sen
+        SEPA: :sepa
+        SG_GIRO: :sg_giro
+        SIC: :sic
+        SIGNET: :signet
+        SKNBI: :sknbi
+        WIRE: :wire
+        ZENGIN: :zengin
+
+        def self.values: -> Array[ModernTreasury::Models::ReconciliationRule::type_]
+      end
+    end
+  end
+end

@@ -1,0 +1,286 @@
+module ModernTreasury
+  module Models
+    type transaction =
+      {
+        id: String,
+        amount: Integer,
+        as_of_date: Date?,
+        as_of_time: String?,
+        as_of_timezone: String?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        custom_identifiers: Hash[Symbol, String],
+        direction: String,
+        discarded_at: Time?,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate?,
+        internal_account_id: String,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        object: String,
+        posted: bool,
+        reconciled: bool,
+        type: ModernTreasury::Models::Transaction::type_,
+        updated_at: Time,
+        vendor_code: String?,
+        vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?,
+        vendor_customer_id: String?,
+        vendor_id: String?,
+        details: Hash[Symbol, String],
+        vendor_description: String?
+      }
+
+    class Transaction < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor amount: Integer
+
+      attr_accessor as_of_date: Date?
+
+      attr_accessor as_of_time: String?
+
+      attr_accessor as_of_timezone: String?
+
+      attr_accessor created_at: Time
+
+      attr_accessor currency: ModernTreasury::Models::currency
+
+      attr_accessor custom_identifiers: Hash[Symbol, String]
+
+      attr_accessor direction: String
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate?
+
+      attr_accessor internal_account_id: String
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor posted: bool
+
+      attr_accessor reconciled: bool
+
+      attr_accessor type: ModernTreasury::Models::Transaction::type_
+
+      attr_accessor updated_at: Time
+
+      attr_accessor vendor_code: String?
+
+      attr_accessor vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?
+
+      attr_accessor vendor_customer_id: String?
+
+      attr_accessor vendor_id: String?
+
+      attr_reader details: Hash[Symbol, String]?
+
+      def details=: (Hash[Symbol, String]) -> void
+
+      attr_accessor vendor_description: String?
+
+      def initialize:
+        (
+          id: String,
+          amount: Integer,
+          as_of_date: Date?,
+          as_of_time: String?,
+          as_of_timezone: String?,
+          created_at: Time,
+          currency: ModernTreasury::Models::currency,
+          custom_identifiers: Hash[Symbol, String],
+          direction: String,
+          discarded_at: Time?,
+          foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate?,
+          internal_account_id: String,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          posted: bool,
+          reconciled: bool,
+          type: ModernTreasury::Models::Transaction::type_,
+          updated_at: Time,
+          vendor_code: String?,
+          vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?,
+          vendor_customer_id: String?,
+          vendor_id: String?,
+          details: Hash[Symbol, String],
+          vendor_description: String?
+        ) -> void
+        | (
+          ?ModernTreasury::Models::transaction | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::transaction
+
+      type foreign_exchange_rate =
+        {
+          base_amount: Integer,
+          base_currency: ModernTreasury::Models::currency,
+          exponent: Integer,
+          rate_string: String,
+          target_amount: Integer,
+          target_currency: ModernTreasury::Models::currency,
+          value: Integer
+        }
+
+      class ForeignExchangeRate < ModernTreasury::BaseModel
+        attr_accessor base_amount: Integer
+
+        attr_accessor base_currency: ModernTreasury::Models::currency
+
+        attr_accessor exponent: Integer
+
+        attr_accessor rate_string: String
+
+        attr_accessor target_amount: Integer
+
+        attr_accessor target_currency: ModernTreasury::Models::currency
+
+        attr_accessor value: Integer
+
+        def initialize:
+          (
+            base_amount: Integer,
+            base_currency: ModernTreasury::Models::currency,
+            exponent: Integer,
+            rate_string: String,
+            target_amount: Integer,
+            target_currency: ModernTreasury::Models::currency,
+            value: Integer
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Transaction::foreign_exchange_rate
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Transaction::foreign_exchange_rate
+      end
+
+      type type_ =
+        :ach
+        | :au_becs
+        | :bacs
+        | :book
+        | :card
+        | :chats
+        | :check
+        | :cross_border
+        | :dk_nets
+        | :eft
+        | :hu_ics
+        | :interac
+        | :masav
+        | :mx_ccen
+        | :neft
+        | :nics
+        | :nz_becs
+        | :pl_elixir
+        | :provxchange
+        | :ro_sent
+        | :rtp
+        | :se_bankgirot
+        | :sen
+        | :sepa
+        | :sg_giro
+        | :sic
+        | :signet
+        | :sknbi
+        | :wire
+        | :zengin
+        | :other
+
+      class Type < ModernTreasury::Enum
+        ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
+        BOOK: :book
+        CARD: :card
+        CHATS: :chats
+        CHECK: :check
+        CROSS_BORDER: :cross_border
+        DK_NETS: :dk_nets
+        EFT: :eft
+        HU_ICS: :hu_ics
+        INTERAC: :interac
+        MASAV: :masav
+        MX_CCEN: :mx_ccen
+        NEFT: :neft
+        NICS: :nics
+        NZ_BECS: :nz_becs
+        PL_ELIXIR: :pl_elixir
+        PROVXCHANGE: :provxchange
+        RO_SENT: :ro_sent
+        RTP: :rtp
+        SE_BANKGIROT: :se_bankgirot
+        SEN: :sen
+        SEPA: :sepa
+        SG_GIRO: :sg_giro
+        SIC: :sic
+        SIGNET: :signet
+        SKNBI: :sknbi
+        WIRE: :wire
+        ZENGIN: :zengin
+        OTHER: :other
+
+        def self.values: -> Array[ModernTreasury::Models::Transaction::type_]
+      end
+
+      type vendor_code_type =
+        :bai2
+        | :banking_circle
+        | :bankprov
+        | :bnk_dev
+        | :cleartouch
+        | :column
+        | :cross_river
+        | :currencycloud
+        | :dc_bank
+        | :dwolla
+        | :evolve
+        | :goldman_sachs
+        | :iso20022
+        | :jpmc
+        | :mx
+        | :plaid
+        | :pnc
+        | :rspec_vendor
+        | :signet
+        | :silvergate
+        | :swift
+        | :us_bank
+        | :user
+
+      class VendorCodeType < ModernTreasury::Enum
+        BAI2: :bai2
+        BANKING_CIRCLE: :banking_circle
+        BANKPROV: :bankprov
+        BNK_DEV: :bnk_dev
+        CLEARTOUCH: :cleartouch
+        COLUMN: :column
+        CROSS_RIVER: :cross_river
+        CURRENCYCLOUD: :currencycloud
+        DC_BANK: :dc_bank
+        DWOLLA: :dwolla
+        EVOLVE: :evolve
+        GOLDMAN_SACHS: :goldman_sachs
+        ISO20022: :iso20022
+        JPMC: :jpmc
+        MX: :mx
+        PLAID: :plaid
+        PNC: :pnc
+        RSPEC_VENDOR: :rspec_vendor
+        SIGNET: :signet
+        SILVERGATE: :silvergate
+        SWIFT: :swift
+        US_BANK: :us_bank
+        USER: :user
+
+        def self.values: -> Array[ModernTreasury::Models::Transaction::vendor_code_type]
+      end
+    end
+  end
+end

@@ -1,0 +1,19 @@
+module ModernTreasury
+  module Models
+    type bulk_result_retrieve_params = {  } & ModernTreasury::request_parameters
+
+    class BulkResultRetrieveParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      def initialize:
+        (request_options: ModernTreasury::request_opts) -> void
+        | (
+          ?ModernTreasury::Models::bulk_result_retrieve_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::bulk_result_retrieve_params
+    end
+  end
+end

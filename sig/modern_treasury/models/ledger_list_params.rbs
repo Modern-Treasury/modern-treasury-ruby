@@ -1,0 +1,52 @@
+module ModernTreasury
+  module Models
+    type ledger_list_params =
+      {
+        id: Array[String],
+        after_cursor: String?,
+        metadata: Hash[Symbol, String],
+        per_page: Integer,
+        updated_at: Hash[Symbol, Time]
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader id: Array[String]
+
+      def id=: (Array[String]) -> void
+
+      attr_accessor after_cursor: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader updated_at: Hash[Symbol, Time]?
+
+      def updated_at=: (Hash[Symbol, Time]) -> void
+
+      def initialize:
+        (
+          id: Array[String],
+          after_cursor: String?,
+          metadata: Hash[Symbol, String],
+          per_page: Integer,
+          updated_at: Hash[Symbol, Time],
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_list_params
+    end
+  end
+end

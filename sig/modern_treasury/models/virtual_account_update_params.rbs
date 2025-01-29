@@ -1,0 +1,46 @@
+module ModernTreasury
+  module Models
+    type virtual_account_update_params =
+      {
+        counterparty_id: String,
+        ledger_account_id: String,
+        metadata: Hash[Symbol, String],
+        name: String?
+      }
+      & ModernTreasury::request_parameters
+
+    class VirtualAccountUpdateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader counterparty_id: String?
+
+      def counterparty_id=: (String) -> void
+
+      attr_reader ledger_account_id: String?
+
+      def ledger_account_id=: (String) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_accessor name: String?
+
+      def initialize:
+        (
+          counterparty_id: String,
+          ledger_account_id: String,
+          metadata: Hash[Symbol, String],
+          name: String?,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::virtual_account_update_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::virtual_account_update_params
+    end
+  end
+end

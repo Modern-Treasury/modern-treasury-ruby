@@ -1,0 +1,129 @@
+module ModernTreasury
+  module Models
+    type ledger_event_handler_create_params =
+      {
+        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+        name: String,
+        conditions: ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions?,
+        description: String?,
+        ledger_id: String,
+        metadata: Hash[Symbol, String]?,
+        variables: Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerEventHandlerCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate
+
+      attr_accessor name: String
+
+      attr_accessor conditions: ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions?
+
+      attr_accessor description: String?
+
+      attr_reader ledger_id: String?
+
+      def ledger_id=: (String) -> void
+
+      attr_accessor metadata: Hash[Symbol, String]?
+
+      attr_accessor variables: Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
+
+      def initialize:
+        (
+          ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+          name: String,
+          conditions: ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions?,
+          description: String?,
+          ledger_id: String,
+          metadata: Hash[Symbol, String]?,
+          variables: Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_event_handler_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_event_handler_create_params
+
+      type ledger_transaction_template =
+        {
+          description: String?,
+          effective_at: String?,
+          ledger_entries: Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
+          status: String?
+        }
+
+      class LedgerTransactionTemplate < ModernTreasury::BaseModel
+        attr_accessor description: String?
+
+        attr_accessor effective_at: String?
+
+        attr_accessor ledger_entries: Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
+
+        attr_accessor status: String?
+
+        def initialize:
+          (
+            description: String?,
+            effective_at: String?,
+            ledger_entries: Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
+            status: String?
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LedgerEventHandlerCreateParams::ledger_transaction_template
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::ledger_transaction_template
+
+        type ledger_entry =
+          { amount: String, direction: String, ledger_account_id: String }
+
+        class LedgerEntry < ModernTreasury::BaseModel
+          attr_accessor amount: String
+
+          attr_accessor direction: String
+
+          attr_accessor ledger_account_id: String
+
+          def initialize:
+            (
+              amount: String,
+              direction: String,
+              ledger_account_id: String
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::ledger_entry
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::ledger_entry
+        end
+      end
+
+      type conditions = { field: String, operator: String, value: String }
+
+      class Conditions < ModernTreasury::BaseModel
+        attr_accessor field: String
+
+        attr_accessor operator: String
+
+        attr_accessor value: String
+
+        def initialize:
+          (field: String, operator: String, value: String) -> void
+          | (
+            ?ModernTreasury::Models::LedgerEventHandlerCreateParams::conditions
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::conditions
+      end
+    end
+  end
+end

@@ -1,0 +1,47 @@
+module ModernTreasury
+  module Resources
+    class Returns
+      def create:
+        (
+          ModernTreasury::Models::ReturnCreateParams | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::ReturnObject
+        | (
+          ModernTreasury::Models::ReturnCreateParams | Hash[Symbol, top] params,
+          returnable_id: String?,
+          returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
+          additional_information: String?,
+          code: ModernTreasury::Models::ReturnCreateParams::code?,
+          date_of_death: Date?,
+          reason: String?,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::ReturnObject
+
+      def retrieve:
+        (
+          String id,
+          ?ModernTreasury::Models::ReturnRetrieveParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::ReturnObject
+        | (
+          String id,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::ReturnObject
+
+      def list:
+        (
+          ?ModernTreasury::Models::ReturnListParams | Hash[Symbol, top] params
+        ) -> ModernTreasury::Page[ModernTreasury::Models::ReturnObject]
+        | (
+          after_cursor: String?,
+          counterparty_id: String,
+          internal_account_id: String,
+          per_page: Integer,
+          returnable_id: String,
+          returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::ReturnObject]
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

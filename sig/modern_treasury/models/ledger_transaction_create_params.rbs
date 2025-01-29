@@ -1,0 +1,161 @@
+module ModernTreasury
+  module Models
+    type ledger_transaction_create_params =
+      {
+        ledger_entries: Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
+        description: String?,
+        effective_at: Time,
+        effective_date: Date,
+        external_id: String,
+        ledgerable_id: String,
+        ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type,
+        metadata: Hash[Symbol, String],
+        status: ModernTreasury::Models::LedgerTransactionCreateParams::status
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerTransactionCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor ledger_entries: Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry]
+
+      attr_accessor description: String?
+
+      attr_reader effective_at: Time?
+
+      def effective_at=: (Time) -> void
+
+      attr_reader effective_date: Date?
+
+      def effective_date=: (Date) -> void
+
+      attr_reader external_id: String?
+
+      def external_id=: (String) -> void
+
+      attr_reader ledgerable_id: String?
+
+      def ledgerable_id=: (String) -> void
+
+      attr_reader ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type?
+
+      def ledgerable_type=: (
+        ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type
+      ) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader status: ModernTreasury::Models::LedgerTransactionCreateParams::status?
+
+      def status=: (
+        ModernTreasury::Models::LedgerTransactionCreateParams::status
+      ) -> void
+
+      def initialize:
+        (
+          ledger_entries: Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
+          description: String?,
+          effective_at: Time,
+          effective_date: Date,
+          external_id: String,
+          ledgerable_id: String,
+          ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type,
+          metadata: Hash[Symbol, String],
+          status: ModernTreasury::Models::LedgerTransactionCreateParams::status,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_transaction_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_transaction_create_params
+
+      type ledger_entry =
+        {
+          amount: Integer,
+          direction: ModernTreasury::Models::transaction_direction,
+          ledger_account_id: String,
+          available_balance_amount: Hash[Symbol, Integer]?,
+          lock_version: Integer?,
+          metadata: Hash[Symbol, String],
+          pending_balance_amount: Hash[Symbol, Integer]?,
+          posted_balance_amount: Hash[Symbol, Integer]?,
+          show_resulting_ledger_account_balances: bool?
+        }
+
+      class LedgerEntry < ModernTreasury::BaseModel
+        attr_accessor amount: Integer
+
+        attr_accessor direction: ModernTreasury::Models::transaction_direction
+
+        attr_accessor ledger_account_id: String
+
+        attr_accessor available_balance_amount: Hash[Symbol, Integer]?
+
+        attr_accessor lock_version: Integer?
+
+        attr_reader metadata: Hash[Symbol, String]?
+
+        def metadata=: (Hash[Symbol, String]) -> void
+
+        attr_accessor pending_balance_amount: Hash[Symbol, Integer]?
+
+        attr_accessor posted_balance_amount: Hash[Symbol, Integer]?
+
+        attr_accessor show_resulting_ledger_account_balances: bool?
+
+        def initialize:
+          (
+            amount: Integer,
+            direction: ModernTreasury::Models::transaction_direction,
+            ledger_account_id: String,
+            available_balance_amount: Hash[Symbol, Integer]?,
+            lock_version: Integer?,
+            metadata: Hash[Symbol, String],
+            pending_balance_amount: Hash[Symbol, Integer]?,
+            posted_balance_amount: Hash[Symbol, Integer]?,
+            show_resulting_ledger_account_balances: bool?
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LedgerTransactionCreateParams::ledger_entry
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerTransactionCreateParams::ledger_entry
+      end
+
+      type ledgerable_type =
+        :expected_payment
+        | :incoming_payment_detail
+        | :paper_item
+        | :payment_order
+        | :return
+        | :reversal
+
+      class LedgerableType < ModernTreasury::Enum
+        EXPECTED_PAYMENT: :expected_payment
+        INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
+        PAPER_ITEM: :paper_item
+        PAYMENT_ORDER: :payment_order
+        RETURN: :return
+        REVERSAL: :reversal
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type]
+      end
+
+      type status = :archived | :pending | :posted
+
+      class Status < ModernTreasury::Enum
+        ARCHIVED: :archived
+        PENDING: :pending
+        POSTED: :posted
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerTransactionCreateParams::status]
+      end
+    end
+  end
+end

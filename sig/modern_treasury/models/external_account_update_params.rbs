@@ -1,0 +1,111 @@
+module ModernTreasury
+  module Models
+    type external_account_update_params =
+      {
+        account_type: ModernTreasury::Models::external_account_type,
+        counterparty_id: String?,
+        metadata: Hash[Symbol, String],
+        name: String?,
+        party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?
+      }
+      & ModernTreasury::request_parameters
+
+    class ExternalAccountUpdateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader account_type: ModernTreasury::Models::external_account_type?
+
+      def account_type=: (ModernTreasury::Models::external_account_type) -> void
+
+      attr_accessor counterparty_id: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_accessor name: String?
+
+      attr_reader party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress?
+
+      def party_address=: (
+        ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress
+      ) -> void
+
+      attr_reader party_name: String?
+
+      def party_name=: (String) -> void
+
+      attr_accessor party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?
+
+      def initialize:
+        (
+          account_type: ModernTreasury::Models::external_account_type,
+          counterparty_id: String?,
+          metadata: Hash[Symbol, String],
+          name: String?,
+          party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+          party_name: String,
+          party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::external_account_update_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::external_account_update_params
+
+      type party_address =
+        {
+          country: String?,
+          :line1 => String?,
+          :line2 => String?,
+          locality: String?,
+          postal_code: String?,
+          region: String?
+        }
+
+      class PartyAddress < ModernTreasury::BaseModel
+        attr_accessor country: String?
+
+        attr_accessor line1: String?
+
+        attr_accessor line2: String?
+
+        attr_accessor locality: String?
+
+        attr_accessor postal_code: String?
+
+        attr_accessor region: String?
+
+        def initialize:
+          (
+            country: String?,
+            line1: String?,
+            line2: String?,
+            locality: String?,
+            postal_code: String?,
+            region: String?
+          ) -> void
+          | (
+            ?ModernTreasury::Models::ExternalAccountUpdateParams::party_address
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::ExternalAccountUpdateParams::party_address
+      end
+
+      type party_type = :business | :individual
+
+      class PartyType < ModernTreasury::Enum
+        BUSINESS: :business
+        INDIVIDUAL: :individual
+
+        def self.values: -> Array[ModernTreasury::Models::ExternalAccountUpdateParams::party_type]
+      end
+    end
+  end
+end

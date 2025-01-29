@@ -1,0 +1,59 @@
+module ModernTreasury
+  module Models
+    type payment_flow_create_params =
+      {
+        amount: Integer,
+        counterparty_id: String,
+        currency: String,
+        direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
+        originating_account_id: String,
+        due_date: Date
+      }
+      & ModernTreasury::request_parameters
+
+    class PaymentFlowCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor amount: Integer
+
+      attr_accessor counterparty_id: String
+
+      attr_accessor currency: String
+
+      attr_accessor direction: ModernTreasury::Models::PaymentFlowCreateParams::direction
+
+      attr_accessor originating_account_id: String
+
+      attr_reader due_date: Date?
+
+      def due_date=: (Date) -> void
+
+      def initialize:
+        (
+          amount: Integer,
+          counterparty_id: String,
+          currency: String,
+          direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
+          originating_account_id: String,
+          due_date: Date,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::payment_flow_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::payment_flow_create_params
+
+      type direction = :credit | :debit
+
+      class Direction < ModernTreasury::Enum
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentFlowCreateParams::direction]
+      end
+    end
+  end
+end

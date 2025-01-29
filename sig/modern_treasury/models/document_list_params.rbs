@@ -1,0 +1,79 @@
+module ModernTreasury
+  module Models
+    type document_list_params =
+      {
+        after_cursor: String?,
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
+        per_page: Integer
+      }
+      & ModernTreasury::request_parameters
+
+    class DocumentListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader documentable_id: String?
+
+      def documentable_id=: (String) -> void
+
+      attr_reader documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type?
+
+      def documentable_type=: (
+        ModernTreasury::Models::DocumentListParams::documentable_type
+      ) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          documentable_id: String,
+          documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::document_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::document_list_params
+
+      type documentable_type =
+        :cases
+        | :counterparties
+        | :expected_payments
+        | :external_accounts
+        | :incoming_payment_details
+        | :internal_accounts
+        | :organizations
+        | :paper_items
+        | :payment_orders
+        | :transactions
+        | :decisions
+        | :connections
+
+      class DocumentableType < ModernTreasury::Enum
+        CASES: :cases
+        COUNTERPARTIES: :counterparties
+        EXPECTED_PAYMENTS: :expected_payments
+        EXTERNAL_ACCOUNTS: :external_accounts
+        INCOMING_PAYMENT_DETAILS: :incoming_payment_details
+        INTERNAL_ACCOUNTS: :internal_accounts
+        ORGANIZATIONS: :organizations
+        PAPER_ITEMS: :paper_items
+        PAYMENT_ORDERS: :payment_orders
+        TRANSACTIONS: :transactions
+        DECISIONS: :decisions
+        CONNECTIONS: :connections
+
+        def self.values: -> Array[ModernTreasury::Models::DocumentListParams::documentable_type]
+      end
+    end
+  end
+end

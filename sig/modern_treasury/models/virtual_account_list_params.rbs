@@ -1,0 +1,52 @@
+module ModernTreasury
+  module Models
+    type virtual_account_list_params =
+      {
+        after_cursor: String?,
+        counterparty_id: String,
+        internal_account_id: String,
+        metadata: Hash[Symbol, String],
+        per_page: Integer
+      }
+      & ModernTreasury::request_parameters
+
+    class VirtualAccountListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader counterparty_id: String?
+
+      def counterparty_id=: (String) -> void
+
+      attr_reader internal_account_id: String?
+
+      def internal_account_id=: (String) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          counterparty_id: String,
+          internal_account_id: String,
+          metadata: Hash[Symbol, String],
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::virtual_account_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::virtual_account_list_params
+    end
+  end
+end

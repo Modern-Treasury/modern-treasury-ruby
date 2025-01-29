@@ -1,0 +1,138 @@
+module ModernTreasury
+  module Models
+    type external_account_verify_params =
+      {
+        originating_account_id: String,
+        payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
+        currency: ModernTreasury::Models::currency,
+        fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type,
+        priority: ModernTreasury::Models::ExternalAccountVerifyParams::priority
+      }
+      & ModernTreasury::request_parameters
+
+    class ExternalAccountVerifyParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor originating_account_id: String
+
+      attr_accessor payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type
+
+      attr_reader currency: ModernTreasury::Models::currency?
+
+      def currency=: (ModernTreasury::Models::currency) -> void
+
+      attr_reader fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type?
+
+      def fallback_type=: (
+        ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type
+      ) -> void
+
+      attr_reader priority: ModernTreasury::Models::ExternalAccountVerifyParams::priority?
+
+      def priority=: (
+        ModernTreasury::Models::ExternalAccountVerifyParams::priority
+      ) -> void
+
+      def initialize:
+        (
+          originating_account_id: String,
+          payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
+          currency: ModernTreasury::Models::currency,
+          fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type,
+          priority: ModernTreasury::Models::ExternalAccountVerifyParams::priority,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::external_account_verify_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::external_account_verify_params
+
+      type payment_type =
+        :ach
+        | :au_becs
+        | :bacs
+        | :book
+        | :card
+        | :chats
+        | :check
+        | :cross_border
+        | :dk_nets
+        | :eft
+        | :hu_ics
+        | :interac
+        | :masav
+        | :mx_ccen
+        | :neft
+        | :nics
+        | :nz_becs
+        | :pl_elixir
+        | :provxchange
+        | :ro_sent
+        | :rtp
+        | :se_bankgirot
+        | :sen
+        | :sepa
+        | :sg_giro
+        | :sic
+        | :signet
+        | :sknbi
+        | :wire
+        | :zengin
+
+      class PaymentType < ModernTreasury::Enum
+        ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
+        BOOK: :book
+        CARD: :card
+        CHATS: :chats
+        CHECK: :check
+        CROSS_BORDER: :cross_border
+        DK_NETS: :dk_nets
+        EFT: :eft
+        HU_ICS: :hu_ics
+        INTERAC: :interac
+        MASAV: :masav
+        MX_CCEN: :mx_ccen
+        NEFT: :neft
+        NICS: :nics
+        NZ_BECS: :nz_becs
+        PL_ELIXIR: :pl_elixir
+        PROVXCHANGE: :provxchange
+        RO_SENT: :ro_sent
+        RTP: :rtp
+        SE_BANKGIROT: :se_bankgirot
+        SEN: :sen
+        SEPA: :sepa
+        SG_GIRO: :sg_giro
+        SIC: :sic
+        SIGNET: :signet
+        SKNBI: :sknbi
+        WIRE: :wire
+        ZENGIN: :zengin
+
+        def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyParams::payment_type]
+      end
+
+      type fallback_type = :ach
+
+      class FallbackType < ModernTreasury::Enum
+        ACH: :ach
+
+        def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type]
+      end
+
+      type priority = :high | :normal
+
+      class Priority < ModernTreasury::Enum
+        HIGH: :high
+        NORMAL: :normal
+
+        def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyParams::priority]
+      end
+    end
+  end
+end

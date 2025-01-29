@@ -1,0 +1,60 @@
+module ModernTreasury
+  module Models
+    type ledger_account_category_create_params =
+      {
+        currency: String,
+        ledger_id: String,
+        name: String,
+        normal_balance: ModernTreasury::Models::transaction_direction,
+        currency_exponent: Integer?,
+        description: String?,
+        ledger_account_category_ids: Array[String],
+        metadata: Hash[Symbol, String]
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerAccountCategoryCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor currency: String
+
+      attr_accessor ledger_id: String
+
+      attr_accessor name: String
+
+      attr_accessor normal_balance: ModernTreasury::Models::transaction_direction
+
+      attr_accessor currency_exponent: Integer?
+
+      attr_accessor description: String?
+
+      attr_reader ledger_account_category_ids: Array[String]
+
+      def ledger_account_category_ids=: (Array[String]) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      def initialize:
+        (
+          currency: String,
+          ledger_id: String,
+          name: String,
+          normal_balance: ModernTreasury::Models::transaction_direction,
+          currency_exponent: Integer?,
+          description: String?,
+          ledger_account_category_ids: Array[String],
+          metadata: Hash[Symbol, String],
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_category_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_category_create_params
+    end
+  end
+end

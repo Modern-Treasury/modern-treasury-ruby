@@ -1,0 +1,79 @@
+module ModernTreasury
+  module Resources
+    class VirtualAccounts
+      def create:
+        (
+          ModernTreasury::Models::VirtualAccountCreateParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::VirtualAccount
+        | (
+          ModernTreasury::Models::VirtualAccountCreateParams
+          | Hash[Symbol, top] params,
+          internal_account_id: String,
+          name: String,
+          account_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+          counterparty_id: String,
+          credit_ledger_account_id: String,
+          debit_ledger_account_id: String,
+          description: String,
+          ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+          metadata: Hash[Symbol, String],
+          routing_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::VirtualAccount
+
+      def retrieve:
+        (
+          String id,
+          ?ModernTreasury::Models::VirtualAccountRetrieveParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::VirtualAccount
+        | (
+          String id,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::VirtualAccount
+
+      def update:
+        (
+          String id,
+          ?ModernTreasury::Models::VirtualAccountUpdateParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::VirtualAccount
+        | (
+          String id,
+          counterparty_id: String,
+          ledger_account_id: String,
+          metadata: Hash[Symbol, String],
+          name: String?,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::VirtualAccount
+
+      def list:
+        (
+          ?ModernTreasury::Models::VirtualAccountListParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Page[ModernTreasury::Models::VirtualAccount]
+        | (
+          after_cursor: String?,
+          counterparty_id: String,
+          internal_account_id: String,
+          metadata: Hash[Symbol, String],
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::VirtualAccount]
+
+      def delete:
+        (
+          String id,
+          ?ModernTreasury::Models::VirtualAccountDeleteParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::VirtualAccount
+        | (
+          String id,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::VirtualAccount
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

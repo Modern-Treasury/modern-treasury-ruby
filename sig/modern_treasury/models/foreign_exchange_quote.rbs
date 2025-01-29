@@ -1,0 +1,113 @@
+module ModernTreasury
+  module Models
+    type foreign_exchange_quote =
+      {
+        id: String,
+        created_at: Time,
+        effective_at: Time,
+        expires_at: Time,
+        foreign_exchange_indicator: String,
+        foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+        internal_account_id: String,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        object: String,
+        updated_at: Time,
+        vendor_id: String
+      }
+
+    class ForeignExchangeQuote < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor effective_at: Time
+
+      attr_accessor expires_at: Time
+
+      attr_accessor foreign_exchange_indicator: String
+
+      attr_accessor foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate
+
+      attr_accessor internal_account_id: String
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor updated_at: Time
+
+      attr_reader vendor_id: String?
+
+      def vendor_id=: (String) -> void
+
+      def initialize:
+        (
+          id: String,
+          created_at: Time,
+          effective_at: Time,
+          expires_at: Time,
+          foreign_exchange_indicator: String,
+          foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+          internal_account_id: String,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          updated_at: Time,
+          vendor_id: String
+        ) -> void
+        | (
+          ?ModernTreasury::Models::foreign_exchange_quote
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::foreign_exchange_quote
+
+      type foreign_exchange_rate =
+        {
+          base_amount: Integer,
+          base_currency: ModernTreasury::Models::currency,
+          exponent: Integer,
+          rate_string: String,
+          target_amount: Integer,
+          target_currency: ModernTreasury::Models::currency,
+          value: Integer
+        }
+
+      class ForeignExchangeRate < ModernTreasury::BaseModel
+        attr_accessor base_amount: Integer
+
+        attr_accessor base_currency: ModernTreasury::Models::currency
+
+        attr_accessor exponent: Integer
+
+        attr_accessor rate_string: String
+
+        attr_accessor target_amount: Integer
+
+        attr_accessor target_currency: ModernTreasury::Models::currency
+
+        attr_accessor value: Integer
+
+        def initialize:
+          (
+            base_amount: Integer,
+            base_currency: ModernTreasury::Models::currency,
+            exponent: Integer,
+            rate_string: String,
+            target_amount: Integer,
+            target_currency: ModernTreasury::Models::currency,
+            value: Integer
+          ) -> void
+          | (
+            ?ModernTreasury::Models::ForeignExchangeQuote::foreign_exchange_rate
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::ForeignExchangeQuote::foreign_exchange_rate
+      end
+    end
+  end
+end

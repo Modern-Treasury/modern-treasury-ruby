@@ -1,0 +1,98 @@
+module ModernTreasury
+  module Models
+    type bulk_request =
+      {
+        id: String,
+        action_type: ModernTreasury::Models::BulkRequest::action_type,
+        created_at: Time,
+        failed_result_count: Integer,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        object: String,
+        resource_type: ModernTreasury::Models::BulkRequest::resource_type,
+        status: ModernTreasury::Models::BulkRequest::status,
+        success_result_count: Integer,
+        total_resource_count: Integer,
+        updated_at: Time
+      }
+
+    class BulkRequest < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor action_type: ModernTreasury::Models::BulkRequest::action_type
+
+      attr_accessor created_at: Time
+
+      attr_accessor failed_result_count: Integer
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor resource_type: ModernTreasury::Models::BulkRequest::resource_type
+
+      attr_accessor status: ModernTreasury::Models::BulkRequest::status
+
+      attr_accessor success_result_count: Integer
+
+      attr_accessor total_resource_count: Integer
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          action_type: ModernTreasury::Models::BulkRequest::action_type,
+          created_at: Time,
+          failed_result_count: Integer,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          resource_type: ModernTreasury::Models::BulkRequest::resource_type,
+          status: ModernTreasury::Models::BulkRequest::status,
+          success_result_count: Integer,
+          total_resource_count: Integer,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::bulk_request | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::bulk_request
+
+      type action_type = :create | :update | :delete
+
+      class ActionType < ModernTreasury::Enum
+        CREATE: :create
+        UPDATE: :update
+        DELETE: :delete
+
+        def self.values: -> Array[ModernTreasury::Models::BulkRequest::action_type]
+      end
+
+      type resource_type =
+        :payment_order | :ledger_transaction | :transaction | :expected_payment
+
+      class ResourceType < ModernTreasury::Enum
+        PAYMENT_ORDER: :payment_order
+        LEDGER_TRANSACTION: :ledger_transaction
+        TRANSACTION: :transaction
+        EXPECTED_PAYMENT: :expected_payment
+
+        def self.values: -> Array[ModernTreasury::Models::BulkRequest::resource_type]
+      end
+
+      type status = :pending | :processing | :completed
+
+      class Status < ModernTreasury::Enum
+        PENDING: :pending
+        PROCESSING: :processing
+        COMPLETED: :completed
+
+        def self.values: -> Array[ModernTreasury::Models::BulkRequest::status]
+      end
+    end
+  end
+end

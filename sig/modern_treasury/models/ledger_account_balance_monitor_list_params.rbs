@@ -1,0 +1,52 @@
+module ModernTreasury
+  module Models
+    type ledger_account_balance_monitor_list_params =
+      {
+        id: Array[String],
+        after_cursor: String?,
+        ledger_account_id: String,
+        metadata: Hash[Symbol, String],
+        per_page: Integer
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerAccountBalanceMonitorListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader id: Array[String]
+
+      def id=: (Array[String]) -> void
+
+      attr_accessor after_cursor: String?
+
+      attr_reader ledger_account_id: String?
+
+      def ledger_account_id=: (String) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      def initialize:
+        (
+          id: Array[String],
+          after_cursor: String?,
+          ledger_account_id: String,
+          metadata: Hash[Symbol, String],
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_balance_monitor_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_balance_monitor_list_params
+    end
+  end
+end
