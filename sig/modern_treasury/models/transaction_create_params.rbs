@@ -1,0 +1,137 @@
+module ModernTreasury
+  module Models
+    type transaction_create_params =
+      {
+        amount: Integer,
+        as_of_date: Date?,
+        direction: String,
+        internal_account_id: String,
+        vendor_code: String?,
+        vendor_code_type: String?,
+        metadata: Hash[Symbol, String],
+        posted: bool,
+        type: ModernTreasury::Models::TransactionCreateParams::type_?,
+        vendor_description: String?
+      }
+      & ModernTreasury::request_parameters
+
+    class TransactionCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor amount: Integer
+
+      attr_accessor as_of_date: Date?
+
+      attr_accessor direction: String
+
+      attr_accessor internal_account_id: String
+
+      attr_accessor vendor_code: String?
+
+      attr_accessor vendor_code_type: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader posted: bool?
+
+      def posted=: (bool) -> void
+
+      attr_accessor type: ModernTreasury::Models::TransactionCreateParams::type_?
+
+      attr_accessor vendor_description: String?
+
+      def initialize:
+        (
+          amount: Integer,
+          as_of_date: Date?,
+          direction: String,
+          internal_account_id: String,
+          vendor_code: String?,
+          vendor_code_type: String?,
+          metadata: Hash[Symbol, String],
+          posted: bool,
+          type: ModernTreasury::Models::TransactionCreateParams::type_?,
+          vendor_description: String?,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::transaction_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::transaction_create_params
+
+      type type_ =
+        :ach
+        | :au_becs
+        | :bacs
+        | :book
+        | :card
+        | :chats
+        | :check
+        | :cross_border
+        | :dk_nets
+        | :eft
+        | :hu_ics
+        | :interac
+        | :masav
+        | :mx_ccen
+        | :neft
+        | :nics
+        | :nz_becs
+        | :pl_elixir
+        | :provxchange
+        | :ro_sent
+        | :rtp
+        | :se_bankgirot
+        | :sen
+        | :sepa
+        | :sg_giro
+        | :sic
+        | :signet
+        | :sknbi
+        | :wire
+        | :zengin
+        | :other
+
+      class Type < ModernTreasury::Enum
+        ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
+        BOOK: :book
+        CARD: :card
+        CHATS: :chats
+        CHECK: :check
+        CROSS_BORDER: :cross_border
+        DK_NETS: :dk_nets
+        EFT: :eft
+        HU_ICS: :hu_ics
+        INTERAC: :interac
+        MASAV: :masav
+        MX_CCEN: :mx_ccen
+        NEFT: :neft
+        NICS: :nics
+        NZ_BECS: :nz_becs
+        PL_ELIXIR: :pl_elixir
+        PROVXCHANGE: :provxchange
+        RO_SENT: :ro_sent
+        RTP: :rtp
+        SE_BANKGIROT: :se_bankgirot
+        SEN: :sen
+        SEPA: :sepa
+        SG_GIRO: :sg_giro
+        SIC: :sic
+        SIGNET: :signet
+        SKNBI: :sknbi
+        WIRE: :wire
+        ZENGIN: :zengin
+        OTHER: :other
+
+        def self.values: -> Array[ModernTreasury::Models::TransactionCreateParams::type_]
+      end
+    end
+  end
+end

@@ -1,0 +1,67 @@
+module ModernTreasury
+  module Models
+    type ledger_account_settlement_create_params =
+      {
+        contra_ledger_account_id: String,
+        settled_ledger_account_id: String,
+        allow_either_direction: bool?,
+        description: String?,
+        effective_at_upper_bound: Time?,
+        metadata: Hash[Symbol, String],
+        skip_settlement_ledger_transaction: bool?,
+        status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerAccountSettlementCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor contra_ledger_account_id: String
+
+      attr_accessor settled_ledger_account_id: String
+
+      attr_accessor allow_either_direction: bool?
+
+      attr_accessor description: String?
+
+      attr_accessor effective_at_upper_bound: Time?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_accessor skip_settlement_ledger_transaction: bool?
+
+      attr_accessor status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?
+
+      def initialize:
+        (
+          contra_ledger_account_id: String,
+          settled_ledger_account_id: String,
+          allow_either_direction: bool?,
+          description: String?,
+          effective_at_upper_bound: Time?,
+          metadata: Hash[Symbol, String],
+          skip_settlement_ledger_transaction: bool?,
+          status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_settlement_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_settlement_create_params
+
+      type status = :pending | :posted
+
+      class Status < ModernTreasury::Enum
+        PENDING: :pending
+        POSTED: :posted
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::status]
+      end
+    end
+  end
+end

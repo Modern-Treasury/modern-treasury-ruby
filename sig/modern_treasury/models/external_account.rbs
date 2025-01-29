@@ -1,0 +1,242 @@
+module ModernTreasury
+  module Models
+    type external_account =
+      {
+        id: String,
+        account_details: Array[ModernTreasury::Models::AccountDetail],
+        account_type: ModernTreasury::Models::external_account_type,
+        contact_details: Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
+        counterparty_id: String?,
+        created_at: Time,
+        discarded_at: Time?,
+        ledger_account_id: String?,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        name: String?,
+        object: String,
+        party_address: ModernTreasury::Models::ExternalAccount::PartyAddress?,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccount::party_type?,
+        routing_details: Array[ModernTreasury::Models::RoutingDetail],
+        updated_at: Time,
+        verification_source: ModernTreasury::Models::ExternalAccount::verification_source?,
+        verification_status: ModernTreasury::Models::ExternalAccount::verification_status
+      }
+
+    class ExternalAccount < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor account_details: Array[ModernTreasury::Models::AccountDetail]
+
+      attr_accessor account_type: ModernTreasury::Models::external_account_type
+
+      attr_accessor contact_details: Array[ModernTreasury::Models::ExternalAccount::ContactDetail]
+
+      attr_accessor counterparty_id: String?
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor ledger_account_id: String?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor name: String?
+
+      attr_accessor object: String
+
+      attr_accessor party_address: ModernTreasury::Models::ExternalAccount::PartyAddress?
+
+      attr_accessor party_name: String
+
+      attr_accessor party_type: ModernTreasury::Models::ExternalAccount::party_type?
+
+      attr_accessor routing_details: Array[ModernTreasury::Models::RoutingDetail]
+
+      attr_accessor updated_at: Time
+
+      attr_accessor verification_source: ModernTreasury::Models::ExternalAccount::verification_source?
+
+      attr_accessor verification_status: ModernTreasury::Models::ExternalAccount::verification_status
+
+      def initialize:
+        (
+          id: String,
+          account_details: Array[ModernTreasury::Models::AccountDetail],
+          account_type: ModernTreasury::Models::external_account_type,
+          contact_details: Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
+          counterparty_id: String?,
+          created_at: Time,
+          discarded_at: Time?,
+          ledger_account_id: String?,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          name: String?,
+          object: String,
+          party_address: ModernTreasury::Models::ExternalAccount::PartyAddress?,
+          party_name: String,
+          party_type: ModernTreasury::Models::ExternalAccount::party_type?,
+          routing_details: Array[ModernTreasury::Models::RoutingDetail],
+          updated_at: Time,
+          verification_source: ModernTreasury::Models::ExternalAccount::verification_source?,
+          verification_status: ModernTreasury::Models::ExternalAccount::verification_status
+        ) -> void
+        | (
+          ?ModernTreasury::Models::external_account
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::external_account
+
+      type contact_detail =
+        {
+          id: String,
+          contact_identifier: String,
+          contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::contact_identifier_type,
+          created_at: Time,
+          discarded_at: Time?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
+
+      class ContactDetail < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor contact_identifier: String
+
+        attr_accessor contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::contact_identifier_type
+
+        attr_accessor created_at: Time
+
+        attr_accessor discarded_at: Time?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            contact_identifier: String,
+            contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::contact_identifier_type,
+            created_at: Time,
+            discarded_at: Time?,
+            live_mode: bool,
+            object: String,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::ExternalAccount::contact_detail
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::ExternalAccount::contact_detail
+
+        type contact_identifier_type = :email | :phone_number | :website
+
+        class ContactIdentifierType < ModernTreasury::Enum
+          EMAIL: :email
+          PHONE_NUMBER: :phone_number
+          WEBSITE: :website
+
+          def self.values: -> Array[ModernTreasury::Models::ExternalAccount::ContactDetail::contact_identifier_type]
+        end
+      end
+
+      type party_address =
+        {
+          id: String,
+          country: String?,
+          created_at: Time,
+          :line1 => String?,
+          :line2 => String?,
+          live_mode: bool,
+          locality: String?,
+          object: String,
+          postal_code: String?,
+          region: String?,
+          updated_at: Time
+        }
+
+      class PartyAddress < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor country: String?
+
+        attr_accessor created_at: Time
+
+        attr_accessor line1: String?
+
+        attr_accessor line2: String?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor locality: String?
+
+        attr_accessor object: String
+
+        attr_accessor postal_code: String?
+
+        attr_accessor region: String?
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            country: String?,
+            created_at: Time,
+            line1: String?,
+            line2: String?,
+            live_mode: bool,
+            locality: String?,
+            object: String,
+            postal_code: String?,
+            region: String?,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::ExternalAccount::party_address
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::ExternalAccount::party_address
+      end
+
+      type party_type = :business | :individual
+
+      class PartyType < ModernTreasury::Enum
+        BUSINESS: :business
+        INDIVIDUAL: :individual
+
+        def self.values: -> Array[ModernTreasury::Models::ExternalAccount::party_type]
+      end
+
+      type verification_source = :ach_prenote | :microdeposits | :plaid
+
+      class VerificationSource < ModernTreasury::Enum
+        ACH_PRENOTE: :ach_prenote
+        MICRODEPOSITS: :microdeposits
+        PLAID: :plaid
+
+        def self.values: -> Array[ModernTreasury::Models::ExternalAccount::verification_source]
+      end
+
+      type verification_status = :pending_verification | :unverified | :verified
+
+      class VerificationStatus < ModernTreasury::Enum
+        PENDING_VERIFICATION: :pending_verification
+        UNVERIFIED: :unverified
+        VERIFIED: :verified
+
+        def self.values: -> Array[ModernTreasury::Models::ExternalAccount::verification_status]
+      end
+    end
+  end
+end

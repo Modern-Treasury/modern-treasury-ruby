@@ -1,0 +1,70 @@
+module ModernTreasury
+  module Models
+    type counterparty_list_params =
+      {
+        after_cursor: String?,
+        created_at_lower_bound: Time,
+        created_at_upper_bound: Time,
+        email: String,
+        legal_entity_id: String,
+        metadata: Hash[Symbol, String],
+        name: String,
+        per_page: Integer
+      }
+      & ModernTreasury::request_parameters
+
+    class CounterpartyListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader created_at_lower_bound: Time?
+
+      def created_at_lower_bound=: (Time) -> void
+
+      attr_reader created_at_upper_bound: Time?
+
+      def created_at_upper_bound=: (Time) -> void
+
+      attr_reader email: String?
+
+      def email=: (String) -> void
+
+      attr_reader legal_entity_id: String?
+
+      def legal_entity_id=: (String) -> void
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader name: String?
+
+      def name=: (String) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          created_at_lower_bound: Time,
+          created_at_upper_bound: Time,
+          email: String,
+          legal_entity_id: String,
+          metadata: Hash[Symbol, String],
+          name: String,
+          per_page: Integer,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::counterparty_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::counterparty_list_params
+    end
+  end
+end

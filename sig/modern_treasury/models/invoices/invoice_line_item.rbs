@@ -1,0 +1,76 @@
+module ModernTreasury
+  module Models
+    
+    class InvoiceLineItem = Invoices::InvoiceLineItem
+
+    module Invoices
+      type invoice_line_item =
+        {
+          id: String,
+          amount: Integer,
+          created_at: Time,
+          description: String,
+          direction: String,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          name: String,
+          object: String,
+          quantity: Integer,
+          unit_amount: Integer,
+          unit_amount_decimal: String,
+          updated_at: Time
+        }
+
+      class InvoiceLineItem < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor amount: Integer
+
+        attr_accessor created_at: Time
+
+        attr_accessor description: String
+
+        attr_accessor direction: String
+
+        attr_accessor live_mode: bool
+
+        attr_accessor metadata: Hash[Symbol, String]
+
+        attr_accessor name: String
+
+        attr_accessor object: String
+
+        attr_accessor quantity: Integer
+
+        attr_accessor unit_amount: Integer
+
+        attr_accessor unit_amount_decimal: String
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            amount: Integer,
+            created_at: Time,
+            description: String,
+            direction: String,
+            live_mode: bool,
+            metadata: Hash[Symbol, String],
+            name: String,
+            object: String,
+            quantity: Integer,
+            unit_amount: Integer,
+            unit_amount_decimal: String,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Invoices::invoice_line_item
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Invoices::invoice_line_item
+      end
+    end
+  end
+end

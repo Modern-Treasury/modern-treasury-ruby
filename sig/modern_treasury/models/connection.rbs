@@ -1,0 +1,54 @@
+module ModernTreasury
+  module Models
+    type connection =
+      {
+        id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time,
+        vendor_customer_id: String?,
+        vendor_id: String,
+        vendor_name: String
+      }
+
+    class Connection < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor updated_at: Time
+
+      attr_accessor vendor_customer_id: String?
+
+      attr_accessor vendor_id: String
+
+      attr_accessor vendor_name: String
+
+      def initialize:
+        (
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time,
+          vendor_customer_id: String?,
+          vendor_id: String,
+          vendor_name: String
+        ) -> void
+        | (
+          ?ModernTreasury::Models::connection | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::connection
+    end
+  end
+end

@@ -1,0 +1,383 @@
+module ModernTreasury
+  module Models
+    type invoice =
+      {
+        id: String,
+        amount_paid: Integer,
+        amount_remaining: Integer,
+        contact_details: Array[ModernTreasury::Models::Invoice::ContactDetail],
+        counterparty_billing_address: ModernTreasury::Models::Invoice::CounterpartyBillingAddress?,
+        counterparty_id: String,
+        counterparty_shipping_address: ModernTreasury::Models::Invoice::CounterpartyShippingAddress?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        description: String,
+        due_date: Time,
+        expected_payments: Array[ModernTreasury::Models::ExpectedPayment],
+        fallback_payment_method: String?,
+        hosted_url: String,
+        invoicer_address: ModernTreasury::Models::Invoice::InvoicerAddress?,
+        ledger_account_settlement_id: String?,
+        live_mode: bool,
+        metadata: Hash[Symbol, String]?,
+        notification_email_addresses: Array[String],
+        notifications_enabled: bool,
+        number: String,
+        object: String,
+        originating_account_id: String,
+        payment_effective_date: Date?,
+        payment_method: ModernTreasury::Models::Invoice::payment_method?,
+        payment_orders: Array[ModernTreasury::Models::PaymentOrder],
+        payment_type: ModernTreasury::Models::Invoice::payment_type?,
+        pdf_url: String?,
+        receiving_account_id: String?,
+        recipient_email: String?,
+        recipient_name: String?,
+        remind_after_overdue_days: Array[Integer],
+        status: ModernTreasury::Models::Invoice::status,
+        total_amount: Integer,
+        transaction_line_item_ids: Array[String],
+        updated_at: Time,
+        virtual_account_id: String?
+      }
+
+    class Invoice < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor amount_paid: Integer
+
+      attr_accessor amount_remaining: Integer
+
+      attr_accessor contact_details: Array[ModernTreasury::Models::Invoice::ContactDetail]
+
+      attr_accessor counterparty_billing_address: ModernTreasury::Models::Invoice::CounterpartyBillingAddress?
+
+      attr_accessor counterparty_id: String
+
+      attr_accessor counterparty_shipping_address: ModernTreasury::Models::Invoice::CounterpartyShippingAddress?
+
+      attr_accessor created_at: Time
+
+      attr_accessor currency: ModernTreasury::Models::currency
+
+      attr_accessor description: String
+
+      attr_accessor due_date: Time
+
+      attr_accessor expected_payments: Array[ModernTreasury::Models::ExpectedPayment]
+
+      attr_accessor fallback_payment_method: String?
+
+      attr_accessor hosted_url: String
+
+      attr_accessor invoicer_address: ModernTreasury::Models::Invoice::InvoicerAddress?
+
+      attr_accessor ledger_account_settlement_id: String?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]?
+
+      attr_accessor notification_email_addresses: Array[String]
+
+      attr_accessor notifications_enabled: bool
+
+      attr_accessor number: String
+
+      attr_accessor object: String
+
+      attr_accessor originating_account_id: String
+
+      attr_accessor payment_effective_date: Date?
+
+      attr_accessor payment_method: ModernTreasury::Models::Invoice::payment_method?
+
+      attr_accessor payment_orders: Array[ModernTreasury::Models::PaymentOrder]
+
+      attr_accessor payment_type: ModernTreasury::Models::Invoice::payment_type?
+
+      attr_accessor pdf_url: String?
+
+      attr_accessor receiving_account_id: String?
+
+      attr_accessor recipient_email: String?
+
+      attr_accessor recipient_name: String?
+
+      attr_accessor remind_after_overdue_days: Array[Integer]
+
+      attr_accessor status: ModernTreasury::Models::Invoice::status
+
+      attr_accessor total_amount: Integer
+
+      attr_accessor transaction_line_item_ids: Array[String]
+
+      attr_accessor updated_at: Time
+
+      attr_accessor virtual_account_id: String?
+
+      def initialize:
+        (
+          id: String,
+          amount_paid: Integer,
+          amount_remaining: Integer,
+          contact_details: Array[ModernTreasury::Models::Invoice::ContactDetail],
+          counterparty_billing_address: ModernTreasury::Models::Invoice::CounterpartyBillingAddress?,
+          counterparty_id: String,
+          counterparty_shipping_address: ModernTreasury::Models::Invoice::CounterpartyShippingAddress?,
+          created_at: Time,
+          currency: ModernTreasury::Models::currency,
+          description: String,
+          due_date: Time,
+          expected_payments: Array[ModernTreasury::Models::ExpectedPayment],
+          fallback_payment_method: String?,
+          hosted_url: String,
+          invoicer_address: ModernTreasury::Models::Invoice::InvoicerAddress?,
+          ledger_account_settlement_id: String?,
+          live_mode: bool,
+          metadata: Hash[Symbol, String]?,
+          notification_email_addresses: Array[String],
+          notifications_enabled: bool,
+          number: String,
+          object: String,
+          originating_account_id: String,
+          payment_effective_date: Date?,
+          payment_method: ModernTreasury::Models::Invoice::payment_method?,
+          payment_orders: Array[ModernTreasury::Models::PaymentOrder],
+          payment_type: ModernTreasury::Models::Invoice::payment_type?,
+          pdf_url: String?,
+          receiving_account_id: String?,
+          recipient_email: String?,
+          recipient_name: String?,
+          remind_after_overdue_days: Array[Integer],
+          status: ModernTreasury::Models::Invoice::status,
+          total_amount: Integer,
+          transaction_line_item_ids: Array[String],
+          updated_at: Time,
+          virtual_account_id: String?
+        ) -> void
+        | (
+          ?ModernTreasury::Models::invoice | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::invoice
+
+      type contact_detail =
+        {
+          id: String,
+          contact_identifier: String,
+          contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type,
+          created_at: Time,
+          discarded_at: Time?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        }
+
+      class ContactDetail < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor contact_identifier: String
+
+        attr_accessor contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type
+
+        attr_accessor created_at: Time
+
+        attr_accessor discarded_at: Time?
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            contact_identifier: String,
+            contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type,
+            created_at: Time,
+            discarded_at: Time?,
+            live_mode: bool,
+            object: String,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Invoice::contact_detail
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Invoice::contact_detail
+
+        type contact_identifier_type = :email | :phone_number | :website
+
+        class ContactIdentifierType < ModernTreasury::Enum
+          EMAIL: :email
+          PHONE_NUMBER: :phone_number
+          WEBSITE: :website
+
+          def self.values: -> Array[ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type]
+        end
+      end
+
+      type counterparty_billing_address =
+        {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
+
+      class CounterpartyBillingAddress < ModernTreasury::BaseModel
+        attr_accessor country: String
+
+        attr_accessor line1: String
+
+        attr_accessor locality: String
+
+        attr_accessor postal_code: String
+
+        attr_accessor region: String
+
+        attr_reader line2: String?
+
+        def line2=: (String) -> void
+
+        def initialize:
+          (
+            country: String,
+            line1: String,
+            locality: String,
+            postal_code: String,
+            region: String,
+            line2: String
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Invoice::counterparty_billing_address
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Invoice::counterparty_billing_address
+      end
+
+      type counterparty_shipping_address =
+        {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
+
+      class CounterpartyShippingAddress < ModernTreasury::BaseModel
+        attr_accessor country: String
+
+        attr_accessor line1: String
+
+        attr_accessor locality: String
+
+        attr_accessor postal_code: String
+
+        attr_accessor region: String
+
+        attr_reader line2: String?
+
+        def line2=: (String) -> void
+
+        def initialize:
+          (
+            country: String,
+            line1: String,
+            locality: String,
+            postal_code: String,
+            region: String,
+            line2: String
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Invoice::counterparty_shipping_address
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Invoice::counterparty_shipping_address
+      end
+
+      type invoicer_address =
+        {
+          country: String,
+          :line1 => String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          :line2 => String
+        }
+
+      class InvoicerAddress < ModernTreasury::BaseModel
+        attr_accessor country: String
+
+        attr_accessor line1: String
+
+        attr_accessor locality: String
+
+        attr_accessor postal_code: String
+
+        attr_accessor region: String
+
+        attr_reader line2: String?
+
+        def line2=: (String) -> void
+
+        def initialize:
+          (
+            country: String,
+            line1: String,
+            locality: String,
+            postal_code: String,
+            region: String,
+            line2: String
+          ) -> void
+          | (
+            ?ModernTreasury::Models::Invoice::invoicer_address
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::Invoice::invoicer_address
+      end
+
+      type payment_method = :ui | :manual | :automatic
+
+      class PaymentMethod < ModernTreasury::Enum
+        UI: :ui
+        MANUAL: :manual
+        AUTOMATIC: :automatic
+
+        def self.values: -> Array[ModernTreasury::Models::Invoice::payment_method]
+      end
+
+      type payment_type = :eft | :ach
+
+      class PaymentType < ModernTreasury::Enum
+        EFT: :eft
+        ACH: :ach
+
+        def self.values: -> Array[ModernTreasury::Models::Invoice::payment_type]
+      end
+
+      type status =
+        :draft | :paid | :partially_paid | :payment_pending | :unpaid | :voided
+
+      class Status < ModernTreasury::Enum
+        DRAFT: :draft
+        PAID: :paid
+        PARTIALLY_PAID: :partially_paid
+        PAYMENT_PENDING: :payment_pending
+        UNPAID: :unpaid
+        VOIDED: :voided
+
+        def self.values: -> Array[ModernTreasury::Models::Invoice::status]
+      end
+    end
+  end
+end

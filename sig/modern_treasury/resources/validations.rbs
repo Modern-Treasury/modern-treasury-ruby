@@ -1,0 +1,20 @@
+module ModernTreasury
+  module Resources
+    class Validations
+      def validate_routing_number:
+        (
+          ModernTreasury::Models::ValidationValidateRoutingNumberParams
+          | Hash[Symbol, top] params
+        ) -> ModernTreasury::Models::RoutingNumberLookupRequest
+        | (
+          ModernTreasury::Models::ValidationValidateRoutingNumberParams
+          | Hash[Symbol, top] params,
+          routing_number: String,
+          routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::routing_number_type,
+          request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::RoutingNumberLookupRequest
+
+      def initialize: (client: ModernTreasury::Client) -> void
+    end
+  end
+end

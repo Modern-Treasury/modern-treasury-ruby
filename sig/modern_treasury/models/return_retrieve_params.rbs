@@ -1,0 +1,19 @@
+module ModernTreasury
+  module Models
+    type return_retrieve_params = {  } & ModernTreasury::request_parameters
+
+    class ReturnRetrieveParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      def initialize:
+        (request_options: ModernTreasury::request_opts) -> void
+        | (
+          ?ModernTreasury::Models::return_retrieve_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::return_retrieve_params
+    end
+  end
+end

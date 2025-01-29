@@ -1,0 +1,19 @@
+module ModernTreasury
+  module Models
+    type client_ping_params = {  } & ModernTreasury::request_parameters
+
+    class ClientPingParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      def initialize:
+        (request_options: ModernTreasury::request_opts) -> void
+        | (
+          ?ModernTreasury::Models::client_ping_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::client_ping_params
+    end
+  end
+end

@@ -1,0 +1,68 @@
+module ModernTreasury
+  module Models
+    type payment_order_subtype =
+      :"0C"
+      | :"0N"
+      | :"0S"
+      | :CCD
+      | :CIE
+      | :CTX
+      | :IAT
+      | :PPD
+      | :TEL
+      | :WEB
+      | :au_becs
+      | :bacs
+      | :chats
+      | :dk_nets
+      | :eft
+      | :hu_ics
+      | :masav
+      | :mx_ccen
+      | :neft
+      | :nics
+      | :nz_becs
+      | :pl_elixir
+      | :ro_sent
+      | :se_bankgirot
+      | :sepa
+      | :sg_giro
+      | :sic
+      | :sknbi
+      | :zengin
+
+    class PaymentOrderSubtype < ModernTreasury::Enum
+      BACS_NEW_INSTRUCTION: :"0C"
+      BACS_CANCELLATION_INSTRUCTION: :"0N"
+      BACS_CONVERSION_INSTRUCTION: :"0S"
+      CCD: :CCD
+      CIE: :CIE
+      CTX: :CTX
+      IAT: :IAT
+      PPD: :PPD
+      TEL: :TEL
+      WEB: :WEB
+      AU_BECS: :au_becs
+      BACS: :bacs
+      CHATS: :chats
+      DK_NETS: :dk_nets
+      EFT: :eft
+      HU_ICS: :hu_ics
+      MASAV: :masav
+      MX_CCEN: :mx_ccen
+      NEFT: :neft
+      NICS: :nics
+      NZ_BECS: :nz_becs
+      PL_ELIXIR: :pl_elixir
+      RO_SENT: :ro_sent
+      SE_BANKGIROT: :se_bankgirot
+      SEPA: :sepa
+      SG_GIRO: :sg_giro
+      SIC: :sic
+      SKNBI: :sknbi
+      ZENGIN: :zengin
+
+      def self.values: -> Array[ModernTreasury::Models::payment_order_subtype]
+    end
+  end
+end

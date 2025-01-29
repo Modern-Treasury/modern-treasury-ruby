@@ -1,0 +1,102 @@
+module ModernTreasury
+  class Client < ModernTreasury::BaseClient
+    DEFAULT_MAX_RETRIES: 2
+
+    DEFAULT_TIMEOUT_IN_SECONDS: Float
+
+    DEFAULT_INITIAL_RETRY_DELAY: Float
+
+    DEFAULT_MAX_RETRY_DELAY: Float
+
+    attr_reader api_key: String
+
+    attr_reader organization_id: String
+
+    attr_reader connections: ModernTreasury::Resources::Connections
+
+    attr_reader counterparties: ModernTreasury::Resources::Counterparties
+
+    attr_reader events: ModernTreasury::Resources::Events
+
+    attr_reader expected_payments: ModernTreasury::Resources::ExpectedPayments
+
+    attr_reader external_accounts: ModernTreasury::Resources::ExternalAccounts
+
+    attr_reader incoming_payment_details: ModernTreasury::Resources::IncomingPaymentDetails
+
+    attr_reader invoices: ModernTreasury::Resources::Invoices
+
+    attr_reader documents: ModernTreasury::Resources::Documents
+
+    attr_reader account_collection_flows: ModernTreasury::Resources::AccountCollectionFlows
+
+    attr_reader account_details: ModernTreasury::Resources::AccountDetails
+
+    attr_reader routing_details: ModernTreasury::Resources::RoutingDetails
+
+    attr_reader internal_accounts: ModernTreasury::Resources::InternalAccounts
+
+    attr_reader ledgers: ModernTreasury::Resources::Ledgers
+
+    attr_reader ledgerable_events: ModernTreasury::Resources::LedgerableEvents
+
+    attr_reader ledger_account_categories: ModernTreasury::Resources::LedgerAccountCategories
+
+    attr_reader ledger_accounts: ModernTreasury::Resources::LedgerAccounts
+
+    attr_reader ledger_account_balance_monitors: ModernTreasury::Resources::LedgerAccountBalanceMonitors
+
+    attr_reader ledger_account_statements: ModernTreasury::Resources::LedgerAccountStatements
+
+    attr_reader ledger_entries: ModernTreasury::Resources::LedgerEntries
+
+    attr_reader ledger_event_handlers: ModernTreasury::Resources::LedgerEventHandlers
+
+    attr_reader ledger_transactions: ModernTreasury::Resources::LedgerTransactions
+
+    attr_reader line_items: ModernTreasury::Resources::LineItems
+
+    attr_reader payment_flows: ModernTreasury::Resources::PaymentFlows
+
+    attr_reader payment_orders: ModernTreasury::Resources::PaymentOrders
+
+    attr_reader payment_references: ModernTreasury::Resources::PaymentReferences
+
+    attr_reader returns: ModernTreasury::Resources::Returns
+
+    attr_reader transactions: ModernTreasury::Resources::Transactions
+
+    attr_reader validations: ModernTreasury::Resources::Validations
+
+    attr_reader paper_items: ModernTreasury::Resources::PaperItems
+
+    attr_reader virtual_accounts: ModernTreasury::Resources::VirtualAccounts
+
+    attr_reader bulk_requests: ModernTreasury::Resources::BulkRequests
+
+    attr_reader bulk_results: ModernTreasury::Resources::BulkResults
+
+    attr_reader ledger_account_settlements: ModernTreasury::Resources::LedgerAccountSettlements
+
+    attr_reader foreign_exchange_quotes: ModernTreasury::Resources::ForeignExchangeQuotes
+
+    attr_reader connection_legal_entities: ModernTreasury::Resources::ConnectionLegalEntities
+
+    attr_reader legal_entities: ModernTreasury::Resources::LegalEntities
+
+    attr_reader legal_entity_associations: ModernTreasury::Resources::LegalEntityAssociations
+
+    private def auth_headers: -> Hash[String, String]
+
+    def initialize: (
+      base_url: String?,
+      api_key: String?,
+      organization_id: String?,
+      max_retries: Integer,
+      timeout: Float,
+      initial_retry_delay: Float,
+      max_retry_delay: Float,
+      idempotency_header: String
+    ) -> void
+  end
+end

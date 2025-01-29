@@ -1,0 +1,64 @@
+module ModernTreasury
+  module Models
+    type event_list_params =
+      {
+        after_cursor: String?,
+        entity_id: String,
+        event_name: String,
+        event_time_end: Time,
+        event_time_start: Time,
+        per_page: Integer,
+        resource: String
+      }
+      & ModernTreasury::request_parameters
+
+    class EventListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader entity_id: String?
+
+      def entity_id=: (String) -> void
+
+      attr_reader event_name: String?
+
+      def event_name=: (String) -> void
+
+      attr_reader event_time_end: Time?
+
+      def event_time_end=: (Time) -> void
+
+      attr_reader event_time_start: Time?
+
+      def event_time_start=: (Time) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader resource: String?
+
+      def resource=: (String) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          entity_id: String,
+          event_name: String,
+          event_time_end: Time,
+          event_time_start: Time,
+          per_page: Integer,
+          resource: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::event_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::event_list_params
+    end
+  end
+end

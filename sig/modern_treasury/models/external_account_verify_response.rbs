@@ -1,0 +1,154 @@
+module ModernTreasury
+  module Models
+    type external_account_verify_response =
+      ModernTreasury::Models::ExternalAccount
+      | ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+
+    class ExternalAccountVerifyResponse < ModernTreasury::Union
+      type external_account_verification_attempt =
+        {
+          id: String,
+          created_at: Time,
+          external_account_id: String,
+          live_mode: bool,
+          object: String,
+          originating_account_id: String,
+          payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type,
+          priority: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority?,
+          status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status,
+          updated_at: Time
+        }
+
+      class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
+        attr_accessor id: String
+
+        attr_accessor created_at: Time
+
+        attr_accessor external_account_id: String
+
+        attr_accessor live_mode: bool
+
+        attr_accessor object: String
+
+        attr_accessor originating_account_id: String
+
+        attr_accessor payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type
+
+        attr_accessor priority: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority?
+
+        attr_accessor status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status
+
+        attr_accessor updated_at: Time
+
+        def initialize:
+          (
+            id: String,
+            created_at: Time,
+            external_account_id: String,
+            live_mode: bool,
+            object: String,
+            originating_account_id: String,
+            payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type,
+            priority: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority?,
+            status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status,
+            updated_at: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::ExternalAccountVerifyResponse::external_account_verification_attempt
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::ExternalAccountVerifyResponse::external_account_verification_attempt
+
+        type payment_type =
+          :ach
+          | :au_becs
+          | :bacs
+          | :book
+          | :card
+          | :chats
+          | :check
+          | :cross_border
+          | :dk_nets
+          | :eft
+          | :hu_ics
+          | :interac
+          | :masav
+          | :mx_ccen
+          | :neft
+          | :nics
+          | :nz_becs
+          | :pl_elixir
+          | :provxchange
+          | :ro_sent
+          | :rtp
+          | :se_bankgirot
+          | :sen
+          | :sepa
+          | :sg_giro
+          | :sic
+          | :signet
+          | :sknbi
+          | :wire
+          | :zengin
+
+        class PaymentType < ModernTreasury::Enum
+          ACH: :ach
+          AU_BECS: :au_becs
+          BACS: :bacs
+          BOOK: :book
+          CARD: :card
+          CHATS: :chats
+          CHECK: :check
+          CROSS_BORDER: :cross_border
+          DK_NETS: :dk_nets
+          EFT: :eft
+          HU_ICS: :hu_ics
+          INTERAC: :interac
+          MASAV: :masav
+          MX_CCEN: :mx_ccen
+          NEFT: :neft
+          NICS: :nics
+          NZ_BECS: :nz_becs
+          PL_ELIXIR: :pl_elixir
+          PROVXCHANGE: :provxchange
+          RO_SENT: :ro_sent
+          RTP: :rtp
+          SE_BANKGIROT: :se_bankgirot
+          SEN: :sen
+          SEPA: :sepa
+          SG_GIRO: :sg_giro
+          SIC: :sic
+          SIGNET: :signet
+          SKNBI: :sknbi
+          WIRE: :wire
+          ZENGIN: :zengin
+
+          def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type]
+        end
+
+        type priority = :high | :normal
+
+        class Priority < ModernTreasury::Enum
+          HIGH: :high
+          NORMAL: :normal
+
+          def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority]
+        end
+
+        type status = :cancelled | :failed | :pending_verification | :verified
+
+        class Status < ModernTreasury::Enum
+          CANCELLED: :cancelled
+          FAILED: :failed
+          PENDING_VERIFICATION: :pending_verification
+          VERIFIED: :verified
+
+          def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status]
+        end
+      end
+
+      private def self.variants: -> [[nil, ModernTreasury::Models::ExternalAccount], [nil, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]]
+    end
+  end
+end

@@ -1,0 +1,36 @@
+module ModernTreasury
+  module Models
+    type ledger_update_params =
+      { description: String?, metadata: Hash[Symbol, String], name: String }
+      & ModernTreasury::request_parameters
+
+    class LedgerUpdateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor description: String?
+
+      attr_reader metadata: Hash[Symbol, String]?
+
+      def metadata=: (Hash[Symbol, String]) -> void
+
+      attr_reader name: String?
+
+      def name=: (String) -> void
+
+      def initialize:
+        (
+          description: String?,
+          metadata: Hash[Symbol, String],
+          name: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_update_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_update_params
+    end
+  end
+end

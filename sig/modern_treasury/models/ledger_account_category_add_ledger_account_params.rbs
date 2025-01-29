@@ -1,0 +1,22 @@
+module ModernTreasury
+  module Models
+    type ledger_account_category_add_ledger_account_params =
+      { id: String } & ModernTreasury::request_parameters
+
+    class LedgerAccountCategoryAddLedgerAccountParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor id: String
+
+      def initialize:
+        (id: String, request_options: ModernTreasury::request_opts) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_category_add_ledger_account_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_category_add_ledger_account_params
+    end
+  end
+end

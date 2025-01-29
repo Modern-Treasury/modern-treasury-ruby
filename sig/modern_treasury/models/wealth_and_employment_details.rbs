@@ -1,0 +1,299 @@
+module ModernTreasury
+  module Models
+    type wealth_and_employment_details =
+      {
+        id: String,
+        annual_income: Integer?,
+        created_at: Time,
+        discarded_at: Time?,
+        employer_country: String?,
+        employer_name: String?,
+        employer_state: String?,
+        employment_status: ModernTreasury::Models::WealthAndEmploymentDetails::employment_status?,
+        income_country: String?,
+        income_source: ModernTreasury::Models::WealthAndEmploymentDetails::income_source?,
+        income_state: String?,
+        industry: ModernTreasury::Models::WealthAndEmploymentDetails::industry?,
+        live_mode: bool,
+        object: String,
+        occupation: ModernTreasury::Models::WealthAndEmploymentDetails::occupation?,
+        source_of_funds: ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds?,
+        updated_at: Time,
+        wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
+      }
+
+    class WealthAndEmploymentDetails < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor annual_income: Integer?
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor employer_country: String?
+
+      attr_accessor employer_name: String?
+
+      attr_accessor employer_state: String?
+
+      attr_accessor employment_status: ModernTreasury::Models::WealthAndEmploymentDetails::employment_status?
+
+      attr_accessor income_country: String?
+
+      attr_accessor income_source: ModernTreasury::Models::WealthAndEmploymentDetails::income_source?
+
+      attr_accessor income_state: String?
+
+      attr_accessor industry: ModernTreasury::Models::WealthAndEmploymentDetails::industry?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor occupation: ModernTreasury::Models::WealthAndEmploymentDetails::occupation?
+
+      attr_accessor source_of_funds: ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds?
+
+      attr_accessor updated_at: Time
+
+      attr_accessor wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
+
+      def initialize:
+        (
+          id: String,
+          annual_income: Integer?,
+          created_at: Time,
+          discarded_at: Time?,
+          employer_country: String?,
+          employer_name: String?,
+          employer_state: String?,
+          employment_status: ModernTreasury::Models::WealthAndEmploymentDetails::employment_status?,
+          income_country: String?,
+          income_source: ModernTreasury::Models::WealthAndEmploymentDetails::income_source?,
+          income_state: String?,
+          industry: ModernTreasury::Models::WealthAndEmploymentDetails::industry?,
+          live_mode: bool,
+          object: String,
+          occupation: ModernTreasury::Models::WealthAndEmploymentDetails::occupation?,
+          source_of_funds: ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds?,
+          updated_at: Time,
+          wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
+        ) -> void
+        | (
+          ?ModernTreasury::Models::wealth_and_employment_details
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::wealth_and_employment_details
+
+      type employment_status =
+        :employed | :retired | :self_employed | :student | :unemployed
+
+      class EmploymentStatus < ModernTreasury::Enum
+        EMPLOYED: :employed
+        RETIRED: :retired
+        SELF_EMPLOYED: :self_employed
+        STUDENT: :student
+        UNEMPLOYED: :unemployed
+
+        def self.values: -> Array[ModernTreasury::Models::WealthAndEmploymentDetails::employment_status]
+      end
+
+      type income_source =
+        :family_support
+        | :government_benefits
+        | :inheritance
+        | :investments
+        | :rental_income
+        | :retirement
+        | :salary
+        | :self_employed
+
+      class IncomeSource < ModernTreasury::Enum
+        FAMILY_SUPPORT: :family_support
+        GOVERNMENT_BENEFITS: :government_benefits
+        INHERITANCE: :inheritance
+        INVESTMENTS: :investments
+        RENTAL_INCOME: :rental_income
+        RETIREMENT: :retirement
+        SALARY: :salary
+        SELF_EMPLOYED: :self_employed
+
+        def self.values: -> Array[ModernTreasury::Models::WealthAndEmploymentDetails::income_source]
+      end
+
+      type industry =
+        :accounting
+        | :agriculture
+        | :automotive
+        | :chemical_manufacturing
+        | :construction
+        | :educational_medical
+        | :food_service
+        | :finance
+        | :gasoline
+        | :health_stores
+        | :laundry
+        | :maintenance
+        | :manufacturing
+        | :merchant_wholesale
+        | :mining
+        | :performing_arts
+        | :professional_non_legal
+        | :public_administration
+        | :publishing
+        | :real_estate
+        | :recreation_gambling
+        | :religious_charity
+        | :rental_services
+        | :retail_clothing
+        | :retail_electronics
+        | :retail_food
+        | :retail_furnishing
+        | :retail_home
+        | :retail_non_store
+        | :retail_sporting
+        | :transportation
+        | :travel
+        | :utilities
+
+      class Industry < ModernTreasury::Enum
+        ACCOUNTING: :accounting
+        AGRICULTURE: :agriculture
+        AUTOMOTIVE: :automotive
+        CHEMICAL_MANUFACTURING: :chemical_manufacturing
+        CONSTRUCTION: :construction
+        EDUCATIONAL_MEDICAL: :educational_medical
+        FOOD_SERVICE: :food_service
+        FINANCE: :finance
+        GASOLINE: :gasoline
+        HEALTH_STORES: :health_stores
+        LAUNDRY: :laundry
+        MAINTENANCE: :maintenance
+        MANUFACTURING: :manufacturing
+        MERCHANT_WHOLESALE: :merchant_wholesale
+        MINING: :mining
+        PERFORMING_ARTS: :performing_arts
+        PROFESSIONAL_NON_LEGAL: :professional_non_legal
+        PUBLIC_ADMINISTRATION: :public_administration
+        PUBLISHING: :publishing
+        REAL_ESTATE: :real_estate
+        RECREATION_GAMBLING: :recreation_gambling
+        RELIGIOUS_CHARITY: :religious_charity
+        RENTAL_SERVICES: :rental_services
+        RETAIL_CLOTHING: :retail_clothing
+        RETAIL_ELECTRONICS: :retail_electronics
+        RETAIL_FOOD: :retail_food
+        RETAIL_FURNISHING: :retail_furnishing
+        RETAIL_HOME: :retail_home
+        RETAIL_NON_STORE: :retail_non_store
+        RETAIL_SPORTING: :retail_sporting
+        TRANSPORTATION: :transportation
+        TRAVEL: :travel
+        UTILITIES: :utilities
+
+        def self.values: -> Array[ModernTreasury::Models::WealthAndEmploymentDetails::industry]
+      end
+
+      type occupation =
+        :consulting
+        | :executive
+        | :finance_accounting
+        | :food_services
+        | :government
+        | :healthcare
+        | :legal_services
+        | :manufacturing
+        | :other
+        | :sales
+        | :science_engineering
+        | :technology
+
+      class Occupation < ModernTreasury::Enum
+        CONSULTING: :consulting
+        EXECUTIVE: :executive
+        FINANCE_ACCOUNTING: :finance_accounting
+        FOOD_SERVICES: :food_services
+        GOVERNMENT: :government
+        HEALTHCARE: :healthcare
+        LEGAL_SERVICES: :legal_services
+        MANUFACTURING: :manufacturing
+        OTHER: :other
+        SALES: :sales
+        SCIENCE_ENGINEERING: :science_engineering
+        TECHNOLOGY: :technology
+
+        def self.values: -> Array[ModernTreasury::Models::WealthAndEmploymentDetails::occupation]
+      end
+
+      type source_of_funds =
+        :alimony
+        | :annuity
+        | :business_owner
+        | :general_employee
+        | :government_benefits
+        | :homemaker
+        | :inheritance_gift
+        | :investment
+        | :legal_settlement
+        | :lottery
+        | :real_estate
+        | :retired
+        | :retirement
+        | :salary
+        | :self_employed
+        | :senior_executive
+        | :trust_income
+
+      class SourceOfFunds < ModernTreasury::Enum
+        ALIMONY: :alimony
+        ANNUITY: :annuity
+        BUSINESS_OWNER: :business_owner
+        GENERAL_EMPLOYEE: :general_employee
+        GOVERNMENT_BENEFITS: :government_benefits
+        HOMEMAKER: :homemaker
+        INHERITANCE_GIFT: :inheritance_gift
+        INVESTMENT: :investment
+        LEGAL_SETTLEMENT: :legal_settlement
+        LOTTERY: :lottery
+        REAL_ESTATE: :real_estate
+        RETIRED: :retired
+        RETIREMENT: :retirement
+        SALARY: :salary
+        SELF_EMPLOYED: :self_employed
+        SENIOR_EXECUTIVE: :senior_executive
+        TRUST_INCOME: :trust_income
+
+        def self.values: -> Array[ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds]
+      end
+
+      type wealth_source =
+        :business_sale
+        | :family_support
+        | :government_benefits
+        | :inheritance
+        | :investments
+        | :other
+        | :rental_income
+        | :retirement
+        | :salary
+        | :self_employed
+
+      class WealthSource < ModernTreasury::Enum
+        BUSINESS_SALE: :business_sale
+        FAMILY_SUPPORT: :family_support
+        GOVERNMENT_BENEFITS: :government_benefits
+        INHERITANCE: :inheritance
+        INVESTMENTS: :investments
+        OTHER: :other
+        RENTAL_INCOME: :rental_income
+        RETIREMENT: :retirement
+        SALARY: :salary
+        SELF_EMPLOYED: :self_employed
+
+        def self.values: -> Array[ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source]
+      end
+    end
+  end
+end

@@ -1,0 +1,73 @@
+module ModernTreasury
+  module Models
+    type document_create_params =
+      {
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+        file: String,
+        document_type: String
+      }
+      & ModernTreasury::request_parameters
+
+    class DocumentCreateParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor documentable_id: String
+
+      attr_accessor documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type
+
+      attr_accessor file: String
+
+      attr_reader document_type: String?
+
+      def document_type=: (String) -> void
+
+      def initialize:
+        (
+          documentable_id: String,
+          documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+          file: String,
+          document_type: String,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::document_create_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::document_create_params
+
+      type documentable_type =
+        :cases
+        | :counterparties
+        | :expected_payments
+        | :external_accounts
+        | :incoming_payment_details
+        | :internal_accounts
+        | :organizations
+        | :paper_items
+        | :payment_orders
+        | :transactions
+        | :decisions
+        | :connections
+
+      class DocumentableType < ModernTreasury::Enum
+        CASES: :cases
+        COUNTERPARTIES: :counterparties
+        EXPECTED_PAYMENTS: :expected_payments
+        EXTERNAL_ACCOUNTS: :external_accounts
+        INCOMING_PAYMENT_DETAILS: :incoming_payment_details
+        INTERNAL_ACCOUNTS: :internal_accounts
+        ORGANIZATIONS: :organizations
+        PAPER_ITEMS: :paper_items
+        PAYMENT_ORDERS: :payment_orders
+        TRANSACTIONS: :transactions
+        DECISIONS: :decisions
+        CONNECTIONS: :connections
+
+        def self.values: -> Array[ModernTreasury::Models::DocumentCreateParams::documentable_type]
+      end
+    end
+  end
+end

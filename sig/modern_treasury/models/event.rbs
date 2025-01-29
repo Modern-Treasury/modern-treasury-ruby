@@ -1,0 +1,58 @@
+module ModernTreasury
+  module Models
+    type event =
+      {
+        id: String,
+        created_at: Time,
+        data: Hash[Symbol, top],
+        entity_id: String,
+        event_name: String,
+        event_time: Time,
+        live_mode: bool,
+        object: String,
+        resource: String,
+        updated_at: Time
+      }
+
+    class Event < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor data: Hash[Symbol, top]
+
+      attr_accessor entity_id: String
+
+      attr_accessor event_name: String
+
+      attr_accessor event_time: Time
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor resource: String
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          created_at: Time,
+          data: Hash[Symbol, top],
+          entity_id: String,
+          event_name: String,
+          event_time: Time,
+          live_mode: bool,
+          object: String,
+          resource: String,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::event | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::event
+    end
+  end
+end

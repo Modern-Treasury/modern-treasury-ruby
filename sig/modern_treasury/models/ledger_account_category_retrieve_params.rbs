@@ -1,0 +1,53 @@
+module ModernTreasury
+  module Models
+    type ledger_account_category_retrieve_params =
+      {
+        balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances?
+
+      def balances=: (
+        ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances
+      ) -> void
+
+      def initialize:
+        (
+          balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_category_retrieve_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_category_retrieve_params
+
+      type balances = { as_of_date: Date, effective_at: Time }
+
+      class Balances < ModernTreasury::BaseModel
+        attr_reader as_of_date: Date?
+
+        def as_of_date=: (Date) -> void
+
+        attr_reader effective_at: Time?
+
+        def effective_at=: (Time) -> void
+
+        def initialize:
+          (as_of_date: Date, effective_at: Time) -> void
+          | (
+            ?ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::balances
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::balances
+      end
+    end
+  end
+end

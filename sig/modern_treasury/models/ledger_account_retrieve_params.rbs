@@ -1,0 +1,78 @@
+module ModernTreasury
+  module Models
+    type ledger_account_retrieve_params =
+      {
+        balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
+      }
+      & ModernTreasury::request_parameters
+
+    class LedgerAccountRetrieveParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances?
+
+      def balances=: (
+        ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
+      ) -> void
+
+      def initialize:
+        (
+          balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_account_retrieve_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_account_retrieve_params
+
+      type balances =
+        {
+          as_of_date: Date,
+          as_of_lock_version: Integer,
+          effective_at: Time,
+          effective_at_lower_bound: Time,
+          effective_at_upper_bound: Time
+        }
+
+      class Balances < ModernTreasury::BaseModel
+        attr_reader as_of_date: Date?
+
+        def as_of_date=: (Date) -> void
+
+        attr_reader as_of_lock_version: Integer?
+
+        def as_of_lock_version=: (Integer) -> void
+
+        attr_reader effective_at: Time?
+
+        def effective_at=: (Time) -> void
+
+        attr_reader effective_at_lower_bound: Time?
+
+        def effective_at_lower_bound=: (Time) -> void
+
+        attr_reader effective_at_upper_bound: Time?
+
+        def effective_at_upper_bound=: (Time) -> void
+
+        def initialize:
+          (
+            as_of_date: Date,
+            as_of_lock_version: Integer,
+            effective_at: Time,
+            effective_at_lower_bound: Time,
+            effective_at_upper_bound: Time
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LedgerAccountRetrieveParams::balances
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerAccountRetrieveParams::balances
+      end
+    end
+  end
+end

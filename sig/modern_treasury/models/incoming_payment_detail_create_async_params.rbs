@@ -1,0 +1,94 @@
+module ModernTreasury
+  module Models
+    type incoming_payment_detail_create_async_params =
+      {
+        amount: Integer,
+        as_of_date: Date?,
+        currency: ModernTreasury::Models::currency?,
+        description: String?,
+        direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+        internal_account_id: String,
+        type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
+        virtual_account_id: String?
+      }
+      & ModernTreasury::request_parameters
+
+    class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_reader amount: Integer?
+
+      def amount=: (Integer) -> void
+
+      attr_accessor as_of_date: Date?
+
+      attr_accessor currency: ModernTreasury::Models::currency?
+
+      attr_accessor description: String?
+
+      attr_reader direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction?
+
+      def direction=: (
+        ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction
+      ) -> void
+
+      attr_reader internal_account_id: String?
+
+      def internal_account_id=: (String) -> void
+
+      attr_reader type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_?
+
+      def type=: (
+        ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_
+      ) -> void
+
+      attr_accessor virtual_account_id: String?
+
+      def initialize:
+        (
+          amount: Integer,
+          as_of_date: Date?,
+          currency: ModernTreasury::Models::currency?,
+          description: String?,
+          direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+          internal_account_id: String,
+          type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
+          virtual_account_id: String?,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::incoming_payment_detail_create_async_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::incoming_payment_detail_create_async_params
+
+      type direction = :credit | :debit
+
+      class Direction < ModernTreasury::Enum
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self.values: -> Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction]
+      end
+
+      type type_ =
+        :ach | :book | :check | :eft | :interac | :rtp | :sepa | :signet | :wire
+
+      class Type < ModernTreasury::Enum
+        ACH: :ach
+        BOOK: :book
+        CHECK: :check
+        EFT: :eft
+        INTERAC: :interac
+        RTP: :rtp
+        SEPA: :sepa
+        SIGNET: :signet
+        WIRE: :wire
+
+        def self.values: -> Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_]
+      end
+    end
+  end
+end

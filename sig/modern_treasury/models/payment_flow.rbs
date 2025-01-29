@@ -1,0 +1,157 @@
+module ModernTreasury
+  module Models
+    type payment_flow =
+      {
+        id: String,
+        amount: Integer,
+        client_token: String,
+        counterparty_id: String?,
+        created_at: Time,
+        currency: String,
+        direction: ModernTreasury::Models::PaymentFlow::direction,
+        due_date: Date?,
+        effective_date_selection_enabled: bool,
+        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::existing_external_accounts_filter?,
+        external_account_collection: ModernTreasury::Models::PaymentFlow::external_account_collection,
+        live_mode: bool,
+        object: String,
+        originating_account_id: String?,
+        payment_order_id: String?,
+        receiving_account_id: String?,
+        selected_effective_date: Date?,
+        status: ModernTreasury::Models::PaymentFlow::status,
+        updated_at: Time
+      }
+
+    class PaymentFlow < ModernTreasury::BaseModel
+      attr_reader id: String?
+
+      def id=: (String) -> void
+
+      attr_reader amount: Integer?
+
+      def amount=: (Integer) -> void
+
+      attr_reader client_token: String?
+
+      def client_token=: (String) -> void
+
+      attr_accessor counterparty_id: String?
+
+      attr_reader created_at: Time?
+
+      def created_at=: (Time) -> void
+
+      attr_reader currency: String?
+
+      def currency=: (String) -> void
+
+      attr_reader direction: ModernTreasury::Models::PaymentFlow::direction?
+
+      def direction=: (ModernTreasury::Models::PaymentFlow::direction) -> void
+
+      attr_accessor due_date: Date?
+
+      attr_reader effective_date_selection_enabled: bool?
+
+      def effective_date_selection_enabled=: (bool) -> void
+
+      attr_accessor existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::existing_external_accounts_filter?
+
+      attr_reader external_account_collection: ModernTreasury::Models::PaymentFlow::external_account_collection?
+
+      def external_account_collection=: (
+        ModernTreasury::Models::PaymentFlow::external_account_collection
+      ) -> void
+
+      attr_reader live_mode: bool?
+
+      def live_mode=: (bool) -> void
+
+      attr_reader object: String?
+
+      def object=: (String) -> void
+
+      attr_accessor originating_account_id: String?
+
+      attr_accessor payment_order_id: String?
+
+      attr_accessor receiving_account_id: String?
+
+      attr_accessor selected_effective_date: Date?
+
+      attr_reader status: ModernTreasury::Models::PaymentFlow::status?
+
+      def status=: (ModernTreasury::Models::PaymentFlow::status) -> void
+
+      attr_reader updated_at: Time?
+
+      def updated_at=: (Time) -> void
+
+      def initialize:
+        (
+          id: String,
+          amount: Integer,
+          client_token: String,
+          counterparty_id: String?,
+          created_at: Time,
+          currency: String,
+          direction: ModernTreasury::Models::PaymentFlow::direction,
+          due_date: Date?,
+          effective_date_selection_enabled: bool,
+          existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::existing_external_accounts_filter?,
+          external_account_collection: ModernTreasury::Models::PaymentFlow::external_account_collection,
+          live_mode: bool,
+          object: String,
+          originating_account_id: String?,
+          payment_order_id: String?,
+          receiving_account_id: String?,
+          selected_effective_date: Date?,
+          status: ModernTreasury::Models::PaymentFlow::status,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::payment_flow | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::payment_flow
+
+      type direction = :credit | :debit
+
+      class Direction < ModernTreasury::Enum
+        CREDIT: :credit
+        DEBIT: :debit
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentFlow::direction]
+      end
+
+      type existing_external_accounts_filter = :verified
+
+      class ExistingExternalAccountsFilter < ModernTreasury::Enum
+        VERIFIED: :verified
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentFlow::existing_external_accounts_filter]
+      end
+
+      type external_account_collection = :disabled | :enabled
+
+      class ExternalAccountCollection < ModernTreasury::Enum
+        DISABLED: :disabled
+        ENABLED: :enabled
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentFlow::external_account_collection]
+      end
+
+      type status = :cancelled | :completed | :expired | :pending
+
+      class Status < ModernTreasury::Enum
+        CANCELLED: :cancelled
+        COMPLETED: :completed
+        EXPIRED: :expired
+        PENDING: :pending
+
+        def self.values: -> Array[ModernTreasury::Models::PaymentFlow::status]
+      end
+    end
+  end
+end

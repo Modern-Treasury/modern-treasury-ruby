@@ -1,0 +1,20 @@
+module ModernTreasury
+  module Models
+    type internal_account_retrieve_params =
+      {  } & ModernTreasury::request_parameters
+
+    class InternalAccountRetrieveParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      def initialize:
+        (request_options: ModernTreasury::request_opts) -> void
+        | (
+          ?ModernTreasury::Models::internal_account_retrieve_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::internal_account_retrieve_params
+    end
+  end
+end

@@ -1,0 +1,77 @@
+module ModernTreasury
+  module Models
+    type return_list_params =
+      {
+        after_cursor: String?,
+        counterparty_id: String,
+        internal_account_id: String,
+        per_page: Integer,
+        returnable_id: String,
+        returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type
+      }
+      & ModernTreasury::request_parameters
+
+    class ReturnListParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor after_cursor: String?
+
+      attr_reader counterparty_id: String?
+
+      def counterparty_id=: (String) -> void
+
+      attr_reader internal_account_id: String?
+
+      def internal_account_id=: (String) -> void
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> void
+
+      attr_reader returnable_id: String?
+
+      def returnable_id=: (String) -> void
+
+      attr_reader returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type?
+
+      def returnable_type=: (
+        ModernTreasury::Models::ReturnListParams::returnable_type
+      ) -> void
+
+      def initialize:
+        (
+          after_cursor: String?,
+          counterparty_id: String,
+          internal_account_id: String,
+          per_page: Integer,
+          returnable_id: String,
+          returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type,
+          request_options: ModernTreasury::request_opts
+        ) -> void
+        | (
+          ?ModernTreasury::Models::return_list_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::return_list_params
+
+      type returnable_type =
+        :incoming_payment_detail
+        | :paper_item
+        | :payment_order
+        | :return
+        | :reversal
+
+      class ReturnableType < ModernTreasury::Enum
+        INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
+        PAPER_ITEM: :paper_item
+        PAYMENT_ORDER: :payment_order
+        RETURN: :return
+        REVERSAL: :reversal
+
+        def self.values: -> Array[ModernTreasury::Models::ReturnListParams::returnable_type]
+      end
+    end
+  end
+end

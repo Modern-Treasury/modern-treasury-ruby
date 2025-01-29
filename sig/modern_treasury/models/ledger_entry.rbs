@@ -1,0 +1,228 @@
+module ModernTreasury
+  module Models
+    type ledger_entry =
+      {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        direction: ModernTreasury::Models::transaction_direction,
+        discarded_at: Time?,
+        ledger_account_currency: String,
+        ledger_account_currency_exponent: Integer,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer?,
+        ledger_transaction_id: String,
+        live_mode: bool,
+        metadata: Hash[Symbol, String],
+        object: String,
+        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances?,
+        status: ModernTreasury::Models::LedgerEntry::status,
+        updated_at: Time
+      }
+
+    class LedgerEntry < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor amount: Integer
+
+      attr_accessor created_at: Time
+
+      attr_accessor direction: ModernTreasury::Models::transaction_direction
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor ledger_account_currency: String
+
+      attr_accessor ledger_account_currency_exponent: Integer
+
+      attr_accessor ledger_account_id: String
+
+      attr_accessor ledger_account_lock_version: Integer?
+
+      attr_accessor ledger_transaction_id: String
+
+      attr_accessor live_mode: bool
+
+      attr_accessor metadata: Hash[Symbol, String]
+
+      attr_accessor object: String
+
+      attr_accessor resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances?
+
+      attr_accessor status: ModernTreasury::Models::LedgerEntry::status
+
+      attr_accessor updated_at: Time
+
+      def initialize:
+        (
+          id: String,
+          amount: Integer,
+          created_at: Time,
+          direction: ModernTreasury::Models::transaction_direction,
+          discarded_at: Time?,
+          ledger_account_currency: String,
+          ledger_account_currency_exponent: Integer,
+          ledger_account_id: String,
+          ledger_account_lock_version: Integer?,
+          ledger_transaction_id: String,
+          live_mode: bool,
+          metadata: Hash[Symbol, String],
+          object: String,
+          resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances?,
+          status: ModernTreasury::Models::LedgerEntry::status,
+          updated_at: Time
+        ) -> void
+        | (
+          ?ModernTreasury::Models::ledger_entry | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::ledger_entry
+
+      type resulting_ledger_account_balances =
+        {
+          available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+          pending_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+          posted_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+        }
+
+      class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
+        attr_accessor available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance
+
+        attr_accessor pending_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance
+
+        attr_accessor posted_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+
+        def initialize:
+          (
+            available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+            pending_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+            posted_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+          ) -> void
+          | (
+            ?ModernTreasury::Models::LedgerEntry::resulting_ledger_account_balances
+            | ModernTreasury::BaseModel data
+          ) -> void
+
+        def to_h: -> ModernTreasury::Models::LedgerEntry::resulting_ledger_account_balances
+
+        type available_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class AvailableBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::available_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::available_balance
+        end
+
+        type pending_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class PendingBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::pending_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::pending_balance
+        end
+
+        type posted_balance =
+          {
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          }
+
+        class PostedBalance < ModernTreasury::BaseModel
+          attr_accessor amount: Integer
+
+          attr_accessor credits: Integer
+
+          attr_accessor currency: String
+
+          attr_accessor currency_exponent: Integer
+
+          attr_accessor debits: Integer
+
+          def initialize:
+            (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
+            | (
+              ?ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::posted_balance
+              | ModernTreasury::BaseModel data
+            ) -> void
+
+          def to_h: -> ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::posted_balance
+        end
+      end
+
+      type status = :archived | :pending | :posted
+
+      class Status < ModernTreasury::Enum
+        ARCHIVED: :archived
+        PENDING: :pending
+        POSTED: :posted
+
+        def self.values: -> Array[ModernTreasury::Models::LedgerEntry::status]
+      end
+    end
+  end
+end

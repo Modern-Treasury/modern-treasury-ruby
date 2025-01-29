@@ -1,0 +1,22 @@
+module ModernTreasury
+  module Models
+    type invoice_add_payment_order_params =
+      { id: String } & ModernTreasury::request_parameters
+
+    class InvoiceAddPaymentOrderParams < ModernTreasury::BaseModel
+      extend ModernTreasury::RequestParameters::Converter
+      include ModernTreasury::RequestParameters
+
+      attr_accessor id: String
+
+      def initialize:
+        (id: String, request_options: ModernTreasury::request_opts) -> void
+        | (
+          ?ModernTreasury::Models::invoice_add_payment_order_params
+          | ModernTreasury::BaseModel data
+        ) -> void
+
+      def to_h: -> ModernTreasury::Models::invoice_add_payment_order_params
+    end
+  end
+end
