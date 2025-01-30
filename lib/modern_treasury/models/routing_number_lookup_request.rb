@@ -165,6 +165,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
@@ -198,8 +200,15 @@ module ModernTreasury
         SWIFT = :swift
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case supported_payment_type
@@ -250,6 +259,11 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

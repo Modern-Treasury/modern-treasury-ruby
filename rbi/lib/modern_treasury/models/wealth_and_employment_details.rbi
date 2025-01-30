@@ -135,7 +135,7 @@ module ModernTreasury
         STUDENT = T.let(:student, T.nilable(Symbol))
         UNEMPLOYED = T.let(:unemployed, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -151,7 +151,7 @@ module ModernTreasury
         SALARY = T.let(:salary, T.nilable(Symbol))
         SELF_EMPLOYED = T.let(:self_employed, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -192,7 +192,7 @@ module ModernTreasury
         TRAVEL = T.let(:travel, T.nilable(Symbol))
         UTILITIES = T.let(:utilities, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -212,7 +212,7 @@ module ModernTreasury
         SCIENCE_ENGINEERING = T.let(:science_engineering, T.nilable(Symbol))
         TECHNOLOGY = T.let(:technology, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -237,7 +237,7 @@ module ModernTreasury
         SENIOR_EXECUTIVE = T.let(:senior_executive, T.nilable(Symbol))
         TRUST_INCOME = T.let(:trust_income, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -255,7 +255,7 @@ module ModernTreasury
         SALARY = T.let(:salary, T.nilable(Symbol))
         SELF_EMPLOYED = T.let(:self_employed, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

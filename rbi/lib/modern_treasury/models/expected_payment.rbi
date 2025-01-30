@@ -180,7 +180,7 @@ module ModernTreasury
         CREDIT = T.let(:credit, T.nilable(Symbol))
         DEBIT = T.let(:debit, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -190,7 +190,7 @@ module ModernTreasury
         AUTOMATIC = T.let(:automatic, T.nilable(Symbol))
         MANUAL = T.let(:manual, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -202,7 +202,7 @@ module ModernTreasury
         RECONCILED = :reconciled
         UNRECONCILED = :unreconciled
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

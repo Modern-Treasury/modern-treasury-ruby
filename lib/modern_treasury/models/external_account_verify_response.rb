@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    # @abstract
+    #
     # @example
     # ```ruby
     # case external_account_verify_response
@@ -127,6 +129,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         #   `rtp`.
         #
@@ -180,8 +184,15 @@ module ModernTreasury
           ZENGIN = :zengin
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # The priority of the payment. Can be `normal` or `high`.
         #
         # @example
@@ -198,8 +209,15 @@ module ModernTreasury
           NORMAL = :normal
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # The status of the verification attempt. Can be `pending_verification`,
         #   `verified`, `failed`, or `cancelled`.
         #
@@ -223,6 +241,11 @@ module ModernTreasury
           VERIFIED = :verified
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
     end

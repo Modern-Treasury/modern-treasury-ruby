@@ -107,6 +107,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   object like Return or Reversal.
       #
@@ -136,8 +138,15 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # Status of the reversal ledger transaction. It defaults to `posted` if not
       #   provided.
       #
@@ -158,6 +167,11 @@ module ModernTreasury
         POSTED = :posted
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

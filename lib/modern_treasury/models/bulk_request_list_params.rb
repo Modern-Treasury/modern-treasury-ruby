@@ -87,6 +87,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # One of create, or update.
       #
       # @example
@@ -106,8 +108,15 @@ module ModernTreasury
         DELETE = :delete
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of payment_order, expected_payment, or ledger_transaction.
       #
       # @example
@@ -130,8 +139,15 @@ module ModernTreasury
         EXPECTED_PAYMENT = :expected_payment
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of pending, processing, or completed.
       #
       # @example
@@ -151,6 +167,11 @@ module ModernTreasury
         COMPLETED = :completed
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

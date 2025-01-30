@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    # @abstract
+    #
     # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
     #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
     #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
@@ -56,6 +58,11 @@ module ModernTreasury
       ZENGIN = :zengin
 
       finalize!
+
+      # @!parse
+      #   # @return [Array<Symbol>]
+      #   #
+      #   def self.values; end
     end
   end
 end

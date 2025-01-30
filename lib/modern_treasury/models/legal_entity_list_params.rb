@@ -73,6 +73,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case legal_entity_type
@@ -87,6 +89,11 @@ module ModernTreasury
         INDIVIDUAL = :individual
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

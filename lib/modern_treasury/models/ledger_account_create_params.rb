@@ -123,6 +123,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # If the ledger account links to another object in Modern Treasury, the type will
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
@@ -147,6 +149,11 @@ module ModernTreasury
         VIRTUAL_ACCOUNT = :virtual_account
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

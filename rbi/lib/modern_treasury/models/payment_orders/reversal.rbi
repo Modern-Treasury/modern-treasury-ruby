@@ -94,7 +94,7 @@ module ModernTreasury
           DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -108,7 +108,7 @@ module ModernTreasury
           RETURNED = :returned
           SENT = :sent
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end

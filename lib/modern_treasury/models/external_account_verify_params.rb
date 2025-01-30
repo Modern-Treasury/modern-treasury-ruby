@@ -75,6 +75,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # Can be `ach`, `eft`, or `rtp`.
       #
       # @example
@@ -127,8 +129,15 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # A payment type to fallback to if the original type is not valid for the
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (payment_type=rtp and fallback_type=ach)
@@ -144,8 +153,15 @@ module ModernTreasury
         ACH = :ach
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #   transfer. This will apply to both `payment_type` and `fallback_type`.
       #
@@ -163,6 +179,11 @@ module ModernTreasury
         NORMAL = :normal
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

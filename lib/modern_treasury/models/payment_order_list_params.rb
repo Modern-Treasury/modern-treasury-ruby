@@ -216,6 +216,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
@@ -234,8 +236,15 @@ module ModernTreasury
         NORMAL = :normal
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case status
@@ -267,8 +276,15 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case type
@@ -319,6 +335,11 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

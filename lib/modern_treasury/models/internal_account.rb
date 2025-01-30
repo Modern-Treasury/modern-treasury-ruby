@@ -175,6 +175,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # Can be checking, savings or other.
       #
       # @example
@@ -205,6 +207,11 @@ module ModernTreasury
         SAVINGS = :savings
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
       # @example
@@ -315,6 +322,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # Either individual or business.
       #
       # @example
@@ -331,6 +340,11 @@ module ModernTreasury
         INDIVIDUAL = :individual
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

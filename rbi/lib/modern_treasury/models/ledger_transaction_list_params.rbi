@@ -204,7 +204,7 @@ module ModernTreasury
         RETURN = :return
         REVERSAL = :reversal
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -235,7 +235,7 @@ module ModernTreasury
           ASC = :asc
           DESC = :desc
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -245,7 +245,7 @@ module ModernTreasury
           ASC = :asc
           DESC = :desc
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -257,7 +257,7 @@ module ModernTreasury
         POSTED = :posted
         ARCHIVED = :archived
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

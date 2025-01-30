@@ -128,6 +128,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
       #
@@ -148,8 +150,15 @@ module ModernTreasury
         RETURNED = :returned
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       #
@@ -182,6 +191,11 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

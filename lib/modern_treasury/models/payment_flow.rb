@@ -237,6 +237,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
       #
@@ -254,8 +256,15 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # When `verified` and `external_account_collection` is `enabled`, filters the list
       #   of external accounts your end-user can select to those with a
       #   `verification_status` of `verified`.
@@ -271,8 +280,15 @@ module ModernTreasury
         VERIFIED = :verified
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # When `enabled`, your end-user can select from an existing external account when
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
@@ -291,8 +307,15 @@ module ModernTreasury
         ENABLED = :enabled
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
       #
@@ -316,6 +339,11 @@ module ModernTreasury
         PENDING = :pending
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

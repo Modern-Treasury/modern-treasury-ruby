@@ -142,6 +142,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case status
@@ -168,6 +170,11 @@ module ModernTreasury
         VOIDED = :voided
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end
