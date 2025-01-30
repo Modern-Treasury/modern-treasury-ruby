@@ -26,6 +26,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case itemizable_type
@@ -40,6 +42,11 @@ module ModernTreasury
         PAYMENT_ORDERS = :payment_orders
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

@@ -268,7 +268,7 @@ module ModernTreasury
         INTERNAL_ACCOUNT = T.let(:internal_account, T.nilable(Symbol))
         VIRTUAL_ACCOUNT = T.let(:virtual_account, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

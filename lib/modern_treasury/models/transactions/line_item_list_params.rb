@@ -61,6 +61,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case type
@@ -75,6 +77,11 @@ module ModernTreasury
           RECEIVING = :receiving
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
     end

@@ -87,7 +87,7 @@ module ModernTreasury
           PREVIOUS_DAY = :previous_day
           REAL_TIME = :real_time
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -198,7 +198,7 @@ module ModernTreasury
             OTHER = :other
             PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
         end

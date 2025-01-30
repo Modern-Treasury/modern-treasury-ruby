@@ -429,6 +429,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # @example
           # ```ruby
           # case contact_identifier_type
@@ -446,6 +448,11 @@ module ModernTreasury
             WEBSITE = :website
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
 
@@ -557,6 +564,8 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @abstract
+        #
         # Either `individual` or `business`.
         #
         # @example
@@ -573,8 +582,15 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case verification_source
@@ -592,8 +608,15 @@ module ModernTreasury
           PLAID = :plaid
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case verification_status
@@ -611,9 +634,16 @@ module ModernTreasury
           VERIFIED = :verified
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
+      # @abstract
+      #
       # The verification status of the counterparty.
       #
       # @example
@@ -636,6 +666,11 @@ module ModernTreasury
         VERIFIED = :verified
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

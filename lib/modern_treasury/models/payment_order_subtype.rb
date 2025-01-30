@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    # @abstract
+    #
     # An additional layer of classification for the type of payment order you are
     #   doing. This field is only used for `ach` payment orders currently. For `ach`
     #   payment orders, the `subtype` represents the SEC code. We currently support
@@ -56,6 +58,11 @@ module ModernTreasury
       ZENGIN = :zengin
 
       finalize!
+
+      # @!parse
+      #   # @return [Array<Symbol>]
+      #   #
+      #   def self.values; end
     end
   end
 end

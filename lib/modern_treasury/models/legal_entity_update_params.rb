@@ -293,6 +293,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case address_type
@@ -316,6 +318,11 @@ module ModernTreasury
           RESIDENTIAL = :residential
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
@@ -359,6 +366,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The type of ID number.
         #
         # @example
@@ -402,9 +411,16 @@ module ModernTreasury
           VN_TIN = :vn_tin
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
+      # @abstract
+      #
       # The business's legal structure.
       #
       # @example
@@ -433,6 +449,11 @@ module ModernTreasury
         TRUST = :trust
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
       # @example
@@ -461,6 +482,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # The risk rating of the legal entity. One of low, medium, high.
       #
       # @example
@@ -480,6 +503,11 @@ module ModernTreasury
         HIGH = :high
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

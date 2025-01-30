@@ -68,6 +68,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case field
@@ -117,6 +119,11 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

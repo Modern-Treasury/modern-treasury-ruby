@@ -124,7 +124,7 @@ module ModernTreasury
           WIRE = :wire
           ZENGIN = :zengin
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -134,7 +134,7 @@ module ModernTreasury
           HIGH = T.let(:high, T.nilable(Symbol))
           NORMAL = T.let(:normal, T.nilable(Symbol))
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -146,13 +146,13 @@ module ModernTreasury
           PENDING_VERIFICATION = :pending_verification
           VERIFIED = :verified
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
 
       sig do
-        returns(
+        override.returns(
           [
             [NilClass, ModernTreasury::Models::ExternalAccount],
             [

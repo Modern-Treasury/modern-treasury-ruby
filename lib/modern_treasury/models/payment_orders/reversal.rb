@@ -110,6 +110,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The reason for the reversal.
         #
         # @example
@@ -135,8 +137,15 @@ module ModernTreasury
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # The current status of the reversal.
         #
         # @example
@@ -165,6 +174,11 @@ module ModernTreasury
           SENT = :sent
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
     end

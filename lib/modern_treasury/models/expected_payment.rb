@@ -245,6 +245,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       #
@@ -262,8 +264,15 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of manual if this expected payment was manually reconciled in the dashboard,
       #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   is unreconciled.
@@ -282,8 +291,15 @@ module ModernTreasury
         MANUAL = :manual
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of unreconciled, partially_reconciled, reconciled, or archived.
       #
       # @example
@@ -306,6 +322,11 @@ module ModernTreasury
         UNRECONCILED = :unreconciled
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

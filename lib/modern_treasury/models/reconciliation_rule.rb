@@ -112,6 +112,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       #
@@ -129,8 +131,15 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet wire
       #
@@ -184,6 +193,11 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

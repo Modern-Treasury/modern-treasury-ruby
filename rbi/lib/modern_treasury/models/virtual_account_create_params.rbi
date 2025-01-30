@@ -146,7 +146,7 @@ module ModernTreasury
           SG_NUMBER = :sg_number
           WALLET_ADDRESS = :wallet_address
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -247,7 +247,7 @@ module ModernTreasury
           INTERNAL_ACCOUNT = :internal_account
           VIRTUAL_ACCOUNT = :virtual_account
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -299,7 +299,7 @@ module ModernTreasury
           SWIFT = :swift
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -337,7 +337,7 @@ module ModernTreasury
           WIRE = T.let(:wire, T.nilable(Symbol))
           ZENGIN = T.let(:zengin, T.nilable(Symbol))
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end

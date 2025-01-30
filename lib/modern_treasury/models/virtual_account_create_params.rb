@@ -180,6 +180,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   account number is in a generic format.
         #
@@ -213,6 +215,11 @@ module ModernTreasury
           WALLET_ADDRESS = :wallet_address
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
@@ -346,6 +353,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
@@ -370,6 +379,11 @@ module ModernTreasury
           VIRTUAL_ACCOUNT = :virtual_account
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
@@ -417,6 +431,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The type of routing number. See
         #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
         #   more details.
@@ -462,8 +478,15 @@ module ModernTreasury
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # If the routing detail is to be used for a specific payment type this field will
         #   be populated, otherwise null.
         #
@@ -517,6 +540,11 @@ module ModernTreasury
           ZENGIN = :zengin
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
     end

@@ -234,6 +234,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The type of the originating account number for the incoming payment detail.
       #
       # @example
@@ -266,8 +268,15 @@ module ModernTreasury
         WALLET_ADDRESS = :wallet_address
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The type of the originating routing number for the incoming payment detail.
       #
       # @example
@@ -311,8 +320,15 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
       #
@@ -333,8 +349,15 @@ module ModernTreasury
         RETURNED = :returned
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       #
@@ -367,6 +390,11 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

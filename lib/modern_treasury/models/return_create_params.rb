@@ -71,6 +71,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
       #
@@ -85,8 +87,15 @@ module ModernTreasury
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The return code. For ACH returns, this is the required ACH return code.
       #
       # @example
@@ -162,6 +171,11 @@ module ModernTreasury
         CURRENCYCLOUD = :currencycloud
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

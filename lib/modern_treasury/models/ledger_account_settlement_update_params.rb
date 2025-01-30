@@ -45,6 +45,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
       #
@@ -62,6 +64,11 @@ module ModernTreasury
         ARCHIVED = :archived
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

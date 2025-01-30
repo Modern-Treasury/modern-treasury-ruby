@@ -174,6 +174,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       #
@@ -191,8 +193,15 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The Expected Payment's status can be updated from partially_reconciled to
       #   reconciled.
       #
@@ -207,6 +216,11 @@ module ModernTreasury
         RECONCILED = :reconciled
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

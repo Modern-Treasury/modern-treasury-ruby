@@ -195,7 +195,7 @@ module ModernTreasury
         BUSINESS = :business
         INDIVIDUAL = :individual
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -262,7 +262,7 @@ module ModernTreasury
           PO_BOX = :po_box
           RESIDENTIAL = :residential
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -310,7 +310,7 @@ module ModernTreasury
           US_SSN = :us_ssn
           VN_TIN = :vn_tin
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -379,7 +379,7 @@ module ModernTreasury
           BENEFICIAL_OWNER = :beneficial_owner
           CONTROL_PERSON = :control_person
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -649,7 +649,7 @@ module ModernTreasury
               PO_BOX = :po_box
               RESIDENTIAL = :residential
 
-              sig { returns(T::Array[Symbol]) }
+              sig { override.returns(T::Array[Symbol]) }
               def self.values; end
             end
           end
@@ -699,7 +699,7 @@ module ModernTreasury
               US_SSN = :us_ssn
               VN_TIN = :vn_tin
 
-              sig { returns(T::Array[Symbol]) }
+              sig { override.returns(T::Array[Symbol]) }
               def self.values; end
             end
           end
@@ -710,7 +710,7 @@ module ModernTreasury
             BUSINESS = :business
             INDIVIDUAL = :individual
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
 
@@ -724,7 +724,7 @@ module ModernTreasury
             SOLE_PROPRIETORSHIP = T.let(:sole_proprietorship, T.nilable(Symbol))
             TRUST = T.let(:trust, T.nilable(Symbol))
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
 
@@ -753,7 +753,7 @@ module ModernTreasury
             MEDIUM = T.let(:medium, T.nilable(Symbol))
             HIGH = T.let(:high, T.nilable(Symbol))
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
         end
@@ -769,7 +769,7 @@ module ModernTreasury
         SOLE_PROPRIETORSHIP = T.let(:sole_proprietorship, T.nilable(Symbol))
         TRUST = T.let(:trust, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -796,7 +796,7 @@ module ModernTreasury
         MEDIUM = T.let(:medium, T.nilable(Symbol))
         HIGH = T.let(:high, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

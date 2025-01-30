@@ -311,7 +311,7 @@ module ModernTreasury
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -470,7 +470,7 @@ module ModernTreasury
         MANUAL = T.let(:manual, T.nilable(Symbol))
         AUTOMATIC = T.let(:automatic, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -480,7 +480,7 @@ module ModernTreasury
         EFT = T.let(:eft, T.nilable(Symbol))
         ACH = T.let(:ach, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -494,7 +494,7 @@ module ModernTreasury
         UNPAID = :unpaid
         VOIDED = :voided
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

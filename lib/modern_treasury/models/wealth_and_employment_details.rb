@@ -178,6 +178,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The employment status of the individual.
       #
       # @example
@@ -203,8 +205,15 @@ module ModernTreasury
         UNEMPLOYED = :unemployed
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The source of the individual's income.
       #
       # @example
@@ -235,8 +244,15 @@ module ModernTreasury
         SELF_EMPLOYED = :self_employed
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The industry of the individual.
       #
       # @example
@@ -292,8 +308,15 @@ module ModernTreasury
         UTILITIES = :utilities
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The occupation of the individual.
       #
       # @example
@@ -328,8 +351,15 @@ module ModernTreasury
         TECHNOLOGY = :technology
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The source of the individual's funds.
       #
       # @example
@@ -369,8 +399,15 @@ module ModernTreasury
         TRUST_INCOME = :trust_income
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The source of the individual's wealth.
       #
       # @example
@@ -403,6 +440,11 @@ module ModernTreasury
         SELF_EMPLOYED = :self_employed
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

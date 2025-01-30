@@ -375,6 +375,8 @@ module ModernTreasury
         end
       end
 
+      # @abstract
+      #
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
       #
@@ -395,6 +397,11 @@ module ModernTreasury
         POSTED = :posted
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

@@ -216,6 +216,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       #
@@ -269,8 +271,15 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
@@ -316,6 +325,11 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end
