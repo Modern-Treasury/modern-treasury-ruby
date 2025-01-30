@@ -19,7 +19,7 @@ module ModernTreasury
       sig { returns(T::Array[String]) }
       attr_accessor :payment_types
 
-      sig { returns(T::Array[Symbol]) }
+      sig { returns(T.nilable(T::Array[Symbol])) }
       attr_reader :receiving_countries
 
       sig { params(receiving_countries: T::Array[Symbol]).void }

@@ -71,7 +71,7 @@ module ModernTreasury
 
       attr_accessor description: String?
 
-      attr_reader documents: Array[ModernTreasury::Models::PaymentOrderCreateParams::Document]
+      attr_reader documents: Array[ModernTreasury::Models::PaymentOrderCreateParams::Document]?
 
       def documents=: (
         Array[ModernTreasury::Models::PaymentOrderCreateParams::Document]
@@ -103,7 +103,7 @@ module ModernTreasury
 
       def ledger_transaction_id=: (String) -> void
 
-      attr_reader line_items: Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem]
+      attr_reader line_items: Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem]?
 
       def line_items=: (
         Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem]
@@ -537,7 +537,7 @@ module ModernTreasury
         }
 
       class ReceivingAccount < ModernTreasury::BaseModel
-        attr_reader account_details: Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]
+        attr_reader account_details: Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]?
 
         def account_details=: (
           Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]
@@ -549,7 +549,7 @@ module ModernTreasury
           ModernTreasury::Models::external_account_type
         ) -> void
 
-        attr_reader contact_details: Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]
+        attr_reader contact_details: Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]?
 
         def contact_details=: (
           Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]
@@ -587,7 +587,7 @@ module ModernTreasury
 
         def plaid_processor_token=: (String) -> void
 
-        attr_reader routing_details: Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]
+        attr_reader routing_details: Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]?
 
         def routing_details=: (
           Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]
@@ -737,7 +737,7 @@ module ModernTreasury
 
           attr_accessor description: String?
 
-          attr_reader ledger_account_category_ids: Array[String]
+          attr_reader ledger_account_category_ids: Array[String]?
 
           def ledger_account_category_ids=: (Array[String]) -> void
 

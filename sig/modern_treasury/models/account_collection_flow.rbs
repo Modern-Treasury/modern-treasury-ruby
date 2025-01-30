@@ -42,7 +42,7 @@ module ModernTreasury
 
       def object=: (String) -> void
 
-      attr_reader receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
+      attr_reader receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]?
 
       def receiving_countries=: (
         Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]

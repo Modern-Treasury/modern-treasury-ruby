@@ -24,7 +24,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             reconciliation_filters: T.nilable(T.anything),
             reconciliation_groups: T.nilable(T.anything),
-            reconciliation_rule_variables: T::Array[ModernTreasury::Models::ReconciliationRule],
+            reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
             remittance_information: T.nilable(String),
             statement_descriptor: T.nilable(String),
             type: T.nilable(Symbol)
@@ -74,7 +74,7 @@ module ModernTreasury
       sig { params(ledger_transaction_id: String).void }
       attr_writer :ledger_transaction_id
 
-      sig { returns(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem])) }
       attr_reader :line_items
 
       sig { params(line_items: T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem]).void }
@@ -92,7 +92,7 @@ module ModernTreasury
       sig { returns(T.nilable(T.anything)) }
       attr_accessor :reconciliation_groups
 
-      sig { returns(T::Array[ModernTreasury::Models::ReconciliationRule]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
       attr_accessor :reconciliation_rule_variables
 
       sig { returns(T.nilable(String)) }
@@ -121,7 +121,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
-          reconciliation_rule_variables: T::Array[ModernTreasury::Models::ReconciliationRule],
+          reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           type: T.nilable(Symbol),

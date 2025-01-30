@@ -120,7 +120,7 @@ module ModernTreasury
       sig { params(ledger_transaction_id: String).void }
       attr_writer :ledger_transaction_id
 
-      sig { returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem])) }
       attr_reader :line_items
 
       sig do
@@ -602,7 +602,7 @@ module ModernTreasury
         end
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail]))
         end
         attr_reader :account_details
 
@@ -620,7 +620,7 @@ module ModernTreasury
         attr_writer :account_type
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail]))
         end
         attr_reader :contact_details
 
@@ -686,7 +686,7 @@ module ModernTreasury
         attr_writer :plaid_processor_token
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail]))
         end
         attr_reader :routing_details
 
@@ -839,7 +839,7 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :description
 
-          sig { returns(T::Array[String]) }
+          sig { returns(T.nilable(T::Array[String])) }
           attr_reader :ledger_account_category_ids
 
           sig { params(ledger_account_category_ids: T::Array[String]).void }

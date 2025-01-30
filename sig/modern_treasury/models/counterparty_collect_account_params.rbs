@@ -19,7 +19,7 @@ module ModernTreasury
 
       def custom_redirect=: (String) -> void
 
-      attr_reader fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
+      attr_reader fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]?
 
       def fields=: (
         Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]

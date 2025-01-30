@@ -24,7 +24,7 @@ module ModernTreasury
         )
       end
 
-      sig { returns(T::Array[String]) }
+      sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
       sig { params(id: T::Array[String]).void }

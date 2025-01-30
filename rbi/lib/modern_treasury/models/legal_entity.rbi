@@ -19,7 +19,7 @@ module ModernTreasury
           first_name: T.nilable(String),
           identifications: T::Array[ModernTreasury::Models::LegalEntity::Identification],
           last_name: T.nilable(String),
-          legal_entity_associations: T::Array[ModernTreasury::Models::LegalEntityAssociation],
+          legal_entity_associations: T.nilable(T::Array[ModernTreasury::Models::LegalEntityAssociation]),
           legal_entity_type: Symbol,
           legal_structure: T.nilable(Symbol),
           live_mode: T::Boolean,
@@ -80,7 +80,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :last_name
 
-      sig { returns(T::Array[ModernTreasury::Models::LegalEntityAssociation]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityAssociation])) }
       attr_accessor :legal_entity_associations
 
       sig { returns(Symbol) }
@@ -144,7 +144,7 @@ module ModernTreasury
           first_name: T.nilable(String),
           identifications: T::Array[ModernTreasury::Models::LegalEntity::Identification],
           last_name: T.nilable(String),
-          legal_entity_associations: T::Array[ModernTreasury::Models::LegalEntityAssociation],
+          legal_entity_associations: T.nilable(T::Array[ModernTreasury::Models::LegalEntityAssociation]),
           legal_entity_type: Symbol,
           legal_structure: T.nilable(Symbol),
           live_mode: T::Boolean,

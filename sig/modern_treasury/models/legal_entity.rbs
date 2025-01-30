@@ -16,7 +16,7 @@ module ModernTreasury
         first_name: String?,
         identifications: Array[ModernTreasury::Models::LegalEntity::Identification],
         last_name: String?,
-        legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation],
+        legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation]?,
         legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
         legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
         live_mode: bool,
@@ -63,7 +63,7 @@ module ModernTreasury
 
       attr_accessor last_name: String?
 
-      attr_accessor legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation]
+      attr_accessor legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation]?
 
       attr_accessor legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type
 
@@ -111,7 +111,7 @@ module ModernTreasury
           first_name: String?,
           identifications: Array[ModernTreasury::Models::LegalEntity::Identification],
           last_name: String?,
-          legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation],
+          legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation]?,
           legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
           legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
           live_mode: bool,

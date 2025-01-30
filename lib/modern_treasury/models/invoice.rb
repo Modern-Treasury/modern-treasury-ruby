@@ -137,7 +137,7 @@ module ModernTreasury
       #     notifications to. At least one email is required if notifications are enabled
       #     and the counterparty doesn't have an email.
       #
-      #   @return [Array<String>]
+      #   @return [Array<String>, nil]
       required :notification_email_addresses, ModernTreasury::ArrayOf[String], nil?: true
 
       # @!attribute notifications_enabled
@@ -222,7 +222,7 @@ module ModernTreasury
       #   Number of days after due date when overdue reminder emails will be sent out to
       #     invoice recipients.
       #
-      #   @return [Array<Integer>]
+      #   @return [Array<Integer>, nil]
       required :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer], nil?: true
 
       # @!attribute status
@@ -274,7 +274,7 @@ module ModernTreasury
       #   # @param ledger_account_settlement_id [String, nil]
       #   # @param live_mode [Boolean]
       #   # @param metadata [Hash{Symbol=>String}, nil]
-      #   # @param notification_email_addresses [Array<String>]
+      #   # @param notification_email_addresses [Array<String>, nil]
       #   # @param notifications_enabled [Boolean]
       #   # @param number [String]
       #   # @param object [String]
@@ -287,7 +287,7 @@ module ModernTreasury
       #   # @param receiving_account_id [String, nil]
       #   # @param recipient_email [String, nil]
       #   # @param recipient_name [String, nil]
-      #   # @param remind_after_overdue_days [Array<Integer>]
+      #   # @param remind_after_overdue_days [Array<Integer>, nil]
       #   # @param status [Symbol, ModernTreasury::Models::Invoice::Status]
       #   # @param total_amount [Integer]
       #   # @param transaction_line_item_ids [Array<String>]

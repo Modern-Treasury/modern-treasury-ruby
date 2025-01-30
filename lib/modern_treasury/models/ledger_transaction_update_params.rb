@@ -27,7 +27,7 @@ module ModernTreasury
       # @!attribute [r] ledger_entries
       #   An array of ledger entry objects.
       #
-      #   @return [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>]
+      #   @return [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>, nil]
       optional :ledger_entries,
                -> {
                  ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]

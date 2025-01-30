@@ -10,7 +10,7 @@ module ModernTreasury
         #
         # @param params [ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams, Hash{Symbol=>Object}] .
         #
-        #   @option params [Array<String>] :ledger_entry_ids The ids of the ledger entries that are to be added or removed from the ledger
+        #   @option params [Array<String>, nil] :ledger_entry_ids The ids of the ledger entries that are to be added or removed from the ledger
         #     account settlement.
         #
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
@@ -34,7 +34,7 @@ module ModernTreasury
         #
         # @param params [ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams, Hash{Symbol=>Object}] .
         #
-        #   @option params [Array<Object>] :ledger_entry_ids The ids of the ledger entries that are to be added or removed from the ledger
+        #   @option params [Array<Object>, nil] :ledger_entry_ids The ids of the ledger entries that are to be added or removed from the ledger
         #     account settlement.
         #
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options

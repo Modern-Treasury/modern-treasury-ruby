@@ -58,7 +58,7 @@ module ModernTreasury
       sig { params(object: String).void }
       attr_writer :object
 
-      sig { returns(T::Array[Symbol]) }
+      sig { returns(T.nilable(T::Array[Symbol])) }
       attr_reader :receiving_countries
 
       sig { params(receiving_countries: T::Array[Symbol]).void }

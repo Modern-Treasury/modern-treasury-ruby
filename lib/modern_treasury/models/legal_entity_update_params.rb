@@ -10,7 +10,7 @@ module ModernTreasury
       # @!attribute [r] addresses
       #   A list of addresses for the entity.
       #
-      #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>]
+      #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>, nil]
       optional :addresses,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::Address] }
 
@@ -49,7 +49,7 @@ module ModernTreasury
 
       # @!attribute [r] doing_business_as_names
       #
-      #   @return [Array<String>]
+      #   @return [Array<String>, nil]
       optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
 
       # @!parse
@@ -71,7 +71,7 @@ module ModernTreasury
       # @!attribute [r] identifications
       #   A list of identifications for the legal entity.
       #
-      #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
+      #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>, nil]
       optional :identifications,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::Identification] }
 
@@ -112,7 +112,7 @@ module ModernTreasury
 
       # @!attribute [r] phone_numbers
       #
-      #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
+      #   @return [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>, nil]
       optional :phone_numbers,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber] }
 
@@ -265,7 +265,7 @@ module ModernTreasury
         # @!attribute [r] address_types
         #   The types of this address.
         #
-        #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>]
+        #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>, nil]
         optional :address_types,
                  -> {
                    ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType]

@@ -97,7 +97,7 @@ module ModernTreasury
       # @!attribute legal_entity_associations
       #   The legal entity associations and its child legal entities.
       #
-      #   @return [Array<ModernTreasury::Models::LegalEntityAssociation>]
+      #   @return [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
       required :legal_entity_associations,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation] },
                nil?: true
@@ -210,7 +210,7 @@ module ModernTreasury
       #   # @param first_name [String, nil]
       #   # @param identifications [Array<ModernTreasury::Models::LegalEntity::Identification>]
       #   # @param last_name [String, nil]
-      #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>]
+      #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
       #   # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntity::LegalEntityType]
       #   # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntity::LegalStructure, nil]
       #   # @param live_mode [Boolean]

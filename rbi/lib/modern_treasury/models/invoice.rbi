@@ -23,7 +23,7 @@ module ModernTreasury
           ledger_account_settlement_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
-          notification_email_addresses: T::Array[String],
+          notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
           number: String,
           object: String,
@@ -36,7 +36,7 @@ module ModernTreasury
           receiving_account_id: T.nilable(String),
           recipient_email: T.nilable(String),
           recipient_name: T.nilable(String),
-          remind_after_overdue_days: T::Array[Integer],
+          remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: Symbol,
           total_amount: Integer,
           transaction_line_item_ids: T::Array[String],
@@ -99,7 +99,7 @@ module ModernTreasury
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_accessor :metadata
 
-      sig { returns(T::Array[String]) }
+      sig { returns(T.nilable(T::Array[String])) }
       attr_accessor :notification_email_addresses
 
       sig { returns(T::Boolean) }
@@ -138,7 +138,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :recipient_name
 
-      sig { returns(T::Array[Integer]) }
+      sig { returns(T.nilable(T::Array[Integer])) }
       attr_accessor :remind_after_overdue_days
 
       sig { returns(Symbol) }
@@ -176,7 +176,7 @@ module ModernTreasury
           ledger_account_settlement_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
-          notification_email_addresses: T::Array[String],
+          notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
           number: String,
           object: String,
@@ -189,7 +189,7 @@ module ModernTreasury
           receiving_account_id: T.nilable(String),
           recipient_email: T.nilable(String),
           recipient_name: T.nilable(String),
-          remind_after_overdue_days: T::Array[Integer],
+          remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: Symbol,
           total_amount: Integer,
           transaction_line_item_ids: T::Array[String],

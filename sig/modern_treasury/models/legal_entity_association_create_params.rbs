@@ -87,7 +87,7 @@ module ModernTreasury
         }
 
       class ChildLegalEntity < ModernTreasury::BaseModel
-        attr_reader addresses: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
+        attr_reader addresses: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]?
 
         def addresses=: (
           Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
@@ -103,7 +103,7 @@ module ModernTreasury
 
         attr_accessor date_of_birth: Date?
 
-        attr_reader doing_business_as_names: Array[String]
+        attr_reader doing_business_as_names: Array[String]?
 
         def doing_business_as_names=: (Array[String]) -> void
 
@@ -111,7 +111,7 @@ module ModernTreasury
 
         attr_accessor first_name: String?
 
-        attr_reader identifications: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
+        attr_reader identifications: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]?
 
         def identifications=: (
           Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
@@ -133,7 +133,7 @@ module ModernTreasury
 
         attr_accessor middle_name: String?
 
-        attr_reader phone_numbers: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
+        attr_reader phone_numbers: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]?
 
         def phone_numbers=: (
           Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
@@ -208,7 +208,7 @@ module ModernTreasury
 
           attr_accessor region: String?
 
-          attr_reader address_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]
+          attr_reader address_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]?
 
           def address_types=: (
             Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]
