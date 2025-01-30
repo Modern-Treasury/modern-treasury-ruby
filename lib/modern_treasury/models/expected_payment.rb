@@ -131,7 +131,7 @@ module ModernTreasury
       # @!attribute reconciliation_rule_variables
       #   An array of reconciliation rule variables for this payment.
       #
-      #   @return [Array<ModernTreasury::Models::ReconciliationRule>]
+      #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
       required :reconciliation_rule_variables,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
                nil?: true
@@ -202,7 +202,7 @@ module ModernTreasury
       #   # @param reconciliation_filters [Object, nil]
       #   # @param reconciliation_groups [Object, nil]
       #   # @param reconciliation_method [Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod, nil]
-      #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>]
+      #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
       #   # @param remittance_information [String, nil]
       #   # @param statement_descriptor [String, nil]
       #   # @param status [Symbol, ModernTreasury::Models::ExpectedPayment::Status]

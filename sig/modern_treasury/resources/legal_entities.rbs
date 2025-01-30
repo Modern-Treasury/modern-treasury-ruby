@@ -21,7 +21,7 @@ module ModernTreasury
           first_name: String?,
           identifications: Array[ModernTreasury::Models::LegalEntityCreateParams::Identification],
           last_name: String?,
-          legal_entity_associations: Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation],
+          legal_entity_associations: Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation]?,
           legal_structure: ModernTreasury::Models::LegalEntityCreateParams::legal_structure?,
           metadata: Hash[Symbol, String],
           middle_name: String?,

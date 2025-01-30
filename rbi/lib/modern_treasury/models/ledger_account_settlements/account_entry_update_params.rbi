@@ -8,13 +8,18 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         Shape = T.type_alias do
-          T.all({ledger_entry_ids: T::Array[String]}, ModernTreasury::RequestParameters::Shape)
+          T.all({ledger_entry_ids: T.nilable(T::Array[String])}, ModernTreasury::RequestParameters::Shape)
         end
 
-        sig { returns(T::Array[String]) }
+        sig { returns(T.nilable(T::Array[String])) }
         attr_accessor :ledger_entry_ids
 
-        sig { params(ledger_entry_ids: T::Array[String], request_options: ModernTreasury::RequestOpts).void }
+        sig do
+          params(
+            ledger_entry_ids: T.nilable(T::Array[String]),
+            request_options: ModernTreasury::RequestOpts
+          ).void
+        end
         def initialize(ledger_entry_ids:, request_options: {}); end
 
         sig { returns(ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams::Shape) }

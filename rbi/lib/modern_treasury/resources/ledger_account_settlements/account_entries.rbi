@@ -11,7 +11,7 @@ module ModernTreasury
               ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams,
               T::Hash[Symbol, T.anything]
             ),
-            ledger_entry_ids: T::Array[String],
+            ledger_entry_ids: T.nilable(T::Array[String]),
             request_options: ModernTreasury::RequestOpts
           ).void
         end
@@ -24,7 +24,7 @@ module ModernTreasury
               ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams,
               T::Hash[Symbol, T.anything]
             ),
-            ledger_entry_ids: T::Array[T.anything],
+            ledger_entry_ids: T.nilable(T::Array[T.anything]),
             request_options: ModernTreasury::RequestOpts
           ).void
         end

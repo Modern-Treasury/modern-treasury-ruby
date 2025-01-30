@@ -18,7 +18,7 @@ module ModernTreasury
           first_name: T.nilable(String),
           identifications: T::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification],
           last_name: T.nilable(String),
-          legal_entity_associations: T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation],
+          legal_entity_associations: T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation]),
           legal_structure: T.nilable(Symbol),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),

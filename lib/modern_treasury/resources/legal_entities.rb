@@ -31,7 +31,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :last_name An individual's last name.
       #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation>] :legal_entity_associations The legal entity associations and its child legal entities.
+      #   @option params [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation>, nil] :legal_entity_associations The legal entity associations and its child legal entities.
       #
       #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil] :legal_structure The business's legal structure.
       #

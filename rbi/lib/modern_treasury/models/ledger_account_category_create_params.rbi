@@ -40,7 +40,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :description
 
-      sig { returns(T::Array[String]) }
+      sig { returns(T.nilable(T::Array[String])) }
       attr_reader :ledger_account_category_ids
 
       sig { params(ledger_account_category_ids: T::Array[String]).void }

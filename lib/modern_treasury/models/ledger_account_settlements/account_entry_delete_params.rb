@@ -12,11 +12,11 @@ module ModernTreasury
         #   The ids of the ledger entries that are to be added or removed from the ledger
         #     account settlement.
         #
-        #   @return [Array<Object>]
+        #   @return [Array<Object>, nil]
         required :ledger_entry_ids, ModernTreasury::ArrayOf[ModernTreasury::Unknown], nil?: true
 
         # @!parse
-        #   # @param ledger_entry_ids [Array<Object>]
+        #   # @param ledger_entry_ids [Array<Object>, nil]
         #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
         #   #
         #   def initialize(ledger_entry_ids:, request_options: {}, **) = super

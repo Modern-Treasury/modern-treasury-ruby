@@ -345,7 +345,7 @@ module ModernTreasury
           # @!attribute [r] line_items
           #   An array of line items that must sum up to the amount of the payment order.
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>]
+          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>, nil]
           optional :line_items,
                    -> {
                      ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem]
@@ -1155,7 +1155,7 @@ module ModernTreasury
           class ReceivingAccount < ModernTreasury::BaseModel
             # @!attribute [r] account_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>]
+            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>, nil]
             optional :account_details,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail]
@@ -1177,7 +1177,7 @@ module ModernTreasury
 
             # @!attribute [r] contact_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>]
+            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>, nil]
             optional :contact_details,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail]
@@ -1273,7 +1273,7 @@ module ModernTreasury
 
             # @!attribute [r] routing_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>]
+            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>, nil]
             optional :routing_details,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]
@@ -1510,7 +1510,7 @@ module ModernTreasury
               #   The array of ledger account category ids that this ledger account should be a
               #     child of.
               #
-              #   @return [Array<String>]
+              #   @return [Array<String>, nil]
               optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
               # @!parse
@@ -1966,7 +1966,7 @@ module ModernTreasury
 
           # @!attribute [r] line_items
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>]
+          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>, nil]
           optional :line_items,
                    -> {
                      ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem]
@@ -2002,7 +2002,7 @@ module ModernTreasury
           # @!attribute reconciliation_rule_variables
           #   An array of reconciliation rule variables for this payment.
           #
-          #   @return [Array<ModernTreasury::Models::ReconciliationRule>]
+          #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
           optional :reconciliation_rule_variables,
                    -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
                    nil?: true
@@ -2047,7 +2047,7 @@ module ModernTreasury
           #   # @param metadata [Hash{Symbol=>String}]
           #   # @param reconciliation_filters [Object, nil]
           #   # @param reconciliation_groups [Object, nil]
-          #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>]
+          #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
           #   # @param remittance_information [String, nil]
           #   # @param statement_descriptor [String, nil]
           #   # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
@@ -3178,7 +3178,7 @@ module ModernTreasury
           # @!attribute [r] line_items
           #   An array of line items that must sum up to the amount of the payment order.
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>]
+          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>, nil]
           optional :line_items,
                    -> {
                      ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem]
@@ -3695,7 +3695,7 @@ module ModernTreasury
           class ReceivingAccount < ModernTreasury::BaseModel
             # @!attribute [r] account_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>]
+            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>, nil]
             optional :account_details,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail]
@@ -3717,7 +3717,7 @@ module ModernTreasury
 
             # @!attribute [r] contact_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>]
+            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>, nil]
             optional :contact_details,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail]
@@ -3813,7 +3813,7 @@ module ModernTreasury
 
             # @!attribute [r] routing_details
             #
-            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>]
+            #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>, nil]
             optional :routing_details,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]
@@ -4050,7 +4050,7 @@ module ModernTreasury
               #   The array of ledger account category ids that this ledger account should be a
               #     child of.
               #
-              #   @return [Array<String>]
+              #   @return [Array<String>, nil]
               optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
               # @!parse
@@ -4556,7 +4556,7 @@ module ModernTreasury
           # @!attribute reconciliation_rule_variables
           #   An array of reconciliation rule variables for this payment.
           #
-          #   @return [Array<ModernTreasury::Models::ReconciliationRule>]
+          #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
           optional :reconciliation_rule_variables,
                    -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
                    nil?: true
@@ -4610,7 +4610,7 @@ module ModernTreasury
           #   # @param metadata [Hash{Symbol=>String}]
           #   # @param reconciliation_filters [Object, nil]
           #   # @param reconciliation_groups [Object, nil]
-          #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>]
+          #   # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
           #   # @param remittance_information [String, nil]
           #   # @param statement_descriptor [String, nil]
           #   # @param status [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status, nil]
@@ -4770,7 +4770,7 @@ module ModernTreasury
           # @!attribute [r] ledger_entries
           #   An array of ledger entry objects.
           #
-          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>]
+          #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>, nil]
           optional :ledger_entries,
                    -> {
                      ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry]

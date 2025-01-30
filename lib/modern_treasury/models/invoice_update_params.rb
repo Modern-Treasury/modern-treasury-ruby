@@ -10,7 +10,7 @@ module ModernTreasury
       # @!attribute [r] contact_details
       #   The invoicer's contact details displayed at the top of the invoice.
       #
-      #   @return [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>]
+      #   @return [Array<ModernTreasury::Models::InvoiceUpdateParams::ContactDetail>, nil]
       optional :contact_details,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail] }
 
@@ -94,7 +94,7 @@ module ModernTreasury
       #     items per invoice. If a greater number of invoice line items is required, please
       #     contact support.
       #
-      #   @return [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>]
+      #   @return [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>, nil]
       optional :invoice_line_items,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem] },
                nil?: true
@@ -125,7 +125,7 @@ module ModernTreasury
       #     notifications to. At least one email is required if notifications are enabled
       #     and the counterparty doesn't have an email.
       #
-      #   @return [Array<String>]
+      #   @return [Array<String>, nil]
       optional :notification_email_addresses, ModernTreasury::ArrayOf[String], nil?: true
 
       # @!attribute [r] notifications_enabled
@@ -216,7 +216,7 @@ module ModernTreasury
       #   Number of days after due date when overdue reminder emails will be sent out to
       #     invoice recipients.
       #
-      #   @return [Array<Integer>]
+      #   @return [Array<Integer>, nil]
       optional :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer], nil?: true
 
       # @!attribute [r] status
@@ -247,11 +247,11 @@ module ModernTreasury
       #   # @param due_date [Time]
       #   # @param fallback_payment_method [String, nil]
       #   # @param ingest_ledger_entries [Boolean, nil]
-      #   # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>]
+      #   # @param invoice_line_items [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>, nil]
       #   # @param invoicer_address [ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, nil]
       #   # @param ledger_account_settlement_id [String, nil]
       #   # @param metadata [Hash{Symbol=>String}, nil]
-      #   # @param notification_email_addresses [Array<String>]
+      #   # @param notification_email_addresses [Array<String>, nil]
       #   # @param notifications_enabled [Boolean]
       #   # @param originating_account_id [String]
       #   # @param payment_effective_date [Date]
@@ -260,7 +260,7 @@ module ModernTreasury
       #   # @param receiving_account_id [String]
       #   # @param recipient_email [String, nil]
       #   # @param recipient_name [String, nil]
-      #   # @param remind_after_overdue_days [Array<Integer>]
+      #   # @param remind_after_overdue_days [Array<Integer>, nil]
       #   # @param status [String]
       #   # @param virtual_account_id [String, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]

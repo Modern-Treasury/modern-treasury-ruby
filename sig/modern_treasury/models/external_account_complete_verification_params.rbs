@@ -7,7 +7,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      attr_reader amounts: Array[Integer]
+      attr_reader amounts: Array[Integer]?
 
       def amounts=: (Array[Integer]) -> void
 
