@@ -99,7 +99,7 @@ module ModernTreasury
           ),
           id: String,
           request_options: ModernTreasury::RequestOpts
-        ).returns(NilClass)
+        ).void
       end
       def add_ledger_account(ledger_account_id, params, id:, request_options: {}); end
 
@@ -112,7 +112,7 @@ module ModernTreasury
           ),
           id: String,
           request_options: ModernTreasury::RequestOpts
-        ).returns(NilClass)
+        ).void
       end
       def add_nested_category(sub_category_id, params, id:, request_options: {}); end
 
@@ -125,7 +125,7 @@ module ModernTreasury
           ),
           id: String,
           request_options: ModernTreasury::RequestOpts
-        ).returns(NilClass)
+        ).void
       end
       def remove_ledger_account(ledger_account_id, params, id:, request_options: {}); end
 
@@ -138,7 +138,7 @@ module ModernTreasury
           ),
           id: String,
           request_options: ModernTreasury::RequestOpts
-        ).returns(NilClass)
+        ).void
       end
       def remove_nested_category(sub_category_id, params, id:, request_options: {}); end
 
