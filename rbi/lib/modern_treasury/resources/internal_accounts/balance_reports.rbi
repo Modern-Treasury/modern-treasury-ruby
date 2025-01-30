@@ -70,7 +70,7 @@ module ModernTreasury
             ),
             internal_account_id: String,
             request_options: ModernTreasury::RequestOpts
-          ).returns(NilClass)
+          ).void
         end
         def delete(id, params, internal_account_id:, request_options: {}); end
 

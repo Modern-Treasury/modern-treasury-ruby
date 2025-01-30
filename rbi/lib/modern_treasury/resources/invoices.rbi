@@ -173,7 +173,7 @@ module ModernTreasury
           params: T.any(ModernTreasury::Models::InvoiceAddPaymentOrderParams, T::Hash[Symbol, T.anything]),
           id: String,
           request_options: ModernTreasury::RequestOpts
-        ).returns(NilClass)
+        ).void
       end
       def add_payment_order(payment_order_id, params, id:, request_options: {}); end
 
