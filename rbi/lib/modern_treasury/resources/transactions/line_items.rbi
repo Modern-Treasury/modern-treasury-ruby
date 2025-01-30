@@ -38,7 +38,7 @@ module ModernTreasury
         end
         def list(id:, after_cursor:, per_page:, transaction_id:, type:, request_options: {}); end
 
-        sig { params(id: String, request_options: ModernTreasury::RequestOpts).returns(NilClass) }
+        sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
         def delete(id, request_options: {}); end
 
         sig { params(client: ModernTreasury::Client).void }
