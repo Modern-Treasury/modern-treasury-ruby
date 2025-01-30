@@ -13,7 +13,7 @@ module ModernTreasury
             ),
             ledger_entry_ids: T::Array[String],
             request_options: ModernTreasury::RequestOpts
-          ).returns(NilClass)
+          ).void
         end
         def update(id, params, ledger_entry_ids:, request_options: {}); end
 
@@ -26,7 +26,7 @@ module ModernTreasury
             ),
             ledger_entry_ids: T::Array[T.anything],
             request_options: ModernTreasury::RequestOpts
-          ).returns(NilClass)
+          ).void
         end
         def delete(id, params, ledger_entry_ids:, request_options: {}); end
 

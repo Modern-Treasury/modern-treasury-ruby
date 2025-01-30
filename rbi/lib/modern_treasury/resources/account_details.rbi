@@ -53,7 +53,7 @@ module ModernTreasury
           accounts_type: Symbol,
           account_id: String,
           request_options: ModernTreasury::RequestOpts
-        ).returns(NilClass)
+        ).void
       end
       def delete(id, params, accounts_type:, account_id:, request_options: {}); end
 
