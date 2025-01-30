@@ -20,7 +20,7 @@ module ModernTreasury
         ledger_account_settlement_id: String?,
         live_mode: bool,
         metadata: Hash[Symbol, String]?,
-        notification_email_addresses: Array[String],
+        notification_email_addresses: Array[String]?,
         notifications_enabled: bool,
         number: String,
         object: String,
@@ -33,7 +33,7 @@ module ModernTreasury
         receiving_account_id: String?,
         recipient_email: String?,
         recipient_name: String?,
-        remind_after_overdue_days: Array[Integer],
+        remind_after_overdue_days: Array[Integer]?,
         status: ModernTreasury::Models::Invoice::status,
         total_amount: Integer,
         transaction_line_item_ids: Array[String],
@@ -78,7 +78,7 @@ module ModernTreasury
 
       attr_accessor metadata: Hash[Symbol, String]?
 
-      attr_accessor notification_email_addresses: Array[String]
+      attr_accessor notification_email_addresses: Array[String]?
 
       attr_accessor notifications_enabled: bool
 
@@ -104,7 +104,7 @@ module ModernTreasury
 
       attr_accessor recipient_name: String?
 
-      attr_accessor remind_after_overdue_days: Array[Integer]
+      attr_accessor remind_after_overdue_days: Array[Integer]?
 
       attr_accessor status: ModernTreasury::Models::Invoice::status
 
@@ -136,7 +136,7 @@ module ModernTreasury
           ledger_account_settlement_id: String?,
           live_mode: bool,
           metadata: Hash[Symbol, String]?,
-          notification_email_addresses: Array[String],
+          notification_email_addresses: Array[String]?,
           notifications_enabled: bool,
           number: String,
           object: String,
@@ -149,7 +149,7 @@ module ModernTreasury
           receiving_account_id: String?,
           recipient_email: String?,
           recipient_name: String?,
-          remind_after_overdue_days: Array[Integer],
+          remind_after_overdue_days: Array[Integer]?,
           status: ModernTreasury::Models::Invoice::status,
           total_amount: Integer,
           transaction_line_item_ids: Array[String],

@@ -47,7 +47,7 @@ module ModernTreasury
       #   The array of ledger account category ids that this ledger account category
       #     should be a child of.
       #
-      #   @return [Array<String>]
+      #   @return [Array<String>, nil]
       optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
       # @!parse

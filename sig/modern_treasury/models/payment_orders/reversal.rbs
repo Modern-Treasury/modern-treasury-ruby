@@ -12,7 +12,7 @@ module ModernTreasury
           payment_order_id: String?,
           reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
           status: ModernTreasury::Models::PaymentOrders::Reversal::status,
-          transaction_ids: Array[top?]?,
+          transaction_ids: Array[top?],
           updated_at: Time
         }
 
@@ -35,7 +35,7 @@ module ModernTreasury
 
         attr_accessor status: ModernTreasury::Models::PaymentOrders::Reversal::status
 
-        attr_accessor transaction_ids: Array[top?]?
+        attr_accessor transaction_ids: Array[top?]
 
         attr_accessor updated_at: Time
 
@@ -50,7 +50,7 @@ module ModernTreasury
             payment_order_id: String?,
             reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
             status: ModernTreasury::Models::PaymentOrders::Reversal::status,
-            transaction_ids: Array[top?]?,
+            transaction_ids: Array[top?],
             updated_at: Time
           ) -> void
           | (

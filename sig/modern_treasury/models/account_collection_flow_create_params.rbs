@@ -16,7 +16,7 @@ module ModernTreasury
 
       attr_accessor payment_types: Array[String]
 
-      attr_reader receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
+      attr_reader receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]?
 
       def receiving_countries=: (
         Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]

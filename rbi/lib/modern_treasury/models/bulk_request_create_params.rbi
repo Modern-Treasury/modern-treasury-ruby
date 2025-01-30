@@ -210,7 +210,7 @@ module ModernTreasury
           attr_writer :ledger_transaction_id
 
           sig do
-            returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem])
+            returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem]))
           end
           attr_reader :line_items
 
@@ -705,7 +705,7 @@ module ModernTreasury
             end
 
             sig do
-              returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail])
+              returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail]))
             end
             attr_reader :account_details
 
@@ -723,7 +723,7 @@ module ModernTreasury
             attr_writer :account_type
 
             sig do
-              returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail])
+              returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail]))
             end
             attr_reader :contact_details
 
@@ -789,7 +789,7 @@ module ModernTreasury
             attr_writer :plaid_processor_token
 
             sig do
-              returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail])
+              returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]))
             end
             attr_reader :routing_details
 
@@ -944,7 +944,7 @@ module ModernTreasury
               sig { returns(T.nilable(String)) }
               attr_accessor :description
 
-              sig { returns(T::Array[String]) }
+              sig { returns(T.nilable(T::Array[String])) }
               attr_reader :ledger_account_category_ids
 
               sig { params(ledger_account_category_ids: T::Array[String]).void }
@@ -1192,7 +1192,7 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               reconciliation_filters: T.nilable(T.anything),
               reconciliation_groups: T.nilable(T.anything),
-              reconciliation_rule_variables: T::Array[ModernTreasury::Models::ReconciliationRule],
+              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
               type: T.nilable(Symbol)
@@ -1245,7 +1245,7 @@ module ModernTreasury
           attr_writer :ledger_transaction_id
 
           sig do
-            returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem])
+            returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem]))
           end
           attr_reader :line_items
 
@@ -1268,7 +1268,7 @@ module ModernTreasury
           sig { returns(T.nilable(T.anything)) }
           attr_accessor :reconciliation_groups
 
-          sig { returns(T::Array[ModernTreasury::Models::ReconciliationRule]) }
+          sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
           attr_accessor :reconciliation_rule_variables
 
           sig { returns(T.nilable(String)) }
@@ -1297,7 +1297,7 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               reconciliation_filters: T.nilable(T.anything),
               reconciliation_groups: T.nilable(T.anything),
-              reconciliation_rule_variables: T::Array[ModernTreasury::Models::ReconciliationRule],
+              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
               type: T.nilable(Symbol)
@@ -2032,7 +2032,7 @@ module ModernTreasury
           attr_accessor :foreign_exchange_indicator
 
           sig do
-            returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem])
+            returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem]))
           end
           attr_reader :line_items
 
@@ -2341,7 +2341,7 @@ module ModernTreasury
             end
 
             sig do
-              returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail])
+              returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail]))
             end
             attr_reader :account_details
 
@@ -2359,7 +2359,7 @@ module ModernTreasury
             attr_writer :account_type
 
             sig do
-              returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail])
+              returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail]))
             end
             attr_reader :contact_details
 
@@ -2425,7 +2425,7 @@ module ModernTreasury
             attr_writer :plaid_processor_token
 
             sig do
-              returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail])
+              returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]))
             end
             attr_reader :routing_details
 
@@ -2580,7 +2580,7 @@ module ModernTreasury
               sig { returns(T.nilable(String)) }
               attr_accessor :description
 
-              sig { returns(T::Array[String]) }
+              sig { returns(T.nilable(T::Array[String])) }
               attr_reader :ledger_account_category_ids
 
               sig { params(ledger_account_category_ids: T::Array[String]).void }
@@ -2845,7 +2845,7 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               reconciliation_filters: T.nilable(T.anything),
               reconciliation_groups: T.nilable(T.anything),
-              reconciliation_rule_variables: T::Array[ModernTreasury::Models::ReconciliationRule],
+              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
               status: T.nilable(Symbol),
@@ -2898,7 +2898,7 @@ module ModernTreasury
           sig { returns(T.nilable(T.anything)) }
           attr_accessor :reconciliation_groups
 
-          sig { returns(T::Array[ModernTreasury::Models::ReconciliationRule]) }
+          sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
           attr_accessor :reconciliation_rule_variables
 
           sig { returns(T.nilable(String)) }
@@ -2928,7 +2928,7 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               reconciliation_filters: T.nilable(T.anything),
               reconciliation_groups: T.nilable(T.anything),
-              reconciliation_rule_variables: T::Array[ModernTreasury::Models::ReconciliationRule],
+              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
               status: T.nilable(Symbol),
@@ -3035,7 +3035,7 @@ module ModernTreasury
           attr_writer :effective_at
 
           sig do
-            returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry])
+            returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry]))
           end
           attr_reader :ledger_entries
 

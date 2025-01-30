@@ -93,7 +93,7 @@ module ModernTreasury
 
         def id=: (String) -> void
 
-        attr_reader account_details: Array[ModernTreasury::Models::AccountDetail]
+        attr_reader account_details: Array[ModernTreasury::Models::AccountDetail]?
 
         def account_details=: (
           Array[ModernTreasury::Models::AccountDetail]
@@ -105,7 +105,7 @@ module ModernTreasury
           ModernTreasury::Models::external_account_type
         ) -> void
 
-        attr_reader contact_details: Array[ModernTreasury::Models::Counterparty::Account::ContactDetail]
+        attr_reader contact_details: Array[ModernTreasury::Models::Counterparty::Account::ContactDetail]?
 
         def contact_details=: (
           Array[ModernTreasury::Models::Counterparty::Account::ContactDetail]
@@ -141,7 +141,7 @@ module ModernTreasury
 
         attr_accessor party_type: ModernTreasury::Models::Counterparty::Account::party_type?
 
-        attr_reader routing_details: Array[ModernTreasury::Models::RoutingDetail]
+        attr_reader routing_details: Array[ModernTreasury::Models::RoutingDetail]?
 
         def routing_details=: (
           Array[ModernTreasury::Models::RoutingDetail]

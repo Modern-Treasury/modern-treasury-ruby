@@ -61,7 +61,7 @@ module ModernTreasury
             first_name: T.nilable(String),
             identifications: T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification],
             last_name: T.nilable(String),
-            legal_entity_associations: T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation],
+            legal_entity_associations: T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]),
             legal_entity_type: Symbol,
             legal_structure: T.nilable(Symbol),
             metadata: T::Hash[Symbol, String],
@@ -78,7 +78,7 @@ module ModernTreasury
         end
 
         sig do
-          returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address])
+          returns(T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address]))
         end
         attr_reader :addresses
 
@@ -104,7 +104,7 @@ module ModernTreasury
         sig { returns(T.nilable(Date)) }
         attr_accessor :date_of_birth
 
-        sig { returns(T::Array[String]) }
+        sig { returns(T.nilable(T::Array[String])) }
         attr_reader :doing_business_as_names
 
         sig { params(doing_business_as_names: T::Array[String]).void }
@@ -117,7 +117,7 @@ module ModernTreasury
         attr_accessor :first_name
 
         sig do
-          returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification])
+          returns(T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification]))
         end
         attr_reader :identifications
 
@@ -132,7 +132,7 @@ module ModernTreasury
         attr_accessor :last_name
 
         sig do
-          returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation])
+          returns(T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]))
         end
         attr_accessor :legal_entity_associations
 
@@ -155,7 +155,7 @@ module ModernTreasury
         attr_accessor :middle_name
 
         sig do
-          returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber])
+          returns(T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber]))
         end
         attr_reader :phone_numbers
 
@@ -200,7 +200,7 @@ module ModernTreasury
             first_name: T.nilable(String),
             identifications: T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification],
             last_name: T.nilable(String),
-            legal_entity_associations: T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation],
+            legal_entity_associations: T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]),
             legal_entity_type: Symbol,
             legal_structure: T.nilable(Symbol),
             metadata: T::Hash[Symbol, String],
@@ -273,7 +273,7 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :region
 
-          sig { returns(T::Array[Symbol]) }
+          sig { returns(T.nilable(T::Array[Symbol])) }
           attr_reader :address_types
 
           sig { params(address_types: T::Array[Symbol]).void }
@@ -466,7 +466,7 @@ module ModernTreasury
             end
 
             sig do
-              returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address])
+              returns(T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]))
             end
             attr_reader :addresses
 
@@ -492,7 +492,7 @@ module ModernTreasury
             sig { returns(T.nilable(Date)) }
             attr_accessor :date_of_birth
 
-            sig { returns(T::Array[String]) }
+            sig { returns(T.nilable(T::Array[String])) }
             attr_reader :doing_business_as_names
 
             sig { params(doing_business_as_names: T::Array[String]).void }
@@ -505,7 +505,7 @@ module ModernTreasury
             attr_accessor :first_name
 
             sig do
-              returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification])
+              returns(T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]))
             end
             attr_reader :identifications
 
@@ -538,7 +538,7 @@ module ModernTreasury
             attr_accessor :middle_name
 
             sig do
-              returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber])
+              returns(T.nilable(T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]))
             end
             attr_reader :phone_numbers
 
@@ -656,7 +656,7 @@ module ModernTreasury
               sig { returns(T.nilable(String)) }
               attr_accessor :region
 
-              sig { returns(T::Array[Symbol]) }
+              sig { returns(T.nilable(T::Array[Symbol])) }
               attr_reader :address_types
 
               sig { params(address_types: T::Array[Symbol]).void }

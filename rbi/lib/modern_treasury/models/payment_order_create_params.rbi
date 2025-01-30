@@ -86,7 +86,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :description
 
-      sig { returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document])) }
       attr_reader :documents
 
       sig { params(documents: T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document]).void }
@@ -127,7 +127,7 @@ module ModernTreasury
       sig { params(ledger_transaction_id: String).void }
       attr_writer :ledger_transaction_id
 
-      sig { returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem])) }
       attr_reader :line_items
 
       sig { params(line_items: T::Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem]).void }
@@ -657,7 +657,7 @@ module ModernTreasury
         end
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]))
         end
         attr_reader :account_details
 
@@ -675,7 +675,7 @@ module ModernTreasury
         attr_writer :account_type
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]))
         end
         attr_reader :contact_details
 
@@ -737,7 +737,7 @@ module ModernTreasury
         attr_writer :plaid_processor_token
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]))
         end
         attr_reader :routing_details
 
@@ -890,7 +890,7 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :description
 
-          sig { returns(T::Array[String]) }
+          sig { returns(T.nilable(T::Array[String])) }
           attr_reader :ledger_account_category_ids
 
           sig { params(ledger_account_category_ids: T::Array[String]).void }

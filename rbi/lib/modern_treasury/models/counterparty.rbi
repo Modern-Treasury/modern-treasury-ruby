@@ -126,7 +126,7 @@ module ModernTreasury
         sig { params(id: String).void }
         attr_writer :id
 
-        sig { returns(T::Array[ModernTreasury::Models::AccountDetail]) }
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::AccountDetail])) }
         attr_reader :account_details
 
         sig { params(account_details: T::Array[ModernTreasury::Models::AccountDetail]).void }
@@ -138,7 +138,7 @@ module ModernTreasury
         sig { params(account_type: Symbol).void }
         attr_writer :account_type
 
-        sig { returns(T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail]) }
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail])) }
         attr_reader :contact_details
 
         sig do
@@ -191,7 +191,7 @@ module ModernTreasury
         sig { returns(T.nilable(Symbol)) }
         attr_accessor :party_type
 
-        sig { returns(T::Array[ModernTreasury::Models::RoutingDetail]) }
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::RoutingDetail])) }
         attr_reader :routing_details
 
         sig { params(routing_details: T::Array[ModernTreasury::Models::RoutingDetail]).void }

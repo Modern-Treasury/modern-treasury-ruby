@@ -44,7 +44,7 @@ module ModernTreasury
       sig { params(sanctions: T::Hash[Symbol, T.anything]).void }
       attr_writer :sanctions
 
-      sig { returns(T::Array[Symbol]) }
+      sig { returns(T.nilable(T::Array[Symbol])) }
       attr_reader :supported_payment_types
 
       sig { params(supported_payment_types: T::Array[Symbol]).void }

@@ -28,7 +28,7 @@ module ModernTreasury
         )
       end
 
-      sig { returns(T::Array[String]) }
+      sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
       sig { params(id: T::Array[String]).void }
@@ -81,7 +81,7 @@ module ModernTreasury
       sig { params(metadata: T::Hash[Symbol, String]).void }
       attr_writer :metadata
 
-      sig { returns(T::Array[String]) }
+      sig { returns(T.nilable(T::Array[String])) }
       attr_reader :name
 
       sig { params(name: T::Array[String]).void }

@@ -21,7 +21,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             reconciliation_filters: T.nilable(T.anything),
             reconciliation_groups: T.nilable(T.anything),
-            reconciliation_rule_variables: T::Array[ModernTreasury::Models::ReconciliationRule],
+            reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
             remittance_information: T.nilable(String),
             statement_descriptor: T.nilable(String),
             status: T.nilable(Symbol),
@@ -70,7 +70,7 @@ module ModernTreasury
       sig { returns(T.nilable(T.anything)) }
       attr_accessor :reconciliation_groups
 
-      sig { returns(T::Array[ModernTreasury::Models::ReconciliationRule]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
       attr_accessor :reconciliation_rule_variables
 
       sig { returns(T.nilable(String)) }
@@ -99,7 +99,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
-          reconciliation_rule_variables: T::Array[ModernTreasury::Models::ReconciliationRule],
+          reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           status: T.nilable(Symbol),

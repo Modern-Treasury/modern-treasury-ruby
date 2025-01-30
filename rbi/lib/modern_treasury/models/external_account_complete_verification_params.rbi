@@ -8,7 +8,7 @@ module ModernTreasury
 
       Shape = T.type_alias { T.all({amounts: T::Array[Integer]}, ModernTreasury::RequestParameters::Shape) }
 
-      sig { returns(T::Array[Integer]) }
+      sig { returns(T.nilable(T::Array[Integer])) }
       attr_reader :amounts
 
       sig { params(amounts: T::Array[Integer]).void }

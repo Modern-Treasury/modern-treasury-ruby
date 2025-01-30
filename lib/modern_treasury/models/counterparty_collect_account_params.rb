@@ -34,7 +34,7 @@ module ModernTreasury
       #     \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\",
       #     \"routingNumber\", \"address\", \"ibanNumber\", \"swiftCode\"].
       #
-      #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]
+      #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>, nil]
       optional :fields,
                -> {
                  ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field]
