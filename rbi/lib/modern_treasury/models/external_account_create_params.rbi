@@ -30,7 +30,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
 
-      sig { returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail])) }
       attr_reader :account_details
 
       sig do
@@ -44,7 +44,7 @@ module ModernTreasury
       sig { params(account_type: Symbol).void }
       attr_writer :account_type
 
-      sig { returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail])) }
       attr_reader :contact_details
 
       sig do
@@ -94,7 +94,7 @@ module ModernTreasury
       sig { params(plaid_processor_token: String).void }
       attr_writer :plaid_processor_token
 
-      sig { returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail])) }
       attr_reader :routing_details
 
       sig do
@@ -244,7 +244,7 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :description
 
-        sig { returns(T::Array[String]) }
+        sig { returns(T.nilable(T::Array[String])) }
         attr_reader :ledger_account_category_ids
 
         sig { params(ledger_account_category_ids: T::Array[String]).void }

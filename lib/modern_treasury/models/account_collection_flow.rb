@@ -86,7 +86,7 @@ module ModernTreasury
 
       # @!attribute [r] receiving_countries
       #
-      #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]
+      #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>, nil]
       optional :receiving_countries,
                -> {
                  ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]

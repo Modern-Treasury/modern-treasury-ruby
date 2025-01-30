@@ -20,7 +20,7 @@ module ModernTreasury
         reconciliation_filters: top?,
         reconciliation_groups: top?,
         reconciliation_method: ModernTreasury::Models::ExpectedPayment::reconciliation_method?,
-        reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule],
+        reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule]?,
         remittance_information: String?,
         statement_descriptor: String?,
         status: ModernTreasury::Models::ExpectedPayment::status,
@@ -67,7 +67,7 @@ module ModernTreasury
 
       attr_accessor reconciliation_method: ModernTreasury::Models::ExpectedPayment::reconciliation_method?
 
-      attr_accessor reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule]
+      attr_accessor reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule]?
 
       attr_accessor remittance_information: String?
 
@@ -103,7 +103,7 @@ module ModernTreasury
           reconciliation_filters: top?,
           reconciliation_groups: top?,
           reconciliation_method: ModernTreasury::Models::ExpectedPayment::reconciliation_method?,
-          reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule],
+          reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule]?,
           remittance_information: String?,
           statement_descriptor: String?,
           status: ModernTreasury::Models::ExpectedPayment::status,

@@ -20,11 +20,11 @@ module ModernTreasury
             description: String,
             fallback_payment_method: T.nilable(String),
             ingest_ledger_entries: T.nilable(T::Boolean),
-            invoice_line_items: T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem],
+            invoice_line_items: T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]),
             invoicer_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress),
             ledger_account_settlement_id: T.nilable(String),
             metadata: T.nilable(T::Hash[Symbol, String]),
-            notification_email_addresses: T::Array[String],
+            notification_email_addresses: T.nilable(T::Array[String]),
             notifications_enabled: T::Boolean,
             payment_effective_date: Date,
             payment_method: Symbol,
@@ -32,7 +32,7 @@ module ModernTreasury
             receiving_account_id: String,
             recipient_email: T.nilable(String),
             recipient_name: T.nilable(String),
-            remind_after_overdue_days: T::Array[Integer],
+            remind_after_overdue_days: T.nilable(T::Array[Integer]),
             virtual_account_id: T.nilable(String)
           },
           ModernTreasury::RequestParameters::Shape
@@ -51,7 +51,7 @@ module ModernTreasury
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :auto_advance
 
-      sig { returns(T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail])) }
       attr_reader :contact_details
 
       sig do
@@ -83,7 +83,7 @@ module ModernTreasury
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :ingest_ledger_entries
 
-      sig { returns(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem])) }
       attr_accessor :invoice_line_items
 
       sig { returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress)) }
@@ -95,7 +95,7 @@ module ModernTreasury
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       attr_accessor :metadata
 
-      sig { returns(T::Array[String]) }
+      sig { returns(T.nilable(T::Array[String])) }
       attr_accessor :notification_email_addresses
 
       sig { returns(T.nilable(T::Boolean)) }
@@ -134,7 +134,7 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :recipient_name
 
-      sig { returns(T::Array[Integer]) }
+      sig { returns(T.nilable(T::Array[Integer])) }
       attr_accessor :remind_after_overdue_days
 
       sig { returns(T.nilable(String)) }
@@ -153,11 +153,11 @@ module ModernTreasury
           description: String,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
-          invoice_line_items: T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem],
+          invoice_line_items: T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]),
           invoicer_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress),
           ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
-          notification_email_addresses: T::Array[String],
+          notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
           payment_effective_date: Date,
           payment_method: Symbol,
@@ -165,7 +165,7 @@ module ModernTreasury
           receiving_account_id: String,
           recipient_email: T.nilable(String),
           recipient_name: T.nilable(String),
-          remind_after_overdue_days: T::Array[Integer],
+          remind_after_overdue_days: T.nilable(T::Array[Integer]),
           virtual_account_id: T.nilable(String),
           request_options: ModernTreasury::RequestOpts
         ).void

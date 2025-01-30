@@ -25,7 +25,7 @@ module ModernTreasury
       # @!attribute [r] accounts
       #   The accounts for this counterparty.
       #
-      #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>]
+      #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account>, nil]
       optional :accounts,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account] }
 
@@ -208,7 +208,7 @@ module ModernTreasury
       class Account < ModernTreasury::BaseModel
         # @!attribute [r] account_details
         #
-        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>]
+        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail>, nil]
         optional :account_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail]
@@ -230,7 +230,7 @@ module ModernTreasury
 
         # @!attribute [r] contact_details
         #
-        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>]
+        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail>, nil]
         optional :contact_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail]
@@ -328,7 +328,7 @@ module ModernTreasury
 
         # @!attribute [r] routing_details
         #
-        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>]
+        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail>, nil]
         optional :routing_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]
@@ -561,7 +561,7 @@ module ModernTreasury
           #   The array of ledger account category ids that this ledger account should be a
           #     child of.
           #
-          #   @return [Array<String>]
+          #   @return [Array<String>, nil]
           optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
           # @!parse
@@ -964,7 +964,7 @@ module ModernTreasury
         # @!attribute [r] addresses
         #   A list of addresses for the entity.
         #
-        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>]
+        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address>, nil]
         optional :addresses,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address]
@@ -1005,7 +1005,7 @@ module ModernTreasury
 
         # @!attribute [r] doing_business_as_names
         #
-        #   @return [Array<String>]
+        #   @return [Array<String>, nil]
         optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
 
         # @!parse
@@ -1027,7 +1027,7 @@ module ModernTreasury
         # @!attribute [r] identifications
         #   A list of identifications for the legal entity.
         #
-        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
+        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>, nil]
         optional :identifications,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification]
@@ -1046,7 +1046,7 @@ module ModernTreasury
         # @!attribute legal_entity_associations
         #   The legal entity associations and its child legal entities.
         #
-        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>]
+        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>, nil]
         optional :legal_entity_associations,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]
@@ -1080,7 +1080,7 @@ module ModernTreasury
 
         # @!attribute [r] phone_numbers
         #
-        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>]
+        #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber>, nil]
         optional :phone_numbers,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber]
@@ -1148,7 +1148,7 @@ module ModernTreasury
         #   # @param first_name [String, nil]
         #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
         #   # @param last_name [String, nil]
-        #   # @param legal_entity_associations [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>]
+        #   # @param legal_entity_associations [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>, nil]
         #   # @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure, nil]
         #   # @param metadata [Hash{Symbol=>String}]
         #   # @param middle_name [String, nil]
@@ -1262,7 +1262,7 @@ module ModernTreasury
           # @!attribute [r] address_types
           #   The types of this address.
           #
-          #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType>]
+          #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType>, nil]
           optional :address_types,
                    -> {
                      ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType]
@@ -1528,7 +1528,7 @@ module ModernTreasury
             # @!attribute [r] addresses
             #   A list of addresses for the entity.
             #
-            #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>]
+            #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>, nil]
             optional :addresses,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]
@@ -1569,7 +1569,7 @@ module ModernTreasury
 
             # @!attribute [r] doing_business_as_names
             #
-            #   @return [Array<String>]
+            #   @return [Array<String>, nil]
             optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
 
             # @!parse
@@ -1591,7 +1591,7 @@ module ModernTreasury
             # @!attribute [r] identifications
             #   A list of identifications for the legal entity.
             #
-            #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>]
+            #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>, nil]
             optional :identifications,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]
@@ -1649,7 +1649,7 @@ module ModernTreasury
 
             # @!attribute [r] phone_numbers
             #
-            #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>]
+            #   @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>, nil]
             optional :phone_numbers,
                      -> {
                        ModernTreasury::ArrayOf[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
@@ -1808,7 +1808,7 @@ module ModernTreasury
               # @!attribute [r] address_types
               #   The types of this address.
               #
-              #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>]
+              #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>, nil]
               optional :address_types,
                        -> {
                          ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType]

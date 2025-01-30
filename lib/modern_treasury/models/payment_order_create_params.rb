@@ -90,7 +90,7 @@ module ModernTreasury
       #   An array of documents to be attached to the payment order. Note that if you
       #     attach documents, the request's content type must be `multipart/form-data`.
       #
-      #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::Document>]
+      #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::Document>, nil]
       optional :documents,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::Document] }
 
@@ -174,7 +174,7 @@ module ModernTreasury
       # @!attribute [r] line_items
       #   An array of line items that must sum up to the amount of the payment order.
       #
-      #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>]
+      #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::LineItem>, nil]
       optional :line_items,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::LineItem] }
 
@@ -1071,7 +1071,7 @@ module ModernTreasury
       class ReceivingAccount < ModernTreasury::BaseModel
         # @!attribute [r] account_details
         #
-        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail>]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail>, nil]
         optional :account_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]
@@ -1093,7 +1093,7 @@ module ModernTreasury
 
         # @!attribute [r] contact_details
         #
-        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail>]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail>, nil]
         optional :contact_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]
@@ -1187,7 +1187,7 @@ module ModernTreasury
 
         # @!attribute [r] routing_details
         #
-        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail>]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail>, nil]
         optional :routing_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]
@@ -1424,7 +1424,7 @@ module ModernTreasury
           #   The array of ledger account category ids that this ledger account should be a
           #     child of.
           #
-          #   @return [Array<String>]
+          #   @return [Array<String>, nil]
           optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
           # @!parse

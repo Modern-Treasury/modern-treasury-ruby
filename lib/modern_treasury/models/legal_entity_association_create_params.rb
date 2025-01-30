@@ -119,7 +119,7 @@ module ModernTreasury
         # @!attribute [r] addresses
         #   A list of addresses for the entity.
         #
-        #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address>]
+        #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address>, nil]
         optional :addresses,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
@@ -160,7 +160,7 @@ module ModernTreasury
 
         # @!attribute [r] doing_business_as_names
         #
-        #   @return [Array<String>]
+        #   @return [Array<String>, nil]
         optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
 
         # @!parse
@@ -182,7 +182,7 @@ module ModernTreasury
         # @!attribute [r] identifications
         #   A list of identifications for the legal entity.
         #
-        #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification>]
+        #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification>, nil]
         optional :identifications,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
@@ -240,7 +240,7 @@ module ModernTreasury
 
         # @!attribute [r] phone_numbers
         #
-        #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber>]
+        #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber>, nil]
         optional :phone_numbers,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
@@ -399,7 +399,7 @@ module ModernTreasury
           # @!attribute [r] address_types
           #   The types of this address.
           #
-          #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType>]
+          #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType>, nil]
           optional :address_types,
                    -> {
                      ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType]

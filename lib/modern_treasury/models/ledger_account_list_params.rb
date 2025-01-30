@@ -11,7 +11,7 @@ module ModernTreasury
       #   If you have specific IDs to retrieve in bulk, you can pass them as query
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
-      #   @return [Array<String>]
+      #   @return [Array<String>, nil]
       optional :id, ModernTreasury::ArrayOf[String]
 
       # @!parse
@@ -104,7 +104,7 @@ module ModernTreasury
       #   If you have specific names to retrieve in bulk, you can pass them as query
       #     parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       #
-      #   @return [Array<String>]
+      #   @return [Array<String>, nil]
       optional :name, ModernTreasury::ArrayOf[String]
 
       # @!parse

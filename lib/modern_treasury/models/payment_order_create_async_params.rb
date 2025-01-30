@@ -166,7 +166,7 @@ module ModernTreasury
       # @!attribute [r] line_items
       #   An array of line items that must sum up to the amount of the payment order.
       #
-      #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>]
+      #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem>, nil]
       optional :line_items,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem] }
 
@@ -971,7 +971,7 @@ module ModernTreasury
       class ReceivingAccount < ModernTreasury::BaseModel
         # @!attribute [r] account_details
         #
-        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail>]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail>, nil]
         optional :account_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail]
@@ -993,7 +993,7 @@ module ModernTreasury
 
         # @!attribute [r] contact_details
         #
-        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail>]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail>, nil]
         optional :contact_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail]
@@ -1089,7 +1089,7 @@ module ModernTreasury
 
         # @!attribute [r] routing_details
         #
-        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail>]
+        #   @return [Array<ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail>, nil]
         optional :routing_details,
                  -> {
                    ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail]
@@ -1326,7 +1326,7 @@ module ModernTreasury
           #   The array of ledger account category ids that this ledger account should be a
           #     child of.
           #
-          #   @return [Array<String>]
+          #   @return [Array<String>, nil]
           optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
           # @!parse

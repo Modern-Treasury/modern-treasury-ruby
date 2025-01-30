@@ -22,7 +22,7 @@ module ModernTreasury
       # @!attribute [r] account_details
       #   An array of account detail objects.
       #
-      #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>]
+      #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>, nil]
       optional :account_details,
                -> {
                  ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
@@ -102,7 +102,7 @@ module ModernTreasury
       # @!attribute [r] routing_details
       #   An array of routing detail objects.
       #
-      #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
+      #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>, nil]
       optional :routing_details,
                -> {
                  ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
@@ -275,7 +275,7 @@ module ModernTreasury
         #   The array of ledger account category ids that this ledger account should be a
         #     child of.
         #
-        #   @return [Array<String>]
+        #   @return [Array<String>, nil]
         optional :ledger_account_category_ids, ModernTreasury::ArrayOf[String]
 
         # @!parse

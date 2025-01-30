@@ -37,7 +37,7 @@ module ModernTreasury
       #     is false, then a line item must be provided. If this is true, line_items must be
       #     empty. Ignored if ledger_account_settlement_id is empty.
       #
-      #   @option params [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>] :invoice_line_items An array of invoice line items. The API supports a maximum of 50 invoice line
+      #   @option params [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil] :invoice_line_items An array of invoice line items. The API supports a maximum of 50 invoice line
       #     items per invoice. If a greater number of invoice line items is required, please
       #     contact support.
       #
@@ -48,7 +48,7 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      #   @option params [Array<String>] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
+      #   @option params [Array<String>, nil] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
       #     notifications to. At least one email is required if notifications are enabled
       #     and the counterparty doesn't have an email.
       #
@@ -78,7 +78,7 @@ module ModernTreasury
       #   @option params [String, nil] :recipient_name The name of the recipient of the invoice. Leaving this value as null will
       #     fallback to using the counterparty's name.
       #
-      #   @option params [Array<Integer>] :remind_after_overdue_days Number of days after due date when overdue reminder emails will be sent out to
+      #   @option params [Array<Integer>, nil] :remind_after_overdue_days Number of days after due date when overdue reminder emails will be sent out to
       #     invoice recipients.
       #
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
@@ -144,7 +144,7 @@ module ModernTreasury
       #     is false, then a line item must be provided. If this is true, line_items must be
       #     empty. Ignored if ledger_account_settlement_id is empty.
       #
-      #   @option params [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>] :invoice_line_items An array of invoice line items. The API supports a maximum of 50 invoice line
+      #   @option params [Array<ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem>, nil] :invoice_line_items An array of invoice line items. The API supports a maximum of 50 invoice line
       #     items per invoice. If a greater number of invoice line items is required, please
       #     contact support.
       #
@@ -155,7 +155,7 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}, nil] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      #   @option params [Array<String>] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
+      #   @option params [Array<String>, nil] :notification_email_addresses Emails in addition to the counterparty email to send invoice status
       #     notifications to. At least one email is required if notifications are enabled
       #     and the counterparty doesn't have an email.
       #
@@ -187,7 +187,7 @@ module ModernTreasury
       #   @option params [String, nil] :recipient_name The name of the recipient of the invoice. Leaving this value as null will
       #     fallback to using the counterparty's name.
       #
-      #   @option params [Array<Integer>] :remind_after_overdue_days Number of days after due date when overdue reminder emails will be sent out to
+      #   @option params [Array<Integer>, nil] :remind_after_overdue_days Number of days after due date when overdue reminder emails will be sent out to
       #     invoice recipients.
       #
       #   @option params [String] :status Invoice status must be updated in a `PATCH` request that does not modify any

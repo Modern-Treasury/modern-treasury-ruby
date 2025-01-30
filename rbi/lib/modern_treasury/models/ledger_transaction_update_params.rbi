@@ -30,7 +30,7 @@ module ModernTreasury
       sig { params(effective_at: Time).void }
       attr_writer :effective_at
 
-      sig { returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry])) }
       attr_reader :ledger_entries
 
       sig do

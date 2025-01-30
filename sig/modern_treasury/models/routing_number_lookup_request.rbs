@@ -35,7 +35,7 @@ module ModernTreasury
 
       def sanctions=: (Hash[Symbol, top]) -> void
 
-      attr_reader supported_payment_types: Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
+      attr_reader supported_payment_types: Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]?
 
       def supported_payment_types=: (
         Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]

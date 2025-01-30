@@ -22,7 +22,7 @@ module ModernTreasury
       sig { params(custom_redirect: String).void }
       attr_writer :custom_redirect
 
-      sig { returns(T::Array[Symbol]) }
+      sig { returns(T.nilable(T::Array[Symbol])) }
       attr_reader :fields
 
       sig { params(fields: T::Array[Symbol]).void }

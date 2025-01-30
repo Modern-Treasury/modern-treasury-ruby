@@ -149,7 +149,7 @@ module ModernTreasury
 
         # @!attribute [r] account_details
         #
-        #   @return [Array<ModernTreasury::Models::AccountDetail>]
+        #   @return [Array<ModernTreasury::Models::AccountDetail>, nil]
         optional :account_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] }
 
         # @!parse
@@ -168,7 +168,7 @@ module ModernTreasury
 
         # @!attribute [r] contact_details
         #
-        #   @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>]
+        #   @return [Array<ModernTreasury::Models::Counterparty::Account::ContactDetail>, nil]
         optional :contact_details,
                  -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account::ContactDetail] }
 
@@ -267,7 +267,7 @@ module ModernTreasury
 
         # @!attribute [r] routing_details
         #
-        #   @return [Array<ModernTreasury::Models::RoutingDetail>]
+        #   @return [Array<ModernTreasury::Models::RoutingDetail>, nil]
         optional :routing_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail] }
 
         # @!parse

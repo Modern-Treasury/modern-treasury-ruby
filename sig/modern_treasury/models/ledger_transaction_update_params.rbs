@@ -22,7 +22,7 @@ module ModernTreasury
 
       def effective_at=: (Time) -> void
 
-      attr_reader ledger_entries: Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]
+      attr_reader ledger_entries: Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]?
 
       def ledger_entries=: (
         Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]

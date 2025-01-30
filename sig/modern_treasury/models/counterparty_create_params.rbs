@@ -28,7 +28,7 @@ module ModernTreasury
         ModernTreasury::Models::CounterpartyCreateParams::Accounting
       ) -> void
 
-      attr_reader accounts: Array[ModernTreasury::Models::CounterpartyCreateParams::Account]
+      attr_reader accounts: Array[ModernTreasury::Models::CounterpartyCreateParams::Account]?
 
       def accounts=: (
         Array[ModernTreasury::Models::CounterpartyCreateParams::Account]
@@ -140,7 +140,7 @@ module ModernTreasury
         }
 
       class Account < ModernTreasury::BaseModel
-        attr_reader account_details: Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail]
+        attr_reader account_details: Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail]?
 
         def account_details=: (
           Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail]
@@ -152,7 +152,7 @@ module ModernTreasury
           ModernTreasury::Models::external_account_type
         ) -> void
 
-        attr_reader contact_details: Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail]
+        attr_reader contact_details: Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail]?
 
         def contact_details=: (
           Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail]
@@ -190,7 +190,7 @@ module ModernTreasury
 
         def plaid_processor_token=: (String) -> void
 
-        attr_reader routing_details: Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]
+        attr_reader routing_details: Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]?
 
         def routing_details=: (
           Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]
@@ -340,7 +340,7 @@ module ModernTreasury
 
           attr_accessor description: String?
 
-          attr_reader ledger_account_category_ids: Array[String]
+          attr_reader ledger_account_category_ids: Array[String]?
 
           def ledger_account_category_ids=: (Array[String]) -> void
 
@@ -615,7 +615,7 @@ module ModernTreasury
           first_name: String?,
           identifications: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification],
           last_name: String?,
-          legal_entity_associations: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation],
+          legal_entity_associations: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]?,
           legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure?,
           metadata: Hash[Symbol, String],
           middle_name: String?,
@@ -632,7 +632,7 @@ module ModernTreasury
       class LegalEntity < ModernTreasury::BaseModel
         attr_accessor legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type
 
-        attr_reader addresses: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address]
+        attr_reader addresses: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address]?
 
         def addresses=: (
           Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address]
@@ -648,7 +648,7 @@ module ModernTreasury
 
         attr_accessor date_of_birth: Date?
 
-        attr_reader doing_business_as_names: Array[String]
+        attr_reader doing_business_as_names: Array[String]?
 
         def doing_business_as_names=: (Array[String]) -> void
 
@@ -656,7 +656,7 @@ module ModernTreasury
 
         attr_accessor first_name: String?
 
-        attr_reader identifications: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification]
+        attr_reader identifications: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification]?
 
         def identifications=: (
           Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification]
@@ -664,7 +664,7 @@ module ModernTreasury
 
         attr_accessor last_name: String?
 
-        attr_accessor legal_entity_associations: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]
+        attr_accessor legal_entity_associations: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]?
 
         attr_accessor legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure?
 
@@ -674,7 +674,7 @@ module ModernTreasury
 
         attr_accessor middle_name: String?
 
-        attr_reader phone_numbers: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber]
+        attr_reader phone_numbers: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber]?
 
         def phone_numbers=: (
           Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber]
@@ -708,7 +708,7 @@ module ModernTreasury
             first_name: String?,
             identifications: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification],
             last_name: String?,
-            legal_entity_associations: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation],
+            legal_entity_associations: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]?,
             legal_structure: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure?,
             metadata: Hash[Symbol, String],
             middle_name: String?,
@@ -759,7 +759,7 @@ module ModernTreasury
 
           attr_accessor region: String?
 
-          attr_reader address_types: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]
+          attr_reader address_types: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]?
 
           def address_types=: (
             Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]
@@ -953,7 +953,7 @@ module ModernTreasury
             }
 
           class ChildLegalEntity < ModernTreasury::BaseModel
-            attr_reader addresses: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]
+            attr_reader addresses: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]?
 
             def addresses=: (
               Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]
@@ -969,7 +969,7 @@ module ModernTreasury
 
             attr_accessor date_of_birth: Date?
 
-            attr_reader doing_business_as_names: Array[String]
+            attr_reader doing_business_as_names: Array[String]?
 
             def doing_business_as_names=: (Array[String]) -> void
 
@@ -977,7 +977,7 @@ module ModernTreasury
 
             attr_accessor first_name: String?
 
-            attr_reader identifications: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]
+            attr_reader identifications: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]?
 
             def identifications=: (
               Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]
@@ -999,7 +999,7 @@ module ModernTreasury
 
             attr_accessor middle_name: String?
 
-            attr_reader phone_numbers: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
+            attr_reader phone_numbers: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]?
 
             def phone_numbers=: (
               Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
@@ -1074,7 +1074,7 @@ module ModernTreasury
 
               attr_accessor region: String?
 
-              attr_reader address_types: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]
+              attr_reader address_types: Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]?
 
               def address_types=: (
                 Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]

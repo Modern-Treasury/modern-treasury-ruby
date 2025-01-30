@@ -108,7 +108,7 @@ module ModernTreasury
       sig { returns(T.nilable(Symbol)) }
       attr_accessor :foreign_exchange_indicator
 
-      sig { returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem])) }
       attr_reader :line_items
 
       sig { params(line_items: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem]).void }
@@ -402,7 +402,7 @@ module ModernTreasury
         end
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail]))
         end
         attr_reader :account_details
 
@@ -420,7 +420,7 @@ module ModernTreasury
         attr_writer :account_type
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail]))
         end
         attr_reader :contact_details
 
@@ -482,7 +482,7 @@ module ModernTreasury
         attr_writer :plaid_processor_token
 
         sig do
-          returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail])
+          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]))
         end
         attr_reader :routing_details
 
@@ -635,7 +635,7 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :description
 
-          sig { returns(T::Array[String]) }
+          sig { returns(T.nilable(T::Array[String])) }
           attr_reader :ledger_account_category_ids
 
           sig { params(ledger_account_category_ids: T::Array[String]).void }

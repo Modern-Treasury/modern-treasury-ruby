@@ -30,7 +30,7 @@ module ModernTreasury
       sig { returns(String) }
       attr_accessor :name
 
-      sig { returns(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail])) }
       attr_reader :account_details
 
       sig do
@@ -74,7 +74,7 @@ module ModernTreasury
       sig { params(metadata: T::Hash[Symbol, String]).void }
       attr_writer :metadata
 
-      sig { returns(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])) }
       attr_reader :routing_details
 
       sig do
@@ -185,7 +185,7 @@ module ModernTreasury
         sig { returns(T.nilable(String)) }
         attr_accessor :description
 
-        sig { returns(T::Array[String]) }
+        sig { returns(T.nilable(T::Array[String])) }
         attr_reader :ledger_account_category_ids
 
         sig { params(ledger_account_category_ids: T::Array[String]).void }
