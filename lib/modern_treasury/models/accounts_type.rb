@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    # @abstract
+    #
     # @example
     # ```ruby
     # case accounts_type
@@ -16,6 +18,11 @@ module ModernTreasury
       INTERNAL_ACCOUNTS = :internal_accounts
 
       finalize!
+
+      # @!parse
+      #   # @return [Array<Symbol>]
+      #   #
+      #   def self.values; end
     end
   end
 end

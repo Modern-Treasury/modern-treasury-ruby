@@ -50,6 +50,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #   `incorrect_receiving_account`, `date_earlier_than_intended`,
         #   `date_later_than_intended`.
@@ -77,6 +79,11 @@ module ModernTreasury
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
         # @example
@@ -336,6 +343,8 @@ module ModernTreasury
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
           end
 
+          # @abstract
+          #
           # If the ledger transaction can be reconciled to another object in Modern
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
@@ -367,8 +376,15 @@ module ModernTreasury
             REVERSAL = :reversal
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
 
+          # @abstract
+          #
           # To post a ledger transaction at creation, use `posted`.
           #
           # @example
@@ -388,6 +404,11 @@ module ModernTreasury
             POSTED = :posted
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
       end

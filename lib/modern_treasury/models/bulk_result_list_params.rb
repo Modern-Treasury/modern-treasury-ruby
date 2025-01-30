@@ -100,6 +100,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       #
@@ -126,8 +128,15 @@ module ModernTreasury
         BULK_ERROR = :bulk_error
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       #
@@ -142,8 +151,15 @@ module ModernTreasury
         BULK_REQUEST = :bulk_request
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of successful or failed.
       #
       # @example
@@ -163,6 +179,11 @@ module ModernTreasury
         FAILED = :failed
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

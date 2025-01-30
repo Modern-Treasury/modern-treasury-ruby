@@ -57,6 +57,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         #
@@ -80,6 +82,11 @@ module ModernTreasury
           REAL_TIME = :real_time
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
     end

@@ -213,6 +213,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The return code. For ACH returns, this is the required ACH return code.
       #
       # @example
@@ -288,6 +290,11 @@ module ModernTreasury
         CURRENCYCLOUD = :currencycloud
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
       # @example
@@ -355,6 +362,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The type of the reference number. Referring to the vendor payment id.
         #
         # @example
@@ -448,9 +457,16 @@ module ModernTreasury
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
+      # @abstract
+      #
       # The type of object being returned or `null`.
       #
       # @example
@@ -476,8 +492,15 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The role of the return, can be `originating` or `receiving`.
       #
       # @example
@@ -494,8 +517,15 @@ module ModernTreasury
         RECEIVING = :receiving
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The current status of the return.
       #
       # @example
@@ -524,8 +554,15 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       #   `interac`, `manual`, `paper_item`, `wire`.
       #
@@ -562,6 +599,11 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

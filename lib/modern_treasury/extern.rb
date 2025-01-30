@@ -3,6 +3,8 @@
 module ModernTreasury
   # @private
   #
+  # @abstract
+  #
   module Extern
     # @private
     #

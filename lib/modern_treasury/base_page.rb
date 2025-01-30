@@ -3,6 +3,8 @@
 module ModernTreasury
   # @private
   #
+  # @abstract
+  #
   module BasePage
     # rubocop:disable Lint/UnusedMethodArgument
 

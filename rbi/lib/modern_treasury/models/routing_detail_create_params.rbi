@@ -56,7 +56,7 @@ module ModernTreasury
 
         EXTERNAL_ACCOUNTS = :external_accounts
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -85,7 +85,7 @@ module ModernTreasury
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -123,7 +123,7 @@ module ModernTreasury
         WIRE = T.let(:wire, T.nilable(Symbol))
         ZENGIN = T.let(:zengin, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

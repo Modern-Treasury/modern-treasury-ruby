@@ -73,7 +73,7 @@ module ModernTreasury
           ORIGINATING = T.let(:originating, T.nilable(Symbol))
           RECEIVING = T.let(:receiving, T.nilable(Symbol))
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end

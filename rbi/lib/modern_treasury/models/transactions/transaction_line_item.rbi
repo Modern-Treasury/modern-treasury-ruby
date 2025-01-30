@@ -121,7 +121,7 @@ module ModernTreasury
           RETURN = T.let(:return, T.nilable(Symbol))
           REVERSAL = T.let(:reversal, T.nilable(Symbol))
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -131,7 +131,7 @@ module ModernTreasury
           ORIGINATING = :originating
           RECEIVING = :receiving
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end

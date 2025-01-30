@@ -294,7 +294,7 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -321,7 +321,7 @@ module ModernTreasury
         SENDER = T.let(:sender, T.nilable(Symbol))
         RECEIVER = T.let(:receiver, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -369,7 +369,7 @@ module ModernTreasury
           DECISIONS = :decisions
           CONNECTIONS = :connections
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -379,7 +379,7 @@ module ModernTreasury
 
         ACH = :ach
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -389,7 +389,7 @@ module ModernTreasury
         FIXED_TO_VARIABLE = T.let(:fixed_to_variable, T.nilable(Symbol))
         VARIABLE_TO_FIXED = T.let(:variable_to_fixed, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -572,7 +572,7 @@ module ModernTreasury
           RETURN = :return
           REVERSAL = :reversal
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -583,7 +583,7 @@ module ModernTreasury
           PENDING = :pending
           POSTED = :posted
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -633,7 +633,7 @@ module ModernTreasury
         HIGH = :high
         NORMAL = :normal
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -816,7 +816,7 @@ module ModernTreasury
             SG_NUMBER = :sg_number
             WALLET_ADDRESS = :wallet_address
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
         end
@@ -851,7 +851,7 @@ module ModernTreasury
             PHONE_NUMBER = :phone_number
             WEBSITE = :website
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
         end
@@ -954,7 +954,7 @@ module ModernTreasury
             INTERNAL_ACCOUNT = :internal_account
             VIRTUAL_ACCOUNT = :virtual_account
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
         end
@@ -1014,7 +1014,7 @@ module ModernTreasury
           BUSINESS = T.let(:business, T.nilable(Symbol))
           INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
 
@@ -1066,7 +1066,7 @@ module ModernTreasury
             SWIFT = :swift
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
 
@@ -1104,7 +1104,7 @@ module ModernTreasury
             WIRE = :wire
             ZENGIN = :zengin
 
-            sig { returns(T::Array[Symbol]) }
+            sig { override.returns(T::Array[Symbol]) }
             def self.values; end
           end
         end

@@ -161,6 +161,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # One of `payment_orders` or `expected_payments`.
       #
       # @example
@@ -177,6 +179,11 @@ module ModernTreasury
         PAYMENT_ORDER = :PaymentOrder
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

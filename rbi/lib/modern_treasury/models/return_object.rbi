@@ -213,7 +213,7 @@ module ModernTreasury
         R53 = T.let(:R53, T.nilable(Symbol))
         CURRENCYCLOUD = T.let(:currencycloud, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -351,7 +351,7 @@ module ModernTreasury
           WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -365,7 +365,7 @@ module ModernTreasury
         RETURN = T.let(:return, T.nilable(Symbol))
         REVERSAL = T.let(:reversal, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -375,7 +375,7 @@ module ModernTreasury
         ORIGINATING = :originating
         RECEIVING = :receiving
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -389,7 +389,7 @@ module ModernTreasury
         RETURNED = :returned
         SENT = :sent
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -410,7 +410,7 @@ module ModernTreasury
         SEPA = :sepa
         WIRE = :wire
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

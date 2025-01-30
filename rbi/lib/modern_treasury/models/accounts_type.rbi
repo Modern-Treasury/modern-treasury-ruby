@@ -8,7 +8,7 @@ module ModernTreasury
       EXTERNAL_ACCOUNTS = :external_accounts
       INTERNAL_ACCOUNTS = :internal_accounts
 
-      sig { returns(T::Array[Symbol]) }
+      sig { override.returns(T::Array[Symbol]) }
       def self.values; end
     end
   end

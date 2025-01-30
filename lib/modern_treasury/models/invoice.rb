@@ -420,6 +420,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case contact_identifier_type
@@ -437,6 +439,11 @@ module ModernTreasury
           WEBSITE = :website
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
@@ -632,6 +639,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
       #
@@ -652,8 +661,15 @@ module ModernTreasury
         AUTOMATIC = :automatic
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of `ach` or `eft`.
       #
       # @example
@@ -670,8 +686,15 @@ module ModernTreasury
         ACH = :ach
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The status of the invoice.
       #
       # @example
@@ -700,6 +723,11 @@ module ModernTreasury
         VOIDED = :voided
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

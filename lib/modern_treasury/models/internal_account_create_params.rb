@@ -113,6 +113,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
       #
@@ -130,6 +132,11 @@ module ModernTreasury
         CAD = :CAD
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
       # @example

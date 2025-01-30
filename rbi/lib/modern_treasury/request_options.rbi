@@ -6,6 +6,8 @@ module ModernTreasury
   end
 
   module RequestParameters
+    abstract!
+
     Shape = T.type_alias { {request_options: ModernTreasury::RequestOpts} }
 
     sig { returns(ModernTreasury::RequestOpts) }
