@@ -382,6 +382,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case contact_identifier_type
@@ -399,6 +401,11 @@ module ModernTreasury
           WEBSITE = :website
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
@@ -700,6 +707,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # The method by which the invoice can be paid. `ui` will show the embedded payment
       #   collection flow. `automatic` will automatically initiate payment based upon the
       #   account details of the receiving_account id.\nIf the invoice amount is positive,
@@ -724,6 +733,11 @@ module ModernTreasury
         AUTOMATIC = :automatic
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

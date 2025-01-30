@@ -96,6 +96,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The type of reference number.
       #
       # @example
@@ -189,8 +191,15 @@ module ModernTreasury
         WELLS_FARGO_UETR = :wells_fargo_uetr
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       #
@@ -211,6 +220,11 @@ module ModernTreasury
         RETURN = :return
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

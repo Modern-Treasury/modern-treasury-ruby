@@ -310,6 +310,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case created_at
@@ -324,8 +326,15 @@ module ModernTreasury
           DESC = :desc
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case effective_at
@@ -340,9 +349,16 @@ module ModernTreasury
           DESC = :desc
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
+      # @abstract
+      #
       # Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
       #
@@ -363,6 +379,11 @@ module ModernTreasury
         ARCHIVED = :archived
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

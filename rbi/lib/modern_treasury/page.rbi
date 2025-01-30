@@ -22,13 +22,13 @@ module ModernTreasury
     end
     def initialize(client:, req:, headers:, unwrapped:); end
 
-    sig { returns(T::Boolean) }
+    sig { override.returns(T::Boolean) }
     def next_page?; end
 
-    sig { returns(T.self_type) }
+    sig { override.returns(T.self_type) }
     def next_page; end
 
-    sig { params(blk: T.proc.params(arg0: Elem).void).void }
+    sig { override.params(blk: T.proc.params(arg0: Elem).void).void }
     def auto_paging_each(&blk); end
   end
 end

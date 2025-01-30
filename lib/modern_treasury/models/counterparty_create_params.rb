@@ -167,6 +167,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
         #   or `vendor`.
         #
@@ -184,6 +186,11 @@ module ModernTreasury
           VENDOR = :vendor
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
@@ -398,6 +405,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # @example
           # ```ruby
           # case account_number_type
@@ -428,6 +437,11 @@ module ModernTreasury
             WALLET_ADDRESS = :wallet_address
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
 
@@ -468,6 +482,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # @example
           # ```ruby
           # case contact_identifier_type
@@ -485,6 +501,11 @@ module ModernTreasury
             WEBSITE = :website
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
 
@@ -620,6 +641,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # If the ledger account links to another object in Modern Treasury, the type will
           #   be populated here, otherwise null. The value is one of internal_account or
           #   external_account.
@@ -644,6 +667,11 @@ module ModernTreasury
             VIRTUAL_ACCOUNT = :virtual_account
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
 
@@ -707,6 +735,8 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @abstract
+        #
         # Either `individual` or `business`.
         #
         # @example
@@ -723,6 +753,11 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
         # @example
@@ -768,6 +803,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # @example
           # ```ruby
           # case routing_number_type
@@ -809,8 +846,15 @@ module ModernTreasury
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
 
+          # @abstract
+          #
           # @example
           # ```ruby
           # case payment_type
@@ -861,10 +905,17 @@ module ModernTreasury
             ZENGIN = :zengin
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
       end
 
+      # @abstract
+      #
       # @deprecated
       #
       #   An optional type to auto-sync the counterparty to your ledger. Either `customer`
@@ -884,6 +935,11 @@ module ModernTreasury
         VENDOR = :vendor
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
       # @example
@@ -1137,6 +1193,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The type of legal entity.
         #
         # @example
@@ -1153,6 +1211,11 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
         # @example
@@ -1227,6 +1290,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # @example
           # ```ruby
           # case address_type
@@ -1250,6 +1315,11 @@ module ModernTreasury
             RESIDENTIAL = :residential
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
 
@@ -1293,6 +1363,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # The type of ID number.
           #
           # @example
@@ -1336,6 +1408,11 @@ module ModernTreasury
             VN_TIN = :vn_tin
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
 
@@ -1411,6 +1488,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # A list of relationship types for how the child entity relates to parent entity.
           #
           # @example
@@ -1427,6 +1506,11 @@ module ModernTreasury
             CONTROL_PERSON = :control_person
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
 
           # @example
@@ -1752,6 +1836,8 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @abstract
+              #
               # @example
               # ```ruby
               # case address_type
@@ -1775,6 +1861,11 @@ module ModernTreasury
                 RESIDENTIAL = :residential
 
                 finalize!
+
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   #
+                #   def self.values; end
               end
             end
 
@@ -1818,6 +1909,8 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @abstract
+              #
               # The type of ID number.
               #
               # @example
@@ -1861,9 +1954,16 @@ module ModernTreasury
                 VN_TIN = :vn_tin
 
                 finalize!
+
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   #
+                #   def self.values; end
               end
             end
 
+            # @abstract
+            #
             # The type of legal entity.
             #
             # @example
@@ -1880,8 +1980,15 @@ module ModernTreasury
               INDIVIDUAL = :individual
 
               finalize!
+
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   #
+              #   def self.values; end
             end
 
+            # @abstract
+            #
             # The business's legal structure.
             #
             # @example
@@ -1910,6 +2017,11 @@ module ModernTreasury
               TRUST = :trust
 
               finalize!
+
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   #
+              #   def self.values; end
             end
 
             # @example
@@ -1938,6 +2050,8 @@ module ModernTreasury
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
             end
 
+            # @abstract
+            #
             # The risk rating of the legal entity. One of low, medium, high.
             #
             # @example
@@ -1957,10 +2071,17 @@ module ModernTreasury
               HIGH = :high
 
               finalize!
+
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   #
+              #   def self.values; end
             end
           end
         end
 
+        # @abstract
+        #
         # The business's legal structure.
         #
         # @example
@@ -1989,6 +2110,11 @@ module ModernTreasury
           TRUST = :trust
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
         # @example
@@ -2017,6 +2143,8 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @abstract
+        #
         # The risk rating of the legal entity. One of low, medium, high.
         #
         # @example
@@ -2036,9 +2164,16 @@ module ModernTreasury
           HIGH = :high
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
+      # @abstract
+      #
       # The verification status of the counterparty.
       #
       # @example
@@ -2061,6 +2196,11 @@ module ModernTreasury
         VERIFIED = :verified
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

@@ -245,6 +245,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case ledgerable_type
@@ -271,6 +273,11 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
       # @example
@@ -315,6 +322,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case created_at
@@ -329,8 +338,15 @@ module ModernTreasury
           DESC = :desc
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # @example
         # ```ruby
         # case effective_at
@@ -345,9 +361,16 @@ module ModernTreasury
           DESC = :desc
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case status
@@ -365,6 +388,11 @@ module ModernTreasury
         ARCHIVED = :archived
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

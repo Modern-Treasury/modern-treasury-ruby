@@ -97,6 +97,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       #
@@ -130,6 +132,11 @@ module ModernTreasury
         WALLET_ADDRESS = :wallet_address
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

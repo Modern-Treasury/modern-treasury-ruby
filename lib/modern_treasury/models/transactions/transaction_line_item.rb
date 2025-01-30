@@ -152,6 +152,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
         #
@@ -181,8 +183,15 @@ module ModernTreasury
           REVERSAL = :reversal
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # Indicates whether the line item is `originating` or `receiving` (see
         #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         #
@@ -200,6 +209,11 @@ module ModernTreasury
           RECEIVING = :receiving
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
     end

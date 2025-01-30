@@ -101,7 +101,7 @@ module ModernTreasury
         USD = :USD
         CAD = :CAD
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 

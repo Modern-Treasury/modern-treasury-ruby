@@ -88,6 +88,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
       #
@@ -114,6 +116,11 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

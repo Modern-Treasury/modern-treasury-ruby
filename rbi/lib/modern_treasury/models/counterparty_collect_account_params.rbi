@@ -81,7 +81,7 @@ module ModernTreasury
         ID_SKNBI_CODE = :idSknbiCode
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

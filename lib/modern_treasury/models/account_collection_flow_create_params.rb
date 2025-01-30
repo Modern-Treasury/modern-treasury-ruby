@@ -40,6 +40,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # Optional. Array of 3-digit ISO country codes.
       #
       # @example
@@ -80,6 +82,11 @@ module ModernTreasury
         GBR = :GBR
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

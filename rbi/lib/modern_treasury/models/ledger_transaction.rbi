@@ -142,7 +142,7 @@ module ModernTreasury
         RETURN = T.let(:return, T.nilable(Symbol))
         REVERSAL = T.let(:reversal, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -153,7 +153,7 @@ module ModernTreasury
         PENDING = :pending
         POSTED = :posted
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

@@ -98,6 +98,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The status of the ledger account settlement. It is set to `pending` by default.
       #   To post a ledger account settlement at creation, use `posted`.
       #
@@ -115,6 +117,11 @@ module ModernTreasury
         POSTED = :posted
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

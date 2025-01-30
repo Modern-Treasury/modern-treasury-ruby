@@ -182,7 +182,7 @@ module ModernTreasury
         HIGH = :high
         NORMAL = :normal
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -201,7 +201,7 @@ module ModernTreasury
         REVERSED = :reversed
         SENT = :sent
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -239,7 +239,7 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

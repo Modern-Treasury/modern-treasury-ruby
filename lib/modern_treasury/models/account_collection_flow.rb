@@ -148,6 +148,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # An account created with this flow will support payments of one of these types.
       #
       # @example
@@ -164,8 +166,15 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # An account created with this flow will support wires from the US to these
       #   countries.
       #
@@ -207,8 +216,15 @@ module ModernTreasury
         GBR = :GBR
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
       #
@@ -232,6 +248,11 @@ module ModernTreasury
         PENDING = :pending
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

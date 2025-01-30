@@ -50,6 +50,8 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @abstract
+        #
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         #
@@ -73,6 +75,11 @@ module ModernTreasury
           REAL_TIME = :real_time
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
         # @example
@@ -128,6 +135,8 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @abstract
+          #
           # The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
@@ -162,6 +171,11 @@ module ModernTreasury
             PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
       end

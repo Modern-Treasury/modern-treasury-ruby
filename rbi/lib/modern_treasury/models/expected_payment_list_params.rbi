@@ -121,7 +121,7 @@ module ModernTreasury
         RECONCILED = :reconciled
         UNRECONCILED = :unreconciled
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -159,7 +159,7 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

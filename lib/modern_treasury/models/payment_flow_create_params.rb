@@ -76,6 +76,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
       #
@@ -93,6 +95,11 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

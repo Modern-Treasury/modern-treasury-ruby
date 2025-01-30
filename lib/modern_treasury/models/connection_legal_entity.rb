@@ -100,6 +100,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The status of the connection legal entity.
       #
       # @example
@@ -122,6 +124,11 @@ module ModernTreasury
         PROCESSING = :processing
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

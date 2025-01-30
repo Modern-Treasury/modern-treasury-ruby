@@ -102,6 +102,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # One of `credit`, `debit`.
       #
       # @example
@@ -118,8 +120,15 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # One of `ach`, `wire`, `check`.
       #
       # @example
@@ -151,6 +160,11 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

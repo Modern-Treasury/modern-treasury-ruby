@@ -266,7 +266,7 @@ module ModernTreasury
         ZENGIN = :zengin
         OTHER = :other
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -297,7 +297,7 @@ module ModernTreasury
         US_BANK = T.let(:us_bank, T.nilable(Symbol))
         USER = T.let(:user, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

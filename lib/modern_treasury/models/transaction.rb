@@ -319,6 +319,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
@@ -373,8 +375,15 @@ module ModernTreasury
         OTHER = :other
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
 
+      # @abstract
+      #
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
@@ -423,6 +432,11 @@ module ModernTreasury
         USER = :user
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

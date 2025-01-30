@@ -564,6 +564,8 @@ module ModernTreasury
             end
           end
 
+          # @abstract
+          #
           # Equal to the state of the ledger transaction when the ledger entry was created.
           #   One of `pending`, `posted`, or `archived`.
           #
@@ -584,9 +586,16 @@ module ModernTreasury
             POSTED = :posted
 
             finalize!
+
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   #
+            #   def self.values; end
           end
         end
 
+        # @abstract
+        #
         # If the ledger transaction can be reconciled to another object in Modern
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
@@ -617,8 +626,15 @@ module ModernTreasury
           REVERSAL = :reversal
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
 
+        # @abstract
+        #
         # One of `pending`, `posted`, or `archived`.
         #
         # @example
@@ -638,6 +654,11 @@ module ModernTreasury
           POSTED = :posted
 
           finalize!
+
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   #
+          #   def self.values; end
         end
       end
     end

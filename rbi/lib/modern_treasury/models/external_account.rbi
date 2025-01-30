@@ -203,7 +203,7 @@ module ModernTreasury
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
 
-          sig { returns(T::Array[Symbol]) }
+          sig { override.returns(T::Array[Symbol]) }
           def self.values; end
         end
       end
@@ -297,7 +297,7 @@ module ModernTreasury
         BUSINESS = T.let(:business, T.nilable(Symbol))
         INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -308,7 +308,7 @@ module ModernTreasury
         MICRODEPOSITS = T.let(:microdeposits, T.nilable(Symbol))
         PLAID = T.let(:plaid, T.nilable(Symbol))
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
 
@@ -319,7 +319,7 @@ module ModernTreasury
         UNVERIFIED = :unverified
         VERIFIED = :verified
 
-        sig { returns(T::Array[Symbol]) }
+        sig { override.returns(T::Array[Symbol]) }
         def self.values; end
       end
     end

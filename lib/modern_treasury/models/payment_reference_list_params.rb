@@ -76,6 +76,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       #
@@ -96,6 +98,11 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

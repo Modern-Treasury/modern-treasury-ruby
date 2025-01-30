@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    # @abstract
+    #
     # @example
     # ```ruby
     # case transaction_direction
@@ -16,6 +18,11 @@ module ModernTreasury
       DEBIT = :debit
 
       finalize!
+
+      # @!parse
+      #   # @return [Array<Symbol>]
+      #   #
+      #   def self.values; end
     end
   end
 end

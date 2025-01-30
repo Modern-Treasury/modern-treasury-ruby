@@ -26,6 +26,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # @example
       # ```ruby
       # case accounts_type
@@ -37,6 +39,11 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS = :external_accounts
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

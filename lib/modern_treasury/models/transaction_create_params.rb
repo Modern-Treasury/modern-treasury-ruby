@@ -115,6 +115,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @abstract
+      #
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       #
@@ -169,6 +171,11 @@ module ModernTreasury
         OTHER = :other
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end

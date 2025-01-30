@@ -35,7 +35,7 @@ module ModernTreasury
       SKNBI = T.let(:sknbi, T.nilable(Symbol))
       ZENGIN = T.let(:zengin, T.nilable(Symbol))
 
-      sig { returns(T::Array[Symbol]) }
+      sig { override.returns(T::Array[Symbol]) }
       def self.values; end
     end
   end

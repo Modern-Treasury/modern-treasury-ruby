@@ -151,6 +151,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @abstract
+      #
       # Either `individual` or `business`.
       #
       # @example
@@ -167,6 +169,11 @@ module ModernTreasury
         INDIVIDUAL = :individual
 
         finalize!
+
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   #
+        #   def self.values; end
       end
     end
   end
