@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccount
         | (
-          ModernTreasury::Models::LedgerAccountCreateParams
-          | Hash[Symbol, top] params,
           currency: String,
           ledger_id: String,
           name: String,

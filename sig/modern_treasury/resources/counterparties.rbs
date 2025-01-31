@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Counterparty
         | (
-          ModernTreasury::Models::CounterpartyCreateParams
-          | Hash[Symbol, top] params,
           name: String?,
           accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
           accounts: Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
@@ -84,8 +82,6 @@ module ModernTreasury
         ) -> ModernTreasury::Models::CounterpartyCollectAccountResponse
         | (
           String id,
-          ModernTreasury::Models::CounterpartyCollectAccountParams
-          | Hash[Symbol, top] params,
           direction: ModernTreasury::Models::transaction_direction,
           custom_redirect: String,
           fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],

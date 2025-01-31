@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerEventHandler
         | (
-          ModernTreasury::Models::LedgerEventHandlerCreateParams
-          | Hash[Symbol, top] params,
           ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
           name: String,
           conditions: ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions?,

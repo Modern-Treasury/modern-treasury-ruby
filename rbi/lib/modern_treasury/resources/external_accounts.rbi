@@ -5,7 +5,6 @@ module ModernTreasury
     class ExternalAccounts
       sig do
         params(
-          params: T.any(ModernTreasury::Models::ExternalAccountCreateParams, T::Hash[Symbol, T.anything]),
           counterparty_id: T.nilable(String),
           account_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
           account_type: Symbol,
@@ -23,7 +22,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::ExternalAccount)
       end
       def create(
-        params,
         counterparty_id:,
         account_details:,
         account_type:,
@@ -100,7 +98,6 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          params: T.any(ModernTreasury::Models::ExternalAccountVerifyParams, T::Hash[Symbol, T.anything]),
           originating_account_id: String,
           payment_type: Symbol,
           currency: Symbol,
@@ -111,14 +108,14 @@ module ModernTreasury
       end
       def verify(
         id,
-        params,
         originating_account_id:,
         payment_type:,
         currency:,
         fallback_type:,
         priority:,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

@@ -6,7 +6,6 @@ module ModernTreasury
           ModernTreasury::Models::ReturnCreateParams | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ReturnObject
         | (
-          ModernTreasury::Models::ReturnCreateParams | Hash[Symbol, top] params,
           returnable_id: String?,
           returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
           additional_information: String?,

@@ -6,17 +6,13 @@ module ModernTreasury
       class LineItems
         sig do
           params(
-            params: T.any(
-              ModernTreasury::Models::Transactions::LineItemCreateParams,
-              T::Hash[Symbol, T.anything]
-            ),
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
             request_options: ModernTreasury::RequestOpts
           ).returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
-        def create(params, amount:, expected_payment_id:, transaction_id:, request_options: {}); end
+        def create(amount:, expected_payment_id:, transaction_id:, request_options: {}); end
 
         sig do
           params(

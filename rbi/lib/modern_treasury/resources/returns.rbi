@@ -5,7 +5,6 @@ module ModernTreasury
     class Returns
       sig do
         params(
-          params: T.any(ModernTreasury::Models::ReturnCreateParams, T::Hash[Symbol, T.anything]),
           returnable_id: T.nilable(String),
           returnable_type: Symbol,
           additional_information: T.nilable(String),
@@ -16,7 +15,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::ReturnObject)
       end
       def create(
-        params,
         returnable_id:,
         returnable_type:,
         additional_information:,

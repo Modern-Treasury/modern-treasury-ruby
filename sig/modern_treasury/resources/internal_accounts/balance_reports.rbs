@@ -10,8 +10,6 @@ module ModernTreasury
           ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
           | (
             String internal_account_id,
-            ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams
-            | Hash[Symbol, top] params,
             as_of_date: Date,
             as_of_time: String,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
@@ -27,8 +25,6 @@ module ModernTreasury
           ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
           | (
             String id,
-            ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams
-            | Hash[Symbol, top] params,
             internal_account_id: String,
             request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
@@ -56,8 +52,6 @@ module ModernTreasury
           ) -> nil
           | (
             String id,
-            ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams
-            | Hash[Symbol, top] params,
             internal_account_id: String,
             request_options: ModernTreasury::request_opts
           ) -> nil

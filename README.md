@@ -34,6 +34,7 @@ bundle update modern_treasury
 ## Usage
 
 ```ruby
+require "bundler/setup"
 require "modern_treasury"
 
 modern_treasury = ModernTreasury::Client.new(

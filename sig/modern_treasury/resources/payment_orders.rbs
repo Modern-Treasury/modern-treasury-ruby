@@ -9,8 +9,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::PaymentOrder
         | (
-          ModernTreasury::Models::PaymentOrderCreateParams
-          | Hash[Symbol, top] params,
           amount: Integer,
           direction: ModernTreasury::Models::PaymentOrderCreateParams::direction,
           originating_account_id: String,
@@ -138,8 +136,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::AsyncResponse
         | (
-          ModernTreasury::Models::PaymentOrderCreateAsyncParams
-          | Hash[Symbol, top] params,
           amount: Integer,
           direction: ModernTreasury::Models::PaymentOrderCreateAsyncParams::direction,
           originating_account_id: String,

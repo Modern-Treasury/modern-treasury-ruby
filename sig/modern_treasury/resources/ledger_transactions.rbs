@@ -9,8 +9,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerTransaction
         | (
-          ModernTreasury::Models::LedgerTransactionCreateParams
-          | Hash[Symbol, top] params,
           ledger_entries: Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
           description: String?,
           effective_at: Time,
@@ -88,8 +86,6 @@ module ModernTreasury
         ) -> ModernTreasury::Models::LedgerTransaction
         | (
           String id,
-          ModernTreasury::Models::LedgerTransactionCreatePartialPostParams
-          | Hash[Symbol, top] params,
           posted_ledger_entries: Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
           description: String,
           effective_at: Time,

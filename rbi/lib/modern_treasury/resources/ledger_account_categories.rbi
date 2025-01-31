@@ -5,10 +5,6 @@ module ModernTreasury
     class LedgerAccountCategories
       sig do
         params(
-          params: T.any(
-            ModernTreasury::Models::LedgerAccountCategoryCreateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           currency: String,
           ledger_id: String,
           name: String,
@@ -21,7 +17,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::LedgerAccountCategory)
       end
       def create(
-        params,
         currency:,
         ledger_id:,
         name:,
@@ -90,57 +85,17 @@ module ModernTreasury
       end
       def delete(id, request_options: {}); end
 
-      sig do
-        params(
-          ledger_account_id: String,
-          params: T.any(
-            ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams,
-            T::Hash[Symbol, T.anything]
-          ),
-          id: String,
-          request_options: ModernTreasury::RequestOpts
-        ).void
-      end
-      def add_ledger_account(ledger_account_id, params, id:, request_options: {}); end
+      sig { params(ledger_account_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
+      def add_ledger_account(ledger_account_id, id:, request_options: {}); end
 
-      sig do
-        params(
-          sub_category_id: String,
-          params: T.any(
-            ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams,
-            T::Hash[Symbol, T.anything]
-          ),
-          id: String,
-          request_options: ModernTreasury::RequestOpts
-        ).void
-      end
-      def add_nested_category(sub_category_id, params, id:, request_options: {}); end
+      sig { params(sub_category_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
+      def add_nested_category(sub_category_id, id:, request_options: {}); end
 
-      sig do
-        params(
-          ledger_account_id: String,
-          params: T.any(
-            ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams,
-            T::Hash[Symbol, T.anything]
-          ),
-          id: String,
-          request_options: ModernTreasury::RequestOpts
-        ).void
-      end
-      def remove_ledger_account(ledger_account_id, params, id:, request_options: {}); end
+      sig { params(ledger_account_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
+      def remove_ledger_account(ledger_account_id, id:, request_options: {}); end
 
-      sig do
-        params(
-          sub_category_id: String,
-          params: T.any(
-            ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams,
-            T::Hash[Symbol, T.anything]
-          ),
-          id: String,
-          request_options: ModernTreasury::RequestOpts
-        ).void
-      end
-      def remove_nested_category(sub_category_id, params, id:, request_options: {}); end
+      sig { params(sub_category_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
+      def remove_nested_category(sub_category_id, id:, request_options: {}); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

@@ -5,10 +5,6 @@ module ModernTreasury
     class LedgerAccountBalanceMonitors
       sig do
         params(
-          params: T.any(
-            ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
           ledger_account_id: String,
           description: String,
@@ -16,8 +12,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
-      def create(params, alert_condition:, ledger_account_id:, description:, metadata:, request_options: {})
-      end
+      def create(alert_condition:, ledger_account_id:, description:, metadata:, request_options: {}); end
 
       sig do
         params(

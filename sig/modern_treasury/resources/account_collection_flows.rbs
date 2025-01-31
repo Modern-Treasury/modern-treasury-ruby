@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::AccountCollectionFlow
         | (
-          ModernTreasury::Models::AccountCollectionFlowCreateParams
-          | Hash[Symbol, top] params,
           counterparty_id: String,
           payment_types: Array[String],
           receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
@@ -34,8 +32,6 @@ module ModernTreasury
         ) -> ModernTreasury::Models::AccountCollectionFlow
         | (
           String id,
-          ModernTreasury::Models::AccountCollectionFlowUpdateParams
-          | Hash[Symbol, top] params,
           status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status,
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::AccountCollectionFlow
