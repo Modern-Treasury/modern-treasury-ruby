@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountCategory
         | (
-          ModernTreasury::Models::LedgerAccountCategoryCreateParams
-          | Hash[Symbol, top] params,
           currency: String,
           ledger_id: String,
           name: String,
@@ -84,8 +82,6 @@ module ModernTreasury
         ) -> nil
         | (
           String ledger_account_id,
-          ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams
-          | Hash[Symbol, top] params,
           id: String,
           request_options: ModernTreasury::request_opts
         ) -> nil
@@ -98,8 +94,6 @@ module ModernTreasury
         ) -> nil
         | (
           String sub_category_id,
-          ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams
-          | Hash[Symbol, top] params,
           id: String,
           request_options: ModernTreasury::request_opts
         ) -> nil
@@ -112,8 +106,6 @@ module ModernTreasury
         ) -> nil
         | (
           String ledger_account_id,
-          ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams
-          | Hash[Symbol, top] params,
           id: String,
           request_options: ModernTreasury::request_opts
         ) -> nil
@@ -126,8 +118,6 @@ module ModernTreasury
         ) -> nil
         | (
           String sub_category_id,
-          ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams
-          | Hash[Symbol, top] params,
           id: String,
           request_options: ModernTreasury::request_opts
         ) -> nil

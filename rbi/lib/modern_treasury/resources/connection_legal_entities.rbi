@@ -5,17 +5,13 @@ module ModernTreasury
     class ConnectionLegalEntities
       sig do
         params(
-          params: T.any(
-            ModernTreasury::Models::ConnectionLegalEntityCreateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           connection_id: String,
           legal_entity: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity,
           legal_entity_id: String,
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
-      def create(params, connection_id:, legal_entity:, legal_entity_id:, request_options: {}); end
+      def create(connection_id:, legal_entity:, legal_entity_id:, request_options: {}); end
 
       sig do
         params(

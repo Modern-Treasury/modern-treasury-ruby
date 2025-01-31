@@ -5,7 +5,6 @@ module ModernTreasury
     class VirtualAccounts
       sig do
         params(
-          params: T.any(ModernTreasury::Models::VirtualAccountCreateParams, T::Hash[Symbol, T.anything]),
           internal_account_id: String,
           name: String,
           account_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
@@ -20,7 +19,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::VirtualAccount)
       end
       def create(
-        params,
         internal_account_id:,
         name:,
         account_details:,

@@ -8,7 +8,6 @@ module ModernTreasury
 
       sig do
         params(
-          params: T.any(ModernTreasury::Models::InvoiceCreateParams, T::Hash[Symbol, T.anything]),
           counterparty_id: String,
           due_date: Time,
           originating_account_id: String,
@@ -38,7 +37,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::Invoice)
       end
       def create(
-        params,
         counterparty_id:,
         due_date:,
         originating_account_id:,
@@ -167,15 +165,8 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig do
-        params(
-          payment_order_id: String,
-          params: T.any(ModernTreasury::Models::InvoiceAddPaymentOrderParams, T::Hash[Symbol, T.anything]),
-          id: String,
-          request_options: ModernTreasury::RequestOpts
-        ).void
-      end
-      def add_payment_order(payment_order_id, params, id:, request_options: {}); end
+      sig { params(payment_order_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
+      def add_payment_order(payment_order_id, id:, request_options: {}); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

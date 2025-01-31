@@ -8,7 +8,6 @@ module ModernTreasury
 
       sig do
         params(
-          params: T.any(ModernTreasury::Models::TransactionCreateParams, T::Hash[Symbol, T.anything]),
           amount: Integer,
           as_of_date: T.nilable(Date),
           direction: String,
@@ -23,7 +22,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::Transaction)
       end
       def create(
-        params,
         amount:,
         as_of_date:,
         direction:,

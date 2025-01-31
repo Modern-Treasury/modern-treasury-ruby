@@ -9,8 +9,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Transaction
         | (
-          ModernTreasury::Models::TransactionCreateParams
-          | Hash[Symbol, top] params,
           amount: Integer,
           as_of_date: Date?,
           direction: String,

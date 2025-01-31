@@ -5,7 +5,6 @@ module ModernTreasury
     class BulkRequests
       sig do
         params(
-          params: T.any(ModernTreasury::Models::BulkRequestCreateParams, T::Hash[Symbol, T.anything]),
           action_type: Symbol,
           resource_type: Symbol,
           resources: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::Variants],
@@ -13,7 +12,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::BulkRequest)
       end
-      def create(params, action_type:, resource_type:, resources:, metadata:, request_options: {}); end
+      def create(action_type:, resource_type:, resources:, metadata:, request_options: {}); end
 
       sig do
         params(

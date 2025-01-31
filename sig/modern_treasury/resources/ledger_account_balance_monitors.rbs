@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
         | (
-          ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams
-          | Hash[Symbol, top] params,
           alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
           ledger_account_id: String,
           description: String,

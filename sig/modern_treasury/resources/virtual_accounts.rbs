@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::VirtualAccount
         | (
-          ModernTreasury::Models::VirtualAccountCreateParams
-          | Hash[Symbol, top] params,
           internal_account_id: String,
           name: String,
           account_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],

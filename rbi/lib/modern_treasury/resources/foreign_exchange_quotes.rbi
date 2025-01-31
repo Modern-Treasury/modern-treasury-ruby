@@ -5,10 +5,6 @@ module ModernTreasury
     class ForeignExchangeQuotes
       sig do
         params(
-          params: T.any(
-            ModernTreasury::Models::ForeignExchangeQuoteCreateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           internal_account_id: String,
           target_currency: Symbol,
           base_amount: Integer,
@@ -19,7 +15,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::ForeignExchangeQuote)
       end
       def create(
-        params,
         internal_account_id:,
         target_currency:,
         base_amount:,

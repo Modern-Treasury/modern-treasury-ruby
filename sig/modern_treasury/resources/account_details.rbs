@@ -9,8 +9,6 @@ module ModernTreasury
         ) -> ModernTreasury::Models::AccountDetail
         | (
           String account_id,
-          ModernTreasury::Models::AccountDetailCreateParams
-          | Hash[Symbol, top] params,
           accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
           account_number: String,
           account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
@@ -25,8 +23,6 @@ module ModernTreasury
         ) -> ModernTreasury::Models::AccountDetail
         | (
           String id,
-          ModernTreasury::Models::AccountDetailRetrieveParams
-          | Hash[Symbol, top] params,
           accounts_type: ModernTreasury::Models::accounts_type,
           account_id: String,
           request_options: ModernTreasury::request_opts
@@ -40,8 +36,6 @@ module ModernTreasury
         ) -> ModernTreasury::Page[ModernTreasury::Models::AccountDetail]
         | (
           String account_id,
-          ModernTreasury::Models::AccountDetailListParams
-          | Hash[Symbol, top] params,
           accounts_type: ModernTreasury::Models::accounts_type,
           after_cursor: String?,
           per_page: Integer,
@@ -56,8 +50,6 @@ module ModernTreasury
         ) -> nil
         | (
           String id,
-          ModernTreasury::Models::AccountDetailDeleteParams
-          | Hash[Symbol, top] params,
           accounts_type: ModernTreasury::Models::AccountDetailDeleteParams::accounts_type,
           account_id: String,
           request_options: ModernTreasury::request_opts

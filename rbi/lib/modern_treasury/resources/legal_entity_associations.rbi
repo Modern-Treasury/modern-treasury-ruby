@@ -5,10 +5,6 @@ module ModernTreasury
     class LegalEntityAssociations
       sig do
         params(
-          params: T.any(
-            ModernTreasury::Models::LegalEntityAssociationCreateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           parent_legal_entity_id: String,
           relationship_types: T::Array[Symbol],
           child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
@@ -19,7 +15,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::LegalEntityAssociation)
       end
       def create(
-        params,
         parent_legal_entity_id:,
         relationship_types:,
         child_legal_entity:,

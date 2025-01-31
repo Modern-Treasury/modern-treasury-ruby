@@ -7,10 +7,6 @@ module ModernTreasury
         sig do
           params(
             internal_account_id: String,
-            params: T.any(
-              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams,
-              T::Hash[Symbol, T.anything]
-            ),
             as_of_date: Date,
             as_of_time: String,
             balance_report_type: Symbol,
@@ -20,26 +16,22 @@ module ModernTreasury
         end
         def create(
           internal_account_id,
-          params,
           as_of_date:,
           as_of_time:,
           balance_report_type:,
           balances:,
           request_options: {}
-        ); end
+        )
+        end
 
         sig do
           params(
             id: String,
-            params: T.any(
-              ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams,
-              T::Hash[Symbol, T.anything]
-            ),
             internal_account_id: String,
             request_options: ModernTreasury::RequestOpts
           ).returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
-        def retrieve(id, params, internal_account_id:, request_options: {}); end
+        def retrieve(id, internal_account_id:, request_options: {}); end
 
         sig do
           params(
@@ -62,17 +54,9 @@ module ModernTreasury
         end
 
         sig do
-          params(
-            id: String,
-            params: T.any(
-              ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams,
-              T::Hash[Symbol, T.anything]
-            ),
-            internal_account_id: String,
-            request_options: ModernTreasury::RequestOpts
-          ).void
+          params(id: String, internal_account_id: String, request_options: ModernTreasury::RequestOpts).void
         end
-        def delete(id, params, internal_account_id:, request_options: {}); end
+        def delete(id, internal_account_id:, request_options: {}); end
 
         sig { params(client: ModernTreasury::Client).void }
         def initialize(client:); end

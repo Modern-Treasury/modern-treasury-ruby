@@ -8,7 +8,6 @@ module ModernTreasury
 
       sig do
         params(
-          params: T.any(ModernTreasury::Models::PaymentOrderCreateParams, T::Hash[Symbol, T.anything]),
           amount: Integer,
           direction: Symbol,
           originating_account_id: String,
@@ -49,7 +48,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::PaymentOrder)
       end
       def create(
-        params,
         amount:,
         direction:,
         originating_account_id:,
@@ -221,7 +219,6 @@ module ModernTreasury
 
       sig do
         params(
-          params: T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams, T::Hash[Symbol, T.anything]),
           amount: Integer,
           direction: Symbol,
           originating_account_id: String,
@@ -261,7 +258,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::AsyncResponse)
       end
       def create_async(
-        params,
         amount:,
         direction:,
         originating_account_id:,
