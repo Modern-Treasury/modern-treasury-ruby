@@ -6,7 +6,6 @@ module ModernTreasury
           ModernTreasury::Models::LedgerCreateParams | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Ledger
         | (
-          ModernTreasury::Models::LedgerCreateParams | Hash[Symbol, top] params,
           name: String,
           description: String?,
           metadata: Hash[Symbol, String],

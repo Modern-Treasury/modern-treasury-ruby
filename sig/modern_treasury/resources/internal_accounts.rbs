@@ -9,8 +9,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::InternalAccount
         | (
-          ModernTreasury::Models::InternalAccountCreateParams
-          | Hash[Symbol, top] params,
           connection_id: String,
           currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
           name: String,

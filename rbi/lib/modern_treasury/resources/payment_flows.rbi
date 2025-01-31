@@ -5,7 +5,6 @@ module ModernTreasury
     class PaymentFlows
       sig do
         params(
-          params: T.any(ModernTreasury::Models::PaymentFlowCreateParams, T::Hash[Symbol, T.anything]),
           amount: Integer,
           counterparty_id: String,
           currency: String,
@@ -16,7 +15,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::PaymentFlow)
       end
       def create(
-        params,
         amount:,
         counterparty_id:,
         currency:,
@@ -24,7 +22,8 @@ module ModernTreasury
         originating_account_id:,
         due_date:,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -37,12 +36,11 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          params: T.any(ModernTreasury::Models::PaymentFlowUpdateParams, T::Hash[Symbol, T.anything]),
           status: Symbol,
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::PaymentFlow)
       end
-      def update(id, params, status:, request_options: {}); end
+      def update(id, status:, request_options: {}); end
 
       sig do
         params(

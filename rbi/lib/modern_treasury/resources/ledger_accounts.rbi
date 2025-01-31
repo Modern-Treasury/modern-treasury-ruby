@@ -5,7 +5,6 @@ module ModernTreasury
     class LedgerAccounts
       sig do
         params(
-          params: T.any(ModernTreasury::Models::LedgerAccountCreateParams, T::Hash[Symbol, T.anything]),
           currency: String,
           ledger_id: String,
           name: String,
@@ -20,7 +19,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::LedgerAccount)
       end
       def create(
-        params,
         currency:,
         ledger_id:,
         name:,

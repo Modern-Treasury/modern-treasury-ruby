@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LegalEntity
         | (
-          ModernTreasury::Models::LegalEntityCreateParams
-          | Hash[Symbol, top] params,
           legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::legal_entity_type,
           addresses: Array[ModernTreasury::Models::LegalEntityCreateParams::Address],
           bank_settings: ModernTreasury::Models::BankSettings?,

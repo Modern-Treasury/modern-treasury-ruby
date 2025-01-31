@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ExternalAccount
         | (
-          ModernTreasury::Models::ExternalAccountCreateParams
-          | Hash[Symbol, top] params,
           counterparty_id: String?,
           account_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
@@ -96,8 +94,6 @@ module ModernTreasury
         ) -> ModernTreasury::Models::external_account_verify_response
         | (
           String id,
-          ModernTreasury::Models::ExternalAccountVerifyParams
-          | Hash[Symbol, top] params,
           originating_account_id: String,
           payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
           currency: ModernTreasury::Models::currency,

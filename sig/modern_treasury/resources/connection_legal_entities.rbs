@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ConnectionLegalEntity
         | (
-          ModernTreasury::Models::ConnectionLegalEntityCreateParams
-          | Hash[Symbol, top] params,
           connection_id: String,
           legal_entity: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity,
           legal_entity_id: String,

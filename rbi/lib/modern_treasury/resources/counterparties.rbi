@@ -5,7 +5,6 @@ module ModernTreasury
     class Counterparties
       sig do
         params(
-          params: T.any(ModernTreasury::Models::CounterpartyCreateParams, T::Hash[Symbol, T.anything]),
           name: T.nilable(String),
           accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
           accounts: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
@@ -21,7 +20,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::Counterparty)
       end
       def create(
-        params,
         name:,
         accounting:,
         accounts:,
@@ -98,10 +96,6 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          params: T.any(
-            ModernTreasury::Models::CounterpartyCollectAccountParams,
-            T::Hash[Symbol, T.anything]
-          ),
           direction: Symbol,
           custom_redirect: String,
           fields: T::Array[Symbol],
@@ -109,16 +103,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::CounterpartyCollectAccountResponse)
       end
-      def collect_account(
-        id,
-        params,
-        direction:,
-        custom_redirect:,
-        fields:,
-        send_email:,
-        request_options: {}
-      )
-      end
+      def collect_account(id, direction:, custom_redirect:, fields:, send_email:, request_options: {}); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

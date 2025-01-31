@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::BulkRequest
         | (
-          ModernTreasury::Models::BulkRequestCreateParams
-          | Hash[Symbol, top] params,
           action_type: ModernTreasury::Models::BulkRequestCreateParams::action_type,
           resource_type: ModernTreasury::Models::BulkRequestCreateParams::resource_type,
           resources: Array[ModernTreasury::Models::BulkRequestCreateParams::resource],

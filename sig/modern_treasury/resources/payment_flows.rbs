@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::PaymentFlow
         | (
-          ModernTreasury::Models::PaymentFlowCreateParams
-          | Hash[Symbol, top] params,
           amount: Integer,
           counterparty_id: String,
           currency: String,
@@ -37,8 +35,6 @@ module ModernTreasury
         ) -> ModernTreasury::Models::PaymentFlow
         | (
           String id,
-          ModernTreasury::Models::PaymentFlowUpdateParams
-          | Hash[Symbol, top] params,
           status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::PaymentFlow

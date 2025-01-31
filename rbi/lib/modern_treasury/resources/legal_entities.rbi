@@ -5,7 +5,6 @@ module ModernTreasury
     class LegalEntities
       sig do
         params(
-          params: T.any(ModernTreasury::Models::LegalEntityCreateParams, T::Hash[Symbol, T.anything]),
           legal_entity_type: Symbol,
           addresses: T::Array[ModernTreasury::Models::LegalEntityCreateParams::Address],
           bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
@@ -34,7 +33,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::LegalEntity)
       end
       def create(
-        params,
         legal_entity_type:,
         addresses:,
         bank_settings:,

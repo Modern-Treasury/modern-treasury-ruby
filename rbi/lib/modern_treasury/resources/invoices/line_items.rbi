@@ -7,10 +7,6 @@ module ModernTreasury
         sig do
           params(
             invoice_id: String,
-            params: T.any(
-              ModernTreasury::Models::Invoices::LineItemCreateParams,
-              T::Hash[Symbol, T.anything]
-            ),
             name: String,
             unit_amount: Integer,
             description: String,
@@ -23,7 +19,6 @@ module ModernTreasury
         end
         def create(
           invoice_id,
-          params,
           name:,
           unit_amount:,
           description:,
@@ -37,23 +32,15 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            params: T.any(
-              ModernTreasury::Models::Invoices::LineItemRetrieveParams,
-              T::Hash[Symbol, T.anything]
-            ),
             invoice_id: String,
             request_options: ModernTreasury::RequestOpts
           ).returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
-        def retrieve(id, params, invoice_id:, request_options: {}); end
+        def retrieve(id, invoice_id:, request_options: {}); end
 
         sig do
           params(
             id: String,
-            params: T.any(
-              ModernTreasury::Models::Invoices::LineItemUpdateParams,
-              T::Hash[Symbol, T.anything]
-            ),
             invoice_id: String,
             description: String,
             direction: String,
@@ -67,7 +54,6 @@ module ModernTreasury
         end
         def update(
           id,
-          params,
           invoice_id:,
           description:,
           direction:,
@@ -92,15 +78,11 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            params: T.any(
-              ModernTreasury::Models::Invoices::LineItemDeleteParams,
-              T::Hash[Symbol, T.anything]
-            ),
             invoice_id: String,
             request_options: ModernTreasury::RequestOpts
           ).returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
-        def delete(id, params, invoice_id:, request_options: {}); end
+        def delete(id, invoice_id:, request_options: {}); end
 
         sig { params(client: ModernTreasury::Client).void }
         def initialize(client:); end
