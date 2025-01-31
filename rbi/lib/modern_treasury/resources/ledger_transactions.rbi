@@ -8,7 +8,6 @@ module ModernTreasury
 
       sig do
         params(
-          params: T.any(ModernTreasury::Models::LedgerTransactionCreateParams, T::Hash[Symbol, T.anything]),
           ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
           description: T.nilable(String),
           effective_at: Time,
@@ -22,7 +21,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::LedgerTransaction)
       end
       def create(
-        params,
         ledger_entries:,
         description:,
         effective_at:,
@@ -118,10 +116,6 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          params: T.any(
-            ModernTreasury::Models::LedgerTransactionCreatePartialPostParams,
-            T::Hash[Symbol, T.anything]
-          ),
           posted_ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
           description: String,
           effective_at: Time,
@@ -131,7 +125,6 @@ module ModernTreasury
       end
       def create_partial_post(
         id,
-        params,
         posted_ledger_entries:,
         description:,
         effective_at:,

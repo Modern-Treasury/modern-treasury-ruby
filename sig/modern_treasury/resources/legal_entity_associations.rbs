@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LegalEntityAssociation
         | (
-          ModernTreasury::Models::LegalEntityAssociationCreateParams
-          | Hash[Symbol, top] params,
           parent_legal_entity_id: String,
           relationship_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
           child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,

@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ForeignExchangeQuote
         | (
-          ModernTreasury::Models::ForeignExchangeQuoteCreateParams
-          | Hash[Symbol, top] params,
           internal_account_id: String,
           target_currency: ModernTreasury::Models::currency,
           base_amount: Integer,

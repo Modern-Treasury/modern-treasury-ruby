@@ -8,10 +8,6 @@ module ModernTreasury
 
       sig do
         params(
-          params: T.any(
-            ModernTreasury::Models::LedgerAccountSettlementCreateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           contra_ledger_account_id: String,
           settled_ledger_account_id: String,
           allow_either_direction: T.nilable(T::Boolean),
@@ -24,7 +20,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
       def create(
-        params,
         contra_ledger_account_id:,
         settled_ledger_account_id:,
         allow_either_direction:,

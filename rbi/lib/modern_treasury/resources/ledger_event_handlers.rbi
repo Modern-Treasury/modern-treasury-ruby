@@ -5,7 +5,6 @@ module ModernTreasury
     class LedgerEventHandlers
       sig do
         params(
-          params: T.any(ModernTreasury::Models::LedgerEventHandlerCreateParams, T::Hash[Symbol, T.anything]),
           ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
           name: String,
           conditions: T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions),
@@ -17,7 +16,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::LedgerEventHandler)
       end
       def create(
-        params,
         ledger_transaction_template:,
         name:,
         conditions:,

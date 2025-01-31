@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerableEvent
         | (
-          ModernTreasury::Models::LedgerableEventCreateParams
-          | Hash[Symbol, top] params,
           name: String,
           custom_data: top?,
           description: String?,

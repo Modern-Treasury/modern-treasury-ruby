@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Document
         | (
-          ModernTreasury::Models::DocumentCreateParams
-          | Hash[Symbol, top] params,
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
           file: String,

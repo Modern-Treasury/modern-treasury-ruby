@@ -5,10 +5,6 @@ module ModernTreasury
     class LedgerAccountStatements
       sig do
         params(
-          params: T.any(
-            ModernTreasury::Models::LedgerAccountStatementCreateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           effective_at_lower_bound: Time,
           effective_at_upper_bound: Time,
           ledger_account_id: String,
@@ -18,7 +14,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::LedgerAccountStatementCreateResponse)
       end
       def create(
-        params,
         effective_at_lower_bound:,
         effective_at_upper_bound:,
         ledger_account_id:,

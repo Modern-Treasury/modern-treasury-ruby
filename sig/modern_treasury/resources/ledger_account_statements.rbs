@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountStatementCreateResponse
         | (
-          ModernTreasury::Models::LedgerAccountStatementCreateParams
-          | Hash[Symbol, top] params,
           effective_at_lower_bound: Time,
           effective_at_upper_bound: Time,
           ledger_account_id: String,

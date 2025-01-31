@@ -7,8 +7,6 @@ module ModernTreasury
           | Hash[Symbol, top] params
         ) -> ModernTreasury::Models::RoutingNumberLookupRequest
         | (
-          ModernTreasury::Models::ValidationValidateRoutingNumberParams
-          | Hash[Symbol, top] params,
           routing_number: String,
           routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::routing_number_type,
           request_options: ModernTreasury::request_opts

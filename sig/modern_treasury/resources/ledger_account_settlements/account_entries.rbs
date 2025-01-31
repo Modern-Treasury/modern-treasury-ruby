@@ -10,8 +10,6 @@ module ModernTreasury
           ) -> nil
           | (
             String id,
-            ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams
-            | Hash[Symbol, top] params,
             ledger_entry_ids: Array[String]?,
             request_options: ModernTreasury::request_opts
           ) -> nil
@@ -24,8 +22,6 @@ module ModernTreasury
           ) -> nil
           | (
             String id,
-            ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams
-            | Hash[Symbol, top] params,
             ledger_entry_ids: Array[top]?,
             request_options: ModernTreasury::request_opts
           ) -> nil

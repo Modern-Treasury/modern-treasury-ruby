@@ -5,7 +5,6 @@ module ModernTreasury
     class Documents
       sig do
         params(
-          params: T.any(ModernTreasury::Models::DocumentCreateParams, T::Hash[Symbol, T.anything]),
           documentable_id: String,
           documentable_type: Symbol,
           file: String,
@@ -13,8 +12,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::Document)
       end
-      def create(params, documentable_id:, documentable_type:, file:, document_type:, request_options: {})
-      end
+      def create(documentable_id:, documentable_type:, file:, document_type:, request_options: {}); end
 
       sig do
         params(

@@ -8,8 +8,6 @@ module ModernTreasury
             | Hash[Symbol, top] params
           ) -> ModernTreasury::Models::Transactions::TransactionLineItem
           | (
-            ModernTreasury::Models::Transactions::LineItemCreateParams
-            | Hash[Symbol, top] params,
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,

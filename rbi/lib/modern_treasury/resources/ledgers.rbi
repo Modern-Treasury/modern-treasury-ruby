@@ -5,14 +5,13 @@ module ModernTreasury
     class Ledgers
       sig do
         params(
-          params: T.any(ModernTreasury::Models::LedgerCreateParams, T::Hash[Symbol, T.anything]),
           name: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::Ledger)
       end
-      def create(params, name:, description:, metadata:, request_options: {}); end
+      def create(name:, description:, metadata:, request_options: {}); end
 
       sig do
         params(

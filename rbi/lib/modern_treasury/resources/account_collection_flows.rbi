@@ -5,17 +5,13 @@ module ModernTreasury
     class AccountCollectionFlows
       sig do
         params(
-          params: T.any(
-            ModernTreasury::Models::AccountCollectionFlowCreateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           counterparty_id: String,
           payment_types: T::Array[String],
           receiving_countries: T::Array[Symbol],
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::AccountCollectionFlow)
       end
-      def create(params, counterparty_id:, payment_types:, receiving_countries:, request_options: {}); end
+      def create(counterparty_id:, payment_types:, receiving_countries:, request_options: {}); end
 
       sig do
         params(
@@ -28,15 +24,11 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          params: T.any(
-            ModernTreasury::Models::AccountCollectionFlowUpdateParams,
-            T::Hash[Symbol, T.anything]
-          ),
           status: Symbol,
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::AccountCollectionFlow)
       end
-      def update(id, params, status:, request_options: {}); end
+      def update(id, status:, request_options: {}); end
 
       sig do
         params(

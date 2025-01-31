@@ -8,7 +8,6 @@ module ModernTreasury
 
       sig do
         params(
-          params: T.any(ModernTreasury::Models::InternalAccountCreateParams, T::Hash[Symbol, T.anything]),
           connection_id: String,
           currency: Symbol,
           name: String,
@@ -22,7 +21,6 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::InternalAccount)
       end
       def create(
-        params,
         connection_id:,
         currency:,
         name:,
