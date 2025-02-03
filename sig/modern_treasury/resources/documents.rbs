@@ -9,7 +9,7 @@ module ModernTreasury
         | (
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
-          file: String,
+          file: IO | StringIO,
           document_type: String,
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Document
