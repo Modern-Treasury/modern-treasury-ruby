@@ -7,7 +7,7 @@ module ModernTreasury
         params(
           documentable_id: String,
           documentable_type: Symbol,
-          file: String,
+          file: T.any(IO, StringIO),
           document_type: String,
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::Document)

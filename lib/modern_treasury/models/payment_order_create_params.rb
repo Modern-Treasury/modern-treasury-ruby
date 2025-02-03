@@ -516,7 +516,7 @@ module ModernTreasury
       # document => {
       #   documentable_id: String,
       #   documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType,
-      #   file: String,
+      #   file: IO,
       #   document_type: String
       # }
       # ```
@@ -535,8 +535,8 @@ module ModernTreasury
 
         # @!attribute file
         #
-        #   @return [String]
-        required :file, String
+        #   @return [IO, StringIO]
+        required :file, IO
 
         # @!attribute [r] document_type
         #   A category given to the document, can be `null`.
@@ -551,7 +551,7 @@ module ModernTreasury
         # @!parse
         #   # @param documentable_id [String]
         #   # @param documentable_type [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType]
-        #   # @param file [String]
+        #   # @param file [IO, StringIO]
         #   # @param document_type [String]
         #   #
         #   def initialize(documentable_id:, documentable_type:, file:, document_type: nil, **) = super

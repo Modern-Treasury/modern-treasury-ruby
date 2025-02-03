@@ -17,7 +17,7 @@ class ModernTreasury::Test::Resources::DocumentsTest < Minitest::Test
     response = @modern_treasury.documents.create(
       documentable_id: "documentable_id",
       documentable_type: "cases",
-      file: [StringIO.new("some file contents"), {filename: "file.txt"}]
+      file: StringIO.new("some file contents")
     )
 
     assert_pattern do

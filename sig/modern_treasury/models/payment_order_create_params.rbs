@@ -246,7 +246,7 @@ module ModernTreasury
         {
           documentable_id: String,
           documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type,
-          file: String,
+          file: IO | StringIO,
           document_type: String
         }
 
@@ -255,7 +255,7 @@ module ModernTreasury
 
         attr_accessor documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type
 
-        attr_accessor file: String
+        attr_accessor file: IO | StringIO
 
         attr_reader document_type: String?
 
@@ -265,7 +265,7 @@ module ModernTreasury
           (
             documentable_id: String,
             documentable_type: ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type,
-            file: String,
+            file: IO | StringIO,
             document_type: String
           ) -> void
           | (

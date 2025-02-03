@@ -327,7 +327,12 @@ module ModernTreasury
 
       class Document < ModernTreasury::BaseModel
         Shape = T.type_alias do
-          {documentable_id: String, documentable_type: Symbol, file: String, document_type: String}
+          {
+            documentable_id: String,
+            documentable_type: Symbol,
+            file: T.any(IO, StringIO),
+            document_type: String
+          }
         end
 
         sig { returns(String) }
@@ -336,7 +341,7 @@ module ModernTreasury
         sig { returns(Symbol) }
         attr_accessor :documentable_type
 
-        sig { returns(String) }
+        sig { returns(T.any(IO, StringIO)) }
         attr_accessor :file
 
         sig { returns(T.nilable(String)) }
@@ -346,7 +351,12 @@ module ModernTreasury
         attr_writer :document_type
 
         sig do
-          params(documentable_id: String, documentable_type: Symbol, file: String, document_type: String).void
+          params(
+            documentable_id: String,
+            documentable_type: Symbol,
+            file: T.any(IO, StringIO),
+            document_type: String
+          ).void
         end
         def initialize(documentable_id:, documentable_type:, file:, document_type: nil); end
 
