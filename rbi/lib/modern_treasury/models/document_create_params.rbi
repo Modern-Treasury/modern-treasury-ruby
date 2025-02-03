@@ -8,7 +8,12 @@ module ModernTreasury
 
       Shape = T.type_alias do
         T.all(
-          {documentable_id: String, documentable_type: Symbol, file: String, document_type: String},
+          {
+            documentable_id: String,
+            documentable_type: Symbol,
+            file: T.any(IO, StringIO),
+            document_type: String
+          },
           ModernTreasury::RequestParameters::Shape
         )
       end
@@ -19,7 +24,7 @@ module ModernTreasury
       sig { returns(Symbol) }
       attr_accessor :documentable_type
 
-      sig { returns(String) }
+      sig { returns(T.any(IO, StringIO)) }
       attr_accessor :file
 
       sig { returns(T.nilable(String)) }
@@ -32,7 +37,7 @@ module ModernTreasury
         params(
           documentable_id: String,
           documentable_type: Symbol,
-          file: String,
+          file: T.any(IO, StringIO),
           document_type: String,
           request_options: ModernTreasury::RequestOpts
         ).void
