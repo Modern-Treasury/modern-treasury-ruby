@@ -142,8 +142,8 @@ module ModernTreasury
         headers["x-stainless-retry-count"] = "0"
       end
 
-      timeout = opts.fetch(:timeout, @timeout)
-      unless headers.key?("x-stainless-read-timeout") or timeout == 0.0
+      timeout = opts.fetch(:timeout, @timeout).to_f.clamp((0..))
+      unless headers.key?("x-stainless-read-timeout") or timeout.zero?
         headers["x-stainless-read-timeout"] = timeout.to_s
       end
 
@@ -344,7 +344,7 @@ module ModernTreasury
           request: nil,
           response: response
         )
-      in 400.. | ModernTreasury::APIConnectionError
+      in (400..) | ModernTreasury::APIConnectionError
         delay = retry_delay(response, retry_count: retry_count)
         sleep(delay)
 
