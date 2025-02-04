@@ -142,6 +142,11 @@ module ModernTreasury
         headers["x-stainless-retry-count"] = "0"
       end
 
+      timeout = opts.fetch(:timeout, @timeout)
+      unless headers.key?("x-stainless-read-timeout") or timeout == 0.0
+        headers["x-stainless-read-timeout"] = timeout.to_s
+      end
+
       headers.reject! { |_, v| v.to_s.empty? }
 
       body =
@@ -155,7 +160,6 @@ module ModernTreasury
       url = ModernTreasury::Util.join_parsed_uri(@base_url, {**req, path: path})
       headers, encoded = ModernTreasury::Util.encode_content(headers, body)
       max_retries = opts.fetch(:max_retries, @max_retries)
-      timeout = opts.fetch(:timeout, @timeout)
       {method: method, url: url, headers: headers, body: encoded, max_retries: max_retries, timeout: timeout}
     end
 
