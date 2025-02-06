@@ -12,7 +12,7 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < Minitest::
   end
 
   def test_create_required_params
-    response = @modern_treasury.payment_orders.reversals.create("payment_order_id", reason: "duplicate")
+    response = @modern_treasury.payment_orders.reversals.create("payment_order_id", reason: :duplicate)
 
     assert_pattern do
       response => ModernTreasury::Models::PaymentOrders::Reversal

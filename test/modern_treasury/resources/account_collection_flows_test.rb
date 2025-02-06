@@ -31,7 +31,7 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < Minitest::Te
   end
 
   def test_update_required_params
-    response = @modern_treasury.account_collection_flows.update("id", status: "cancelled")
+    response = @modern_treasury.account_collection_flows.update("id", status: :cancelled)
 
     assert_pattern do
       response => ModernTreasury::Models::AccountCollectionFlow
