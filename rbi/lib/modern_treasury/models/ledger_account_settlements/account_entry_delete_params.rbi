@@ -16,7 +16,8 @@ module ModernTreasury
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           ).void
         end
-        def initialize(ledger_entry_ids:, request_options: {}); end
+        def initialize(ledger_entry_ids:, request_options: {})
+        end
 
         sig do
           override.returns(
@@ -26,7 +27,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

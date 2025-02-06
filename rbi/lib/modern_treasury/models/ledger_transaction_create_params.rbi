@@ -79,7 +79,8 @@ module ModernTreasury
         metadata: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -98,7 +99,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class LedgerEntry < ModernTreasury::BaseModel
         sig { returns(Integer) }
@@ -154,7 +156,8 @@ module ModernTreasury
           pending_balance_amount: nil,
           posted_balance_amount: nil,
           show_resulting_ledger_account_balances: nil
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -171,7 +174,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class LedgerableType < ModernTreasury::Enum
@@ -185,7 +189,8 @@ module ModernTreasury
         REVERSAL = :reversal
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -196,7 +201,8 @@ module ModernTreasury
         POSTED = :posted
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

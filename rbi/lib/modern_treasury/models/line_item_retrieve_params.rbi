@@ -19,7 +19,8 @@ module ModernTreasury
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
-      def initialize(itemizable_type:, itemizable_id:, request_options: {}); end
+      def initialize(itemizable_type:, itemizable_id:, request_options: {})
+      end
 
       sig do
         override.returns(
@@ -30,7 +31,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ItemizableType < ModernTreasury::Enum
         abstract!
@@ -39,7 +41,8 @@ module ModernTreasury
         PAYMENT_ORDERS = :payment_orders
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

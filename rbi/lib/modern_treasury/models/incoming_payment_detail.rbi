@@ -133,7 +133,8 @@ module ModernTreasury
         virtual_account:,
         virtual_account_id:,
         originating_account_number: nil
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -166,7 +167,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class OriginatingAccountNumberType < ModernTreasury::Enum
         abstract!
@@ -183,7 +185,8 @@ module ModernTreasury
         WALLET_ADDRESS = T.let(:wallet_address, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class OriginatingRoutingNumberType < ModernTreasury::Enum
@@ -212,7 +215,8 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = T.let(:za_national_clearing_code, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -223,7 +227,8 @@ module ModernTreasury
         RETURNED = :returned
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Type < ModernTreasury::Enum
@@ -240,7 +245,8 @@ module ModernTreasury
         WIRE = :wire
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -63,7 +63,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class Type < ModernTreasury::Enum
           abstract!
@@ -72,7 +73,8 @@ module ModernTreasury
           RECEIVING = T.let(:receiving, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
     end

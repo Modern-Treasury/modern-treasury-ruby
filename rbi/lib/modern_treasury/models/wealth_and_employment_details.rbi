@@ -98,7 +98,8 @@ module ModernTreasury
         source_of_funds:,
         updated_at:,
         wealth_source:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -124,7 +125,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class EmploymentStatus < ModernTreasury::Enum
         abstract!
@@ -136,7 +138,8 @@ module ModernTreasury
         UNEMPLOYED = T.let(:unemployed, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class IncomeSource < ModernTreasury::Enum
@@ -152,7 +155,8 @@ module ModernTreasury
         SELF_EMPLOYED = T.let(:self_employed, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Industry < ModernTreasury::Enum
@@ -193,7 +197,8 @@ module ModernTreasury
         UTILITIES = T.let(:utilities, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Occupation < ModernTreasury::Enum
@@ -213,7 +218,8 @@ module ModernTreasury
         TECHNOLOGY = T.let(:technology, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class SourceOfFunds < ModernTreasury::Enum
@@ -238,7 +244,8 @@ module ModernTreasury
         TRUST_INCOME = T.let(:trust_income, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class WealthSource < ModernTreasury::Enum
@@ -256,7 +263,8 @@ module ModernTreasury
         SELF_EMPLOYED = T.let(:self_employed, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

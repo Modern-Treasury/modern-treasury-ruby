@@ -26,7 +26,8 @@ module ModernTreasury
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
-      def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}); end
+      def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
+      end
 
       sig do
         override.returns(
@@ -38,7 +39,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ReceivingCountry < ModernTreasury::Enum
         abstract!
@@ -63,7 +65,8 @@ module ModernTreasury
         GBR = :GBR
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

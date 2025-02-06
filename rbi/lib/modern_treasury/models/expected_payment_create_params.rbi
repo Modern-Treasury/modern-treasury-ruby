@@ -122,7 +122,8 @@ module ModernTreasury
         statement_descriptor: nil,
         type: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -150,7 +151,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Direction < ModernTreasury::Enum
         abstract!
@@ -159,7 +161,8 @@ module ModernTreasury
         DEBIT = T.let(:debit, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class LedgerTransaction < ModernTreasury::BaseModel
@@ -236,7 +239,8 @@ module ModernTreasury
           ledgerable_type: nil,
           metadata: nil,
           status: nil
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -254,7 +258,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class LedgerEntry < ModernTreasury::BaseModel
           sig { returns(Integer) }
@@ -310,7 +315,8 @@ module ModernTreasury
             pending_balance_amount: nil,
             posted_balance_amount: nil,
             show_resulting_ledger_account_balances: nil
-          ); end
+          )
+          end
 
           sig do
             override.returns(
@@ -327,7 +333,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class LedgerableType < ModernTreasury::Enum
@@ -341,7 +348,8 @@ module ModernTreasury
           REVERSAL = :reversal
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Status < ModernTreasury::Enum
@@ -352,7 +360,8 @@ module ModernTreasury
           POSTED = :posted
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -380,7 +389,8 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String]
           ).void
         end
-        def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil); end
+        def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
+        end
 
         sig do
           override.returns(
@@ -392,7 +402,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

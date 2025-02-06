@@ -15,7 +15,8 @@ module ModernTreasury
       SAVINGS = :savings
 
       sig { override.returns(T::Array[Symbol]) }
-      def self.values; end
+      def self.values
+      end
     end
   end
 end

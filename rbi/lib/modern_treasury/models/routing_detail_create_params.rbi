@@ -47,7 +47,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class AccountsType < ModernTreasury::Enum
         abstract!
@@ -55,7 +56,8 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS = :external_accounts
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class RoutingNumberType < ModernTreasury::Enum
@@ -84,7 +86,8 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class PaymentType < ModernTreasury::Enum
@@ -122,7 +125,8 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

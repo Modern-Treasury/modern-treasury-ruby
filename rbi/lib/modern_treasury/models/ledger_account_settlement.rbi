@@ -93,7 +93,8 @@ module ModernTreasury
         settlement_entry_direction:,
         status:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -118,7 +119,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Status < ModernTreasury::Enum
         abstract!
@@ -131,7 +133,8 @@ module ModernTreasury
         PROCESSING = :processing
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

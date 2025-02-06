@@ -59,7 +59,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class PostedLedgerEntry < ModernTreasury::BaseModel
         sig { returns(Integer) }
@@ -85,7 +86,8 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String]
           ).void
         end
-        def initialize(amount:, direction:, ledger_account_id:, metadata: nil); end
+        def initialize(amount:, direction:, ledger_account_id:, metadata: nil)
+        end
 
         sig do
           override.returns(
@@ -97,7 +99,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class Direction < ModernTreasury::Enum
           abstract!
@@ -106,7 +109,8 @@ module ModernTreasury
           DEBIT = :debit
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
     end

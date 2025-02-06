@@ -103,7 +103,8 @@ module ModernTreasury
         updated_at:,
         verification_source:,
         verification_status:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -130,7 +131,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ContactDetail < ModernTreasury::BaseModel
         sig { returns(String) }
@@ -178,7 +180,8 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -194,7 +197,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class ContactIdentifierType < ModernTreasury::Enum
           abstract!
@@ -204,7 +208,8 @@ module ModernTreasury
           WEBSITE = :website
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -269,7 +274,8 @@ module ModernTreasury
           postal_code:,
           region:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -288,7 +294,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class PartyType < ModernTreasury::Enum
@@ -298,7 +305,8 @@ module ModernTreasury
         INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class VerificationSource < ModernTreasury::Enum
@@ -309,7 +317,8 @@ module ModernTreasury
         PLAID = T.let(:plaid, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class VerificationStatus < ModernTreasury::Enum
@@ -320,7 +329,8 @@ module ModernTreasury
         VERIFIED = :verified
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

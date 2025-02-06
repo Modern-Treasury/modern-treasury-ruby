@@ -103,7 +103,8 @@ module ModernTreasury
         reverses_ledger_transaction_id:,
         status:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -130,7 +131,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class LedgerableType < ModernTreasury::Enum
         abstract!
@@ -143,7 +145,8 @@ module ModernTreasury
         REVERSAL = T.let(:reversal, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -154,7 +157,8 @@ module ModernTreasury
         POSTED = :posted
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

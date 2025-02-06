@@ -86,7 +86,8 @@ module ModernTreasury
           transaction_id:,
           type:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -109,7 +110,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class TransactableType < ModernTreasury::Enum
           abstract!
@@ -122,7 +124,8 @@ module ModernTreasury
           REVERSAL = T.let(:reversal, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Type < ModernTreasury::Enum
@@ -132,7 +135,8 @@ module ModernTreasury
           RECEIVING = :receiving
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
     end

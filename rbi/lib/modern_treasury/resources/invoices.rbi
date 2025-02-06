@@ -63,7 +63,8 @@ module ModernTreasury
         remind_after_overdue_days: nil,
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -71,7 +72,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Invoice)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -132,7 +134,8 @@ module ModernTreasury
         status: nil,
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -163,7 +166,8 @@ module ModernTreasury
         per_page: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -172,10 +176,12 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).void
       end
-      def add_payment_order(payment_order_id, id:, request_options: {}); end
+      def add_payment_order(payment_order_id, id:, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

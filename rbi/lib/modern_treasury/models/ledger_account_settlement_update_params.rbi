@@ -29,7 +29,8 @@ module ModernTreasury
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
-      def initialize(description: nil, metadata: nil, status: nil, request_options: {}); end
+      def initialize(description: nil, metadata: nil, status: nil, request_options: {})
+      end
 
       sig do
         override.returns(
@@ -41,7 +42,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Status < ModernTreasury::Enum
         abstract!
@@ -50,7 +52,8 @@ module ModernTreasury
         ARCHIVED = :archived
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -83,7 +83,8 @@ module ModernTreasury
         object:,
         starting_balance:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -106,7 +107,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class EndingBalance < ModernTreasury::BaseModel
         sig do
@@ -131,7 +133,8 @@ module ModernTreasury
             posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
           ).void
         end
-        def initialize(available_balance:, pending_balance:, posted_balance:); end
+        def initialize(available_balance:, pending_balance:, posted_balance:)
+        end
 
         sig do
           override.returns(
@@ -140,7 +143,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class AvailableBalance < ModernTreasury::BaseModel
           sig { returns(Integer) }
@@ -167,7 +171,8 @@ module ModernTreasury
               debits: Integer
             ).void
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          end
 
           sig do
             override.returns(
@@ -180,7 +185,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class PendingBalance < ModernTreasury::BaseModel
@@ -208,7 +214,8 @@ module ModernTreasury
               debits: Integer
             ).void
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          end
 
           sig do
             override.returns(
@@ -221,7 +228,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class PostedBalance < ModernTreasury::BaseModel
@@ -249,7 +257,8 @@ module ModernTreasury
               debits: Integer
             ).void
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          end
 
           sig do
             override.returns(
@@ -262,7 +271,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
       end
 
@@ -289,7 +299,8 @@ module ModernTreasury
             posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
           ).void
         end
-        def initialize(available_balance:, pending_balance:, posted_balance:); end
+        def initialize(available_balance:, pending_balance:, posted_balance:)
+        end
 
         sig do
           override.returns(
@@ -298,7 +309,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class AvailableBalance < ModernTreasury::BaseModel
           sig { returns(Integer) }
@@ -325,7 +337,8 @@ module ModernTreasury
               debits: Integer
             ).void
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          end
 
           sig do
             override.returns(
@@ -338,7 +351,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class PendingBalance < ModernTreasury::BaseModel
@@ -366,7 +380,8 @@ module ModernTreasury
               debits: Integer
             ).void
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          end
 
           sig do
             override.returns(
@@ -379,7 +394,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class PostedBalance < ModernTreasury::BaseModel
@@ -407,7 +423,8 @@ module ModernTreasury
               debits: Integer
             ).void
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          end
 
           sig do
             override.returns(
@@ -420,7 +437,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
       end
     end

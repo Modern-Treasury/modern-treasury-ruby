@@ -18,7 +18,8 @@ module ModernTreasury
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
-      def initialize(balances: nil, request_options: {}); end
+      def initialize(balances: nil, request_options: {})
+      end
 
       sig do
         override.returns(
@@ -28,7 +29,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Date)) }
@@ -76,7 +78,8 @@ module ModernTreasury
           effective_at: nil,
           effective_at_lower_bound: nil,
           effective_at_upper_bound: nil
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -89,7 +92,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

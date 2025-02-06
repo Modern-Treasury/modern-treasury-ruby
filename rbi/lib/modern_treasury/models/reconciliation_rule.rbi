@@ -61,7 +61,8 @@ module ModernTreasury
         date_lower_bound: nil,
         date_upper_bound: nil,
         type: nil
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -79,7 +80,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Direction < ModernTreasury::Enum
         abstract!
@@ -88,7 +90,8 @@ module ModernTreasury
         DEBIT = :debit
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Type < ModernTreasury::Enum
@@ -126,7 +129,8 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

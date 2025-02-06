@@ -162,7 +162,8 @@ module ModernTreasury
         status: nil,
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -190,7 +191,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class LedgerableType < ModernTreasury::Enum
         abstract!
@@ -203,7 +205,8 @@ module ModernTreasury
         REVERSAL = :reversal
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class OrderBy < ModernTreasury::BaseModel
@@ -220,10 +223,12 @@ module ModernTreasury
         attr_writer :effective_at
 
         sig { params(created_at: Symbol, effective_at: Symbol).void }
-        def initialize(created_at: nil, effective_at: nil); end
+        def initialize(created_at: nil, effective_at: nil)
+        end
 
         sig { override.returns({created_at: Symbol, effective_at: Symbol}) }
-        def to_hash; end
+        def to_hash
+        end
 
         class CreatedAt < ModernTreasury::Enum
           abstract!
@@ -232,7 +237,8 @@ module ModernTreasury
           DESC = :desc
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class EffectiveAt < ModernTreasury::Enum
@@ -242,7 +248,8 @@ module ModernTreasury
           DESC = :desc
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -254,7 +261,8 @@ module ModernTreasury
         ARCHIVED = :archived
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -73,7 +73,8 @@ module ModernTreasury
         object:,
         updated_at:,
         variables:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -94,7 +95,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Conditions < ModernTreasury::BaseModel
         sig { returns(String) }
@@ -107,10 +109,12 @@ module ModernTreasury
         attr_accessor :value
 
         sig { params(field: String, operator: String, value: String).void }
-        def initialize(field:, operator:, value:); end
+        def initialize(field:, operator:, value:)
+        end
 
         sig { override.returns({field: String, operator: String, value: String}) }
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
@@ -136,7 +140,8 @@ module ModernTreasury
             status: T.nilable(String)
           ).void
         end
-        def initialize(description:, effective_at:, ledger_entries:, status:); end
+        def initialize(description:, effective_at:, ledger_entries:, status:)
+        end
 
         sig do
           override.returns(
@@ -148,7 +153,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class LedgerEntry < ModernTreasury::BaseModel
           sig { returns(String) }
@@ -161,10 +167,12 @@ module ModernTreasury
           attr_accessor :ledger_account_id
 
           sig { params(amount: String, direction: String, ledger_account_id: String).void }
-          def initialize(amount:, direction:, ledger_account_id:); end
+          def initialize(amount:, direction:, ledger_account_id:)
+          end
 
           sig { override.returns({amount: String, direction: String, ledger_account_id: String}) }
-          def to_hash; end
+          def to_hash
+          end
         end
       end
     end

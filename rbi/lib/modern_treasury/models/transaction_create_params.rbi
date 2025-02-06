@@ -69,7 +69,8 @@ module ModernTreasury
         type: nil,
         vendor_description: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -88,7 +89,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Type < ModernTreasury::Enum
         abstract!
@@ -126,7 +128,8 @@ module ModernTreasury
         OTHER = T.let(:other, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -90,7 +90,8 @@ module ModernTreasury
         parent_ledger_account_category_id: nil,
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -109,7 +110,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Time)) }
@@ -119,10 +121,12 @@ module ModernTreasury
         attr_writer :effective_at
 
         sig { params(effective_at: Time).void }
-        def initialize(effective_at: nil); end
+        def initialize(effective_at: nil)
+        end
 
         sig { override.returns({effective_at: Time}) }
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

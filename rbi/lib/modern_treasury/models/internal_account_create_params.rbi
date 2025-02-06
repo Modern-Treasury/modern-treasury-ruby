@@ -73,7 +73,8 @@ module ModernTreasury
         party_address: nil,
         vendor_attributes: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -91,7 +92,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Currency < ModernTreasury::Enum
         abstract!
@@ -100,7 +102,8 @@ module ModernTreasury
         CAD = :CAD
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class PartyAddress < ModernTreasury::BaseModel
@@ -135,7 +138,8 @@ module ModernTreasury
             line2: String
           ).void
         end
-        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil); end
+        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        end
 
         sig do
           override.returns(
@@ -149,7 +153,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

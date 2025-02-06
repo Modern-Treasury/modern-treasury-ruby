@@ -46,7 +46,8 @@ module ModernTreasury
         originating_account_id:,
         due_date: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -61,7 +62,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Direction < ModernTreasury::Enum
         abstract!
@@ -70,7 +72,8 @@ module ModernTreasury
         DEBIT = :debit
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

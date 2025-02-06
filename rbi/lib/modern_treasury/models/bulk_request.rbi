@@ -68,7 +68,8 @@ module ModernTreasury
         success_result_count:,
         total_resource_count:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -88,7 +89,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ActionType < ModernTreasury::Enum
         abstract!
@@ -98,7 +100,8 @@ module ModernTreasury
         DELETE = :delete
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ResourceType < ModernTreasury::Enum
@@ -110,7 +113,8 @@ module ModernTreasury
         EXPECTED_PAYMENT = :expected_payment
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -121,7 +125,8 @@ module ModernTreasury
         COMPLETED = :completed
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

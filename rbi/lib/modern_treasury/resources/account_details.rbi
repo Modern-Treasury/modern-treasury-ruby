@@ -23,7 +23,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::AccountDetail)
       end
-      def retrieve(id, accounts_type:, account_id:, request_options: {}); end
+      def retrieve(id, accounts_type:, account_id:, request_options: {})
+      end
 
       sig do
         params(
@@ -34,7 +35,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::AccountDetail])
       end
-      def list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {}); end
+      def list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -44,10 +46,12 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).void
       end
-      def delete(id, accounts_type:, account_id:, request_options: {}); end
+      def delete(id, accounts_type:, account_id:, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end
