@@ -19,7 +19,8 @@ module ModernTreasury
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
-      def initialize(routing_number:, routing_number_type:, request_options: {}); end
+      def initialize(routing_number:, routing_number_type:, request_options: {})
+      end
 
       sig do
         override.returns(
@@ -30,7 +31,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class RoutingNumberType < ModernTreasury::Enum
         abstract!
@@ -58,7 +60,8 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

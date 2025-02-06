@@ -56,7 +56,8 @@ module ModernTreasury
         routing_number_type: nil,
         sanctions: nil,
         supported_payment_types: nil
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -70,7 +71,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class BankAddress < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
@@ -116,7 +118,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class RoutingNumberType < ModernTreasury::Enum
@@ -132,7 +135,8 @@ module ModernTreasury
         SWIFT = :swift
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class SupportedPaymentType < ModernTreasury::Enum
@@ -170,7 +174,8 @@ module ModernTreasury
         ZENGIN = :zengin
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

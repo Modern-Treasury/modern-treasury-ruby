@@ -24,7 +24,8 @@ module ModernTreasury
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           ).void
         end
-        def initialize(amount:, expected_payment_id:, transaction_id:, request_options: {}); end
+        def initialize(amount:, expected_payment_id:, transaction_id:, request_options: {})
+        end
 
         sig do
           override.returns(
@@ -36,7 +37,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

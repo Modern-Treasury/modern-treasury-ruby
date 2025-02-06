@@ -53,7 +53,8 @@ module ModernTreasury
         vendor_customer_id:,
         vendor_id:,
         vendor_name:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -70,7 +71,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
     end
   end
 end

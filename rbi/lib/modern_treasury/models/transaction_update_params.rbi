@@ -18,12 +18,14 @@ module ModernTreasury
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
-      def initialize(metadata: nil, request_options: {}); end
+      def initialize(metadata: nil, request_options: {})
+      end
 
       sig do
         override.returns({metadata: T::Hash[Symbol, String], request_options: ModernTreasury::RequestOptions})
       end
-      def to_hash; end
+      def to_hash
+      end
     end
   end
 end

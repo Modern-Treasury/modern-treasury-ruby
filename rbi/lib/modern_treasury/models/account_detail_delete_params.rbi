@@ -19,7 +19,8 @@ module ModernTreasury
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
-      def initialize(accounts_type:, account_id:, request_options: {}); end
+      def initialize(accounts_type:, account_id:, request_options: {})
+      end
 
       sig do
         override.returns(
@@ -30,7 +31,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class AccountsType < ModernTreasury::Enum
         abstract!
@@ -38,7 +40,8 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS = :external_accounts
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

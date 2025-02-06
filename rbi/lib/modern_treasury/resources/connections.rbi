@@ -16,7 +16,8 @@ module ModernTreasury
       end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

@@ -146,7 +146,8 @@ module ModernTreasury
         transaction_id: nil,
         type: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -172,7 +173,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Priority < ModernTreasury::Enum
         abstract!
@@ -181,7 +183,8 @@ module ModernTreasury
         NORMAL = :normal
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -200,7 +203,8 @@ module ModernTreasury
         SENT = :sent
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Type < ModernTreasury::Enum
@@ -238,7 +242,8 @@ module ModernTreasury
         ZENGIN = :zengin
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

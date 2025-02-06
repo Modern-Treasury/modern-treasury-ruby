@@ -92,7 +92,8 @@ module ModernTreasury
         taxpayer_identifier: nil,
         verification_status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -112,7 +113,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Accounting < ModernTreasury::BaseModel
         sig { returns(T.nilable(Symbol)) }
@@ -122,10 +124,12 @@ module ModernTreasury
         attr_writer :type
 
         sig { params(type: Symbol).void }
-        def initialize(type: nil); end
+        def initialize(type: nil)
+        end
 
         sig { override.returns({type: Symbol}) }
-        def to_hash; end
+        def to_hash
+        end
 
         class Type < ModernTreasury::Enum
           abstract!
@@ -134,7 +138,8 @@ module ModernTreasury
           VENDOR = :vendor
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -256,7 +261,8 @@ module ModernTreasury
           party_type: nil,
           plaid_processor_token: nil,
           routing_details: nil
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -277,7 +283,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class AccountDetail < ModernTreasury::BaseModel
           sig { returns(String) }
@@ -290,10 +297,12 @@ module ModernTreasury
           attr_writer :account_number_type
 
           sig { params(account_number: String, account_number_type: Symbol).void }
-          def initialize(account_number:, account_number_type: nil); end
+          def initialize(account_number:, account_number_type: nil)
+          end
 
           sig { override.returns({account_number: String, account_number_type: Symbol}) }
-          def to_hash; end
+          def to_hash
+          end
 
           class AccountNumberType < ModernTreasury::Enum
             abstract!
@@ -310,7 +319,8 @@ module ModernTreasury
             WALLET_ADDRESS = :wallet_address
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -328,10 +338,12 @@ module ModernTreasury
           attr_writer :contact_identifier_type
 
           sig { params(contact_identifier: String, contact_identifier_type: Symbol).void }
-          def initialize(contact_identifier: nil, contact_identifier_type: nil); end
+          def initialize(contact_identifier: nil, contact_identifier_type: nil)
+          end
 
           sig { override.returns({contact_identifier: String, contact_identifier_type: Symbol}) }
-          def to_hash; end
+          def to_hash
+          end
 
           class ContactIdentifierType < ModernTreasury::Enum
             abstract!
@@ -341,7 +353,8 @@ module ModernTreasury
             WEBSITE = :website
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -413,7 +426,8 @@ module ModernTreasury
             ledgerable_id: nil,
             ledgerable_type: nil,
             metadata: nil
-          ); end
+          )
+          end
 
           sig do
             override.returns(
@@ -431,7 +445,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class LedgerableType < ModernTreasury::Enum
             abstract!
@@ -442,7 +457,8 @@ module ModernTreasury
             VIRTUAL_ACCOUNT = :virtual_account
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -490,7 +506,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class PartyType < ModernTreasury::Enum
@@ -500,7 +517,8 @@ module ModernTreasury
           INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class RoutingDetail < ModernTreasury::BaseModel
@@ -517,12 +535,14 @@ module ModernTreasury
           attr_writer :payment_type
 
           sig { params(routing_number: String, routing_number_type: Symbol, payment_type: Symbol).void }
-          def initialize(routing_number:, routing_number_type:, payment_type: nil); end
+          def initialize(routing_number:, routing_number_type:, payment_type: nil)
+          end
 
           sig do
             override.returns({routing_number: String, routing_number_type: Symbol, payment_type: Symbol})
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class RoutingNumberType < ModernTreasury::Enum
             abstract!
@@ -550,7 +570,8 @@ module ModernTreasury
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
 
           class PaymentType < ModernTreasury::Enum
@@ -588,7 +609,8 @@ module ModernTreasury
             ZENGIN = :zengin
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
       end
@@ -600,7 +622,8 @@ module ModernTreasury
         VENDOR = :vendor
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class LegalEntity < ModernTreasury::BaseModel
@@ -762,7 +785,8 @@ module ModernTreasury
           suffix: nil,
           wealth_and_employment_details: nil,
           website: nil
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -794,7 +818,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class LegalEntityType < ModernTreasury::Enum
           abstract!
@@ -803,7 +828,8 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Address < ModernTreasury::BaseModel
@@ -858,7 +884,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class AddressType < ModernTreasury::Enum
             abstract!
@@ -870,7 +897,8 @@ module ModernTreasury
             RESIDENTIAL = :residential
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -885,10 +913,12 @@ module ModernTreasury
           attr_accessor :issuing_country
 
           sig { params(id_number: String, id_type: Symbol, issuing_country: T.nilable(String)).void }
-          def initialize(id_number:, id_type:, issuing_country: nil); end
+          def initialize(id_number:, id_type:, issuing_country: nil)
+          end
 
           sig { override.returns({id_number: String, id_type: Symbol, issuing_country: T.nilable(String)}) }
-          def to_hash; end
+          def to_hash
+          end
 
           class IDType < ModernTreasury::Enum
             abstract!
@@ -916,7 +946,8 @@ module ModernTreasury
             VN_TIN = :vn_tin
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -963,7 +994,8 @@ module ModernTreasury
             child_legal_entity_id: nil,
             ownership_percentage: nil,
             title: nil
-          ); end
+          )
+          end
 
           sig do
             override.returns(
@@ -976,7 +1008,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class RelationshipType < ModernTreasury::Enum
             abstract!
@@ -985,7 +1018,8 @@ module ModernTreasury
             CONTROL_PERSON = :control_person
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
 
           class ChildLegalEntity < ModernTreasury::BaseModel
@@ -1145,7 +1179,8 @@ module ModernTreasury
               suffix: nil,
               wealth_and_employment_details: nil,
               website: nil
-            ); end
+            )
+            end
 
             sig do
               override.returns(
@@ -1177,7 +1212,8 @@ module ModernTreasury
                 }
               )
             end
-            def to_hash; end
+            def to_hash
+            end
 
             class Address < ModernTreasury::BaseModel
               sig { returns(T.nilable(String)) }
@@ -1239,7 +1275,8 @@ module ModernTreasury
                   }
                 )
               end
-              def to_hash; end
+              def to_hash
+              end
 
               class AddressType < ModernTreasury::Enum
                 abstract!
@@ -1251,7 +1288,8 @@ module ModernTreasury
                 RESIDENTIAL = :residential
 
                 sig { override.returns(T::Array[Symbol]) }
-                def self.values; end
+                def self.values
+                end
               end
             end
 
@@ -1266,12 +1304,14 @@ module ModernTreasury
               attr_accessor :issuing_country
 
               sig { params(id_number: String, id_type: Symbol, issuing_country: T.nilable(String)).void }
-              def initialize(id_number:, id_type:, issuing_country: nil); end
+              def initialize(id_number:, id_type:, issuing_country: nil)
+              end
 
               sig do
                 override.returns({id_number: String, id_type: Symbol, issuing_country: T.nilable(String)})
               end
-              def to_hash; end
+              def to_hash
+              end
 
               class IDType < ModernTreasury::Enum
                 abstract!
@@ -1299,7 +1339,8 @@ module ModernTreasury
                 VN_TIN = :vn_tin
 
                 sig { override.returns(T::Array[Symbol]) }
-                def self.values; end
+                def self.values
+                end
               end
             end
 
@@ -1310,7 +1351,8 @@ module ModernTreasury
               INDIVIDUAL = :individual
 
               sig { override.returns(T::Array[Symbol]) }
-              def self.values; end
+              def self.values
+              end
             end
 
             class LegalStructure < ModernTreasury::Enum
@@ -1324,7 +1366,8 @@ module ModernTreasury
               TRUST = T.let(:trust, T.nilable(Symbol))
 
               sig { override.returns(T::Array[Symbol]) }
-              def self.values; end
+              def self.values
+              end
             end
 
             class PhoneNumber < ModernTreasury::BaseModel
@@ -1335,10 +1378,12 @@ module ModernTreasury
               attr_writer :phone_number
 
               sig { params(phone_number: String).void }
-              def initialize(phone_number: nil); end
+              def initialize(phone_number: nil)
+              end
 
               sig { override.returns({phone_number: String}) }
-              def to_hash; end
+              def to_hash
+              end
             end
 
             class RiskRating < ModernTreasury::Enum
@@ -1349,7 +1394,8 @@ module ModernTreasury
               HIGH = T.let(:high, T.nilable(Symbol))
 
               sig { override.returns(T::Array[Symbol]) }
-              def self.values; end
+              def self.values
+              end
             end
           end
         end
@@ -1365,7 +1411,8 @@ module ModernTreasury
           TRUST = T.let(:trust, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class PhoneNumber < ModernTreasury::BaseModel
@@ -1376,10 +1423,12 @@ module ModernTreasury
           attr_writer :phone_number
 
           sig { params(phone_number: String).void }
-          def initialize(phone_number: nil); end
+          def initialize(phone_number: nil)
+          end
 
           sig { override.returns({phone_number: String}) }
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class RiskRating < ModernTreasury::Enum
@@ -1390,7 +1439,8 @@ module ModernTreasury
           HIGH = T.let(:high, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -1403,7 +1453,8 @@ module ModernTreasury
         VERIFIED = :verified
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

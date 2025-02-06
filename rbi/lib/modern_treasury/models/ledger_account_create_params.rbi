@@ -75,7 +75,8 @@ module ModernTreasury
         ledgerable_type: nil,
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -94,7 +95,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class LedgerableType < ModernTreasury::Enum
         abstract!
@@ -105,7 +107,8 @@ module ModernTreasury
         VIRTUAL_ACCOUNT = :virtual_account
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

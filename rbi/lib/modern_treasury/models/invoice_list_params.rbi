@@ -98,7 +98,8 @@ module ModernTreasury
         per_page: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -118,7 +119,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Status < ModernTreasury::Enum
         abstract!
@@ -131,7 +133,8 @@ module ModernTreasury
         VOIDED = :voided
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

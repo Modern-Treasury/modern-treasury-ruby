@@ -103,7 +103,8 @@ module ModernTreasury
         party_type:,
         routing_details:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -130,7 +131,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class AccountType < ModernTreasury::Enum
         abstract!
@@ -145,7 +147,8 @@ module ModernTreasury
         SAVINGS = T.let(:savings, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class PartyAddress < ModernTreasury::BaseModel
@@ -209,7 +212,8 @@ module ModernTreasury
           postal_code:,
           region:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -228,7 +232,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class PartyType < ModernTreasury::Enum
@@ -238,7 +243,8 @@ module ModernTreasury
         INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

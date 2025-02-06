@@ -58,7 +58,8 @@ module ModernTreasury
         wealth_and_employment_details: nil,
         website: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -66,7 +67,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LegalEntity)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -121,7 +123,8 @@ module ModernTreasury
         wealth_and_employment_details: nil,
         website: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -140,10 +143,12 @@ module ModernTreasury
         per_page: nil,
         show_deleted: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

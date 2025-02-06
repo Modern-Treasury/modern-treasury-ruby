@@ -32,7 +32,8 @@ module ModernTreasury
     MAX_REDIRECTS = 20
 
     sig { params(req: ModernTreasury::BaseClient::RequestShape).void }
-    def self.validate!(req); end
+    def self.validate!(req)
+    end
 
     # @private
     #
@@ -58,13 +59,16 @@ module ModernTreasury
       max_retry_delay: 0.0,
       headers: {},
       idempotency_header: nil
-    ); end
+    )
+    end
 
     sig { overridable.returns(T::Hash[String, String]) }
-    private def auth_headers; end
+    private def auth_headers
+    end
 
     sig { returns(String) }
-    private def generate_idempotency_key; end
+    private def generate_idempotency_key
+    end
 
     sig do
       params(
@@ -73,13 +77,16 @@ module ModernTreasury
                       T.anything]
       ).returns(ModernTreasury::BaseClient::NormalizedRequestShape)
     end
-    private def build_request(req, opts); end
+    private def build_request(req, opts)
+    end
 
     sig { params(status: Integer, headers: T::Hash[String, String]).returns(T::Boolean) }
-    private def should_retry?(status, headers:); end
+    private def should_retry?(status, headers:)
+    end
 
     sig { params(headers: T::Hash[String, String], retry_count: Integer).returns(Float) }
-    private def retry_delay(headers, retry_count:); end
+    private def retry_delay(headers, retry_count:)
+    end
 
     sig do
       params(
@@ -88,7 +95,8 @@ module ModernTreasury
         location_header: String
       ).returns(ModernTreasury::BaseClient::NormalizedRequestShape)
     end
-    private def follow_redirect(request, status:, location_header:); end
+    private def follow_redirect(request, status:, location_header:)
+    end
 
     sig do
       params(
@@ -98,10 +106,12 @@ module ModernTreasury
         send_retry_header: T::Boolean
       ).returns(Net::HTTPResponse)
     end
-    private def send_request(request, redirect_count:, retry_count:, send_retry_header:); end
+    private def send_request(request, redirect_count:, retry_count:, send_retry_header:)
+    end
 
     sig { params(req: ModernTreasury::BaseClient::RequestShape, response: NilClass).returns(T.anything) }
-    private def parse_response(req, response); end
+    private def parse_response(req, response)
+    end
 
     sig do
       params(
@@ -126,9 +136,11 @@ module ModernTreasury
       page: nil,
       model: ModernTreasury::Unknown,
       options: {}
-    ); end
+    )
+    end
 
     sig { returns(String) }
-    def inspect; end
+    def inspect
+    end
   end
 end

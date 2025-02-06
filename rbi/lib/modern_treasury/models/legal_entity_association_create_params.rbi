@@ -51,7 +51,8 @@ module ModernTreasury
         ownership_percentage: nil,
         title: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -66,7 +67,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class RelationshipType < ModernTreasury::Enum
         abstract!
@@ -75,7 +77,8 @@ module ModernTreasury
         CONTROL_PERSON = :control_person
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ChildLegalEntity < ModernTreasury::BaseModel
@@ -235,7 +238,8 @@ module ModernTreasury
           suffix: nil,
           wealth_and_employment_details: nil,
           website: nil
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -267,7 +271,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class Address < ModernTreasury::BaseModel
           sig { returns(T.nilable(String)) }
@@ -321,7 +326,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class AddressType < ModernTreasury::Enum
             abstract!
@@ -333,7 +339,8 @@ module ModernTreasury
             RESIDENTIAL = :residential
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -348,10 +355,12 @@ module ModernTreasury
           attr_accessor :issuing_country
 
           sig { params(id_number: String, id_type: Symbol, issuing_country: T.nilable(String)).void }
-          def initialize(id_number:, id_type:, issuing_country: nil); end
+          def initialize(id_number:, id_type:, issuing_country: nil)
+          end
 
           sig { override.returns({id_number: String, id_type: Symbol, issuing_country: T.nilable(String)}) }
-          def to_hash; end
+          def to_hash
+          end
 
           class IDType < ModernTreasury::Enum
             abstract!
@@ -379,7 +388,8 @@ module ModernTreasury
             VN_TIN = :vn_tin
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -390,7 +400,8 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class LegalStructure < ModernTreasury::Enum
@@ -404,7 +415,8 @@ module ModernTreasury
           TRUST = T.let(:trust, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class PhoneNumber < ModernTreasury::BaseModel
@@ -415,10 +427,12 @@ module ModernTreasury
           attr_writer :phone_number
 
           sig { params(phone_number: String).void }
-          def initialize(phone_number: nil); end
+          def initialize(phone_number: nil)
+          end
 
           sig { override.returns({phone_number: String}) }
-          def to_hash; end
+          def to_hash
+          end
         end
 
         class RiskRating < ModernTreasury::Enum
@@ -429,7 +443,8 @@ module ModernTreasury
           HIGH = T.let(:high, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
     end

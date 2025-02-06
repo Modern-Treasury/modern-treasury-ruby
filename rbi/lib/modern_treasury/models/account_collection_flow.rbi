@@ -87,7 +87,8 @@ module ModernTreasury
         receiving_countries: nil,
         status: nil,
         updated_at: nil
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -106,7 +107,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class PaymentType < ModernTreasury::Enum
         abstract!
@@ -115,7 +117,8 @@ module ModernTreasury
         WIRE = :wire
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ReceivingCountry < ModernTreasury::Enum
@@ -141,7 +144,8 @@ module ModernTreasury
         GBR = :GBR
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -153,7 +157,8 @@ module ModernTreasury
         PENDING = :pending
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -50,7 +50,8 @@ module ModernTreasury
         per_page: nil,
         show_deleted: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -64,7 +65,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class LegalEntityType < ModernTreasury::Enum
         abstract!
@@ -73,7 +75,8 @@ module ModernTreasury
         INDIVIDUAL = :individual
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -29,7 +29,8 @@ module ModernTreasury
         skip_settlement_ledger_transaction: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -37,7 +38,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -48,7 +50,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
-      def update(id, description: nil, metadata: nil, status: nil, request_options: {}); end
+      def update(id, description: nil, metadata: nil, status: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -77,10 +80,12 @@ module ModernTreasury
         settlement_entry_direction: nil,
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

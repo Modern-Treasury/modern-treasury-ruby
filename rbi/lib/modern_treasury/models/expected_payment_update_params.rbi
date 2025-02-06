@@ -101,7 +101,8 @@ module ModernTreasury
         status: nil,
         type: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -127,7 +128,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Direction < ModernTreasury::Enum
         abstract!
@@ -136,7 +138,8 @@ module ModernTreasury
         DEBIT = T.let(:debit, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -145,7 +148,8 @@ module ModernTreasury
         RECONCILED = T.let(:reconciled, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

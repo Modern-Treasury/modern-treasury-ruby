@@ -128,7 +128,8 @@ module ModernTreasury
     attr_reader :legal_entity_associations
 
     sig { returns(T::Hash[String, String]) }
-    private def auth_headers; end
+    private def auth_headers
+    end
 
     sig do
       params(
@@ -151,6 +152,7 @@ module ModernTreasury
       initial_retry_delay: DEFAULT_INITIAL_RETRY_DELAY,
       max_retry_delay: DEFAULT_MAX_RETRY_DELAY,
       idempotency_header: "Idempotency-Key"
-    ); end
+    )
+    end
   end
 end

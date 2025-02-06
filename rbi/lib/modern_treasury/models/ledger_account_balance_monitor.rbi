@@ -63,7 +63,8 @@ module ModernTreasury
         metadata:,
         object:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -82,7 +83,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class AlertCondition < ModernTreasury::BaseModel
         sig { returns(String) }
@@ -95,10 +97,12 @@ module ModernTreasury
         attr_accessor :value
 
         sig { params(field: String, operator: String, value: Integer).void }
-        def initialize(field:, operator:, value:); end
+        def initialize(field:, operator:, value:)
+        end
 
         sig { override.returns({field: String, operator: String, value: Integer}) }
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class CurrentLedgerAccountBalanceState < ModernTreasury::BaseModel
@@ -120,7 +124,8 @@ module ModernTreasury
             triggered: T::Boolean
           ).void
         end
-        def initialize(balances:, ledger_account_lock_version:, triggered:); end
+        def initialize(balances:, ledger_account_lock_version:, triggered:)
+        end
 
         sig do
           override.returns(
@@ -129,7 +134,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class Balances < ModernTreasury::BaseModel
           sig do
@@ -154,7 +160,8 @@ module ModernTreasury
               posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
             ).void
           end
-          def initialize(available_balance:, pending_balance:, posted_balance:); end
+          def initialize(available_balance:, pending_balance:, posted_balance:)
+          end
 
           sig do
             override.returns(
@@ -163,7 +170,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class AvailableBalance < ModernTreasury::BaseModel
             sig { returns(Integer) }
@@ -190,7 +198,8 @@ module ModernTreasury
                 debits: Integer
               ).void
             end
-            def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+            def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+            end
 
             sig do
               override.returns(
@@ -203,7 +212,8 @@ module ModernTreasury
                 }
               )
             end
-            def to_hash; end
+            def to_hash
+            end
           end
 
           class PendingBalance < ModernTreasury::BaseModel
@@ -231,7 +241,8 @@ module ModernTreasury
                 debits: Integer
               ).void
             end
-            def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+            def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+            end
 
             sig do
               override.returns(
@@ -244,7 +255,8 @@ module ModernTreasury
                 }
               )
             end
-            def to_hash; end
+            def to_hash
+            end
           end
 
           class PostedBalance < ModernTreasury::BaseModel
@@ -272,7 +284,8 @@ module ModernTreasury
                 debits: Integer
               ).void
             end
-            def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+            def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+            end
 
             sig do
               override.returns(
@@ -285,7 +298,8 @@ module ModernTreasury
                 }
               )
             end
-            def to_hash; end
+            def to_hash
+            end
           end
         end
       end

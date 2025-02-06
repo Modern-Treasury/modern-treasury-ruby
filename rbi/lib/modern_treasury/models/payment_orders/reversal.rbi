@@ -64,7 +64,8 @@ module ModernTreasury
           status:,
           transaction_ids:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -83,7 +84,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class Reason < ModernTreasury::Enum
           abstract!
@@ -95,7 +97,8 @@ module ModernTreasury
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Status < ModernTreasury::Enum
@@ -109,7 +112,8 @@ module ModernTreasury
           SENT = :sent
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
     end

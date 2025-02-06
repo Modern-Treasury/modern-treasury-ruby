@@ -65,7 +65,8 @@ module ModernTreasury
         type: nil,
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -82,7 +83,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Direction < ModernTreasury::Enum
         abstract!
@@ -91,7 +93,8 @@ module ModernTreasury
         DEBIT = :debit
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Type < ModernTreasury::Enum
@@ -108,7 +111,8 @@ module ModernTreasury
         WIRE = :wire
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end
