@@ -6,24 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            internal_account_id: String,
-            name: String,
-            account_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
-            counterparty_id: String,
-            credit_ledger_account_id: String,
-            debit_ledger_account_id: String,
-            description: String,
-            ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
-            metadata: T::Hash[Symbol, String],
-            routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(String) }
       attr_accessor :internal_account_id
 
@@ -94,7 +76,7 @@ module ModernTreasury
           ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
           metadata: T::Hash[Symbol, String],
           routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -111,12 +93,26 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::VirtualAccountCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            internal_account_id: String,
+            name: String,
+            account_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+            counterparty_id: String,
+            credit_ledger_account_id: String,
+            debit_ledger_account_id: String,
+            description: String,
+            ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+            metadata: T::Hash[Symbol, String],
+            routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class AccountDetail < ModernTreasury::BaseModel
-        Shape = T.type_alias { {account_number: String, account_number_type: Symbol} }
-
         sig { returns(String) }
         attr_accessor :account_number
 
@@ -129,8 +125,8 @@ module ModernTreasury
         sig { params(account_number: String, account_number_type: Symbol).void }
         def initialize(account_number:, account_number_type: nil); end
 
-        sig { returns(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::Shape) }
-        def to_h; end
+        sig { override.returns({account_number: String, account_number_type: Symbol}) }
+        def to_hash; end
 
         class AccountNumberType < ModernTreasury::Enum
           abstract!
@@ -152,21 +148,6 @@ module ModernTreasury
       end
 
       class LedgerAccount < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: Symbol,
-            currency_exponent: T.nilable(Integer),
-            description: T.nilable(String),
-            ledger_account_category_ids: T::Array[String],
-            ledgerable_id: String,
-            ledgerable_type: Symbol,
-            metadata: T::Hash[Symbol, String]
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :currency
 
@@ -236,8 +217,23 @@ module ModernTreasury
           metadata: nil
         ); end
 
-        sig { returns(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              currency: String,
+              ledger_id: String,
+              name: String,
+              normal_balance: Symbol,
+              currency_exponent: T.nilable(Integer),
+              description: T.nilable(String),
+              ledger_account_category_ids: T::Array[String],
+              ledgerable_id: String,
+              ledgerable_type: Symbol,
+              metadata: T::Hash[Symbol, String]
+            }
+          )
+        end
+        def to_hash; end
 
         class LedgerableType < ModernTreasury::Enum
           abstract!
@@ -253,10 +249,6 @@ module ModernTreasury
       end
 
       class RoutingDetail < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {routing_number: String, routing_number_type: Symbol, payment_type: T.nilable(Symbol)}
-        end
-
         sig { returns(String) }
         attr_accessor :routing_number
 
@@ -271,8 +263,16 @@ module ModernTreasury
         end
         def initialize(routing_number:, routing_number_type:, payment_type: nil); end
 
-        sig { returns(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              routing_number: String,
+              routing_number_type: Symbol,
+              payment_type: T.nilable(Symbol)
+            }
+          )
+        end
+        def to_hash; end
 
         class RoutingNumberType < ModernTreasury::Enum
           abstract!

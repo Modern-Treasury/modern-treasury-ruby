@@ -62,7 +62,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::transaction_create_params
+      def to_hash: -> ModernTreasury::Models::transaction_create_params
 
       type type_ =
         :ach

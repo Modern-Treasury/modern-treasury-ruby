@@ -49,7 +49,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::payment_reference
+      def to_hash: -> ModernTreasury::Models::payment_reference
 
       type reference_number_type =
         :ach_original_trace_number

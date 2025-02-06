@@ -3,23 +3,6 @@
 module ModernTreasury
   module Models
     class BulkRequest < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          action_type: Symbol,
-          created_at: Time,
-          failed_result_count: Integer,
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          object: String,
-          resource_type: Symbol,
-          status: Symbol,
-          success_result_count: Integer,
-          total_resource_count: Integer,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -87,8 +70,25 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::BulkRequest::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            action_type: Symbol,
+            created_at: Time,
+            failed_result_count: Integer,
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            resource_type: Symbol,
+            status: Symbol,
+            success_result_count: Integer,
+            total_resource_count: Integer,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class ActionType < ModernTreasury::Enum
         abstract!

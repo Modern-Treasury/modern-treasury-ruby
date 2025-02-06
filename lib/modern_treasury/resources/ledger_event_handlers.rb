@@ -22,7 +22,7 @@ module ModernTreasury
       #
       #   @option params [Hash{Symbol=>ModernTreasury::Models::LedgerEventHandlerVariable}, nil] :variables
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #
@@ -43,7 +43,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::LedgerEventHandlerRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #
@@ -74,7 +74,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
       #
@@ -96,7 +96,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::LedgerEventHandlerDeleteParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
       #

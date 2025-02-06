@@ -9,7 +9,7 @@ module ModernTreasury
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
         def create(amount:, expected_payment_id:, transaction_id:, request_options: {}); end
@@ -17,7 +17,7 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
         def retrieve(id, request_options: {}); end
@@ -29,7 +29,7 @@ module ModernTreasury
             per_page: Integer,
             transaction_id: String,
             type: T.nilable(Symbol),
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem])
         end
         def list(
@@ -42,7 +42,12 @@ module ModernTreasury
         )
         end
 
-        sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
+        sig do
+          params(
+            id: String,
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          ).void
+        end
         def delete(id, request_options: {}); end
 
         sig { params(client: ModernTreasury::Client).void }

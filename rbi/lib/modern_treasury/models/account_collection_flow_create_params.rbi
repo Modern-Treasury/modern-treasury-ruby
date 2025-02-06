@@ -6,13 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {counterparty_id: String, payment_types: T::Array[String], receiving_countries: T::Array[Symbol]},
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(String) }
       attr_accessor :counterparty_id
 
@@ -30,13 +23,22 @@ module ModernTreasury
           counterparty_id: String,
           payment_types: T::Array[String],
           receiving_countries: T::Array[Symbol],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::AccountCollectionFlowCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            counterparty_id: String,
+            payment_types: T::Array[String],
+            receiving_countries: T::Array[Symbol],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class ReceivingCountry < ModernTreasury::Enum
         abstract!

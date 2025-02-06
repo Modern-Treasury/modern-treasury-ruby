@@ -6,19 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            after_cursor: T.nilable(String),
-            deposit_date_end: Date,
-            deposit_date_start: Date,
-            lockbox_number: String,
-            per_page: Integer
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -53,7 +40,7 @@ module ModernTreasury
           deposit_date_start: Date,
           lockbox_number: String,
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -65,8 +52,19 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::PaperItemListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            deposit_date_end: Date,
+            deposit_date_start: Date,
+            lockbox_number: String,
+            per_page: Integer,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

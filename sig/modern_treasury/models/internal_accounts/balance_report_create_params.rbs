@@ -35,7 +35,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::InternalAccounts::balance_report_create_params
+        def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report_create_params
 
         type balance_report_type =
           :intraday | :other | :previous_day | :real_time
@@ -78,7 +78,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance
+          def to_hash: -> ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance
 
           type balance_type =
             :closing_available

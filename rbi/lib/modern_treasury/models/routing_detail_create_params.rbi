@@ -6,18 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            accounts_type: Symbol,
-            routing_number: String,
-            routing_number_type: Symbol,
-            payment_type: T.nilable(Symbol)
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(Symbol) }
       attr_accessor :accounts_type
 
@@ -36,7 +24,7 @@ module ModernTreasury
           routing_number: String,
           routing_number_type: Symbol,
           payment_type: T.nilable(Symbol),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -48,8 +36,18 @@ module ModernTreasury
       )
       end
 
-      sig { returns(ModernTreasury::Models::RoutingDetailCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            accounts_type: Symbol,
+            routing_number: String,
+            routing_number_type: Symbol,
+            payment_type: T.nilable(Symbol),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class AccountsType < ModernTreasury::Enum
         abstract!

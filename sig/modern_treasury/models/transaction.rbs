@@ -114,7 +114,7 @@ module ModernTreasury
           ?ModernTreasury::Models::transaction | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::transaction
+      def to_hash: -> ModernTreasury::Models::transaction
 
       type foreign_exchange_rate =
         {
@@ -157,7 +157,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Transaction::foreign_exchange_rate
+        def to_hash: -> ModernTreasury::Models::Transaction::foreign_exchange_rate
       end
 
       type type_ =

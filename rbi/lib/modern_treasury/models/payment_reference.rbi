@@ -3,20 +3,6 @@
 module ModernTreasury
   module Models
     class PaymentReference < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          created_at: Time,
-          live_mode: T::Boolean,
-          object: String,
-          reference_number: String,
-          reference_number_type: Symbol,
-          referenceable_id: String,
-          referenceable_type: Symbol,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -69,8 +55,22 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::PaymentReference::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            live_mode: T::Boolean,
+            object: String,
+            reference_number: String,
+            reference_number_type: Symbol,
+            referenceable_id: String,
+            referenceable_type: Symbol,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class ReferenceNumberType < ModernTreasury::Enum
         abstract!

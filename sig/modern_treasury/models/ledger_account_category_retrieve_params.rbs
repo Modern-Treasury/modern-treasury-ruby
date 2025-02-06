@@ -26,7 +26,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_category_retrieve_params
+      def to_hash: -> ModernTreasury::Models::ledger_account_category_retrieve_params
 
       type balances = { as_of_date: Date, effective_at: Time }
 
@@ -46,7 +46,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::balances
+        def to_hash: -> ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::balances
       end
     end
   end

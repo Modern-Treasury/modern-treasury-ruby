@@ -6,27 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            counterparty_id: T.nilable(String),
-            account_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
-            account_type: Symbol,
-            contact_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
-            ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-            metadata: T::Hash[Symbol, String],
-            name: T.nilable(String),
-            party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
-            party_identifier: String,
-            party_name: String,
-            party_type: T.nilable(Symbol),
-            plaid_processor_token: String,
-            routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_accessor :counterparty_id
 
@@ -117,7 +96,7 @@ module ModernTreasury
           party_type: T.nilable(Symbol),
           plaid_processor_token: String,
           routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -137,12 +116,29 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::ExternalAccountCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            counterparty_id: T.nilable(String),
+            account_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+            account_type: Symbol,
+            contact_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
+            ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+            metadata: T::Hash[Symbol, String],
+            name: T.nilable(String),
+            party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+            party_identifier: String,
+            party_name: String,
+            party_type: T.nilable(Symbol),
+            plaid_processor_token: String,
+            routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class AccountDetail < ModernTreasury::BaseModel
-        Shape = T.type_alias { {account_number: String, account_number_type: Symbol} }
-
         sig { returns(String) }
         attr_accessor :account_number
 
@@ -155,8 +151,8 @@ module ModernTreasury
         sig { params(account_number: String, account_number_type: Symbol).void }
         def initialize(account_number:, account_number_type: nil); end
 
-        sig { returns(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::Shape) }
-        def to_h; end
+        sig { override.returns({account_number: String, account_number_type: Symbol}) }
+        def to_hash; end
 
         class AccountNumberType < ModernTreasury::Enum
           abstract!
@@ -178,8 +174,6 @@ module ModernTreasury
       end
 
       class ContactDetail < ModernTreasury::BaseModel
-        Shape = T.type_alias { {contact_identifier: String, contact_identifier_type: Symbol} }
-
         sig { returns(T.nilable(String)) }
         attr_reader :contact_identifier
 
@@ -195,8 +189,8 @@ module ModernTreasury
         sig { params(contact_identifier: String, contact_identifier_type: Symbol).void }
         def initialize(contact_identifier: nil, contact_identifier_type: nil); end
 
-        sig { returns(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::Shape) }
-        def to_h; end
+        sig { override.returns({contact_identifier: String, contact_identifier_type: Symbol}) }
+        def to_hash; end
 
         class ContactIdentifierType < ModernTreasury::Enum
           abstract!
@@ -211,21 +205,6 @@ module ModernTreasury
       end
 
       class LedgerAccount < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: Symbol,
-            currency_exponent: T.nilable(Integer),
-            description: T.nilable(String),
-            ledger_account_category_ids: T::Array[String],
-            ledgerable_id: String,
-            ledgerable_type: Symbol,
-            metadata: T::Hash[Symbol, String]
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :currency
 
@@ -295,8 +274,23 @@ module ModernTreasury
           metadata: nil
         ); end
 
-        sig { returns(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              currency: String,
+              ledger_id: String,
+              name: String,
+              normal_balance: Symbol,
+              currency_exponent: T.nilable(Integer),
+              description: T.nilable(String),
+              ledger_account_category_ids: T::Array[String],
+              ledgerable_id: String,
+              ledgerable_type: Symbol,
+              metadata: T::Hash[Symbol, String]
+            }
+          )
+        end
+        def to_hash; end
 
         class LedgerableType < ModernTreasury::Enum
           abstract!
@@ -312,17 +306,6 @@ module ModernTreasury
       end
 
       class PartyAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            country: T.nilable(String),
-            line1: T.nilable(String),
-            line2: T.nilable(String),
-            locality: T.nilable(String),
-            postal_code: T.nilable(String),
-            region: T.nilable(String)
-          }
-        end
-
         sig { returns(T.nilable(String)) }
         attr_accessor :country
 
@@ -354,8 +337,19 @@ module ModernTreasury
         def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         end
 
-        sig { returns(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              country: T.nilable(String),
+              line1: T.nilable(String),
+              line2: T.nilable(String),
+              locality: T.nilable(String),
+              postal_code: T.nilable(String),
+              region: T.nilable(String)
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class PartyType < ModernTreasury::Enum
@@ -369,8 +363,6 @@ module ModernTreasury
       end
 
       class RoutingDetail < ModernTreasury::BaseModel
-        Shape = T.type_alias { {routing_number: String, routing_number_type: Symbol, payment_type: Symbol} }
-
         sig { returns(String) }
         attr_accessor :routing_number
 
@@ -386,8 +378,8 @@ module ModernTreasury
         sig { params(routing_number: String, routing_number_type: Symbol, payment_type: Symbol).void }
         def initialize(routing_number:, routing_number_type:, payment_type: nil); end
 
-        sig { returns(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::Shape) }
-        def to_h; end
+        sig { override.returns({routing_number: String, routing_number_type: Symbol, payment_type: Symbol}) }
+        def to_hash; end
 
         class RoutingNumberType < ModernTreasury::Enum
           abstract!

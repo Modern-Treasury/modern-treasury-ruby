@@ -6,22 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            amount: Integer,
-            as_of_date: T.nilable(Date),
-            currency: T.nilable(Symbol),
-            description: T.nilable(String),
-            direction: Symbol,
-            internal_account_id: String,
-            type: Symbol,
-            virtual_account_id: T.nilable(String)
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(Integer)) }
       attr_reader :amount
 
@@ -68,7 +52,7 @@ module ModernTreasury
           internal_account_id: String,
           type: Symbol,
           virtual_account_id: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -83,8 +67,22 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            amount: Integer,
+            as_of_date: T.nilable(Date),
+            currency: T.nilable(Symbol),
+            description: T.nilable(String),
+            direction: Symbol,
+            internal_account_id: String,
+            type: Symbol,
+            virtual_account_id: T.nilable(String),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Direction < ModernTreasury::Enum
         abstract!

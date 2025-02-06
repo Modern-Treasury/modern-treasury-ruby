@@ -54,7 +54,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::return_list_params
+      def to_hash: -> ModernTreasury::Models::return_list_params
 
       type returnable_type =
         :incoming_payment_detail

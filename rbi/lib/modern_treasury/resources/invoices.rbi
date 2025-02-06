@@ -33,7 +33,7 @@ module ModernTreasury
           recipient_name: T.nilable(String),
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           virtual_account_id: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Invoice)
       end
       def create(
@@ -68,7 +68,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Invoice)
       end
       def retrieve(id, request_options: {}); end
@@ -101,7 +101,7 @@ module ModernTreasury
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: String,
           virtual_account_id: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Invoice)
       end
       def update(
@@ -147,7 +147,7 @@ module ModernTreasury
           payment_order_id: String,
           per_page: Integer,
           status: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Invoice])
       end
       def list(
@@ -165,7 +165,13 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { params(payment_order_id: String, id: String, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          payment_order_id: String,
+          id: String,
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+        ).void
+      end
       def add_payment_order(payment_order_id, id:, request_options: {}); end
 
       sig { params(client: ModernTreasury::Client).void }

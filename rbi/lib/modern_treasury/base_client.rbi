@@ -14,13 +14,7 @@ module ModernTreasury
         unwrap: T.nilable(Symbol),
         page: T.nilable(T::Class[ModernTreasury::BaseModel]),
         model: T.nilable(ModernTreasury::Converter::Input),
-        options: T.nilable(
-          T.any(
-            ModernTreasury::RequestOptions,
-            ModernTreasury::RequestOptions::Shape,
-            T::Hash[Symbol, T.anything]
-          )
-        )
+        options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
       }
     end
 
@@ -75,7 +69,8 @@ module ModernTreasury
     sig do
       params(
         req: ModernTreasury::BaseClient::RequestShape,
-        opts: ModernTreasury::RequestOptions::Shape
+        opts: T::Hash[Symbol,
+                      T.anything]
       ).returns(ModernTreasury::BaseClient::NormalizedRequestShape)
     end
     private def build_request(req, opts); end
@@ -118,13 +113,7 @@ module ModernTreasury
         unwrap: T.nilable(Symbol),
         page: T.nilable(T::Class[ModernTreasury::BaseModel]),
         model: T.nilable(ModernTreasury::Converter::Input),
-        options: T.nilable(
-          T.any(
-            ModernTreasury::RequestOptions,
-            ModernTreasury::RequestOptions::Shape,
-            T::Hash[Symbol, T.anything]
-          )
-        )
+        options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
       ).returns(T.anything)
     end
     def request(

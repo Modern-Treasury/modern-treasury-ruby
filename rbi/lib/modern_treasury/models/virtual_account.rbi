@@ -3,27 +3,6 @@
 module ModernTreasury
   module Models
     class VirtualAccount < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          account_details: T::Array[ModernTreasury::Models::AccountDetail],
-          counterparty_id: T.nilable(String),
-          created_at: Time,
-          credit_ledger_account_id: T.nilable(String),
-          debit_ledger_account_id: T.nilable(String),
-          description: T.nilable(String),
-          discarded_at: T.nilable(Time),
-          internal_account_id: String,
-          ledger_account_id: T.nilable(String),
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          name: String,
-          object: String,
-          routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -111,8 +90,29 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::VirtualAccount::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            account_details: T::Array[ModernTreasury::Models::AccountDetail],
+            counterparty_id: T.nilable(String),
+            created_at: Time,
+            credit_ledger_account_id: T.nilable(String),
+            debit_ledger_account_id: T.nilable(String),
+            description: T.nilable(String),
+            discarded_at: T.nilable(Time),
+            internal_account_id: String,
+            ledger_account_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            name: String,
+            object: String,
+            routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

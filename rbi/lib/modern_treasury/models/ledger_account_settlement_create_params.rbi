@@ -6,22 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            contra_ledger_account_id: String,
-            settled_ledger_account_id: String,
-            allow_either_direction: T.nilable(T::Boolean),
-            description: T.nilable(String),
-            effective_at_upper_bound: T.nilable(Time),
-            metadata: T::Hash[Symbol, String],
-            skip_settlement_ledger_transaction: T.nilable(T::Boolean),
-            status: T.nilable(Symbol)
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(String) }
       attr_accessor :contra_ledger_account_id
 
@@ -59,7 +43,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
           status: T.nilable(Symbol),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -74,8 +58,22 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            contra_ledger_account_id: String,
+            settled_ledger_account_id: String,
+            allow_either_direction: T.nilable(T::Boolean),
+            description: T.nilable(String),
+            effective_at_upper_bound: T.nilable(Time),
+            metadata: T::Hash[Symbol, String],
+            skip_settlement_ledger_transaction: T.nilable(T::Boolean),
+            status: T.nilable(Symbol),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Status < ModernTreasury::Enum
         abstract!

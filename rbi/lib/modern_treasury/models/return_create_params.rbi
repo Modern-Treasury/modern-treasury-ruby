@@ -6,20 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            returnable_id: T.nilable(String),
-            returnable_type: Symbol,
-            additional_information: T.nilable(String),
-            code: T.nilable(Symbol),
-            date_of_death: T.nilable(Date),
-            reason: T.nilable(String)
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_accessor :returnable_id
 
@@ -46,7 +32,7 @@ module ModernTreasury
           code: T.nilable(Symbol),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -59,8 +45,20 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::ReturnCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            returnable_id: T.nilable(String),
+            returnable_type: Symbol,
+            additional_information: T.nilable(String),
+            code: T.nilable(Symbol),
+            date_of_death: T.nilable(Date),
+            reason: T.nilable(String),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class ReturnableType < ModernTreasury::Enum
         abstract!

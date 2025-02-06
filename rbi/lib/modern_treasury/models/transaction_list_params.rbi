@@ -6,28 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            after_cursor: T.nilable(String),
-            as_of_date_end: Date,
-            as_of_date_start: Date,
-            counterparty_id: String,
-            description: String,
-            direction: String,
-            internal_account_id: String,
-            metadata: T::Hash[Symbol, String],
-            payment_type: String,
-            per_page: Integer,
-            posted: T::Boolean,
-            transactable_type: String,
-            vendor_id: String,
-            virtual_account_id: String
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -125,7 +103,7 @@ module ModernTreasury
           transactable_type: String,
           vendor_id: String,
           virtual_account_id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -146,8 +124,28 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::TransactionListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            as_of_date_end: Date,
+            as_of_date_start: Date,
+            counterparty_id: String,
+            description: String,
+            direction: String,
+            internal_account_id: String,
+            metadata: T::Hash[Symbol, String],
+            payment_type: String,
+            per_page: Integer,
+            posted: T::Boolean,
+            transactable_type: String,
+            vendor_id: String,
+            virtual_account_id: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

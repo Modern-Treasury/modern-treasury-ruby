@@ -6,19 +6,22 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias { T.all({status: Symbol}, ModernTreasury::RequestParameters::Shape) }
-
       sig { returns(T.nilable(Symbol)) }
       attr_reader :status
 
       sig { params(status: Symbol).void }
       attr_writer :status
 
-      sig { params(status: Symbol, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          status: Symbol,
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+        ).void
+      end
       def initialize(status: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Shape) }
-      def to_h; end
+      sig { override.returns({status: Symbol, request_options: ModernTreasury::RequestOptions}) }
+      def to_hash; end
 
       class Status < ModernTreasury::Enum
         abstract!

@@ -80,7 +80,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::virtual_account_create_params
+      def to_hash: -> ModernTreasury::Models::virtual_account_create_params
 
       type account_detail =
         {
@@ -107,7 +107,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::VirtualAccountCreateParams::account_detail
+        def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::account_detail
 
         type account_number_type =
           :au_number
@@ -200,7 +200,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::VirtualAccountCreateParams::ledger_account
+        def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::ledger_account
 
         type ledgerable_type =
           :counterparty
@@ -243,7 +243,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::VirtualAccountCreateParams::routing_detail
+        def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::routing_detail
 
         type routing_number_type =
           :aba

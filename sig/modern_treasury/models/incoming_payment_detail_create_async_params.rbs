@@ -62,7 +62,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::incoming_payment_detail_create_async_params
+      def to_hash: -> ModernTreasury::Models::incoming_payment_detail_create_async_params
 
       type direction = :credit | :debit
 

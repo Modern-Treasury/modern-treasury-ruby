@@ -6,7 +6,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::PaymentReference)
       end
       def retrieve(id, request_options: {}); end
@@ -18,7 +18,7 @@ module ModernTreasury
           reference_number: String,
           referenceable_id: String,
           referenceable_type: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::PaymentReference])
       end
       def list(
@@ -33,7 +33,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::PaymentReference)
       end
       def retireve(id, request_options: {}); end

@@ -48,7 +48,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::legal_entity_list_params
+      def to_hash: -> ModernTreasury::Models::legal_entity_list_params
 
       type legal_entity_type = :business | :individual
 

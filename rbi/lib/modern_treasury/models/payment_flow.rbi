@@ -3,30 +3,6 @@
 module ModernTreasury
   module Models
     class PaymentFlow < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          amount: Integer,
-          client_token: String,
-          counterparty_id: T.nilable(String),
-          created_at: Time,
-          currency: String,
-          direction: Symbol,
-          due_date: T.nilable(Date),
-          effective_date_selection_enabled: T::Boolean,
-          existing_external_accounts_filter: T.nilable(Symbol),
-          external_account_collection: Symbol,
-          live_mode: T::Boolean,
-          object: String,
-          originating_account_id: T.nilable(String),
-          payment_order_id: T.nilable(String),
-          receiving_account_id: T.nilable(String),
-          selected_effective_date: T.nilable(Date),
-          status: Symbol,
-          updated_at: Time
-        }
-      end
-
       sig { returns(T.nilable(String)) }
       attr_reader :id
 
@@ -165,8 +141,32 @@ module ModernTreasury
         updated_at: nil
       ); end
 
-      sig { returns(ModernTreasury::Models::PaymentFlow::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            amount: Integer,
+            client_token: String,
+            counterparty_id: T.nilable(String),
+            created_at: Time,
+            currency: String,
+            direction: Symbol,
+            due_date: T.nilable(Date),
+            effective_date_selection_enabled: T::Boolean,
+            existing_external_accounts_filter: T.nilable(Symbol),
+            external_account_collection: Symbol,
+            live_mode: T::Boolean,
+            object: String,
+            originating_account_id: T.nilable(String),
+            payment_order_id: T.nilable(String),
+            receiving_account_id: T.nilable(String),
+            selected_effective_date: T.nilable(Date),
+            status: Symbol,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class Direction < ModernTreasury::Enum
         abstract!

@@ -22,7 +22,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::account_collection_flow_update_params
+      def to_hash: -> ModernTreasury::Models::account_collection_flow_update_params
 
       type status = :cancelled
 

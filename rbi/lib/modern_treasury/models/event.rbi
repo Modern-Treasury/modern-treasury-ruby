@@ -3,21 +3,6 @@
 module ModernTreasury
   module Models
     class Event < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          created_at: Time,
-          data: T::Hash[Symbol, T.anything],
-          entity_id: String,
-          event_name: String,
-          event_time: Time,
-          live_mode: T::Boolean,
-          object: String,
-          resource: String,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -76,8 +61,23 @@ module ModernTreasury
       )
       end
 
-      sig { returns(ModernTreasury::Models::Event::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            data: T::Hash[Symbol, T.anything],
+            entity_id: String,
+            event_name: String,
+            event_time: Time,
+            live_mode: T::Boolean,
+            object: String,
+            resource: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

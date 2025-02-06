@@ -6,23 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            connection_id: String,
-            currency: Symbol,
-            name: String,
-            party_name: String,
-            counterparty_id: String,
-            legal_entity_id: String,
-            parent_account_id: String,
-            party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-            vendor_attributes: T::Hash[Symbol, String]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(String) }
       attr_accessor :connection_id
 
@@ -76,7 +59,7 @@ module ModernTreasury
           parent_account_id: String,
           party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -92,8 +75,23 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::InternalAccountCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            connection_id: String,
+            currency: Symbol,
+            name: String,
+            party_name: String,
+            counterparty_id: String,
+            legal_entity_id: String,
+            parent_account_id: String,
+            party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+            vendor_attributes: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Currency < ModernTreasury::Enum
         abstract!
@@ -106,17 +104,6 @@ module ModernTreasury
       end
 
       class PartyAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            country: String,
-            line1: String,
-            locality: String,
-            postal_code: String,
-            region: String,
-            line2: String
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :country
 
@@ -150,8 +137,19 @@ module ModernTreasury
         end
         def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil); end
 
-        sig { returns(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              locality: String,
+              postal_code: String,
+              region: String,
+              line2: String
+            }
+          )
+        end
+        def to_hash; end
       end
     end
   end

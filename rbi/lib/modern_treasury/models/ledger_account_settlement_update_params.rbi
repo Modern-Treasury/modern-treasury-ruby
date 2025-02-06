@@ -6,13 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {description: T.nilable(String), metadata: T::Hash[Symbol, String], status: Symbol},
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_accessor :description
 
@@ -33,13 +26,22 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           status: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(description: nil, metadata: nil, status: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            description: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            status: Symbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Status < ModernTreasury::Enum
         abstract!

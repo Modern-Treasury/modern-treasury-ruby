@@ -48,7 +48,7 @@ module ModernTreasury
           ?ModernTreasury::Models::connection | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::connection
+      def to_hash: -> ModernTreasury::Models::connection
     end
   end
 end

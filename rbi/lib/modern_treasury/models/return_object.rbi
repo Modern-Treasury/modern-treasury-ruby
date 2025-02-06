@@ -3,34 +3,6 @@
 module ModernTreasury
   module Models
     class ReturnObject < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          amount: Integer,
-          code: T.nilable(Symbol),
-          created_at: Time,
-          currency: Symbol,
-          current_return: T.nilable(ModernTreasury::Models::ReturnObject),
-          date_of_death: T.nilable(Date),
-          failure_reason: T.nilable(String),
-          internal_account_id: T.nilable(String),
-          ledger_transaction_id: T.nilable(String),
-          live_mode: T::Boolean,
-          object: String,
-          reason: T.nilable(String),
-          reference_numbers: T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
-          returnable_id: T.nilable(String),
-          returnable_type: T.nilable(Symbol),
-          role: Symbol,
-          status: Symbol,
-          transaction_id: T.nilable(String),
-          transaction_line_item_id: T.nilable(String),
-          type: Symbol,
-          updated_at: Time,
-          additional_information: T.nilable(String)
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -153,8 +125,36 @@ module ModernTreasury
         additional_information: nil
       ); end
 
-      sig { returns(ModernTreasury::Models::ReturnObject::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            amount: Integer,
+            code: T.nilable(Symbol),
+            created_at: Time,
+            currency: Symbol,
+            current_return: T.nilable(ModernTreasury::Models::ReturnObject),
+            date_of_death: T.nilable(Date),
+            failure_reason: T.nilable(String),
+            internal_account_id: T.nilable(String),
+            ledger_transaction_id: T.nilable(String),
+            live_mode: T::Boolean,
+            object: String,
+            reason: T.nilable(String),
+            reference_numbers: T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
+            returnable_id: T.nilable(String),
+            returnable_type: T.nilable(Symbol),
+            role: Symbol,
+            status: Symbol,
+            transaction_id: T.nilable(String),
+            transaction_line_item_id: T.nilable(String),
+            type: Symbol,
+            updated_at: Time,
+            additional_information: T.nilable(String)
+          }
+        )
+      end
+      def to_hash; end
 
       class Code < ModernTreasury::Enum
         abstract!
@@ -218,18 +218,6 @@ module ModernTreasury
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            id: String,
-            created_at: Time,
-            live_mode: T::Boolean,
-            object: String,
-            reference_number: String,
-            reference_number_type: Symbol,
-            updated_at: Time
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :id
 
@@ -273,8 +261,20 @@ module ModernTreasury
         )
         end
 
-        sig { returns(ModernTreasury::Models::ReturnObject::ReferenceNumber::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              live_mode: T::Boolean,
+              object: String,
+              reference_number: String,
+              reference_number_type: Symbol,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
 
         class ReferenceNumberType < ModernTreasury::Enum
           abstract!

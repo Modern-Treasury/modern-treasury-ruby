@@ -9,7 +9,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::IncomingPaymentDetailRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       #
@@ -31,7 +31,7 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
       #     an empty string or `null` as the value.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
       #
@@ -75,7 +75,7 @@ module ModernTreasury
       #   @option params [String] :virtual_account_id If the incoming payment detail is in a virtual account, the ID of the Virtual
       #     Account.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::IncomingPaymentDetail>]
       #
@@ -113,7 +113,7 @@ module ModernTreasury
       #   @option params [String, nil] :virtual_account_id An optional parameter to associate the incoming payment detail to a virtual
       #     account.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       #

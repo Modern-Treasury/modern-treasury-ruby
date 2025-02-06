@@ -85,7 +85,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::wealth_and_employment_details
+      def to_hash: -> ModernTreasury::Models::wealth_and_employment_details
 
       type employment_status =
         :employed | :retired | :self_employed | :student | :unemployed

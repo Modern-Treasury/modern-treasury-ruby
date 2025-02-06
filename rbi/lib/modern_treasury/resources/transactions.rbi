@@ -18,7 +18,7 @@ module ModernTreasury
           posted: T::Boolean,
           type: T.nilable(Symbol),
           vendor_description: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Transaction)
       end
       def create(
@@ -38,7 +38,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Transaction)
       end
       def retrieve(id, request_options: {}); end
@@ -47,7 +47,7 @@ module ModernTreasury
         params(
           id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Transaction)
       end
       def update(id, metadata: nil, request_options: {}); end
@@ -68,7 +68,7 @@ module ModernTreasury
           transactable_type: String,
           vendor_id: String,
           virtual_account_id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Transaction])
       end
       def list(
@@ -89,7 +89,12 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          id: String,
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+        ).void
+      end
       def delete(id, request_options: {}); end
 
       sig { params(client: ModernTreasury::Client).void }

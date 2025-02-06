@@ -46,7 +46,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::external_account_list_params
+      def to_hash: -> ModernTreasury::Models::external_account_list_params
     end
   end
 end

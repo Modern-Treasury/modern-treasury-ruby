@@ -68,7 +68,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_create_params
+      def to_hash: -> ModernTreasury::Models::ledger_account_create_params
 
       type ledgerable_type =
         :counterparty | :external_account | :internal_account | :virtual_account

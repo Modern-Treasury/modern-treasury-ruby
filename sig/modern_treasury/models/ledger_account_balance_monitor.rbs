@@ -57,7 +57,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_balance_monitor
+      def to_hash: -> ModernTreasury::Models::ledger_account_balance_monitor
 
       type alert_condition = { field: String, operator: String, value: Integer }
 
@@ -75,7 +75,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::alert_condition
+        def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::alert_condition
       end
 
       type current_ledger_account_balance_state =
@@ -103,7 +103,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::current_ledger_account_balance_state
+        def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::current_ledger_account_balance_state
 
         type balances =
           {
@@ -130,7 +130,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::balances
+          def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::balances
 
           type available_balance =
             {
@@ -165,7 +165,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::available_balance
+            def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::available_balance
           end
 
           type pending_balance =
@@ -201,7 +201,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::pending_balance
+            def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::pending_balance
           end
 
           type posted_balance =
@@ -237,7 +237,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::posted_balance
+            def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::posted_balance
           end
         end
       end

@@ -3,48 +3,6 @@
 module ModernTreasury
   module Models
     class Invoice < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          amount_paid: Integer,
-          amount_remaining: Integer,
-          contact_details: T::Array[ModernTreasury::Models::Invoice::ContactDetail],
-          counterparty_billing_address: T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress),
-          counterparty_id: String,
-          counterparty_shipping_address: T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress),
-          created_at: Time,
-          currency: Symbol,
-          description: String,
-          due_date: Time,
-          expected_payments: T::Array[ModernTreasury::Models::ExpectedPayment],
-          fallback_payment_method: T.nilable(String),
-          hosted_url: String,
-          invoicer_address: T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress),
-          ledger_account_settlement_id: T.nilable(String),
-          live_mode: T::Boolean,
-          metadata: T.nilable(T::Hash[Symbol, String]),
-          notification_email_addresses: T.nilable(T::Array[String]),
-          notifications_enabled: T::Boolean,
-          number: String,
-          object: String,
-          originating_account_id: String,
-          payment_effective_date: T.nilable(Date),
-          payment_method: T.nilable(Symbol),
-          payment_orders: T::Array[ModernTreasury::Models::PaymentOrder],
-          payment_type: T.nilable(Symbol),
-          pdf_url: T.nilable(String),
-          receiving_account_id: T.nilable(String),
-          recipient_email: T.nilable(String),
-          recipient_name: T.nilable(String),
-          remind_after_overdue_days: T.nilable(T::Array[Integer]),
-          status: Symbol,
-          total_amount: Integer,
-          transaction_line_item_ids: T::Array[String],
-          updated_at: Time,
-          virtual_account_id: T.nilable(String)
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -237,23 +195,52 @@ module ModernTreasury
         virtual_account_id:
       ); end
 
-      sig { returns(ModernTreasury::Models::Invoice::Shape) }
-      def to_h; end
-
-      class ContactDetail < ModernTreasury::BaseModel
-        Shape = T.type_alias do
+      sig do
+        override.returns(
           {
             id: String,
-            contact_identifier: String,
-            contact_identifier_type: Symbol,
+            amount_paid: Integer,
+            amount_remaining: Integer,
+            contact_details: T::Array[ModernTreasury::Models::Invoice::ContactDetail],
+            counterparty_billing_address: T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress),
+            counterparty_id: String,
+            counterparty_shipping_address: T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress),
             created_at: Time,
-            discarded_at: T.nilable(Time),
+            currency: Symbol,
+            description: String,
+            due_date: Time,
+            expected_payments: T::Array[ModernTreasury::Models::ExpectedPayment],
+            fallback_payment_method: T.nilable(String),
+            hosted_url: String,
+            invoicer_address: T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress),
+            ledger_account_settlement_id: T.nilable(String),
             live_mode: T::Boolean,
+            metadata: T.nilable(T::Hash[Symbol, String]),
+            notification_email_addresses: T.nilable(T::Array[String]),
+            notifications_enabled: T::Boolean,
+            number: String,
             object: String,
-            updated_at: Time
+            originating_account_id: String,
+            payment_effective_date: T.nilable(Date),
+            payment_method: T.nilable(Symbol),
+            payment_orders: T::Array[ModernTreasury::Models::PaymentOrder],
+            payment_type: T.nilable(Symbol),
+            pdf_url: T.nilable(String),
+            receiving_account_id: T.nilable(String),
+            recipient_email: T.nilable(String),
+            recipient_name: T.nilable(String),
+            remind_after_overdue_days: T.nilable(T::Array[Integer]),
+            status: Symbol,
+            total_amount: Integer,
+            transaction_line_item_ids: T::Array[String],
+            updated_at: Time,
+            virtual_account_id: T.nilable(String)
           }
-        end
+        )
+      end
+      def to_hash; end
 
+      class ContactDetail < ModernTreasury::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -301,8 +288,21 @@ module ModernTreasury
           updated_at:
         ); end
 
-        sig { returns(ModernTreasury::Models::Invoice::ContactDetail::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              contact_identifier: String,
+              contact_identifier_type: Symbol,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              live_mode: T::Boolean,
+              object: String,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
 
         class ContactIdentifierType < ModernTreasury::Enum
           abstract!
@@ -317,17 +317,6 @@ module ModernTreasury
       end
 
       class CounterpartyBillingAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            country: String,
-            line1: String,
-            locality: String,
-            postal_code: String,
-            region: String,
-            line2: String
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :country
 
@@ -361,22 +350,22 @@ module ModernTreasury
         end
         def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil); end
 
-        sig { returns(ModernTreasury::Models::Invoice::CounterpartyBillingAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              locality: String,
+              postal_code: String,
+              region: String,
+              line2: String
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class CounterpartyShippingAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            country: String,
-            line1: String,
-            locality: String,
-            postal_code: String,
-            region: String,
-            line2: String
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :country
 
@@ -410,22 +399,22 @@ module ModernTreasury
         end
         def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil); end
 
-        sig { returns(ModernTreasury::Models::Invoice::CounterpartyShippingAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              locality: String,
+              postal_code: String,
+              region: String,
+              line2: String
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class InvoicerAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            country: String,
-            line1: String,
-            locality: String,
-            postal_code: String,
-            region: String,
-            line2: String
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :country
 
@@ -459,8 +448,19 @@ module ModernTreasury
         end
         def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil); end
 
-        sig { returns(ModernTreasury::Models::Invoice::InvoicerAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              country: String,
+              line1: String,
+              locality: String,
+              postal_code: String,
+              region: String,
+              line2: String
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class PaymentMethod < ModernTreasury::Enum

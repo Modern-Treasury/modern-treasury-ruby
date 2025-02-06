@@ -3,17 +3,6 @@
 module ModernTreasury
   module Models
     class RoutingNumberLookupRequest < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
-          bank_name: String,
-          routing_number: String,
-          routing_number_type: Symbol,
-          sanctions: T::Hash[Symbol, T.anything],
-          supported_payment_types: T::Array[Symbol]
-        }
-      end
-
       sig { returns(T.nilable(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)) }
       attr_reader :bank_address
 
@@ -69,21 +58,21 @@ module ModernTreasury
         supported_payment_types: nil
       ); end
 
-      sig { returns(ModernTreasury::Models::RoutingNumberLookupRequest::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
+            bank_name: String,
+            routing_number: String,
+            routing_number_type: Symbol,
+            sanctions: T::Hash[Symbol, T.anything],
+            supported_payment_types: T::Array[Symbol]
+          }
+        )
+      end
+      def to_hash; end
 
       class BankAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            country: T.nilable(String),
-            line1: T.nilable(String),
-            line2: T.nilable(String),
-            locality: T.nilable(String),
-            postal_code: T.nilable(String),
-            region: T.nilable(String)
-          }
-        end
-
         sig { returns(T.nilable(String)) }
         attr_accessor :country
 
@@ -115,8 +104,19 @@ module ModernTreasury
         def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         end
 
-        sig { returns(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              country: T.nilable(String),
+              line1: T.nilable(String),
+              line2: T.nilable(String),
+              locality: T.nilable(String),
+              postal_code: T.nilable(String),
+              region: T.nilable(String)
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class RoutingNumberType < ModernTreasury::Enum

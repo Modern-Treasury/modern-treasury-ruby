@@ -77,7 +77,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::account_collection_flow
+      def to_hash: -> ModernTreasury::Models::account_collection_flow
 
       type payment_type = :ach | :wire
 

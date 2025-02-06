@@ -52,7 +52,7 @@ module ModernTreasury
           ?ModernTreasury::Models::event | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::event
+      def to_hash: -> ModernTreasury::Models::event
     end
   end
 end

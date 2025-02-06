@@ -32,7 +32,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus] :verification_status The verification status of the counterparty.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
@@ -53,7 +53,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::CounterpartyRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
@@ -86,7 +86,7 @@ module ModernTreasury
       #
       #   @option params [String] :taxpayer_identifier Either a valid SSN or EIN.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
       #
@@ -125,7 +125,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
       #
@@ -147,7 +147,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::CounterpartyDeleteParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
       #
@@ -185,7 +185,7 @@ module ModernTreasury
       #     send the counterparty the link, you can set this parameter to `false`. The JSON
       #     body will include the link to the secure Modern Treasury form.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
       #

@@ -105,7 +105,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::return_object
+      def to_hash: -> ModernTreasury::Models::return_object
 
       type code =
         :"901"
@@ -261,7 +261,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ReturnObject::reference_number
+        def to_hash: -> ModernTreasury::Models::ReturnObject::reference_number
 
         type reference_number_type =
           :ach_original_trace_number

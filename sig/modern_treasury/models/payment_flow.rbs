@@ -114,7 +114,7 @@ module ModernTreasury
           ?ModernTreasury::Models::payment_flow | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::payment_flow
+      def to_hash: -> ModernTreasury::Models::payment_flow
 
       type direction = :credit | :debit
 

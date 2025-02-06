@@ -6,13 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {direction: Symbol, custom_redirect: String, fields: T::Array[Symbol], send_email: T::Boolean},
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(Symbol) }
       attr_accessor :direction
 
@@ -40,13 +33,23 @@ module ModernTreasury
           custom_redirect: String,
           fields: T::Array[Symbol],
           send_email: T::Boolean,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::CounterpartyCollectAccountParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            direction: Symbol,
+            custom_redirect: String,
+            fields: T::Array[Symbol],
+            send_email: T::Boolean,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Field < ModernTreasury::Enum
         abstract!

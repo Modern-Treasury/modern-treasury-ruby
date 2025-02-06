@@ -53,7 +53,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::bank_settings
+      def to_hash: -> ModernTreasury::Models::bank_settings
     end
   end
 end

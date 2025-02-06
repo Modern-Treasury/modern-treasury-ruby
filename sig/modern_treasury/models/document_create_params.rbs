@@ -36,7 +36,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::document_create_params
+      def to_hash: -> ModernTreasury::Models::document_create_params
 
       type documentable_type =
         :cases

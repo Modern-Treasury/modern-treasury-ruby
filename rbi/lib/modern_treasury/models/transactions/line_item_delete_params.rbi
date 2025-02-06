@@ -7,13 +7,13 @@ module ModernTreasury
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
-        Shape = T.type_alias { T.all({}, ModernTreasury::RequestParameters::Shape) }
-
-        sig { params(request_options: ModernTreasury::RequestOpts).void }
+        sig do
+          params(request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])).void
+        end
         def initialize(request_options: {}); end
 
-        sig { returns(ModernTreasury::Models::Transactions::LineItemDeleteParams::Shape) }
-        def to_h; end
+        sig { override.returns({request_options: ModernTreasury::RequestOptions}) }
+        def to_hash; end
       end
     end
   end
