@@ -21,7 +21,7 @@ module ModernTreasury
       #   @option params [Integer] :target_amount Amount in the lowest denomination of the `target_currency`, often called the
       #     "buy" amount.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
@@ -42,7 +42,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::ForeignExchangeQuoteRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
@@ -79,7 +79,7 @@ module ModernTreasury
       #
       #   @option params [String] :target_currency Currency to convert the `base_currency` to, often called the "buy" currency.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       #

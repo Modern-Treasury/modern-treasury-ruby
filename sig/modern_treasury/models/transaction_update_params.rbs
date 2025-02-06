@@ -21,7 +21,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::transaction_update_params
+      def to_hash: -> ModernTreasury::Models::transaction_update_params
     end
   end
 end

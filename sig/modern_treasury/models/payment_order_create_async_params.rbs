@@ -196,7 +196,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::payment_order_create_async_params
+      def to_hash: -> ModernTreasury::Models::payment_order_create_async_params
 
       type direction = :credit | :debit
 
@@ -221,7 +221,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::accounting
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::accounting
       end
 
       type charge_bearer = :shared | :sender | :receiver
@@ -318,7 +318,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ledger_transaction
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ledger_transaction
 
         type ledger_entry =
           {
@@ -371,7 +371,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledger_entry
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::ledger_entry
         end
 
         type ledgerable_type =
@@ -435,7 +435,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::line_item
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::line_item
       end
 
       type priority = :high | :normal
@@ -540,7 +540,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::receiving_account
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::receiving_account
 
         type account_detail =
           {
@@ -567,7 +567,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::account_detail
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::account_detail
 
           type account_number_type =
             :au_number
@@ -624,7 +624,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::contact_detail
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::contact_detail
 
           type contact_identifier_type = :email | :phone_number | :website
 
@@ -700,7 +700,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ledger_account
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ledger_account
 
           type ledgerable_type =
             :counterparty
@@ -755,7 +755,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::party_address
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::party_address
         end
 
         type party_type = :business | :individual
@@ -796,7 +796,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::routing_detail
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::routing_detail
 
           type routing_number_type =
             :aba

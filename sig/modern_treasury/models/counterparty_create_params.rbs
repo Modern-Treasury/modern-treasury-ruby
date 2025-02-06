@@ -88,7 +88,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::counterparty_create_params
+      def to_hash: -> ModernTreasury::Models::counterparty_create_params
 
       type accounting =
         {
@@ -111,7 +111,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::accounting
+        def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::accounting
 
         type type_ = :customer | :vendor
 
@@ -216,7 +216,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::account
+        def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::account
 
         type account_detail =
           {
@@ -243,7 +243,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::Account::account_detail
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::Account::account_detail
 
           type account_number_type =
             :au_number
@@ -300,7 +300,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::Account::contact_detail
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::Account::contact_detail
 
           type contact_identifier_type = :email | :phone_number | :website
 
@@ -376,7 +376,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::Account::ledger_account
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::Account::ledger_account
 
           type ledgerable_type =
             :counterparty
@@ -431,7 +431,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::Account::party_address
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::Account::party_address
         end
 
         type party_type = :business | :individual
@@ -472,7 +472,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::Account::routing_detail
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::Account::routing_detail
 
           type routing_number_type =
             :aba
@@ -726,7 +726,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::legal_entity
+        def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::legal_entity
 
         type legal_entity_type = :business | :individual
 
@@ -782,7 +782,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::address
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::address
 
           type address_type =
             :business | :mailing | :other | :po_box | :residential
@@ -823,7 +823,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::identification
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::identification
 
           type id_type =
             :ar_cuil
@@ -914,7 +914,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_association
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_association
 
           type relationship_type = :beneficial_owner | :control_person
 
@@ -1050,7 +1050,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::child_legal_entity
+            def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::child_legal_entity
 
             type address =
               {
@@ -1097,7 +1097,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::address
+              def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::address
 
               type address_type =
                 :business | :mailing | :other | :po_box | :residential
@@ -1138,7 +1138,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::identification
+              def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::identification
 
               type id_type =
                 :ar_cuil
@@ -1232,7 +1232,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::phone_number
+              def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::phone_number
             end
 
             type risk_rating = :low | :medium | :high
@@ -1280,7 +1280,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::phone_number
+          def to_hash: -> ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::phone_number
         end
 
         type risk_rating = :low | :medium | :high

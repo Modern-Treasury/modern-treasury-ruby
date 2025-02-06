@@ -66,7 +66,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::internal_account_create_params
+      def to_hash: -> ModernTreasury::Models::internal_account_create_params
 
       type currency = :USD | :CAD
 
@@ -116,7 +116,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::InternalAccountCreateParams::party_address
+        def to_hash: -> ModernTreasury::Models::InternalAccountCreateParams::party_address
       end
     end
   end

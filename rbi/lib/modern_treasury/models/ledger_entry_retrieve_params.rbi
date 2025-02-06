@@ -6,19 +6,22 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias { T.all({show_balances: T::Boolean}, ModernTreasury::RequestParameters::Shape) }
-
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :show_balances
 
       sig { params(show_balances: T::Boolean).void }
       attr_writer :show_balances
 
-      sig { params(show_balances: T::Boolean, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          show_balances: T::Boolean,
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+        ).void
+      end
       def initialize(show_balances: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::LedgerEntryRetrieveParams::Shape) }
-      def to_h; end
+      sig { override.returns({show_balances: T::Boolean, request_options: ModernTreasury::RequestOptions}) }
+      def to_hash; end
     end
   end
 end

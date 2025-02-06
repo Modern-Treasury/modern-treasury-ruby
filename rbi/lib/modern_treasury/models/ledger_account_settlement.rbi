@@ -3,28 +3,6 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlement < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          amount: T.nilable(Integer),
-          contra_ledger_account_id: String,
-          created_at: Time,
-          currency: String,
-          currency_exponent: T.nilable(Integer),
-          description: T.nilable(String),
-          effective_at_upper_bound: Time,
-          ledger_id: String,
-          ledger_transaction_id: T.nilable(String),
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          object: String,
-          settled_ledger_account_id: String,
-          settlement_entry_direction: T.nilable(String),
-          status: Symbol,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -117,8 +95,30 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountSettlement::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            amount: T.nilable(Integer),
+            contra_ledger_account_id: String,
+            created_at: Time,
+            currency: String,
+            currency_exponent: T.nilable(Integer),
+            description: T.nilable(String),
+            effective_at_upper_bound: Time,
+            ledger_id: String,
+            ledger_transaction_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            settled_ledger_account_id: String,
+            settlement_entry_direction: T.nilable(String),
+            status: Symbol,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class Status < ModernTreasury::Enum
         abstract!

@@ -6,13 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances},
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances)) }
       attr_reader :balances
 
@@ -22,25 +15,22 @@ module ModernTreasury
       sig do
         params(
           balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(balances: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountRetrieveParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Balances < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            as_of_date: Date,
-            as_of_lock_version: Integer,
-            effective_at: Time,
-            effective_at_lower_bound: Time,
-            effective_at_upper_bound: Time
-          }
-        end
-
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date
 
@@ -88,8 +78,18 @@ module ModernTreasury
           effective_at_upper_bound: nil
         ); end
 
-        sig { returns(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              as_of_date: Date,
+              as_of_lock_version: Integer,
+              effective_at: Time,
+              effective_at_lower_bound: Time,
+              effective_at_upper_bound: Time
+            }
+          )
+        end
+        def to_hash; end
       end
     end
   end

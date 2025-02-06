@@ -81,7 +81,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_settlement
+      def to_hash: -> ModernTreasury::Models::ledger_account_settlement
 
       type status =
         :archived | :archiving | :drafting | :pending | :posted | :processing

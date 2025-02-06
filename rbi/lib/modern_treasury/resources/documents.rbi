@@ -9,7 +9,7 @@ module ModernTreasury
           documentable_type: Symbol,
           file: T.any(IO, StringIO),
           document_type: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Document)
       end
       def create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}); end
@@ -17,7 +17,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Document)
       end
       def retrieve(id, request_options: {}); end
@@ -28,7 +28,7 @@ module ModernTreasury
           documentable_id: String,
           documentable_type: Symbol,
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Document])
       end
       def list(

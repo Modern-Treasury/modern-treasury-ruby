@@ -3,61 +3,6 @@
 module ModernTreasury
   module Models
     class PaymentOrder < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          accounting: ModernTreasury::Models::PaymentOrder::Accounting,
-          accounting_category_id: T.nilable(String),
-          accounting_ledger_class_id: T.nilable(String),
-          amount: Integer,
-          charge_bearer: T.nilable(Symbol),
-          compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
-          counterparty_id: T.nilable(String),
-          created_at: Time,
-          currency: Symbol,
-          current_return: T.nilable(ModernTreasury::Models::ReturnObject),
-          decision_id: T.nilable(String),
-          description: T.nilable(String),
-          direction: Symbol,
-          effective_date: Date,
-          expires_at: T.nilable(Time),
-          foreign_exchange_contract: T.nilable(String),
-          foreign_exchange_indicator: T.nilable(Symbol),
-          foreign_exchange_rate: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate),
-          ledger_transaction_id: T.nilable(String),
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          nsf_protected: T::Boolean,
-          object: String,
-          originating_account_id: String,
-          originating_party_name: T.nilable(String),
-          priority: Symbol,
-          process_after: T.nilable(Time),
-          purpose: T.nilable(String),
-          receiving_account_id: String,
-          receiving_account_type: Symbol,
-          reference_numbers: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
-          remittance_information: T.nilable(String),
-          send_remittance_advice: T.nilable(T::Boolean),
-          statement_descriptor: T.nilable(String),
-          status: Symbol,
-          subtype: T.nilable(Symbol),
-          transaction_ids: T::Array[String],
-          transaction_monitoring_enabled: T::Boolean,
-          type: Symbol,
-          ultimate_originating_account: T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccount::Variants),
-          ultimate_originating_account_id: T.nilable(String),
-          ultimate_originating_account_type: T.nilable(Symbol),
-          ultimate_originating_party_identifier: T.nilable(String),
-          ultimate_originating_party_name: T.nilable(String),
-          ultimate_receiving_party_identifier: T.nilable(String),
-          ultimate_receiving_party_name: T.nilable(String),
-          updated_at: Time,
-          vendor_attributes: T.nilable(T.anything),
-          vendor_failure_reason: T.nilable(String)
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -178,7 +123,16 @@ module ModernTreasury
       sig { returns(Symbol) }
       attr_accessor :type
 
-      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccount::Variants)) }
+      sig do
+        returns(
+          T.nilable(
+            T.any(
+              ModernTreasury::Models::VirtualAccount,
+              ModernTreasury::Models::InternalAccount
+            )
+          )
+        )
+      end
       attr_accessor :ultimate_originating_account
 
       sig { returns(T.nilable(String)) }
@@ -250,7 +204,12 @@ module ModernTreasury
           transaction_ids: T::Array[String],
           transaction_monitoring_enabled: T::Boolean,
           type: Symbol,
-          ultimate_originating_account: T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccount::Variants),
+          ultimate_originating_account: T.nilable(
+            T.any(
+              ModernTreasury::Models::VirtualAccount,
+              ModernTreasury::Models::InternalAccount
+            )
+          ),
           ultimate_originating_account_id: T.nilable(String),
           ultimate_originating_account_type: T.nilable(Symbol),
           ultimate_originating_party_identifier: T.nilable(String),
@@ -315,12 +274,70 @@ module ModernTreasury
         vendor_failure_reason:
       ); end
 
-      sig { returns(ModernTreasury::Models::PaymentOrder::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            accounting: ModernTreasury::Models::PaymentOrder::Accounting,
+            accounting_category_id: T.nilable(String),
+            accounting_ledger_class_id: T.nilable(String),
+            amount: Integer,
+            charge_bearer: T.nilable(Symbol),
+            compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
+            counterparty_id: T.nilable(String),
+            created_at: Time,
+            currency: Symbol,
+            current_return: T.nilable(ModernTreasury::Models::ReturnObject),
+            decision_id: T.nilable(String),
+            description: T.nilable(String),
+            direction: Symbol,
+            effective_date: Date,
+            expires_at: T.nilable(Time),
+            foreign_exchange_contract: T.nilable(String),
+            foreign_exchange_indicator: T.nilable(Symbol),
+            foreign_exchange_rate: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate),
+            ledger_transaction_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            nsf_protected: T::Boolean,
+            object: String,
+            originating_account_id: String,
+            originating_party_name: T.nilable(String),
+            priority: Symbol,
+            process_after: T.nilable(Time),
+            purpose: T.nilable(String),
+            receiving_account_id: String,
+            receiving_account_type: Symbol,
+            reference_numbers: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
+            remittance_information: T.nilable(String),
+            send_remittance_advice: T.nilable(T::Boolean),
+            statement_descriptor: T.nilable(String),
+            status: Symbol,
+            subtype: T.nilable(Symbol),
+            transaction_ids: T::Array[String],
+            transaction_monitoring_enabled: T::Boolean,
+            type: Symbol,
+            ultimate_originating_account: T.nilable(
+              T.any(
+                ModernTreasury::Models::VirtualAccount,
+                ModernTreasury::Models::InternalAccount
+              )
+            ),
+            ultimate_originating_account_id: T.nilable(String),
+            ultimate_originating_account_type: T.nilable(Symbol),
+            ultimate_originating_party_identifier: T.nilable(String),
+            ultimate_originating_party_name: T.nilable(String),
+            ultimate_receiving_party_identifier: T.nilable(String),
+            ultimate_receiving_party_name: T.nilable(String),
+            updated_at: Time,
+            vendor_attributes: T.nilable(T.anything),
+            vendor_failure_reason: T.nilable(String)
+          }
+        )
+      end
+      def to_hash; end
 
       class Accounting < ModernTreasury::BaseModel
-        Shape = T.type_alias { {account_id: T.nilable(String), class_id: T.nilable(String)} }
-
         sig { returns(T.nilable(String)) }
         attr_accessor :account_id
 
@@ -330,8 +347,8 @@ module ModernTreasury
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
         def initialize(account_id: nil, class_id: nil); end
 
-        sig { returns(ModernTreasury::Models::PaymentOrder::Accounting::Shape) }
-        def to_h; end
+        sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
+        def to_hash; end
       end
 
       class ChargeBearer < ModernTreasury::Enum
@@ -366,18 +383,6 @@ module ModernTreasury
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            base_amount: Integer,
-            base_currency: Symbol,
-            exponent: Integer,
-            rate_string: String,
-            target_amount: Integer,
-            target_currency: Symbol,
-            value: Integer
-          }
-        end
-
         sig { returns(Integer) }
         attr_accessor :base_amount
 
@@ -421,8 +426,20 @@ module ModernTreasury
         )
         end
 
-        sig { returns(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              base_amount: Integer,
+              base_currency: Symbol,
+              exponent: Integer,
+              rate_string: String,
+              target_amount: Integer,
+              target_currency: Symbol,
+              value: Integer
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class Priority < ModernTreasury::Enum
@@ -446,18 +463,6 @@ module ModernTreasury
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            id: String,
-            created_at: Time,
-            live_mode: T::Boolean,
-            object: String,
-            reference_number: String,
-            reference_number_type: Symbol,
-            updated_at: Time
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :id
 
@@ -501,8 +506,20 @@ module ModernTreasury
         )
         end
 
-        sig { returns(ModernTreasury::Models::PaymentOrder::ReferenceNumber::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              live_mode: T::Boolean,
+              object: String,
+              reference_number: String,
+              reference_number_type: Symbol,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
 
         class ReferenceNumberType < ModernTreasury::Enum
           abstract!
@@ -605,10 +622,6 @@ module ModernTreasury
 
       class UltimateOriginatingAccount < ModernTreasury::Union
         abstract!
-
-        Variants = T.type_alias do
-          T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)
-        end
 
         sig do
           override.returns(

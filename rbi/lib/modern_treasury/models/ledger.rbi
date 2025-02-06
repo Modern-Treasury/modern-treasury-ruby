@@ -3,20 +3,6 @@
 module ModernTreasury
   module Models
     class Ledger < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          created_at: Time,
-          description: T.nilable(String),
-          discarded_at: T.nilable(Time),
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          name: String,
-          object: String,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -70,8 +56,22 @@ module ModernTreasury
       )
       end
 
-      sig { returns(ModernTreasury::Models::Ledger::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            description: T.nilable(String),
+            discarded_at: T.nilable(Time),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            name: String,
+            object: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

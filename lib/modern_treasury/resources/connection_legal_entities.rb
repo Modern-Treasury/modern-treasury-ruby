@@ -13,7 +13,7 @@ module ModernTreasury
       #
       #   @option params [String] :legal_entity_id The ID of the legal entity.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
@@ -34,7 +34,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::ConnectionLegalEntityRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
@@ -55,7 +55,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] :status The status of the connection legal entity.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
@@ -84,7 +84,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status] :status
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ConnectionLegalEntity>]
       #

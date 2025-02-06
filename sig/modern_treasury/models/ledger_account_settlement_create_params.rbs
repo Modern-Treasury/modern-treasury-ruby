@@ -52,7 +52,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_settlement_create_params
+      def to_hash: -> ModernTreasury::Models::ledger_account_settlement_create_params
 
       type status = :pending | :posted
 

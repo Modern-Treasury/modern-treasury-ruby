@@ -26,7 +26,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::validation_validate_routing_number_params
+      def to_hash: -> ModernTreasury::Models::validation_validate_routing_number_params
 
       type routing_number_type =
         :aba

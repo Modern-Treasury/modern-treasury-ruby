@@ -17,7 +17,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::counterparty_collect_account_response
+      def to_hash: -> ModernTreasury::Models::counterparty_collect_account_response
     end
   end
 end

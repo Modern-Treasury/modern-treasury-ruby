@@ -21,7 +21,7 @@ module ModernTreasury
         #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         #
@@ -44,7 +44,7 @@ module ModernTreasury
         #
         #   @option params [String] :payment_order_id The id of the payment order being reversed.
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         #
@@ -71,7 +71,7 @@ module ModernTreasury
         #
         #   @option params [Integer] :per_page
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
         #

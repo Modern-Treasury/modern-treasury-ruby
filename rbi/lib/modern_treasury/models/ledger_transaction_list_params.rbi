@@ -6,33 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            id: T::Array[String],
-            after_cursor: T.nilable(String),
-            effective_at: T::Hash[Symbol, Time],
-            effective_date: T::Hash[Symbol, Time],
-            external_id: String,
-            ledger_account_category_id: String,
-            ledger_account_id: String,
-            ledger_account_settlement_id: String,
-            ledger_id: String,
-            ledgerable_id: String,
-            ledgerable_type: Symbol,
-            metadata: T::Hash[Symbol, String],
-            order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
-            partially_posts_ledger_transaction_id: String,
-            per_page: Integer,
-            posted_at: T::Hash[Symbol, Time],
-            reverses_ledger_transaction_id: String,
-            status: Symbol,
-            updated_at: T::Hash[Symbol, Time]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
@@ -165,7 +138,7 @@ module ModernTreasury
           reverses_ledger_transaction_id: String,
           status: Symbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -191,8 +164,33 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::LedgerTransactionListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: T::Array[String],
+            after_cursor: T.nilable(String),
+            effective_at: T::Hash[Symbol, Time],
+            effective_date: T::Hash[Symbol, Time],
+            external_id: String,
+            ledger_account_category_id: String,
+            ledger_account_id: String,
+            ledger_account_settlement_id: String,
+            ledger_id: String,
+            ledgerable_id: String,
+            ledgerable_type: Symbol,
+            metadata: T::Hash[Symbol, String],
+            order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
+            partially_posts_ledger_transaction_id: String,
+            per_page: Integer,
+            posted_at: T::Hash[Symbol, Time],
+            reverses_ledger_transaction_id: String,
+            status: Symbol,
+            updated_at: T::Hash[Symbol, Time],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class LedgerableType < ModernTreasury::Enum
         abstract!
@@ -209,8 +207,6 @@ module ModernTreasury
       end
 
       class OrderBy < ModernTreasury::BaseModel
-        Shape = T.type_alias { {created_at: Symbol, effective_at: Symbol} }
-
         sig { returns(T.nilable(Symbol)) }
         attr_reader :created_at
 
@@ -226,8 +222,8 @@ module ModernTreasury
         sig { params(created_at: Symbol, effective_at: Symbol).void }
         def initialize(created_at: nil, effective_at: nil); end
 
-        sig { returns(ModernTreasury::Models::LedgerTransactionListParams::OrderBy::Shape) }
-        def to_h; end
+        sig { override.returns({created_at: Symbol, effective_at: Symbol}) }
+        def to_hash; end
 
         class CreatedAt < ModernTreasury::Enum
           abstract!

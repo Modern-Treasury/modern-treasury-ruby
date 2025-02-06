@@ -55,7 +55,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::routing_number_lookup_request
+      def to_hash: -> ModernTreasury::Models::routing_number_lookup_request
 
       type bank_address =
         {
@@ -94,7 +94,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::RoutingNumberLookupRequest::bank_address
+        def to_hash: -> ModernTreasury::Models::RoutingNumberLookupRequest::bank_address
       end
 
       type routing_number_type =

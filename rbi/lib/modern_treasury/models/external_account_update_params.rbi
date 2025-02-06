@@ -6,21 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            account_type: Symbol,
-            counterparty_id: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            name: T.nilable(String),
-            party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-            party_name: String,
-            party_type: T.nilable(Symbol)
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(Symbol)) }
       attr_reader :account_type
 
@@ -63,7 +48,7 @@ module ModernTreasury
           party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
           party_name: String,
           party_type: T.nilable(Symbol),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -77,21 +62,23 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::ExternalAccountUpdateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            account_type: Symbol,
+            counterparty_id: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            name: T.nilable(String),
+            party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+            party_name: String,
+            party_type: T.nilable(Symbol),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class PartyAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            country: T.nilable(String),
-            line1: T.nilable(String),
-            line2: T.nilable(String),
-            locality: T.nilable(String),
-            postal_code: T.nilable(String),
-            region: T.nilable(String)
-          }
-        end
-
         sig { returns(T.nilable(String)) }
         attr_accessor :country
 
@@ -123,8 +110,19 @@ module ModernTreasury
         def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         end
 
-        sig { returns(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              country: T.nilable(String),
+              line1: T.nilable(String),
+              line2: T.nilable(String),
+              locality: T.nilable(String),
+              postal_code: T.nilable(String),
+              region: T.nilable(String)
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class PartyType < ModernTreasury::Enum

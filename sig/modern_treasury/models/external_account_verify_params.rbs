@@ -48,7 +48,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::external_account_verify_params
+      def to_hash: -> ModernTreasury::Models::external_account_verify_params
 
       type payment_type =
         :ach

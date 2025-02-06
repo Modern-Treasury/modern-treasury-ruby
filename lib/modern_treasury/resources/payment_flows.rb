@@ -24,7 +24,7 @@ module ModernTreasury
       #     `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #     they are selecting a payment `effective_date`.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -45,7 +45,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::PaymentFlowRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -67,7 +67,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status] :status Required. The updated status of the payment flow. Can only be used to mark a
       #     flow as `cancelled`.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -102,7 +102,7 @@ module ModernTreasury
       #
       #   @option params [String] :status
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentFlow>]
       #

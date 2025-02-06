@@ -6,26 +6,6 @@ module ModernTreasury
 
     module Transactions
       class TransactionLineItem < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            id: String,
-            amount: Integer,
-            counterparty_id: T.nilable(String),
-            created_at: Time,
-            description: String,
-            discarded_at: T.nilable(Time),
-            expected_payment_id: T.nilable(String),
-            live_mode: T::Boolean,
-            object: String,
-            reconcilable: T::Boolean,
-            transactable_id: T.nilable(String),
-            transactable_type: T.nilable(Symbol),
-            transaction_id: String,
-            type: Symbol,
-            updated_at: Time
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :id
 
@@ -108,8 +88,28 @@ module ModernTreasury
           updated_at:
         ); end
 
-        sig { returns(ModernTreasury::Models::Transactions::TransactionLineItem::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              amount: Integer,
+              counterparty_id: T.nilable(String),
+              created_at: Time,
+              description: String,
+              discarded_at: T.nilable(Time),
+              expected_payment_id: T.nilable(String),
+              live_mode: T::Boolean,
+              object: String,
+              reconcilable: T::Boolean,
+              transactable_id: T.nilable(String),
+              transactable_type: T.nilable(Symbol),
+              transaction_id: String,
+              type: Symbol,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
 
         class TransactableType < ModernTreasury::Enum
           abstract!

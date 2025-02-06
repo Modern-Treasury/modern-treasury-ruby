@@ -15,7 +15,7 @@ module ModernTreasury
         #
         #   @option params [String] :transaction_id The ID of the parent transaction.
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
@@ -36,7 +36,7 @@ module ModernTreasury
         #
         # @param params [ModernTreasury::Models::Transactions::LineItemRetrieveParams, Hash{Symbol=>Object}] .
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
@@ -63,7 +63,7 @@ module ModernTreasury
         #
         #   @option params [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil] :type
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
         #
@@ -85,7 +85,7 @@ module ModernTreasury
         #
         # @param params [ModernTreasury::Models::Transactions::LineItemDeleteParams, Hash{Symbol=>Object}] .
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [nil]
         #

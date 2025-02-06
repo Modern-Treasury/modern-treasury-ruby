@@ -13,7 +13,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::event_retrieve_params
+      def to_hash: -> ModernTreasury::Models::event_retrieve_params
     end
   end
 end

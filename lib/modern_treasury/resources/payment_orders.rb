@@ -135,7 +135,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ultimate_receiving_party_name Name of the ultimate funds recipient.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
@@ -156,7 +156,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::PaymentOrderRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
@@ -298,7 +298,7 @@ module ModernTreasury
       #     initiating an ACH payment with CIE subtype. Only the first 15 characters of this
       #     string will be used. Any additional characters will be truncated.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
       #
@@ -355,7 +355,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::PaymentOrderListParams::Type] :type
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrder>]
       #
@@ -497,7 +497,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :ultimate_receiving_party_name Name of the ultimate funds recipient.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AsyncResponse]
       #

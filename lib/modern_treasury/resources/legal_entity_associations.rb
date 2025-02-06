@@ -20,7 +20,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :title The job title of the child entity at the parent entity.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntityAssociation]
       #

@@ -3,30 +3,6 @@
 module ModernTreasury
   module Models
     class InternalAccount < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          account_details: T::Array[ModernTreasury::Models::AccountDetail],
-          account_type: T.nilable(Symbol),
-          connection: ModernTreasury::Models::Connection,
-          counterparty_id: T.nilable(String),
-          created_at: Time,
-          currency: Symbol,
-          ledger_account_id: T.nilable(String),
-          legal_entity_id: T.nilable(String),
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          name: T.nilable(String),
-          object: String,
-          parent_account_id: T.nilable(String),
-          party_address: T.nilable(ModernTreasury::Models::InternalAccount::PartyAddress),
-          party_name: String,
-          party_type: T.nilable(Symbol),
-          routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -129,8 +105,32 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::InternalAccount::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            account_details: T::Array[ModernTreasury::Models::AccountDetail],
+            account_type: T.nilable(Symbol),
+            connection: ModernTreasury::Models::Connection,
+            counterparty_id: T.nilable(String),
+            created_at: Time,
+            currency: Symbol,
+            ledger_account_id: T.nilable(String),
+            legal_entity_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            name: T.nilable(String),
+            object: String,
+            parent_account_id: T.nilable(String),
+            party_address: T.nilable(ModernTreasury::Models::InternalAccount::PartyAddress),
+            party_name: String,
+            party_type: T.nilable(Symbol),
+            routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class AccountType < ModernTreasury::Enum
         abstract!
@@ -149,22 +149,6 @@ module ModernTreasury
       end
 
       class PartyAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            id: String,
-            country: T.nilable(String),
-            created_at: Time,
-            line1: T.nilable(String),
-            line2: T.nilable(String),
-            live_mode: T::Boolean,
-            locality: T.nilable(String),
-            object: String,
-            postal_code: T.nilable(String),
-            region: T.nilable(String),
-            updated_at: Time
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :id
 
@@ -227,8 +211,24 @@ module ModernTreasury
           updated_at:
         ); end
 
-        sig { returns(ModernTreasury::Models::InternalAccount::PartyAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              country: T.nilable(String),
+              created_at: Time,
+              line1: T.nilable(String),
+              line2: T.nilable(String),
+              live_mode: T::Boolean,
+              locality: T.nilable(String),
+              object: String,
+              postal_code: T.nilable(String),
+              region: T.nilable(String),
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class PartyType < ModernTreasury::Enum

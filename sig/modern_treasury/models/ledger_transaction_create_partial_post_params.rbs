@@ -40,7 +40,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_transaction_create_partial_post_params
+      def to_hash: -> ModernTreasury::Models::ledger_transaction_create_partial_post_params
 
       type posted_ledger_entry =
         {
@@ -73,7 +73,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::posted_ledger_entry
+        def to_hash: -> ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::posted_ledger_entry
 
         type direction = :credit | :debit
 

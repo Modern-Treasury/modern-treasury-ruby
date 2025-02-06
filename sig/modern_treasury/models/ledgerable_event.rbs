@@ -53,7 +53,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledgerable_event
+      def to_hash: -> ModernTreasury::Models::ledgerable_event
     end
   end
 end

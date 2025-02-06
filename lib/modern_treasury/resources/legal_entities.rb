@@ -56,7 +56,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :website The entity's primary website URL.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -77,7 +77,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::LegalEntityRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -141,7 +141,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :website The entity's primary website URL.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -172,7 +172,7 @@ module ModernTreasury
       #
       #   @option params [String] :show_deleted
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
       #

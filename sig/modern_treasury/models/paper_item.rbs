@@ -84,7 +84,7 @@ module ModernTreasury
           ?ModernTreasury::Models::paper_item | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::paper_item
+      def to_hash: -> ModernTreasury::Models::paper_item
 
       type status = :completed | :pending | :returned
 

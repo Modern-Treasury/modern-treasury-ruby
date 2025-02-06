@@ -57,7 +57,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::legal_entity_association
+      def to_hash: -> ModernTreasury::Models::legal_entity_association
 
       type child_legal_entity =
         {
@@ -188,7 +188,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LegalEntityAssociation::child_legal_entity
+        def to_hash: -> ModernTreasury::Models::LegalEntityAssociation::child_legal_entity
 
         type address =
           {
@@ -255,7 +255,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::address
+          def to_hash: -> ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::address
 
           type address_type =
             :business | :mailing | :other | :po_box | :residential
@@ -316,7 +316,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::identification
+          def to_hash: -> ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::identification
 
           type id_type =
             :ar_cuil
@@ -411,7 +411,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::phone_number
+          def to_hash: -> ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::phone_number
         end
 
         type risk_rating = :low | :medium | :high

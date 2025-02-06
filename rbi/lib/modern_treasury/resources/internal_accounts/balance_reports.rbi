@@ -11,7 +11,7 @@ module ModernTreasury
             as_of_time: String,
             balance_report_type: Symbol,
             balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
         def create(
@@ -28,7 +28,7 @@ module ModernTreasury
           params(
             id: String,
             internal_account_id: String,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
         def retrieve(id, internal_account_id:, request_options: {}); end
@@ -40,7 +40,7 @@ module ModernTreasury
             as_of_date: Date,
             balance_report_type: Symbol,
             per_page: Integer,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Page[ModernTreasury::Models::InternalAccounts::BalanceReport])
         end
         def list(
@@ -53,7 +53,11 @@ module ModernTreasury
         ); end
 
         sig do
-          params(id: String, internal_account_id: String, request_options: ModernTreasury::RequestOpts).void
+          params(
+            id: String,
+            internal_account_id: String,
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          ).void
         end
         def delete(id, internal_account_id:, request_options: {}); end
 

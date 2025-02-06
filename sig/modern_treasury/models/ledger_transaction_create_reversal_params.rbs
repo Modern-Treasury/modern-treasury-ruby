@@ -62,7 +62,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_transaction_create_reversal_params
+      def to_hash: -> ModernTreasury::Models::ledger_transaction_create_reversal_params
 
       type ledgerable_type =
         :expected_payment

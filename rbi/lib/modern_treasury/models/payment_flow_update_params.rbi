@@ -6,16 +6,19 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias { T.all({status: Symbol}, ModernTreasury::RequestParameters::Shape) }
-
       sig { returns(Symbol) }
       attr_accessor :status
 
-      sig { params(status: Symbol, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          status: Symbol,
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+        ).void
+      end
       def initialize(status:, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::PaymentFlowUpdateParams::Shape) }
-      def to_h; end
+      sig { override.returns({status: Symbol, request_options: ModernTreasury::RequestOptions}) }
+      def to_hash; end
 
       class Status < ModernTreasury::Enum
         abstract!

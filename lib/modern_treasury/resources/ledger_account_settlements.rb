@@ -35,7 +35,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status, nil] :status The status of the ledger account settlement. It is set to `pending` by default.
       #     To post a ledger account settlement at creation, use `posted`.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
@@ -56,7 +56,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::LedgerAccountSettlementRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
@@ -83,7 +83,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status] :status To post a pending ledger account settlement, use `posted`. To archive a pending
       #     ledger transaction, use `archived`.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountSettlement]
       #
@@ -129,7 +129,7 @@ module ModernTreasury
       #     updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountSettlement>]
       #

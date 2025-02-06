@@ -30,7 +30,7 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}] :vendor_attributes A hash of vendor specific attributes that will be used when creating the account
       #     at the vendor specified by the given connection.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -51,7 +51,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::InternalAccountRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -81,7 +81,7 @@ module ModernTreasury
       #
       #   @option params [String] :parent_account_id The parent internal account for this account.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -118,7 +118,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
       #

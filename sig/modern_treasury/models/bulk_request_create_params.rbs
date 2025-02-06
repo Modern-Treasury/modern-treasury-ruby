@@ -36,7 +36,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::bulk_request_create_params
+      def to_hash: -> ModernTreasury::Models::bulk_request_create_params
 
       type action_type = :create | :update | :delete
 
@@ -263,7 +263,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::payment_order_async_create_request
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::payment_order_async_create_request
 
           type direction = :credit | :debit
 
@@ -288,7 +288,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::accounting
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::accounting
           end
 
           type charge_bearer = :shared | :sender | :receiver
@@ -386,7 +386,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ledger_transaction
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ledger_transaction
 
             type ledger_entry =
               {
@@ -439,7 +439,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::ledger_entry
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::ledger_entry
             end
 
             type ledgerable_type =
@@ -503,7 +503,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::line_item
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::line_item
           end
 
           type priority = :high | :normal
@@ -608,7 +608,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::receiving_account
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::receiving_account
 
             type account_detail =
               {
@@ -635,7 +635,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::account_detail
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::account_detail
 
               type account_number_type =
                 :au_number
@@ -692,7 +692,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::contact_detail
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::contact_detail
 
               type contact_identifier_type = :email | :phone_number | :website
 
@@ -768,7 +768,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ledger_account
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ledger_account
 
               type ledgerable_type =
                 :counterparty
@@ -823,7 +823,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::party_address
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::party_address
             end
 
             type party_type = :business | :individual
@@ -864,7 +864,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::routing_detail
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::routing_detail
 
               type routing_number_type =
                 :aba
@@ -1086,7 +1086,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::expected_payment_create_request
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::expected_payment_create_request
 
           type direction = :credit | :debit
 
@@ -1164,7 +1164,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::ledger_transaction
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::ledger_transaction
 
             type ledger_entry =
               {
@@ -1217,7 +1217,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::ledger_entry
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::ledger_entry
             end
 
             type ledgerable_type =
@@ -1281,7 +1281,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::line_item
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::line_item
           end
         end
 
@@ -1352,7 +1352,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ledger_transaction_create_request
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ledger_transaction_create_request
 
           type ledger_entry =
             {
@@ -1405,7 +1405,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::ledger_entry
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::ledger_entry
           end
 
           type ledgerable_type =
@@ -1495,7 +1495,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::transaction_create_request
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::transaction_create_request
 
           type type_ =
             :ach
@@ -1581,7 +1581,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::id
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::id
         end
 
         type payment_order_update_request_with_id =
@@ -1783,7 +1783,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::payment_order_update_request_with_id
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::payment_order_update_request_with_id
 
           type accounting = { account_id: String?, class_id: String? }
 
@@ -1799,7 +1799,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::accounting
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::accounting
           end
 
           type charge_bearer = :shared | :sender | :receiver
@@ -1870,7 +1870,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::line_item
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::line_item
           end
 
           type priority = :high | :normal
@@ -1975,7 +1975,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::receiving_account
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::receiving_account
 
             type account_detail =
               {
@@ -2002,7 +2002,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::account_detail
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::account_detail
 
               type account_number_type =
                 :au_number
@@ -2059,7 +2059,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::contact_detail
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::contact_detail
 
               type contact_identifier_type = :email | :phone_number | :website
 
@@ -2135,7 +2135,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ledger_account
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ledger_account
 
               type ledgerable_type =
                 :counterparty
@@ -2190,7 +2190,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::party_address
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::party_address
             end
 
             type party_type = :business | :individual
@@ -2231,7 +2231,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::routing_detail
+              def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::routing_detail
 
               type routing_number_type =
                 :aba
@@ -2470,7 +2470,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::expected_payment_update_request_with_id
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::expected_payment_update_request_with_id
 
           type direction = :credit | :debit
 
@@ -2509,7 +2509,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::transaction_update_request_with_id
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::transaction_update_request_with_id
         end
 
         type ledger_transaction_update_request_with_id =
@@ -2577,7 +2577,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ledger_transaction_update_request_with_id
+          def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ledger_transaction_update_request_with_id
 
           type ledger_entry =
             {
@@ -2630,7 +2630,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledger_entry
+            def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledger_entry
           end
 
           type ledgerable_type =

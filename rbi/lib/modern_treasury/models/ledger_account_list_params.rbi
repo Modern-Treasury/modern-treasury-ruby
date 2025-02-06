@@ -6,28 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            id: T::Array[String],
-            after_cursor: T.nilable(String),
-            available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-            balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
-            created_at: T::Hash[Symbol, Time],
-            currency: String,
-            ledger_account_category_id: String,
-            ledger_id: String,
-            metadata: T::Hash[Symbol, String],
-            name: T::Array[String],
-            pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-            per_page: Integer,
-            posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-            updated_at: T::Hash[Symbol, Time]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
@@ -131,7 +109,7 @@ module ModernTreasury
           per_page: Integer,
           posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
           updated_at: T::Hash[Symbol, Time],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -152,14 +130,30 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: T::Array[String],
+            after_cursor: T.nilable(String),
+            available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
+            balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
+            created_at: T::Hash[Symbol, Time],
+            currency: String,
+            ledger_account_category_id: String,
+            ledger_id: String,
+            metadata: T::Hash[Symbol, String],
+            name: T::Array[String],
+            pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+            per_page: Integer,
+            posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
+            updated_at: T::Hash[Symbol, Time],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class AvailableBalanceAmount < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer}
-        end
-
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 
@@ -201,20 +195,22 @@ module ModernTreasury
         end
         def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
 
-        sig { returns(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              eq: Integer,
+              gt: Integer,
+              gte: Integer,
+              lt: Integer,
+              lte: Integer,
+              not_eq: Integer
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class Balances < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            as_of_date: Date,
-            effective_at: Time,
-            effective_at_lower_bound: Time,
-            effective_at_upper_bound: Time
-          }
-        end
-
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date
 
@@ -255,15 +251,20 @@ module ModernTreasury
         )
         end
 
-        sig { returns(ModernTreasury::Models::LedgerAccountListParams::Balances::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              as_of_date: Date,
+              effective_at: Time,
+              effective_at_lower_bound: Time,
+              effective_at_upper_bound: Time
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class PendingBalanceAmount < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer}
-        end
-
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 
@@ -305,15 +306,22 @@ module ModernTreasury
         end
         def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
 
-        sig { returns(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              eq: Integer,
+              gt: Integer,
+              gte: Integer,
+              lt: Integer,
+              lte: Integer,
+              not_eq: Integer
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class PostedBalanceAmount < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer}
-        end
-
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 
@@ -355,8 +363,19 @@ module ModernTreasury
         end
         def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
 
-        sig { returns(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              eq: Integer,
+              gt: Integer,
+              gte: Integer,
+              lt: Integer,
+              lte: Integer,
+              not_eq: Integer
+            }
+          )
+        end
+        def to_hash; end
       end
     end
   end

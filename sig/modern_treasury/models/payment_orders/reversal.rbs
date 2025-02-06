@@ -58,7 +58,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrders::reversal
+        def to_hash: -> ModernTreasury::Models::PaymentOrders::reversal
 
         type reason =
           :duplicate

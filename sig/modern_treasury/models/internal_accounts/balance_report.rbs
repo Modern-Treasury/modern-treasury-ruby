@@ -54,7 +54,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::InternalAccounts::balance_report
+        def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report
 
         type balance_report_type =
           :intraday | :other | :previous_day | :real_time
@@ -133,7 +133,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::InternalAccounts::BalanceReport::balance
+          def to_hash: -> ModernTreasury::Models::InternalAccounts::BalanceReport::balance
 
           type balance_type =
             :closing_available

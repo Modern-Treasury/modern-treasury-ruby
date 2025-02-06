@@ -7,18 +7,6 @@ module ModernTreasury
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
-        Shape = T.type_alias do
-          T.all(
-            {
-              as_of_date: Date,
-              as_of_time: String,
-              balance_report_type: Symbol,
-              balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]
-            },
-            ModernTreasury::RequestParameters::Shape
-          )
-        end
-
         sig { returns(Date) }
         attr_accessor :as_of_date
 
@@ -39,13 +27,23 @@ module ModernTreasury
             as_of_time: String,
             balance_report_type: Symbol,
             balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           ).void
         end
         def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {}); end
 
-        sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              as_of_date: Date,
+              as_of_time: String,
+              balance_report_type: Symbol,
+              balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
+        end
+        def to_hash; end
 
         class BalanceReportType < ModernTreasury::Enum
           abstract!
@@ -60,10 +58,6 @@ module ModernTreasury
         end
 
         class Balance < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {amount: Integer, balance_type: Symbol, vendor_code: String, vendor_code_type: T.nilable(String)}
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -86,8 +80,17 @@ module ModernTreasury
           end
           def initialize(amount:, balance_type:, vendor_code:, vendor_code_type:); end
 
-          sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::Shape) }
-          def to_h; end
+          sig do
+            override.returns(
+              {
+                amount: Integer,
+                balance_type: Symbol,
+                vendor_code: String,
+                vendor_code_type: T.nilable(String)
+              }
+            )
+          end
+          def to_hash; end
 
           class BalanceType < ModernTreasury::Enum
             abstract!
