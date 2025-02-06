@@ -3,21 +3,6 @@
 module ModernTreasury
   module Models
     class ConnectionLegalEntity < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          connection_id: String,
-          created_at: Time,
-          discarded_at: T.nilable(Time),
-          legal_entity_id: String,
-          live_mode: T::Boolean,
-          object: String,
-          status: Symbol,
-          updated_at: Time,
-          vendor_id: String
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -75,8 +60,23 @@ module ModernTreasury
         vendor_id:
       ); end
 
-      sig { returns(ModernTreasury::Models::ConnectionLegalEntity::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            connection_id: String,
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            legal_entity_id: String,
+            live_mode: T::Boolean,
+            object: String,
+            status: Symbol,
+            updated_at: Time,
+            vendor_id: String
+          }
+        )
+      end
+      def to_hash; end
 
       class Status < ModernTreasury::Enum
         abstract!

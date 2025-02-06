@@ -6,18 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            documentable_id: String,
-            documentable_type: Symbol,
-            file: T.any(IO, StringIO),
-            document_type: String
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(String) }
       attr_accessor :documentable_id
 
@@ -39,14 +27,24 @@ module ModernTreasury
           documentable_type: Symbol,
           file: T.any(IO, StringIO),
           document_type: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
       end
 
-      sig { returns(ModernTreasury::Models::DocumentCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            documentable_id: String,
+            documentable_type: Symbol,
+            file: T.any(IO, StringIO),
+            document_type: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class DocumentableType < ModernTreasury::Enum
         abstract!

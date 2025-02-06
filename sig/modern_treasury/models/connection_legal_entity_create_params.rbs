@@ -36,7 +36,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::connection_legal_entity_create_params
+      def to_hash: -> ModernTreasury::Models::connection_legal_entity_create_params
 
       type legal_entity =
         {
@@ -167,7 +167,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::legal_entity
+        def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::legal_entity
 
         type address =
           {
@@ -214,7 +214,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::address
+          def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::address
 
           type address_type =
             :business | :mailing | :other | :po_box | :residential
@@ -255,7 +255,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::identification
+          def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::identification
 
           type id_type =
             :ar_cuil
@@ -346,7 +346,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_association
+          def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_association
 
           type relationship_type = :beneficial_owner | :control_person
 
@@ -482,7 +482,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::child_legal_entity
+            def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::child_legal_entity
 
             type address =
               {
@@ -529,7 +529,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::address
+              def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::address
 
               type address_type =
                 :business | :mailing | :other | :po_box | :residential
@@ -570,7 +570,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::identification
+              def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::identification
 
               type id_type =
                 :ar_cuil
@@ -664,7 +664,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::phone_number
+              def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::phone_number
             end
 
             type risk_rating = :low | :medium | :high
@@ -721,7 +721,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::phone_number
+          def to_hash: -> ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::phone_number
         end
 
         type risk_rating = :low | :medium | :high

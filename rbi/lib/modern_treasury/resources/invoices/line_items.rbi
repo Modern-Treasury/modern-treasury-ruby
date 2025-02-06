@@ -14,7 +14,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
         def create(
@@ -33,7 +33,7 @@ module ModernTreasury
           params(
             id: String,
             invoice_id: String,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
         def retrieve(id, invoice_id:, request_options: {}); end
@@ -49,7 +49,7 @@ module ModernTreasury
             quantity: Integer,
             unit_amount: Integer,
             unit_amount_decimal: String,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
         def update(
@@ -70,7 +70,7 @@ module ModernTreasury
             invoice_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem])
         end
         def list(invoice_id, after_cursor: nil, per_page: nil, request_options: {}); end
@@ -79,7 +79,7 @@ module ModernTreasury
           params(
             id: String,
             invoice_id: String,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
         def delete(id, invoice_id:, request_options: {}); end

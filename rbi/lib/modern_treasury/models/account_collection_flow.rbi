@@ -3,22 +3,6 @@
 module ModernTreasury
   module Models
     class AccountCollectionFlow < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          counterparty_id: String,
-          payment_types: T::Array[Symbol],
-          id: String,
-          client_token: String,
-          created_at: Time,
-          external_account_id: T.nilable(String),
-          live_mode: T::Boolean,
-          object: String,
-          receiving_countries: T::Array[Symbol],
-          status: Symbol,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :counterparty_id
 
@@ -105,8 +89,24 @@ module ModernTreasury
         updated_at: nil
       ); end
 
-      sig { returns(ModernTreasury::Models::AccountCollectionFlow::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            counterparty_id: String,
+            payment_types: T::Array[Symbol],
+            id: String,
+            client_token: String,
+            created_at: Time,
+            external_account_id: T.nilable(String),
+            live_mode: T::Boolean,
+            object: String,
+            receiving_countries: T::Array[Symbol],
+            status: Symbol,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class PaymentType < ModernTreasury::Enum
         abstract!

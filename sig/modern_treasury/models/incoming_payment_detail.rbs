@@ -113,7 +113,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::incoming_payment_detail
+      def to_hash: -> ModernTreasury::Models::incoming_payment_detail
 
       type originating_account_number_type =
         :au_number

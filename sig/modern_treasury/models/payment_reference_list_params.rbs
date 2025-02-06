@@ -48,7 +48,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::payment_reference_list_params
+      def to_hash: -> ModernTreasury::Models::payment_reference_list_params
 
       type referenceable_type = :payment_order | :return | :reversal
 

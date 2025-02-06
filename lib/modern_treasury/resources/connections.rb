@@ -15,7 +15,7 @@ module ModernTreasury
       #
       #   @option params [String] :vendor_customer_id An identifier assigned by the vendor to your organization.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Connection>]
       #

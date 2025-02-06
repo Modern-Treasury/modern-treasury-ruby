@@ -14,7 +14,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_statement_retrieve_params
+      def to_hash: -> ModernTreasury::Models::ledger_account_statement_retrieve_params
     end
   end
 end

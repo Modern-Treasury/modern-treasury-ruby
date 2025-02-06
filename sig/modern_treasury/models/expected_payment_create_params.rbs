@@ -106,7 +106,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::expected_payment_create_params
+      def to_hash: -> ModernTreasury::Models::expected_payment_create_params
 
       type direction = :credit | :debit
 
@@ -184,7 +184,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExpectedPaymentCreateParams::ledger_transaction
+        def to_hash: -> ModernTreasury::Models::ExpectedPaymentCreateParams::ledger_transaction
 
         type ledger_entry =
           {
@@ -237,7 +237,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledger_entry
+          def to_hash: -> ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledger_entry
         end
 
         type ledgerable_type =
@@ -301,7 +301,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExpectedPaymentCreateParams::line_item
+        def to_hash: -> ModernTreasury::Models::ExpectedPaymentCreateParams::line_item
       end
     end
   end

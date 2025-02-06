@@ -6,13 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {name: String, description: T.nilable(String), metadata: T::Hash[Symbol, String]},
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(String) }
       attr_accessor :name
 
@@ -30,13 +23,22 @@ module ModernTreasury
           name: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(name:, description: nil, metadata: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::LedgerCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            name: String,
+            description: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

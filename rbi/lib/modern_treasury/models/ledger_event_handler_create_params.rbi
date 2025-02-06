@@ -6,24 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
-            name: String,
-            conditions: T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions),
-            description: T.nilable(String),
-            ledger_id: String,
-            metadata: T.nilable(
-              T::Hash[Symbol,
-                      String]
-            ),
-            variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate) }
       attr_accessor :ledger_transaction_template
 
@@ -57,7 +39,7 @@ module ModernTreasury
           ledger_id: String,
           metadata: T.nilable(T::Hash[Symbol, String]),
           variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -71,19 +53,26 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+            name: String,
+            conditions: T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions),
+            description: T.nilable(String),
+            ledger_id: String,
+            metadata: T.nilable(
+              T::Hash[Symbol,
+                      String]
+            ),
+            variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            description: T.nilable(String),
-            effective_at: T.nilable(String),
-            ledger_entries: T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
-            status: T.nilable(String)
-          }
-        end
-
         sig { returns(T.nilable(String)) }
         attr_accessor :description
 
@@ -109,13 +98,18 @@ module ModernTreasury
         def initialize(description:, effective_at:, ledger_entries:, status:); end
 
         sig do
-          returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::Shape)
+          override.returns(
+            {
+              description: T.nilable(String),
+              effective_at: T.nilable(String),
+              ledger_entries: T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
+              status: T.nilable(String)
+            }
+          )
         end
-        def to_h; end
+        def to_hash; end
 
         class LedgerEntry < ModernTreasury::BaseModel
-          Shape = T.type_alias { {amount: String, direction: String, ledger_account_id: String} }
-
           sig { returns(String) }
           attr_accessor :amount
 
@@ -128,16 +122,12 @@ module ModernTreasury
           sig { params(amount: String, direction: String, ledger_account_id: String).void }
           def initialize(amount:, direction:, ledger_account_id:); end
 
-          sig do
-            returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry::Shape)
-          end
-          def to_h; end
+          sig { override.returns({amount: String, direction: String, ledger_account_id: String}) }
+          def to_hash; end
         end
       end
 
       class Conditions < ModernTreasury::BaseModel
-        Shape = T.type_alias { {field: String, operator: String, value: String} }
-
         sig { returns(String) }
         attr_accessor :field
 
@@ -150,8 +140,8 @@ module ModernTreasury
         sig { params(field: String, operator: String, value: String).void }
         def initialize(field:, operator:, value:); end
 
-        sig { returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions::Shape) }
-        def to_h; end
+        sig { override.returns({field: String, operator: String, value: String}) }
+        def to_hash; end
       end
     end
   end

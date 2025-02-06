@@ -100,7 +100,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::external_account_create_params
+      def to_hash: -> ModernTreasury::Models::external_account_create_params
 
       type account_detail =
         {
@@ -127,7 +127,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExternalAccountCreateParams::account_detail
+        def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::account_detail
 
         type account_number_type =
           :au_number
@@ -184,7 +184,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExternalAccountCreateParams::contact_detail
+        def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::contact_detail
 
         type contact_identifier_type = :email | :phone_number | :website
 
@@ -260,7 +260,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExternalAccountCreateParams::ledger_account
+        def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::ledger_account
 
         type ledgerable_type =
           :counterparty
@@ -315,7 +315,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExternalAccountCreateParams::party_address
+        def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::party_address
       end
 
       type party_type = :business | :individual
@@ -356,7 +356,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExternalAccountCreateParams::routing_detail
+        def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::routing_detail
 
         type routing_number_type =
           :aba

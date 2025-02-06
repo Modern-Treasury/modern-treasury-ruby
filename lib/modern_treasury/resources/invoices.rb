@@ -83,7 +83,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
       #
@@ -104,7 +104,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::InvoiceRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
       #
@@ -196,7 +196,7 @@ module ModernTreasury
       #
       #   @option params [String, nil] :virtual_account_id The ID of the virtual account the invoice should be paid to.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
       #
@@ -239,7 +239,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::InvoiceListParams::Status] :status
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Invoice>]
       #
@@ -263,7 +263,7 @@ module ModernTreasury
       #
       #   @option params [String] :id id
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
       #

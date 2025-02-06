@@ -7,19 +7,6 @@ module ModernTreasury
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
-        Shape = T.type_alias do
-          T.all(
-            {
-              id: T::Hash[Symbol, String],
-              after_cursor: T.nilable(String),
-              per_page: Integer,
-              transaction_id: String,
-              type: T.nilable(Symbol)
-            },
-            ModernTreasury::RequestParameters::Shape
-          )
-        end
-
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         attr_reader :id
 
@@ -51,7 +38,7 @@ module ModernTreasury
             per_page: Integer,
             transaction_id: String,
             type: T.nilable(Symbol),
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           ).void
         end
         def initialize(
@@ -64,8 +51,19 @@ module ModernTreasury
         )
         end
 
-        sig { returns(ModernTreasury::Models::Transactions::LineItemListParams::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: T::Hash[Symbol, String],
+              after_cursor: T.nilable(String),
+              per_page: Integer,
+              transaction_id: String,
+              type: T.nilable(Symbol),
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
+        end
+        def to_hash; end
 
         class Type < ModernTreasury::Enum
           abstract!

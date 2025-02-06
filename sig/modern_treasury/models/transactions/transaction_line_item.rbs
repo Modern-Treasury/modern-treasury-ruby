@@ -77,7 +77,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Transactions::transaction_line_item
+        def to_hash: -> ModernTreasury::Models::Transactions::transaction_line_item
 
         type transactable_type =
           :incoming_payment_detail

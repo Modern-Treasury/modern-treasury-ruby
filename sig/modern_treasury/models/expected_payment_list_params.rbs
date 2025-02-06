@@ -80,7 +80,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::expected_payment_list_params
+      def to_hash: -> ModernTreasury::Models::expected_payment_list_params
 
       type status =
         :archived | :partially_reconciled | :reconciled | :unreconciled

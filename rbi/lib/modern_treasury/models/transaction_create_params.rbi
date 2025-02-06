@@ -6,24 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            amount: Integer,
-            as_of_date: T.nilable(Date),
-            direction: String,
-            internal_account_id: String,
-            vendor_code: T.nilable(String),
-            vendor_code_type: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            posted: T::Boolean,
-            type: T.nilable(Symbol),
-            vendor_description: T.nilable(String)
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(Integer) }
       attr_accessor :amount
 
@@ -72,7 +54,7 @@ module ModernTreasury
           posted: T::Boolean,
           type: T.nilable(Symbol),
           vendor_description: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -89,8 +71,24 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::TransactionCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            amount: Integer,
+            as_of_date: T.nilable(Date),
+            direction: String,
+            internal_account_id: String,
+            vendor_code: T.nilable(String),
+            vendor_code_type: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            posted: T::Boolean,
+            type: T.nilable(Symbol),
+            vendor_description: T.nilable(String),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Type < ModernTreasury::Enum
         abstract!

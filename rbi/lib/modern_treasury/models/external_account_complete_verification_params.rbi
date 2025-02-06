@@ -6,19 +6,22 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias { T.all({amounts: T::Array[Integer]}, ModernTreasury::RequestParameters::Shape) }
-
       sig { returns(T.nilable(T::Array[Integer])) }
       attr_reader :amounts
 
       sig { params(amounts: T::Array[Integer]).void }
       attr_writer :amounts
 
-      sig { params(amounts: T::Array[Integer], request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          amounts: T::Array[Integer],
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+        ).void
+      end
       def initialize(amounts: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::ExternalAccountCompleteVerificationParams::Shape) }
-      def to_h; end
+      sig { override.returns({amounts: T::Array[Integer], request_options: ModernTreasury::RequestOptions}) }
+      def to_hash; end
     end
   end
 end

@@ -77,7 +77,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::virtual_account
+      def to_hash: -> ModernTreasury::Models::virtual_account
     end
   end
 end

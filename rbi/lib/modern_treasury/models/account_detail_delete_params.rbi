@@ -6,10 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all({accounts_type: Symbol, account_id: String}, ModernTreasury::RequestParameters::Shape)
-      end
-
       sig { returns(Symbol) }
       attr_accessor :accounts_type
 
@@ -17,12 +13,24 @@ module ModernTreasury
       attr_accessor :account_id
 
       sig do
-        params(accounts_type: Symbol, account_id: String, request_options: ModernTreasury::RequestOpts).void
+        params(
+          accounts_type: Symbol,
+          account_id: String,
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+        ).void
       end
       def initialize(accounts_type:, account_id:, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::AccountDetailDeleteParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            accounts_type: Symbol,
+            account_id: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class AccountsType < ModernTreasury::Enum
         abstract!

@@ -6,19 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            id: T::Array[String],
-            after_cursor: T.nilable(String),
-            ledger_account_id: String,
-            metadata: T::Hash[Symbol, String],
-            per_page: Integer
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :id
 
@@ -53,7 +40,7 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -66,8 +53,19 @@ module ModernTreasury
       )
       end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitorListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: T::Array[String],
+            after_cursor: T.nilable(String),
+            ledger_account_id: String,
+            metadata: T::Hash[Symbol, String],
+            per_page: Integer,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

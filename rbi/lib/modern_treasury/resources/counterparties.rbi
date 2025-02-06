@@ -16,7 +16,7 @@ module ModernTreasury
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
           verification_status: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Counterparty)
       end
       def create(
@@ -37,7 +37,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Counterparty)
       end
       def retrieve(id, request_options: {}); end
@@ -51,7 +51,7 @@ module ModernTreasury
           name: String,
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Counterparty)
       end
       def update(
@@ -75,7 +75,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Counterparty])
       end
       def list(
@@ -90,7 +90,12 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          id: String,
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+        ).void
+      end
       def delete(id, request_options: {}); end
 
       sig do
@@ -100,7 +105,7 @@ module ModernTreasury
           custom_redirect: String,
           fields: T::Array[Symbol],
           send_email: T::Boolean,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::CounterpartyCollectAccountResponse)
       end
       def collect_account(

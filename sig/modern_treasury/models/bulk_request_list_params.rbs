@@ -58,7 +58,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::bulk_request_list_params
+      def to_hash: -> ModernTreasury::Models::bulk_request_list_params
 
       type action_type = :create | :update | :delete
 

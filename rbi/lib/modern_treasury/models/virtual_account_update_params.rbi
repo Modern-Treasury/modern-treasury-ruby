@@ -6,18 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            counterparty_id: String,
-            ledger_account_id: String,
-            metadata: T::Hash[Symbol, String],
-            name: T.nilable(String)
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_reader :counterparty_id
 
@@ -45,7 +33,7 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -57,8 +45,18 @@ module ModernTreasury
       )
       end
 
-      sig { returns(ModernTreasury::Models::VirtualAccountUpdateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            counterparty_id: String,
+            ledger_account_id: String,
+            metadata: T::Hash[Symbol, String],
+            name: T.nilable(String),
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

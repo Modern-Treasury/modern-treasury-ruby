@@ -57,7 +57,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::routing_detail
+      def to_hash: -> ModernTreasury::Models::routing_detail
 
       type bank_address =
         {
@@ -116,7 +116,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::RoutingDetail::bank_address
+        def to_hash: -> ModernTreasury::Models::RoutingDetail::bank_address
       end
 
       type payment_type =

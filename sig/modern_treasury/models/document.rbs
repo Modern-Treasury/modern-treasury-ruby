@@ -60,7 +60,7 @@ module ModernTreasury
           ?ModernTreasury::Models::document | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::document
+      def to_hash: -> ModernTreasury::Models::document
 
       type document_detail =
         {
@@ -107,7 +107,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Document::document_detail
+        def to_hash: -> ModernTreasury::Models::Document::document_detail
       end
 
       type documentable_type =
@@ -163,7 +163,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Document::file
+        def to_hash: -> ModernTreasury::Models::Document::file
       end
     end
   end

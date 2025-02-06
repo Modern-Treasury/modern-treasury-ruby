@@ -3,26 +3,6 @@
 module ModernTreasury
   module Models
     class LedgerAccountStatementRetrieveResponse < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          created_at: Time,
-          description: T.nilable(String),
-          effective_at_lower_bound: Time,
-          effective_at_upper_bound: Time,
-          ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
-          ledger_account_id: String,
-          ledger_account_lock_version: Integer,
-          ledger_account_normal_balance: Symbol,
-          ledger_id: String,
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          object: String,
-          starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -105,16 +85,30 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            description: T.nilable(String),
+            effective_at_lower_bound: Time,
+            effective_at_upper_bound: Time,
+            ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+            ledger_account_id: String,
+            ledger_account_lock_version: Integer,
+            ledger_account_normal_balance: Symbol,
+            ledger_id: String,
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class EndingBalance < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance, pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance, posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
-          }
-        end
-
         sig do
           returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance)
         end
@@ -139,14 +133,16 @@ module ModernTreasury
         end
         def initialize(available_balance:, pending_balance:, posted_balance:); end
 
-        sig { returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance, pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance, posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
+            }
+          )
+        end
+        def to_hash; end
 
         class AvailableBalance < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {amount: Integer, credits: Integer, currency: String, currency_exponent: Integer, debits: Integer}
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -174,16 +170,20 @@ module ModernTreasury
           def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
 
           sig do
-            returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance::Shape)
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
         end
 
         class PendingBalance < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {amount: Integer, credits: Integer, currency: String, currency_exponent: Integer, debits: Integer}
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -211,16 +211,20 @@ module ModernTreasury
           def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
 
           sig do
-            returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance::Shape)
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
         end
 
         class PostedBalance < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {amount: Integer, credits: Integer, currency: String, currency_exponent: Integer, debits: Integer}
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -248,19 +252,21 @@ module ModernTreasury
           def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
 
           sig do
-            returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance::Shape)
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
         end
       end
 
       class StartingBalance < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance, pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance, posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
-          }
-        end
-
         sig do
           returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance)
         end
@@ -286,15 +292,15 @@ module ModernTreasury
         def initialize(available_balance:, pending_balance:, posted_balance:); end
 
         sig do
-          returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::Shape)
+          override.returns(
+            {
+              available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance, pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance, posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
+            }
+          )
         end
-        def to_h; end
+        def to_hash; end
 
         class AvailableBalance < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {amount: Integer, credits: Integer, currency: String, currency_exponent: Integer, debits: Integer}
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -322,16 +328,20 @@ module ModernTreasury
           def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
 
           sig do
-            returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance::Shape)
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
         end
 
         class PendingBalance < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {amount: Integer, credits: Integer, currency: String, currency_exponent: Integer, debits: Integer}
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -359,16 +369,20 @@ module ModernTreasury
           def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
 
           sig do
-            returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance::Shape)
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
         end
 
         class PostedBalance < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {amount: Integer, credits: Integer, currency: String, currency_exponent: Integer, debits: Integer}
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -396,9 +410,17 @@ module ModernTreasury
           def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
 
           sig do
-            returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance::Shape)
+            override.returns(
+              {
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
         end
       end
     end

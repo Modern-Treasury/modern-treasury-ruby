@@ -11,7 +11,7 @@ module ModernTreasury
           direction: Symbol,
           originating_account_id: String,
           due_date: Date,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::PaymentFlow)
       end
       def create(
@@ -27,7 +27,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::PaymentFlow)
       end
       def retrieve(id, request_options: {}); end
@@ -36,7 +36,7 @@ module ModernTreasury
         params(
           id: String,
           status: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::PaymentFlow)
       end
       def update(id, status:, request_options: {}); end
@@ -51,7 +51,7 @@ module ModernTreasury
           per_page: Integer,
           receiving_account_id: String,
           status: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::PaymentFlow])
       end
       def list(

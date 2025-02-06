@@ -89,7 +89,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_transaction
+      def to_hash: -> ModernTreasury::Models::ledger_transaction
 
       type ledgerable_type =
         :expected_payment

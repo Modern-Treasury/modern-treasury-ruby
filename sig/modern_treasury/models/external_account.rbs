@@ -89,7 +89,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::external_account
+      def to_hash: -> ModernTreasury::Models::external_account
 
       type contact_detail =
         {
@@ -136,7 +136,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExternalAccount::contact_detail
+        def to_hash: -> ModernTreasury::Models::ExternalAccount::contact_detail
 
         type contact_identifier_type = :email | :phone_number | :website
 
@@ -206,7 +206,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ExternalAccount::party_address
+        def to_hash: -> ModernTreasury::Models::ExternalAccount::party_address
       end
 
       type party_type = :business | :individual

@@ -51,7 +51,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::account_detail
+      def to_hash: -> ModernTreasury::Models::account_detail
 
       type account_number_type =
         :au_number

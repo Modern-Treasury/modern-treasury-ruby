@@ -6,25 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            after_cursor: T.nilable(String),
-            counterparty_id: String,
-            due_date_end: Date,
-            due_date_start: Date,
-            expected_payment_id: String,
-            metadata: T::Hash[Symbol, String],
-            number: String,
-            originating_account_id: String,
-            payment_order_id: String,
-            per_page: Integer,
-            status: Symbol
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -101,7 +82,7 @@ module ModernTreasury
           payment_order_id: String,
           per_page: Integer,
           status: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -119,8 +100,25 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::InvoiceListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            counterparty_id: String,
+            due_date_end: Date,
+            due_date_start: Date,
+            expected_payment_id: String,
+            metadata: T::Hash[Symbol, String],
+            number: String,
+            originating_account_id: String,
+            payment_order_id: String,
+            per_page: Integer,
+            status: Symbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Status < ModernTreasury::Enum
         abstract!

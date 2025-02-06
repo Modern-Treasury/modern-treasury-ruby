@@ -69,7 +69,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Invoices::invoice_line_item
+        def to_hash: -> ModernTreasury::Models::Invoices::invoice_line_item
       end
     end
   end

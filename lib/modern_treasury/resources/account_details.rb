@@ -16,7 +16,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] :account_number_type Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
       #     the bank account number is in a generic format.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountDetail]
       #
@@ -44,7 +44,7 @@ module ModernTreasury
       #
       #   @option params [String] :account_id The ID of the account.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountDetail]
       #
@@ -76,7 +76,7 @@ module ModernTreasury
       #
       #   @option params [Integer] :per_page Query param:
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountDetail>]
       #
@@ -105,7 +105,7 @@ module ModernTreasury
       #
       #   @option params [String] :account_id The ID of the account.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
       #

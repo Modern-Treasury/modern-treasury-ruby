@@ -3,36 +3,6 @@
 module ModernTreasury
   module Models
     class IncomingPaymentDetail < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          amount: Integer,
-          as_of_date: Date,
-          created_at: Time,
-          currency: Symbol,
-          data: T::Hash[Symbol, T.anything],
-          direction: Symbol,
-          internal_account_id: String,
-          ledger_transaction_id: T.nilable(String),
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          object: String,
-          originating_account_number_safe: T.nilable(String),
-          originating_account_number_type: T.nilable(Symbol),
-          originating_routing_number: T.nilable(String),
-          originating_routing_number_type: T.nilable(Symbol),
-          status: Symbol,
-          transaction_id: T.nilable(String),
-          transaction_line_item_id: T.nilable(String),
-          type: Symbol,
-          updated_at: Time,
-          vendor_id: T.nilable(String),
-          virtual_account: T.nilable(ModernTreasury::Models::VirtualAccount),
-          virtual_account_id: T.nilable(String),
-          originating_account_number: T.nilable(String)
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -165,8 +135,38 @@ module ModernTreasury
         originating_account_number: nil
       ); end
 
-      sig { returns(ModernTreasury::Models::IncomingPaymentDetail::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            amount: Integer,
+            as_of_date: Date,
+            created_at: Time,
+            currency: Symbol,
+            data: T::Hash[Symbol, T.anything],
+            direction: Symbol,
+            internal_account_id: String,
+            ledger_transaction_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            originating_account_number_safe: T.nilable(String),
+            originating_account_number_type: T.nilable(Symbol),
+            originating_routing_number: T.nilable(String),
+            originating_routing_number_type: T.nilable(Symbol),
+            status: Symbol,
+            transaction_id: T.nilable(String),
+            transaction_line_item_id: T.nilable(String),
+            type: Symbol,
+            updated_at: Time,
+            vendor_id: T.nilable(String),
+            virtual_account: T.nilable(ModernTreasury::Models::VirtualAccount),
+            virtual_account_id: T.nilable(String),
+            originating_account_number: T.nilable(String)
+          }
+        )
+      end
+      def to_hash; end
 
       class OriginatingAccountNumberType < ModernTreasury::Enum
         abstract!

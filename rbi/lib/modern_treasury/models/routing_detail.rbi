@@ -3,22 +3,6 @@
 module ModernTreasury
   module Models
     class RoutingDetail < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          bank_address: T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress),
-          bank_name: String,
-          created_at: Time,
-          discarded_at: T.nilable(Time),
-          live_mode: T::Boolean,
-          object: String,
-          payment_type: T.nilable(Symbol),
-          routing_number: String,
-          routing_number_type: Symbol,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -81,26 +65,26 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::RoutingDetail::Shape) }
-      def to_h; end
-
-      class BankAddress < ModernTreasury::BaseModel
-        Shape = T.type_alias do
+      sig do
+        override.returns(
           {
             id: String,
-            country: T.nilable(String),
+            bank_address: T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress),
+            bank_name: String,
             created_at: Time,
-            line1: T.nilable(String),
-            line2: T.nilable(String),
+            discarded_at: T.nilable(Time),
             live_mode: T::Boolean,
-            locality: T.nilable(String),
             object: String,
-            postal_code: T.nilable(String),
-            region: T.nilable(String),
+            payment_type: T.nilable(Symbol),
+            routing_number: String,
+            routing_number_type: Symbol,
             updated_at: Time
           }
-        end
+        )
+      end
+      def to_hash; end
 
+      class BankAddress < ModernTreasury::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -163,8 +147,24 @@ module ModernTreasury
           updated_at:
         ); end
 
-        sig { returns(ModernTreasury::Models::RoutingDetail::BankAddress::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              country: T.nilable(String),
+              created_at: Time,
+              line1: T.nilable(String),
+              line2: T.nilable(String),
+              live_mode: T::Boolean,
+              locality: T.nilable(String),
+              object: String,
+              postal_code: T.nilable(String),
+              region: T.nilable(String),
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class PaymentType < ModernTreasury::Enum

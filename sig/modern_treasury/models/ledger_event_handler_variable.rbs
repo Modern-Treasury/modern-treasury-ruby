@@ -21,7 +21,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_event_handler_variable
+      def to_hash: -> ModernTreasury::Models::ledger_event_handler_variable
 
       type query = { field: String, operator: String, value: String }
 
@@ -39,7 +39,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerEventHandlerVariable::query
+        def to_hash: -> ModernTreasury::Models::LedgerEventHandlerVariable::query
       end
     end
   end

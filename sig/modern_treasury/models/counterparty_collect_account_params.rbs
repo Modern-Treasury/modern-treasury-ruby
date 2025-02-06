@@ -42,7 +42,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::counterparty_collect_account_params
+      def to_hash: -> ModernTreasury::Models::counterparty_collect_account_params
 
       type field =
         :name

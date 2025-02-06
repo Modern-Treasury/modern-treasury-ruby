@@ -6,20 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            internal_account_id: String,
-            target_currency: Symbol,
-            base_amount: Integer,
-            base_currency: Symbol,
-            effective_at: Time,
-            target_amount: Integer
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(String) }
       attr_accessor :internal_account_id
 
@@ -58,7 +44,7 @@ module ModernTreasury
           base_currency: Symbol,
           effective_at: Time,
           target_amount: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -71,8 +57,20 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::ForeignExchangeQuoteCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            internal_account_id: String,
+            target_currency: Symbol,
+            base_amount: Integer,
+            base_currency: Symbol,
+            effective_at: Time,
+            target_amount: Integer,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

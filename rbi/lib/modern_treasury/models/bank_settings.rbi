@@ -3,21 +3,6 @@
 module ModernTreasury
   module Models
     class BankSettings < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          backup_withholding_percentage: T.nilable(Integer),
-          created_at: Time,
-          discarded_at: T.nilable(Time),
-          enable_backup_withholding: T.nilable(T::Boolean),
-          live_mode: T::Boolean,
-          object: String,
-          privacy_opt_out: T.nilable(T::Boolean),
-          regulation_o: T.nilable(T::Boolean),
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -75,8 +60,23 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::BankSettings::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            backup_withholding_percentage: T.nilable(Integer),
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            enable_backup_withholding: T.nilable(T::Boolean),
+            live_mode: T::Boolean,
+            object: String,
+            privacy_opt_out: T.nilable(T::Boolean),
+            regulation_o: T.nilable(T::Boolean),
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

@@ -136,7 +136,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_transaction_list_params
+      def to_hash: -> ModernTreasury::Models::ledger_transaction_list_params
 
       type ledgerable_type =
         :expected_payment
@@ -186,7 +186,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerTransactionListParams::order_by
+        def to_hash: -> ModernTreasury::Models::LedgerTransactionListParams::order_by
 
         type created_at = :asc | :desc
 

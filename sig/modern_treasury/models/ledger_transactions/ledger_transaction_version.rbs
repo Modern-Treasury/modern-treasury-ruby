@@ -97,7 +97,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerTransactions::ledger_transaction_version
+        def to_hash: -> ModernTreasury::Models::LedgerTransactions::ledger_transaction_version
 
         type ledger_entry =
           {
@@ -168,7 +168,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledger_entry
+          def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledger_entry
 
           type resulting_ledger_account_balances =
             {
@@ -195,7 +195,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances
+            def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances
 
             type available_balance =
               {
@@ -230,7 +230,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::available_balance
+              def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::available_balance
             end
 
             type pending_balance =
@@ -266,7 +266,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::pending_balance
+              def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::pending_balance
             end
 
             type posted_balance =
@@ -302,7 +302,7 @@ module ModernTreasury
                   | ModernTreasury::BaseModel data
                 ) -> void
 
-              def to_h: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::posted_balance
+              def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::posted_balance
             end
           end
 

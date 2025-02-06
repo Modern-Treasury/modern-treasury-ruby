@@ -6,16 +6,19 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias { T.all({id: String}, ModernTreasury::RequestParameters::Shape) }
-
       sig { returns(String) }
       attr_accessor :id
 
-      sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
+      sig do
+        params(
+          id: String,
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+        ).void
+      end
       def initialize(id:, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams::Shape) }
-      def to_h; end
+      sig { override.returns({id: String, request_options: ModernTreasury::RequestOptions}) }
+      def to_hash; end
     end
   end
 end

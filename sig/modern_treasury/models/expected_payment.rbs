@@ -117,7 +117,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::expected_payment
+      def to_hash: -> ModernTreasury::Models::expected_payment
 
       type direction = :credit | :debit
 

@@ -48,7 +48,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_event_handler_create_params
+      def to_hash: -> ModernTreasury::Models::ledger_event_handler_create_params
 
       type ledger_transaction_template =
         {
@@ -79,7 +79,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::ledger_transaction_template
+        def to_hash: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::ledger_transaction_template
 
         type ledger_entry =
           { amount: String, direction: String, ledger_account_id: String }
@@ -102,7 +102,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::ledger_entry
+          def to_hash: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::ledger_entry
         end
       end
 
@@ -122,7 +122,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::conditions
+        def to_hash: -> ModernTreasury::Models::LedgerEventHandlerCreateParams::conditions
       end
     end
   end

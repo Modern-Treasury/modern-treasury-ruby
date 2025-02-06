@@ -89,7 +89,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::internal_account
+      def to_hash: -> ModernTreasury::Models::internal_account
 
       type account_type =
         :cash
@@ -171,7 +171,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::InternalAccount::party_address
+        def to_hash: -> ModernTreasury::Models::InternalAccount::party_address
       end
 
       type party_type = :business | :individual

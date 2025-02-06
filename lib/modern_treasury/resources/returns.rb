@@ -23,7 +23,7 @@ module ModernTreasury
       #   @option params [String, nil] :reason An optional description of the reason for the return. This is for internal usage
       #     and will not be transmitted to the bank.”
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ReturnObject]
       #
@@ -44,7 +44,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::ReturnRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ReturnObject]
       #
@@ -76,7 +76,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType] :returnable_type One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #     Must be accompanied by `returnable_id`.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ReturnObject>]
       #

@@ -4,22 +4,6 @@ module ModernTreasury
   module Models
     module PaymentOrders
       class Reversal < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            id: String,
-            created_at: Time,
-            ledger_transaction_id: T.nilable(String),
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            object: String,
-            payment_order_id: T.nilable(String),
-            reason: Symbol,
-            status: Symbol,
-            transaction_ids: T::Array[T.nilable(T.anything)],
-            updated_at: Time
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :id
 
@@ -82,8 +66,24 @@ module ModernTreasury
           updated_at:
         ); end
 
-        sig { returns(ModernTreasury::Models::PaymentOrders::Reversal::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              ledger_transaction_id: T.nilable(String),
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              object: String,
+              payment_order_id: T.nilable(String),
+              reason: Symbol,
+              status: Symbol,
+              transaction_ids: T::Array[T.nilable(T.anything)],
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
 
         class Reason < ModernTreasury::Enum
           abstract!

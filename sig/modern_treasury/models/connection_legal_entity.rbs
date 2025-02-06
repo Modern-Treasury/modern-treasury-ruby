@@ -53,7 +53,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::connection_legal_entity
+      def to_hash: -> ModernTreasury::Models::connection_legal_entity
 
       type status = :completed | :denied | :failed | :processing
 

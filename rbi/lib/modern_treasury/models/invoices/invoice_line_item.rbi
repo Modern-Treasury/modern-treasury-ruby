@@ -6,24 +6,6 @@ module ModernTreasury
 
     module Invoices
       class InvoiceLineItem < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            id: String,
-            amount: Integer,
-            created_at: Time,
-            description: String,
-            direction: String,
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            name: String,
-            object: String,
-            quantity: Integer,
-            unit_amount: Integer,
-            unit_amount_decimal: String,
-            updated_at: Time
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :id
 
@@ -96,8 +78,26 @@ module ModernTreasury
           updated_at:
         ); end
 
-        sig { returns(ModernTreasury::Models::Invoices::InvoiceLineItem::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              amount: Integer,
+              created_at: Time,
+              description: String,
+              direction: String,
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              name: String,
+              object: String,
+              quantity: Integer,
+              unit_amount: Integer,
+              unit_amount_decimal: String,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
       end
     end
   end

@@ -63,7 +63,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::foreign_exchange_quote
+      def to_hash: -> ModernTreasury::Models::foreign_exchange_quote
 
       type foreign_exchange_rate =
         {
@@ -106,7 +106,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::ForeignExchangeQuote::foreign_exchange_rate
+        def to_hash: -> ModernTreasury::Models::ForeignExchangeQuote::foreign_exchange_rate
       end
     end
   end

@@ -64,7 +64,7 @@ module ModernTreasury
           ?ModernTreasury::Models::counterparty | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::counterparty
+      def to_hash: -> ModernTreasury::Models::counterparty
 
       type account =
         {
@@ -185,7 +185,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Counterparty::account
+        def to_hash: -> ModernTreasury::Models::Counterparty::account
 
         type contact_detail =
           {
@@ -232,7 +232,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::Counterparty::Account::contact_detail
+          def to_hash: -> ModernTreasury::Models::Counterparty::Account::contact_detail
 
           type contact_identifier_type = :email | :phone_number | :website
 
@@ -302,7 +302,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::Counterparty::Account::party_address
+          def to_hash: -> ModernTreasury::Models::Counterparty::Account::party_address
         end
 
         type party_type = :business | :individual

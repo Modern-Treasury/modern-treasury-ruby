@@ -32,7 +32,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::routing_detail_list_params
+      def to_hash: -> ModernTreasury::Models::routing_detail_list_params
     end
   end
 end

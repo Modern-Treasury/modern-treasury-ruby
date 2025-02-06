@@ -6,20 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            action_type: Symbol,
-            after_cursor: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            per_page: Integer,
-            resource_type: Symbol,
-            status: Symbol
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(Symbol)) }
       attr_reader :action_type
 
@@ -61,7 +47,7 @@ module ModernTreasury
           per_page: Integer,
           resource_type: Symbol,
           status: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -74,8 +60,20 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::BulkRequestListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            action_type: Symbol,
+            after_cursor: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            per_page: Integer,
+            resource_type: Symbol,
+            status: Symbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class ActionType < ModernTreasury::Enum
         abstract!
