@@ -15,9 +15,9 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < Minitest::Test
     response = @modern_treasury.ledger_transactions.create(
       ledger_entries: [
         {
-          "amount" => 0,
-          "direction" => "credit",
-          "ledger_account_id" => "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
+          amount: 0,
+          direction: :credit,
+          ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
         }
       ]
     )
@@ -61,9 +61,9 @@ class ModernTreasury::Test::Resources::LedgerTransactionsTest < Minitest::Test
       "id",
       posted_ledger_entries: [
         {
-          "amount" => 0,
-          "direction" => "credit",
-          "ledger_account_id" => "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
+          amount: 0,
+          direction: :credit,
+          ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
         }
       ]
     )
