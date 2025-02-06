@@ -18,7 +18,7 @@ module ModernTreasury
         accounts_type:,
         routing_number:,
         routing_number_type:,
-        payment_type:,
+        payment_type: nil,
         request_options: {}
       )
       end
@@ -42,7 +42,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::RoutingDetail])
       end
-      def list(account_id, accounts_type:, after_cursor:, per_page:, request_options: {}); end
+      def list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {}); end
 
       sig do
         params(

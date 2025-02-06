@@ -11,7 +11,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
-      def create(connection_id:, legal_entity:, legal_entity_id:, request_options: {}); end
+      def create(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {}); end
 
       sig do
         params(
@@ -28,7 +28,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
-      def update(id, status:, request_options: {}); end
+      def update(id, status: nil, request_options: {}); end
 
       sig do
         params(
@@ -40,7 +40,14 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::ConnectionLegalEntity])
       end
-      def list(after_cursor:, connection_id:, legal_entity_id:, per_page:, status:, request_options: {}); end
+      def list(
+        after_cursor: nil,
+        connection_id: nil,
+        legal_entity_id: nil,
+        per_page: nil,
+        status: nil,
+        request_options: {}
+      ); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

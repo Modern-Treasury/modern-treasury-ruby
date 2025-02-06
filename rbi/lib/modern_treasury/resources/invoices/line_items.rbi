@@ -21,11 +21,11 @@ module ModernTreasury
           invoice_id,
           name:,
           unit_amount:,
-          description:,
-          direction:,
-          metadata:,
-          quantity:,
-          unit_amount_decimal:,
+          description: nil,
+          direction: nil,
+          metadata: nil,
+          quantity: nil,
+          unit_amount_decimal: nil,
           request_options: {}
         ); end
 
@@ -55,13 +55,13 @@ module ModernTreasury
         def update(
           id,
           invoice_id:,
-          description:,
-          direction:,
-          metadata:,
-          name:,
-          quantity:,
-          unit_amount:,
-          unit_amount_decimal:,
+          description: nil,
+          direction: nil,
+          metadata: nil,
+          name: nil,
+          quantity: nil,
+          unit_amount: nil,
+          unit_amount_decimal: nil,
           request_options: {}
         ); end
 
@@ -73,7 +73,7 @@ module ModernTreasury
             request_options: ModernTreasury::RequestOpts
           ).returns(ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem])
         end
-        def list(invoice_id, after_cursor:, per_page:, request_options: {}); end
+        def list(invoice_id, after_cursor: nil, per_page: nil, request_options: {}); end
 
         sig do
           params(

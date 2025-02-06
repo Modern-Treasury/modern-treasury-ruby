@@ -12,7 +12,8 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Connection])
       end
-      def list(after_cursor:, entity:, per_page:, vendor_customer_id:, request_options: {}); end
+      def list(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

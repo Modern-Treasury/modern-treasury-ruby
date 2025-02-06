@@ -21,14 +21,14 @@ module ModernTreasury
       def create(
         internal_account_id:,
         name:,
-        account_details:,
-        counterparty_id:,
-        credit_ledger_account_id:,
-        debit_ledger_account_id:,
-        description:,
-        ledger_account:,
-        metadata:,
-        routing_details:,
+        account_details: nil,
+        counterparty_id: nil,
+        credit_ledger_account_id: nil,
+        debit_ledger_account_id: nil,
+        description: nil,
+        ledger_account: nil,
+        metadata: nil,
+        routing_details: nil,
         request_options: {}
       ); end
 
@@ -50,7 +50,15 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::VirtualAccount)
       end
-      def update(id, counterparty_id:, ledger_account_id:, metadata:, name:, request_options: {}); end
+      def update(
+        id,
+        counterparty_id: nil,
+        ledger_account_id: nil,
+        metadata: nil,
+        name: nil,
+        request_options: {}
+      )
+      end
 
       sig do
         params(
@@ -63,14 +71,13 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::VirtualAccount])
       end
       def list(
-        after_cursor:,
-        counterparty_id:,
-        internal_account_id:,
-        metadata:,
-        per_page:,
+        after_cursor: nil,
+        counterparty_id: nil,
+        internal_account_id: nil,
+        metadata: nil,
+        per_page: nil,
         request_options: {}
-      )
-      end
+      ); end
 
       sig do
         params(

@@ -24,13 +24,13 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Event])
       end
       def list(
-        after_cursor:,
-        entity_id:,
-        event_name:,
-        event_time_end:,
-        event_time_start:,
-        per_page:,
-        resource:,
+        after_cursor: nil,
+        entity_id: nil,
+        event_name: nil,
+        event_time_end: nil,
+        event_time_start: nil,
+        per_page: nil,
+        resource: nil,
         request_options: {}
       ); end
 

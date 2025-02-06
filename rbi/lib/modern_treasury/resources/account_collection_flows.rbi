@@ -11,7 +11,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::AccountCollectionFlow)
       end
-      def create(counterparty_id:, payment_types:, receiving_countries:, request_options: {}); end
+      def create(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {}); end
 
       sig do
         params(
@@ -42,12 +42,12 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow])
       end
       def list(
-        after_cursor:,
-        client_token:,
-        counterparty_id:,
-        external_account_id:,
-        per_page:,
-        status:,
+        after_cursor: nil,
+        client_token: nil,
+        counterparty_id: nil,
+        external_account_id: nil,
+        per_page: nil,
+        status: nil,
         request_options: {}
       ); end
 

@@ -17,8 +17,8 @@ module ModernTreasury
         effective_at_lower_bound:,
         effective_at_upper_bound:,
         ledger_account_id:,
-        description:,
-        metadata:,
+        description: nil,
+        metadata: nil,
         request_options: {}
       ); end
 
