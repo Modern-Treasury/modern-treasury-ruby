@@ -16,12 +16,12 @@ module ModernTreasury
           ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion])
         end
         def list(
-          after_cursor:,
-          created_at:,
-          ledger_account_statement_id:,
-          ledger_transaction_id:,
-          per_page:,
-          version:,
+          after_cursor: nil,
+          created_at: nil,
+          ledger_account_statement_id: nil,
+          ledger_transaction_id: nil,
+          per_page: nil,
+          version: nil,
           request_options: {}
         ); end
 

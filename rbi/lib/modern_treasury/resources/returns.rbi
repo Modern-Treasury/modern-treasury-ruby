@@ -17,10 +17,10 @@ module ModernTreasury
       def create(
         returnable_id:,
         returnable_type:,
-        additional_information:,
-        code:,
-        date_of_death:,
-        reason:,
+        additional_information: nil,
+        code: nil,
+        date_of_death: nil,
+        reason: nil,
         request_options: {}
       ); end
 
@@ -44,12 +44,12 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::ReturnObject])
       end
       def list(
-        after_cursor:,
-        counterparty_id:,
-        internal_account_id:,
-        per_page:,
-        returnable_id:,
-        returnable_type:,
+        after_cursor: nil,
+        counterparty_id: nil,
+        internal_account_id: nil,
+        per_page: nil,
+        returnable_id: nil,
+        returnable_type: nil,
         request_options: {}
       ); end
 

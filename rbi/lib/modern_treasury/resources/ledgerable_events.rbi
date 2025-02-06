@@ -12,7 +12,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerableEvent)
       end
-      def create(name:, custom_data:, description:, metadata:, request_options: {}); end
+      def create(name:, custom_data: nil, description: nil, metadata: nil, request_options: {}); end
 
       sig do
         params(

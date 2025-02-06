@@ -24,13 +24,13 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::BulkResult])
       end
       def list(
-        after_cursor:,
-        entity_id:,
-        entity_type:,
-        per_page:,
-        request_id:,
-        request_type:,
-        status:,
+        after_cursor: nil,
+        entity_id: nil,
+        entity_type: nil,
+        per_page: nil,
+        request_id: nil,
+        request_type: nil,
+        status: nil,
         request_options: {}
       ); end
 

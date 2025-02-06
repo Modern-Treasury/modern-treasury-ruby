@@ -32,7 +32,15 @@ module ModernTreasury
             request_options: ModernTreasury::RequestOpts
           ).returns(ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem])
         end
-        def list(id:, after_cursor:, per_page:, transaction_id:, type:, request_options: {}); end
+        def list(
+          id: nil,
+          after_cursor: nil,
+          per_page: nil,
+          transaction_id: nil,
+          type: nil,
+          request_options: {}
+        )
+        end
 
         sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
         def delete(id, request_options: {}); end

@@ -17,10 +17,10 @@ module ModernTreasury
       def create(
         parent_legal_entity_id:,
         relationship_types:,
-        child_legal_entity:,
-        child_legal_entity_id:,
-        ownership_percentage:,
-        title:,
+        child_legal_entity: nil,
+        child_legal_entity_id: nil,
+        ownership_percentage: nil,
+        title: nil,
         request_options: {}
       ); end
 

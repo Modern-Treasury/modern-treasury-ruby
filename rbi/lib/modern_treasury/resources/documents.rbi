@@ -12,7 +12,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::Document)
       end
-      def create(documentable_id:, documentable_type:, file:, document_type:, request_options: {}); end
+      def create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}); end
 
       sig do
         params(
@@ -31,7 +31,14 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Document])
       end
-      def list(after_cursor:, documentable_id:, documentable_type:, per_page:, request_options: {}); end
+      def list(
+        after_cursor: nil,
+        documentable_id: nil,
+        documentable_type: nil,
+        per_page: nil,
+        request_options: {}
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

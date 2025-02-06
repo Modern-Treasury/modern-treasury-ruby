@@ -21,16 +21,16 @@ module ModernTreasury
       end
       def create(
         name:,
-        accounting:,
-        accounts:,
-        email:,
-        ledger_type:,
-        legal_entity:,
-        legal_entity_id:,
-        metadata:,
-        send_remittance_advice:,
-        taxpayer_identifier:,
-        verification_status:,
+        accounting: nil,
+        accounts: nil,
+        email: nil,
+        ledger_type: nil,
+        legal_entity: nil,
+        legal_entity_id: nil,
+        metadata: nil,
+        send_remittance_advice: nil,
+        taxpayer_identifier: nil,
+        verification_status: nil,
         request_options: {}
       ); end
 
@@ -56,12 +56,12 @@ module ModernTreasury
       end
       def update(
         id,
-        email:,
-        legal_entity_id:,
-        metadata:,
-        name:,
-        send_remittance_advice:,
-        taxpayer_identifier:,
+        email: nil,
+        legal_entity_id: nil,
+        metadata: nil,
+        name: nil,
+        send_remittance_advice: nil,
+        taxpayer_identifier: nil,
         request_options: {}
       ); end
 
@@ -79,14 +79,14 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Counterparty])
       end
       def list(
-        after_cursor:,
-        created_at_lower_bound:,
-        created_at_upper_bound:,
-        email:,
-        legal_entity_id:,
-        metadata:,
-        name:,
-        per_page:,
+        after_cursor: nil,
+        created_at_lower_bound: nil,
+        created_at_upper_bound: nil,
+        email: nil,
+        legal_entity_id: nil,
+        metadata: nil,
+        name: nil,
+        per_page: nil,
         request_options: {}
       ); end
 
@@ -103,7 +103,15 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::CounterpartyCollectAccountResponse)
       end
-      def collect_account(id, direction:, custom_redirect:, fields:, send_email:, request_options: {}); end
+      def collect_account(
+        id,
+        direction:,
+        custom_redirect: nil,
+        fields: nil,
+        send_email: nil,
+        request_options: {}
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

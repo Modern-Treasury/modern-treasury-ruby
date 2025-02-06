@@ -25,11 +25,11 @@ module ModernTreasury
         currency:,
         name:,
         party_name:,
-        counterparty_id:,
-        legal_entity_id:,
-        parent_account_id:,
-        party_address:,
-        vendor_attributes:,
+        counterparty_id: nil,
+        legal_entity_id: nil,
+        parent_account_id: nil,
+        party_address: nil,
+        vendor_attributes: nil,
         request_options: {}
       ); end
 
@@ -54,14 +54,13 @@ module ModernTreasury
       end
       def update(
         id,
-        counterparty_id:,
-        ledger_account_id:,
-        metadata:,
-        name:,
-        parent_account_id:,
+        counterparty_id: nil,
+        ledger_account_id: nil,
+        metadata: nil,
+        name: nil,
+        parent_account_id: nil,
         request_options: {}
-      )
-      end
+      ); end
 
       sig do
         params(
@@ -77,14 +76,14 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::InternalAccount])
       end
       def list(
-        after_cursor:,
-        counterparty_id:,
-        currency:,
-        legal_entity_id:,
-        metadata:,
-        payment_direction:,
-        payment_type:,
-        per_page:,
+        after_cursor: nil,
+        counterparty_id: nil,
+        currency: nil,
+        legal_entity_id: nil,
+        metadata: nil,
+        payment_direction: nil,
+        payment_type: nil,
+        per_page: nil,
         request_options: {}
       ); end
 

@@ -12,7 +12,8 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
-      def create(alert_condition:, ledger_account_id:, description:, metadata:, request_options: {}); end
+      def create(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -30,7 +31,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
-      def update(id, description:, metadata:, request_options: {}); end
+      def update(id, description: nil, metadata: nil, request_options: {}); end
 
       sig do
         params(
@@ -42,7 +43,15 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor])
       end
-      def list(id:, after_cursor:, ledger_account_id:, metadata:, per_page:, request_options: {}); end
+      def list(
+        id: nil,
+        after_cursor: nil,
+        ledger_account_id: nil,
+        metadata: nil,
+        per_page: nil,
+        request_options: {}
+      )
+      end
 
       sig do
         params(

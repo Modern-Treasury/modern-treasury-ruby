@@ -13,7 +13,8 @@ module ModernTreasury
             request_options: ModernTreasury::RequestOpts
           ).returns(ModernTreasury::Models::PaymentOrders::Reversal)
         end
-        def create(payment_order_id, reason:, ledger_transaction:, metadata:, request_options: {}); end
+        def create(payment_order_id, reason:, ledger_transaction: nil, metadata: nil, request_options: {})
+        end
 
         sig do
           params(
@@ -32,7 +33,7 @@ module ModernTreasury
             request_options: ModernTreasury::RequestOpts
           ).returns(ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal])
         end
-        def list(payment_order_id, after_cursor:, per_page:, request_options: {}); end
+        def list(payment_order_id, after_cursor: nil, per_page: nil, request_options: {}); end
 
         sig { params(client: ModernTreasury::Client).void }
         def initialize(client:); end
