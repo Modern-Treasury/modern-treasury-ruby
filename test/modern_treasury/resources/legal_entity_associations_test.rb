@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::LegalEntityAssociationsTest < Minitest::T
   def test_create_required_params
     response = @modern_treasury.legal_entity_associations.create(
       parent_legal_entity_id: "parent_legal_entity_id",
-      relationship_types: ["beneficial_owner"]
+      relationship_types: [:beneficial_owner]
     )
 
     assert_pattern do

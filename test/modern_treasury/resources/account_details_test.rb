@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
   def test_create_required_params
     response = @modern_treasury.account_details.create(
       "account_id",
-      accounts_type: "external_accounts",
+      accounts_type: :external_accounts,
       account_number: "account_number"
     )
 
@@ -26,7 +26,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
   def test_retrieve_required_params
     response = @modern_treasury.account_details.retrieve(
       "id",
-      accounts_type: "external_accounts",
+      accounts_type: :external_accounts,
       account_id: "account_id"
     )
 
@@ -36,7 +36,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
   end
 
   def test_list_required_params
-    response = @modern_treasury.account_details.list("account_id", accounts_type: "external_accounts")
+    response = @modern_treasury.account_details.list("account_id", accounts_type: :external_accounts)
 
     assert_pattern do
       response => ModernTreasury::Page
@@ -51,7 +51,7 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
   def test_delete_required_params
     response = @modern_treasury.account_details.delete(
       "id",
-      accounts_type: "external_accounts",
+      accounts_type: :external_accounts,
       account_id: "account_id"
     )
 

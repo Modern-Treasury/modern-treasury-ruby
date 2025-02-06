@@ -57,7 +57,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Minitest::Test
   end
 
   def test_collect_account_required_params
-    response = @modern_treasury.counterparties.collect_account("id", direction: "credit")
+    response = @modern_treasury.counterparties.collect_account("id", direction: :credit)
 
     assert_pattern do
       response => ModernTreasury::Models::CounterpartyCollectAccountResponse
