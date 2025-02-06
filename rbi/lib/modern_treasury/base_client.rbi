@@ -37,7 +37,7 @@ module ModernTreasury
 
     MAX_REDIRECTS = 20
 
-    sig { params(req: RequestShape).void }
+    sig { params(req: ModernTreasury::BaseClient::RequestShape).void }
     def self.validate!(req); end
 
     # @private
