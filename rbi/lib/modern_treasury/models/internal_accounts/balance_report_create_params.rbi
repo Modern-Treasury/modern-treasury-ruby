@@ -30,7 +30,8 @@ module ModernTreasury
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           ).void
         end
-        def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {}); end
+        def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
+        end
 
         sig do
           override.returns(
@@ -43,7 +44,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class BalanceReportType < ModernTreasury::Enum
           abstract!
@@ -54,7 +56,8 @@ module ModernTreasury
           REAL_TIME = :real_time
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Balance < ModernTreasury::BaseModel
@@ -78,7 +81,8 @@ module ModernTreasury
               vendor_code_type: T.nilable(String)
             ).void
           end
-          def initialize(amount:, balance_type:, vendor_code:, vendor_code_type:); end
+          def initialize(amount:, balance_type:, vendor_code:, vendor_code_type:)
+          end
 
           sig do
             override.returns(
@@ -90,7 +94,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class BalanceType < ModernTreasury::Enum
             abstract!
@@ -106,7 +111,8 @@ module ModernTreasury
             PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
       end

@@ -11,7 +11,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Ledger)
       end
-      def create(name:, description: nil, metadata: nil, request_options: {}); end
+      def create(name:, description: nil, metadata: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -19,7 +20,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Ledger)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -30,7 +32,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Ledger)
       end
-      def update(id, description: nil, metadata: nil, name: nil, request_options: {}); end
+      def update(id, description: nil, metadata: nil, name: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -42,14 +45,7 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Ledger])
       end
-      def list(
-        id: nil,
-        after_cursor: nil,
-        metadata: nil,
-        per_page: nil,
-        updated_at: nil,
-        request_options: {}
-      )
+      def list(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil, request_options: {})
       end
 
       sig do
@@ -58,10 +54,12 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Ledger)
       end
-      def delete(id, request_options: {}); end
+      def delete(id, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

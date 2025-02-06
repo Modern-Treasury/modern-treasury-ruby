@@ -9,7 +9,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::BulkResult)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -32,10 +33,12 @@ module ModernTreasury
         request_type: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

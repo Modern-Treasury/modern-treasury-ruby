@@ -22,10 +22,12 @@ module ModernTreasury
         ownership_percentage: nil,
         title: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

@@ -60,7 +60,8 @@ module ModernTreasury
         party_name: nil,
         party_type: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -76,7 +77,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class PartyAddress < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
@@ -122,7 +124,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class PartyType < ModernTreasury::Enum
@@ -132,7 +135,8 @@ module ModernTreasury
         INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

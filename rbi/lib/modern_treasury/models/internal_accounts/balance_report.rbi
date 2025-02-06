@@ -59,7 +59,8 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -77,7 +78,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class BalanceReportType < ModernTreasury::Enum
           abstract!
@@ -88,7 +90,8 @@ module ModernTreasury
           REAL_TIME = :real_time
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Balance < ModernTreasury::BaseModel
@@ -162,7 +165,8 @@ module ModernTreasury
             value_date:,
             vendor_code:,
             vendor_code_type:
-          ); end
+          )
+          end
 
           sig do
             override.returns(
@@ -183,7 +187,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class BalanceType < ModernTreasury::Enum
             abstract!
@@ -199,7 +204,8 @@ module ModernTreasury
             PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
       end

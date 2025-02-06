@@ -44,7 +44,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class DocumentableType < ModernTreasury::Enum
         abstract!
@@ -63,7 +64,8 @@ module ModernTreasury
         CONNECTIONS = :connections
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

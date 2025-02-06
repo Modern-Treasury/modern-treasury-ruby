@@ -113,7 +113,8 @@ module ModernTreasury
           reverses_ledger_transaction_id:,
           status:,
           version:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -141,7 +142,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class LedgerEntry < ModernTreasury::BaseModel
           sig { returns(String) }
@@ -221,7 +223,8 @@ module ModernTreasury
             object:,
             resulting_ledger_account_balances:,
             status:
-          ); end
+          )
+          end
 
           sig do
             override.returns(
@@ -243,7 +246,8 @@ module ModernTreasury
               }
             )
           end
-          def to_hash; end
+          def to_hash
+          end
 
           class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
             sig do
@@ -268,7 +272,8 @@ module ModernTreasury
                 posted_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
               ).void
             end
-            def initialize(available_balance:, pending_balance:, posted_balance:); end
+            def initialize(available_balance:, pending_balance:, posted_balance:)
+            end
 
             sig do
               override.returns(
@@ -277,7 +282,8 @@ module ModernTreasury
                 }
               )
             end
-            def to_hash; end
+            def to_hash
+            end
 
             class AvailableBalance < ModernTreasury::BaseModel
               sig { returns(Integer) }
@@ -304,7 +310,8 @@ module ModernTreasury
                   debits: Integer
                 ).void
               end
-              def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+              def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+              end
 
               sig do
                 override.returns(
@@ -317,7 +324,8 @@ module ModernTreasury
                   }
                 )
               end
-              def to_hash; end
+              def to_hash
+              end
             end
 
             class PendingBalance < ModernTreasury::BaseModel
@@ -345,7 +353,8 @@ module ModernTreasury
                   debits: Integer
                 ).void
               end
-              def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+              def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+              end
 
               sig do
                 override.returns(
@@ -358,7 +367,8 @@ module ModernTreasury
                   }
                 )
               end
-              def to_hash; end
+              def to_hash
+              end
             end
 
             class PostedBalance < ModernTreasury::BaseModel
@@ -386,7 +396,8 @@ module ModernTreasury
                   debits: Integer
                 ).void
               end
-              def initialize(amount:, credits:, currency:, currency_exponent:, debits:); end
+              def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+              end
 
               sig do
                 override.returns(
@@ -399,7 +410,8 @@ module ModernTreasury
                   }
                 )
               end
-              def to_hash; end
+              def to_hash
+              end
             end
           end
 
@@ -411,7 +423,8 @@ module ModernTreasury
             POSTED = :posted
 
             sig { override.returns(T::Array[Symbol]) }
-            def self.values; end
+            def self.values
+            end
           end
         end
 
@@ -426,7 +439,8 @@ module ModernTreasury
           REVERSAL = T.let(:reversal, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Status < ModernTreasury::Enum
@@ -437,7 +451,8 @@ module ModernTreasury
           POSTED = :posted
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
     end

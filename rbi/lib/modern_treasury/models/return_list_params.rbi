@@ -58,7 +58,8 @@ module ModernTreasury
         returnable_id: nil,
         returnable_type: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -73,7 +74,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ReturnableType < ModernTreasury::Enum
         abstract!
@@ -85,7 +87,8 @@ module ModernTreasury
         REVERSAL = :reversal
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -12,7 +12,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerableEvent)
       end
-      def create(name:, custom_data: nil, description: nil, metadata: nil, request_options: {}); end
+      def create(name:, custom_data: nil, description: nil, metadata: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -20,10 +21,12 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerableEvent)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

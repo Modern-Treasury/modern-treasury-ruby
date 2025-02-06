@@ -85,7 +85,8 @@ module ModernTreasury
         ultimate_receiving_party_identifier: nil,
         ultimate_receiving_party_name: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -93,7 +94,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::PaymentOrder)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -172,7 +174,8 @@ module ModernTreasury
         ultimate_receiving_party_identifier: nil,
         ultimate_receiving_party_name: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -215,7 +218,8 @@ module ModernTreasury
         transaction_id: nil,
         type: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -294,10 +298,12 @@ module ModernTreasury
         ultimate_receiving_party_identifier: nil,
         ultimate_receiving_party_name: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

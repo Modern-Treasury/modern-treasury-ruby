@@ -73,7 +73,8 @@ module ModernTreasury
         metadata:,
         object:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -94,7 +95,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Accounting < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
@@ -104,10 +106,12 @@ module ModernTreasury
         attr_accessor :class_id
 
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
-        def initialize(account_id: nil, class_id: nil); end
+        def initialize(account_id: nil, class_id: nil)
+        end
 
         sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class ItemizableType < ModernTreasury::Enum
@@ -117,7 +121,8 @@ module ModernTreasury
         PAYMENT_ORDER = :PaymentOrder
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

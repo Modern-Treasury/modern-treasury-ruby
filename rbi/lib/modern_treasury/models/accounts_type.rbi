@@ -9,7 +9,8 @@ module ModernTreasury
       INTERNAL_ACCOUNTS = :internal_accounts
 
       sig { override.returns(T::Array[Symbol]) }
-      def self.values; end
+      def self.values
+      end
     end
   end
 end

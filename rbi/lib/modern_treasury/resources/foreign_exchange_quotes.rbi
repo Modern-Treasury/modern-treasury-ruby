@@ -22,7 +22,8 @@ module ModernTreasury
         effective_at: nil,
         target_amount: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -30,7 +31,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::ForeignExchangeQuote)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -57,10 +59,12 @@ module ModernTreasury
         per_page: nil,
         target_currency: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

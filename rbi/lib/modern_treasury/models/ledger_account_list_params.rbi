@@ -128,7 +128,8 @@ module ModernTreasury
         posted_balance_amount: nil,
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -151,7 +152,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class AvailableBalanceAmount < ModernTreasury::BaseModel
         sig { returns(T.nilable(Integer)) }
@@ -193,7 +195,8 @@ module ModernTreasury
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void
         end
-        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
+        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        end
 
         sig do
           override.returns(
@@ -207,7 +210,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class Balances < ModernTreasury::BaseModel
@@ -261,7 +265,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class PendingBalanceAmount < ModernTreasury::BaseModel
@@ -304,7 +309,8 @@ module ModernTreasury
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void
         end
-        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
+        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        end
 
         sig do
           override.returns(
@@ -318,7 +324,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class PostedBalanceAmount < ModernTreasury::BaseModel
@@ -361,7 +368,8 @@ module ModernTreasury
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void
         end
-        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil); end
+        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        end
 
         sig do
           override.returns(
@@ -375,7 +383,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

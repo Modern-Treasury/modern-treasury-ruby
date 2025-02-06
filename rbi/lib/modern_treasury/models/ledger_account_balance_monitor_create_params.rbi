@@ -54,7 +54,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class AlertCondition < ModernTreasury::BaseModel
         sig { returns(String) }
@@ -67,10 +68,12 @@ module ModernTreasury
         attr_accessor :value
 
         sig { params(field: String, operator: String, value: Integer).void }
-        def initialize(field:, operator:, value:); end
+        def initialize(field:, operator:, value:)
+        end
 
         sig { override.returns({field: String, operator: String, value: Integer}) }
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

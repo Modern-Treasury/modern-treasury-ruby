@@ -123,7 +123,8 @@ module ModernTreasury
         type:,
         updated_at:,
         additional_information: nil
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -154,7 +155,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Code < ModernTreasury::Enum
         abstract!
@@ -214,7 +216,8 @@ module ModernTreasury
         CURRENCYCLOUD = T.let(:currencycloud, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -274,7 +277,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class ReferenceNumberType < ModernTreasury::Enum
           abstract!
@@ -352,7 +356,8 @@ module ModernTreasury
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -366,7 +371,8 @@ module ModernTreasury
         REVERSAL = T.let(:reversal, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Role < ModernTreasury::Enum
@@ -376,7 +382,8 @@ module ModernTreasury
         RECEIVING = :receiving
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -390,7 +397,8 @@ module ModernTreasury
         SENT = :sent
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Type < ModernTreasury::Enum
@@ -411,7 +419,8 @@ module ModernTreasury
         WIRE = :wire
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

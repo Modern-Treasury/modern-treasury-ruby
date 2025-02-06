@@ -56,7 +56,8 @@ module ModernTreasury
         skip_settlement_ledger_transaction: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -73,7 +74,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Status < ModernTreasury::Enum
         abstract!
@@ -82,7 +84,8 @@ module ModernTreasury
         POSTED = T.let(:posted, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end
