@@ -22,14 +22,13 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::PaperItem])
       end
       def list(
-        after_cursor:,
-        deposit_date_end:,
-        deposit_date_start:,
-        lockbox_number:,
-        per_page:,
+        after_cursor: nil,
+        deposit_date_end: nil,
+        deposit_date_start: nil,
+        lockbox_number: nil,
+        per_page: nil,
         request_options: {}
-      )
-      end
+      ); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

@@ -12,7 +12,8 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::AccountDetail)
       end
-      def create(account_id, accounts_type:, account_number:, account_number_type:, request_options: {}); end
+      def create(account_id, accounts_type:, account_number:, account_number_type: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -33,7 +34,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::AccountDetail])
       end
-      def list(account_id, accounts_type:, after_cursor:, per_page:, request_options: {}); end
+      def list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {}); end
 
       sig do
         params(

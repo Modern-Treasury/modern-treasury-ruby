@@ -10,7 +10,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerEntry)
       end
-      def retrieve(id, show_balances:, request_options: {}); end
+      def retrieve(id, show_balances: nil, request_options: {}); end
 
       sig do
         params(
@@ -19,7 +19,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerEntry)
       end
-      def update(id, metadata:, request_options: {}); end
+      def update(id, metadata: nil, request_options: {}); end
 
       sig do
         params(
@@ -47,26 +47,26 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEntry])
       end
       def list(
-        id:,
-        after_cursor:,
-        as_of_lock_version:,
-        direction:,
-        effective_at:,
-        effective_date:,
-        ledger_account_category_id:,
-        ledger_account_id:,
-        ledger_account_lock_version:,
-        ledger_account_payout_id:,
-        ledger_account_settlement_id:,
-        ledger_account_statement_id:,
-        ledger_transaction_id:,
-        metadata:,
-        order_by:,
-        per_page:,
-        show_balances:,
-        show_deleted:,
-        status:,
-        updated_at:,
+        id: nil,
+        after_cursor: nil,
+        as_of_lock_version: nil,
+        direction: nil,
+        effective_at: nil,
+        effective_date: nil,
+        ledger_account_category_id: nil,
+        ledger_account_id: nil,
+        ledger_account_lock_version: nil,
+        ledger_account_payout_id: nil,
+        ledger_account_settlement_id: nil,
+        ledger_account_statement_id: nil,
+        ledger_transaction_id: nil,
+        metadata: nil,
+        order_by: nil,
+        per_page: nil,
+        show_balances: nil,
+        show_deleted: nil,
+        status: nil,
+        updated_at: nil,
         request_options: {}
       ); end
 

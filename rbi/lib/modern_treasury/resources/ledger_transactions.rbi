@@ -22,14 +22,14 @@ module ModernTreasury
       end
       def create(
         ledger_entries:,
-        description:,
-        effective_at:,
-        effective_date:,
-        external_id:,
-        ledgerable_id:,
-        ledgerable_type:,
-        metadata:,
-        status:,
+        description: nil,
+        effective_at: nil,
+        effective_date: nil,
+        external_id: nil,
+        ledgerable_id: nil,
+        ledgerable_type: nil,
+        metadata: nil,
+        status: nil,
         request_options: {}
       ); end
 
@@ -56,13 +56,13 @@ module ModernTreasury
       end
       def update(
         id,
-        description:,
-        effective_at:,
-        ledger_entries:,
-        ledgerable_id:,
-        ledgerable_type:,
-        metadata:,
-        status:,
+        description: nil,
+        effective_at: nil,
+        ledger_entries: nil,
+        ledgerable_id: nil,
+        ledgerable_type: nil,
+        metadata: nil,
+        status: nil,
         request_options: {}
       ); end
 
@@ -91,25 +91,25 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerTransaction])
       end
       def list(
-        id:,
-        after_cursor:,
-        effective_at:,
-        effective_date:,
-        external_id:,
-        ledger_account_category_id:,
-        ledger_account_id:,
-        ledger_account_settlement_id:,
-        ledger_id:,
-        ledgerable_id:,
-        ledgerable_type:,
-        metadata:,
-        order_by:,
-        partially_posts_ledger_transaction_id:,
-        per_page:,
-        posted_at:,
-        reverses_ledger_transaction_id:,
-        status:,
-        updated_at:,
+        id: nil,
+        after_cursor: nil,
+        effective_at: nil,
+        effective_date: nil,
+        external_id: nil,
+        ledger_account_category_id: nil,
+        ledger_account_id: nil,
+        ledger_account_settlement_id: nil,
+        ledger_id: nil,
+        ledgerable_id: nil,
+        ledgerable_type: nil,
+        metadata: nil,
+        order_by: nil,
+        partially_posts_ledger_transaction_id: nil,
+        per_page: nil,
+        posted_at: nil,
+        reverses_ledger_transaction_id: nil,
+        status: nil,
+        updated_at: nil,
         request_options: {}
       ); end
 
@@ -126,9 +126,9 @@ module ModernTreasury
       def create_partial_post(
         id,
         posted_ledger_entries:,
-        description:,
-        effective_at:,
-        metadata:,
+        description: nil,
+        effective_at: nil,
+        metadata: nil,
         request_options: {}
       )
       end
@@ -148,13 +148,13 @@ module ModernTreasury
       end
       def create_reversal(
         id,
-        description:,
-        effective_at:,
-        external_id:,
-        ledgerable_id:,
-        ledgerable_type:,
-        metadata:,
-        status:,
+        description: nil,
+        effective_at: nil,
+        external_id: nil,
+        ledgerable_id: nil,
+        ledgerable_type: nil,
+        metadata: nil,
+        status: nil,
         request_options: {}
       ); end
 

@@ -22,12 +22,12 @@ module ModernTreasury
       def create(
         contra_ledger_account_id:,
         settled_ledger_account_id:,
-        allow_either_direction:,
-        description:,
-        effective_at_upper_bound:,
-        metadata:,
-        skip_settlement_ledger_transaction:,
-        status:,
+        allow_either_direction: nil,
+        description: nil,
+        effective_at_upper_bound: nil,
+        metadata: nil,
+        skip_settlement_ledger_transaction: nil,
+        status: nil,
         request_options: {}
       ); end
 
@@ -48,7 +48,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
-      def update(id, description:, metadata:, status:, request_options: {}); end
+      def update(id, description: nil, metadata: nil, status: nil, request_options: {}); end
 
       sig do
         params(
@@ -66,16 +66,16 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountSettlement])
       end
       def list(
-        id:,
-        after_cursor:,
-        created_at:,
-        ledger_id:,
-        ledger_transaction_id:,
-        metadata:,
-        per_page:,
-        settled_ledger_account_id:,
-        settlement_entry_direction:,
-        updated_at:,
+        id: nil,
+        after_cursor: nil,
+        created_at: nil,
+        ledger_id: nil,
+        ledger_transaction_id: nil,
+        metadata: nil,
+        per_page: nil,
+        settled_ledger_account_id: nil,
+        settlement_entry_direction: nil,
+        updated_at: nil,
         request_options: {}
       ); end
 

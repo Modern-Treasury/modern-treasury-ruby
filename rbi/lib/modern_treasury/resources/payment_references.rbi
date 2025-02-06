@@ -22,14 +22,13 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::PaymentReference])
       end
       def list(
-        after_cursor:,
-        per_page:,
-        reference_number:,
-        referenceable_id:,
-        referenceable_type:,
+        after_cursor: nil,
+        per_page: nil,
+        reference_number: nil,
+        referenceable_id: nil,
+        referenceable_type: nil,
         request_options: {}
-      )
-      end
+      ); end
 
       sig do
         params(

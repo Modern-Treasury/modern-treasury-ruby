@@ -22,7 +22,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LineItem)
       end
-      def update(id, itemizable_type:, itemizable_id:, metadata:, request_options: {}); end
+      def update(id, itemizable_type:, itemizable_id:, metadata: nil, request_options: {}); end
 
       sig do
         params(
@@ -33,7 +33,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::LineItem])
       end
-      def list(itemizable_id, itemizable_type:, after_cursor:, per_page:, request_options: {}); end
+      def list(itemizable_id, itemizable_type:, after_cursor: nil, per_page: nil, request_options: {}); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

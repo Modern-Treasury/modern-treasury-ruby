@@ -12,7 +12,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::BulkRequest)
       end
-      def create(action_type:, resource_type:, resources:, metadata:, request_options: {}); end
+      def create(action_type:, resource_type:, resources:, metadata: nil, request_options: {}); end
 
       sig do
         params(
@@ -34,15 +34,14 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::BulkRequest])
       end
       def list(
-        action_type:,
-        after_cursor:,
-        metadata:,
-        per_page:,
-        resource_type:,
-        status:,
+        action_type: nil,
+        after_cursor: nil,
+        metadata: nil,
+        per_page: nil,
+        resource_type: nil,
+        status: nil,
         request_options: {}
-      )
-      end
+      ); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

@@ -18,7 +18,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
-      def update(id, metadata:, request_options: {}); end
+      def update(id, metadata: nil, request_options: {}); end
 
       sig do
         params(
@@ -35,15 +35,15 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::IncomingPaymentDetail])
       end
       def list(
-        after_cursor:,
-        as_of_date_end:,
-        as_of_date_start:,
-        direction:,
-        metadata:,
-        per_page:,
-        status:,
-        type:,
-        virtual_account_id:,
+        after_cursor: nil,
+        as_of_date_end: nil,
+        as_of_date_start: nil,
+        direction: nil,
+        metadata: nil,
+        per_page: nil,
+        status: nil,
+        type: nil,
+        virtual_account_id: nil,
         request_options: {}
       ); end
 
@@ -61,14 +61,14 @@ module ModernTreasury
         ).returns(ModernTreasury::Models::AsyncResponse)
       end
       def create_async(
-        amount:,
-        as_of_date:,
-        currency:,
-        description:,
-        direction:,
-        internal_account_id:,
-        type:,
-        virtual_account_id:,
+        amount: nil,
+        as_of_date: nil,
+        currency: nil,
+        description: nil,
+        direction: nil,
+        internal_account_id: nil,
+        type: nil,
+        virtual_account_id: nil,
         request_options: {}
       ); end
 

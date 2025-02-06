@@ -20,10 +20,9 @@ module ModernTreasury
         currency:,
         direction:,
         originating_account_id:,
-        due_date:,
+        due_date: nil,
         request_options: {}
-      )
-      end
+      ); end
 
       sig do
         params(
@@ -56,14 +55,14 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::PaymentFlow])
       end
       def list(
-        after_cursor:,
-        client_token:,
-        counterparty_id:,
-        originating_account_id:,
-        payment_order_id:,
-        per_page:,
-        receiving_account_id:,
-        status:,
+        after_cursor: nil,
+        client_token: nil,
+        counterparty_id: nil,
+        originating_account_id: nil,
+        payment_order_id: nil,
+        per_page: nil,
+        receiving_account_id: nil,
+        status: nil,
         request_options: {}
       ); end
 

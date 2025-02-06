@@ -28,10 +28,10 @@ module ModernTreasury
         internal_account_id:,
         vendor_code:,
         vendor_code_type:,
-        metadata:,
-        posted:,
-        type:,
-        vendor_description:,
+        metadata: nil,
+        posted: nil,
+        type: nil,
+        vendor_description: nil,
         request_options: {}
       ); end
 
@@ -50,7 +50,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::Transaction)
       end
-      def update(id, metadata:, request_options: {}); end
+      def update(id, metadata: nil, request_options: {}); end
 
       sig do
         params(
@@ -72,20 +72,20 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Transaction])
       end
       def list(
-        after_cursor:,
-        as_of_date_end:,
-        as_of_date_start:,
-        counterparty_id:,
-        description:,
-        direction:,
-        internal_account_id:,
-        metadata:,
-        payment_type:,
-        per_page:,
-        posted:,
-        transactable_type:,
-        vendor_id:,
-        virtual_account_id:,
+        after_cursor: nil,
+        as_of_date_end: nil,
+        as_of_date_start: nil,
+        counterparty_id: nil,
+        description: nil,
+        direction: nil,
+        internal_account_id: nil,
+        metadata: nil,
+        payment_type: nil,
+        per_page: nil,
+        posted: nil,
+        transactable_type: nil,
+        vendor_id: nil,
+        virtual_account_id: nil,
         request_options: {}
       ); end
 
