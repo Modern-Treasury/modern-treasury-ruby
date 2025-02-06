@@ -7,21 +7,6 @@ module ModernTreasury
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
-        Shape = T.type_alias do
-          T.all(
-            {
-              name: String,
-              unit_amount: Integer,
-              description: String,
-              direction: String,
-              metadata: T::Hash[Symbol, String],
-              quantity: Integer,
-              unit_amount_decimal: String
-            },
-            ModernTreasury::RequestParameters::Shape
-          )
-        end
-
         sig { returns(String) }
         attr_accessor :name
 
@@ -67,7 +52,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String,
-            request_options: ModernTreasury::RequestOpts
+            request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           ).void
         end
         def initialize(
@@ -81,8 +66,21 @@ module ModernTreasury
           request_options: {}
         ); end
 
-        sig { returns(ModernTreasury::Models::Invoices::LineItemCreateParams::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              name: String,
+              unit_amount: Integer,
+              description: String,
+              direction: String,
+              metadata: T::Hash[Symbol, String],
+              quantity: Integer,
+              unit_amount_decimal: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
+        end
+        def to_hash; end
       end
     end
   end

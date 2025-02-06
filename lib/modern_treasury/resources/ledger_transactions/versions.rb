@@ -25,7 +25,7 @@ module ModernTreasury
         #   @option params [Hash{Symbol=>Integer}] :version Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #     version. For example, for all versions after 2, use version%5Bgt%5D=2.
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
         #

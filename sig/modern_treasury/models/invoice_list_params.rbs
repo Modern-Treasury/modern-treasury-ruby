@@ -82,7 +82,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::invoice_list_params
+      def to_hash: -> ModernTreasury::Models::invoice_list_params
 
       type status =
         :draft | :paid | :partially_paid | :payment_pending | :unpaid | :voided

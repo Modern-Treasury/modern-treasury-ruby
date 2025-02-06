@@ -48,7 +48,7 @@ module ModernTreasury
           ?ModernTreasury::Models::ledger | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger
+      def to_hash: -> ModernTreasury::Models::ledger
     end
   end
 end

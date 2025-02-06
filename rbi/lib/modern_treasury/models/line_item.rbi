@@ -3,24 +3,6 @@
 module ModernTreasury
   module Models
     class LineItem < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          accounting: ModernTreasury::Models::LineItem::Accounting,
-          accounting_category_id: T.nilable(String),
-          accounting_ledger_class_id: T.nilable(String),
-          amount: Integer,
-          created_at: Time,
-          description: T.nilable(String),
-          itemizable_id: String,
-          itemizable_type: Symbol,
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          object: String,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -93,12 +75,28 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::LineItem::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            accounting: ModernTreasury::Models::LineItem::Accounting,
+            accounting_category_id: T.nilable(String),
+            accounting_ledger_class_id: T.nilable(String),
+            amount: Integer,
+            created_at: Time,
+            description: T.nilable(String),
+            itemizable_id: String,
+            itemizable_type: Symbol,
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class Accounting < ModernTreasury::BaseModel
-        Shape = T.type_alias { {account_id: T.nilable(String), class_id: T.nilable(String)} }
-
         sig { returns(T.nilable(String)) }
         attr_accessor :account_id
 
@@ -108,8 +106,8 @@ module ModernTreasury
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
         def initialize(account_id: nil, class_id: nil); end
 
-        sig { returns(ModernTreasury::Models::LineItem::Accounting::Shape) }
-        def to_h; end
+        sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
+        def to_hash; end
       end
 
       class ItemizableType < ModernTreasury::Enum

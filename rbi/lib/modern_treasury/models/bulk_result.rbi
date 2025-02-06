@@ -3,30 +3,23 @@
 module ModernTreasury
   module Models
     class BulkResult < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          created_at: Time,
-          entity: ModernTreasury::Models::BulkResult::Entity::Variants,
-          entity_id: String,
-          entity_type: Symbol,
-          live_mode: T::Boolean,
-          object: String,
-          request_id: String,
-          request_params: T.nilable(T::Hash[Symbol, String]),
-          request_type: Symbol,
-          status: Symbol,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
       sig { returns(Time) }
       attr_accessor :created_at
 
-      sig { returns(ModernTreasury::Models::BulkResult::Entity::Variants) }
+      sig do
+        returns(
+          T.any(
+            ModernTreasury::Models::PaymentOrder,
+            ModernTreasury::Models::ExpectedPayment,
+            ModernTreasury::Models::LedgerTransaction,
+            ModernTreasury::Models::Transaction,
+            ModernTreasury::Models::BulkResult::Entity::BulkError
+          )
+        )
+      end
       attr_accessor :entity
 
       sig { returns(String) }
@@ -60,7 +53,13 @@ module ModernTreasury
         params(
           id: String,
           created_at: Time,
-          entity: ModernTreasury::Models::BulkResult::Entity::Variants,
+          entity: T.any(
+            ModernTreasury::Models::PaymentOrder,
+            ModernTreasury::Models::ExpectedPayment,
+            ModernTreasury::Models::LedgerTransaction,
+            ModernTreasury::Models::Transaction,
+            ModernTreasury::Models::BulkResult::Entity::BulkError
+          ),
           entity_id: String,
           entity_type: Symbol,
           live_mode: T::Boolean,
@@ -87,34 +86,36 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::BulkResult::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            entity: T.any(
+              ModernTreasury::Models::PaymentOrder,
+              ModernTreasury::Models::ExpectedPayment,
+              ModernTreasury::Models::LedgerTransaction,
+              ModernTreasury::Models::Transaction,
+              ModernTreasury::Models::BulkResult::Entity::BulkError
+            ),
+            entity_id: String,
+            entity_type: Symbol,
+            live_mode: T::Boolean,
+            object: String,
+            request_id: String,
+            request_params: T.nilable(T::Hash[Symbol, String]),
+            request_type: Symbol,
+            status: Symbol,
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class Entity < ModernTreasury::Union
         abstract!
 
-        Variants = T.type_alias do
-          T.any(
-            ModernTreasury::Models::PaymentOrder,
-            ModernTreasury::Models::ExpectedPayment,
-            ModernTreasury::Models::LedgerTransaction,
-            ModernTreasury::Models::Transaction,
-            ModernTreasury::Models::BulkResult::Entity::BulkError
-          )
-        end
-
         class BulkError < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              id: String,
-              created_at: Time,
-              live_mode: T::Boolean,
-              object: String,
-              request_errors: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
-              updated_at: Time
-            }
-          end
-
           sig { returns(String) }
           attr_accessor :id
 
@@ -145,12 +146,21 @@ module ModernTreasury
           end
           def initialize(id:, created_at:, live_mode:, object:, request_errors:, updated_at:); end
 
-          sig { returns(ModernTreasury::Models::BulkResult::Entity::BulkError::Shape) }
-          def to_h; end
+          sig do
+            override.returns(
+              {
+                id: String,
+                created_at: Time,
+                live_mode: T::Boolean,
+                object: String,
+                request_errors: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
+                updated_at: Time
+              }
+            )
+          end
+          def to_hash; end
 
           class RequestError < ModernTreasury::BaseModel
-            Shape = T.type_alias { {code: String, message: String, parameter: String} }
-
             sig { returns(T.nilable(String)) }
             attr_reader :code
 
@@ -172,8 +182,8 @@ module ModernTreasury
             sig { params(code: String, message: String, parameter: String).void }
             def initialize(code: nil, message: nil, parameter: nil); end
 
-            sig { returns(ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError::Shape) }
-            def to_h; end
+            sig { override.returns({code: String, message: String, parameter: String}) }
+            def to_hash; end
           end
         end
 

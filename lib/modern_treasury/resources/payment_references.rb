@@ -9,7 +9,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::PaymentReferenceRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentReference]
       #
@@ -38,7 +38,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType] :referenceable_type One of the referenceable types. This must be accompanied by the id of the
       #     referenceable or will return an error.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentReference>]
       #
@@ -62,7 +62,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::PaymentReferenceRetireveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentReference]
       #

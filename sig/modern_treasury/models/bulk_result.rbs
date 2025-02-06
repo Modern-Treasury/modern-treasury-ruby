@@ -60,7 +60,7 @@ module ModernTreasury
           ?ModernTreasury::Models::bulk_result | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::bulk_result
+      def to_hash: -> ModernTreasury::Models::bulk_result
 
       type entity =
         ModernTreasury::Models::PaymentOrder
@@ -107,7 +107,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::BulkResult::Entity::bulk_error
+          def to_hash: -> ModernTreasury::Models::BulkResult::Entity::bulk_error
 
           type request_error =
             { code: String, message: String, parameter: String }
@@ -132,7 +132,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::BulkResult::Entity::BulkError::request_error
+            def to_hash: -> ModernTreasury::Models::BulkResult::Entity::BulkError::request_error
           end
         end
 

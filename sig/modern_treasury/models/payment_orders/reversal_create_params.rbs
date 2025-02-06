@@ -37,7 +37,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrders::reversal_create_params
+        def to_hash: -> ModernTreasury::Models::PaymentOrders::reversal_create_params
 
         type reason =
           :duplicate
@@ -123,7 +123,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::ledger_transaction
+          def to_hash: -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::ledger_transaction
 
           type ledger_entry =
             {
@@ -176,7 +176,7 @@ module ModernTreasury
                 | ModernTreasury::BaseModel data
               ) -> void
 
-            def to_h: -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledger_entry
+            def to_hash: -> ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledger_entry
           end
 
           type ledgerable_type =

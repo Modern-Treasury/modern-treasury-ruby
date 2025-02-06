@@ -19,7 +19,7 @@ module ModernTreasury
         #
         #   @option params [Array<ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance>] :balances An array of `Balance` objects.
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         #
@@ -43,7 +43,7 @@ module ModernTreasury
         #
         #   @option params [String] :internal_account_id
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         #
@@ -75,7 +75,7 @@ module ModernTreasury
         #
         #   @option params [Integer] :per_page
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
         #
@@ -100,7 +100,7 @@ module ModernTreasury
         #
         #   @option params [String] :internal_account_id
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [nil]
         #

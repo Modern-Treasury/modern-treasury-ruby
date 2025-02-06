@@ -13,7 +13,7 @@ module ModernTreasury
       #
       #   @option params [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>] :receiving_countries
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
@@ -34,7 +34,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::AccountCollectionFlowRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
@@ -56,7 +56,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status] :status Required. The updated status of the account collection flow. Can only be used to
       #     mark a flow as `cancelled`.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
       #
@@ -87,7 +87,7 @@ module ModernTreasury
       #
       #   @option params [String] :status
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountCollectionFlow>]
       #

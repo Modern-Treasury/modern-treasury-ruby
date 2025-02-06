@@ -31,7 +31,7 @@ module ModernTreasury
         #     specified in the invoice currency's smallest unit. Accepts decimal strings with
         #     up to 12 decimals
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
@@ -54,7 +54,7 @@ module ModernTreasury
         #
         #   @option params [String] :invoice_id invoice_id
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
@@ -100,7 +100,7 @@ module ModernTreasury
         #     for, specified in the invoice currency's smallest unit. Accepts decimal strings
         #     with up to 12 decimals
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #
@@ -128,7 +128,7 @@ module ModernTreasury
         #
         #   @option params [Integer] :per_page
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
         #
@@ -152,7 +152,7 @@ module ModernTreasury
         #
         #   @option params [String] :invoice_id invoice_id
         #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         #

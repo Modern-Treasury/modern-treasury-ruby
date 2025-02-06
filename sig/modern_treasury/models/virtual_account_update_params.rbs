@@ -40,7 +40,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::virtual_account_update_params
+      def to_hash: -> ModernTreasury::Models::virtual_account_update_params
     end
   end
 end

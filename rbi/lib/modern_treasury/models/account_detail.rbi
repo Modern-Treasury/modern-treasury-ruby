@@ -3,20 +3,6 @@
 module ModernTreasury
   module Models
     class AccountDetail < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          account_number_safe: String,
-          account_number_type: Symbol,
-          created_at: Time,
-          discarded_at: T.nilable(Time),
-          live_mode: T::Boolean,
-          object: String,
-          updated_at: Time,
-          account_number: String
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -72,8 +58,22 @@ module ModernTreasury
         account_number: nil
       ); end
 
-      sig { returns(ModernTreasury::Models::AccountDetail::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            account_number_safe: String,
+            account_number_type: Symbol,
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            live_mode: T::Boolean,
+            object: String,
+            updated_at: Time,
+            account_number: String
+          }
+        )
+      end
+      def to_hash; end
 
       class AccountNumberType < ModernTreasury::Enum
         abstract!

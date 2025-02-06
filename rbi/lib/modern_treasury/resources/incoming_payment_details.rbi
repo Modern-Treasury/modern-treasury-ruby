@@ -6,7 +6,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
       def retrieve(id, request_options: {}); end
@@ -15,7 +15,7 @@ module ModernTreasury
         params(
           id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
       def update(id, metadata: nil, request_options: {}); end
@@ -31,7 +31,7 @@ module ModernTreasury
           status: Symbol,
           type: Symbol,
           virtual_account_id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::IncomingPaymentDetail])
       end
       def list(
@@ -57,7 +57,7 @@ module ModernTreasury
           internal_account_id: String,
           type: Symbol,
           virtual_account_id: T.nilable(String),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::AsyncResponse)
       end
       def create_async(

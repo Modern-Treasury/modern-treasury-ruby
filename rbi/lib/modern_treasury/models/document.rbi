@@ -3,23 +3,6 @@
 module ModernTreasury
   module Models
     class Document < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          created_at: Time,
-          discarded_at: T.nilable(Time),
-          document_details: T::Array[ModernTreasury::Models::Document::DocumentDetail],
-          document_type: T.nilable(String),
-          documentable_id: String,
-          documentable_type: Symbol,
-          file: ModernTreasury::Models::Document::File,
-          live_mode: T::Boolean,
-          object: String,
-          source: String,
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -87,23 +70,27 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::Document::Shape) }
-      def to_h; end
-
-      class DocumentDetail < ModernTreasury::BaseModel
-        Shape = T.type_alias do
+      sig do
+        override.returns(
           {
             id: String,
             created_at: Time,
             discarded_at: T.nilable(Time),
-            document_identifier: String,
-            document_identifier_type: String,
+            document_details: T::Array[ModernTreasury::Models::Document::DocumentDetail],
+            document_type: T.nilable(String),
+            documentable_id: String,
+            documentable_type: Symbol,
+            file: ModernTreasury::Models::Document::File,
             live_mode: T::Boolean,
             object: String,
+            source: String,
             updated_at: Time
           }
-        end
+        )
+      end
+      def to_hash; end
 
+      class DocumentDetail < ModernTreasury::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -151,8 +138,21 @@ module ModernTreasury
           updated_at:
         ); end
 
-        sig { returns(ModernTreasury::Models::Document::DocumentDetail::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              document_identifier: String,
+              document_identifier_type: String,
+              live_mode: T::Boolean,
+              object: String,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
       end
 
       class DocumentableType < ModernTreasury::Enum
@@ -176,8 +176,6 @@ module ModernTreasury
       end
 
       class File < ModernTreasury::BaseModel
-        Shape = T.type_alias { {content_type: String, filename: String, size: Integer} }
-
         sig { returns(T.nilable(String)) }
         attr_reader :content_type
 
@@ -199,8 +197,8 @@ module ModernTreasury
         sig { params(content_type: String, filename: String, size: Integer).void }
         def initialize(content_type: nil, filename: nil, size: nil); end
 
-        sig { returns(ModernTreasury::Models::Document::File::Shape) }
-        def to_h; end
+        sig { override.returns({content_type: String, filename: String, size: Integer}) }
+        def to_hash; end
       end
     end
   end

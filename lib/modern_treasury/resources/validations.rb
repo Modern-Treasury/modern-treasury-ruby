@@ -15,7 +15,7 @@ module ModernTreasury
       #     more details. In sandbox mode we currently only support `aba` and `swift` with
       #     routing numbers '123456789' and 'GRINUST0XXX' respectively.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::RoutingNumberLookupRequest]
       #

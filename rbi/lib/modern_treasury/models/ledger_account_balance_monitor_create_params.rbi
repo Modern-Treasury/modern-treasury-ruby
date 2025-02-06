@@ -6,18 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ledger_account_id: String,
-            description: String,
-            metadata: T::Hash[Symbol, String]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition) }
       attr_accessor :alert_condition
 
@@ -42,7 +30,7 @@ module ModernTreasury
           ledger_account_id: String,
           description: String,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -54,12 +42,21 @@ module ModernTreasury
       )
       end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+            ledger_account_id: String,
+            description: String,
+            metadata: T::Hash[Symbol,
+                              String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class AlertCondition < ModernTreasury::BaseModel
-        Shape = T.type_alias { {field: String, operator: String, value: Integer} }
-
         sig { returns(String) }
         attr_accessor :field
 
@@ -72,10 +69,8 @@ module ModernTreasury
         sig { params(field: String, operator: String, value: Integer).void }
         def initialize(field:, operator:, value:); end
 
-        sig do
-          returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition::Shape)
-        end
-        def to_h; end
+        sig { override.returns({field: String, operator: String, value: Integer}) }
+        def to_hash; end
       end
     end
   end

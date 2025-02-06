@@ -36,7 +36,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_settlement_update_params
+      def to_hash: -> ModernTreasury::Models::ledger_account_settlement_update_params
 
       type status = :posted | :archived
 

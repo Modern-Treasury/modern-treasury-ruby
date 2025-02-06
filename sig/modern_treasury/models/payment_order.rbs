@@ -213,7 +213,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::payment_order
+      def to_hash: -> ModernTreasury::Models::payment_order
 
       type accounting = { account_id: String?, class_id: String? }
 
@@ -229,7 +229,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrder::accounting
+        def to_hash: -> ModernTreasury::Models::PaymentOrder::accounting
       end
 
       type charge_bearer = :shared | :sender | :receiver
@@ -301,7 +301,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrder::foreign_exchange_rate
+        def to_hash: -> ModernTreasury::Models::PaymentOrder::foreign_exchange_rate
       end
 
       type priority = :high | :normal
@@ -363,7 +363,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrder::reference_number
+        def to_hash: -> ModernTreasury::Models::PaymentOrder::reference_number
 
         type reference_number_type =
           :ach_original_trace_number

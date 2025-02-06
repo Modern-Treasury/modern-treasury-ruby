@@ -4,21 +4,6 @@ module ModernTreasury
   module Models
     module InternalAccounts
       class BalanceReport < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            id: String,
-            as_of_date: Date,
-            as_of_time: T.nilable(String),
-            balance_report_type: Symbol,
-            balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
-            created_at: Time,
-            internal_account_id: String,
-            live_mode: T::Boolean,
-            object: String,
-            updated_at: Time
-          }
-        end
-
         sig { returns(String) }
         attr_accessor :id
 
@@ -76,8 +61,23 @@ module ModernTreasury
           updated_at:
         ); end
 
-        sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReport::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              id: String,
+              as_of_date: Date,
+              as_of_time: T.nilable(String),
+              balance_report_type: Symbol,
+              balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
+              created_at: Time,
+              internal_account_id: String,
+              live_mode: T::Boolean,
+              object: String,
+              updated_at: Time
+            }
+          )
+        end
+        def to_hash; end
 
         class BalanceReportType < ModernTreasury::Enum
           abstract!
@@ -92,24 +92,6 @@ module ModernTreasury
         end
 
         class Balance < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              id: String,
-              amount: Integer,
-              as_of_date: T.nilable(Date),
-              as_of_time: T.nilable(String),
-              balance_type: Symbol,
-              created_at: Time,
-              currency: Symbol,
-              live_mode: T::Boolean,
-              object: String,
-              updated_at: Time,
-              value_date: T.nilable(Date),
-              vendor_code: String,
-              vendor_code_type: T.nilable(String)
-            }
-          end
-
           sig { returns(String) }
           attr_accessor :id
 
@@ -182,8 +164,26 @@ module ModernTreasury
             vendor_code_type:
           ); end
 
-          sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::Shape) }
-          def to_h; end
+          sig do
+            override.returns(
+              {
+                id: String,
+                amount: Integer,
+                as_of_date: T.nilable(Date),
+                as_of_time: T.nilable(String),
+                balance_type: Symbol,
+                created_at: Time,
+                currency: Symbol,
+                live_mode: T::Boolean,
+                object: String,
+                updated_at: Time,
+                value_date: T.nilable(Date),
+                vendor_code: String,
+                vendor_code_type: T.nilable(String)
+              }
+            )
+          end
+          def to_hash; end
 
           class BalanceType < ModernTreasury::Enum
             abstract!

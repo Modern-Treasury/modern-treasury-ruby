@@ -3,10 +3,6 @@
 module ModernTreasury
   module Models
     class LedgerEventHandlerVariable < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String}
-      end
-
       sig { returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query) }
       attr_accessor :query
 
@@ -16,12 +12,12 @@ module ModernTreasury
       sig { params(query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String).void }
       def initialize(query:, type:); end
 
-      sig { returns(ModernTreasury::Models::LedgerEventHandlerVariable::Shape) }
-      def to_h; end
+      sig do
+        override.returns({query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String})
+      end
+      def to_hash; end
 
       class Query < ModernTreasury::BaseModel
-        Shape = T.type_alias { {field: String, operator: String, value: String} }
-
         sig { returns(String) }
         attr_accessor :field
 
@@ -34,8 +30,8 @@ module ModernTreasury
         sig { params(field: String, operator: String, value: String).void }
         def initialize(field:, operator:, value:); end
 
-        sig { returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query::Shape) }
-        def to_h; end
+        sig { override.returns({field: String, operator: String, value: String}) }
+        def to_hash; end
       end
     end
   end

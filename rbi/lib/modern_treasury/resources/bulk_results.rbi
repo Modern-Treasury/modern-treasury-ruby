@@ -6,7 +6,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::BulkResult)
       end
       def retrieve(id, request_options: {}); end
@@ -20,7 +20,7 @@ module ModernTreasury
           request_id: String,
           request_type: Symbol,
           status: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::BulkResult])
       end
       def list(

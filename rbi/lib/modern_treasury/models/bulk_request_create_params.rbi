@@ -6,25 +6,19 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            action_type: Symbol,
-            resource_type: Symbol,
-            resources: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::Variants],
-            metadata: T::Hash[Symbol, String]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(Symbol) }
       attr_accessor :action_type
 
       sig { returns(Symbol) }
       attr_accessor :resource_type
 
-      sig { returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::Variants]) }
+      sig do
+        returns(
+          T::Array[T.any(
+            ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
+          )]
+        )
+      end
       attr_accessor :resources
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
@@ -37,15 +31,29 @@ module ModernTreasury
         params(
           action_type: Symbol,
           resource_type: Symbol,
-          resources: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::Variants],
+          resources: T::Array[T.any(
+            ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
+          )],
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(action_type:, resource_type:, resources:, metadata: nil, request_options: {}); end
 
-      sig { returns(ModernTreasury::Models::BulkRequestCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            action_type: Symbol,
+            resource_type: Symbol,
+            resources: T::Array[T.any(
+              ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
+            )],
+            metadata: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class ActionType < ModernTreasury::Enum
         abstract!
@@ -73,61 +81,7 @@ module ModernTreasury
       class Resource < ModernTreasury::Union
         abstract!
 
-        Variants = T.type_alias do
-          T.any(
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::ID,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-            ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
-          )
-        end
-
         class PaymentOrderAsyncCreateRequest < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              amount: Integer,
-              direction: Symbol,
-              originating_account_id: String,
-              type: Symbol,
-              accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
-              accounting_category_id: T.nilable(String),
-              accounting_ledger_class_id: T.nilable(String),
-              charge_bearer: T.nilable(Symbol),
-              currency: Symbol,
-              description: T.nilable(String),
-              effective_date: Date,
-              expires_at: T.nilable(Time),
-              fallback_type: Symbol,
-              foreign_exchange_contract: T.nilable(String),
-              foreign_exchange_indicator: T.nilable(Symbol),
-              ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
-              ledger_transaction_id: String,
-              line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem],
-              metadata: T::Hash[Symbol, String],
-              nsf_protected: T::Boolean,
-              originating_party_name: T.nilable(String),
-              priority: Symbol,
-              process_after: T.nilable(Time),
-              purpose: T.nilable(String),
-              receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
-              receiving_account_id: String,
-              remittance_information: T.nilable(String),
-              send_remittance_advice: T.nilable(T::Boolean),
-              statement_descriptor: T.nilable(String),
-              subtype: T.nilable(Symbol),
-              transaction_monitoring_enabled: T::Boolean,
-              ultimate_originating_party_identifier: T.nilable(String),
-              ultimate_originating_party_name: T.nilable(String),
-              ultimate_receiving_party_identifier: T.nilable(String),
-              ultimate_receiving_party_name: T.nilable(String)
-            }
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -374,9 +328,47 @@ module ModernTreasury
           ); end
 
           sig do
-            returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Shape)
+            override.returns(
+              {
+                amount: Integer,
+                direction: Symbol,
+                originating_account_id: String,
+                type: Symbol,
+                accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
+                accounting_category_id: T.nilable(String),
+                accounting_ledger_class_id: T.nilable(String),
+                charge_bearer: T.nilable(Symbol),
+                currency: Symbol,
+                description: T.nilable(String),
+                effective_date: Date,
+                expires_at: T.nilable(Time),
+                fallback_type: Symbol,
+                foreign_exchange_contract: T.nilable(String),
+                foreign_exchange_indicator: T.nilable(Symbol),
+                ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
+                ledger_transaction_id: String,
+                line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem],
+                metadata: T::Hash[Symbol, String],
+                nsf_protected: T::Boolean,
+                originating_party_name: T.nilable(String),
+                priority: Symbol,
+                process_after: T.nilable(Time),
+                purpose: T.nilable(String),
+                receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
+                receiving_account_id: String,
+                remittance_information: T.nilable(String),
+                send_remittance_advice: T.nilable(T::Boolean),
+                statement_descriptor: T.nilable(String),
+                subtype: T.nilable(Symbol),
+                transaction_monitoring_enabled: T::Boolean,
+                ultimate_originating_party_identifier: T.nilable(String),
+                ultimate_originating_party_name: T.nilable(String),
+                ultimate_receiving_party_identifier: T.nilable(String),
+                ultimate_receiving_party_name: T.nilable(String)
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
 
           class Direction < ModernTreasury::Enum
             abstract!
@@ -389,8 +381,6 @@ module ModernTreasury
           end
 
           class Accounting < ModernTreasury::BaseModel
-            Shape = T.type_alias { {account_id: T.nilable(String), class_id: T.nilable(String)} }
-
             sig { returns(T.nilable(String)) }
             attr_accessor :account_id
 
@@ -400,10 +390,8 @@ module ModernTreasury
             sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
             def initialize(account_id: nil, class_id: nil); end
 
-            sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting::Shape)
-            end
-            def to_h; end
+            sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
+            def to_hash; end
           end
 
           class ChargeBearer < ModernTreasury::Enum
@@ -437,21 +425,6 @@ module ModernTreasury
           end
 
           class LedgerTransaction < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry],
-                description: T.nilable(String),
-                effective_at: Time,
-                effective_date: Date,
-                external_id: String,
-                ledgerable_id: String,
-                ledgerable_type: Symbol,
-                metadata: T::Hash[Symbol,
-                                  String],
-                status: Symbol
-              }
-            end
-
             sig do
               returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry])
             end
@@ -528,25 +501,24 @@ module ModernTreasury
             ); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Shape)
+              override.returns(
+                {
+                  ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry],
+                  description: T.nilable(String),
+                  effective_at: Time,
+                  effective_date: Date,
+                  external_id: String,
+                  ledgerable_id: String,
+                  ledgerable_type: Symbol,
+                  metadata: T::Hash[Symbol,
+                                    String],
+                  status: Symbol
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
 
             class LedgerEntry < ModernTreasury::BaseModel
-              Shape = T.type_alias do
-                {
-                  amount: Integer,
-                  direction: Symbol,
-                  ledger_account_id: String,
-                  available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  lock_version: T.nilable(Integer),
-                  metadata: T::Hash[Symbol, String],
-                  pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-                }
-              end
-
               sig { returns(Integer) }
               attr_accessor :amount
 
@@ -603,9 +575,21 @@ module ModernTreasury
               ); end
 
               sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry::Shape)
+                override.returns(
+                  {
+                    amount: Integer,
+                    direction: Symbol,
+                    ledger_account_id: String,
+                    available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    lock_version: T.nilable(Integer),
+                    metadata: T::Hash[Symbol, String],
+                    pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    show_resulting_ledger_account_balances: T.nilable(T::Boolean)
+                  }
+                )
               end
-              def to_h; end
+              def to_hash; end
             end
 
             class LedgerableType < ModernTreasury::Enum
@@ -635,15 +619,6 @@ module ModernTreasury
           end
 
           class LineItem < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                amount: Integer,
-                accounting_category_id: T.nilable(String),
-                description: T.nilable(String),
-                metadata: T::Hash[Symbol, String]
-              }
-            end
-
             sig { returns(Integer) }
             attr_accessor :amount
 
@@ -670,9 +645,16 @@ module ModernTreasury
             def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem::Shape)
+              override.returns(
+                {
+                  amount: Integer,
+                  accounting_category_id: T.nilable(String),
+                  description: T.nilable(String),
+                  metadata: T::Hash[Symbol, String]
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
           end
 
           class Priority < ModernTreasury::Enum
@@ -686,24 +668,6 @@ module ModernTreasury
           end
 
           class ReceivingAccount < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                account_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail],
-                account_type: Symbol,
-                contact_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail],
-                ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
-                metadata: T::Hash[Symbol,
-                                  String],
-                name: T.nilable(String),
-                party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
-                party_identifier: String,
-                party_name: String,
-                party_type: T.nilable(Symbol),
-                plaid_processor_token: String,
-                routing_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]
-              }
-            end
-
             sig do
               returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail]))
             end
@@ -832,13 +796,27 @@ module ModernTreasury
             ); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::Shape)
+              override.returns(
+                {
+                  account_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail],
+                  account_type: Symbol,
+                  contact_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail],
+                  ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
+                  metadata: T::Hash[Symbol,
+                                    String],
+                  name: T.nilable(String),
+                  party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
+                  party_identifier: String,
+                  party_name: String,
+                  party_type: T.nilable(Symbol),
+                  plaid_processor_token: String,
+                  routing_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
 
             class AccountDetail < ModernTreasury::BaseModel
-              Shape = T.type_alias { {account_number: String, account_number_type: Symbol} }
-
               sig { returns(String) }
               attr_accessor :account_number
 
@@ -851,10 +829,8 @@ module ModernTreasury
               sig { params(account_number: String, account_number_type: Symbol).void }
               def initialize(account_number:, account_number_type: nil); end
 
-              sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::Shape)
-              end
-              def to_h; end
+              sig { override.returns({account_number: String, account_number_type: Symbol}) }
+              def to_hash; end
 
               class AccountNumberType < ModernTreasury::Enum
                 abstract!
@@ -876,8 +852,6 @@ module ModernTreasury
             end
 
             class ContactDetail < ModernTreasury::BaseModel
-              Shape = T.type_alias { {contact_identifier: String, contact_identifier_type: Symbol} }
-
               sig { returns(T.nilable(String)) }
               attr_reader :contact_identifier
 
@@ -893,10 +867,8 @@ module ModernTreasury
               sig { params(contact_identifier: String, contact_identifier_type: Symbol).void }
               def initialize(contact_identifier: nil, contact_identifier_type: nil); end
 
-              sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::Shape)
-              end
-              def to_h; end
+              sig { override.returns({contact_identifier: String, contact_identifier_type: Symbol}) }
+              def to_hash; end
 
               class ContactIdentifierType < ModernTreasury::Enum
                 abstract!
@@ -911,21 +883,6 @@ module ModernTreasury
             end
 
             class LedgerAccount < ModernTreasury::BaseModel
-              Shape = T.type_alias do
-                {
-                  currency: String,
-                  ledger_id: String,
-                  name: String,
-                  normal_balance: Symbol,
-                  currency_exponent: T.nilable(Integer),
-                  description: T.nilable(String),
-                  ledger_account_category_ids: T::Array[String],
-                  ledgerable_id: String,
-                  ledgerable_type: Symbol,
-                  metadata: T::Hash[Symbol, String]
-                }
-              end
-
               sig { returns(String) }
               attr_accessor :currency
 
@@ -996,9 +953,22 @@ module ModernTreasury
               ); end
 
               sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::Shape)
+                override.returns(
+                  {
+                    currency: String,
+                    ledger_id: String,
+                    name: String,
+                    normal_balance: Symbol,
+                    currency_exponent: T.nilable(Integer),
+                    description: T.nilable(String),
+                    ledger_account_category_ids: T::Array[String],
+                    ledgerable_id: String,
+                    ledgerable_type: Symbol,
+                    metadata: T::Hash[Symbol, String]
+                  }
+                )
               end
-              def to_h; end
+              def to_hash; end
 
               class LedgerableType < ModernTreasury::Enum
                 abstract!
@@ -1014,17 +984,6 @@ module ModernTreasury
             end
 
             class PartyAddress < ModernTreasury::BaseModel
-              Shape = T.type_alias do
-                {
-                  country: T.nilable(String),
-                  line1: T.nilable(String),
-                  line2: T.nilable(String),
-                  locality: T.nilable(String),
-                  postal_code: T.nilable(String),
-                  region: T.nilable(String)
-                }
-              end
-
               sig { returns(T.nilable(String)) }
               attr_accessor :country
 
@@ -1064,9 +1023,18 @@ module ModernTreasury
               end
 
               sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress::Shape)
+                override.returns(
+                  {
+                    country: T.nilable(String),
+                    line1: T.nilable(String),
+                    line2: T.nilable(String),
+                    locality: T.nilable(String),
+                    postal_code: T.nilable(String),
+                    region: T.nilable(String)
+                  }
+                )
               end
-              def to_h; end
+              def to_hash; end
             end
 
             class PartyType < ModernTreasury::Enum
@@ -1080,10 +1048,6 @@ module ModernTreasury
             end
 
             class RoutingDetail < ModernTreasury::BaseModel
-              Shape = T.type_alias do
-                {routing_number: String, routing_number_type: Symbol, payment_type: Symbol}
-              end
-
               sig { returns(String) }
               attr_accessor :routing_number
 
@@ -1100,9 +1064,9 @@ module ModernTreasury
               def initialize(routing_number:, routing_number_type:, payment_type: nil); end
 
               sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::Shape)
+                override.returns({routing_number: String, routing_number_type: Symbol, payment_type: Symbol})
               end
-              def to_h; end
+              def to_hash; end
 
               class RoutingNumberType < ModernTreasury::Enum
                 abstract!
@@ -1175,30 +1139,6 @@ module ModernTreasury
         end
 
         class ExpectedPaymentCreateRequest < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              amount_lower_bound: T.nilable(Integer),
-              amount_upper_bound: T.nilable(Integer),
-              counterparty_id: T.nilable(String),
-              currency: T.nilable(Symbol),
-              date_lower_bound: T.nilable(Date),
-              date_upper_bound: T.nilable(Date),
-              description: T.nilable(String),
-              direction: T.nilable(Symbol),
-              internal_account_id: T.nilable(String),
-              ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
-              ledger_transaction_id: String,
-              line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem],
-              metadata: T::Hash[Symbol, String],
-              reconciliation_filters: T.nilable(T.anything),
-              reconciliation_groups: T.nilable(T.anything),
-              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
-              remittance_information: T.nilable(String),
-              statement_descriptor: T.nilable(String),
-              type: T.nilable(Symbol)
-            }
-          end
-
           sig { returns(T.nilable(Integer)) }
           attr_accessor :amount_lower_bound
 
@@ -1326,9 +1266,31 @@ module ModernTreasury
           ); end
 
           sig do
-            returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Shape)
+            override.returns(
+              {
+                amount_lower_bound: T.nilable(Integer),
+                amount_upper_bound: T.nilable(Integer),
+                counterparty_id: T.nilable(String),
+                currency: T.nilable(Symbol),
+                date_lower_bound: T.nilable(Date),
+                date_upper_bound: T.nilable(Date),
+                description: T.nilable(String),
+                direction: T.nilable(Symbol),
+                internal_account_id: T.nilable(String),
+                ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
+                ledger_transaction_id: String,
+                line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem],
+                metadata: T::Hash[Symbol, String],
+                reconciliation_filters: T.nilable(T.anything),
+                reconciliation_groups: T.nilable(T.anything),
+                reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
+                remittance_information: T.nilable(String),
+                statement_descriptor: T.nilable(String),
+                type: T.nilable(Symbol)
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
 
           class Direction < ModernTreasury::Enum
             abstract!
@@ -1341,21 +1303,6 @@ module ModernTreasury
           end
 
           class LedgerTransaction < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry],
-                description: T.nilable(String),
-                effective_at: Time,
-                effective_date: Date,
-                external_id: String,
-                ledgerable_id: String,
-                ledgerable_type: Symbol,
-                metadata: T::Hash[Symbol,
-                                  String],
-                status: Symbol
-              }
-            end
-
             sig do
               returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry])
             end
@@ -1432,25 +1379,24 @@ module ModernTreasury
             ); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Shape)
+              override.returns(
+                {
+                  ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry],
+                  description: T.nilable(String),
+                  effective_at: Time,
+                  effective_date: Date,
+                  external_id: String,
+                  ledgerable_id: String,
+                  ledgerable_type: Symbol,
+                  metadata: T::Hash[Symbol,
+                                    String],
+                  status: Symbol
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
 
             class LedgerEntry < ModernTreasury::BaseModel
-              Shape = T.type_alias do
-                {
-                  amount: Integer,
-                  direction: Symbol,
-                  ledger_account_id: String,
-                  available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  lock_version: T.nilable(Integer),
-                  metadata: T::Hash[Symbol, String],
-                  pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-                }
-              end
-
               sig { returns(Integer) }
               attr_accessor :amount
 
@@ -1507,9 +1453,21 @@ module ModernTreasury
               ); end
 
               sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry::Shape)
+                override.returns(
+                  {
+                    amount: Integer,
+                    direction: Symbol,
+                    ledger_account_id: String,
+                    available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    lock_version: T.nilable(Integer),
+                    metadata: T::Hash[Symbol, String],
+                    pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    show_resulting_ledger_account_balances: T.nilable(T::Boolean)
+                  }
+                )
               end
-              def to_h; end
+              def to_hash; end
             end
 
             class LedgerableType < ModernTreasury::Enum
@@ -1539,15 +1497,6 @@ module ModernTreasury
           end
 
           class LineItem < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                amount: Integer,
-                accounting_category_id: T.nilable(String),
-                description: T.nilable(String),
-                metadata: T::Hash[Symbol, String]
-              }
-            end
-
             sig { returns(Integer) }
             attr_accessor :amount
 
@@ -1574,28 +1523,20 @@ module ModernTreasury
             def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem::Shape)
+              override.returns(
+                {
+                  amount: Integer,
+                  accounting_category_id: T.nilable(String),
+                  description: T.nilable(String),
+                  metadata: T::Hash[Symbol, String]
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
           end
         end
 
         class LedgerTransactionCreateRequest < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry],
-              description: T.nilable(String),
-              effective_at: Time,
-              effective_date: Date,
-              external_id: String,
-              ledgerable_id: String,
-              ledgerable_type: Symbol,
-              metadata: T::Hash[Symbol,
-                                String],
-              status: Symbol
-            }
-          end
-
           sig do
             returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry])
           end
@@ -1672,25 +1613,24 @@ module ModernTreasury
           ); end
 
           sig do
-            returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Shape)
+            override.returns(
+              {
+                ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry],
+                description: T.nilable(String),
+                effective_at: Time,
+                effective_date: Date,
+                external_id: String,
+                ledgerable_id: String,
+                ledgerable_type: Symbol,
+                metadata: T::Hash[Symbol,
+                                  String],
+                status: Symbol
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
 
           class LedgerEntry < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                amount: Integer,
-                direction: Symbol,
-                ledger_account_id: String,
-                available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                lock_version: T.nilable(Integer),
-                metadata: T::Hash[Symbol, String],
-                pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-              }
-            end
-
             sig { returns(Integer) }
             attr_accessor :amount
 
@@ -1747,9 +1687,21 @@ module ModernTreasury
             ); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry::Shape)
+              override.returns(
+                {
+                  amount: Integer,
+                  direction: Symbol,
+                  ledger_account_id: String,
+                  available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                  lock_version: T.nilable(Integer),
+                  metadata: T::Hash[Symbol, String],
+                  pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                  posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                  show_resulting_ledger_account_balances: T.nilable(T::Boolean)
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
           end
 
           class LedgerableType < ModernTreasury::Enum
@@ -1779,21 +1731,6 @@ module ModernTreasury
         end
 
         class TransactionCreateRequest < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              amount: Integer,
-              as_of_date: T.nilable(Date),
-              direction: String,
-              internal_account_id: String,
-              vendor_code: T.nilable(String),
-              vendor_code_type: T.nilable(String),
-              metadata: T::Hash[Symbol, String],
-              posted: T::Boolean,
-              type: T.nilable(Symbol),
-              vendor_description: T.nilable(String)
-            }
-          end
-
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -1858,9 +1795,22 @@ module ModernTreasury
           ); end
 
           sig do
-            returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Shape)
+            override.returns(
+              {
+                amount: Integer,
+                as_of_date: T.nilable(Date),
+                direction: String,
+                internal_account_id: String,
+                vendor_code: T.nilable(String),
+                vendor_code_type: T.nilable(String),
+                metadata: T::Hash[Symbol, String],
+                posted: T::Boolean,
+                type: T.nilable(Symbol),
+                vendor_description: T.nilable(String)
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
 
           class Type < ModernTreasury::Enum
             abstract!
@@ -1903,8 +1853,6 @@ module ModernTreasury
         end
 
         class ID < ModernTreasury::BaseModel
-          Shape = T.type_alias { {id: String} }
-
           sig { returns(T.nilable(String)) }
           attr_reader :id
 
@@ -1914,51 +1862,11 @@ module ModernTreasury
           sig { params(id: String).void }
           def initialize(id: nil); end
 
-          sig { returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::ID::Shape) }
-          def to_h; end
+          sig { override.returns({id: String}) }
+          def to_hash; end
         end
 
         class PaymentOrderUpdateRequestWithID < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              id: String,
-              accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
-              accounting_category_id: T.nilable(String),
-              accounting_ledger_class_id: T.nilable(String),
-              amount: Integer,
-              charge_bearer: T.nilable(Symbol),
-              counterparty_id: T.nilable(String),
-              currency: Symbol,
-              description: T.nilable(String),
-              direction: Symbol,
-              effective_date: Date,
-              expires_at: T.nilable(Time),
-              fallback_type: Symbol,
-              foreign_exchange_contract: T.nilable(String),
-              foreign_exchange_indicator: T.nilable(Symbol),
-              line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem],
-              metadata: T::Hash[Symbol, String],
-              nsf_protected: T::Boolean,
-              originating_account_id: String,
-              originating_party_name: T.nilable(String),
-              priority: Symbol,
-              process_after: T.nilable(Time),
-              purpose: T.nilable(String),
-              receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
-              receiving_account_id: String,
-              remittance_information: T.nilable(String),
-              send_remittance_advice: T.nilable(T::Boolean),
-              statement_descriptor: T.nilable(String),
-              status: Symbol,
-              subtype: T.nilable(Symbol),
-              type: Symbol,
-              ultimate_originating_party_identifier: T.nilable(String),
-              ultimate_originating_party_name: T.nilable(String),
-              ultimate_receiving_party_identifier: T.nilable(String),
-              ultimate_receiving_party_name: T.nilable(String)
-            }
-          end
-
           sig { returns(T.nilable(String)) }
           attr_reader :id
 
@@ -2208,13 +2116,49 @@ module ModernTreasury
           ); end
 
           sig do
-            returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Shape)
+            override.returns(
+              {
+                id: String,
+                accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
+                accounting_category_id: T.nilable(String),
+                accounting_ledger_class_id: T.nilable(String),
+                amount: Integer,
+                charge_bearer: T.nilable(Symbol),
+                counterparty_id: T.nilable(String),
+                currency: Symbol,
+                description: T.nilable(String),
+                direction: Symbol,
+                effective_date: Date,
+                expires_at: T.nilable(Time),
+                fallback_type: Symbol,
+                foreign_exchange_contract: T.nilable(String),
+                foreign_exchange_indicator: T.nilable(Symbol),
+                line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem],
+                metadata: T::Hash[Symbol, String],
+                nsf_protected: T::Boolean,
+                originating_account_id: String,
+                originating_party_name: T.nilable(String),
+                priority: Symbol,
+                process_after: T.nilable(Time),
+                purpose: T.nilable(String),
+                receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
+                receiving_account_id: String,
+                remittance_information: T.nilable(String),
+                send_remittance_advice: T.nilable(T::Boolean),
+                statement_descriptor: T.nilable(String),
+                status: Symbol,
+                subtype: T.nilable(Symbol),
+                type: Symbol,
+                ultimate_originating_party_identifier: T.nilable(String),
+                ultimate_originating_party_name: T.nilable(String),
+                ultimate_receiving_party_identifier: T.nilable(String),
+                ultimate_receiving_party_name: T.nilable(String)
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
 
           class Accounting < ModernTreasury::BaseModel
-            Shape = T.type_alias { {account_id: T.nilable(String), class_id: T.nilable(String)} }
-
             sig { returns(T.nilable(String)) }
             attr_accessor :account_id
 
@@ -2224,10 +2168,8 @@ module ModernTreasury
             sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
             def initialize(account_id: nil, class_id: nil); end
 
-            sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting::Shape)
-            end
-            def to_h; end
+            sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
+            def to_hash; end
           end
 
           class ChargeBearer < ModernTreasury::Enum
@@ -2271,15 +2213,6 @@ module ModernTreasury
           end
 
           class LineItem < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                amount: Integer,
-                accounting_category_id: T.nilable(String),
-                description: T.nilable(String),
-                metadata: T::Hash[Symbol, String]
-              }
-            end
-
             sig { returns(Integer) }
             attr_accessor :amount
 
@@ -2306,9 +2239,16 @@ module ModernTreasury
             def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem::Shape)
+              override.returns(
+                {
+                  amount: Integer,
+                  accounting_category_id: T.nilable(String),
+                  description: T.nilable(String),
+                  metadata: T::Hash[Symbol, String]
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
           end
 
           class Priority < ModernTreasury::Enum
@@ -2322,24 +2262,6 @@ module ModernTreasury
           end
 
           class ReceivingAccount < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                account_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail],
-                account_type: Symbol,
-                contact_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail],
-                ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
-                metadata: T::Hash[Symbol,
-                                  String],
-                name: T.nilable(String),
-                party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
-                party_identifier: String,
-                party_name: String,
-                party_type: T.nilable(Symbol),
-                plaid_processor_token: String,
-                routing_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]
-              }
-            end
-
             sig do
               returns(T.nilable(T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail]))
             end
@@ -2468,13 +2390,27 @@ module ModernTreasury
             ); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::Shape)
+              override.returns(
+                {
+                  account_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail],
+                  account_type: Symbol,
+                  contact_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail],
+                  ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
+                  metadata: T::Hash[Symbol,
+                                    String],
+                  name: T.nilable(String),
+                  party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
+                  party_identifier: String,
+                  party_name: String,
+                  party_type: T.nilable(Symbol),
+                  plaid_processor_token: String,
+                  routing_details: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
 
             class AccountDetail < ModernTreasury::BaseModel
-              Shape = T.type_alias { {account_number: String, account_number_type: Symbol} }
-
               sig { returns(String) }
               attr_accessor :account_number
 
@@ -2487,10 +2423,8 @@ module ModernTreasury
               sig { params(account_number: String, account_number_type: Symbol).void }
               def initialize(account_number:, account_number_type: nil); end
 
-              sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::Shape)
-              end
-              def to_h; end
+              sig { override.returns({account_number: String, account_number_type: Symbol}) }
+              def to_hash; end
 
               class AccountNumberType < ModernTreasury::Enum
                 abstract!
@@ -2512,8 +2446,6 @@ module ModernTreasury
             end
 
             class ContactDetail < ModernTreasury::BaseModel
-              Shape = T.type_alias { {contact_identifier: String, contact_identifier_type: Symbol} }
-
               sig { returns(T.nilable(String)) }
               attr_reader :contact_identifier
 
@@ -2529,10 +2461,8 @@ module ModernTreasury
               sig { params(contact_identifier: String, contact_identifier_type: Symbol).void }
               def initialize(contact_identifier: nil, contact_identifier_type: nil); end
 
-              sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::Shape)
-              end
-              def to_h; end
+              sig { override.returns({contact_identifier: String, contact_identifier_type: Symbol}) }
+              def to_hash; end
 
               class ContactIdentifierType < ModernTreasury::Enum
                 abstract!
@@ -2547,21 +2477,6 @@ module ModernTreasury
             end
 
             class LedgerAccount < ModernTreasury::BaseModel
-              Shape = T.type_alias do
-                {
-                  currency: String,
-                  ledger_id: String,
-                  name: String,
-                  normal_balance: Symbol,
-                  currency_exponent: T.nilable(Integer),
-                  description: T.nilable(String),
-                  ledger_account_category_ids: T::Array[String],
-                  ledgerable_id: String,
-                  ledgerable_type: Symbol,
-                  metadata: T::Hash[Symbol, String]
-                }
-              end
-
               sig { returns(String) }
               attr_accessor :currency
 
@@ -2632,9 +2547,22 @@ module ModernTreasury
               ); end
 
               sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::Shape)
+                override.returns(
+                  {
+                    currency: String,
+                    ledger_id: String,
+                    name: String,
+                    normal_balance: Symbol,
+                    currency_exponent: T.nilable(Integer),
+                    description: T.nilable(String),
+                    ledger_account_category_ids: T::Array[String],
+                    ledgerable_id: String,
+                    ledgerable_type: Symbol,
+                    metadata: T::Hash[Symbol, String]
+                  }
+                )
               end
-              def to_h; end
+              def to_hash; end
 
               class LedgerableType < ModernTreasury::Enum
                 abstract!
@@ -2650,17 +2578,6 @@ module ModernTreasury
             end
 
             class PartyAddress < ModernTreasury::BaseModel
-              Shape = T.type_alias do
-                {
-                  country: T.nilable(String),
-                  line1: T.nilable(String),
-                  line2: T.nilable(String),
-                  locality: T.nilable(String),
-                  postal_code: T.nilable(String),
-                  region: T.nilable(String)
-                }
-              end
-
               sig { returns(T.nilable(String)) }
               attr_accessor :country
 
@@ -2700,9 +2617,18 @@ module ModernTreasury
               end
 
               sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress::Shape)
+                override.returns(
+                  {
+                    country: T.nilable(String),
+                    line1: T.nilable(String),
+                    line2: T.nilable(String),
+                    locality: T.nilable(String),
+                    postal_code: T.nilable(String),
+                    region: T.nilable(String)
+                  }
+                )
               end
-              def to_h; end
+              def to_hash; end
             end
 
             class PartyType < ModernTreasury::Enum
@@ -2716,10 +2642,6 @@ module ModernTreasury
             end
 
             class RoutingDetail < ModernTreasury::BaseModel
-              Shape = T.type_alias do
-                {routing_number: String, routing_number_type: Symbol, payment_type: Symbol}
-              end
-
               sig { returns(String) }
               attr_accessor :routing_number
 
@@ -2736,9 +2658,9 @@ module ModernTreasury
               def initialize(routing_number:, routing_number_type:, payment_type: nil); end
 
               sig do
-                returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::Shape)
+                override.returns({routing_number: String, routing_number_type: Symbol, payment_type: Symbol})
               end
-              def to_h; end
+              def to_hash; end
 
               class RoutingNumberType < ModernTreasury::Enum
                 abstract!
@@ -2830,29 +2752,6 @@ module ModernTreasury
         end
 
         class ExpectedPaymentUpdateRequestWithID < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              id: String,
-              amount_lower_bound: T.nilable(Integer),
-              amount_upper_bound: T.nilable(Integer),
-              counterparty_id: T.nilable(String),
-              currency: T.nilable(Symbol),
-              date_lower_bound: T.nilable(Date),
-              date_upper_bound: T.nilable(Date),
-              description: T.nilable(String),
-              direction: T.nilable(Symbol),
-              internal_account_id: T.nilable(String),
-              metadata: T::Hash[Symbol, String],
-              reconciliation_filters: T.nilable(T.anything),
-              reconciliation_groups: T.nilable(T.anything),
-              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
-              remittance_information: T.nilable(String),
-              statement_descriptor: T.nilable(String),
-              status: T.nilable(Symbol),
-              type: T.nilable(Symbol)
-            }
-          end
-
           sig { returns(T.nilable(String)) }
           attr_reader :id
 
@@ -2957,9 +2856,30 @@ module ModernTreasury
           ); end
 
           sig do
-            returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Shape)
+            override.returns(
+              {
+                id: String,
+                amount_lower_bound: T.nilable(Integer),
+                amount_upper_bound: T.nilable(Integer),
+                counterparty_id: T.nilable(String),
+                currency: T.nilable(Symbol),
+                date_lower_bound: T.nilable(Date),
+                date_upper_bound: T.nilable(Date),
+                description: T.nilable(String),
+                direction: T.nilable(Symbol),
+                internal_account_id: T.nilable(String),
+                metadata: T::Hash[Symbol, String],
+                reconciliation_filters: T.nilable(T.anything),
+                reconciliation_groups: T.nilable(T.anything),
+                reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
+                remittance_information: T.nilable(String),
+                statement_descriptor: T.nilable(String),
+                status: T.nilable(Symbol),
+                type: T.nilable(Symbol)
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
 
           class Direction < ModernTreasury::Enum
             abstract!
@@ -2982,8 +2902,6 @@ module ModernTreasury
         end
 
         class TransactionUpdateRequestWithID < ModernTreasury::BaseModel
-          Shape = T.type_alias { {id: String, metadata: T::Hash[Symbol, String]} }
-
           sig { returns(T.nilable(String)) }
           attr_reader :id
 
@@ -2999,26 +2917,11 @@ module ModernTreasury
           sig { params(id: String, metadata: T::Hash[Symbol, String]).void }
           def initialize(id: nil, metadata: nil); end
 
-          sig do
-            returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID::Shape)
-          end
-          def to_h; end
+          sig { override.returns({id: String, metadata: T::Hash[Symbol, String]}) }
+          def to_hash; end
         end
 
         class LedgerTransactionUpdateRequestWithID < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              id: String,
-              description: T.nilable(String),
-              effective_at: Time,
-              ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry],
-              ledgerable_id: String,
-              ledgerable_type: Symbol,
-              metadata: T::Hash[Symbol, String],
-              status: Symbol
-            }
-          end
-
           sig { returns(T.nilable(String)) }
           attr_reader :id
 
@@ -3094,25 +2997,22 @@ module ModernTreasury
           ); end
 
           sig do
-            returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Shape)
+            override.returns(
+              {
+                id: String,
+                description: T.nilable(String),
+                effective_at: Time,
+                ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry],
+                ledgerable_id: String,
+                ledgerable_type: Symbol,
+                metadata: T::Hash[Symbol, String],
+                status: Symbol
+              }
+            )
           end
-          def to_h; end
+          def to_hash; end
 
           class LedgerEntry < ModernTreasury::BaseModel
-            Shape = T.type_alias do
-              {
-                amount: Integer,
-                direction: Symbol,
-                ledger_account_id: String,
-                available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                lock_version: T.nilable(Integer),
-                metadata: T::Hash[Symbol, String],
-                pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-              }
-            end
-
             sig { returns(Integer) }
             attr_accessor :amount
 
@@ -3169,9 +3069,21 @@ module ModernTreasury
             ); end
 
             sig do
-              returns(ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry::Shape)
+              override.returns(
+                {
+                  amount: Integer,
+                  direction: Symbol,
+                  ledger_account_id: String,
+                  available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                  lock_version: T.nilable(Integer),
+                  metadata: T::Hash[Symbol, String],
+                  pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                  posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                  show_resulting_ledger_account_balances: T.nilable(T::Boolean)
+                }
+              )
             end
-            def to_h; end
+            def to_hash; end
           end
 
           class LedgerableType < ModernTreasury::Enum

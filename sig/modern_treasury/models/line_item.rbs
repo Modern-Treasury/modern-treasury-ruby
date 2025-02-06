@@ -64,7 +64,7 @@ module ModernTreasury
           ?ModernTreasury::Models::line_item | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::line_item
+      def to_hash: -> ModernTreasury::Models::line_item
 
       type accounting = { account_id: String?, class_id: String? }
 
@@ -80,7 +80,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LineItem::accounting
+        def to_hash: -> ModernTreasury::Models::LineItem::accounting
       end
 
       type itemizable_type = :ExpectedPayment | :PaymentOrder

@@ -132,7 +132,7 @@ module ModernTreasury
           ?ModernTreasury::Models::legal_entity | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::legal_entity
+      def to_hash: -> ModernTreasury::Models::legal_entity
 
       type address =
         {
@@ -199,7 +199,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LegalEntity::address
+        def to_hash: -> ModernTreasury::Models::LegalEntity::address
 
         type address_type =
           :business | :mailing | :other | :po_box | :residential
@@ -260,7 +260,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LegalEntity::identification
+        def to_hash: -> ModernTreasury::Models::LegalEntity::identification
 
         type id_type =
           :ar_cuil
@@ -355,7 +355,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LegalEntity::phone_number
+        def to_hash: -> ModernTreasury::Models::LegalEntity::phone_number
       end
 
       type risk_rating = :low | :medium | :high

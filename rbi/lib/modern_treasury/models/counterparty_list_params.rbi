@@ -6,22 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            after_cursor: T.nilable(String),
-            created_at_lower_bound: Time,
-            created_at_upper_bound: Time,
-            email: String,
-            legal_entity_id: String,
-            metadata: T::Hash[Symbol, String],
-            name: String,
-            per_page: Integer
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -77,7 +61,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           per_page: Integer,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -92,8 +76,22 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::CounterpartyListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            created_at_lower_bound: Time,
+            created_at_upper_bound: Time,
+            email: String,
+            legal_entity_id: String,
+            metadata: T::Hash[Symbol, String],
+            name: String,
+            per_page: Integer,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

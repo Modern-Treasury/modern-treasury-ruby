@@ -6,24 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: Symbol,
-            currency_exponent: T.nilable(Integer),
-            description: T.nilable(String),
-            ledger_account_category_ids: T::Array[String],
-            ledgerable_id: String,
-            ledgerable_type: Symbol,
-            metadata: T::Hash[Symbol, String]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(String) }
       attr_accessor :currency
 
@@ -78,7 +60,7 @@ module ModernTreasury
           ledgerable_id: String,
           ledgerable_type: Symbol,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -95,8 +77,24 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::LedgerAccountCreateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            currency: String,
+            ledger_id: String,
+            name: String,
+            normal_balance: Symbol,
+            currency_exponent: T.nilable(Integer),
+            description: T.nilable(String),
+            ledger_account_category_ids: T::Array[String],
+            ledgerable_id: String,
+            ledgerable_type: Symbol,
+            metadata: T::Hash[Symbol, String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class LedgerableType < ModernTreasury::Enum
         abstract!

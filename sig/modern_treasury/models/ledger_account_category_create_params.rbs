@@ -54,7 +54,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_category_create_params
+      def to_hash: -> ModernTreasury::Models::ledger_account_category_create_params
     end
   end
 end

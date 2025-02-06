@@ -204,7 +204,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::payment_order_create_params
+      def to_hash: -> ModernTreasury::Models::payment_order_create_params
 
       type direction = :credit | :debit
 
@@ -229,7 +229,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::accounting
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::accounting
       end
 
       type charge_bearer = :shared | :sender | :receiver
@@ -273,7 +273,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::document
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::document
 
         type documentable_type =
           :cases
@@ -391,7 +391,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::ledger_transaction
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::ledger_transaction
 
         type ledger_entry =
           {
@@ -444,7 +444,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::ledger_entry
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::ledger_entry
         end
 
         type ledgerable_type =
@@ -508,7 +508,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::line_item
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::line_item
       end
 
       type priority = :high | :normal
@@ -613,7 +613,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::receiving_account
+        def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::receiving_account
 
         type account_detail =
           {
@@ -640,7 +640,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::account_detail
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::account_detail
 
           type account_number_type =
             :au_number
@@ -697,7 +697,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::contact_detail
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::contact_detail
 
           type contact_identifier_type = :email | :phone_number | :website
 
@@ -773,7 +773,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ledger_account
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ledger_account
 
           type ledgerable_type =
             :counterparty
@@ -828,7 +828,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::party_address
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::party_address
         end
 
         type party_type = :business | :individual
@@ -869,7 +869,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::routing_detail
+          def to_hash: -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::routing_detail
 
           type routing_number_type =
             :aba

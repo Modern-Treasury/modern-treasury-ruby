@@ -72,7 +72,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_transaction_create_params
+      def to_hash: -> ModernTreasury::Models::ledger_transaction_create_params
 
       type ledger_entry =
         {
@@ -125,7 +125,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerTransactionCreateParams::ledger_entry
+        def to_hash: -> ModernTreasury::Models::LedgerTransactionCreateParams::ledger_entry
       end
 
       type ledgerable_type =

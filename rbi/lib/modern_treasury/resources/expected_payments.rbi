@@ -24,7 +24,7 @@ module ModernTreasury
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           type: T.nilable(Symbol),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::ExpectedPayment)
       end
       def create(
@@ -53,7 +53,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::ExpectedPayment)
       end
       def retrieve(id, request_options: {}); end
@@ -78,7 +78,7 @@ module ModernTreasury
           statement_descriptor: T.nilable(String),
           status: T.nilable(Symbol),
           type: T.nilable(Symbol),
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::ExpectedPayment)
       end
       def update(
@@ -115,7 +115,7 @@ module ModernTreasury
           per_page: Integer,
           status: Symbol,
           type: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Page[ModernTreasury::Models::ExpectedPayment])
       end
       def list(
@@ -135,7 +135,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::ExpectedPayment)
       end
       def delete(id, request_options: {}); end

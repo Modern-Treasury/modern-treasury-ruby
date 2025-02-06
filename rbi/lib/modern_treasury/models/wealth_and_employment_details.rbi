@@ -3,29 +3,6 @@
 module ModernTreasury
   module Models
     class WealthAndEmploymentDetails < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          annual_income: T.nilable(Integer),
-          created_at: Time,
-          discarded_at: T.nilable(Time),
-          employer_country: T.nilable(String),
-          employer_name: T.nilable(String),
-          employer_state: T.nilable(String),
-          employment_status: T.nilable(Symbol),
-          income_country: T.nilable(String),
-          income_source: T.nilable(Symbol),
-          income_state: T.nilable(String),
-          industry: T.nilable(Symbol),
-          live_mode: T::Boolean,
-          object: String,
-          occupation: T.nilable(Symbol),
-          source_of_funds: T.nilable(Symbol),
-          updated_at: Time,
-          wealth_source: T.nilable(Symbol)
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -123,8 +100,31 @@ module ModernTreasury
         wealth_source:
       ); end
 
-      sig { returns(ModernTreasury::Models::WealthAndEmploymentDetails::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            annual_income: T.nilable(Integer),
+            created_at: Time,
+            discarded_at: T.nilable(Time),
+            employer_country: T.nilable(String),
+            employer_name: T.nilable(String),
+            employer_state: T.nilable(String),
+            employment_status: T.nilable(Symbol),
+            income_country: T.nilable(String),
+            income_source: T.nilable(Symbol),
+            income_state: T.nilable(String),
+            industry: T.nilable(Symbol),
+            live_mode: T::Boolean,
+            object: String,
+            occupation: T.nilable(Symbol),
+            source_of_funds: T.nilable(Symbol),
+            updated_at: Time,
+            wealth_source: T.nilable(Symbol)
+          }
+        )
+      end
+      def to_hash; end
 
       class EmploymentStatus < ModernTreasury::Enum
         abstract!

@@ -6,20 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            email: String,
-            legal_entity_id: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            name: String,
-            send_remittance_advice: T::Boolean,
-            taxpayer_identifier: String
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_reader :email
 
@@ -61,7 +47,7 @@ module ModernTreasury
           name: String,
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -74,8 +60,20 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::CounterpartyUpdateParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            email: String,
+            legal_entity_id: T.nilable(String),
+            metadata: T::Hash[Symbol, String],
+            name: String,
+            send_remittance_advice: T::Boolean,
+            taxpayer_identifier: String,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
     end
   end
 end

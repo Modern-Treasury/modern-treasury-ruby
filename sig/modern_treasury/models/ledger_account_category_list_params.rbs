@@ -78,7 +78,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_category_list_params
+      def to_hash: -> ModernTreasury::Models::ledger_account_category_list_params
 
       type balances = { effective_at: Time }
 
@@ -94,7 +94,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerAccountCategoryListParams::balances
+        def to_hash: -> ModernTreasury::Models::LedgerAccountCategoryListParams::balances
       end
     end
   end

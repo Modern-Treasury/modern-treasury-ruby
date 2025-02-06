@@ -3,21 +3,6 @@
 module ModernTreasury
   module Models
     class ReconciliationRule < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          amount_lower_bound: Integer,
-          amount_upper_bound: Integer,
-          direction: Symbol,
-          internal_account_id: String,
-          counterparty_id: T.nilable(String),
-          currency: Symbol,
-          custom_identifiers: T.nilable(T::Hash[Symbol, String]),
-          date_lower_bound: T.nilable(Date),
-          date_upper_bound: T.nilable(Date),
-          type: T.nilable(Symbol)
-        }
-      end
-
       sig { returns(Integer) }
       attr_accessor :amount_lower_bound
 
@@ -78,8 +63,23 @@ module ModernTreasury
         type: nil
       ); end
 
-      sig { returns(ModernTreasury::Models::ReconciliationRule::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            amount_lower_bound: Integer,
+            amount_upper_bound: Integer,
+            direction: Symbol,
+            internal_account_id: String,
+            counterparty_id: T.nilable(String),
+            currency: Symbol,
+            custom_identifiers: T.nilable(T::Hash[Symbol, String]),
+            date_lower_bound: T.nilable(Date),
+            date_upper_bound: T.nilable(Date),
+            type: T.nilable(Symbol)
+          }
+        )
+      end
+      def to_hash; end
 
       class Direction < ModernTreasury::Enum
         abstract!

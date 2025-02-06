@@ -55,7 +55,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::reconciliation_rule
+      def to_hash: -> ModernTreasury::Models::reconciliation_rule
 
       type direction = :credit | :debit
 

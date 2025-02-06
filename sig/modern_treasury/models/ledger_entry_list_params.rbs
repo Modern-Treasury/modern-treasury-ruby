@@ -140,7 +140,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_entry_list_params
+      def to_hash: -> ModernTreasury::Models::ledger_entry_list_params
 
       type order_by =
         {
@@ -171,7 +171,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerEntryListParams::order_by
+        def to_hash: -> ModernTreasury::Models::LedgerEntryListParams::order_by
 
         type created_at = :asc | :desc
 

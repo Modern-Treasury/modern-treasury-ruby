@@ -3,23 +3,6 @@
 module ModernTreasury
   module Models
     class ForeignExchangeQuote < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          created_at: Time,
-          effective_at: Time,
-          expires_at: Time,
-          foreign_exchange_indicator: String,
-          foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
-          internal_account_id: String,
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          object: String,
-          updated_at: Time,
-          vendor_id: String
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -90,22 +73,27 @@ module ModernTreasury
         vendor_id: nil
       ); end
 
-      sig { returns(ModernTreasury::Models::ForeignExchangeQuote::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            created_at: Time,
+            effective_at: Time,
+            expires_at: Time,
+            foreign_exchange_indicator: String,
+            foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+            internal_account_id: String,
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            updated_at: Time,
+            vendor_id: String
+          }
+        )
+      end
+      def to_hash; end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {
-            base_amount: Integer,
-            base_currency: Symbol,
-            exponent: Integer,
-            rate_string: String,
-            target_amount: Integer,
-            target_currency: Symbol,
-            value: Integer
-          }
-        end
-
         sig { returns(Integer) }
         attr_accessor :base_amount
 
@@ -149,8 +137,20 @@ module ModernTreasury
         )
         end
 
-        sig { returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate::Shape) }
-        def to_h; end
+        sig do
+          override.returns(
+            {
+              base_amount: Integer,
+              base_currency: Symbol,
+              exponent: Integer,
+              rate_string: String,
+              target_amount: Integer,
+              target_currency: Symbol,
+              value: Integer
+            }
+          )
+        end
+        def to_hash; end
       end
     end
   end

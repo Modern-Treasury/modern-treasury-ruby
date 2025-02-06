@@ -73,7 +73,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account_statement_retrieve_response
+      def to_hash: -> ModernTreasury::Models::ledger_account_statement_retrieve_response
 
       type ending_balance =
         {
@@ -100,7 +100,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::ending_balance
+        def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::ending_balance
 
         type available_balance =
           {
@@ -135,7 +135,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::available_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::available_balance
         end
 
         type pending_balance =
@@ -171,7 +171,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::pending_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::pending_balance
         end
 
         type posted_balance =
@@ -207,7 +207,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::posted_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::posted_balance
         end
       end
 
@@ -236,7 +236,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::starting_balance
+        def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::starting_balance
 
         type available_balance =
           {
@@ -271,7 +271,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::available_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::available_balance
         end
 
         type pending_balance =
@@ -307,7 +307,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::pending_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::pending_balance
         end
 
         type posted_balance =
@@ -343,7 +343,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::posted_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::posted_balance
         end
       end
     end

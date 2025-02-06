@@ -160,7 +160,7 @@ module ModernTreasury
           ?ModernTreasury::Models::invoice | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::invoice
+      def to_hash: -> ModernTreasury::Models::invoice
 
       type contact_detail =
         {
@@ -207,7 +207,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Invoice::contact_detail
+        def to_hash: -> ModernTreasury::Models::Invoice::contact_detail
 
         type contact_identifier_type = :email | :phone_number | :website
 
@@ -259,7 +259,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Invoice::counterparty_billing_address
+        def to_hash: -> ModernTreasury::Models::Invoice::counterparty_billing_address
       end
 
       type counterparty_shipping_address =
@@ -301,7 +301,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Invoice::counterparty_shipping_address
+        def to_hash: -> ModernTreasury::Models::Invoice::counterparty_shipping_address
       end
 
       type invoicer_address =
@@ -343,7 +343,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::Invoice::invoicer_address
+        def to_hash: -> ModernTreasury::Models::Invoice::invoicer_address
       end
 
       type payment_method = :ui | :manual | :automatic

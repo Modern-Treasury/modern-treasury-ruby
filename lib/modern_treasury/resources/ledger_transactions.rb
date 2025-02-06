@@ -36,7 +36,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status] :status To post a ledger transaction at creation, use `posted`.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
@@ -57,7 +57,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::LedgerTransactionRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
@@ -96,7 +96,7 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status] :status To post a ledger transaction at creation, use `posted`.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
@@ -166,7 +166,7 @@ module ModernTreasury
       #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransaction>]
       #
@@ -201,7 +201,7 @@ module ModernTreasury
       #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #
@@ -243,7 +243,7 @@ module ModernTreasury
       #   @option params [Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status] :status Status of the reversal ledger transaction. It defaults to `posted` if not
       #     provided.
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
       #

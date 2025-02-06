@@ -9,7 +9,7 @@ module ModernTreasury
       #
       # @param params [ModernTreasury::Models::EventRetrieveParams, Hash{Symbol=>Object}] .
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Event]
       #
@@ -40,7 +40,7 @@ module ModernTreasury
       #
       #   @option params [String] :resource
       #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}] :request_options
+      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Event>]
       #

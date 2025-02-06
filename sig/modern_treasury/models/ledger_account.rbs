@@ -73,7 +73,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledger_account
+      def to_hash: -> ModernTreasury::Models::ledger_account
 
       type balances =
         {
@@ -108,7 +108,7 @@ module ModernTreasury
             | ModernTreasury::BaseModel data
           ) -> void
 
-        def to_h: -> ModernTreasury::Models::LedgerAccount::balances
+        def to_hash: -> ModernTreasury::Models::LedgerAccount::balances
 
         type available_balance =
           {
@@ -143,7 +143,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccount::Balances::available_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccount::Balances::available_balance
         end
 
         type pending_balance =
@@ -179,7 +179,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccount::Balances::pending_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccount::Balances::pending_balance
         end
 
         type posted_balance =
@@ -215,7 +215,7 @@ module ModernTreasury
               | ModernTreasury::BaseModel data
             ) -> void
 
-          def to_h: -> ModernTreasury::Models::LedgerAccount::Balances::posted_balance
+          def to_hash: -> ModernTreasury::Models::LedgerAccount::Balances::posted_balance
         end
       end
 

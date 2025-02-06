@@ -6,31 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            after_cursor: T.nilable(String),
-            counterparty_id: String,
-            created_at_end: Date,
-            created_at_start: Date,
-            direction: Symbol,
-            effective_date_end: Date,
-            effective_date_start: Date,
-            metadata: T::Hash[Symbol, String],
-            originating_account_id: String,
-            per_page: Integer,
-            priority: Symbol,
-            process_after_end: Time,
-            process_after_start: Time,
-            reference_number: String,
-            status: Symbol,
-            transaction_id: String,
-            type: Symbol
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig { returns(T.nilable(String)) }
       attr_accessor :after_cursor
 
@@ -149,7 +124,7 @@ module ModernTreasury
           status: Symbol,
           transaction_id: String,
           type: Symbol,
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -173,8 +148,31 @@ module ModernTreasury
         request_options: {}
       ); end
 
-      sig { returns(ModernTreasury::Models::PaymentOrderListParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            after_cursor: T.nilable(String),
+            counterparty_id: String,
+            created_at_end: Date,
+            created_at_start: Date,
+            direction: Symbol,
+            effective_date_end: Date,
+            effective_date_start: Date,
+            metadata: T::Hash[Symbol, String],
+            originating_account_id: String,
+            per_page: Integer,
+            priority: Symbol,
+            process_after_end: Time,
+            process_after_start: Time,
+            reference_number: String,
+            status: Symbol,
+            transaction_id: String,
+            type: Symbol,
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class Priority < ModernTreasury::Enum
         abstract!

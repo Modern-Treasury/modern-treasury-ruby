@@ -36,7 +36,7 @@ module ModernTreasury
           | ModernTreasury::BaseModel data
         ) -> void
 
-      def to_h: -> ModernTreasury::Models::ledgerable_event_create_params
+      def to_hash: -> ModernTreasury::Models::ledgerable_event_create_params
     end
   end
 end

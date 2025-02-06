@@ -7,16 +7,19 @@ module ModernTreasury
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
-        Shape = T.type_alias { T.all({payment_order_id: String}, ModernTreasury::RequestParameters::Shape) }
-
         sig { returns(String) }
         attr_accessor :payment_order_id
 
-        sig { params(payment_order_id: String, request_options: ModernTreasury::RequestOpts).void }
+        sig do
+          params(
+            payment_order_id: String,
+            request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          ).void
+        end
         def initialize(payment_order_id:, request_options: {}); end
 
-        sig { returns(ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams::Shape) }
-        def to_h; end
+        sig { override.returns({payment_order_id: String, request_options: ModernTreasury::RequestOptions}) }
+        def to_hash; end
       end
     end
   end

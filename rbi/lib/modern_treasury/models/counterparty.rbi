@@ -3,24 +3,6 @@
 module ModernTreasury
   module Models
     class Counterparty < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          accounts: T::Array[ModernTreasury::Models::Counterparty::Account],
-          created_at: Time,
-          discarded_at: T.nilable(Time),
-          email: T.nilable(String),
-          legal_entity_id: T.nilable(String),
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          name: T.nilable(String),
-          object: String,
-          send_remittance_advice: T::Boolean,
-          updated_at: Time,
-          verification_status: Symbol
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -93,33 +75,28 @@ module ModernTreasury
         verification_status:
       ); end
 
-      sig { returns(ModernTreasury::Models::Counterparty::Shape) }
-      def to_h; end
-
-      class Account < ModernTreasury::BaseModel
-        Shape = T.type_alias do
+      sig do
+        override.returns(
           {
             id: String,
-            account_details: T::Array[ModernTreasury::Models::AccountDetail],
-            account_type: Symbol,
-            contact_details: T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail],
+            accounts: T::Array[ModernTreasury::Models::Counterparty::Account],
             created_at: Time,
             discarded_at: T.nilable(Time),
-            ledger_account_id: T.nilable(String),
+            email: T.nilable(String),
+            legal_entity_id: T.nilable(String),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
             object: String,
-            party_address: T.nilable(ModernTreasury::Models::Counterparty::Account::PartyAddress),
-            party_name: String,
-            party_type: T.nilable(Symbol),
-            routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
+            send_remittance_advice: T::Boolean,
             updated_at: Time,
-            verification_source: T.nilable(Symbol),
             verification_status: Symbol
           }
-        end
+        )
+      end
+      def to_hash; end
 
+      class Account < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
         attr_reader :id
 
@@ -255,23 +232,33 @@ module ModernTreasury
           verification_status: nil
         ); end
 
-        sig { returns(ModernTreasury::Models::Counterparty::Account::Shape) }
-        def to_h; end
-
-        class ContactDetail < ModernTreasury::BaseModel
-          Shape = T.type_alias do
+        sig do
+          override.returns(
             {
               id: String,
-              contact_identifier: String,
-              contact_identifier_type: Symbol,
+              account_details: T::Array[ModernTreasury::Models::AccountDetail],
+              account_type: Symbol,
+              contact_details: T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail],
               created_at: Time,
               discarded_at: T.nilable(Time),
+              ledger_account_id: T.nilable(String),
               live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              name: T.nilable(String),
               object: String,
-              updated_at: Time
+              party_address: T.nilable(ModernTreasury::Models::Counterparty::Account::PartyAddress),
+              party_name: String,
+              party_type: T.nilable(Symbol),
+              routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
+              updated_at: Time,
+              verification_source: T.nilable(Symbol),
+              verification_status: Symbol
             }
-          end
+          )
+        end
+        def to_hash; end
 
+        class ContactDetail < ModernTreasury::BaseModel
           sig { returns(String) }
           attr_accessor :id
 
@@ -319,8 +306,21 @@ module ModernTreasury
             updated_at:
           ); end
 
-          sig { returns(ModernTreasury::Models::Counterparty::Account::ContactDetail::Shape) }
-          def to_h; end
+          sig do
+            override.returns(
+              {
+                id: String,
+                contact_identifier: String,
+                contact_identifier_type: Symbol,
+                created_at: Time,
+                discarded_at: T.nilable(Time),
+                live_mode: T::Boolean,
+                object: String,
+                updated_at: Time
+              }
+            )
+          end
+          def to_hash; end
 
           class ContactIdentifierType < ModernTreasury::Enum
             abstract!
@@ -335,22 +335,6 @@ module ModernTreasury
         end
 
         class PartyAddress < ModernTreasury::BaseModel
-          Shape = T.type_alias do
-            {
-              id: String,
-              country: T.nilable(String),
-              created_at: Time,
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              live_mode: T::Boolean,
-              locality: T.nilable(String),
-              object: String,
-              postal_code: T.nilable(String),
-              region: T.nilable(String),
-              updated_at: Time
-            }
-          end
-
           sig { returns(String) }
           attr_accessor :id
 
@@ -413,8 +397,24 @@ module ModernTreasury
             updated_at:
           ); end
 
-          sig { returns(ModernTreasury::Models::Counterparty::Account::PartyAddress::Shape) }
-          def to_h; end
+          sig do
+            override.returns(
+              {
+                id: String,
+                country: T.nilable(String),
+                created_at: Time,
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                live_mode: T::Boolean,
+                locality: T.nilable(String),
+                object: String,
+                postal_code: T.nilable(String),
+                region: T.nilable(String),
+                updated_at: Time
+              }
+            )
+          end
+          def to_hash; end
         end
 
         class PartyType < ModernTreasury::Enum

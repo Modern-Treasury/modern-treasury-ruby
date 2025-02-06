@@ -3,37 +3,6 @@
 module ModernTreasury
   module Models
     class ExpectedPayment < ModernTreasury::BaseModel
-      Shape = T.type_alias do
-        {
-          id: String,
-          amount_lower_bound: T.nilable(Integer),
-          amount_upper_bound: T.nilable(Integer),
-          counterparty_id: T.nilable(String),
-          created_at: Time,
-          currency: T.nilable(Symbol),
-          date_lower_bound: T.nilable(Date),
-          date_upper_bound: T.nilable(Date),
-          description: T.nilable(String),
-          direction: T.nilable(Symbol),
-          internal_account_id: T.nilable(String),
-          ledger_transaction_id: T.nilable(String),
-          live_mode: T::Boolean,
-          metadata: T::Hash[Symbol, String],
-          object: String,
-          reconciliation_filters: T.nilable(T.anything),
-          reconciliation_groups: T.nilable(T.anything),
-          reconciliation_method: T.nilable(Symbol),
-          reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
-          remittance_information: T.nilable(String),
-          statement_descriptor: T.nilable(String),
-          status: Symbol,
-          transaction_id: T.nilable(String),
-          transaction_line_item_id: T.nilable(String),
-          type: T.nilable(Symbol),
-          updated_at: Time
-        }
-      end
-
       sig { returns(String) }
       attr_accessor :id
 
@@ -171,8 +140,39 @@ module ModernTreasury
         updated_at:
       ); end
 
-      sig { returns(ModernTreasury::Models::ExpectedPayment::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            id: String,
+            amount_lower_bound: T.nilable(Integer),
+            amount_upper_bound: T.nilable(Integer),
+            counterparty_id: T.nilable(String),
+            created_at: Time,
+            currency: T.nilable(Symbol),
+            date_lower_bound: T.nilable(Date),
+            date_upper_bound: T.nilable(Date),
+            description: T.nilable(String),
+            direction: T.nilable(Symbol),
+            internal_account_id: T.nilable(String),
+            ledger_transaction_id: T.nilable(String),
+            live_mode: T::Boolean,
+            metadata: T::Hash[Symbol, String],
+            object: String,
+            reconciliation_filters: T.nilable(T.anything),
+            reconciliation_groups: T.nilable(T.anything),
+            reconciliation_method: T.nilable(Symbol),
+            reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
+            remittance_information: T.nilable(String),
+            statement_descriptor: T.nilable(String),
+            status: Symbol,
+            transaction_id: T.nilable(String),
+            transaction_line_item_id: T.nilable(String),
+            type: T.nilable(Symbol),
+            updated_at: Time
+          }
+        )
+      end
+      def to_hash; end
 
       class Direction < ModernTreasury::Enum
         abstract!

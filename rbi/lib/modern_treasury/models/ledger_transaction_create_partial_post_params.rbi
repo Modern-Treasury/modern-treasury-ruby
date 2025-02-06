@@ -6,19 +6,6 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      Shape = T.type_alias do
-        T.all(
-          {
-            posted_ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
-            description: String,
-            effective_at: Time,
-            metadata: T::Hash[Symbol,
-                              String]
-          },
-          ModernTreasury::RequestParameters::Shape
-        )
-      end
-
       sig do
         returns(T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry])
       end
@@ -48,7 +35,7 @@ module ModernTreasury
           description: String,
           effective_at: Time,
           metadata: T::Hash[Symbol, String],
-          request_options: ModernTreasury::RequestOpts
+          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
       def initialize(
@@ -60,14 +47,21 @@ module ModernTreasury
       )
       end
 
-      sig { returns(ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::Shape) }
-      def to_h; end
+      sig do
+        override.returns(
+          {
+            posted_ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
+            description: String,
+            effective_at: Time,
+            metadata: T::Hash[Symbol,
+                              String],
+            request_options: ModernTreasury::RequestOptions
+          }
+        )
+      end
+      def to_hash; end
 
       class PostedLedgerEntry < ModernTreasury::BaseModel
-        Shape = T.type_alias do
-          {amount: Integer, direction: Symbol, ledger_account_id: String, metadata: T::Hash[Symbol, String]}
-        end
-
         sig { returns(Integer) }
         attr_accessor :amount
 
@@ -94,9 +88,16 @@ module ModernTreasury
         def initialize(amount:, direction:, ledger_account_id:, metadata: nil); end
 
         sig do
-          returns(ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Shape)
+          override.returns(
+            {
+              amount: Integer,
+              direction: Symbol,
+              ledger_account_id: String,
+              metadata: T::Hash[Symbol, String]
+            }
+          )
         end
-        def to_h; end
+        def to_hash; end
 
         class Direction < ModernTreasury::Enum
           abstract!
