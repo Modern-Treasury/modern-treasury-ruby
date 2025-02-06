@@ -14,9 +14,9 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < Minitest::Test
   def test_create_required_params
     response = @modern_treasury.payment_orders.create(
       amount: 0,
-      direction: "credit",
+      direction: :credit,
       originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      type: "ach"
+      type: :ach
     )
 
     assert_pattern do
@@ -56,9 +56,9 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < Minitest::Test
   def test_create_async_required_params
     response = @modern_treasury.payment_orders.create_async(
       amount: 0,
-      direction: "credit",
+      direction: :credit,
       originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      type: "ach"
+      type: :ach
     )
 
     assert_pattern do

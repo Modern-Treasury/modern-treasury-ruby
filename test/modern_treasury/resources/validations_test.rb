@@ -14,7 +14,7 @@ class ModernTreasury::Test::Resources::ValidationsTest < Minitest::Test
   def test_validate_routing_number_required_params
     response = @modern_treasury.validations.validate_routing_number(
       routing_number: "routing_number",
-      routing_number_type: "aba"
+      routing_number_type: :aba
     )
 
     assert_pattern do

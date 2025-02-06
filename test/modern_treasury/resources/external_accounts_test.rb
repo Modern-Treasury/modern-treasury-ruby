@@ -68,7 +68,7 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
     response = @modern_treasury.external_accounts.verify(
       "id",
       originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      payment_type: "ach"
+      payment_type: :ach
     )
 
     assert_pattern do

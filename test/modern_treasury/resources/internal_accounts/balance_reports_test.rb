@@ -16,13 +16,13 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
       "internal_account_id",
       as_of_date: "2019-12-27",
       as_of_time: "as_of_time",
-      balance_report_type: "intraday",
+      balance_report_type: :intraday,
       balances: [
         {
-          "amount" => 0,
-          "balance_type" => "closing_available",
-          "vendor_code" => "vendor_code",
-          "vendor_code_type" => "vendor_code_type"
+          amount: 0,
+          balance_type: :closing_available,
+          vendor_code: "vendor_code",
+          vendor_code_type: "vendor_code_type"
         }
       ]
     )

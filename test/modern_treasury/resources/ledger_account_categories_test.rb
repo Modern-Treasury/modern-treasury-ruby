@@ -16,7 +16,7 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Minitest::T
       currency: "currency",
       ledger_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
       name: "name",
-      normal_balance: "credit"
+      normal_balance: :credit
     )
 
     assert_pattern do

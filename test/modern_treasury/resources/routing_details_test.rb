@@ -14,9 +14,9 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
   def test_create_required_params
     response = @modern_treasury.routing_details.create(
       "account_id",
-      accounts_type: "external_accounts",
+      accounts_type: :external_accounts,
       routing_number: "routing_number",
-      routing_number_type: "aba"
+      routing_number_type: :aba
     )
 
     assert_pattern do
@@ -27,7 +27,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
   def test_retrieve_required_params
     response = @modern_treasury.routing_details.retrieve(
       "id",
-      accounts_type: "external_accounts",
+      accounts_type: :external_accounts,
       account_id: "account_id"
     )
 
@@ -37,7 +37,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
   end
 
   def test_list_required_params
-    response = @modern_treasury.routing_details.list("account_id", accounts_type: "external_accounts")
+    response = @modern_treasury.routing_details.list("account_id", accounts_type: :external_accounts)
 
     assert_pattern do
       response => ModernTreasury::Page
@@ -52,7 +52,7 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
   def test_delete_required_params
     response = @modern_treasury.routing_details.delete(
       "id",
-      accounts_type: "external_accounts",
+      accounts_type: :external_accounts,
       account_id: "account_id"
     )
 
