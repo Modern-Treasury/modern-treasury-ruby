@@ -139,7 +139,8 @@ module ModernTreasury
         selected_effective_date: nil,
         status: nil,
         updated_at: nil
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -166,7 +167,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Direction < ModernTreasury::Enum
         abstract!
@@ -175,7 +177,8 @@ module ModernTreasury
         DEBIT = :debit
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ExistingExternalAccountsFilter < ModernTreasury::Enum
@@ -184,7 +187,8 @@ module ModernTreasury
         VERIFIED = T.let(:verified, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ExternalAccountCollection < ModernTreasury::Enum
@@ -194,7 +198,8 @@ module ModernTreasury
         ENABLED = :enabled
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -206,7 +211,8 @@ module ModernTreasury
         PENDING = :pending
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -272,7 +272,8 @@ module ModernTreasury
         updated_at:,
         vendor_attributes:,
         vendor_failure_reason:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -335,7 +336,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class Accounting < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
@@ -345,10 +347,12 @@ module ModernTreasury
         attr_accessor :class_id
 
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
-        def initialize(account_id: nil, class_id: nil); end
+        def initialize(account_id: nil, class_id: nil)
+        end
 
         sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class ChargeBearer < ModernTreasury::Enum
@@ -359,7 +363,8 @@ module ModernTreasury
         RECEIVER = T.let(:receiver, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Direction < ModernTreasury::Enum
@@ -369,7 +374,8 @@ module ModernTreasury
         DEBIT = :debit
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ForeignExchangeIndicator < ModernTreasury::Enum
@@ -379,7 +385,8 @@ module ModernTreasury
         VARIABLE_TO_FIXED = T.let(:variable_to_fixed, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
@@ -439,7 +446,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class Priority < ModernTreasury::Enum
@@ -449,7 +457,8 @@ module ModernTreasury
         NORMAL = :normal
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ReceivingAccountType < ModernTreasury::Enum
@@ -459,7 +468,8 @@ module ModernTreasury
         EXTERNAL_ACCOUNT = :external_account
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -519,7 +529,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class ReferenceNumberType < ModernTreasury::Enum
           abstract!
@@ -597,7 +608,8 @@ module ModernTreasury
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -617,7 +629,8 @@ module ModernTreasury
         SENT = :sent
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class UltimateOriginatingAccount < ModernTreasury::Union
@@ -631,7 +644,8 @@ module ModernTreasury
             ]
           )
         end
-        private_class_method def self.variants; end
+        private_class_method def self.variants
+        end
       end
 
       class UltimateOriginatingAccountType < ModernTreasury::Enum
@@ -641,7 +655,8 @@ module ModernTreasury
         VIRTUAL_ACCOUNT = T.let(:virtual_account, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

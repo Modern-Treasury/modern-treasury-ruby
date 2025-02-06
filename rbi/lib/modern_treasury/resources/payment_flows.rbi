@@ -22,7 +22,8 @@ module ModernTreasury
         originating_account_id:,
         due_date: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -30,7 +31,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::PaymentFlow)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -39,7 +41,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::PaymentFlow)
       end
-      def update(id, status:, request_options: {}); end
+      def update(id, status:, request_options: {})
+      end
 
       sig do
         params(
@@ -64,10 +67,12 @@ module ModernTreasury
         receiving_account_id: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

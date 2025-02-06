@@ -18,10 +18,12 @@ module ModernTreasury
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         ).void
       end
-      def initialize(status: nil, request_options: {}); end
+      def initialize(status: nil, request_options: {})
+      end
 
       sig { override.returns({status: Symbol, request_options: ModernTreasury::RequestOptions}) }
-      def to_hash; end
+      def to_hash
+      end
 
       class Status < ModernTreasury::Enum
         abstract!
@@ -29,7 +31,8 @@ module ModernTreasury
         PROCESSING = :processing
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

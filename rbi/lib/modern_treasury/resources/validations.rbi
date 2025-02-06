@@ -10,10 +10,12 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::RoutingNumberLookupRequest)
       end
-      def validate_routing_number(routing_number:, routing_number_type:, request_options: {}); end
+      def validate_routing_number(routing_number:, routing_number_type:, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

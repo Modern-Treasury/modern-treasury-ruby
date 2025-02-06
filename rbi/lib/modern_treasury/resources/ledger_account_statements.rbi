@@ -20,7 +20,8 @@ module ModernTreasury
         description: nil,
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -28,10 +29,12 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

@@ -43,7 +43,8 @@ module ModernTreasury
         date_of_death: nil,
         reason: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -58,7 +59,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ReturnableType < ModernTreasury::Enum
         abstract!
@@ -66,7 +68,8 @@ module ModernTreasury
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Code < ModernTreasury::Enum
@@ -127,7 +130,8 @@ module ModernTreasury
         CURRENCYCLOUD = T.let(:currencycloud, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

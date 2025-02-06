@@ -12,7 +12,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Document)
       end
-      def create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {}); end
+      def create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -20,7 +21,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::Document)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -41,7 +43,8 @@ module ModernTreasury
       end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

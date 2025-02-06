@@ -136,7 +136,8 @@ module ModernTreasury
         vendor_id:,
         details: nil,
         vendor_description: nil
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -169,7 +170,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
         sig { returns(Integer) }
@@ -228,7 +230,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class Type < ModernTreasury::Enum
@@ -267,7 +270,8 @@ module ModernTreasury
         OTHER = :other
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class VendorCodeType < ModernTreasury::Enum
@@ -298,7 +302,8 @@ module ModernTreasury
         USER = T.let(:user, T.nilable(Symbol))
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

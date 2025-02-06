@@ -12,7 +12,8 @@ module ModernTreasury
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
-        def create(amount:, expected_payment_id:, transaction_id:, request_options: {}); end
+        def create(amount:, expected_payment_id:, transaction_id:, request_options: {})
+        end
 
         sig do
           params(
@@ -20,7 +21,8 @@ module ModernTreasury
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
-        def retrieve(id, request_options: {}); end
+        def retrieve(id, request_options: {})
+        end
 
         sig do
           params(
@@ -48,10 +50,12 @@ module ModernTreasury
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).void
         end
-        def delete(id, request_options: {}); end
+        def delete(id, request_options: {})
+        end
 
         sig { params(client: ModernTreasury::Client).void }
-        def initialize(client:); end
+        def initialize(client:)
+        end
       end
     end
   end

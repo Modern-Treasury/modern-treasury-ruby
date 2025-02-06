@@ -176,7 +176,8 @@ module ModernTreasury
         status: nil,
         virtual_account_id: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -210,7 +211,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ContactDetail < ModernTreasury::BaseModel
         sig { returns(String) }
@@ -258,7 +260,8 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -274,7 +277,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class ContactIdentifierType < ModernTreasury::Enum
           abstract!
@@ -284,7 +288,8 @@ module ModernTreasury
           WEBSITE = :website
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -320,7 +325,8 @@ module ModernTreasury
             line2: String
           ).void
         end
-        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil); end
+        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        end
 
         sig do
           override.returns(
@@ -334,7 +340,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class CounterpartyShippingAddress < ModernTreasury::BaseModel
@@ -369,7 +376,8 @@ module ModernTreasury
             line2: String
           ).void
         end
-        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil); end
+        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        end
 
         sig do
           override.returns(
@@ -383,7 +391,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class InvoiceLineItem < ModernTreasury::BaseModel
@@ -442,7 +451,8 @@ module ModernTreasury
           metadata: nil,
           quantity: nil,
           unit_amount_decimal: nil
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -457,7 +467,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class InvoicerAddress < ModernTreasury::BaseModel
@@ -492,7 +503,8 @@ module ModernTreasury
             line2: String
           ).void
         end
-        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil); end
+        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        end
 
         sig do
           override.returns(
@@ -506,7 +518,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class PaymentMethod < ModernTreasury::Enum
@@ -517,7 +530,8 @@ module ModernTreasury
         AUTOMATIC = :automatic
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

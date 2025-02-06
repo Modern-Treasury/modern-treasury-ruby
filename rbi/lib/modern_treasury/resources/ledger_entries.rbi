@@ -10,7 +10,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerEntry)
       end
-      def retrieve(id, show_balances: nil, request_options: {}); end
+      def retrieve(id, show_balances: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -19,7 +20,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerEntry)
       end
-      def update(id, metadata: nil, request_options: {}); end
+      def update(id, metadata: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -68,10 +70,12 @@ module ModernTreasury
         status: nil,
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

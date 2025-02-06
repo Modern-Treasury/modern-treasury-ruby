@@ -66,7 +66,8 @@ module ModernTreasury
         request_type: nil,
         status: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -82,7 +83,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class EntityType < ModernTreasury::Enum
         abstract!
@@ -94,7 +96,8 @@ module ModernTreasury
         BULK_ERROR = :bulk_error
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class RequestType < ModernTreasury::Enum
@@ -103,7 +106,8 @@ module ModernTreasury
         BULK_REQUEST = :bulk_request
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class Status < ModernTreasury::Enum
@@ -114,7 +118,8 @@ module ModernTreasury
         FAILED = :failed
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

@@ -31,7 +31,8 @@ module ModernTreasury
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
-        def retrieve(id, internal_account_id:, request_options: {}); end
+        def retrieve(id, internal_account_id:, request_options: {})
+        end
 
         sig do
           params(
@@ -50,7 +51,8 @@ module ModernTreasury
           balance_report_type: nil,
           per_page: nil,
           request_options: {}
-        ); end
+        )
+        end
 
         sig do
           params(
@@ -59,10 +61,12 @@ module ModernTreasury
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).void
         end
-        def delete(id, internal_account_id:, request_options: {}); end
+        def delete(id, internal_account_id:, request_options: {})
+        end
 
         sig { params(client: ModernTreasury::Client).void }
-        def initialize(client:); end
+        def initialize(client:)
+        end
       end
     end
   end

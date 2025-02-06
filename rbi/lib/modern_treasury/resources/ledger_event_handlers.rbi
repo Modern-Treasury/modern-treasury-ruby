@@ -24,7 +24,8 @@ module ModernTreasury
         metadata: nil,
         variables: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -32,7 +33,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerEventHandler)
       end
-      def retrieve(id, request_options: {}); end
+      def retrieve(id, request_options: {})
+      end
 
       sig do
         params(
@@ -60,10 +62,12 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerEventHandler)
       end
-      def delete(id, request_options: {}); end
+      def delete(id, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

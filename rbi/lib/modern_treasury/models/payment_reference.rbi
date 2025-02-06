@@ -53,7 +53,8 @@ module ModernTreasury
         referenceable_id:,
         referenceable_type:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -70,7 +71,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class ReferenceNumberType < ModernTreasury::Enum
         abstract!
@@ -148,7 +150,8 @@ module ModernTreasury
         WELLS_FARGO_UETR = :wells_fargo_uetr
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class ReferenceableType < ModernTreasury::Enum
@@ -159,7 +162,8 @@ module ModernTreasury
         RETURN = :return
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

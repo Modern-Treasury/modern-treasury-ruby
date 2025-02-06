@@ -30,7 +30,8 @@ module ModernTreasury
         ledgerable_type: nil,
         metadata: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -39,7 +40,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerAccount)
       end
-      def retrieve(id, balances: nil, request_options: {}); end
+      def retrieve(id, balances: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -50,7 +52,8 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerAccount)
       end
-      def update(id, description: nil, metadata: nil, name: nil, request_options: {}); end
+      def update(id, description: nil, metadata: nil, name: nil, request_options: {})
+      end
 
       sig do
         params(
@@ -87,7 +90,8 @@ module ModernTreasury
         posted_balance_amount: nil,
         updated_at: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         params(
@@ -95,10 +99,12 @@ module ModernTreasury
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         ).returns(ModernTreasury::Models::LedgerAccount)
       end
-      def delete(id, request_options: {}); end
+      def delete(id, request_options: {})
+      end
 
       sig { params(client: ModernTreasury::Client).void }
-      def initialize(client:); end
+      def initialize(client:)
+      end
     end
   end
 end

@@ -56,7 +56,8 @@ module ModernTreasury
         object:,
         updated_at:,
         account_number: nil
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -73,7 +74,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class AccountNumberType < ModernTreasury::Enum
         abstract!
@@ -90,7 +92,8 @@ module ModernTreasury
         WALLET_ADDRESS = :wallet_address
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end

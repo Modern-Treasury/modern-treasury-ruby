@@ -61,7 +61,8 @@ module ModernTreasury
           priority:,
           status:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -79,7 +80,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
 
         class PaymentType < ModernTreasury::Enum
           abstract!
@@ -116,7 +118,8 @@ module ModernTreasury
           ZENGIN = :zengin
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Priority < ModernTreasury::Enum
@@ -126,7 +129,8 @@ module ModernTreasury
           NORMAL = T.let(:normal, T.nilable(Symbol))
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
 
         class Status < ModernTreasury::Enum
@@ -138,7 +142,8 @@ module ModernTreasury
           VERIFIED = :verified
 
           sig { override.returns(T::Array[Symbol]) }
-          def self.values; end
+          def self.values
+          end
         end
       end
 
@@ -153,7 +158,8 @@ module ModernTreasury
           ]
         )
       end
-      private_class_method def self.variants; end
+      private_class_method def self.variants
+      end
     end
   end
 end

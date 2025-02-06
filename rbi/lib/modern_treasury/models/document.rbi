@@ -68,7 +68,8 @@ module ModernTreasury
         object:,
         source:,
         updated_at:
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -88,7 +89,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class DocumentDetail < ModernTreasury::BaseModel
         sig { returns(String) }
@@ -136,7 +138,8 @@ module ModernTreasury
           live_mode:,
           object:,
           updated_at:
-        ); end
+        )
+        end
 
         sig do
           override.returns(
@@ -152,7 +155,8 @@ module ModernTreasury
             }
           )
         end
-        def to_hash; end
+        def to_hash
+        end
       end
 
       class DocumentableType < ModernTreasury::Enum
@@ -172,7 +176,8 @@ module ModernTreasury
         CONNECTION = :connection
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
 
       class File < ModernTreasury::BaseModel
@@ -195,10 +200,12 @@ module ModernTreasury
         attr_writer :size
 
         sig { params(content_type: String, filename: String, size: Integer).void }
-        def initialize(content_type: nil, filename: nil, size: nil); end
+        def initialize(content_type: nil, filename: nil, size: nil)
+        end
 
         sig { override.returns({content_type: String, filename: String, size: Integer}) }
-        def to_hash; end
+        def to_hash
+        end
       end
     end
   end

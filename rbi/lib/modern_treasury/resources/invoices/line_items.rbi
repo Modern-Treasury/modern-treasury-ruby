@@ -27,7 +27,8 @@ module ModernTreasury
           quantity: nil,
           unit_amount_decimal: nil,
           request_options: {}
-        ); end
+        )
+        end
 
         sig do
           params(
@@ -36,7 +37,8 @@ module ModernTreasury
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
-        def retrieve(id, invoice_id:, request_options: {}); end
+        def retrieve(id, invoice_id:, request_options: {})
+        end
 
         sig do
           params(
@@ -63,7 +65,8 @@ module ModernTreasury
           unit_amount: nil,
           unit_amount_decimal: nil,
           request_options: {}
-        ); end
+        )
+        end
 
         sig do
           params(
@@ -73,7 +76,8 @@ module ModernTreasury
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem])
         end
-        def list(invoice_id, after_cursor: nil, per_page: nil, request_options: {}); end
+        def list(invoice_id, after_cursor: nil, per_page: nil, request_options: {})
+        end
 
         sig do
           params(
@@ -82,10 +86,12 @@ module ModernTreasury
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           ).returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
-        def delete(id, invoice_id:, request_options: {}); end
+        def delete(id, invoice_id:, request_options: {})
+        end
 
         sig { params(client: ModernTreasury::Client).void }
-        def initialize(client:); end
+        def initialize(client:)
+        end
       end
     end
   end

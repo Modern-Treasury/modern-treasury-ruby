@@ -74,7 +74,8 @@ module ModernTreasury
         payment_type: nil,
         per_page: nil,
         request_options: {}
-      ); end
+      )
+      end
 
       sig do
         override.returns(
@@ -91,7 +92,8 @@ module ModernTreasury
           }
         )
       end
-      def to_hash; end
+      def to_hash
+      end
 
       class PaymentType < ModernTreasury::Enum
         abstract!
@@ -128,7 +130,8 @@ module ModernTreasury
         ZENGIN = :zengin
 
         sig { override.returns(T::Array[Symbol]) }
-        def self.values; end
+        def self.values
+        end
       end
     end
   end
