@@ -17,10 +17,10 @@ module ModernTreasury
       def create(
         internal_account_id:,
         target_currency:,
-        base_amount:,
-        base_currency:,
-        effective_at:,
-        target_amount:,
+        base_amount: nil,
+        base_currency: nil,
+        effective_at: nil,
+        target_amount: nil,
         request_options: {}
       ); end
 
@@ -47,15 +47,15 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::ForeignExchangeQuote])
       end
       def list(
-        after_cursor:,
-        base_currency:,
-        effective_at_end:,
-        effective_at_start:,
-        expires_at:,
-        internal_account_id:,
-        metadata:,
-        per_page:,
-        target_currency:,
+        after_cursor: nil,
+        base_currency: nil,
+        effective_at_end: nil,
+        effective_at_start: nil,
+        expires_at: nil,
+        internal_account_id: nil,
+        metadata: nil,
+        per_page: nil,
+        target_currency: nil,
         request_options: {}
       ); end
 

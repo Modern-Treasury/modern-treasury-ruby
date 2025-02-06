@@ -18,11 +18,11 @@ module ModernTreasury
       def create(
         ledger_transaction_template:,
         name:,
-        conditions:,
-        description:,
-        ledger_id:,
-        metadata:,
-        variables:,
+        conditions: nil,
+        description: nil,
+        ledger_id: nil,
+        metadata: nil,
+        variables: nil,
         request_options: {}
       ); end
 
@@ -44,7 +44,15 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEventHandler])
       end
-      def list(after_cursor:, created_at:, metadata:, name:, per_page:, request_options: {}); end
+      def list(
+        after_cursor: nil,
+        created_at: nil,
+        metadata: nil,
+        name: nil,
+        per_page: nil,
+        request_options: {}
+      )
+      end
 
       sig do
         params(

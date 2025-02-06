@@ -34,29 +34,29 @@ module ModernTreasury
       end
       def create(
         legal_entity_type:,
-        addresses:,
-        bank_settings:,
-        business_name:,
-        citizenship_country:,
-        date_formed:,
-        date_of_birth:,
-        doing_business_as_names:,
-        email:,
-        first_name:,
-        identifications:,
-        last_name:,
-        legal_entity_associations:,
-        legal_structure:,
-        metadata:,
-        middle_name:,
-        phone_numbers:,
-        politically_exposed_person:,
-        preferred_name:,
-        prefix:,
-        risk_rating:,
-        suffix:,
-        wealth_and_employment_details:,
-        website:,
+        addresses: nil,
+        bank_settings: nil,
+        business_name: nil,
+        citizenship_country: nil,
+        date_formed: nil,
+        date_of_birth: nil,
+        doing_business_as_names: nil,
+        email: nil,
+        first_name: nil,
+        identifications: nil,
+        last_name: nil,
+        legal_entity_associations: nil,
+        legal_structure: nil,
+        metadata: nil,
+        middle_name: nil,
+        phone_numbers: nil,
+        politically_exposed_person: nil,
+        preferred_name: nil,
+        prefix: nil,
+        risk_rating: nil,
+        suffix: nil,
+        wealth_and_employment_details: nil,
+        website: nil,
         request_options: {}
       ); end
 
@@ -98,28 +98,28 @@ module ModernTreasury
       end
       def update(
         id,
-        addresses:,
-        bank_settings:,
-        business_name:,
-        citizenship_country:,
-        date_formed:,
-        date_of_birth:,
-        doing_business_as_names:,
-        email:,
-        first_name:,
-        identifications:,
-        last_name:,
-        legal_structure:,
-        metadata:,
-        middle_name:,
-        phone_numbers:,
-        politically_exposed_person:,
-        preferred_name:,
-        prefix:,
-        risk_rating:,
-        suffix:,
-        wealth_and_employment_details:,
-        website:,
+        addresses: nil,
+        bank_settings: nil,
+        business_name: nil,
+        citizenship_country: nil,
+        date_formed: nil,
+        date_of_birth: nil,
+        doing_business_as_names: nil,
+        email: nil,
+        first_name: nil,
+        identifications: nil,
+        last_name: nil,
+        legal_structure: nil,
+        metadata: nil,
+        middle_name: nil,
+        phone_numbers: nil,
+        politically_exposed_person: nil,
+        preferred_name: nil,
+        prefix: nil,
+        risk_rating: nil,
+        suffix: nil,
+        wealth_and_employment_details: nil,
+        website: nil,
         request_options: {}
       ); end
 
@@ -133,8 +133,14 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::LegalEntity])
       end
-      def list(after_cursor:, legal_entity_type:, metadata:, per_page:, show_deleted:, request_options: {})
-      end
+      def list(
+        after_cursor: nil,
+        legal_entity_type: nil,
+        metadata: nil,
+        per_page: nil,
+        show_deleted: nil,
+        request_options: {}
+      ); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

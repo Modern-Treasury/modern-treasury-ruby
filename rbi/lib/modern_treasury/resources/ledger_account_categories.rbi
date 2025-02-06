@@ -21,10 +21,10 @@ module ModernTreasury
         ledger_id:,
         name:,
         normal_balance:,
-        currency_exponent:,
-        description:,
-        ledger_account_category_ids:,
-        metadata:,
+        currency_exponent: nil,
+        description: nil,
+        ledger_account_category_ids: nil,
+        metadata: nil,
         request_options: {}
       ); end
 
@@ -35,7 +35,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerAccountCategory)
       end
-      def retrieve(id, balances:, request_options: {}); end
+      def retrieve(id, balances: nil, request_options: {}); end
 
       sig do
         params(
@@ -46,7 +46,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::LedgerAccountCategory)
       end
-      def update(id, description:, metadata:, name:, request_options: {}); end
+      def update(id, description: nil, metadata: nil, name: nil, request_options: {}); end
 
       sig do
         params(
@@ -64,16 +64,16 @@ module ModernTreasury
         ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory])
       end
       def list(
-        id:,
-        after_cursor:,
-        balances:,
-        currency:,
-        ledger_account_id:,
-        ledger_id:,
-        metadata:,
-        name:,
-        parent_ledger_account_category_id:,
-        per_page:,
+        id: nil,
+        after_cursor: nil,
+        balances: nil,
+        currency: nil,
+        ledger_account_id: nil,
+        ledger_id: nil,
+        metadata: nil,
+        name: nil,
+        parent_ledger_account_category_id: nil,
+        per_page: nil,
         request_options: {}
       ); end
 

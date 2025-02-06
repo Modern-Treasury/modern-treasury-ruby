@@ -23,18 +23,18 @@ module ModernTreasury
       end
       def create(
         counterparty_id:,
-        account_details:,
-        account_type:,
-        contact_details:,
-        ledger_account:,
-        metadata:,
-        name:,
-        party_address:,
-        party_identifier:,
-        party_name:,
-        party_type:,
-        plaid_processor_token:,
-        routing_details:,
+        account_details: nil,
+        account_type: nil,
+        contact_details: nil,
+        ledger_account: nil,
+        metadata: nil,
+        name: nil,
+        party_address: nil,
+        party_identifier: nil,
+        party_name: nil,
+        party_type: nil,
+        plaid_processor_token: nil,
+        routing_details: nil,
         request_options: {}
       ); end
 
@@ -61,13 +61,13 @@ module ModernTreasury
       end
       def update(
         id,
-        account_type:,
-        counterparty_id:,
-        metadata:,
-        name:,
-        party_address:,
-        party_name:,
-        party_type:,
+        account_type: nil,
+        counterparty_id: nil,
+        metadata: nil,
+        name: nil,
+        party_address: nil,
+        party_name: nil,
+        party_type: nil,
         request_options: {}
       ); end
 
@@ -81,7 +81,14 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::ExternalAccount])
       end
-      def list(after_cursor:, counterparty_id:, metadata:, party_name:, per_page:, request_options: {}); end
+      def list(
+        after_cursor: nil,
+        counterparty_id: nil,
+        metadata: nil,
+        party_name: nil,
+        per_page: nil,
+        request_options: {}
+      ); end
 
       sig { params(id: String, request_options: ModernTreasury::RequestOpts).void }
       def delete(id, request_options: {}); end
@@ -93,7 +100,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::ExternalAccount)
       end
-      def complete_verification(id, amounts:, request_options: {}); end
+      def complete_verification(id, amounts: nil, request_options: {}); end
 
       sig do
         params(
@@ -110,12 +117,11 @@ module ModernTreasury
         id,
         originating_account_id:,
         payment_type:,
-        currency:,
-        fallback_type:,
-        priority:,
+        currency: nil,
+        fallback_type: nil,
+        priority: nil,
         request_options: {}
-      )
-      end
+      ); end
 
       sig { params(client: ModernTreasury::Client).void }
       def initialize(client:); end

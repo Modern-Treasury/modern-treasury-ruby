@@ -45,13 +45,12 @@ module ModernTreasury
         end
         def list(
           internal_account_id,
-          after_cursor:,
-          as_of_date:,
-          balance_report_type:,
-          per_page:,
+          after_cursor: nil,
+          as_of_date: nil,
+          balance_report_type: nil,
+          per_page: nil,
           request_options: {}
-        )
-        end
+        ); end
 
         sig do
           params(id: String, internal_account_id: String, request_options: ModernTreasury::RequestOpts).void

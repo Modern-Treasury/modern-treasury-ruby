@@ -11,7 +11,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::Ledger)
       end
-      def create(name:, description:, metadata:, request_options: {}); end
+      def create(name:, description: nil, metadata: nil, request_options: {}); end
 
       sig do
         params(
@@ -30,7 +30,7 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Models::Ledger)
       end
-      def update(id, description:, metadata:, name:, request_options: {}); end
+      def update(id, description: nil, metadata: nil, name: nil, request_options: {}); end
 
       sig do
         params(
@@ -42,7 +42,15 @@ module ModernTreasury
           request_options: ModernTreasury::RequestOpts
         ).returns(ModernTreasury::Page[ModernTreasury::Models::Ledger])
       end
-      def list(id:, after_cursor:, metadata:, per_page:, updated_at:, request_options: {}); end
+      def list(
+        id: nil,
+        after_cursor: nil,
+        metadata: nil,
+        per_page: nil,
+        updated_at: nil,
+        request_options: {}
+      )
+      end
 
       sig do
         params(
