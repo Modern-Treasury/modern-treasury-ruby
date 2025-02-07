@@ -57,7 +57,7 @@ module ModernTreasury
         RETURN: :return
         REVERSAL: :reversal
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentReferenceListParams::referenceable_type]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentReferenceListParams::referenceable_type]
       end
     end
   end

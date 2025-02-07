@@ -11,10 +11,10 @@ module ModernTreasury
         description: String?,
         direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
         internal_account_id: String?,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         reconciliation_filters: top?,
         reconciliation_groups: top?,
-        reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule]?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
         remittance_information: String?,
         statement_descriptor: String?,
         status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
@@ -44,15 +44,15 @@ module ModernTreasury
 
       attr_accessor internal_account_id: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_accessor reconciliation_filters: top?
 
       attr_accessor reconciliation_groups: top?
 
-      attr_accessor reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule]?
+      attr_accessor reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?
 
       attr_accessor remittance_information: String?
 
@@ -73,10 +73,10 @@ module ModernTreasury
           description: String?,
           direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
           internal_account_id: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           reconciliation_filters: top?,
           reconciliation_groups: top?,
-          reconciliation_rule_variables: Array[ModernTreasury::Models::ReconciliationRule]?,
+          reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
           remittance_information: String?,
           statement_descriptor: String?,
           status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
@@ -96,7 +96,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::direction]
+        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::direction]
       end
 
       type status = :reconciled
@@ -104,7 +104,7 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         RECONCILED: :reconciled
 
-        def self.values: -> Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::status]
       end
     end
   end

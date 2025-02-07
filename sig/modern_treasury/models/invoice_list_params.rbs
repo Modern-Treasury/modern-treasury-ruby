@@ -7,7 +7,7 @@ module ModernTreasury
         due_date_end: Date,
         due_date_start: Date,
         expected_payment_id: String,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         number: String,
         originating_account_id: String,
         payment_order_id: String,
@@ -38,9 +38,9 @@ module ModernTreasury
 
       def expected_payment_id=: (String) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader number: String?
 
@@ -69,7 +69,7 @@ module ModernTreasury
           due_date_end: Date,
           due_date_start: Date,
           expected_payment_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           number: String,
           originating_account_id: String,
           payment_order_id: String,
@@ -95,7 +95,7 @@ module ModernTreasury
         UNPAID: :unpaid
         VOIDED: :voided
 
-        def self.values: -> Array[ModernTreasury::Models::InvoiceListParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::InvoiceListParams::status]
       end
     end
   end

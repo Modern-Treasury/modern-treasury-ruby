@@ -4,7 +4,7 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::DocumentCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Document
         | (
           documentable_id: String,
@@ -18,7 +18,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::DocumentRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Document
         | (
           String id,
@@ -27,7 +27,8 @@ module ModernTreasury
 
       def list:
         (
-          ?ModernTreasury::Models::DocumentListParams | Hash[Symbol, top] params
+          ?ModernTreasury::Models::DocumentListParams
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Document]
         | (
           after_cursor: String?,

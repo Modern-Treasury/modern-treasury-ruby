@@ -12,7 +12,7 @@ module ModernTreasury
         ledgerable_type: ModernTreasury::Models::LedgerAccount::ledgerable_type?,
         live_mode: bool,
         lock_version: Integer,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         name: String,
         normal_balance: ModernTreasury::Models::transaction_direction,
         object: String,
@@ -40,7 +40,7 @@ module ModernTreasury
 
       attr_accessor lock_version: Integer
 
-      attr_accessor metadata: Hash[Symbol, String]
+      attr_accessor metadata: ::Hash[Symbol, String]
 
       attr_accessor name: String
 
@@ -62,7 +62,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerAccount::ledgerable_type?,
           live_mode: bool,
           lock_version: Integer,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           normal_balance: ModernTreasury::Models::transaction_direction,
           object: String,
@@ -228,7 +228,7 @@ module ModernTreasury
         INTERNAL_ACCOUNT: :internal_account
         VIRTUAL_ACCOUNT: :virtual_account
 
-        def self.values: -> Array[ModernTreasury::Models::LedgerAccount::ledgerable_type]
+        def self.values: -> ::Array[ModernTreasury::Models::LedgerAccount::ledgerable_type]
       end
     end
   end

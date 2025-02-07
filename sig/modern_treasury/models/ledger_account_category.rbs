@@ -9,7 +9,7 @@ module ModernTreasury
         discarded_at: Time?,
         ledger_id: String,
         live_mode: bool,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         name: String,
         normal_balance: ModernTreasury::Models::transaction_direction,
         object: String,
@@ -31,7 +31,7 @@ module ModernTreasury
 
       attr_accessor live_mode: bool
 
-      attr_accessor metadata: Hash[Symbol, String]
+      attr_accessor metadata: ::Hash[Symbol, String]
 
       attr_accessor name: String
 
@@ -50,7 +50,7 @@ module ModernTreasury
           discarded_at: Time?,
           ledger_id: String,
           live_mode: bool,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           normal_balance: ModernTreasury::Models::transaction_direction,
           object: String,

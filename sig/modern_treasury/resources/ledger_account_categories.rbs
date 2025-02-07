@@ -4,7 +4,7 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::LedgerAccountCategoryCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountCategory
         | (
           currency: String,
@@ -13,8 +13,8 @@ module ModernTreasury
           normal_balance: ModernTreasury::Models::transaction_direction,
           currency_exponent: Integer?,
           description: String?,
-          ledger_account_category_ids: Array[String],
-          metadata: Hash[Symbol, String],
+          ledger_account_category_ids: ::Array[String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LedgerAccountCategory
 
@@ -22,7 +22,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::LedgerAccountCategoryRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountCategory
         | (
           String id,
@@ -34,12 +34,12 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::LedgerAccountCategoryUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountCategory
         | (
           String id,
           description: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LedgerAccountCategory
@@ -47,16 +47,16 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::LedgerAccountCategoryListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory]
         | (
-          id: Array[String],
+          id: ::Array[String],
           after_cursor: String?,
           balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
           currency: String,
           ledger_account_id: String,
           ledger_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           parent_ledger_account_category_id: String,
           per_page: Integer,
@@ -67,7 +67,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::LedgerAccountCategoryDeleteParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountCategory
         | (
           String id,
@@ -78,7 +78,7 @@ module ModernTreasury
         (
           String ledger_account_id,
           ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (
           String ledger_account_id,
@@ -90,7 +90,7 @@ module ModernTreasury
         (
           String sub_category_id,
           ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (
           String sub_category_id,
@@ -102,7 +102,7 @@ module ModernTreasury
         (
           String ledger_account_id,
           ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (
           String ledger_account_id,
@@ -114,7 +114,7 @@ module ModernTreasury
         (
           String sub_category_id,
           ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (
           String sub_category_id,

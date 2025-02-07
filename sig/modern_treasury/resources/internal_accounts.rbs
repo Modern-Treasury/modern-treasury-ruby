@@ -6,7 +6,7 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::InternalAccountCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::InternalAccount
         | (
           connection_id: String,
@@ -17,7 +17,7 @@ module ModernTreasury
           legal_entity_id: String,
           parent_account_id: String,
           party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-          vendor_attributes: Hash[Symbol, String],
+          vendor_attributes: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::InternalAccount
 
@@ -25,7 +25,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::InternalAccountRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::InternalAccount
         | (
           String id,
@@ -36,13 +36,13 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::InternalAccountUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::InternalAccount
         | (
           String id,
           counterparty_id: String,
           ledger_account_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           parent_account_id: String,
           request_options: ModernTreasury::request_opts
@@ -51,14 +51,14 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::InternalAccountListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::InternalAccount]
         | (
           after_cursor: String?,
           counterparty_id: String,
           currency: ModernTreasury::Models::currency,
           legal_entity_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           payment_direction: ModernTreasury::Models::transaction_direction,
           payment_type: ModernTreasury::Models::InternalAccountListParams::payment_type,
           per_page: Integer,

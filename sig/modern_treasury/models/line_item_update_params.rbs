@@ -4,7 +4,7 @@ module ModernTreasury
       {
         itemizable_type: ModernTreasury::Models::LineItemUpdateParams::itemizable_type,
         itemizable_id: String,
-        metadata: Hash[Symbol, String]
+        metadata: ::Hash[Symbol, String]
       }
       & ModernTreasury::request_parameters
 
@@ -16,15 +16,15 @@ module ModernTreasury
 
       attr_accessor itemizable_id: String
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
           itemizable_type: ModernTreasury::Models::LineItemUpdateParams::itemizable_type,
           itemizable_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (
@@ -40,7 +40,7 @@ module ModernTreasury
         EXPECTED_PAYMENTS: :expected_payments
         PAYMENT_ORDERS: :payment_orders
 
-        def self.values: -> Array[ModernTreasury::Models::LineItemUpdateParams::itemizable_type]
+        def self.values: -> ::Array[ModernTreasury::Models::LineItemUpdateParams::itemizable_type]
       end
     end
   end

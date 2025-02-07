@@ -5,7 +5,7 @@ module ModernTreasury
         name: String,
         custom_data: top?,
         description: String?,
-        metadata: Hash[Symbol, String]
+        metadata: ::Hash[Symbol, String]
       }
       & ModernTreasury::request_parameters
 
@@ -19,16 +19,16 @@ module ModernTreasury
 
       attr_accessor description: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
           name: String,
           custom_data: top?,
           description: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (

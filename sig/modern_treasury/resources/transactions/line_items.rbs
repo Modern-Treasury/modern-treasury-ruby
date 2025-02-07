@@ -5,7 +5,7 @@ module ModernTreasury
         def create:
           (
             ModernTreasury::Models::Transactions::LineItemCreateParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Models::Transactions::TransactionLineItem
           | (
             amount: Integer,
@@ -18,7 +18,7 @@ module ModernTreasury
           (
             String id,
             ?ModernTreasury::Models::Transactions::LineItemRetrieveParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Models::Transactions::TransactionLineItem
           | (
             String id,
@@ -28,10 +28,10 @@ module ModernTreasury
         def list:
           (
             ?ModernTreasury::Models::Transactions::LineItemListParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem]
           | (
-            id: Hash[Symbol, String],
+            id: ::Hash[Symbol, String],
             after_cursor: String?,
             per_page: Integer,
             transaction_id: String,
@@ -43,7 +43,7 @@ module ModernTreasury
           (
             String id,
             ?ModernTreasury::Models::Transactions::LineItemDeleteParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> nil
           | (String id, request_options: ModernTreasury::request_opts) -> nil
 

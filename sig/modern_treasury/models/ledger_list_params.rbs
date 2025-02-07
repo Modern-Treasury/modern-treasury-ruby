@@ -2,11 +2,11 @@ module ModernTreasury
   module Models
     type ledger_list_params =
       {
-        id: Array[String],
+        id: ::Array[String],
         after_cursor: String?,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         per_page: Integer,
-        updated_at: Hash[Symbol, Time]
+        updated_at: ::Hash[Symbol, Time]
       }
       & ModernTreasury::request_parameters
 
@@ -14,31 +14,31 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      attr_reader id: Array[String]?
+      attr_reader id: ::Array[String]?
 
-      def id=: (Array[String]) -> void
+      def id=: (::Array[String]) -> void
 
       attr_accessor after_cursor: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader per_page: Integer?
 
       def per_page=: (Integer) -> void
 
-      attr_reader updated_at: Hash[Symbol, Time]?
+      attr_reader updated_at: ::Hash[Symbol, Time]?
 
-      def updated_at=: (Hash[Symbol, Time]) -> void
+      def updated_at=: (::Hash[Symbol, Time]) -> void
 
       def initialize:
         (
-          id: Array[String],
+          id: ::Array[String],
           after_cursor: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           per_page: Integer,
-          updated_at: Hash[Symbol, Time],
+          updated_at: ::Hash[Symbol, Time],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (

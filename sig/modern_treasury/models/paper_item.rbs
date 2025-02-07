@@ -93,7 +93,7 @@ module ModernTreasury
         PENDING: :pending
         RETURNED: :returned
 
-        def self.values: -> Array[ModernTreasury::Models::PaperItem::status]
+        def self.values: -> ::Array[ModernTreasury::Models::PaperItem::status]
       end
     end
   end

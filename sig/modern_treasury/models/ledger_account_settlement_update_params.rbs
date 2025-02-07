@@ -3,7 +3,7 @@ module ModernTreasury
     type ledger_account_settlement_update_params =
       {
         description: String?,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
       }
       & ModernTreasury::request_parameters
@@ -14,9 +14,9 @@ module ModernTreasury
 
       attr_accessor description: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status?
 
@@ -27,7 +27,7 @@ module ModernTreasury
       def initialize:
         (
           description: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
           request_options: ModernTreasury::request_opts
         ) -> void
@@ -44,7 +44,7 @@ module ModernTreasury
         POSTED: :posted
         ARCHIVED: :archived
 
-        def self.values: -> Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status]
       end
     end
   end

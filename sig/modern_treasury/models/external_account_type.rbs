@@ -20,7 +20,7 @@ module ModernTreasury
       OVERDRAFT: :overdraft
       SAVINGS: :savings
 
-      def self.values: -> Array[ModernTreasury::Models::external_account_type]
+      def self.values: -> ::Array[ModernTreasury::Models::external_account_type]
     end
   end
 end

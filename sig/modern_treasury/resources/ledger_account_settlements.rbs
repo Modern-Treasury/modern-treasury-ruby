@@ -6,7 +6,7 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::LedgerAccountSettlementCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountSettlement
         | (
           contra_ledger_account_id: String,
@@ -14,7 +14,7 @@ module ModernTreasury
           allow_either_direction: bool?,
           description: String?,
           effective_at_upper_bound: Time?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           skip_settlement_ledger_transaction: bool?,
           status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?,
           request_options: ModernTreasury::request_opts
@@ -24,7 +24,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::LedgerAccountSettlementRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountSettlement
         | (
           String id,
@@ -35,12 +35,12 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::LedgerAccountSettlementUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountSettlement
         | (
           String id,
           description: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LedgerAccountSettlement
@@ -48,19 +48,19 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::LedgerAccountSettlementListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountSettlement]
         | (
-          id: Array[String],
+          id: ::Array[String],
           after_cursor: String?,
-          created_at: Hash[Symbol, Time],
+          created_at: ::Hash[Symbol, Time],
           ledger_id: String,
           ledger_transaction_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           per_page: Integer,
           settled_ledger_account_id: String,
           settlement_entry_direction: String,
-          updated_at: Hash[Symbol, Time],
+          updated_at: ::Hash[Symbol, Time],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountSettlement]
 

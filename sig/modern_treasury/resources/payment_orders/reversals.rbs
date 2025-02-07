@@ -6,13 +6,13 @@ module ModernTreasury
           (
             String payment_order_id,
             ModernTreasury::Models::PaymentOrders::ReversalCreateParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Models::PaymentOrders::Reversal
           | (
             String payment_order_id,
             reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
             ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Models::PaymentOrders::Reversal
 
@@ -20,7 +20,7 @@ module ModernTreasury
           (
             String reversal_id,
             ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Models::PaymentOrders::Reversal
           | (
             String reversal_id,
@@ -32,7 +32,7 @@ module ModernTreasury
           (
             String payment_order_id,
             ?ModernTreasury::Models::PaymentOrders::ReversalListParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal]
           | (
             String payment_order_id,

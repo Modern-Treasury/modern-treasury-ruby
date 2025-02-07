@@ -5,7 +5,7 @@ module ModernTreasury
         id: String,
         created_at: Time,
         discarded_at: Time?,
-        document_details: Array[ModernTreasury::Models::Document::DocumentDetail],
+        document_details: ::Array[ModernTreasury::Models::Document::DocumentDetail],
         document_type: String?,
         documentable_id: String,
         documentable_type: ModernTreasury::Models::Document::documentable_type,
@@ -23,7 +23,7 @@ module ModernTreasury
 
       attr_accessor discarded_at: Time?
 
-      attr_accessor document_details: Array[ModernTreasury::Models::Document::DocumentDetail]
+      attr_accessor document_details: ::Array[ModernTreasury::Models::Document::DocumentDetail]
 
       attr_accessor document_type: String?
 
@@ -46,7 +46,7 @@ module ModernTreasury
           id: String,
           created_at: Time,
           discarded_at: Time?,
-          document_details: Array[ModernTreasury::Models::Document::DocumentDetail],
+          document_details: ::Array[ModernTreasury::Models::Document::DocumentDetail],
           document_type: String?,
           documentable_id: String,
           documentable_type: ModernTreasury::Models::Document::documentable_type,
@@ -138,7 +138,7 @@ module ModernTreasury
         DECISION: :decision
         CONNECTION: :connection
 
-        def self.values: -> Array[ModernTreasury::Models::Document::documentable_type]
+        def self.values: -> ::Array[ModernTreasury::Models::Document::documentable_type]
       end
 
       type file = { content_type: String, filename: String, size: Integer }

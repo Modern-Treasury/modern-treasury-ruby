@@ -8,7 +8,7 @@ module ModernTreasury
         created_at_upper_bound: Time,
         direction: ModernTreasury::Models::transaction_direction,
         internal_account_id: String,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         per_page: Integer,
         status: ModernTreasury::Models::ExpectedPaymentListParams::status,
         type: ModernTreasury::Models::ExpectedPaymentListParams::type_
@@ -41,9 +41,9 @@ module ModernTreasury
 
       def internal_account_id=: (String) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader per_page: Integer?
 
@@ -69,7 +69,7 @@ module ModernTreasury
           created_at_upper_bound: Time,
           direction: ModernTreasury::Models::transaction_direction,
           internal_account_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           per_page: Integer,
           status: ModernTreasury::Models::ExpectedPaymentListParams::status,
           type: ModernTreasury::Models::ExpectedPaymentListParams::type_,
@@ -91,7 +91,7 @@ module ModernTreasury
         RECONCILED: :reconciled
         UNRECONCILED: :unreconciled
 
-        def self.values: -> Array[ModernTreasury::Models::ExpectedPaymentListParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentListParams::status]
       end
 
       type type_ =
@@ -158,7 +158,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> Array[ModernTreasury::Models::ExpectedPaymentListParams::type_]
+        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentListParams::type_]
       end
     end
   end

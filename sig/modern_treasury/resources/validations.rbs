@@ -4,7 +4,7 @@ module ModernTreasury
       def validate_routing_number:
         (
           ModernTreasury::Models::ValidationValidateRoutingNumberParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::RoutingNumberLookupRequest
         | (
           routing_number: String,

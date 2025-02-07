@@ -3,8 +3,8 @@ module ModernTreasury
     type account_collection_flow_create_params =
       {
         counterparty_id: String,
-        payment_types: Array[String],
-        receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
+        payment_types: ::Array[String],
+        receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
       }
       & ModernTreasury::request_parameters
 
@@ -14,19 +14,19 @@ module ModernTreasury
 
       attr_accessor counterparty_id: String
 
-      attr_accessor payment_types: Array[String]
+      attr_accessor payment_types: ::Array[String]
 
-      attr_reader receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]?
+      attr_reader receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]?
 
       def receiving_countries=: (
-        Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
+        ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
       ) -> void
 
       def initialize:
         (
           counterparty_id: String,
-          payment_types: Array[String],
-          receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
+          payment_types: ::Array[String],
+          receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (
@@ -76,7 +76,7 @@ module ModernTreasury
         ESP: :ESP
         GBR: :GBR
 
-        def self.values: -> Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
+        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
       end
     end
   end

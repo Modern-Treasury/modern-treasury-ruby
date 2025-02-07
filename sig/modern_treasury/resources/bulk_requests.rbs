@@ -4,13 +4,13 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::BulkRequestCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::BulkRequest
         | (
           action_type: ModernTreasury::Models::BulkRequestCreateParams::action_type,
           resource_type: ModernTreasury::Models::BulkRequestCreateParams::resource_type,
-          resources: Array[ModernTreasury::Models::BulkRequestCreateParams::resource],
-          metadata: Hash[Symbol, String],
+          resources: ::Array[ModernTreasury::Models::BulkRequestCreateParams::resource],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::BulkRequest
 
@@ -18,7 +18,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::BulkRequestRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::BulkRequest
         | (
           String id,
@@ -28,12 +28,12 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::BulkRequestListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::BulkRequest]
         | (
           action_type: ModernTreasury::Models::BulkRequestListParams::action_type,
           after_cursor: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           per_page: Integer,
           resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type,
           status: ModernTreasury::Models::BulkRequestListParams::status,

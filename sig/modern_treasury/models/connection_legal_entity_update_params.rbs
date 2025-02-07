@@ -33,7 +33,7 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         PROCESSING: :processing
 
-        def self.values: -> Array[ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status]
       end
     end
   end

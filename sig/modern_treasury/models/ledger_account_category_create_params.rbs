@@ -8,8 +8,8 @@ module ModernTreasury
         normal_balance: ModernTreasury::Models::transaction_direction,
         currency_exponent: Integer?,
         description: String?,
-        ledger_account_category_ids: Array[String],
-        metadata: Hash[Symbol, String]
+        ledger_account_category_ids: ::Array[String],
+        metadata: ::Hash[Symbol, String]
       }
       & ModernTreasury::request_parameters
 
@@ -29,13 +29,13 @@ module ModernTreasury
 
       attr_accessor description: String?
 
-      attr_reader ledger_account_category_ids: Array[String]?
+      attr_reader ledger_account_category_ids: ::Array[String]?
 
-      def ledger_account_category_ids=: (Array[String]) -> void
+      def ledger_account_category_ids=: (::Array[String]) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
@@ -45,8 +45,8 @@ module ModernTreasury
           normal_balance: ModernTreasury::Models::transaction_direction,
           currency_exponent: Integer?,
           description: String?,
-          ledger_account_category_ids: Array[String],
-          metadata: Hash[Symbol, String],
+          ledger_account_category_ids: ::Array[String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (

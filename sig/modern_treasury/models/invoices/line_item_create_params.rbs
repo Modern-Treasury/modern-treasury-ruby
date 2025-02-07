@@ -7,7 +7,7 @@ module ModernTreasury
           unit_amount: Integer,
           description: String,
           direction: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           quantity: Integer,
           unit_amount_decimal: String
         }
@@ -29,9 +29,9 @@ module ModernTreasury
 
         def direction=: (String) -> void
 
-        attr_reader metadata: Hash[Symbol, String]?
+        attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> void
 
         attr_reader quantity: Integer?
 
@@ -47,7 +47,7 @@ module ModernTreasury
             unit_amount: Integer,
             description: String,
             direction: String,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String,
             request_options: ModernTreasury::request_opts

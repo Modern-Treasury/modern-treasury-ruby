@@ -382,7 +382,7 @@ module ModernTreasury
       ZWN: :ZWN
       ZWR: :ZWR
 
-      def self.values: -> Array[ModernTreasury::Models::currency]
+      def self.values: -> ::Array[ModernTreasury::Models::currency]
     end
   end
 end
