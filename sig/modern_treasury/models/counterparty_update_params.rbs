@@ -4,7 +4,7 @@ module ModernTreasury
       {
         email: String,
         legal_entity_id: String?,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         name: String,
         send_remittance_advice: bool,
         taxpayer_identifier: String
@@ -21,9 +21,9 @@ module ModernTreasury
 
       attr_accessor legal_entity_id: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader name: String?
 
@@ -41,7 +41,7 @@ module ModernTreasury
         (
           email: String,
           legal_entity_id: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           send_remittance_advice: bool,
           taxpayer_identifier: String,

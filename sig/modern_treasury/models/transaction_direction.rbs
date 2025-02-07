@@ -6,7 +6,7 @@ module ModernTreasury
       CREDIT: :credit
       DEBIT: :debit
 
-      def self.values: -> Array[ModernTreasury::Models::transaction_direction]
+      def self.values: -> ::Array[ModernTreasury::Models::transaction_direction]
     end
   end
 end

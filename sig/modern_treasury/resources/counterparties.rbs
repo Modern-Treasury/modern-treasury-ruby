@@ -4,17 +4,17 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::CounterpartyCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Counterparty
         | (
           name: String?,
           accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
-          accounts: Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
+          accounts: ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
           email: String?,
           ledger_type: ModernTreasury::Models::CounterpartyCreateParams::ledger_type,
           legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
           legal_entity_id: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           send_remittance_advice: bool,
           taxpayer_identifier: String,
           verification_status: ModernTreasury::Models::CounterpartyCreateParams::verification_status,
@@ -25,7 +25,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::CounterpartyRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Counterparty
         | (
           String id,
@@ -36,13 +36,13 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::CounterpartyUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Counterparty
         | (
           String id,
           email: String,
           legal_entity_id: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           send_remittance_advice: bool,
           taxpayer_identifier: String,
@@ -52,7 +52,7 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::CounterpartyListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Counterparty]
         | (
           after_cursor: String?,
@@ -60,7 +60,7 @@ module ModernTreasury
           created_at_upper_bound: Time,
           email: String,
           legal_entity_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           per_page: Integer,
           request_options: ModernTreasury::request_opts
@@ -70,7 +70,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::CounterpartyDeleteParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (String id, request_options: ModernTreasury::request_opts) -> nil
 
@@ -78,13 +78,13 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::CounterpartyCollectAccountParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::CounterpartyCollectAccountResponse
         | (
           String id,
           direction: ModernTreasury::Models::transaction_direction,
           custom_redirect: String,
-          fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
+          fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
           send_email: bool,
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::CounterpartyCollectAccountResponse

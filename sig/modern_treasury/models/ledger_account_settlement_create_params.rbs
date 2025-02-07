@@ -7,7 +7,7 @@ module ModernTreasury
         allow_either_direction: bool?,
         description: String?,
         effective_at_upper_bound: Time?,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         skip_settlement_ledger_transaction: bool?,
         status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?
       }
@@ -27,9 +27,9 @@ module ModernTreasury
 
       attr_accessor effective_at_upper_bound: Time?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_accessor skip_settlement_ledger_transaction: bool?
 
@@ -42,7 +42,7 @@ module ModernTreasury
           allow_either_direction: bool?,
           description: String?,
           effective_at_upper_bound: Time?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           skip_settlement_ledger_transaction: bool?,
           status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?,
           request_options: ModernTreasury::request_opts
@@ -60,7 +60,7 @@ module ModernTreasury
         PENDING: :pending
         POSTED: :posted
 
-        def self.values: -> Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::status]
       end
     end
   end

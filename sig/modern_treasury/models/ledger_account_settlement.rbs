@@ -13,7 +13,7 @@ module ModernTreasury
         ledger_id: String,
         ledger_transaction_id: String?,
         live_mode: bool,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         object: String,
         settled_ledger_account_id: String,
         settlement_entry_direction: String?,
@@ -44,7 +44,7 @@ module ModernTreasury
 
       attr_accessor live_mode: bool
 
-      attr_accessor metadata: Hash[Symbol, String]
+      attr_accessor metadata: ::Hash[Symbol, String]
 
       attr_accessor object: String
 
@@ -69,7 +69,7 @@ module ModernTreasury
           ledger_id: String,
           ledger_transaction_id: String?,
           live_mode: bool,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           object: String,
           settled_ledger_account_id: String,
           settlement_entry_direction: String?,
@@ -94,7 +94,7 @@ module ModernTreasury
         POSTED: :posted
         PROCESSING: :processing
 
-        def self.values: -> Array[ModernTreasury::Models::LedgerAccountSettlement::status]
+        def self.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlement::status]
       end
     end
   end

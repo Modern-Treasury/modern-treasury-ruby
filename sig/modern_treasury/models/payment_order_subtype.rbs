@@ -62,7 +62,7 @@ module ModernTreasury
       SKNBI: :sknbi
       ZENGIN: :zengin
 
-      def self.values: -> Array[ModernTreasury::Models::payment_order_subtype]
+      def self.values: -> ::Array[ModernTreasury::Models::payment_order_subtype]
     end
   end
 end

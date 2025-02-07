@@ -10,7 +10,7 @@ module ModernTreasury
         legal_entity_id: String,
         parent_account_id: String,
         party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-        vendor_attributes: Hash[Symbol, String]
+        vendor_attributes: ::Hash[Symbol, String]
       }
       & ModernTreasury::request_parameters
 
@@ -44,9 +44,9 @@ module ModernTreasury
         ModernTreasury::Models::InternalAccountCreateParams::PartyAddress
       ) -> void
 
-      attr_reader vendor_attributes: Hash[Symbol, String]?
+      attr_reader vendor_attributes: ::Hash[Symbol, String]?
 
-      def vendor_attributes=: (Hash[Symbol, String]) -> void
+      def vendor_attributes=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
@@ -58,7 +58,7 @@ module ModernTreasury
           legal_entity_id: String,
           parent_account_id: String,
           party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-          vendor_attributes: Hash[Symbol, String],
+          vendor_attributes: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (
@@ -74,7 +74,7 @@ module ModernTreasury
         USD: :USD
         CAD: :CAD
 
-        def self.values: -> Array[ModernTreasury::Models::InternalAccountCreateParams::currency]
+        def self.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::currency]
       end
 
       type party_address =

@@ -8,7 +8,7 @@ module ModernTreasury
         internal_account_id: String,
         vendor_code: String?,
         vendor_code_type: String?,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         posted: bool,
         type: ModernTreasury::Models::TransactionCreateParams::type_?,
         vendor_description: String?
@@ -31,9 +31,9 @@ module ModernTreasury
 
       attr_accessor vendor_code_type: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader posted: bool?
 
@@ -51,7 +51,7 @@ module ModernTreasury
           internal_account_id: String,
           vendor_code: String?,
           vendor_code_type: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           posted: bool,
           type: ModernTreasury::Models::TransactionCreateParams::type_?,
           vendor_description: String?,
@@ -130,7 +130,7 @@ module ModernTreasury
         ZENGIN: :zengin
         OTHER: :other
 
-        def self.values: -> Array[ModernTreasury::Models::TransactionCreateParams::type_]
+        def self.values: -> ::Array[ModernTreasury::Models::TransactionCreateParams::type_]
       end
     end
   end

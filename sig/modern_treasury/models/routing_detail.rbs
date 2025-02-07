@@ -183,7 +183,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> Array[ModernTreasury::Models::RoutingDetail::payment_type]
+        def self.values: -> ::Array[ModernTreasury::Models::RoutingDetail::payment_type]
       end
 
       type routing_number_type =
@@ -232,7 +232,7 @@ module ModernTreasury
         SWIFT: :swift
         ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-        def self.values: -> Array[ModernTreasury::Models::RoutingDetail::routing_number_type]
+        def self.values: -> ::Array[ModernTreasury::Models::RoutingDetail::routing_number_type]
       end
     end
   end

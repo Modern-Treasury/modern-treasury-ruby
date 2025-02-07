@@ -6,18 +6,18 @@ module ModernTreasury
         due_date: Time,
         originating_account_id: String,
         auto_advance: bool?,
-        contact_details: Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
+        contact_details: ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
         counterparty_billing_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress?,
         counterparty_shipping_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress?,
         currency: ModernTreasury::Models::currency,
         description: String,
         fallback_payment_method: String?,
         ingest_ledger_entries: bool?,
-        invoice_line_items: Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?,
+        invoice_line_items: ::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?,
         invoicer_address: ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress?,
         ledger_account_settlement_id: String?,
-        metadata: Hash[Symbol, String]?,
-        notification_email_addresses: Array[String]?,
+        metadata: ::Hash[Symbol, String]?,
+        notification_email_addresses: ::Array[String]?,
         notifications_enabled: bool,
         payment_effective_date: Date,
         payment_method: ModernTreasury::Models::InvoiceCreateParams::payment_method,
@@ -25,7 +25,7 @@ module ModernTreasury
         receiving_account_id: String,
         recipient_email: String?,
         recipient_name: String?,
-        remind_after_overdue_days: Array[Integer]?,
+        remind_after_overdue_days: ::Array[Integer]?,
         virtual_account_id: String?
       }
       & ModernTreasury::request_parameters
@@ -42,10 +42,10 @@ module ModernTreasury
 
       attr_accessor auto_advance: bool?
 
-      attr_reader contact_details: Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail]?
+      attr_reader contact_details: ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail]?
 
       def contact_details=: (
-        Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail]
+        ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail]
       ) -> void
 
       attr_accessor counterparty_billing_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress?
@@ -64,15 +64,15 @@ module ModernTreasury
 
       attr_accessor ingest_ledger_entries: bool?
 
-      attr_accessor invoice_line_items: Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?
+      attr_accessor invoice_line_items: ::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?
 
       attr_accessor invoicer_address: ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress?
 
       attr_accessor ledger_account_settlement_id: String?
 
-      attr_accessor metadata: Hash[Symbol, String]?
+      attr_accessor metadata: ::Hash[Symbol, String]?
 
-      attr_accessor notification_email_addresses: Array[String]?
+      attr_accessor notification_email_addresses: ::Array[String]?
 
       attr_reader notifications_enabled: bool?
 
@@ -100,7 +100,7 @@ module ModernTreasury
 
       attr_accessor recipient_name: String?
 
-      attr_accessor remind_after_overdue_days: Array[Integer]?
+      attr_accessor remind_after_overdue_days: ::Array[Integer]?
 
       attr_accessor virtual_account_id: String?
 
@@ -110,18 +110,18 @@ module ModernTreasury
           due_date: Time,
           originating_account_id: String,
           auto_advance: bool?,
-          contact_details: Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
+          contact_details: ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
           counterparty_billing_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress?,
           counterparty_shipping_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress?,
           currency: ModernTreasury::Models::currency,
           description: String,
           fallback_payment_method: String?,
           ingest_ledger_entries: bool?,
-          invoice_line_items: Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?,
+          invoice_line_items: ::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?,
           invoicer_address: ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress?,
           ledger_account_settlement_id: String?,
-          metadata: Hash[Symbol, String]?,
-          notification_email_addresses: Array[String]?,
+          metadata: ::Hash[Symbol, String]?,
+          notification_email_addresses: ::Array[String]?,
           notifications_enabled: bool,
           payment_effective_date: Date,
           payment_method: ModernTreasury::Models::InvoiceCreateParams::payment_method,
@@ -129,7 +129,7 @@ module ModernTreasury
           receiving_account_id: String,
           recipient_email: String?,
           recipient_name: String?,
-          remind_after_overdue_days: Array[Integer]?,
+          remind_after_overdue_days: ::Array[Integer]?,
           virtual_account_id: String?,
           request_options: ModernTreasury::request_opts
         ) -> void
@@ -194,7 +194,7 @@ module ModernTreasury
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
 
-          def self.values: -> Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type]
+          def self.values: -> ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type]
         end
       end
 
@@ -288,7 +288,7 @@ module ModernTreasury
           unit_amount: Integer,
           description: String,
           direction: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           quantity: Integer,
           unit_amount_decimal: String
         }
@@ -306,9 +306,9 @@ module ModernTreasury
 
         def direction=: (String) -> void
 
-        attr_reader metadata: Hash[Symbol, String]?
+        attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> void
 
         attr_reader quantity: Integer?
 
@@ -324,7 +324,7 @@ module ModernTreasury
             unit_amount: Integer,
             description: String,
             direction: String,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String
           ) -> void
@@ -385,7 +385,7 @@ module ModernTreasury
         MANUAL: :manual
         AUTOMATIC: :automatic
 
-        def self.values: -> Array[ModernTreasury::Models::InvoiceCreateParams::payment_method]
+        def self.values: -> ::Array[ModernTreasury::Models::InvoiceCreateParams::payment_method]
       end
     end
   end

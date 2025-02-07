@@ -41,7 +41,7 @@ module ModernTreasury
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS: :external_accounts
 
-        def self.values: -> Array[ModernTreasury::Models::RoutingDetailCreateParams::accounts_type]
+        def self.values: -> ::Array[ModernTreasury::Models::RoutingDetailCreateParams::accounts_type]
       end
 
       type routing_number_type =
@@ -90,7 +90,7 @@ module ModernTreasury
         SWIFT: :swift
         ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-        def self.values: -> Array[ModernTreasury::Models::RoutingDetailCreateParams::routing_number_type]
+        def self.values: -> ::Array[ModernTreasury::Models::RoutingDetailCreateParams::routing_number_type]
       end
 
       type payment_type =
@@ -157,7 +157,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> Array[ModernTreasury::Models::RoutingDetailCreateParams::payment_type]
+        def self.values: -> ::Array[ModernTreasury::Models::RoutingDetailCreateParams::payment_type]
       end
     end
   end

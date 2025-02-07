@@ -8,7 +8,7 @@ module ModernTreasury
         accounting_ledger_class_id: String?,
         amount: Integer,
         charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
-        compliance_rule_metadata: Hash[Symbol, top]?,
+        compliance_rule_metadata: ::Hash[Symbol, top]?,
         counterparty_id: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
@@ -23,7 +23,7 @@ module ModernTreasury
         foreign_exchange_rate: ModernTreasury::Models::PaymentOrder::ForeignExchangeRate?,
         ledger_transaction_id: String?,
         live_mode: bool,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         nsf_protected: bool,
         object: String,
         originating_account_id: String,
@@ -33,13 +33,13 @@ module ModernTreasury
         purpose: String?,
         receiving_account_id: String,
         receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
-        reference_numbers: Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
+        reference_numbers: ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
         remittance_information: String?,
         send_remittance_advice: bool?,
         statement_descriptor: String?,
         status: ModernTreasury::Models::PaymentOrder::status,
         subtype: ModernTreasury::Models::payment_order_subtype?,
-        transaction_ids: Array[String],
+        transaction_ids: ::Array[String],
         transaction_monitoring_enabled: bool,
         type: ModernTreasury::Models::payment_order_type,
         ultimate_originating_account: ModernTreasury::Models::PaymentOrder::ultimate_originating_account?,
@@ -67,7 +67,7 @@ module ModernTreasury
 
       attr_accessor charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?
 
-      attr_accessor compliance_rule_metadata: Hash[Symbol, top]?
+      attr_accessor compliance_rule_metadata: ::Hash[Symbol, top]?
 
       attr_accessor counterparty_id: String?
 
@@ -97,7 +97,7 @@ module ModernTreasury
 
       attr_accessor live_mode: bool
 
-      attr_accessor metadata: Hash[Symbol, String]
+      attr_accessor metadata: ::Hash[Symbol, String]
 
       attr_accessor nsf_protected: bool
 
@@ -117,7 +117,7 @@ module ModernTreasury
 
       attr_accessor receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type
 
-      attr_accessor reference_numbers: Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber]
+      attr_accessor reference_numbers: ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber]
 
       attr_accessor remittance_information: String?
 
@@ -129,7 +129,7 @@ module ModernTreasury
 
       attr_accessor subtype: ModernTreasury::Models::payment_order_subtype?
 
-      attr_accessor transaction_ids: Array[String]
+      attr_accessor transaction_ids: ::Array[String]
 
       attr_accessor transaction_monitoring_enabled: bool
 
@@ -163,7 +163,7 @@ module ModernTreasury
           accounting_ledger_class_id: String?,
           amount: Integer,
           charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
-          compliance_rule_metadata: Hash[Symbol, top]?,
+          compliance_rule_metadata: ::Hash[Symbol, top]?,
           counterparty_id: String?,
           created_at: Time,
           currency: ModernTreasury::Models::currency,
@@ -178,7 +178,7 @@ module ModernTreasury
           foreign_exchange_rate: ModernTreasury::Models::PaymentOrder::ForeignExchangeRate?,
           ledger_transaction_id: String?,
           live_mode: bool,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           nsf_protected: bool,
           object: String,
           originating_account_id: String,
@@ -188,13 +188,13 @@ module ModernTreasury
           purpose: String?,
           receiving_account_id: String,
           receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
-          reference_numbers: Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
+          reference_numbers: ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
           remittance_information: String?,
           send_remittance_advice: bool?,
           statement_descriptor: String?,
           status: ModernTreasury::Models::PaymentOrder::status,
           subtype: ModernTreasury::Models::payment_order_subtype?,
-          transaction_ids: Array[String],
+          transaction_ids: ::Array[String],
           transaction_monitoring_enabled: bool,
           type: ModernTreasury::Models::payment_order_type,
           ultimate_originating_account: ModernTreasury::Models::PaymentOrder::ultimate_originating_account?,
@@ -239,7 +239,7 @@ module ModernTreasury
         SENDER: :sender
         RECEIVER: :receiver
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentOrder::charge_bearer]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::charge_bearer]
       end
 
       type direction = :credit | :debit
@@ -248,7 +248,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentOrder::direction]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::direction]
       end
 
       type foreign_exchange_indicator = :fixed_to_variable | :variable_to_fixed
@@ -257,7 +257,7 @@ module ModernTreasury
         FIXED_TO_VARIABLE: :fixed_to_variable
         VARIABLE_TO_FIXED: :variable_to_fixed
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentOrder::foreign_exchange_indicator]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::foreign_exchange_indicator]
       end
 
       type foreign_exchange_rate =
@@ -310,7 +310,7 @@ module ModernTreasury
         HIGH: :high
         NORMAL: :normal
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentOrder::priority]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::priority]
       end
 
       type receiving_account_type = :internal_account | :external_account
@@ -319,7 +319,7 @@ module ModernTreasury
         INTERNAL_ACCOUNT: :internal_account
         EXTERNAL_ACCOUNT: :external_account
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentOrder::receiving_account_type]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::receiving_account_type]
       end
 
       type reference_number =
@@ -511,7 +511,7 @@ module ModernTreasury
           WELLS_FARGO_TRACE_NUMBER: :wells_fargo_trace_number
           WELLS_FARGO_UETR: :wells_fargo_uetr
 
-          def self.values: -> Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber::reference_number_type]
+          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber::reference_number_type]
         end
       end
 
@@ -541,7 +541,7 @@ module ModernTreasury
         REVERSED: :reversed
         SENT: :sent
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentOrder::status]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::status]
       end
 
       type ultimate_originating_account =
@@ -559,7 +559,7 @@ module ModernTreasury
         INTERNAL_ACCOUNT: :internal_account
         VIRTUAL_ACCOUNT: :virtual_account
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentOrder::ultimate_originating_account_type]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::ultimate_originating_account_type]
       end
     end
   end

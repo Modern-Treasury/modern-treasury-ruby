@@ -3,21 +3,21 @@ module ModernTreasury
     type external_account =
       {
         id: String,
-        account_details: Array[ModernTreasury::Models::AccountDetail],
+        account_details: ::Array[ModernTreasury::Models::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
-        contact_details: Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
+        contact_details: ::Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
         counterparty_id: String?,
         created_at: Time,
         discarded_at: Time?,
         ledger_account_id: String?,
         live_mode: bool,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         name: String?,
         object: String,
         party_address: ModernTreasury::Models::ExternalAccount::PartyAddress?,
         party_name: String,
         party_type: ModernTreasury::Models::ExternalAccount::party_type?,
-        routing_details: Array[ModernTreasury::Models::RoutingDetail],
+        routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
         updated_at: Time,
         verification_source: ModernTreasury::Models::ExternalAccount::verification_source?,
         verification_status: ModernTreasury::Models::ExternalAccount::verification_status
@@ -26,11 +26,11 @@ module ModernTreasury
     class ExternalAccount < ModernTreasury::BaseModel
       attr_accessor id: String
 
-      attr_accessor account_details: Array[ModernTreasury::Models::AccountDetail]
+      attr_accessor account_details: ::Array[ModernTreasury::Models::AccountDetail]
 
       attr_accessor account_type: ModernTreasury::Models::external_account_type
 
-      attr_accessor contact_details: Array[ModernTreasury::Models::ExternalAccount::ContactDetail]
+      attr_accessor contact_details: ::Array[ModernTreasury::Models::ExternalAccount::ContactDetail]
 
       attr_accessor counterparty_id: String?
 
@@ -42,7 +42,7 @@ module ModernTreasury
 
       attr_accessor live_mode: bool
 
-      attr_accessor metadata: Hash[Symbol, String]
+      attr_accessor metadata: ::Hash[Symbol, String]
 
       attr_accessor name: String?
 
@@ -54,7 +54,7 @@ module ModernTreasury
 
       attr_accessor party_type: ModernTreasury::Models::ExternalAccount::party_type?
 
-      attr_accessor routing_details: Array[ModernTreasury::Models::RoutingDetail]
+      attr_accessor routing_details: ::Array[ModernTreasury::Models::RoutingDetail]
 
       attr_accessor updated_at: Time
 
@@ -65,21 +65,21 @@ module ModernTreasury
       def initialize:
         (
           id: String,
-          account_details: Array[ModernTreasury::Models::AccountDetail],
+          account_details: ::Array[ModernTreasury::Models::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
+          contact_details: ::Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
           counterparty_id: String?,
           created_at: Time,
           discarded_at: Time?,
           ledger_account_id: String?,
           live_mode: bool,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String?,
           object: String,
           party_address: ModernTreasury::Models::ExternalAccount::PartyAddress?,
           party_name: String,
           party_type: ModernTreasury::Models::ExternalAccount::party_type?,
-          routing_details: Array[ModernTreasury::Models::RoutingDetail],
+          routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
           updated_at: Time,
           verification_source: ModernTreasury::Models::ExternalAccount::verification_source?,
           verification_status: ModernTreasury::Models::ExternalAccount::verification_status
@@ -145,7 +145,7 @@ module ModernTreasury
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccount::ContactDetail::contact_identifier_type]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccount::ContactDetail::contact_identifier_type]
         end
       end
 
@@ -215,7 +215,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> Array[ModernTreasury::Models::ExternalAccount::party_type]
+        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccount::party_type]
       end
 
       type verification_source = :ach_prenote | :microdeposits | :plaid
@@ -225,7 +225,7 @@ module ModernTreasury
         MICRODEPOSITS: :microdeposits
         PLAID: :plaid
 
-        def self.values: -> Array[ModernTreasury::Models::ExternalAccount::verification_source]
+        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccount::verification_source]
       end
 
       type verification_status = :pending_verification | :unverified | :verified
@@ -235,7 +235,7 @@ module ModernTreasury
         UNVERIFIED: :unverified
         VERIFIED: :verified
 
-        def self.values: -> Array[ModernTreasury::Models::ExternalAccount::verification_status]
+        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccount::verification_status]
       end
     end
   end

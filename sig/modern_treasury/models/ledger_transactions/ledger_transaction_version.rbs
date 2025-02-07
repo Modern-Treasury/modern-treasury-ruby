@@ -12,13 +12,13 @@ module ModernTreasury
           effective_at: Time,
           effective_date: Date,
           external_id: String?,
-          ledger_entries: Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry],
+          ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry],
           ledger_id: String,
           ledger_transaction_id: String,
           ledgerable_id: String?,
           ledgerable_type: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledgerable_type?,
           live_mode: bool,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           object: String,
           partially_posts_ledger_transaction_id: String?,
           posted_at: Time?,
@@ -41,7 +41,7 @@ module ModernTreasury
 
         attr_accessor external_id: String?
 
-        attr_accessor ledger_entries: Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]
+        attr_accessor ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]
 
         attr_accessor ledger_id: String
 
@@ -53,7 +53,7 @@ module ModernTreasury
 
         attr_accessor live_mode: bool
 
-        attr_accessor metadata: Hash[Symbol, String]
+        attr_accessor metadata: ::Hash[Symbol, String]
 
         attr_accessor object: String
 
@@ -77,13 +77,13 @@ module ModernTreasury
             effective_at: Time,
             effective_date: Date,
             external_id: String?,
-            ledger_entries: Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry],
+            ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry],
             ledger_id: String,
             ledger_transaction_id: String,
             ledgerable_id: String?,
             ledgerable_type: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledgerable_type?,
             live_mode: bool,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             object: String,
             partially_posts_ledger_transaction_id: String?,
             posted_at: Time?,
@@ -111,7 +111,7 @@ module ModernTreasury
             ledger_account_lock_version: Integer?,
             ledger_transaction_id: String,
             live_mode: bool,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             object: String,
             resulting_ledger_account_balances: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances?,
             status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
@@ -138,7 +138,7 @@ module ModernTreasury
 
           attr_accessor live_mode: bool
 
-          attr_accessor metadata: Hash[Symbol, String]
+          attr_accessor metadata: ::Hash[Symbol, String]
 
           attr_accessor object: String
 
@@ -158,7 +158,7 @@ module ModernTreasury
               ledger_account_lock_version: Integer?,
               ledger_transaction_id: String,
               live_mode: bool,
-              metadata: Hash[Symbol, String],
+              metadata: ::Hash[Symbol, String],
               object: String,
               resulting_ledger_account_balances: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances?,
               status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
@@ -313,7 +313,7 @@ module ModernTreasury
             PENDING: :pending
             POSTED: :posted
 
-            def self.values: -> Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status]
+            def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status]
           end
         end
 
@@ -333,7 +333,7 @@ module ModernTreasury
           RETURN: :return
           REVERSAL: :reversal
 
-          def self.values: -> Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledgerable_type]
+          def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledgerable_type]
         end
 
         type status = :archived | :pending | :posted
@@ -343,7 +343,7 @@ module ModernTreasury
           PENDING: :pending
           POSTED: :posted
 
-          def self.values: -> Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::status]
+          def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::status]
         end
       end
     end

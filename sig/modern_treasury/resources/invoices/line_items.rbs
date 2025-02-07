@@ -6,7 +6,7 @@ module ModernTreasury
           (
             String invoice_id,
             ModernTreasury::Models::Invoices::LineItemCreateParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
           | (
             String invoice_id,
@@ -14,7 +14,7 @@ module ModernTreasury
             unit_amount: Integer,
             description: String,
             direction: String,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String,
             request_options: ModernTreasury::request_opts
@@ -24,7 +24,7 @@ module ModernTreasury
           (
             String id,
             ModernTreasury::Models::Invoices::LineItemRetrieveParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
           | (
             String id,
@@ -36,14 +36,14 @@ module ModernTreasury
           (
             String id,
             ModernTreasury::Models::Invoices::LineItemUpdateParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
           | (
             String id,
             invoice_id: String,
             description: String,
             direction: String,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             name: String,
             quantity: Integer,
             unit_amount: Integer,
@@ -55,7 +55,7 @@ module ModernTreasury
           (
             String invoice_id,
             ?ModernTreasury::Models::Invoices::LineItemListParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem]
           | (
             String invoice_id,
@@ -68,7 +68,7 @@ module ModernTreasury
           (
             String id,
             ModernTreasury::Models::Invoices::LineItemDeleteParams
-            | Hash[Symbol, top] params
+            | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
           | (
             String id,

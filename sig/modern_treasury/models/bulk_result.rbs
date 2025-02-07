@@ -10,7 +10,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         request_id: String,
-        request_params: Hash[Symbol, String]?,
+        request_params: ::Hash[Symbol, String]?,
         request_type: ModernTreasury::Models::BulkResult::request_type,
         status: ModernTreasury::Models::BulkResult::status,
         updated_at: Time
@@ -33,7 +33,7 @@ module ModernTreasury
 
       attr_accessor request_id: String
 
-      attr_accessor request_params: Hash[Symbol, String]?
+      attr_accessor request_params: ::Hash[Symbol, String]?
 
       attr_accessor request_type: ModernTreasury::Models::BulkResult::request_type
 
@@ -51,7 +51,7 @@ module ModernTreasury
           live_mode: bool,
           object: String,
           request_id: String,
-          request_params: Hash[Symbol, String]?,
+          request_params: ::Hash[Symbol, String]?,
           request_type: ModernTreasury::Models::BulkResult::request_type,
           status: ModernTreasury::Models::BulkResult::status,
           updated_at: Time
@@ -76,7 +76,7 @@ module ModernTreasury
             created_at: Time,
             live_mode: bool,
             object: String,
-            request_errors: Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
+            request_errors: ::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
             updated_at: Time
           }
 
@@ -89,7 +89,7 @@ module ModernTreasury
 
           attr_accessor object: String
 
-          attr_accessor request_errors: Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError]
+          attr_accessor request_errors: ::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError]
 
           attr_accessor updated_at: Time
 
@@ -99,7 +99,7 @@ module ModernTreasury
               created_at: Time,
               live_mode: bool,
               object: String,
-              request_errors: Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
+              request_errors: ::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
               updated_at: Time
             ) -> void
             | (
@@ -153,7 +153,7 @@ module ModernTreasury
         EXPECTED_PAYMENT: :expected_payment
         BULK_ERROR: :bulk_error
 
-        def self.values: -> Array[ModernTreasury::Models::BulkResult::entity_type]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkResult::entity_type]
       end
 
       type request_type = :bulk_request
@@ -161,7 +161,7 @@ module ModernTreasury
       class RequestType < ModernTreasury::Enum
         BULK_REQUEST: :bulk_request
 
-        def self.values: -> Array[ModernTreasury::Models::BulkResult::request_type]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkResult::request_type]
       end
 
       type status = :pending | :successful | :failed
@@ -171,7 +171,7 @@ module ModernTreasury
         SUCCESSFUL: :successful
         FAILED: :failed
 
-        def self.values: -> Array[ModernTreasury::Models::BulkResult::status]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkResult::status]
       end
     end
   end

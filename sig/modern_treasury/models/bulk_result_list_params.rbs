@@ -80,7 +80,7 @@ module ModernTreasury
         EXPECTED_PAYMENT: :expected_payment
         BULK_ERROR: :bulk_error
 
-        def self.values: -> Array[ModernTreasury::Models::BulkResultListParams::entity_type]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkResultListParams::entity_type]
       end
 
       type request_type = :bulk_request
@@ -88,7 +88,7 @@ module ModernTreasury
       class RequestType < ModernTreasury::Enum
         BULK_REQUEST: :bulk_request
 
-        def self.values: -> Array[ModernTreasury::Models::BulkResultListParams::request_type]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkResultListParams::request_type]
       end
 
       type status = :pending | :successful | :failed
@@ -98,7 +98,7 @@ module ModernTreasury
         SUCCESSFUL: :successful
         FAILED: :failed
 
-        def self.values: -> Array[ModernTreasury::Models::BulkResultListParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkResultListParams::status]
       end
     end
   end

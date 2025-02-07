@@ -3,8 +3,8 @@ module ModernTreasury
     type ledger_event_handler_list_params =
       {
         after_cursor: String?,
-        created_at: Hash[Symbol, Time],
-        metadata: Hash[Symbol, String],
+        created_at: ::Hash[Symbol, Time],
+        metadata: ::Hash[Symbol, String],
         name: String,
         per_page: Integer
       }
@@ -16,13 +16,13 @@ module ModernTreasury
 
       attr_accessor after_cursor: String?
 
-      attr_reader created_at: Hash[Symbol, Time]?
+      attr_reader created_at: ::Hash[Symbol, Time]?
 
-      def created_at=: (Hash[Symbol, Time]) -> void
+      def created_at=: (::Hash[Symbol, Time]) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader name: String?
 
@@ -35,8 +35,8 @@ module ModernTreasury
       def initialize:
         (
           after_cursor: String?,
-          created_at: Hash[Symbol, Time],
-          metadata: Hash[Symbol, String],
+          created_at: ::Hash[Symbol, Time],
+          metadata: ::Hash[Symbol, String],
           name: String,
           per_page: Integer,
           request_options: ModernTreasury::request_opts

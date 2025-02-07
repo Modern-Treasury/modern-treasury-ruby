@@ -7,8 +7,8 @@ module ModernTreasury
         conditions: ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions?,
         description: String?,
         ledger_id: String,
-        metadata: Hash[Symbol, String]?,
-        variables: Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
+        metadata: ::Hash[Symbol, String]?,
+        variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
       }
       & ModernTreasury::request_parameters
 
@@ -28,9 +28,9 @@ module ModernTreasury
 
       def ledger_id=: (String) -> void
 
-      attr_accessor metadata: Hash[Symbol, String]?
+      attr_accessor metadata: ::Hash[Symbol, String]?
 
-      attr_accessor variables: Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
+      attr_accessor variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
 
       def initialize:
         (
@@ -39,8 +39,8 @@ module ModernTreasury
           conditions: ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions?,
           description: String?,
           ledger_id: String,
-          metadata: Hash[Symbol, String]?,
-          variables: Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?,
+          metadata: ::Hash[Symbol, String]?,
+          variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?,
           request_options: ModernTreasury::request_opts
         ) -> void
         | (
@@ -54,7 +54,7 @@ module ModernTreasury
         {
           description: String?,
           effective_at: String?,
-          ledger_entries: Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
+          ledger_entries: ::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
           status: String?
         }
 
@@ -63,7 +63,7 @@ module ModernTreasury
 
         attr_accessor effective_at: String?
 
-        attr_accessor ledger_entries: Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
+        attr_accessor ledger_entries: ::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
 
         attr_accessor status: String?
 
@@ -71,7 +71,7 @@ module ModernTreasury
           (
             description: String?,
             effective_at: String?,
-            ledger_entries: Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
+            ledger_entries: ::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
             status: String?
           ) -> void
           | (

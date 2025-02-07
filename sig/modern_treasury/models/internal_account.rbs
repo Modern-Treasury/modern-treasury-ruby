@@ -3,7 +3,7 @@ module ModernTreasury
     type internal_account =
       {
         id: String,
-        account_details: Array[ModernTreasury::Models::AccountDetail],
+        account_details: ::Array[ModernTreasury::Models::AccountDetail],
         account_type: ModernTreasury::Models::InternalAccount::account_type?,
         connection: ModernTreasury::Models::Connection,
         counterparty_id: String?,
@@ -12,21 +12,21 @@ module ModernTreasury
         ledger_account_id: String?,
         legal_entity_id: String?,
         live_mode: bool,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         name: String?,
         object: String,
         parent_account_id: String?,
         party_address: ModernTreasury::Models::InternalAccount::PartyAddress?,
         party_name: String,
         party_type: ModernTreasury::Models::InternalAccount::party_type?,
-        routing_details: Array[ModernTreasury::Models::RoutingDetail],
+        routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
         updated_at: Time
       }
 
     class InternalAccount < ModernTreasury::BaseModel
       attr_accessor id: String
 
-      attr_accessor account_details: Array[ModernTreasury::Models::AccountDetail]
+      attr_accessor account_details: ::Array[ModernTreasury::Models::AccountDetail]
 
       attr_accessor account_type: ModernTreasury::Models::InternalAccount::account_type?
 
@@ -44,7 +44,7 @@ module ModernTreasury
 
       attr_accessor live_mode: bool
 
-      attr_accessor metadata: Hash[Symbol, String]
+      attr_accessor metadata: ::Hash[Symbol, String]
 
       attr_accessor name: String?
 
@@ -58,14 +58,14 @@ module ModernTreasury
 
       attr_accessor party_type: ModernTreasury::Models::InternalAccount::party_type?
 
-      attr_accessor routing_details: Array[ModernTreasury::Models::RoutingDetail]
+      attr_accessor routing_details: ::Array[ModernTreasury::Models::RoutingDetail]
 
       attr_accessor updated_at: Time
 
       def initialize:
         (
           id: String,
-          account_details: Array[ModernTreasury::Models::AccountDetail],
+          account_details: ::Array[ModernTreasury::Models::AccountDetail],
           account_type: ModernTreasury::Models::InternalAccount::account_type?,
           connection: ModernTreasury::Models::Connection,
           counterparty_id: String?,
@@ -74,14 +74,14 @@ module ModernTreasury
           ledger_account_id: String?,
           legal_entity_id: String?,
           live_mode: bool,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String?,
           object: String,
           parent_account_id: String?,
           party_address: ModernTreasury::Models::InternalAccount::PartyAddress?,
           party_name: String,
           party_type: ModernTreasury::Models::InternalAccount::party_type?,
-          routing_details: Array[ModernTreasury::Models::RoutingDetail],
+          routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
           updated_at: Time
         ) -> void
         | (
@@ -111,7 +111,7 @@ module ModernTreasury
         OVERDRAFT: :overdraft
         SAVINGS: :savings
 
-        def self.values: -> Array[ModernTreasury::Models::InternalAccount::account_type]
+        def self.values: -> ::Array[ModernTreasury::Models::InternalAccount::account_type]
       end
 
       type party_address =
@@ -180,7 +180,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> Array[ModernTreasury::Models::InternalAccount::party_type]
+        def self.values: -> ::Array[ModernTreasury::Models::InternalAccount::party_type]
       end
     end
   end

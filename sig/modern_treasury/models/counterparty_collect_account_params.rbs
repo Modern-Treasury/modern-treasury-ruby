@@ -4,7 +4,7 @@ module ModernTreasury
       {
         direction: ModernTreasury::Models::transaction_direction,
         custom_redirect: String,
-        fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
+        fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
         send_email: bool
       }
       & ModernTreasury::request_parameters
@@ -19,10 +19,10 @@ module ModernTreasury
 
       def custom_redirect=: (String) -> void
 
-      attr_reader fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]?
+      attr_reader fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]?
 
       def fields=: (
-        Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
+        ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
       ) -> void
 
       attr_reader send_email: bool?
@@ -33,7 +33,7 @@ module ModernTreasury
         (
           direction: ModernTreasury::Models::transaction_direction,
           custom_redirect: String,
-          fields: Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
+          fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
           send_email: bool,
           request_options: ModernTreasury::request_opts
         ) -> void
@@ -106,7 +106,7 @@ module ModernTreasury
         ID_SKNBI_CODE: :idSknbiCode
         ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-        def self.values: -> Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
+        def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
       end
     end
   end

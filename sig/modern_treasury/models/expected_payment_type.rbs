@@ -64,7 +64,7 @@ module ModernTreasury
       WIRE: :wire
       ZENGIN: :zengin
 
-      def self.values: -> Array[ModernTreasury::Models::expected_payment_type]
+      def self.values: -> ::Array[ModernTreasury::Models::expected_payment_type]
     end
   end
 end

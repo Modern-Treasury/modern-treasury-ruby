@@ -4,7 +4,7 @@ module ModernTreasury
       {
         account_type: ModernTreasury::Models::external_account_type,
         counterparty_id: String?,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         name: String?,
         party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
         party_name: String,
@@ -22,9 +22,9 @@ module ModernTreasury
 
       attr_accessor counterparty_id: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_accessor name: String?
 
@@ -44,7 +44,7 @@ module ModernTreasury
         (
           account_type: ModernTreasury::Models::external_account_type,
           counterparty_id: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String?,
           party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
           party_name: String,
@@ -104,7 +104,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> Array[ModernTreasury::Models::ExternalAccountUpdateParams::party_type]
+        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountUpdateParams::party_type]
       end
     end
   end
