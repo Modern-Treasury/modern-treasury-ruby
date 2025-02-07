@@ -4,7 +4,7 @@ module ModernTreasury
       {
         after_cursor: String?,
         legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         per_page: Integer,
         show_deleted: String
       }
@@ -22,9 +22,9 @@ module ModernTreasury
         ModernTreasury::Models::LegalEntityListParams::legal_entity_type
       ) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader per_page: Integer?
 
@@ -38,7 +38,7 @@ module ModernTreasury
         (
           after_cursor: String?,
           legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           per_page: Integer,
           show_deleted: String,
           request_options: ModernTreasury::request_opts
@@ -56,7 +56,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> Array[ModernTreasury::Models::LegalEntityListParams::legal_entity_type]
+        def self.values: -> ::Array[ModernTreasury::Models::LegalEntityListParams::legal_entity_type]
       end
     end
   end

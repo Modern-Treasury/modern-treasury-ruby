@@ -4,7 +4,7 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::ConnectionListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Connection]
         | (
           after_cursor: String?,

@@ -4,7 +4,7 @@ module ModernTreasury
       {
         id: String,
         created_at: Time,
-        data: Hash[Symbol, top],
+        data: ::Hash[Symbol, top],
         entity_id: String,
         event_name: String,
         event_time: Time,
@@ -19,7 +19,7 @@ module ModernTreasury
 
       attr_accessor created_at: Time
 
-      attr_accessor data: Hash[Symbol, top]
+      attr_accessor data: ::Hash[Symbol, top]
 
       attr_accessor entity_id: String
 
@@ -39,7 +39,7 @@ module ModernTreasury
         (
           id: String,
           created_at: Time,
-          data: Hash[Symbol, top],
+          data: ::Hash[Symbol, top],
           entity_id: String,
           event_name: String,
           event_time: Time,

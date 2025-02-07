@@ -70,7 +70,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction]
+        def self.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction]
       end
 
       type type_ =
@@ -87,7 +87,7 @@ module ModernTreasury
         SIGNET: :signet
         WIRE: :wire
 
-        def self.values: -> Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_]
+        def self.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_]
       end
     end
   end

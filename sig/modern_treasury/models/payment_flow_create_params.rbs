@@ -52,7 +52,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentFlowCreateParams::direction]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentFlowCreateParams::direction]
       end
     end
   end

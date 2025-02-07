@@ -4,14 +4,14 @@ module ModernTreasury
       {
         internal_account_id: String,
         name: String,
-        account_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+        account_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
         counterparty_id: String,
         credit_ledger_account_id: String,
         debit_ledger_account_id: String,
         description: String,
         ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
-        metadata: Hash[Symbol, String],
-        routing_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
+        metadata: ::Hash[Symbol, String],
+        routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
       }
       & ModernTreasury::request_parameters
 
@@ -23,10 +23,10 @@ module ModernTreasury
 
       attr_accessor name: String
 
-      attr_reader account_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]?
+      attr_reader account_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]?
 
       def account_details=: (
-        Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
+        ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
       ) -> void
 
       attr_reader counterparty_id: String?
@@ -51,28 +51,28 @@ module ModernTreasury
         ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount
       ) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
-      attr_reader routing_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]?
+      attr_reader routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]?
 
       def routing_details=: (
-        Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
+        ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
       ) -> void
 
       def initialize:
         (
           internal_account_id: String,
           name: String,
-          account_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+          account_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
           counterparty_id: String,
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
           ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
-          metadata: Hash[Symbol, String],
-          routing_details: Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
+          metadata: ::Hash[Symbol, String],
+          routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (
@@ -133,7 +133,7 @@ module ModernTreasury
           SG_NUMBER: :sg_number
           WALLET_ADDRESS: :wallet_address
 
-          def self.values: -> Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type]
+          def self.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type]
         end
       end
 
@@ -145,10 +145,10 @@ module ModernTreasury
           normal_balance: ModernTreasury::Models::transaction_direction,
           currency_exponent: Integer?,
           description: String?,
-          ledger_account_category_ids: Array[String],
+          ledger_account_category_ids: ::Array[String],
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type,
-          metadata: Hash[Symbol, String]
+          metadata: ::Hash[Symbol, String]
         }
 
       class LedgerAccount < ModernTreasury::BaseModel
@@ -164,9 +164,9 @@ module ModernTreasury
 
         attr_accessor description: String?
 
-        attr_reader ledger_account_category_ids: Array[String]?
+        attr_reader ledger_account_category_ids: ::Array[String]?
 
-        def ledger_account_category_ids=: (Array[String]) -> void
+        def ledger_account_category_ids=: (::Array[String]) -> void
 
         attr_reader ledgerable_id: String?
 
@@ -178,9 +178,9 @@ module ModernTreasury
           ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type
         ) -> void
 
-        attr_reader metadata: Hash[Symbol, String]?
+        attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> void
 
         def initialize:
           (
@@ -190,10 +190,10 @@ module ModernTreasury
             normal_balance: ModernTreasury::Models::transaction_direction,
             currency_exponent: Integer?,
             description: String?,
-            ledger_account_category_ids: Array[String],
+            ledger_account_category_ids: ::Array[String],
             ledgerable_id: String,
             ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type,
-            metadata: Hash[Symbol, String]
+            metadata: ::Hash[Symbol, String]
           ) -> void
           | (
             ?ModernTreasury::Models::VirtualAccountCreateParams::ledger_account
@@ -214,7 +214,7 @@ module ModernTreasury
           INTERNAL_ACCOUNT: :internal_account
           VIRTUAL_ACCOUNT: :virtual_account
 
-          def self.values: -> Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type]
+          def self.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type]
         end
       end
 
@@ -291,7 +291,7 @@ module ModernTreasury
           SWIFT: :swift
           ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-          def self.values: -> Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type]
+          def self.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type]
         end
 
         type payment_type =
@@ -358,7 +358,7 @@ module ModernTreasury
           WIRE: :wire
           ZENGIN: :zengin
 
-          def self.values: -> Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type]
+          def self.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type]
         end
       end
     end

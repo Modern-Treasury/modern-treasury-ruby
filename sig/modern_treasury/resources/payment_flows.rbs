@@ -4,7 +4,7 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::PaymentFlowCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::PaymentFlow
         | (
           amount: Integer,
@@ -20,7 +20,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::PaymentFlowRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::PaymentFlow
         | (
           String id,
@@ -31,7 +31,7 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::PaymentFlowUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::PaymentFlow
         | (
           String id,
@@ -42,7 +42,7 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::PaymentFlowListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentFlow]
         | (
           after_cursor: String?,

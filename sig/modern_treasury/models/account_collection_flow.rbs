@@ -3,14 +3,14 @@ module ModernTreasury
     type account_collection_flow =
       {
         counterparty_id: String,
-        payment_types: Array[ModernTreasury::Models::AccountCollectionFlow::payment_type],
+        payment_types: ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type],
         id: String,
         client_token: String,
         created_at: Time,
         external_account_id: String?,
         live_mode: bool,
         object: String,
-        receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country],
+        receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country],
         status: ModernTreasury::Models::AccountCollectionFlow::status,
         updated_at: Time
       }
@@ -18,7 +18,7 @@ module ModernTreasury
     class AccountCollectionFlow < ModernTreasury::BaseModel
       attr_accessor counterparty_id: String
 
-      attr_accessor payment_types: Array[ModernTreasury::Models::AccountCollectionFlow::payment_type]
+      attr_accessor payment_types: ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type]
 
       attr_reader id: String?
 
@@ -42,10 +42,10 @@ module ModernTreasury
 
       def object=: (String) -> void
 
-      attr_reader receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]?
+      attr_reader receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]?
 
       def receiving_countries=: (
-        Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
+        ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
       ) -> void
 
       attr_reader status: ModernTreasury::Models::AccountCollectionFlow::status?
@@ -61,14 +61,14 @@ module ModernTreasury
       def initialize:
         (
           counterparty_id: String,
-          payment_types: Array[ModernTreasury::Models::AccountCollectionFlow::payment_type],
+          payment_types: ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type],
           id: String,
           client_token: String,
           created_at: Time,
           external_account_id: String?,
           live_mode: bool,
           object: String,
-          receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country],
+          receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country],
           status: ModernTreasury::Models::AccountCollectionFlow::status,
           updated_at: Time
         ) -> void
@@ -85,7 +85,7 @@ module ModernTreasury
         ACH: :ach
         WIRE: :wire
 
-        def self.values: -> Array[ModernTreasury::Models::AccountCollectionFlow::payment_type]
+        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type]
       end
 
       type receiving_country =
@@ -128,7 +128,7 @@ module ModernTreasury
         ESP: :ESP
         GBR: :GBR
 
-        def self.values: -> Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
+        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
       end
 
       type status = :cancelled | :completed | :expired | :pending
@@ -139,7 +139,7 @@ module ModernTreasury
         EXPIRED: :expired
         PENDING: :pending
 
-        def self.values: -> Array[ModernTreasury::Models::AccountCollectionFlow::status]
+        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::status]
       end
     end
   end

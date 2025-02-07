@@ -6,7 +6,7 @@ module ModernTreasury
           invoice_id: String,
           description: String,
           direction: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String,
           quantity: Integer,
           unit_amount: Integer,
@@ -28,9 +28,9 @@ module ModernTreasury
 
         def direction=: (String) -> void
 
-        attr_reader metadata: Hash[Symbol, String]?
+        attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> void
 
         attr_reader name: String?
 
@@ -53,7 +53,7 @@ module ModernTreasury
             invoice_id: String,
             description: String,
             direction: String,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             name: String,
             quantity: Integer,
             unit_amount: Integer,

@@ -4,14 +4,14 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::LedgerAccountStatementCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountStatementCreateResponse
         | (
           effective_at_lower_bound: Time,
           effective_at_upper_bound: Time,
           ledger_account_id: String,
           description: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LedgerAccountStatementCreateResponse
 
@@ -19,7 +19,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::LedgerAccountStatementRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
         | (
           String id,

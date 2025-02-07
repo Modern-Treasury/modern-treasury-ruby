@@ -4,7 +4,7 @@ module ModernTreasury
       {
         action_type: ModernTreasury::Models::BulkRequestListParams::action_type,
         after_cursor: String?,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         per_page: Integer,
         resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type,
         status: ModernTreasury::Models::BulkRequestListParams::status
@@ -23,9 +23,9 @@ module ModernTreasury
 
       attr_accessor after_cursor: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader per_page: Integer?
 
@@ -47,7 +47,7 @@ module ModernTreasury
         (
           action_type: ModernTreasury::Models::BulkRequestListParams::action_type,
           after_cursor: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           per_page: Integer,
           resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type,
           status: ModernTreasury::Models::BulkRequestListParams::status,
@@ -67,7 +67,7 @@ module ModernTreasury
         UPDATE: :update
         DELETE: :delete
 
-        def self.values: -> Array[ModernTreasury::Models::BulkRequestListParams::action_type]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::action_type]
       end
 
       type resource_type =
@@ -79,7 +79,7 @@ module ModernTreasury
         TRANSACTION: :transaction
         EXPECTED_PAYMENT: :expected_payment
 
-        def self.values: -> Array[ModernTreasury::Models::BulkRequestListParams::resource_type]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::resource_type]
       end
 
       type status = :pending | :processing | :completed
@@ -89,7 +89,7 @@ module ModernTreasury
         PROCESSING: :processing
         COMPLETED: :completed
 
-        def self.values: -> Array[ModernTreasury::Models::BulkRequestListParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::status]
       end
     end
   end

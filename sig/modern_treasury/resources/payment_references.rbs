@@ -5,7 +5,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::PaymentReferenceRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::PaymentReference
         | (
           String id,
@@ -15,7 +15,7 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::PaymentReferenceListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentReference]
         | (
           after_cursor: String?,
@@ -30,7 +30,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::PaymentReferenceRetireveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::PaymentReference
         | (
           String id,

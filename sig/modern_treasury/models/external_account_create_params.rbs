@@ -3,18 +3,18 @@ module ModernTreasury
     type external_account_create_params =
       {
         counterparty_id: String?,
-        account_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+        account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
         account_type: ModernTreasury::Models::external_account_type,
-        contact_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
+        contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
         ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         name: String?,
         party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
         party_identifier: String,
         party_name: String,
         party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
         plaid_processor_token: String,
-        routing_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
+        routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
       }
       & ModernTreasury::request_parameters
 
@@ -24,20 +24,20 @@ module ModernTreasury
 
       attr_accessor counterparty_id: String?
 
-      attr_reader account_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail]?
+      attr_reader account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail]?
 
       def account_details=: (
-        Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail]
+        ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail]
       ) -> void
 
       attr_reader account_type: ModernTreasury::Models::external_account_type?
 
       def account_type=: (ModernTreasury::Models::external_account_type) -> void
 
-      attr_reader contact_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail]?
+      attr_reader contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail]?
 
       def contact_details=: (
-        Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail]
+        ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail]
       ) -> void
 
       attr_reader ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount?
@@ -46,9 +46,9 @@ module ModernTreasury
         ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount
       ) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_accessor name: String?
 
@@ -72,27 +72,27 @@ module ModernTreasury
 
       def plaid_processor_token=: (String) -> void
 
-      attr_reader routing_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]?
+      attr_reader routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]?
 
       def routing_details=: (
-        Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
+        ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
       ) -> void
 
       def initialize:
         (
           counterparty_id: String?,
-          account_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+          account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
+          contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
           ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String?,
           party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
           party_identifier: String,
           party_name: String,
           party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
           plaid_processor_token: String,
-          routing_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
+          routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (
@@ -153,7 +153,7 @@ module ModernTreasury
           SG_NUMBER: :sg_number
           WALLET_ADDRESS: :wallet_address
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type]
         end
       end
 
@@ -193,7 +193,7 @@ module ModernTreasury
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type]
         end
       end
 
@@ -205,10 +205,10 @@ module ModernTreasury
           normal_balance: ModernTreasury::Models::transaction_direction,
           currency_exponent: Integer?,
           description: String?,
-          ledger_account_category_ids: Array[String],
+          ledger_account_category_ids: ::Array[String],
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type,
-          metadata: Hash[Symbol, String]
+          metadata: ::Hash[Symbol, String]
         }
 
       class LedgerAccount < ModernTreasury::BaseModel
@@ -224,9 +224,9 @@ module ModernTreasury
 
         attr_accessor description: String?
 
-        attr_reader ledger_account_category_ids: Array[String]?
+        attr_reader ledger_account_category_ids: ::Array[String]?
 
-        def ledger_account_category_ids=: (Array[String]) -> void
+        def ledger_account_category_ids=: (::Array[String]) -> void
 
         attr_reader ledgerable_id: String?
 
@@ -238,9 +238,9 @@ module ModernTreasury
           ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type
         ) -> void
 
-        attr_reader metadata: Hash[Symbol, String]?
+        attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> void
 
         def initialize:
           (
@@ -250,10 +250,10 @@ module ModernTreasury
             normal_balance: ModernTreasury::Models::transaction_direction,
             currency_exponent: Integer?,
             description: String?,
-            ledger_account_category_ids: Array[String],
+            ledger_account_category_ids: ::Array[String],
             ledgerable_id: String,
             ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type,
-            metadata: Hash[Symbol, String]
+            metadata: ::Hash[Symbol, String]
           ) -> void
           | (
             ?ModernTreasury::Models::ExternalAccountCreateParams::ledger_account
@@ -274,7 +274,7 @@ module ModernTreasury
           INTERNAL_ACCOUNT: :internal_account
           VIRTUAL_ACCOUNT: :virtual_account
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type]
         end
       end
 
@@ -324,7 +324,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> Array[ModernTreasury::Models::ExternalAccountCreateParams::party_type]
+        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::party_type]
       end
 
       type routing_detail =
@@ -404,7 +404,7 @@ module ModernTreasury
           SWIFT: :swift
           ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::routing_number_type]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::routing_number_type]
         end
 
         type payment_type =
@@ -471,7 +471,7 @@ module ModernTreasury
           WIRE: :wire
           ZENGIN: :zengin
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::payment_type]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::payment_type]
         end
       end
     end

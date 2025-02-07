@@ -6,7 +6,7 @@ module ModernTreasury
         effective_at_upper_bound: Time,
         ledger_account_id: String,
         description: String?,
-        metadata: Hash[Symbol, String]
+        metadata: ::Hash[Symbol, String]
       }
       & ModernTreasury::request_parameters
 
@@ -22,9 +22,9 @@ module ModernTreasury
 
       attr_accessor description: String?
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
@@ -32,7 +32,7 @@ module ModernTreasury
           effective_at_upper_bound: Time,
           ledger_account_id: String,
           description: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (

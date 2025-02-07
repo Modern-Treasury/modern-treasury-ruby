@@ -13,7 +13,7 @@ module ModernTreasury
         ledger_account_lock_version: Integer?,
         ledger_transaction_id: String,
         live_mode: bool,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         object: String,
         resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances?,
         status: ModernTreasury::Models::LedgerEntry::status,
@@ -43,7 +43,7 @@ module ModernTreasury
 
       attr_accessor live_mode: bool
 
-      attr_accessor metadata: Hash[Symbol, String]
+      attr_accessor metadata: ::Hash[Symbol, String]
 
       attr_accessor object: String
 
@@ -66,7 +66,7 @@ module ModernTreasury
           ledger_account_lock_version: Integer?,
           ledger_transaction_id: String,
           live_mode: bool,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           object: String,
           resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances?,
           status: ModernTreasury::Models::LedgerEntry::status,
@@ -221,7 +221,7 @@ module ModernTreasury
         PENDING: :pending
         POSTED: :posted
 
-        def self.values: -> Array[ModernTreasury::Models::LedgerEntry::status]
+        def self.values: -> ::Array[ModernTreasury::Models::LedgerEntry::status]
       end
     end
   end

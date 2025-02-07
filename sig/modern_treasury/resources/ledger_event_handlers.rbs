@@ -4,7 +4,7 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::LedgerEventHandlerCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerEventHandler
         | (
           ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
@@ -12,8 +12,8 @@ module ModernTreasury
           conditions: ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions?,
           description: String?,
           ledger_id: String,
-          metadata: Hash[Symbol, String]?,
-          variables: Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?,
+          metadata: ::Hash[Symbol, String]?,
+          variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?,
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LedgerEventHandler
 
@@ -21,7 +21,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::LedgerEventHandlerRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerEventHandler
         | (
           String id,
@@ -31,12 +31,12 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::LedgerEventHandlerListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerEventHandler]
         | (
           after_cursor: String?,
-          created_at: Hash[Symbol, Time],
-          metadata: Hash[Symbol, String],
+          created_at: ::Hash[Symbol, Time],
+          metadata: ::Hash[Symbol, String],
           name: String,
           per_page: Integer,
           request_options: ModernTreasury::request_opts
@@ -46,7 +46,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::LedgerEventHandlerDeleteParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LedgerEventHandler
         | (
           String id,

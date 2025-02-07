@@ -5,7 +5,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::BulkResultRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::BulkResult
         | (
           String id,
@@ -15,7 +15,7 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::BulkResultListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::BulkResult]
         | (
           after_cursor: String?,

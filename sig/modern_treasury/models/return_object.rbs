@@ -15,7 +15,7 @@ module ModernTreasury
         live_mode: bool,
         object: String,
         reason: String?,
-        reference_numbers: Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
+        reference_numbers: ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
         returnable_id: String?,
         returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
         role: ModernTreasury::Models::ReturnObject::role,
@@ -54,7 +54,7 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
-      attr_accessor reference_numbers: Array[ModernTreasury::Models::ReturnObject::ReferenceNumber]
+      attr_accessor reference_numbers: ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber]
 
       attr_accessor returnable_id: String?
 
@@ -89,7 +89,7 @@ module ModernTreasury
           live_mode: bool,
           object: String,
           reason: String?,
-          reference_numbers: Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
+          reference_numbers: ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
           returnable_id: String?,
           returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
           role: ModernTreasury::Models::ReturnObject::role,
@@ -217,7 +217,7 @@ module ModernTreasury
         R53: :R53
         CURRENCYCLOUD: :currencycloud
 
-        def self.values: -> Array[ModernTreasury::Models::ReturnObject::code]
+        def self.values: -> ::Array[ModernTreasury::Models::ReturnObject::code]
       end
 
       type reference_number =
@@ -409,7 +409,7 @@ module ModernTreasury
           WELLS_FARGO_TRACE_NUMBER: :wells_fargo_trace_number
           WELLS_FARGO_UETR: :wells_fargo_uetr
 
-          def self.values: -> Array[ModernTreasury::Models::ReturnObject::ReferenceNumber::reference_number_type]
+          def self.values: -> ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber::reference_number_type]
         end
       end
 
@@ -427,7 +427,7 @@ module ModernTreasury
         RETURN: :return
         REVERSAL: :reversal
 
-        def self.values: -> Array[ModernTreasury::Models::ReturnObject::returnable_type]
+        def self.values: -> ::Array[ModernTreasury::Models::ReturnObject::returnable_type]
       end
 
       type role = :originating | :receiving
@@ -436,7 +436,7 @@ module ModernTreasury
         ORIGINATING: :originating
         RECEIVING: :receiving
 
-        def self.values: -> Array[ModernTreasury::Models::ReturnObject::role]
+        def self.values: -> ::Array[ModernTreasury::Models::ReturnObject::role]
       end
 
       type status =
@@ -450,7 +450,7 @@ module ModernTreasury
         RETURNED: :returned
         SENT: :sent
 
-        def self.values: -> Array[ModernTreasury::Models::ReturnObject::status]
+        def self.values: -> ::Array[ModernTreasury::Models::ReturnObject::status]
       end
 
       type type_ =
@@ -483,7 +483,7 @@ module ModernTreasury
         SEPA: :sepa
         WIRE: :wire
 
-        def self.values: -> Array[ModernTreasury::Models::ReturnObject::type_]
+        def self.values: -> ::Array[ModernTreasury::Models::ReturnObject::type_]
       end
     end
   end

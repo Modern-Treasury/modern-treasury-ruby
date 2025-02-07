@@ -7,7 +7,7 @@ module ModernTreasury
           as_of_date: Date,
           as_of_time: String?,
           balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
-          balances: Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
+          balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
           created_at: Time,
           internal_account_id: String,
           live_mode: bool,
@@ -24,7 +24,7 @@ module ModernTreasury
 
         attr_accessor balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type
 
-        attr_accessor balances: Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]
+        attr_accessor balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]
 
         attr_accessor created_at: Time
 
@@ -42,7 +42,7 @@ module ModernTreasury
             as_of_date: Date,
             as_of_time: String?,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
-            balances: Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
+            balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
             created_at: Time,
             internal_account_id: String,
             live_mode: bool,
@@ -65,7 +65,7 @@ module ModernTreasury
           PREVIOUS_DAY: :previous_day
           REAL_TIME: :real_time
 
-          def self.values: -> Array[ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type]
+          def self.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type]
         end
 
         type balance =
@@ -157,7 +157,7 @@ module ModernTreasury
             OTHER: :other
             PREVIOUSLY_CLOSED_BOOK: :previously_closed_book
 
-            def self.values: -> Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type]
+            def self.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type]
           end
         end
       end

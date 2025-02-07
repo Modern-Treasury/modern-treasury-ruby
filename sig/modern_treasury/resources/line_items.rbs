@@ -5,7 +5,7 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::LineItemRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LineItem
         | (
           String id,
@@ -18,20 +18,21 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::LineItemUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::LineItem
         | (
           String id,
           itemizable_type: ModernTreasury::Models::LineItemUpdateParams::itemizable_type,
           itemizable_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LineItem
 
       def list:
         (
           String itemizable_id,
-          ModernTreasury::Models::LineItemListParams | Hash[Symbol, top] params
+          ModernTreasury::Models::LineItemListParams
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::LineItem]
         | (
           String itemizable_id,

@@ -3,7 +3,7 @@ module ModernTreasury
     type legal_entity =
       {
         id: String,
-        addresses: Array[ModernTreasury::Models::LegalEntity::Address],
+        addresses: ::Array[ModernTreasury::Models::LegalEntity::Address],
         bank_settings: ModernTreasury::Models::BankSettings?,
         business_name: String?,
         citizenship_country: String?,
@@ -11,19 +11,19 @@ module ModernTreasury
         date_formed: Date?,
         date_of_birth: Date?,
         discarded_at: Time?,
-        doing_business_as_names: Array[String],
+        doing_business_as_names: ::Array[String],
         email: String?,
         first_name: String?,
-        identifications: Array[ModernTreasury::Models::LegalEntity::Identification],
+        identifications: ::Array[ModernTreasury::Models::LegalEntity::Identification],
         last_name: String?,
-        legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation]?,
+        legal_entity_associations: ::Array[ModernTreasury::Models::LegalEntityAssociation]?,
         legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
         legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
         live_mode: bool,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         middle_name: String?,
         object: String,
-        phone_numbers: Array[ModernTreasury::Models::LegalEntity::PhoneNumber],
+        phone_numbers: ::Array[ModernTreasury::Models::LegalEntity::PhoneNumber],
         politically_exposed_person: bool?,
         preferred_name: String?,
         prefix: String?,
@@ -37,7 +37,7 @@ module ModernTreasury
     class LegalEntity < ModernTreasury::BaseModel
       attr_accessor id: String
 
-      attr_accessor addresses: Array[ModernTreasury::Models::LegalEntity::Address]
+      attr_accessor addresses: ::Array[ModernTreasury::Models::LegalEntity::Address]
 
       attr_accessor bank_settings: ModernTreasury::Models::BankSettings?
 
@@ -53,17 +53,17 @@ module ModernTreasury
 
       attr_accessor discarded_at: Time?
 
-      attr_accessor doing_business_as_names: Array[String]
+      attr_accessor doing_business_as_names: ::Array[String]
 
       attr_accessor email: String?
 
       attr_accessor first_name: String?
 
-      attr_accessor identifications: Array[ModernTreasury::Models::LegalEntity::Identification]
+      attr_accessor identifications: ::Array[ModernTreasury::Models::LegalEntity::Identification]
 
       attr_accessor last_name: String?
 
-      attr_accessor legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation]?
+      attr_accessor legal_entity_associations: ::Array[ModernTreasury::Models::LegalEntityAssociation]?
 
       attr_accessor legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type
 
@@ -71,13 +71,13 @@ module ModernTreasury
 
       attr_accessor live_mode: bool
 
-      attr_accessor metadata: Hash[Symbol, String]
+      attr_accessor metadata: ::Hash[Symbol, String]
 
       attr_accessor middle_name: String?
 
       attr_accessor object: String
 
-      attr_accessor phone_numbers: Array[ModernTreasury::Models::LegalEntity::PhoneNumber]
+      attr_accessor phone_numbers: ::Array[ModernTreasury::Models::LegalEntity::PhoneNumber]
 
       attr_accessor politically_exposed_person: bool?
 
@@ -98,7 +98,7 @@ module ModernTreasury
       def initialize:
         (
           id: String,
-          addresses: Array[ModernTreasury::Models::LegalEntity::Address],
+          addresses: ::Array[ModernTreasury::Models::LegalEntity::Address],
           bank_settings: ModernTreasury::Models::BankSettings?,
           business_name: String?,
           citizenship_country: String?,
@@ -106,19 +106,19 @@ module ModernTreasury
           date_formed: Date?,
           date_of_birth: Date?,
           discarded_at: Time?,
-          doing_business_as_names: Array[String],
+          doing_business_as_names: ::Array[String],
           email: String?,
           first_name: String?,
-          identifications: Array[ModernTreasury::Models::LegalEntity::Identification],
+          identifications: ::Array[ModernTreasury::Models::LegalEntity::Identification],
           last_name: String?,
-          legal_entity_associations: Array[ModernTreasury::Models::LegalEntityAssociation]?,
+          legal_entity_associations: ::Array[ModernTreasury::Models::LegalEntityAssociation]?,
           legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
           legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
           live_mode: bool,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           middle_name: String?,
           object: String,
-          phone_numbers: Array[ModernTreasury::Models::LegalEntity::PhoneNumber],
+          phone_numbers: ::Array[ModernTreasury::Models::LegalEntity::PhoneNumber],
           politically_exposed_person: bool?,
           preferred_name: String?,
           prefix: String?,
@@ -137,7 +137,7 @@ module ModernTreasury
       type address =
         {
           id: String,
-          address_types: Array[ModernTreasury::Models::LegalEntity::Address::address_type],
+          address_types: ::Array[ModernTreasury::Models::LegalEntity::Address::address_type],
           country: String?,
           created_at: Time,
           discarded_at: Time?,
@@ -154,7 +154,7 @@ module ModernTreasury
       class Address < ModernTreasury::BaseModel
         attr_accessor id: String
 
-        attr_accessor address_types: Array[ModernTreasury::Models::LegalEntity::Address::address_type]
+        attr_accessor address_types: ::Array[ModernTreasury::Models::LegalEntity::Address::address_type]
 
         attr_accessor country: String?
 
@@ -181,7 +181,7 @@ module ModernTreasury
         def initialize:
           (
             id: String,
-            address_types: Array[ModernTreasury::Models::LegalEntity::Address::address_type],
+            address_types: ::Array[ModernTreasury::Models::LegalEntity::Address::address_type],
             country: String?,
             created_at: Time,
             discarded_at: Time?,
@@ -211,7 +211,7 @@ module ModernTreasury
           PO_BOX: :po_box
           RESIDENTIAL: :residential
 
-          def self.values: -> Array[ModernTreasury::Models::LegalEntity::Address::address_type]
+          def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::Address::address_type]
         end
       end
 
@@ -308,7 +308,7 @@ module ModernTreasury
           US_SSN: :us_ssn
           VN_TIN: :vn_tin
 
-          def self.values: -> Array[ModernTreasury::Models::LegalEntity::Identification::id_type]
+          def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::Identification::id_type]
         end
       end
 
@@ -319,7 +319,7 @@ module ModernTreasury
         INDIVIDUAL: :individual
         JOINT: :joint
 
-        def self.values: -> Array[ModernTreasury::Models::LegalEntity::legal_entity_type]
+        def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::legal_entity_type]
       end
 
       type legal_structure =
@@ -338,7 +338,7 @@ module ModernTreasury
         SOLE_PROPRIETORSHIP: :sole_proprietorship
         TRUST: :trust
 
-        def self.values: -> Array[ModernTreasury::Models::LegalEntity::legal_structure]
+        def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::legal_structure]
       end
 
       type phone_number = { phone_number: String }
@@ -365,7 +365,7 @@ module ModernTreasury
         MEDIUM: :medium
         HIGH: :high
 
-        def self.values: -> Array[ModernTreasury::Models::LegalEntity::risk_rating]
+        def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::risk_rating]
       end
     end
   end

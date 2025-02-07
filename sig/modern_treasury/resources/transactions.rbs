@@ -6,7 +6,7 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::TransactionCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Transaction
         | (
           amount: Integer,
@@ -15,7 +15,7 @@ module ModernTreasury
           internal_account_id: String,
           vendor_code: String?,
           vendor_code_type: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           posted: bool,
           type: ModernTreasury::Models::TransactionCreateParams::type_?,
           vendor_description: String?,
@@ -26,7 +26,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::TransactionRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Transaction
         | (
           String id,
@@ -37,18 +37,18 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::TransactionUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Transaction
         | (
           String id,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Transaction
 
       def list:
         (
           ?ModernTreasury::Models::TransactionListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Transaction]
         | (
           after_cursor: String?,
@@ -58,7 +58,7 @@ module ModernTreasury
           description: String,
           direction: String,
           internal_account_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           payment_type: String,
           per_page: Integer,
           posted: bool,
@@ -72,7 +72,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::TransactionDeleteParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (String id, request_options: ModernTreasury::request_opts) -> nil
 

@@ -197,7 +197,7 @@ module ModernTreasury
         WELLS_FARGO_TRACE_NUMBER: :wells_fargo_trace_number
         WELLS_FARGO_UETR: :wells_fargo_uetr
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentReference::reference_number_type]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentReference::reference_number_type]
       end
 
       type referenceable_type = :payment_order | :reversal | :return
@@ -207,7 +207,7 @@ module ModernTreasury
         REVERSAL: :reversal
         RETURN: :return
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentReference::referenceable_type]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentReference::referenceable_type]
       end
     end
   end

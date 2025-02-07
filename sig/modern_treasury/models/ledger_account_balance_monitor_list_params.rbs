@@ -2,10 +2,10 @@ module ModernTreasury
   module Models
     type ledger_account_balance_monitor_list_params =
       {
-        id: Array[String],
+        id: ::Array[String],
         after_cursor: String?,
         ledger_account_id: String,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         per_page: Integer
       }
       & ModernTreasury::request_parameters
@@ -14,9 +14,9 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      attr_reader id: Array[String]?
+      attr_reader id: ::Array[String]?
 
-      def id=: (Array[String]) -> void
+      def id=: (::Array[String]) -> void
 
       attr_accessor after_cursor: String?
 
@@ -24,9 +24,9 @@ module ModernTreasury
 
       def ledger_account_id=: (String) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader per_page: Integer?
 
@@ -34,10 +34,10 @@ module ModernTreasury
 
       def initialize:
         (
-          id: Array[String],
+          id: ::Array[String],
           after_cursor: String?,
           ledger_account_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           per_page: Integer,
           request_options: ModernTreasury::request_opts
         ) -> void

@@ -5,7 +5,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::EventRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::Event
         | (
           String id,
@@ -14,7 +14,7 @@ module ModernTreasury
 
       def list:
         (
-          ?ModernTreasury::Models::EventListParams | Hash[Symbol, top] params
+          ?ModernTreasury::Models::EventListParams | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Event]
         | (
           after_cursor: String?,

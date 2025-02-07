@@ -4,7 +4,7 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::ConnectionLegalEntityCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ConnectionLegalEntity
         | (
           connection_id: String,
@@ -17,7 +17,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::ConnectionLegalEntityRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ConnectionLegalEntity
         | (
           String id,
@@ -28,7 +28,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::ConnectionLegalEntityUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ConnectionLegalEntity
         | (
           String id,
@@ -39,7 +39,7 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::ConnectionLegalEntityListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::ConnectionLegalEntity]
         | (
           after_cursor: String?,
