@@ -124,7 +124,7 @@ module ModernTreasury
           WIRE: :wire
           ZENGIN: :zengin
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type]
         end
 
         type priority = :high | :normal
@@ -133,7 +133,7 @@ module ModernTreasury
           HIGH: :high
           NORMAL: :normal
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority]
         end
 
         type status = :cancelled | :failed | :pending_verification | :verified
@@ -144,7 +144,7 @@ module ModernTreasury
           PENDING_VERIFICATION: :pending_verification
           VERIFIED: :verified
 
-          def self.values: -> Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status]
+          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status]
         end
       end
 

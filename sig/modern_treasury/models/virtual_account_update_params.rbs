@@ -4,7 +4,7 @@ module ModernTreasury
       {
         counterparty_id: String,
         ledger_account_id: String,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         name: String?
       }
       & ModernTreasury::request_parameters
@@ -21,9 +21,9 @@ module ModernTreasury
 
       def ledger_account_id=: (String) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_accessor name: String?
 
@@ -31,7 +31,7 @@ module ModernTreasury
         (
           counterparty_id: String,
           ledger_account_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String?,
           request_options: ModernTreasury::request_opts
         ) -> void

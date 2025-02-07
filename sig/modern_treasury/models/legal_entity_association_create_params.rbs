@@ -3,7 +3,7 @@ module ModernTreasury
     type legal_entity_association_create_params =
       {
         parent_legal_entity_id: String,
-        relationship_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
+        relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
         child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
         child_legal_entity_id: String,
         ownership_percentage: Integer?,
@@ -17,7 +17,7 @@ module ModernTreasury
 
       attr_accessor parent_legal_entity_id: String
 
-      attr_accessor relationship_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type]
+      attr_accessor relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type]
 
       attr_reader child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity?
 
@@ -36,7 +36,7 @@ module ModernTreasury
       def initialize:
         (
           parent_legal_entity_id: String,
-          relationship_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
+          relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
           child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
           child_legal_entity_id: String,
           ownership_percentage: Integer?,
@@ -56,27 +56,27 @@ module ModernTreasury
         BENEFICIAL_OWNER: :beneficial_owner
         CONTROL_PERSON: :control_person
 
-        def self.values: -> Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type]
+        def self.values: -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type]
       end
 
       type child_legal_entity =
         {
-          addresses: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address],
+          addresses: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address],
           bank_settings: ModernTreasury::Models::BankSettings?,
           business_name: String?,
           citizenship_country: String?,
           date_formed: Date?,
           date_of_birth: Date?,
-          doing_business_as_names: Array[String],
+          doing_business_as_names: ::Array[String],
           email: String?,
           first_name: String?,
-          identifications: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification],
+          identifications: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification],
           last_name: String?,
           legal_entity_type: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_entity_type,
           legal_structure: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_structure?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           middle_name: String?,
-          phone_numbers: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber],
+          phone_numbers: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber],
           politically_exposed_person: bool?,
           preferred_name: String?,
           prefix: String?,
@@ -87,10 +87,10 @@ module ModernTreasury
         }
 
       class ChildLegalEntity < ModernTreasury::BaseModel
-        attr_reader addresses: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]?
+        attr_reader addresses: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]?
 
         def addresses=: (
-          Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
+          ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
         ) -> void
 
         attr_accessor bank_settings: ModernTreasury::Models::BankSettings?
@@ -103,18 +103,18 @@ module ModernTreasury
 
         attr_accessor date_of_birth: Date?
 
-        attr_reader doing_business_as_names: Array[String]?
+        attr_reader doing_business_as_names: ::Array[String]?
 
-        def doing_business_as_names=: (Array[String]) -> void
+        def doing_business_as_names=: (::Array[String]) -> void
 
         attr_accessor email: String?
 
         attr_accessor first_name: String?
 
-        attr_reader identifications: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]?
+        attr_reader identifications: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]?
 
         def identifications=: (
-          Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
+          ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
         ) -> void
 
         attr_accessor last_name: String?
@@ -127,16 +127,16 @@ module ModernTreasury
 
         attr_accessor legal_structure: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_structure?
 
-        attr_reader metadata: Hash[Symbol, String]?
+        attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> void
 
         attr_accessor middle_name: String?
 
-        attr_reader phone_numbers: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]?
+        attr_reader phone_numbers: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]?
 
         def phone_numbers=: (
-          Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
+          ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
         ) -> void
 
         attr_accessor politically_exposed_person: bool?
@@ -155,22 +155,22 @@ module ModernTreasury
 
         def initialize:
           (
-            addresses: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address],
+            addresses: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address],
             bank_settings: ModernTreasury::Models::BankSettings?,
             business_name: String?,
             citizenship_country: String?,
             date_formed: Date?,
             date_of_birth: Date?,
-            doing_business_as_names: Array[String],
+            doing_business_as_names: ::Array[String],
             email: String?,
             first_name: String?,
-            identifications: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification],
+            identifications: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification],
             last_name: String?,
             legal_entity_type: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_entity_type,
             legal_structure: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_structure?,
-            metadata: Hash[Symbol, String],
+            metadata: ::Hash[Symbol, String],
             middle_name: String?,
-            phone_numbers: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber],
+            phone_numbers: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber],
             politically_exposed_person: bool?,
             preferred_name: String?,
             prefix: String?,
@@ -193,7 +193,7 @@ module ModernTreasury
             locality: String?,
             postal_code: String?,
             region: String?,
-            address_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type],
+            address_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type],
             :line2 => String?
           }
 
@@ -208,10 +208,10 @@ module ModernTreasury
 
           attr_accessor region: String?
 
-          attr_reader address_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]?
+          attr_reader address_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]?
 
           def address_types=: (
-            Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]
+            ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]
           ) -> void
 
           attr_accessor line2: String?
@@ -223,7 +223,7 @@ module ModernTreasury
               locality: String?,
               postal_code: String?,
               region: String?,
-              address_types: Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type],
+              address_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type],
               line2: String?
             ) -> void
             | (
@@ -243,7 +243,7 @@ module ModernTreasury
             PO_BOX: :po_box
             RESIDENTIAL: :residential
 
-            def self.values: -> Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]
+            def self.values: -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]
           end
         end
 
@@ -320,7 +320,7 @@ module ModernTreasury
             US_SSN: :us_ssn
             VN_TIN: :vn_tin
 
-            def self.values: -> Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::id_type]
+            def self.values: -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::id_type]
           end
         end
 
@@ -330,7 +330,7 @@ module ModernTreasury
           BUSINESS: :business
           INDIVIDUAL: :individual
 
-          def self.values: -> Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_entity_type]
+          def self.values: -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_entity_type]
         end
 
         type legal_structure =
@@ -349,7 +349,7 @@ module ModernTreasury
           SOLE_PROPRIETORSHIP: :sole_proprietorship
           TRUST: :trust
 
-          def self.values: -> Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_structure]
+          def self.values: -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_structure]
         end
 
         type phone_number = { phone_number: String }
@@ -376,7 +376,7 @@ module ModernTreasury
           MEDIUM: :medium
           HIGH: :high
 
-          def self.values: -> Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::risk_rating]
+          def self.values: -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::risk_rating]
         end
       end
     end

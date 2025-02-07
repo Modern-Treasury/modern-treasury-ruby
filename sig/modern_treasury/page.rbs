@@ -9,8 +9,8 @@ module ModernTreasury
     def initialize: (
       client: ModernTreasury::BaseClient,
       req: ModernTreasury::BaseClient::request,
-      headers: Hash[String, String],
-      unwrapped: Hash[Symbol, top]
+      headers: ::Hash[String, String],
+      unwrapped: ::Hash[Symbol, top]
     ) -> void
 
     def next_page?: -> bool

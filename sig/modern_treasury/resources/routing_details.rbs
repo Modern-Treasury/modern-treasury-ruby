@@ -5,7 +5,7 @@ module ModernTreasury
         (
           String account_id,
           ModernTreasury::Models::RoutingDetailCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::RoutingDetail
         | (
           String account_id,
@@ -20,7 +20,7 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::RoutingDetailRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::RoutingDetail
         | (
           String id,
@@ -33,7 +33,7 @@ module ModernTreasury
         (
           String account_id,
           ModernTreasury::Models::RoutingDetailListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::RoutingDetail]
         | (
           String account_id,
@@ -47,7 +47,7 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::RoutingDetailDeleteParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (
           String id,

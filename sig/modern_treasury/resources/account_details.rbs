@@ -5,7 +5,7 @@ module ModernTreasury
         (
           String account_id,
           ModernTreasury::Models::AccountDetailCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::AccountDetail
         | (
           String account_id,
@@ -19,7 +19,7 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::AccountDetailRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::AccountDetail
         | (
           String id,
@@ -32,7 +32,7 @@ module ModernTreasury
         (
           String account_id,
           ModernTreasury::Models::AccountDetailListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::AccountDetail]
         | (
           String account_id,
@@ -46,7 +46,7 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::AccountDetailDeleteParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (
           String id,

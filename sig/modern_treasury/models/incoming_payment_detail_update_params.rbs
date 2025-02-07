@@ -1,19 +1,19 @@
 module ModernTreasury
   module Models
     type incoming_payment_detail_update_params =
-      { metadata: Hash[Symbol, String] } & ModernTreasury::request_parameters
+      { metadata: ::Hash[Symbol, String] } & ModernTreasury::request_parameters
 
     class IncomingPaymentDetailUpdateParams < ModernTreasury::BaseModel
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (

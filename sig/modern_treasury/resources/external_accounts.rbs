@@ -4,22 +4,22 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::ExternalAccountCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ExternalAccount
         | (
           counterparty_id: String?,
-          account_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+          account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
           account_type: ModernTreasury::Models::external_account_type,
-          contact_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
+          contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
           ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String?,
           party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
           party_identifier: String,
           party_name: String,
           party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
           plaid_processor_token: String,
-          routing_details: Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
+          routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::ExternalAccount
 
@@ -27,7 +27,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::ExternalAccountRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ExternalAccount
         | (
           String id,
@@ -38,13 +38,13 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::ExternalAccountUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ExternalAccount
         | (
           String id,
           account_type: ModernTreasury::Models::external_account_type,
           counterparty_id: String?,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           name: String?,
           party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
           party_name: String,
@@ -55,12 +55,12 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::ExternalAccountListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::ExternalAccount]
         | (
           after_cursor: String?,
           counterparty_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           party_name: String,
           per_page: Integer,
           request_options: ModernTreasury::request_opts
@@ -70,7 +70,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::ExternalAccountDeleteParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> nil
         | (String id, request_options: ModernTreasury::request_opts) -> nil
 
@@ -78,11 +78,11 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::ExternalAccountCompleteVerificationParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ExternalAccount
         | (
           String id,
-          amounts: Array[Integer],
+          amounts: ::Array[Integer],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::ExternalAccount
 
@@ -90,7 +90,7 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::ExternalAccountVerifyParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::external_account_verify_response
         | (
           String id,

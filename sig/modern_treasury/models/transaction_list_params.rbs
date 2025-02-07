@@ -9,7 +9,7 @@ module ModernTreasury
         description: String,
         direction: String,
         internal_account_id: String,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         payment_type: String,
         per_page: Integer,
         posted: bool,
@@ -49,9 +49,9 @@ module ModernTreasury
 
       def internal_account_id=: (String) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader payment_type: String?
 
@@ -86,7 +86,7 @@ module ModernTreasury
           description: String,
           direction: String,
           internal_account_id: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           payment_type: String,
           per_page: Integer,
           posted: bool,

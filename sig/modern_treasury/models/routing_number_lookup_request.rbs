@@ -6,8 +6,8 @@ module ModernTreasury
         bank_name: String,
         routing_number: String,
         routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type,
-        sanctions: Hash[Symbol, top],
-        supported_payment_types: Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
+        sanctions: ::Hash[Symbol, top],
+        supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
       }
 
     class RoutingNumberLookupRequest < ModernTreasury::BaseModel
@@ -31,14 +31,14 @@ module ModernTreasury
         ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type
       ) -> void
 
-      attr_reader sanctions: Hash[Symbol, top]?
+      attr_reader sanctions: ::Hash[Symbol, top]?
 
-      def sanctions=: (Hash[Symbol, top]) -> void
+      def sanctions=: (::Hash[Symbol, top]) -> void
 
-      attr_reader supported_payment_types: Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]?
+      attr_reader supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]?
 
       def supported_payment_types=: (
-        Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
+        ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
       ) -> void
 
       def initialize:
@@ -47,8 +47,8 @@ module ModernTreasury
           bank_name: String,
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type,
-          sanctions: Hash[Symbol, top],
-          supported_payment_types: Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
+          sanctions: ::Hash[Symbol, top],
+          supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
         ) -> void
         | (
           ?ModernTreasury::Models::routing_number_lookup_request
@@ -117,7 +117,7 @@ module ModernTreasury
         SE_BANKGIRO_CLEARING_CODE: :se_bankgiro_clearing_code
         SWIFT: :swift
 
-        def self.values: -> Array[ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type]
+        def self.values: -> ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type]
       end
 
       type supported_payment_type =
@@ -184,7 +184,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
+        def self.values: -> ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
       end
     end
   end

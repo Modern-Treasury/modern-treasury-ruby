@@ -7,7 +7,7 @@ module ModernTreasury
         external_id: String,
         ledgerable_id: String,
         ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type,
-        metadata: Hash[Symbol, String],
+        metadata: ::Hash[Symbol, String],
         status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status
       }
       & ModernTreasury::request_parameters
@@ -36,9 +36,9 @@ module ModernTreasury
         ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type
       ) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       attr_reader status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status?
 
@@ -53,7 +53,7 @@ module ModernTreasury
           external_id: String,
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status,
           request_options: ModernTreasury::request_opts
         ) -> void
@@ -80,7 +80,7 @@ module ModernTreasury
         RETURN: :return
         REVERSAL: :reversal
 
-        def self.values: -> Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type]
+        def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type]
       end
 
       type status = :archived | :pending | :posted
@@ -90,7 +90,7 @@ module ModernTreasury
         PENDING: :pending
         POSTED: :posted
 
-        def self.values: -> Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::status]
       end
     end
   end

@@ -5,7 +5,7 @@ module ModernTreasury
         alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
         ledger_account_id: String,
         description: String,
-        metadata: Hash[Symbol, String]
+        metadata: ::Hash[Symbol, String]
       }
       & ModernTreasury::request_parameters
 
@@ -21,16 +21,16 @@ module ModernTreasury
 
       def description=: (String) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
           alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
           ledger_account_id: String,
           description: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (

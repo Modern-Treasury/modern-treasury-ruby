@@ -8,7 +8,7 @@ module ModernTreasury
         internal_account_id: String,
         counterparty_id: String?,
         currency: ModernTreasury::Models::currency,
-        custom_identifiers: Hash[Symbol, String]?,
+        custom_identifiers: ::Hash[Symbol, String]?,
         date_lower_bound: Date?,
         date_upper_bound: Date?,
         type: ModernTreasury::Models::ReconciliationRule::type_?
@@ -29,7 +29,7 @@ module ModernTreasury
 
       def currency=: (ModernTreasury::Models::currency) -> void
 
-      attr_accessor custom_identifiers: Hash[Symbol, String]?
+      attr_accessor custom_identifiers: ::Hash[Symbol, String]?
 
       attr_accessor date_lower_bound: Date?
 
@@ -45,7 +45,7 @@ module ModernTreasury
           internal_account_id: String,
           counterparty_id: String?,
           currency: ModernTreasury::Models::currency,
-          custom_identifiers: Hash[Symbol, String]?,
+          custom_identifiers: ::Hash[Symbol, String]?,
           date_lower_bound: Date?,
           date_upper_bound: Date?,
           type: ModernTreasury::Models::ReconciliationRule::type_?
@@ -63,7 +63,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> Array[ModernTreasury::Models::ReconciliationRule::direction]
+        def self.values: -> ::Array[ModernTreasury::Models::ReconciliationRule::direction]
       end
 
       type type_ =
@@ -130,7 +130,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> Array[ModernTreasury::Models::ReconciliationRule::type_]
+        def self.values: -> ::Array[ModernTreasury::Models::ReconciliationRule::type_]
       end
     end
   end

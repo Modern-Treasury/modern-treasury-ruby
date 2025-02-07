@@ -95,7 +95,7 @@ module ModernTreasury
           RETURN: :return
           REVERSAL: :reversal
 
-          def self.values: -> Array[ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type]
+          def self.values: -> ::Array[ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type]
         end
 
         type type_ = :originating | :receiving
@@ -104,7 +104,7 @@ module ModernTreasury
           ORIGINATING: :originating
           RECEIVING: :receiving
 
-          def self.values: -> Array[ModernTreasury::Models::Transactions::TransactionLineItem::type_]
+          def self.values: -> ::Array[ModernTreasury::Models::Transactions::TransactionLineItem::type_]
         end
       end
     end

@@ -3,7 +3,8 @@ module ModernTreasury
     class Returns
       def create:
         (
-          ModernTreasury::Models::ReturnCreateParams | Hash[Symbol, top] params
+          ModernTreasury::Models::ReturnCreateParams
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ReturnObject
         | (
           returnable_id: String?,
@@ -19,7 +20,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::ReturnRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::ReturnObject
         | (
           String id,
@@ -28,7 +29,7 @@ module ModernTreasury
 
       def list:
         (
-          ?ModernTreasury::Models::ReturnListParams | Hash[Symbol, top] params
+          ?ModernTreasury::Models::ReturnListParams | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::ReturnObject]
         | (
           after_cursor: String?,

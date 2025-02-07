@@ -27,7 +27,7 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         CANCELLED: :cancelled
 
-        def self.values: -> Array[ModernTreasury::Models::PaymentFlowUpdateParams::status]
+        def self.values: -> ::Array[ModernTreasury::Models::PaymentFlowUpdateParams::status]
       end
     end
   end

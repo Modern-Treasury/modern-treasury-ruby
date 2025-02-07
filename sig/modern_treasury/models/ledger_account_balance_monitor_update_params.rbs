@@ -1,7 +1,7 @@
 module ModernTreasury
   module Models
     type ledger_account_balance_monitor_update_params =
-      { description: String, metadata: Hash[Symbol, String] }
+      { description: String, metadata: ::Hash[Symbol, String] }
       & ModernTreasury::request_parameters
 
     class LedgerAccountBalanceMonitorUpdateParams < ModernTreasury::BaseModel
@@ -12,14 +12,14 @@ module ModernTreasury
 
       def description=: (String) -> void
 
-      attr_reader metadata: Hash[Symbol, String]?
+      attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> void
 
       def initialize:
         (
           description: String,
-          metadata: Hash[Symbol, String],
+          metadata: ::Hash[Symbol, String],
           request_options: ModernTreasury::request_opts
         ) -> void
         | (

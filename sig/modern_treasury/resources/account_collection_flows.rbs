@@ -4,12 +4,12 @@ module ModernTreasury
       def create:
         (
           ModernTreasury::Models::AccountCollectionFlowCreateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::AccountCollectionFlow
         | (
           counterparty_id: String,
-          payment_types: Array[String],
-          receiving_countries: Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
+          payment_types: ::Array[String],
+          receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::AccountCollectionFlow
 
@@ -17,7 +17,7 @@ module ModernTreasury
         (
           String id,
           ?ModernTreasury::Models::AccountCollectionFlowRetrieveParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::AccountCollectionFlow
         | (
           String id,
@@ -28,7 +28,7 @@ module ModernTreasury
         (
           String id,
           ModernTreasury::Models::AccountCollectionFlowUpdateParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::AccountCollectionFlow
         | (
           String id,
@@ -39,7 +39,7 @@ module ModernTreasury
       def list:
         (
           ?ModernTreasury::Models::AccountCollectionFlowListParams
-          | Hash[Symbol, top] params
+          | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow]
         | (
           after_cursor: String?,
