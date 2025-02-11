@@ -45,13 +45,10 @@ module ModernTreasury
 
       case unwrapped
       in Array
-        super(unwrapped&.map { |row| model.coerce(row) })
+        super(unwrapped&.map { model.coerce(_1) })
       else
         super([])
       end
-
-      @client = client
-      @req = req
 
       @per_page = ModernTreasury::Util.coerce_integer(headers["X-Per-Page"])
 
@@ -84,7 +81,7 @@ module ModernTreasury
       end
       page = self
       loop do
-        page.each { |row| blk.call(row) }
+        page.each { blk.call(_1) }
         break unless page.next_page?
         page = page.next_page
       end
