@@ -402,7 +402,7 @@ module ModernTreasury
         class PhoneNumber < ModernTreasury::BaseModel
           attr_reader phone_number: String?
 
-          def phone_number=: (String) -> void
+          def phone_number=: (String) -> String
 
           def initialize:
             (phone_number: String) -> void

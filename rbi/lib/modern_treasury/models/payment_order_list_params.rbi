@@ -7,103 +7,140 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
+      def counterparty_id
+      end
 
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
-
-      sig { returns(T.nilable(Date)) }
-      attr_reader :created_at_end
-
-      sig { params(created_at_end: Date).void }
-      attr_writer :created_at_end
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :created_at_start
+      def created_at_end
+      end
 
-      sig { params(created_at_start: Date).void }
-      attr_writer :created_at_start
+      sig { params(_: Date).returns(Date) }
+      def created_at_end=(_)
+      end
+
+      sig { returns(T.nilable(Date)) }
+      def created_at_start
+      end
+
+      sig { params(_: Date).returns(Date) }
+      def created_at_start=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :direction
+      def direction
+      end
 
-      sig { params(direction: Symbol).void }
-      attr_writer :direction
-
-      sig { returns(T.nilable(Date)) }
-      attr_reader :effective_date_end
-
-      sig { params(effective_date_end: Date).void }
-      attr_writer :effective_date_end
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :effective_date_start
+      def effective_date_end
+      end
 
-      sig { params(effective_date_start: Date).void }
-      attr_writer :effective_date_start
+      sig { params(_: Date).returns(Date) }
+      def effective_date_end=(_)
+      end
+
+      sig { returns(T.nilable(Date)) }
+      def effective_date_start
+      end
+
+      sig { params(_: Date).returns(Date) }
+      def effective_date_start=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :originating_account_id
+      def originating_account_id
+      end
 
-      sig { params(originating_account_id: String).void }
-      attr_writer :originating_account_id
+      sig { params(_: String).returns(String) }
+      def originating_account_id=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :priority
+      def priority
+      end
 
-      sig { params(priority: Symbol).void }
-      attr_writer :priority
+      sig { params(_: Symbol).returns(Symbol) }
+      def priority=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :process_after_end
+      def process_after_end
+      end
 
-      sig { params(process_after_end: Time).void }
-      attr_writer :process_after_end
+      sig { params(_: Time).returns(Time) }
+      def process_after_end=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :process_after_start
+      def process_after_start
+      end
 
-      sig { params(process_after_start: Time).void }
-      attr_writer :process_after_start
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :reference_number
-
-      sig { params(reference_number: String).void }
-      attr_writer :reference_number
-
-      sig { returns(T.nilable(Symbol)) }
-      attr_reader :status
-
-      sig { params(status: Symbol).void }
-      attr_writer :status
+      sig { params(_: Time).returns(Time) }
+      def process_after_start=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :transaction_id
+      def reference_number
+      end
 
-      sig { params(transaction_id: String).void }
-      attr_writer :transaction_id
+      sig { params(_: String).returns(String) }
+      def reference_number=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :type
+      def status
+      end
 
-      sig { params(type: Symbol).void }
-      attr_writer :type
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def transaction_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def transaction_id=(_)
+      end
+
+      sig { returns(T.nilable(Symbol)) }
+      def type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def type=(_)
+      end
 
       sig do
         params(

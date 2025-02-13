@@ -57,7 +57,7 @@ module ModernTreasury
 
       def accounting=: (
         ModernTreasury::Models::PaymentOrderCreateParams::Accounting
-      ) -> void
+      ) -> ModernTreasury::Models::PaymentOrderCreateParams::Accounting
 
       attr_accessor accounting_category_id: String?
 
@@ -67,7 +67,9 @@ module ModernTreasury
 
       attr_reader currency: ModernTreasury::Models::currency?
 
-      def currency=: (ModernTreasury::Models::currency) -> void
+      def currency=: (
+        ModernTreasury::Models::currency
+      ) -> ModernTreasury::Models::currency
 
       attr_accessor description: String?
 
@@ -75,11 +77,11 @@ module ModernTreasury
 
       def documents=: (
         ::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document]
 
       attr_reader effective_date: Date?
 
-      def effective_date=: (Date) -> void
+      def effective_date=: (Date) -> Date
 
       attr_accessor expires_at: Time?
 
@@ -87,7 +89,7 @@ module ModernTreasury
 
       def fallback_type=: (
         ModernTreasury::Models::PaymentOrderCreateParams::fallback_type
-      ) -> void
+      ) -> ModernTreasury::Models::PaymentOrderCreateParams::fallback_type
 
       attr_accessor foreign_exchange_contract: String?
 
@@ -97,25 +99,25 @@ module ModernTreasury
 
       def ledger_transaction=: (
         ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction
-      ) -> void
+      ) -> ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction
 
       attr_reader ledger_transaction_id: String?
 
-      def ledger_transaction_id=: (String) -> void
+      def ledger_transaction_id=: (String) -> String
 
       attr_reader line_items: ::Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem]?
 
       def line_items=: (
         ::Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::LineItem]
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader nsf_protected: bool?
 
-      def nsf_protected=: (bool) -> void
+      def nsf_protected=: (bool) -> bool
 
       attr_accessor originating_party_name: String?
 
@@ -123,7 +125,7 @@ module ModernTreasury
 
       def priority=: (
         ModernTreasury::Models::PaymentOrderCreateParams::priority
-      ) -> void
+      ) -> ModernTreasury::Models::PaymentOrderCreateParams::priority
 
       attr_accessor process_after: Time?
 
@@ -133,11 +135,11 @@ module ModernTreasury
 
       def receiving_account=: (
         ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount
-      ) -> void
+      ) -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount
 
       attr_reader receiving_account_id: String?
 
-      def receiving_account_id=: (String) -> void
+      def receiving_account_id=: (String) -> String
 
       attr_accessor remittance_information: String?
 
@@ -149,7 +151,7 @@ module ModernTreasury
 
       attr_reader transaction_monitoring_enabled: bool?
 
-      def transaction_monitoring_enabled=: (bool) -> void
+      def transaction_monitoring_enabled=: (bool) -> bool
 
       attr_accessor ultimate_originating_party_identifier: String?
 
@@ -259,7 +261,7 @@ module ModernTreasury
 
         attr_reader document_type: String?
 
-        def document_type=: (String) -> void
+        def document_type=: (String) -> String
 
         def initialize:
           (
@@ -344,35 +346,35 @@ module ModernTreasury
 
         attr_reader effective_at: Time?
 
-        def effective_at=: (Time) -> void
+        def effective_at=: (Time) -> Time
 
         attr_reader effective_date: Date?
 
-        def effective_date=: (Date) -> void
+        def effective_date=: (Date) -> Date
 
         attr_reader external_id: String?
 
-        def external_id=: (String) -> void
+        def external_id=: (String) -> String
 
         attr_reader ledgerable_id: String?
 
-        def ledgerable_id=: (String) -> void
+        def ledgerable_id=: (String) -> String
 
         attr_reader ledgerable_type: ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::ledgerable_type?
 
         def ledgerable_type=: (
           ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::ledgerable_type
-        ) -> void
+        ) -> ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::ledgerable_type
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         attr_reader status: ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::status?
 
         def status=: (
           ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::status
-        ) -> void
+        ) -> ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::status
 
         def initialize:
           (
@@ -419,7 +421,7 @@ module ModernTreasury
 
           attr_reader metadata: ::Hash[Symbol, String]?
 
-          def metadata=: (::Hash[Symbol, String]) -> void
+          def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
           attr_accessor pending_balance_amount: ::Hash[Symbol, Integer]?
 
@@ -494,7 +496,7 @@ module ModernTreasury
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         def initialize:
           (
@@ -541,29 +543,29 @@ module ModernTreasury
 
         def account_details=: (
           ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]
 
         attr_reader account_type: ModernTreasury::Models::external_account_type?
 
         def account_type=: (
           ModernTreasury::Models::external_account_type
-        ) -> void
+        ) -> ModernTreasury::Models::external_account_type
 
         attr_reader contact_details: ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]?
 
         def contact_details=: (
           ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]
 
         attr_reader ledger_account: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount?
 
         def ledger_account=: (
           ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount
-        ) -> void
+        ) -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         attr_accessor name: String?
 
@@ -571,27 +573,27 @@ module ModernTreasury
 
         def party_address=: (
           ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyAddress
-        ) -> void
+        ) -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyAddress
 
         attr_reader party_identifier: String?
 
-        def party_identifier=: (String) -> void
+        def party_identifier=: (String) -> String
 
         attr_reader party_name: String?
 
-        def party_name=: (String) -> void
+        def party_name=: (String) -> String
 
         attr_accessor party_type: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::party_type?
 
         attr_reader plaid_processor_token: String?
 
-        def plaid_processor_token=: (String) -> void
+        def plaid_processor_token=: (String) -> String
 
         attr_reader routing_details: ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]?
 
         def routing_details=: (
           ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]
 
         def initialize:
           (
@@ -628,7 +630,7 @@ module ModernTreasury
 
           def account_number_type=: (
             ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::account_number_type
-          ) -> void
+          ) -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::account_number_type
 
           def initialize:
             (
@@ -679,13 +681,13 @@ module ModernTreasury
         class ContactDetail < ModernTreasury::BaseModel
           attr_reader contact_identifier: String?
 
-          def contact_identifier=: (String) -> void
+          def contact_identifier=: (String) -> String
 
           attr_reader contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::contact_identifier_type?
 
           def contact_identifier_type=: (
             ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::contact_identifier_type
-          ) -> void
+          ) -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::contact_identifier_type
 
           def initialize:
             (
@@ -739,21 +741,21 @@ module ModernTreasury
 
           attr_reader ledger_account_category_ids: ::Array[String]?
 
-          def ledger_account_category_ids=: (::Array[String]) -> void
+          def ledger_account_category_ids=: (::Array[String]) -> ::Array[String]
 
           attr_reader ledgerable_id: String?
 
-          def ledgerable_id=: (String) -> void
+          def ledgerable_id=: (String) -> String
 
           attr_reader ledgerable_type: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::ledgerable_type?
 
           def ledgerable_type=: (
             ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::ledgerable_type
-          ) -> void
+          ) -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::ledgerable_type
 
           attr_reader metadata: ::Hash[Symbol, String]?
 
-          def metadata=: (::Hash[Symbol, String]) -> void
+          def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
           def initialize:
             (
@@ -856,7 +858,7 @@ module ModernTreasury
 
           def payment_type=: (
             ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::payment_type
-          ) -> void
+          ) -> ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::payment_type
 
           def initialize:
             (

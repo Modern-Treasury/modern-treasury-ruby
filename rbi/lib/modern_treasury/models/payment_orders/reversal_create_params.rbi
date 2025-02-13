@@ -8,23 +8,32 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(Symbol) }
-        attr_accessor :reason
+        def reason
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def reason=(_)
+        end
 
         sig do
           returns(T.nilable(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction))
         end
-        attr_reader :ledger_transaction
+        def ledger_transaction
+        end
 
         sig do
-          params(ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction).void
+          params(_: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction).returns(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction)
         end
-        attr_writer :ledger_transaction
+        def ledger_transaction=(_)
+        end
 
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        attr_reader :metadata
+        def metadata
+        end
 
-        sig { params(metadata: T::Hash[Symbol, String]).void }
-        attr_writer :metadata
+        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+        def metadata=(_)
+        end
 
         sig do
           params(
@@ -68,52 +77,80 @@ module ModernTreasury
           sig do
             returns(T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry])
           end
-          attr_accessor :ledger_entries
+          def ledger_entries
+          end
+
+          sig do
+            params(
+              _: T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
+            ).returns(T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry])
+          end
+          def ledger_entries=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :description
+          def description
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def description=(_)
+          end
 
           sig { returns(T.nilable(Time)) }
-          attr_reader :effective_at
+          def effective_at
+          end
 
-          sig { params(effective_at: Time).void }
-          attr_writer :effective_at
+          sig { params(_: Time).returns(Time) }
+          def effective_at=(_)
+          end
 
           sig { returns(T.nilable(Date)) }
-          attr_reader :effective_date
+          def effective_date
+          end
 
-          sig { params(effective_date: Date).void }
-          attr_writer :effective_date
-
-          sig { returns(T.nilable(String)) }
-          attr_reader :external_id
-
-          sig { params(external_id: String).void }
-          attr_writer :external_id
+          sig { params(_: Date).returns(Date) }
+          def effective_date=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_reader :ledgerable_id
+          def external_id
+          end
 
-          sig { params(ledgerable_id: String).void }
-          attr_writer :ledgerable_id
+          sig { params(_: String).returns(String) }
+          def external_id=(_)
+          end
+
+          sig { returns(T.nilable(String)) }
+          def ledgerable_id
+          end
+
+          sig { params(_: String).returns(String) }
+          def ledgerable_id=(_)
+          end
 
           sig { returns(T.nilable(Symbol)) }
-          attr_reader :ledgerable_type
+          def ledgerable_type
+          end
 
-          sig { params(ledgerable_type: Symbol).void }
-          attr_writer :ledgerable_type
+          sig { params(_: Symbol).returns(Symbol) }
+          def ledgerable_type=(_)
+          end
 
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
-          attr_reader :metadata
+          def metadata
+          end
 
-          sig { params(metadata: T::Hash[Symbol, String]).void }
-          attr_writer :metadata
+          sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+          def metadata=(_)
+          end
 
           sig { returns(T.nilable(Symbol)) }
-          attr_reader :status
+          def status
+          end
 
-          sig { params(status: Symbol).void }
-          attr_writer :status
+          sig { params(_: Symbol).returns(Symbol) }
+          def status=(_)
+          end
 
           sig do
             params(
@@ -162,34 +199,82 @@ module ModernTreasury
 
           class LedgerEntry < ModernTreasury::BaseModel
             sig { returns(Integer) }
-            attr_accessor :amount
+            def amount
+            end
+
+            sig { params(_: Integer).returns(Integer) }
+            def amount=(_)
+            end
 
             sig { returns(Symbol) }
-            attr_accessor :direction
+            def direction
+            end
+
+            sig { params(_: Symbol).returns(Symbol) }
+            def direction=(_)
+            end
 
             sig { returns(String) }
-            attr_accessor :ledger_account_id
+            def ledger_account_id
+            end
+
+            sig { params(_: String).returns(String) }
+            def ledger_account_id=(_)
+            end
 
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-            attr_accessor :available_balance_amount
+            def available_balance_amount
+            end
+
+            sig do
+              params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer]))
+            end
+            def available_balance_amount=(_)
+            end
 
             sig { returns(T.nilable(Integer)) }
-            attr_accessor :lock_version
+            def lock_version
+            end
+
+            sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+            def lock_version=(_)
+            end
 
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
-            attr_reader :metadata
+            def metadata
+            end
 
-            sig { params(metadata: T::Hash[Symbol, String]).void }
-            attr_writer :metadata
+            sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+            def metadata=(_)
+            end
 
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-            attr_accessor :pending_balance_amount
+            def pending_balance_amount
+            end
+
+            sig do
+              params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer]))
+            end
+            def pending_balance_amount=(_)
+            end
 
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-            attr_accessor :posted_balance_amount
+            def posted_balance_amount
+            end
+
+            sig do
+              params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer]))
+            end
+            def posted_balance_amount=(_)
+            end
 
             sig { returns(T.nilable(T::Boolean)) }
-            attr_accessor :show_resulting_ledger_account_balances
+            def show_resulting_ledger_account_balances
+            end
+
+            sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+            def show_resulting_ledger_account_balances=(_)
+            end
 
             sig do
               params(

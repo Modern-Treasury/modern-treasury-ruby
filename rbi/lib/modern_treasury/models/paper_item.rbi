@@ -4,58 +4,148 @@ module ModernTreasury
   module Models
     class PaperItem < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :account_number
+      def account_number
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def account_number=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :account_number_safe
+      def account_number_safe
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def account_number_safe=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :check_number
+      def check_number
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def check_number=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def currency=(_)
+      end
 
       sig { returns(Date) }
-      attr_accessor :deposit_date
+      def deposit_date
+      end
+
+      sig { params(_: Date).returns(Date) }
+      def deposit_date=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :lockbox_number
+      def lockbox_number
+      end
+
+      sig { params(_: String).returns(String) }
+      def lockbox_number=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :memo_field
+      def memo_field
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def memo_field=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :remitter_name
+      def remitter_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def remitter_name=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :routing_number
+      def routing_number
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def routing_number=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :status
+      def status
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :transaction_id
+      def transaction_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def transaction_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :transaction_line_item_id
+      def transaction_line_item_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def transaction_line_item_id=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(

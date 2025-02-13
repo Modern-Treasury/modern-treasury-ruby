@@ -7,10 +7,14 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances)) }
-      attr_reader :balances
+      def balances
+      end
 
-      sig { params(balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances).void }
-      attr_writer :balances
+      sig do
+        params(_: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances).returns(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances)
+      end
+      def balances=(_)
+      end
 
       sig do
         params(
@@ -34,34 +38,44 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Date)) }
-        attr_reader :as_of_date
+        def as_of_date
+        end
 
-        sig { params(as_of_date: Date).void }
-        attr_writer :as_of_date
+        sig { params(_: Date).returns(Date) }
+        def as_of_date=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :as_of_lock_version
+        def as_of_lock_version
+        end
 
-        sig { params(as_of_lock_version: Integer).void }
-        attr_writer :as_of_lock_version
-
-        sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at
-
-        sig { params(effective_at: Time).void }
-        attr_writer :effective_at
+        sig { params(_: Integer).returns(Integer) }
+        def as_of_lock_version=(_)
+        end
 
         sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at_lower_bound
+        def effective_at
+        end
 
-        sig { params(effective_at_lower_bound: Time).void }
-        attr_writer :effective_at_lower_bound
+        sig { params(_: Time).returns(Time) }
+        def effective_at=(_)
+        end
 
         sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at_upper_bound
+        def effective_at_lower_bound
+        end
 
-        sig { params(effective_at_upper_bound: Time).void }
-        attr_writer :effective_at_upper_bound
+        sig { params(_: Time).returns(Time) }
+        def effective_at_lower_bound=(_)
+        end
+
+        sig { returns(T.nilable(Time)) }
+        def effective_at_upper_bound
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def effective_at_upper_bound=(_)
+        end
 
         sig do
           params(

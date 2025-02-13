@@ -7,85 +7,116 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :as_of_date_end
+      def as_of_date_end
+      end
 
-      sig { params(as_of_date_end: Date).void }
-      attr_writer :as_of_date_end
+      sig { params(_: Date).returns(Date) }
+      def as_of_date_end=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :as_of_date_start
+      def as_of_date_start
+      end
 
-      sig { params(as_of_date_start: Date).void }
-      attr_writer :as_of_date_start
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
-
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
+      sig { params(_: Date).returns(Date) }
+      def as_of_date_start=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :description
+      def counterparty_id
+      end
 
-      sig { params(description: String).void }
-      attr_writer :description
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :direction
-
-      sig { params(direction: String).void }
-      attr_writer :direction
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :internal_account_id
+      def description
+      end
 
-      sig { params(internal_account_id: String).void }
-      attr_writer :internal_account_id
+      sig { params(_: String).returns(String) }
+      def description=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def direction
+      end
+
+      sig { params(_: String).returns(String) }
+      def direction=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def internal_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :payment_type
+      def payment_type
+      end
 
-      sig { params(payment_type: String).void }
-      attr_writer :payment_type
+      sig { params(_: String).returns(String) }
+      def payment_type=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :posted
+      def posted
+      end
 
-      sig { params(posted: T::Boolean).void }
-      attr_writer :posted
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :transactable_type
-
-      sig { params(transactable_type: String).void }
-      attr_writer :transactable_type
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def posted=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :vendor_id
+      def transactable_type
+      end
 
-      sig { params(vendor_id: String).void }
-      attr_writer :vendor_id
+      sig { params(_: String).returns(String) }
+      def transactable_type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :virtual_account_id
+      def vendor_id
+      end
 
-      sig { params(virtual_account_id: String).void }
-      attr_writer :virtual_account_id
+      sig { params(_: String).returns(String) }
+      def vendor_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def virtual_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def virtual_account_id=(_)
+      end
 
       sig do
         params(

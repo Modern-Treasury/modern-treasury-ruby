@@ -26,7 +26,7 @@ module ModernTreasury
 
       attr_reader ledger_id: String?
 
-      def ledger_id=: (String) -> void
+      def ledger_id=: (String) -> String
 
       attr_accessor metadata: ::Hash[Symbol, String]?
 

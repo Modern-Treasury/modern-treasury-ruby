@@ -20,33 +20,33 @@ module ModernTreasury
 
       attr_reader effective_at: Time?
 
-      def effective_at=: (Time) -> void
+      def effective_at=: (Time) -> Time
 
       attr_reader ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]?
 
       def ledger_entries=: (
         ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]
 
       attr_reader ledgerable_id: String?
 
-      def ledgerable_id=: (String) -> void
+      def ledgerable_id=: (String) -> String
 
       attr_reader ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type?
 
       def ledgerable_type=: (
         ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader status: ModernTreasury::Models::LedgerTransactionUpdateParams::status?
 
       def status=: (
         ModernTreasury::Models::LedgerTransactionUpdateParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerTransactionUpdateParams::status
 
       def initialize:
         (
@@ -92,7 +92,7 @@ module ModernTreasury
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         attr_accessor pending_balance_amount: ::Hash[Symbol, Integer]?
 

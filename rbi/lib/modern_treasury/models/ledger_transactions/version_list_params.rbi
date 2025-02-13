@@ -8,37 +8,52 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :after_cursor
+        def after_cursor
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def after_cursor=(_)
+        end
 
         sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-        attr_reader :created_at
+        def created_at
+        end
 
-        sig { params(created_at: T::Hash[Symbol, Time]).void }
-        attr_writer :created_at
-
-        sig { returns(T.nilable(String)) }
-        attr_reader :ledger_account_statement_id
-
-        sig { params(ledger_account_statement_id: String).void }
-        attr_writer :ledger_account_statement_id
+        sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
+        def created_at=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :ledger_transaction_id
+        def ledger_account_statement_id
+        end
 
-        sig { params(ledger_transaction_id: String).void }
-        attr_writer :ledger_transaction_id
+        sig { params(_: String).returns(String) }
+        def ledger_account_statement_id=(_)
+        end
+
+        sig { returns(T.nilable(String)) }
+        def ledger_transaction_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def ledger_transaction_id=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :per_page
+        def per_page
+        end
 
-        sig { params(per_page: Integer).void }
-        attr_writer :per_page
+        sig { params(_: Integer).returns(Integer) }
+        def per_page=(_)
+        end
 
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-        attr_reader :version
+        def version
+        end
 
-        sig { params(version: T::Hash[Symbol, Integer]).void }
-        attr_writer :version
+        sig { params(_: T::Hash[Symbol, Integer]).returns(T::Hash[Symbol, Integer]) }
+        def version=(_)
+        end
 
         sig do
           params(

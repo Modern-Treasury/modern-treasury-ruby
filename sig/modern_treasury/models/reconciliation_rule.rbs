@@ -27,7 +27,9 @@ module ModernTreasury
 
       attr_reader currency: ModernTreasury::Models::currency?
 
-      def currency=: (ModernTreasury::Models::currency) -> void
+      def currency=: (
+        ModernTreasury::Models::currency
+      ) -> ModernTreasury::Models::currency
 
       attr_accessor custom_identifiers: ::Hash[Symbol, String]?
 

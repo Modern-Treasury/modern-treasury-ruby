@@ -22,41 +22,41 @@ module ModernTreasury
 
       attr_reader id: String?
 
-      def id=: (String) -> void
+      def id=: (String) -> String
 
       attr_reader client_token: String?
 
-      def client_token=: (String) -> void
+      def client_token=: (String) -> String
 
       attr_reader created_at: Time?
 
-      def created_at=: (Time) -> void
+      def created_at=: (Time) -> Time
 
       attr_accessor external_account_id: String?
 
       attr_reader live_mode: bool?
 
-      def live_mode=: (bool) -> void
+      def live_mode=: (bool) -> bool
 
       attr_reader object: String?
 
-      def object=: (String) -> void
+      def object=: (String) -> String
 
       attr_reader receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]?
 
       def receiving_countries=: (
         ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
 
       attr_reader status: ModernTreasury::Models::AccountCollectionFlow::status?
 
       def status=: (
         ModernTreasury::Models::AccountCollectionFlow::status
-      ) -> void
+      ) -> ModernTreasury::Models::AccountCollectionFlow::status
 
       attr_reader updated_at: Time?
 
-      def updated_at=: (Time) -> void
+      def updated_at=: (Time) -> Time
 
       def initialize:
         (

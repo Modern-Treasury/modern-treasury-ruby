@@ -7,31 +7,68 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :contra_ledger_account_id
+      def contra_ledger_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def contra_ledger_account_id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :settled_ledger_account_id
+      def settled_ledger_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def settled_ledger_account_id=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :allow_either_direction
+      def allow_either_direction
+      end
+
+      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+      def allow_either_direction=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_accessor :effective_at_upper_bound
+      def effective_at_upper_bound
+      end
+
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+      def effective_at_upper_bound=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :skip_settlement_ledger_transaction
+      def skip_settlement_ledger_transaction
+      end
+
+      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+      def skip_settlement_ledger_transaction=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :status
+      def status
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def status=(_)
+      end
 
       sig do
         params(

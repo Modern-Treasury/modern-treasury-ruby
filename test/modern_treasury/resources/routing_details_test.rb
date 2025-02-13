@@ -47,6 +47,11 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
     assert_pattern do
       page => ModernTreasury::Page
     end
+
+    row = response.to_enum.first
+    assert_pattern do
+      row => ModernTreasury::Models::RoutingDetail
+    end
   end
 
   def test_delete_required_params

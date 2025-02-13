@@ -7,16 +7,28 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(Symbol) }
-      attr_accessor :itemizable_type
+      def itemizable_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def itemizable_type=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :itemizable_id
+      def itemizable_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def itemizable_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig do
         params(

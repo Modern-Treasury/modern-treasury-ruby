@@ -20,7 +20,7 @@ module ModernTreasury
 
       def account_number_type=: (
         ModernTreasury::Models::AccountDetailCreateParams::account_number_type
-      ) -> void
+      ) -> ModernTreasury::Models::AccountDetailCreateParams::account_number_type
 
       def initialize:
         (

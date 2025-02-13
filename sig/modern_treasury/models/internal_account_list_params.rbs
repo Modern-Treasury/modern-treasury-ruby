@@ -21,35 +21,37 @@ module ModernTreasury
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader currency: ModernTreasury::Models::currency?
 
-      def currency=: (ModernTreasury::Models::currency) -> void
+      def currency=: (
+        ModernTreasury::Models::currency
+      ) -> ModernTreasury::Models::currency
 
       attr_reader legal_entity_id: String?
 
-      def legal_entity_id=: (String) -> void
+      def legal_entity_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader payment_direction: ModernTreasury::Models::transaction_direction?
 
       def payment_direction=: (
         ModernTreasury::Models::transaction_direction
-      ) -> void
+      ) -> ModernTreasury::Models::transaction_direction
 
       attr_reader payment_type: ModernTreasury::Models::InternalAccountListParams::payment_type?
 
       def payment_type=: (
         ModernTreasury::Models::InternalAccountListParams::payment_type
-      ) -> void
+      ) -> ModernTreasury::Models::InternalAccountListParams::payment_type
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       def initialize:
         (

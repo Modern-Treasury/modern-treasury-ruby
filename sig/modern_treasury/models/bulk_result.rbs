@@ -115,15 +115,15 @@ module ModernTreasury
           class RequestError < ModernTreasury::BaseModel
             attr_reader code: String?
 
-            def code=: (String) -> void
+            def code=: (String) -> String
 
             attr_reader message: String?
 
-            def message=: (String) -> void
+            def message=: (String) -> String
 
             attr_reader parameter: String?
 
-            def parameter=: (String) -> void
+            def parameter=: (String) -> String
 
             def initialize:
               (code: String, message: String, parameter: String) -> void

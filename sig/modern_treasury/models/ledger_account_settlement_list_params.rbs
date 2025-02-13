@@ -21,41 +21,41 @@ module ModernTreasury
 
       attr_reader id: ::Array[String]?
 
-      def id=: (::Array[String]) -> void
+      def id=: (::Array[String]) -> ::Array[String]
 
       attr_accessor after_cursor: String?
 
       attr_reader created_at: ::Hash[Symbol, Time]?
 
-      def created_at=: (::Hash[Symbol, Time]) -> void
+      def created_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       attr_reader ledger_id: String?
 
-      def ledger_id=: (String) -> void
+      def ledger_id=: (String) -> String
 
       attr_reader ledger_transaction_id: String?
 
-      def ledger_transaction_id=: (String) -> void
+      def ledger_transaction_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader settled_ledger_account_id: String?
 
-      def settled_ledger_account_id=: (String) -> void
+      def settled_ledger_account_id=: (String) -> String
 
       attr_reader settlement_entry_direction: String?
 
-      def settlement_entry_direction=: (String) -> void
+      def settlement_entry_direction=: (String) -> String
 
       attr_reader updated_at: ::Hash[Symbol, Time]?
 
-      def updated_at=: (::Hash[Symbol, Time]) -> void
+      def updated_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       def initialize:
         (

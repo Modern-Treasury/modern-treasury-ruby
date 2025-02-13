@@ -7,37 +7,52 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_reader :email
+      def email
+      end
 
-      sig { params(email: String).void }
-      attr_writer :email
+      sig { params(_: String).returns(String) }
+      def email=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :legal_entity_id
+      def legal_entity_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def legal_entity_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :name
+      def name
+      end
 
-      sig { params(name: String).void }
-      attr_writer :name
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :send_remittance_advice
+      def send_remittance_advice
+      end
 
-      sig { params(send_remittance_advice: T::Boolean).void }
-      attr_writer :send_remittance_advice
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def send_remittance_advice=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :taxpayer_identifier
+      def taxpayer_identifier
+      end
 
-      sig { params(taxpayer_identifier: String).void }
-      attr_writer :taxpayer_identifier
+      sig { params(_: String).returns(String) }
+      def taxpayer_identifier=(_)
+      end
 
       sig do
         params(

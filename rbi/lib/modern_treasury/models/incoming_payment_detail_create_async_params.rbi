@@ -7,40 +7,68 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :amount
+      def amount
+      end
 
-      sig { params(amount: Integer).void }
-      attr_writer :amount
+      sig { params(_: Integer).returns(Integer) }
+      def amount=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_accessor :as_of_date
+      def as_of_date
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def as_of_date=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :direction
+      def direction
+      end
 
-      sig { params(direction: Symbol).void }
-      attr_writer :direction
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :internal_account_id
+      def internal_account_id
+      end
 
-      sig { params(internal_account_id: String).void }
-      attr_writer :internal_account_id
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :type
+      def type
+      end
 
-      sig { params(type: Symbol).void }
-      attr_writer :type
+      sig { params(_: Symbol).returns(Symbol) }
+      def type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :virtual_account_id
+      def virtual_account_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def virtual_account_id=(_)
+      end
 
       sig do
         params(

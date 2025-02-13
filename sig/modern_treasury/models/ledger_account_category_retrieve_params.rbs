@@ -14,7 +14,7 @@ module ModernTreasury
 
       def balances=: (
         ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances
 
       def initialize:
         (
@@ -33,11 +33,11 @@ module ModernTreasury
       class Balances < ModernTreasury::BaseModel
         attr_reader as_of_date: Date?
 
-        def as_of_date=: (Date) -> void
+        def as_of_date=: (Date) -> Date
 
         attr_reader effective_at: Time?
 
-        def effective_at=: (Time) -> void
+        def effective_at=: (Time) -> Time
 
         def initialize:
           (as_of_date: Date, effective_at: Time) -> void

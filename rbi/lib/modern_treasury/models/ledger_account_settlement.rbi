@@ -4,55 +4,140 @@ module ModernTreasury
   module Models
     class LedgerAccountSettlement < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+      def amount=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :contra_ledger_account_id
+      def contra_ledger_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def contra_ledger_account_id=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: String).returns(String) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :currency_exponent
+      def currency_exponent
+      end
+
+      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+      def currency_exponent=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :effective_at_upper_bound
+      def effective_at_upper_bound
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def effective_at_upper_bound=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :ledger_id
+      def ledger_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ledger_transaction_id
+      def ledger_transaction_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ledger_transaction_id=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T::Hash[Symbol, String]) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :settled_ledger_account_id
+      def settled_ledger_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def settled_ledger_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :settlement_entry_direction
+      def settlement_entry_direction
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def settlement_entry_direction=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :status
+      def status
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(

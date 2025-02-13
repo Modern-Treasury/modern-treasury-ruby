@@ -25,7 +25,7 @@ module ModernTreasury
 
       attr_reader id: ::Array[String]?
 
-      def id=: (::Array[String]) -> void
+      def id=: (::Array[String]) -> ::Array[String]
 
       attr_accessor after_cursor: String?
 
@@ -33,57 +33,57 @@ module ModernTreasury
 
       def available_balance_amount=: (
         ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount
 
       attr_reader balances: ModernTreasury::Models::LedgerAccountListParams::Balances?
 
       def balances=: (
         ModernTreasury::Models::LedgerAccountListParams::Balances
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerAccountListParams::Balances
 
       attr_reader created_at: ::Hash[Symbol, Time]?
 
-      def created_at=: (::Hash[Symbol, Time]) -> void
+      def created_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       attr_reader currency: String?
 
-      def currency=: (String) -> void
+      def currency=: (String) -> String
 
       attr_reader ledger_account_category_id: String?
 
-      def ledger_account_category_id=: (String) -> void
+      def ledger_account_category_id=: (String) -> String
 
       attr_reader ledger_id: String?
 
-      def ledger_id=: (String) -> void
+      def ledger_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader name: ::Array[String]?
 
-      def name=: (::Array[String]) -> void
+      def name=: (::Array[String]) -> ::Array[String]
 
       attr_reader pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount?
 
       def pending_balance_amount=: (
         ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount?
 
       def posted_balance_amount=: (
         ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount
 
       attr_reader updated_at: ::Hash[Symbol, Time]?
 
-      def updated_at=: (::Hash[Symbol, Time]) -> void
+      def updated_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       def initialize:
         (
@@ -123,27 +123,27 @@ module ModernTreasury
       class AvailableBalanceAmount < ModernTreasury::BaseModel
         attr_reader eq: Integer?
 
-        def eq=: (Integer) -> void
+        def eq=: (Integer) -> Integer
 
         attr_reader gt: Integer?
 
-        def gt=: (Integer) -> void
+        def gt=: (Integer) -> Integer
 
         attr_reader gte: Integer?
 
-        def gte=: (Integer) -> void
+        def gte=: (Integer) -> Integer
 
         attr_reader lt: Integer?
 
-        def lt=: (Integer) -> void
+        def lt=: (Integer) -> Integer
 
         attr_reader lte: Integer?
 
-        def lte=: (Integer) -> void
+        def lte=: (Integer) -> Integer
 
         attr_reader not_eq: Integer?
 
-        def not_eq=: (Integer) -> void
+        def not_eq=: (Integer) -> Integer
 
         def initialize:
           (
@@ -173,19 +173,19 @@ module ModernTreasury
       class Balances < ModernTreasury::BaseModel
         attr_reader as_of_date: Date?
 
-        def as_of_date=: (Date) -> void
+        def as_of_date=: (Date) -> Date
 
         attr_reader effective_at: Time?
 
-        def effective_at=: (Time) -> void
+        def effective_at=: (Time) -> Time
 
         attr_reader effective_at_lower_bound: Time?
 
-        def effective_at_lower_bound=: (Time) -> void
+        def effective_at_lower_bound=: (Time) -> Time
 
         attr_reader effective_at_upper_bound: Time?
 
-        def effective_at_upper_bound=: (Time) -> void
+        def effective_at_upper_bound=: (Time) -> Time
 
         def initialize:
           (
@@ -215,27 +215,27 @@ module ModernTreasury
       class PendingBalanceAmount < ModernTreasury::BaseModel
         attr_reader eq: Integer?
 
-        def eq=: (Integer) -> void
+        def eq=: (Integer) -> Integer
 
         attr_reader gt: Integer?
 
-        def gt=: (Integer) -> void
+        def gt=: (Integer) -> Integer
 
         attr_reader gte: Integer?
 
-        def gte=: (Integer) -> void
+        def gte=: (Integer) -> Integer
 
         attr_reader lt: Integer?
 
-        def lt=: (Integer) -> void
+        def lt=: (Integer) -> Integer
 
         attr_reader lte: Integer?
 
-        def lte=: (Integer) -> void
+        def lte=: (Integer) -> Integer
 
         attr_reader not_eq: Integer?
 
-        def not_eq=: (Integer) -> void
+        def not_eq=: (Integer) -> Integer
 
         def initialize:
           (
@@ -267,27 +267,27 @@ module ModernTreasury
       class PostedBalanceAmount < ModernTreasury::BaseModel
         attr_reader eq: Integer?
 
-        def eq=: (Integer) -> void
+        def eq=: (Integer) -> Integer
 
         attr_reader gt: Integer?
 
-        def gt=: (Integer) -> void
+        def gt=: (Integer) -> Integer
 
         attr_reader gte: Integer?
 
-        def gte=: (Integer) -> void
+        def gte=: (Integer) -> Integer
 
         attr_reader lt: Integer?
 
-        def lt=: (Integer) -> void
+        def lt=: (Integer) -> Integer
 
         attr_reader lte: Integer?
 
-        def lte=: (Integer) -> void
+        def lte=: (Integer) -> Integer
 
         attr_reader not_eq: Integer?
 
-        def not_eq=: (Integer) -> void
+        def not_eq=: (Integer) -> Integer
 
         def initialize:
           (

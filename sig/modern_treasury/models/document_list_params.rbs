@@ -17,17 +17,17 @@ module ModernTreasury
 
       attr_reader documentable_id: String?
 
-      def documentable_id=: (String) -> void
+      def documentable_id=: (String) -> String
 
       attr_reader documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type?
 
       def documentable_type=: (
         ModernTreasury::Models::DocumentListParams::documentable_type
-      ) -> void
+      ) -> ModernTreasury::Models::DocumentListParams::documentable_type
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       def initialize:
         (

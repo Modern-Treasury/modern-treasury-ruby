@@ -7,49 +7,68 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :created_at_lower_bound
+      def created_at_lower_bound
+      end
 
-      sig { params(created_at_lower_bound: Time).void }
-      attr_writer :created_at_lower_bound
+      sig { params(_: Time).returns(Time) }
+      def created_at_lower_bound=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :created_at_upper_bound
+      def created_at_upper_bound
+      end
 
-      sig { params(created_at_upper_bound: Time).void }
-      attr_writer :created_at_upper_bound
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :email
-
-      sig { params(email: String).void }
-      attr_writer :email
+      sig { params(_: Time).returns(Time) }
+      def created_at_upper_bound=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :legal_entity_id
+      def email
+      end
 
-      sig { params(legal_entity_id: String).void }
-      attr_writer :legal_entity_id
+      sig { params(_: String).returns(String) }
+      def email=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def legal_entity_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def legal_entity_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :name
+      def name
+      end
 
-      sig { params(name: String).void }
-      attr_writer :name
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig do
         params(

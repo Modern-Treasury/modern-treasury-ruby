@@ -33,11 +33,11 @@ module ModernTreasury
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader posted: bool?
 
-      def posted=: (bool) -> void
+      def posted=: (bool) -> bool
 
       attr_accessor type: ModernTreasury::Models::TransactionCreateParams::type_?
 

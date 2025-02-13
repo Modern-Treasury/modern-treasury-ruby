@@ -4,10 +4,22 @@ module ModernTreasury
   module Models
     class LedgerEventHandlerVariable < ModernTreasury::BaseModel
       sig { returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query) }
-      attr_accessor :query
+      def query
+      end
+
+      sig do
+        params(_: ModernTreasury::Models::LedgerEventHandlerVariable::Query).returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query)
+      end
+      def query=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :type
+      def type
+      end
+
+      sig { params(_: String).returns(String) }
+      def type=(_)
+      end
 
       sig { params(query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String).void }
       def initialize(query:, type:)
@@ -21,13 +33,28 @@ module ModernTreasury
 
       class Query < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :field
+        def field
+        end
+
+        sig { params(_: String).returns(String) }
+        def field=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :operator
+        def operator
+        end
+
+        sig { params(_: String).returns(String) }
+        def operator=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :value
+        def value
+        end
+
+        sig { params(_: String).returns(String) }
+        def value=(_)
+        end
 
         sig { params(field: String, operator: String, value: String).void }
         def initialize(field:, operator:, value:)

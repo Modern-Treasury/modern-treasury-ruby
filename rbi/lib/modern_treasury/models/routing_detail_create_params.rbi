@@ -7,16 +7,36 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(Symbol) }
-      attr_accessor :accounts_type
+      def accounts_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def accounts_type=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :routing_number
+      def routing_number
+      end
+
+      sig { params(_: String).returns(String) }
+      def routing_number=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :routing_number_type
+      def routing_number_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def routing_number_type=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :payment_type
+      def payment_type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def payment_type=(_)
+      end
 
       sig do
         params(

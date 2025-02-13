@@ -19,7 +19,7 @@ module ModernTreasury
 
       attr_reader amount: Integer?
 
-      def amount=: (Integer) -> void
+      def amount=: (Integer) -> Integer
 
       attr_accessor as_of_date: Date?
 
@@ -31,17 +31,17 @@ module ModernTreasury
 
       def direction=: (
         ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction
-      ) -> void
+      ) -> ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction
 
       attr_reader internal_account_id: String?
 
-      def internal_account_id=: (String) -> void
+      def internal_account_id=: (String) -> String
 
       attr_reader type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_?
 
       def type=: (
         ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_
-      ) -> void
+      ) -> ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_
 
       attr_accessor virtual_account_id: String?
 

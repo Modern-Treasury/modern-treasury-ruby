@@ -53,6 +53,11 @@ class ModernTreasury::Test::Resources::TransactionsTest < Minitest::Test
     assert_pattern do
       page => ModernTreasury::Page
     end
+
+    row = response.to_enum.first
+    assert_pattern do
+      row => ModernTreasury::Models::Transaction
+    end
   end
 
   def test_delete

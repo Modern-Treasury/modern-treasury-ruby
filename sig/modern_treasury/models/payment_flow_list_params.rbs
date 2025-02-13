@@ -21,31 +21,31 @@ module ModernTreasury
 
       attr_reader client_token: String?
 
-      def client_token=: (String) -> void
+      def client_token=: (String) -> String
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader originating_account_id: String?
 
-      def originating_account_id=: (String) -> void
+      def originating_account_id=: (String) -> String
 
       attr_reader payment_order_id: String?
 
-      def payment_order_id=: (String) -> void
+      def payment_order_id=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader receiving_account_id: String?
 
-      def receiving_account_id=: (String) -> void
+      def receiving_account_id=: (String) -> String
 
       attr_reader status: String?
 
-      def status=: (String) -> void
+      def status=: (String) -> String
 
       def initialize:
         (

@@ -7,28 +7,44 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :originating_account_id
+      def originating_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def originating_account_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :payment_type
+      def payment_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def payment_type=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :currency
+      def currency
+      end
 
-      sig { params(currency: Symbol).void }
-      attr_writer :currency
-
-      sig { returns(T.nilable(Symbol)) }
-      attr_reader :fallback_type
-
-      sig { params(fallback_type: Symbol).void }
-      attr_writer :fallback_type
+      sig { params(_: Symbol).returns(Symbol) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :priority
+      def fallback_type
+      end
 
-      sig { params(priority: Symbol).void }
-      attr_writer :priority
+      sig { params(_: Symbol).returns(Symbol) }
+      def fallback_type=(_)
+      end
+
+      sig { returns(T.nilable(Symbol)) }
+      def priority
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def priority=(_)
+      end
 
       sig do
         params(

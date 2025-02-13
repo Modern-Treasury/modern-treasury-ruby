@@ -4,37 +4,84 @@ module ModernTreasury
   module Models
     class ReconciliationRule < ModernTreasury::BaseModel
       sig { returns(Integer) }
-      attr_accessor :amount_lower_bound
+      def amount_lower_bound
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount_lower_bound=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :amount_upper_bound
+      def amount_upper_bound
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount_upper_bound=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :direction
+      def direction
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :internal_account_id
+      def internal_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :currency
+      def currency
+      end
 
-      sig { params(currency: Symbol).void }
-      attr_writer :currency
+      sig { params(_: Symbol).returns(Symbol) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_accessor :custom_identifiers
+      def custom_identifiers
+      end
+
+      sig { params(_: T.nilable(T::Hash[Symbol, String])).returns(T.nilable(T::Hash[Symbol, String])) }
+      def custom_identifiers=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_accessor :date_lower_bound
+      def date_lower_bound
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def date_lower_bound=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_accessor :date_upper_bound
+      def date_upper_bound
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def date_upper_bound=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :type
+      def type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def type=(_)
+      end
 
       sig do
         params(

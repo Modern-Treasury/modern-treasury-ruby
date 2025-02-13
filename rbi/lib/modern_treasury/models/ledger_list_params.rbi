@@ -7,31 +7,44 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(T::Array[String])) }
-      attr_reader :id
+      def id
+      end
 
-      sig { params(id: T::Array[String]).void }
-      attr_writer :id
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      attr_reader :updated_at
+      def updated_at
+      end
 
-      sig { params(updated_at: T::Hash[Symbol, Time]).void }
-      attr_writer :updated_at
+      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
+      def updated_at=(_)
+      end
 
       sig do
         params(

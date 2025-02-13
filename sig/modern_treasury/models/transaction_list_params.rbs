@@ -27,55 +27,55 @@ module ModernTreasury
 
       attr_reader as_of_date_end: Date?
 
-      def as_of_date_end=: (Date) -> void
+      def as_of_date_end=: (Date) -> Date
 
       attr_reader as_of_date_start: Date?
 
-      def as_of_date_start=: (Date) -> void
+      def as_of_date_start=: (Date) -> Date
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader description: String?
 
-      def description=: (String) -> void
+      def description=: (String) -> String
 
       attr_reader direction: String?
 
-      def direction=: (String) -> void
+      def direction=: (String) -> String
 
       attr_reader internal_account_id: String?
 
-      def internal_account_id=: (String) -> void
+      def internal_account_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader payment_type: String?
 
-      def payment_type=: (String) -> void
+      def payment_type=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader posted: bool?
 
-      def posted=: (bool) -> void
+      def posted=: (bool) -> bool
 
       attr_reader transactable_type: String?
 
-      def transactable_type=: (String) -> void
+      def transactable_type=: (String) -> String
 
       attr_reader vendor_id: String?
 
-      def vendor_id=: (String) -> void
+      def vendor_id=: (String) -> String
 
       attr_reader virtual_account_id: String?
 
-      def virtual_account_id=: (String) -> void
+      def virtual_account_id=: (String) -> String
 
       def initialize:
         (

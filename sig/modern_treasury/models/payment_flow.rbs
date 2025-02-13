@@ -26,35 +26,37 @@ module ModernTreasury
     class PaymentFlow < ModernTreasury::BaseModel
       attr_reader id: String?
 
-      def id=: (String) -> void
+      def id=: (String) -> String
 
       attr_reader amount: Integer?
 
-      def amount=: (Integer) -> void
+      def amount=: (Integer) -> Integer
 
       attr_reader client_token: String?
 
-      def client_token=: (String) -> void
+      def client_token=: (String) -> String
 
       attr_accessor counterparty_id: String?
 
       attr_reader created_at: Time?
 
-      def created_at=: (Time) -> void
+      def created_at=: (Time) -> Time
 
       attr_reader currency: String?
 
-      def currency=: (String) -> void
+      def currency=: (String) -> String
 
       attr_reader direction: ModernTreasury::Models::PaymentFlow::direction?
 
-      def direction=: (ModernTreasury::Models::PaymentFlow::direction) -> void
+      def direction=: (
+        ModernTreasury::Models::PaymentFlow::direction
+      ) -> ModernTreasury::Models::PaymentFlow::direction
 
       attr_accessor due_date: Date?
 
       attr_reader effective_date_selection_enabled: bool?
 
-      def effective_date_selection_enabled=: (bool) -> void
+      def effective_date_selection_enabled=: (bool) -> bool
 
       attr_accessor existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::existing_external_accounts_filter?
 
@@ -62,15 +64,15 @@ module ModernTreasury
 
       def external_account_collection=: (
         ModernTreasury::Models::PaymentFlow::external_account_collection
-      ) -> void
+      ) -> ModernTreasury::Models::PaymentFlow::external_account_collection
 
       attr_reader live_mode: bool?
 
-      def live_mode=: (bool) -> void
+      def live_mode=: (bool) -> bool
 
       attr_reader object: String?
 
-      def object=: (String) -> void
+      def object=: (String) -> String
 
       attr_accessor originating_account_id: String?
 
@@ -82,11 +84,13 @@ module ModernTreasury
 
       attr_reader status: ModernTreasury::Models::PaymentFlow::status?
 
-      def status=: (ModernTreasury::Models::PaymentFlow::status) -> void
+      def status=: (
+        ModernTreasury::Models::PaymentFlow::status
+      ) -> ModernTreasury::Models::PaymentFlow::status
 
       attr_reader updated_at: Time?
 
-      def updated_at=: (Time) -> void
+      def updated_at=: (Time) -> Time
 
       def initialize:
         (

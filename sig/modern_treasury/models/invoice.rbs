@@ -243,7 +243,7 @@ module ModernTreasury
 
         attr_reader line2: String?
 
-        def line2=: (String) -> void
+        def line2=: (String) -> String
 
         def initialize:
           (
@@ -285,7 +285,7 @@ module ModernTreasury
 
         attr_reader line2: String?
 
-        def line2=: (String) -> void
+        def line2=: (String) -> String
 
         def initialize:
           (
@@ -327,7 +327,7 @@ module ModernTreasury
 
         attr_reader line2: String?
 
-        def line2=: (String) -> void
+        def line2=: (String) -> String
 
         def initialize:
           (

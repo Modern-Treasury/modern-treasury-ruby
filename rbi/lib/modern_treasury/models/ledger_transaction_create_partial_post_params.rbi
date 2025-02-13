@@ -9,25 +9,38 @@ module ModernTreasury
       sig do
         returns(T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry])
       end
-      attr_accessor :posted_ledger_entries
+      def posted_ledger_entries
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]).returns(T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry])
+      end
+      def posted_ledger_entries=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :description
+      def description
+      end
 
-      sig { params(description: String).void }
-      attr_writer :description
+      sig { params(_: String).returns(String) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :effective_at
+      def effective_at
+      end
 
-      sig { params(effective_at: Time).void }
-      attr_writer :effective_at
+      sig { params(_: Time).returns(Time) }
+      def effective_at=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig do
         params(
@@ -64,19 +77,36 @@ module ModernTreasury
 
       class PostedLedgerEntry < ModernTreasury::BaseModel
         sig { returns(Integer) }
-        attr_accessor :amount
+        def amount
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def amount=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :direction
+        def direction
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def direction=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :ledger_account_id
+        def ledger_account_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def ledger_account_id=(_)
+        end
 
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        attr_reader :metadata
+        def metadata
+        end
 
-        sig { params(metadata: T::Hash[Symbol, String]).void }
-        attr_writer :metadata
+        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+        def metadata=(_)
+        end
 
         sig do
           params(

@@ -7,10 +7,12 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :show_balances
+      def show_balances
+      end
 
-      sig { params(show_balances: T::Boolean).void }
-      attr_writer :show_balances
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def show_balances=(_)
+      end
 
       sig do
         params(

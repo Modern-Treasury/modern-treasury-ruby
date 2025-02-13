@@ -91,29 +91,29 @@ module ModernTreasury
       class Account < ModernTreasury::BaseModel
         attr_reader id: String?
 
-        def id=: (String) -> void
+        def id=: (String) -> String
 
         attr_reader account_details: ::Array[ModernTreasury::Models::AccountDetail]?
 
         def account_details=: (
           ::Array[ModernTreasury::Models::AccountDetail]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::AccountDetail]
 
         attr_reader account_type: ModernTreasury::Models::external_account_type?
 
         def account_type=: (
           ModernTreasury::Models::external_account_type
-        ) -> void
+        ) -> ModernTreasury::Models::external_account_type
 
         attr_reader contact_details: ::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail]?
 
         def contact_details=: (
           ::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail]
 
         attr_reader created_at: Time?
 
-        def created_at=: (Time) -> void
+        def created_at=: (Time) -> Time
 
         attr_accessor discarded_at: Time?
 
@@ -121,23 +121,23 @@ module ModernTreasury
 
         attr_reader live_mode: bool?
 
-        def live_mode=: (bool) -> void
+        def live_mode=: (bool) -> bool
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         attr_accessor name: String?
 
         attr_reader object: String?
 
-        def object=: (String) -> void
+        def object=: (String) -> String
 
         attr_accessor party_address: ModernTreasury::Models::Counterparty::Account::PartyAddress?
 
         attr_reader party_name: String?
 
-        def party_name=: (String) -> void
+        def party_name=: (String) -> String
 
         attr_accessor party_type: ModernTreasury::Models::Counterparty::Account::party_type?
 
@@ -145,11 +145,11 @@ module ModernTreasury
 
         def routing_details=: (
           ::Array[ModernTreasury::Models::RoutingDetail]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::RoutingDetail]
 
         attr_reader updated_at: Time?
 
-        def updated_at=: (Time) -> void
+        def updated_at=: (Time) -> Time
 
         attr_accessor verification_source: ModernTreasury::Models::Counterparty::Account::verification_source?
 
@@ -157,7 +157,7 @@ module ModernTreasury
 
         def verification_status=: (
           ModernTreasury::Models::Counterparty::Account::verification_status
-        ) -> void
+        ) -> ModernTreasury::Models::Counterparty::Account::verification_status
 
         def initialize:
           (

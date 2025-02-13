@@ -4,43 +4,102 @@ module ModernTreasury
   module Models
     class ForeignExchangeQuote < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :effective_at
+      def effective_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def effective_at=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :expires_at
+      def expires_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def expires_at=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :foreign_exchange_indicator
+      def foreign_exchange_indicator
+      end
+
+      sig { params(_: String).returns(String) }
+      def foreign_exchange_indicator=(_)
+      end
 
       sig { returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate) }
-      attr_accessor :foreign_exchange_rate
+      def foreign_exchange_rate
+      end
+
+      sig do
+        params(_: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate).returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate)
+      end
+      def foreign_exchange_rate=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :internal_account_id
+      def internal_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T::Hash[Symbol, String]) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :vendor_id
+      def vendor_id
+      end
 
-      sig { params(vendor_id: String).void }
-      attr_writer :vendor_id
+      sig { params(_: String).returns(String) }
+      def vendor_id=(_)
+      end
 
       sig do
         params(
@@ -97,25 +156,60 @@ module ModernTreasury
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
         sig { returns(Integer) }
-        attr_accessor :base_amount
+        def base_amount
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def base_amount=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :base_currency
+        def base_currency
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def base_currency=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :exponent
+        def exponent
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def exponent=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :rate_string
+        def rate_string
+        end
+
+        sig { params(_: String).returns(String) }
+        def rate_string=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :target_amount
+        def target_amount
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def target_amount=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :target_currency
+        def target_currency
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def target_currency=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :value
+        def value
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def value=(_)
+        end
 
         sig do
           params(

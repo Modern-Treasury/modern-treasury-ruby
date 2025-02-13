@@ -7,49 +7,68 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :client_token
+      def client_token
+      end
 
-      sig { params(client_token: String).void }
-      attr_writer :client_token
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
-
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
+      sig { params(_: String).returns(String) }
+      def client_token=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :originating_account_id
+      def counterparty_id
+      end
 
-      sig { params(originating_account_id: String).void }
-      attr_writer :originating_account_id
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :payment_order_id
+      def originating_account_id
+      end
 
-      sig { params(payment_order_id: String).void }
-      attr_writer :payment_order_id
+      sig { params(_: String).returns(String) }
+      def originating_account_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def payment_order_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def payment_order_id=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :receiving_account_id
-
-      sig { params(receiving_account_id: String).void }
-      attr_writer :receiving_account_id
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :status
+      def receiving_account_id
+      end
 
-      sig { params(status: String).void }
-      attr_writer :status
+      sig { params(_: String).returns(String) }
+      def receiving_account_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def status
+      end
+
+      sig { params(_: String).returns(String) }
+      def status=(_)
+      end
 
       sig do
         params(

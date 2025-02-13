@@ -7,91 +7,124 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(T::Array[String])) }
-      attr_reader :id
+      def id
+      end
 
-      sig { params(id: T::Array[String]).void }
-      attr_writer :id
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)) }
-      attr_reader :available_balance_amount
+      def available_balance_amount
+      end
 
       sig do
-        params(available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount).void
+        params(_: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount).returns(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)
       end
-      attr_writer :available_balance_amount
+      def available_balance_amount=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::Balances)) }
-      attr_reader :balances
+      def balances
+      end
 
-      sig { params(balances: ModernTreasury::Models::LedgerAccountListParams::Balances).void }
-      attr_writer :balances
+      sig do
+        params(_: ModernTreasury::Models::LedgerAccountListParams::Balances).returns(ModernTreasury::Models::LedgerAccountListParams::Balances)
+      end
+      def balances=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      attr_reader :created_at
+      def created_at
+      end
 
-      sig { params(created_at: T::Hash[Symbol, Time]).void }
-      attr_writer :created_at
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :currency
-
-      sig { params(currency: String).void }
-      attr_writer :currency
+      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
+      def created_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_account_category_id
+      def currency
+      end
 
-      sig { params(ledger_account_category_id: String).void }
-      attr_writer :ledger_account_category_id
+      sig { params(_: String).returns(String) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_id
+      def ledger_account_category_id
+      end
 
-      sig { params(ledger_id: String).void }
-      attr_writer :ledger_id
+      sig { params(_: String).returns(String) }
+      def ledger_account_category_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def ledger_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(T::Array[String])) }
-      attr_reader :name
+      def name
+      end
 
-      sig { params(name: T::Array[String]).void }
-      attr_writer :name
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def name=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)) }
-      attr_reader :pending_balance_amount
+      def pending_balance_amount
+      end
 
       sig do
-        params(pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount).void
+        params(_: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount).returns(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)
       end
-      attr_writer :pending_balance_amount
+      def pending_balance_amount=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)) }
-      attr_reader :posted_balance_amount
+      def posted_balance_amount
+      end
 
       sig do
-        params(posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount).void
+        params(_: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount).returns(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)
       end
-      attr_writer :posted_balance_amount
+      def posted_balance_amount=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      attr_reader :updated_at
+      def updated_at
+      end
 
-      sig { params(updated_at: T::Hash[Symbol, Time]).void }
-      attr_writer :updated_at
+      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
+      def updated_at=(_)
+      end
 
       sig do
         params(
@@ -157,40 +190,52 @@ module ModernTreasury
 
       class AvailableBalanceAmount < ModernTreasury::BaseModel
         sig { returns(T.nilable(Integer)) }
-        attr_reader :eq
+        def eq
+        end
 
-        sig { params(eq: Integer).void }
-        attr_writer :eq
-
-        sig { returns(T.nilable(Integer)) }
-        attr_reader :gt
-
-        sig { params(gt: Integer).void }
-        attr_writer :gt
+        sig { params(_: Integer).returns(Integer) }
+        def eq=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :gte
+        def gt
+        end
 
-        sig { params(gte: Integer).void }
-        attr_writer :gte
-
-        sig { returns(T.nilable(Integer)) }
-        attr_reader :lt
-
-        sig { params(lt: Integer).void }
-        attr_writer :lt
+        sig { params(_: Integer).returns(Integer) }
+        def gt=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :lte
+        def gte
+        end
 
-        sig { params(lte: Integer).void }
-        attr_writer :lte
+        sig { params(_: Integer).returns(Integer) }
+        def gte=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :not_eq
+        def lt
+        end
 
-        sig { params(not_eq: Integer).void }
-        attr_writer :not_eq
+        sig { params(_: Integer).returns(Integer) }
+        def lt=(_)
+        end
+
+        sig { returns(T.nilable(Integer)) }
+        def lte
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def lte=(_)
+        end
+
+        sig { returns(T.nilable(Integer)) }
+        def not_eq
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def not_eq=(_)
+        end
 
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void
@@ -216,28 +261,36 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Date)) }
-        attr_reader :as_of_date
+        def as_of_date
+        end
 
-        sig { params(as_of_date: Date).void }
-        attr_writer :as_of_date
-
-        sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at
-
-        sig { params(effective_at: Time).void }
-        attr_writer :effective_at
+        sig { params(_: Date).returns(Date) }
+        def as_of_date=(_)
+        end
 
         sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at_lower_bound
+        def effective_at
+        end
 
-        sig { params(effective_at_lower_bound: Time).void }
-        attr_writer :effective_at_lower_bound
+        sig { params(_: Time).returns(Time) }
+        def effective_at=(_)
+        end
 
         sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at_upper_bound
+        def effective_at_lower_bound
+        end
 
-        sig { params(effective_at_upper_bound: Time).void }
-        attr_writer :effective_at_upper_bound
+        sig { params(_: Time).returns(Time) }
+        def effective_at_lower_bound=(_)
+        end
+
+        sig { returns(T.nilable(Time)) }
+        def effective_at_upper_bound
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def effective_at_upper_bound=(_)
+        end
 
         sig do
           params(
@@ -271,40 +324,52 @@ module ModernTreasury
 
       class PendingBalanceAmount < ModernTreasury::BaseModel
         sig { returns(T.nilable(Integer)) }
-        attr_reader :eq
+        def eq
+        end
 
-        sig { params(eq: Integer).void }
-        attr_writer :eq
-
-        sig { returns(T.nilable(Integer)) }
-        attr_reader :gt
-
-        sig { params(gt: Integer).void }
-        attr_writer :gt
+        sig { params(_: Integer).returns(Integer) }
+        def eq=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :gte
+        def gt
+        end
 
-        sig { params(gte: Integer).void }
-        attr_writer :gte
-
-        sig { returns(T.nilable(Integer)) }
-        attr_reader :lt
-
-        sig { params(lt: Integer).void }
-        attr_writer :lt
+        sig { params(_: Integer).returns(Integer) }
+        def gt=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :lte
+        def gte
+        end
 
-        sig { params(lte: Integer).void }
-        attr_writer :lte
+        sig { params(_: Integer).returns(Integer) }
+        def gte=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :not_eq
+        def lt
+        end
 
-        sig { params(not_eq: Integer).void }
-        attr_writer :not_eq
+        sig { params(_: Integer).returns(Integer) }
+        def lt=(_)
+        end
+
+        sig { returns(T.nilable(Integer)) }
+        def lte
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def lte=(_)
+        end
+
+        sig { returns(T.nilable(Integer)) }
+        def not_eq
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def not_eq=(_)
+        end
 
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void
@@ -330,40 +395,52 @@ module ModernTreasury
 
       class PostedBalanceAmount < ModernTreasury::BaseModel
         sig { returns(T.nilable(Integer)) }
-        attr_reader :eq
+        def eq
+        end
 
-        sig { params(eq: Integer).void }
-        attr_writer :eq
-
-        sig { returns(T.nilable(Integer)) }
-        attr_reader :gt
-
-        sig { params(gt: Integer).void }
-        attr_writer :gt
+        sig { params(_: Integer).returns(Integer) }
+        def eq=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :gte
+        def gt
+        end
 
-        sig { params(gte: Integer).void }
-        attr_writer :gte
-
-        sig { returns(T.nilable(Integer)) }
-        attr_reader :lt
-
-        sig { params(lt: Integer).void }
-        attr_writer :lt
+        sig { params(_: Integer).returns(Integer) }
+        def gt=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :lte
+        def gte
+        end
 
-        sig { params(lte: Integer).void }
-        attr_writer :lte
+        sig { params(_: Integer).returns(Integer) }
+        def gte=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :not_eq
+        def lt
+        end
 
-        sig { params(not_eq: Integer).void }
-        attr_writer :not_eq
+        sig { params(_: Integer).returns(Integer) }
+        def lt=(_)
+        end
+
+        sig { returns(T.nilable(Integer)) }
+        def lte
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def lte=(_)
+        end
+
+        sig { returns(T.nilable(Integer)) }
+        def not_eq
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def not_eq=(_)
+        end
 
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void

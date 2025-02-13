@@ -7,97 +7,210 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(Symbol) }
-      attr_accessor :legal_entity_type
+      def legal_entity_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def legal_entity_type=(_)
+      end
 
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::Address])) }
-      attr_reader :addresses
-
-      sig { params(addresses: T::Array[ModernTreasury::Models::LegalEntityCreateParams::Address]).void }
-      attr_writer :addresses
-
-      sig { returns(T.nilable(ModernTreasury::Models::BankSettings)) }
-      attr_accessor :bank_settings
-
-      sig { returns(T.nilable(String)) }
-      attr_accessor :business_name
-
-      sig { returns(T.nilable(String)) }
-      attr_accessor :citizenship_country
-
-      sig { returns(T.nilable(Date)) }
-      attr_accessor :date_formed
-
-      sig { returns(T.nilable(Date)) }
-      attr_accessor :date_of_birth
-
-      sig { returns(T.nilable(T::Array[String])) }
-      attr_reader :doing_business_as_names
-
-      sig { params(doing_business_as_names: T::Array[String]).void }
-      attr_writer :doing_business_as_names
-
-      sig { returns(T.nilable(String)) }
-      attr_accessor :email
-
-      sig { returns(T.nilable(String)) }
-      attr_accessor :first_name
-
-      sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification])) }
-      attr_reader :identifications
+      def addresses
+      end
 
       sig do
-        params(identifications: T::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification]).void
+        params(_: T::Array[ModernTreasury::Models::LegalEntityCreateParams::Address]).returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::Address])
       end
-      attr_writer :identifications
+      def addresses=(_)
+      end
+
+      sig { returns(T.nilable(ModernTreasury::Models::BankSettings)) }
+      def bank_settings
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::BankSettings)).returns(T.nilable(ModernTreasury::Models::BankSettings))
+      end
+      def bank_settings=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :last_name
+      def business_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def business_name=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def citizenship_country
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def citizenship_country=(_)
+      end
+
+      sig { returns(T.nilable(Date)) }
+      def date_formed
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def date_formed=(_)
+      end
+
+      sig { returns(T.nilable(Date)) }
+      def date_of_birth
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def date_of_birth=(_)
+      end
+
+      sig { returns(T.nilable(T::Array[String])) }
+      def doing_business_as_names
+      end
+
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def doing_business_as_names=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def email
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def email=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def first_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def first_name=(_)
+      end
+
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification])) }
+      def identifications
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification]).returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification])
+      end
+      def identifications=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def last_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def last_name=(_)
+      end
 
       sig do
         returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation]))
       end
-      attr_accessor :legal_entity_associations
-
-      sig { returns(T.nilable(Symbol)) }
-      attr_accessor :legal_structure
-
-      sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
-
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
-
-      sig { returns(T.nilable(String)) }
-      attr_accessor :middle_name
-
-      sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber])) }
-      attr_reader :phone_numbers
+      def legal_entity_associations
+      end
 
       sig do
-        params(phone_numbers: T::Array[ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber]).void
+        params(_: T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation])).returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation]))
       end
-      attr_writer :phone_numbers
-
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :politically_exposed_person
-
-      sig { returns(T.nilable(String)) }
-      attr_accessor :preferred_name
-
-      sig { returns(T.nilable(String)) }
-      attr_accessor :prefix
+      def legal_entity_associations=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :risk_rating
+      def legal_structure
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def legal_structure=(_)
+      end
+
+      sig { returns(T.nilable(T::Hash[Symbol, String])) }
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :suffix
+      def middle_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def middle_name=(_)
+      end
+
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber])) }
+      def phone_numbers
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber]).returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber])
+      end
+      def phone_numbers=(_)
+      end
+
+      sig { returns(T.nilable(T::Boolean)) }
+      def politically_exposed_person
+      end
+
+      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+      def politically_exposed_person=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def preferred_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def preferred_name=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def prefix
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def prefix=(_)
+      end
+
+      sig { returns(T.nilable(Symbol)) }
+      def risk_rating
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def risk_rating=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def suffix
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def suffix=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)) }
-      attr_accessor :wealth_and_employment_details
+      def wealth_and_employment_details
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)).returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+      end
+      def wealth_and_employment_details=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :website
+      def website
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def website=(_)
+      end
 
       sig do
         params(
@@ -204,28 +317,60 @@ module ModernTreasury
 
       class Address < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def country=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :line1
+        def line1
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def line1=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :locality
+        def locality
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def locality=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :postal_code
+        def postal_code
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def postal_code=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :region
+        def region
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def region=(_)
+        end
 
         sig { returns(T.nilable(T::Array[Symbol])) }
-        attr_reader :address_types
+        def address_types
+        end
 
-        sig { params(address_types: T::Array[Symbol]).void }
-        attr_writer :address_types
+        sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+        def address_types=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :line2
+        def line2
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def line2=(_)
+        end
 
         sig do
           params(
@@ -274,13 +419,28 @@ module ModernTreasury
 
       class Identification < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :id_number
+        def id_number
+        end
+
+        sig { params(_: String).returns(String) }
+        def id_number=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :id_type
+        def id_type
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def id_type=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :issuing_country
+        def issuing_country
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def issuing_country=(_)
+        end
 
         sig { params(id_number: String, id_type: Symbol, issuing_country: T.nilable(String)).void }
         def initialize(id_number:, id_type:, issuing_country: nil)
@@ -323,31 +483,48 @@ module ModernTreasury
 
       class LegalEntityAssociation < ModernTreasury::BaseModel
         sig { returns(T::Array[Symbol]) }
-        attr_accessor :relationship_types
+        def relationship_types
+        end
+
+        sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+        def relationship_types=(_)
+        end
 
         sig do
           returns(T.nilable(ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity))
         end
-        attr_reader :child_legal_entity
+        def child_legal_entity
+        end
 
         sig do
-          params(
-            child_legal_entity: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity
-          ).void
+          params(_: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity).returns(ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity)
         end
-        attr_writer :child_legal_entity
+        def child_legal_entity=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :child_legal_entity_id
+        def child_legal_entity_id
+        end
 
-        sig { params(child_legal_entity_id: String).void }
-        attr_writer :child_legal_entity_id
+        sig { params(_: String).returns(String) }
+        def child_legal_entity_id=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_accessor :ownership_percentage
+        def ownership_percentage
+        end
+
+        sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+        def ownership_percentage=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :title
+        def title
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def title=(_)
+        end
 
         sig do
           params(
@@ -396,107 +573,208 @@ module ModernTreasury
           sig do
             returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address]))
           end
-          attr_reader :addresses
+          def addresses
+          end
 
           sig do
             params(
-              addresses: T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address]
-            ).void
+              _: T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address]
+            ).returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address])
           end
-          attr_writer :addresses
+          def addresses=(_)
+          end
 
           sig { returns(T.nilable(ModernTreasury::Models::BankSettings)) }
-          attr_accessor :bank_settings
+          def bank_settings
+          end
+
+          sig do
+            params(_: T.nilable(ModernTreasury::Models::BankSettings)).returns(T.nilable(ModernTreasury::Models::BankSettings))
+          end
+          def bank_settings=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :business_name
+          def business_name
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def business_name=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :citizenship_country
+          def citizenship_country
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def citizenship_country=(_)
+          end
 
           sig { returns(T.nilable(Date)) }
-          attr_accessor :date_formed
+          def date_formed
+          end
+
+          sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+          def date_formed=(_)
+          end
 
           sig { returns(T.nilable(Date)) }
-          attr_accessor :date_of_birth
+          def date_of_birth
+          end
+
+          sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+          def date_of_birth=(_)
+          end
 
           sig { returns(T.nilable(T::Array[String])) }
-          attr_reader :doing_business_as_names
+          def doing_business_as_names
+          end
 
-          sig { params(doing_business_as_names: T::Array[String]).void }
-          attr_writer :doing_business_as_names
+          sig { params(_: T::Array[String]).returns(T::Array[String]) }
+          def doing_business_as_names=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :email
+          def email
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def email=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :first_name
+          def first_name
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def first_name=(_)
+          end
 
           sig do
             returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification]))
           end
-          attr_reader :identifications
+          def identifications
+          end
 
           sig do
             params(
-              identifications: T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification]
-            ).void
+              _: T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification]
+            ).returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification])
           end
-          attr_writer :identifications
+          def identifications=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :last_name
+          def last_name
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def last_name=(_)
+          end
 
           sig { returns(T.nilable(Symbol)) }
-          attr_reader :legal_entity_type
+          def legal_entity_type
+          end
 
-          sig { params(legal_entity_type: Symbol).void }
-          attr_writer :legal_entity_type
+          sig { params(_: Symbol).returns(Symbol) }
+          def legal_entity_type=(_)
+          end
 
           sig { returns(T.nilable(Symbol)) }
-          attr_accessor :legal_structure
+          def legal_structure
+          end
+
+          sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+          def legal_structure=(_)
+          end
 
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
-          attr_reader :metadata
+          def metadata
+          end
 
-          sig { params(metadata: T::Hash[Symbol, String]).void }
-          attr_writer :metadata
+          sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+          def metadata=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :middle_name
+          def middle_name
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def middle_name=(_)
+          end
 
           sig do
             returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]))
           end
-          attr_reader :phone_numbers
+          def phone_numbers
+          end
 
           sig do
             params(
-              phone_numbers: T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
-            ).void
+              _: T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
+            ).returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::PhoneNumber])
           end
-          attr_writer :phone_numbers
+          def phone_numbers=(_)
+          end
 
           sig { returns(T.nilable(T::Boolean)) }
-          attr_accessor :politically_exposed_person
+          def politically_exposed_person
+          end
+
+          sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+          def politically_exposed_person=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :preferred_name
+          def preferred_name
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def preferred_name=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :prefix
+          def prefix
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def prefix=(_)
+          end
 
           sig { returns(T.nilable(Symbol)) }
-          attr_accessor :risk_rating
+          def risk_rating
+          end
+
+          sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+          def risk_rating=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :suffix
+          def suffix
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def suffix=(_)
+          end
 
           sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)) }
-          attr_accessor :wealth_and_employment_details
+          def wealth_and_employment_details
+          end
+
+          sig do
+            params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)).returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+          end
+          def wealth_and_employment_details=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :website
+          def website
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def website=(_)
+          end
 
           sig do
             params(
@@ -587,28 +865,60 @@ module ModernTreasury
 
           class Address < ModernTreasury::BaseModel
             sig { returns(T.nilable(String)) }
-            attr_accessor :country
+            def country
+            end
+
+            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+            def country=(_)
+            end
 
             sig { returns(T.nilable(String)) }
-            attr_accessor :line1
+            def line1
+            end
+
+            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+            def line1=(_)
+            end
 
             sig { returns(T.nilable(String)) }
-            attr_accessor :locality
+            def locality
+            end
+
+            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+            def locality=(_)
+            end
 
             sig { returns(T.nilable(String)) }
-            attr_accessor :postal_code
+            def postal_code
+            end
+
+            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+            def postal_code=(_)
+            end
 
             sig { returns(T.nilable(String)) }
-            attr_accessor :region
+            def region
+            end
+
+            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+            def region=(_)
+            end
 
             sig { returns(T.nilable(T::Array[Symbol])) }
-            attr_reader :address_types
+            def address_types
+            end
 
-            sig { params(address_types: T::Array[Symbol]).void }
-            attr_writer :address_types
+            sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+            def address_types=(_)
+            end
 
             sig { returns(T.nilable(String)) }
-            attr_accessor :line2
+            def line2
+            end
+
+            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+            def line2=(_)
+            end
 
             sig do
               params(
@@ -657,13 +967,28 @@ module ModernTreasury
 
           class Identification < ModernTreasury::BaseModel
             sig { returns(String) }
-            attr_accessor :id_number
+            def id_number
+            end
+
+            sig { params(_: String).returns(String) }
+            def id_number=(_)
+            end
 
             sig { returns(Symbol) }
-            attr_accessor :id_type
+            def id_type
+            end
+
+            sig { params(_: Symbol).returns(Symbol) }
+            def id_type=(_)
+            end
 
             sig { returns(T.nilable(String)) }
-            attr_accessor :issuing_country
+            def issuing_country
+            end
+
+            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+            def issuing_country=(_)
+            end
 
             sig { params(id_number: String, id_type: Symbol, issuing_country: T.nilable(String)).void }
             def initialize(id_number:, id_type:, issuing_country: nil)
@@ -732,10 +1057,12 @@ module ModernTreasury
 
           class PhoneNumber < ModernTreasury::BaseModel
             sig { returns(T.nilable(String)) }
-            attr_reader :phone_number
+            def phone_number
+            end
 
-            sig { params(phone_number: String).void }
-            attr_writer :phone_number
+            sig { params(_: String).returns(String) }
+            def phone_number=(_)
+            end
 
             sig { params(phone_number: String).void }
             def initialize(phone_number: nil)
@@ -777,10 +1104,12 @@ module ModernTreasury
 
       class PhoneNumber < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_reader :phone_number
+        def phone_number
+        end
 
-        sig { params(phone_number: String).void }
-        attr_writer :phone_number
+        sig { params(_: String).returns(String) }
+        def phone_number=(_)
+        end
 
         sig { params(phone_number: String).void }
         def initialize(phone_number: nil)

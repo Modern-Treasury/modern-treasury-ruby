@@ -4,34 +4,84 @@ module ModernTreasury
   module Models
     class Event < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(T::Hash[Symbol, T.anything]) }
-      attr_accessor :data
+      def data
+      end
+
+      sig { params(_: T::Hash[Symbol, T.anything]).returns(T::Hash[Symbol, T.anything]) }
+      def data=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :entity_id
+      def entity_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def entity_id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :event_name
+      def event_name
+      end
+
+      sig { params(_: String).returns(String) }
+      def event_name=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :event_time
+      def event_time
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def event_time=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :resource
+      def resource
+      end
+
+      sig { params(_: String).returns(String) }
+      def resource=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(
