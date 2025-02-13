@@ -18,21 +18,21 @@ module ModernTreasury
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader reference_number: String?
 
-      def reference_number=: (String) -> void
+      def reference_number=: (String) -> String
 
       attr_reader referenceable_id: String?
 
-      def referenceable_id=: (String) -> void
+      def referenceable_id=: (String) -> String
 
       attr_reader referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type?
 
       def referenceable_type=: (
         ModernTreasury::Models::PaymentReferenceListParams::referenceable_type
-      ) -> void
+      ) -> ModernTreasury::Models::PaymentReferenceListParams::referenceable_type
 
       def initialize:
         (

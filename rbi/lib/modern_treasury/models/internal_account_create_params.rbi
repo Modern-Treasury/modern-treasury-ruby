@@ -7,46 +7,78 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :connection_id
+      def connection_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def connection_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def currency=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :party_name
+      def party_name
+      end
+
+      sig { params(_: String).returns(String) }
+      def party_name=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
+      def counterparty_id
+      end
 
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :legal_entity_id
-
-      sig { params(legal_entity_id: String).void }
-      attr_writer :legal_entity_id
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :parent_account_id
+      def legal_entity_id
+      end
 
-      sig { params(parent_account_id: String).void }
-      attr_writer :parent_account_id
+      sig { params(_: String).returns(String) }
+      def legal_entity_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def parent_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def parent_account_id=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)) }
-      attr_reader :party_address
+      def party_address
+      end
 
-      sig { params(party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress).void }
-      attr_writer :party_address
+      sig do
+        params(_: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress).returns(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)
+      end
+      def party_address=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :vendor_attributes
+      def vendor_attributes
+      end
 
-      sig { params(vendor_attributes: T::Hash[Symbol, String]).void }
-      attr_writer :vendor_attributes
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def vendor_attributes=(_)
+      end
 
       sig do
         params(
@@ -108,25 +140,52 @@ module ModernTreasury
 
       class PartyAddress < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: String).returns(String) }
+        def country=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :line1
+        def line1
+        end
+
+        sig { params(_: String).returns(String) }
+        def line1=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :locality
+        def locality
+        end
+
+        sig { params(_: String).returns(String) }
+        def locality=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :postal_code
+        def postal_code
+        end
+
+        sig { params(_: String).returns(String) }
+        def postal_code=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :region
+        def region
+        end
+
+        sig { params(_: String).returns(String) }
+        def region=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :line2
+        def line2
+        end
 
-        sig { params(line2: String).void }
-        attr_writer :line2
+        sig { params(_: String).returns(String) }
+        def line2=(_)
+        end
 
         sig do
           params(

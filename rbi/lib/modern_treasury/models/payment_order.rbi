@@ -4,124 +4,334 @@ module ModernTreasury
   module Models
     class PaymentOrder < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(ModernTreasury::Models::PaymentOrder::Accounting) }
-      attr_accessor :accounting
+      def accounting
+      end
+
+      sig do
+        params(_: ModernTreasury::Models::PaymentOrder::Accounting).returns(ModernTreasury::Models::PaymentOrder::Accounting)
+      end
+      def accounting=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :accounting_category_id
+      def accounting_category_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def accounting_category_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :accounting_ledger_class_id
+      def accounting_ledger_class_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def accounting_ledger_class_id=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :charge_bearer
+      def charge_bearer
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def charge_bearer=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      attr_accessor :compliance_rule_metadata
+      def compliance_rule_metadata
+      end
+
+      sig do
+        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
+      end
+      def compliance_rule_metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::ReturnObject)) }
-      attr_accessor :current_return
+      def current_return
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ReturnObject)).returns(T.nilable(ModernTreasury::Models::ReturnObject))
+      end
+      def current_return=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :decision_id
+      def decision_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def decision_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :direction
+      def direction
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(Date) }
-      attr_accessor :effective_date
+      def effective_date
+      end
+
+      sig { params(_: Date).returns(Date) }
+      def effective_date=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_accessor :expires_at
+      def expires_at
+      end
+
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+      def expires_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :foreign_exchange_contract
+      def foreign_exchange_contract
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def foreign_exchange_contract=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :foreign_exchange_indicator
+      def foreign_exchange_indicator
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def foreign_exchange_indicator=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate)) }
-      attr_accessor :foreign_exchange_rate
+      def foreign_exchange_rate
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate)).returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate))
+      end
+      def foreign_exchange_rate=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ledger_transaction_id
+      def ledger_transaction_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ledger_transaction_id=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T::Hash[Symbol, String]) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :nsf_protected
+      def nsf_protected
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def nsf_protected=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :originating_account_id
+      def originating_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def originating_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :originating_party_name
+      def originating_party_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def originating_party_name=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :priority
+      def priority
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def priority=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_accessor :process_after
+      def process_after
+      end
+
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+      def process_after=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :purpose
+      def purpose
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def purpose=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :receiving_account_id
+      def receiving_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def receiving_account_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :receiving_account_type
+      def receiving_account_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def receiving_account_type=(_)
+      end
 
       sig { returns(T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber]) }
-      attr_accessor :reference_numbers
+      def reference_numbers
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber]).returns(T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber])
+      end
+      def reference_numbers=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :remittance_information
+      def remittance_information
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def remittance_information=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :send_remittance_advice
+      def send_remittance_advice
+      end
+
+      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+      def send_remittance_advice=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :statement_descriptor
+      def statement_descriptor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def statement_descriptor=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :status
+      def status
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :subtype
+      def subtype
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def subtype=(_)
+      end
 
       sig { returns(T::Array[String]) }
-      attr_accessor :transaction_ids
+      def transaction_ids
+      end
+
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def transaction_ids=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :transaction_monitoring_enabled
+      def transaction_monitoring_enabled
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def transaction_monitoring_enabled=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :type
+      def type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def type=(_)
+      end
 
       sig do
         returns(
@@ -133,34 +343,93 @@ module ModernTreasury
           )
         )
       end
-      attr_accessor :ultimate_originating_account
+      def ultimate_originating_account
+      end
+
+      sig do
+        params(
+          _: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount))
+        ).returns(T.nilable(
+                    T.any(
+                      ModernTreasury::Models::VirtualAccount,
+                      ModernTreasury::Models::InternalAccount
+                    )
+                  ))
+      end
+      def ultimate_originating_account=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ultimate_originating_account_id
+      def ultimate_originating_account_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ultimate_originating_account_id=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :ultimate_originating_account_type
+      def ultimate_originating_account_type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def ultimate_originating_account_type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ultimate_originating_party_identifier
+      def ultimate_originating_party_identifier
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ultimate_originating_party_identifier=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ultimate_originating_party_name
+      def ultimate_originating_party_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ultimate_originating_party_name=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ultimate_receiving_party_identifier
+      def ultimate_receiving_party_identifier
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ultimate_receiving_party_identifier=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ultimate_receiving_party_name
+      def ultimate_receiving_party_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ultimate_receiving_party_name=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig { returns(T.nilable(T.anything)) }
-      attr_accessor :vendor_attributes
+      def vendor_attributes
+      end
+
+      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
+      def vendor_attributes=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :vendor_failure_reason
+      def vendor_failure_reason
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def vendor_failure_reason=(_)
+      end
 
       sig do
         params(
@@ -341,10 +610,20 @@ module ModernTreasury
 
       class Accounting < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_accessor :account_id
+        def account_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def account_id=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :class_id
+        def class_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def class_id=(_)
+        end
 
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
         def initialize(account_id: nil, class_id: nil)
@@ -391,25 +670,60 @@ module ModernTreasury
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
         sig { returns(Integer) }
-        attr_accessor :base_amount
+        def base_amount
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def base_amount=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :base_currency
+        def base_currency
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def base_currency=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :exponent
+        def exponent
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def exponent=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :rate_string
+        def rate_string
+        end
+
+        sig { params(_: String).returns(String) }
+        def rate_string=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :target_amount
+        def target_amount
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def target_amount=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :target_currency
+        def target_currency
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def target_currency=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :value
+        def value
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def value=(_)
+        end
 
         sig do
           params(
@@ -474,25 +788,60 @@ module ModernTreasury
 
       class ReferenceNumber < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :created_at
+        def created_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def created_at=(_)
+        end
 
         sig { returns(T::Boolean) }
-        attr_accessor :live_mode
+        def live_mode
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def live_mode=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :object
+        def object
+        end
+
+        sig { params(_: String).returns(String) }
+        def object=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :reference_number
+        def reference_number
+        end
+
+        sig { params(_: String).returns(String) }
+        def reference_number=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :reference_number_type
+        def reference_number_type
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def reference_number_type=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :updated_at
+        def updated_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def updated_at=(_)
+        end
 
         sig do
           params(

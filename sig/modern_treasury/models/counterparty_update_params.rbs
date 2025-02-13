@@ -17,25 +17,25 @@ module ModernTreasury
 
       attr_reader email: String?
 
-      def email=: (String) -> void
+      def email=: (String) -> String
 
       attr_accessor legal_entity_id: String?
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader name: String?
 
-      def name=: (String) -> void
+      def name=: (String) -> String
 
       attr_reader send_remittance_advice: bool?
 
-      def send_remittance_advice=: (bool) -> void
+      def send_remittance_advice=: (bool) -> bool
 
       attr_reader taxpayer_identifier: String?
 
-      def taxpayer_identifier=: (String) -> void
+      def taxpayer_identifier=: (String) -> String
 
       def initialize:
         (

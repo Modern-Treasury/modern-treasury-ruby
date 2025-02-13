@@ -7,43 +7,60 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :entity_id
+      def entity_id
+      end
 
-      sig { params(entity_id: String).void }
-      attr_writer :entity_id
+      sig { params(_: String).returns(String) }
+      def entity_id=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :entity_type
+      def entity_type
+      end
 
-      sig { params(entity_type: Symbol).void }
-      attr_writer :entity_type
+      sig { params(_: Symbol).returns(Symbol) }
+      def entity_type=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :request_id
+      def request_id
+      end
 
-      sig { params(request_id: String).void }
-      attr_writer :request_id
-
-      sig { returns(T.nilable(Symbol)) }
-      attr_reader :request_type
-
-      sig { params(request_type: Symbol).void }
-      attr_writer :request_type
+      sig { params(_: String).returns(String) }
+      def request_id=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :status
+      def request_type
+      end
 
-      sig { params(status: Symbol).void }
-      attr_writer :status
+      sig { params(_: Symbol).returns(Symbol) }
+      def request_type=(_)
+      end
+
+      sig { returns(T.nilable(Symbol)) }
+      def status
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig do
         params(

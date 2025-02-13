@@ -7,66 +7,168 @@ module ModernTreasury
     module LedgerTransactions
       class LedgerTransactionVersion < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :created_at
+        def created_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def created_at=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :description
+        def description
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def description=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :effective_at
+        def effective_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def effective_at=(_)
+        end
 
         sig { returns(Date) }
-        attr_accessor :effective_date
+        def effective_date
+        end
+
+        sig { params(_: Date).returns(Date) }
+        def effective_date=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :external_id
+        def external_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def external_id=(_)
+        end
 
         sig do
           returns(T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry])
         end
-        attr_accessor :ledger_entries
+        def ledger_entries
+        end
+
+        sig do
+          params(_: T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]).returns(T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry])
+        end
+        def ledger_entries=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :ledger_id
+        def ledger_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def ledger_id=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :ledger_transaction_id
+        def ledger_transaction_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def ledger_transaction_id=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :ledgerable_id
+        def ledgerable_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def ledgerable_id=(_)
+        end
 
         sig { returns(T.nilable(Symbol)) }
-        attr_accessor :ledgerable_type
+        def ledgerable_type
+        end
+
+        sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+        def ledgerable_type=(_)
+        end
 
         sig { returns(T::Boolean) }
-        attr_accessor :live_mode
+        def live_mode
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def live_mode=(_)
+        end
 
         sig { returns(T::Hash[Symbol, String]) }
-        attr_accessor :metadata
+        def metadata
+        end
+
+        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+        def metadata=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :object
+        def object
+        end
+
+        sig { params(_: String).returns(String) }
+        def object=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :partially_posts_ledger_transaction_id
+        def partially_posts_ledger_transaction_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def partially_posts_ledger_transaction_id=(_)
+        end
 
         sig { returns(T.nilable(Time)) }
-        attr_accessor :posted_at
+        def posted_at
+        end
+
+        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+        def posted_at=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :reversed_by_ledger_transaction_id
+        def reversed_by_ledger_transaction_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def reversed_by_ledger_transaction_id=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :reverses_ledger_transaction_id
+        def reverses_ledger_transaction_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def reverses_ledger_transaction_id=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :status
+        def status
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def status=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :version
+        def version
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def version=(_)
+        end
 
         sig do
           params(
@@ -147,48 +249,122 @@ module ModernTreasury
 
         class LedgerEntry < ModernTreasury::BaseModel
           sig { returns(String) }
-          attr_accessor :id
+          def id
+          end
+
+          sig { params(_: String).returns(String) }
+          def id=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :amount
+          def amount
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def amount=(_)
+          end
 
           sig { returns(Time) }
-          attr_accessor :created_at
+          def created_at
+          end
+
+          sig { params(_: Time).returns(Time) }
+          def created_at=(_)
+          end
 
           sig { returns(Symbol) }
-          attr_accessor :direction
+          def direction
+          end
+
+          sig { params(_: Symbol).returns(Symbol) }
+          def direction=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :ledger_account_currency
+          def ledger_account_currency
+          end
+
+          sig { params(_: String).returns(String) }
+          def ledger_account_currency=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :ledger_account_currency_exponent
+          def ledger_account_currency_exponent
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def ledger_account_currency_exponent=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :ledger_account_id
+          def ledger_account_id
+          end
+
+          sig { params(_: String).returns(String) }
+          def ledger_account_id=(_)
+          end
 
           sig { returns(T.nilable(Integer)) }
-          attr_accessor :ledger_account_lock_version
+          def ledger_account_lock_version
+          end
+
+          sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+          def ledger_account_lock_version=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :ledger_transaction_id
+          def ledger_transaction_id
+          end
+
+          sig { params(_: String).returns(String) }
+          def ledger_transaction_id=(_)
+          end
 
           sig { returns(T::Boolean) }
-          attr_accessor :live_mode
+          def live_mode
+          end
+
+          sig { params(_: T::Boolean).returns(T::Boolean) }
+          def live_mode=(_)
+          end
 
           sig { returns(T::Hash[Symbol, String]) }
-          attr_accessor :metadata
+          def metadata
+          end
+
+          sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+          def metadata=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :object
+          def object
+          end
+
+          sig { params(_: String).returns(String) }
+          def object=(_)
+          end
 
           sig do
             returns(T.nilable(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances))
           end
-          attr_accessor :resulting_ledger_account_balances
+          def resulting_ledger_account_balances
+          end
+
+          sig do
+            params(
+              _: T.nilable(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances)
+            ).returns(T.nilable(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances))
+          end
+          def resulting_ledger_account_balances=(_)
+          end
 
           sig { returns(Symbol) }
-          attr_accessor :status
+          def status
+          end
+
+          sig { params(_: Symbol).returns(Symbol) }
+          def status=(_)
+          end
 
           sig do
             params(
@@ -253,17 +429,44 @@ module ModernTreasury
             sig do
               returns(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance)
             end
-            attr_accessor :available_balance
+            def available_balance
+            end
+
+            sig do
+              params(
+                _: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance
+              ).returns(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance)
+            end
+            def available_balance=(_)
+            end
 
             sig do
               returns(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance)
             end
-            attr_accessor :pending_balance
+            def pending_balance
+            end
+
+            sig do
+              params(
+                _: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance
+              ).returns(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance)
+            end
+            def pending_balance=(_)
+            end
 
             sig do
               returns(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance)
             end
-            attr_accessor :posted_balance
+            def posted_balance
+            end
+
+            sig do
+              params(
+                _: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+              ).returns(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance)
+            end
+            def posted_balance=(_)
+            end
 
             sig do
               params(
@@ -287,19 +490,44 @@ module ModernTreasury
 
             class AvailableBalance < ModernTreasury::BaseModel
               sig { returns(Integer) }
-              attr_accessor :amount
+              def amount
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def amount=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :credits
+              def credits
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def credits=(_)
+              end
 
               sig { returns(String) }
-              attr_accessor :currency
+              def currency
+              end
+
+              sig { params(_: String).returns(String) }
+              def currency=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :currency_exponent
+              def currency_exponent
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def currency_exponent=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :debits
+              def debits
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def debits=(_)
+              end
 
               sig do
                 params(
@@ -330,19 +558,44 @@ module ModernTreasury
 
             class PendingBalance < ModernTreasury::BaseModel
               sig { returns(Integer) }
-              attr_accessor :amount
+              def amount
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def amount=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :credits
+              def credits
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def credits=(_)
+              end
 
               sig { returns(String) }
-              attr_accessor :currency
+              def currency
+              end
+
+              sig { params(_: String).returns(String) }
+              def currency=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :currency_exponent
+              def currency_exponent
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def currency_exponent=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :debits
+              def debits
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def debits=(_)
+              end
 
               sig do
                 params(
@@ -373,19 +626,44 @@ module ModernTreasury
 
             class PostedBalance < ModernTreasury::BaseModel
               sig { returns(Integer) }
-              attr_accessor :amount
+              def amount
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def amount=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :credits
+              def credits
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def credits=(_)
+              end
 
               sig { returns(String) }
-              attr_accessor :currency
+              def currency
+              end
+
+              sig { params(_: String).returns(String) }
+              def currency=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :currency_exponent
+              def currency_exponent
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def currency_exponent=(_)
+              end
 
               sig { returns(Integer) }
-              attr_accessor :debits
+              def debits
+              end
+
+              sig { params(_: Integer).returns(Integer) }
+              def debits=(_)
+              end
 
               sig do
                 params(

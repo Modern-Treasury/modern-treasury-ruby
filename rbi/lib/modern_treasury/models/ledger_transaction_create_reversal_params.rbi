@@ -7,43 +7,60 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_reader :description
+      def description
+      end
 
-      sig { params(description: String).void }
-      attr_writer :description
+      sig { params(_: String).returns(String) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_accessor :effective_at
+      def effective_at
+      end
+
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+      def effective_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :external_id
+      def external_id
+      end
 
-      sig { params(external_id: String).void }
-      attr_writer :external_id
+      sig { params(_: String).returns(String) }
+      def external_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledgerable_id
+      def ledgerable_id
+      end
 
-      sig { params(ledgerable_id: String).void }
-      attr_writer :ledgerable_id
+      sig { params(_: String).returns(String) }
+      def ledgerable_id=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :ledgerable_type
+      def ledgerable_type
+      end
 
-      sig { params(ledgerable_type: Symbol).void }
-      attr_writer :ledgerable_type
+      sig { params(_: Symbol).returns(Symbol) }
+      def ledgerable_type=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :status
+      def status
+      end
 
-      sig { params(status: Symbol).void }
-      attr_writer :status
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig do
         params(

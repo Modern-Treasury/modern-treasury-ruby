@@ -139,7 +139,8 @@ module ModernTreasury
     # @return [Hash{String=>String}]
     #
     private def auth_headers
-      # Strict base64 encoding that ensures no control characters.
+      return {} if @organization_id.nil? || @api_key.nil?
+
       base64_credentials = ["#{@organization_id}:#{@api_key}"].pack("m0")
       {"Authorization" => "Basic #{base64_credentials}"}
     end

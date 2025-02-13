@@ -27,39 +27,39 @@ module ModernTreasury
 
       def account_details=: (
         ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader credit_ledger_account_id: String?
 
-      def credit_ledger_account_id=: (String) -> void
+      def credit_ledger_account_id=: (String) -> String
 
       attr_reader debit_ledger_account_id: String?
 
-      def debit_ledger_account_id=: (String) -> void
+      def debit_ledger_account_id=: (String) -> String
 
       attr_reader description: String?
 
-      def description=: (String) -> void
+      def description=: (String) -> String
 
       attr_reader ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount?
 
       def ledger_account=: (
         ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount
-      ) -> void
+      ) -> ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]?
 
       def routing_details=: (
         ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
 
       def initialize:
         (
@@ -95,7 +95,7 @@ module ModernTreasury
 
         def account_number_type=: (
           ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
-        ) -> void
+        ) -> ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
 
         def initialize:
           (
@@ -166,21 +166,21 @@ module ModernTreasury
 
         attr_reader ledger_account_category_ids: ::Array[String]?
 
-        def ledger_account_category_ids=: (::Array[String]) -> void
+        def ledger_account_category_ids=: (::Array[String]) -> ::Array[String]
 
         attr_reader ledgerable_id: String?
 
-        def ledgerable_id=: (String) -> void
+        def ledgerable_id=: (String) -> String
 
         attr_reader ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type?
 
         def ledgerable_type=: (
           ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type
-        ) -> void
+        ) -> ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         def initialize:
           (

@@ -7,34 +7,52 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :internal_account_id
+      def internal_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :target_currency
+      def target_currency
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def target_currency=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :base_amount
+      def base_amount
+      end
 
-      sig { params(base_amount: Integer).void }
-      attr_writer :base_amount
+      sig { params(_: Integer).returns(Integer) }
+      def base_amount=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :base_currency
+      def base_currency
+      end
 
-      sig { params(base_currency: Symbol).void }
-      attr_writer :base_currency
+      sig { params(_: Symbol).returns(Symbol) }
+      def base_currency=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :effective_at
+      def effective_at
+      end
 
-      sig { params(effective_at: Time).void }
-      attr_writer :effective_at
+      sig { params(_: Time).returns(Time) }
+      def effective_at=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :target_amount
+      def target_amount
+      end
 
-      sig { params(target_amount: Integer).void }
-      attr_writer :target_amount
+      sig { params(_: Integer).returns(Integer) }
+      def target_amount=(_)
+      end
 
       sig do
         params(

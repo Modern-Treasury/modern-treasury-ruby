@@ -4,115 +4,312 @@ module ModernTreasury
   module Models
     class Invoice < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :amount_paid
+      def amount_paid
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount_paid=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :amount_remaining
+      def amount_remaining
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount_remaining=(_)
+      end
 
       sig { returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail]) }
-      attr_accessor :contact_details
+      def contact_details
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::Invoice::ContactDetail]).returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail])
+      end
+      def contact_details=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress)) }
-      attr_accessor :counterparty_billing_address
+      def counterparty_billing_address
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress)).returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress))
+      end
+      def counterparty_billing_address=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress)) }
-      attr_accessor :counterparty_shipping_address
+      def counterparty_shipping_address
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress)).returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress))
+      end
+      def counterparty_shipping_address=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def currency=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: String).returns(String) }
+      def description=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :due_date
+      def due_date
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def due_date=(_)
+      end
 
       sig { returns(T::Array[ModernTreasury::Models::ExpectedPayment]) }
-      attr_accessor :expected_payments
+      def expected_payments
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::ExpectedPayment]).returns(T::Array[ModernTreasury::Models::ExpectedPayment])
+      end
+      def expected_payments=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :fallback_payment_method
+      def fallback_payment_method
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def fallback_payment_method=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :hosted_url
+      def hosted_url
+      end
+
+      sig { params(_: String).returns(String) }
+      def hosted_url=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress)) }
-      attr_accessor :invoicer_address
+      def invoicer_address
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress)).returns(T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress))
+      end
+      def invoicer_address=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ledger_account_settlement_id
+      def ledger_account_settlement_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ledger_account_settlement_id=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T.nilable(T::Hash[Symbol, String])).returns(T.nilable(T::Hash[Symbol, String])) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(T::Array[String])) }
-      attr_accessor :notification_email_addresses
+      def notification_email_addresses
+      end
+
+      sig { params(_: T.nilable(T::Array[String])).returns(T.nilable(T::Array[String])) }
+      def notification_email_addresses=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :notifications_enabled
+      def notifications_enabled
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def notifications_enabled=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :number
+      def number
+      end
+
+      sig { params(_: String).returns(String) }
+      def number=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :originating_account_id
+      def originating_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def originating_account_id=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_accessor :payment_effective_date
+      def payment_effective_date
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def payment_effective_date=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :payment_method
+      def payment_method
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def payment_method=(_)
+      end
 
       sig { returns(T::Array[ModernTreasury::Models::PaymentOrder]) }
-      attr_accessor :payment_orders
+      def payment_orders
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::PaymentOrder]).returns(T::Array[ModernTreasury::Models::PaymentOrder])
+      end
+      def payment_orders=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :payment_type
+      def payment_type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def payment_type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :pdf_url
+      def pdf_url
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def pdf_url=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :receiving_account_id
+      def receiving_account_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def receiving_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :recipient_email
+      def recipient_email
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def recipient_email=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :recipient_name
+      def recipient_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def recipient_name=(_)
+      end
 
       sig { returns(T.nilable(T::Array[Integer])) }
-      attr_accessor :remind_after_overdue_days
+      def remind_after_overdue_days
+      end
+
+      sig { params(_: T.nilable(T::Array[Integer])).returns(T.nilable(T::Array[Integer])) }
+      def remind_after_overdue_days=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :status
+      def status
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :total_amount
+      def total_amount
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def total_amount=(_)
+      end
 
       sig { returns(T::Array[String]) }
-      attr_accessor :transaction_line_item_ids
+      def transaction_line_item_ids
+      end
+
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def transaction_line_item_ids=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :virtual_account_id
+      def virtual_account_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def virtual_account_id=(_)
+      end
 
       sig do
         params(
@@ -244,28 +441,68 @@ module ModernTreasury
 
       class ContactDetail < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :contact_identifier
+        def contact_identifier
+        end
+
+        sig { params(_: String).returns(String) }
+        def contact_identifier=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :contact_identifier_type
+        def contact_identifier_type
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def contact_identifier_type=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :created_at
+        def created_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def created_at=(_)
+        end
 
         sig { returns(T.nilable(Time)) }
-        attr_accessor :discarded_at
+        def discarded_at
+        end
+
+        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+        def discarded_at=(_)
+        end
 
         sig { returns(T::Boolean) }
-        attr_accessor :live_mode
+        def live_mode
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def live_mode=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :object
+        def object
+        end
+
+        sig { params(_: String).returns(String) }
+        def object=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :updated_at
+        def updated_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def updated_at=(_)
+        end
 
         sig do
           params(
@@ -323,25 +560,52 @@ module ModernTreasury
 
       class CounterpartyBillingAddress < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: String).returns(String) }
+        def country=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :line1
+        def line1
+        end
+
+        sig { params(_: String).returns(String) }
+        def line1=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :locality
+        def locality
+        end
+
+        sig { params(_: String).returns(String) }
+        def locality=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :postal_code
+        def postal_code
+        end
+
+        sig { params(_: String).returns(String) }
+        def postal_code=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :region
+        def region
+        end
+
+        sig { params(_: String).returns(String) }
+        def region=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :line2
+        def line2
+        end
 
-        sig { params(line2: String).void }
-        attr_writer :line2
+        sig { params(_: String).returns(String) }
+        def line2=(_)
+        end
 
         sig do
           params(
@@ -374,25 +638,52 @@ module ModernTreasury
 
       class CounterpartyShippingAddress < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: String).returns(String) }
+        def country=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :line1
+        def line1
+        end
+
+        sig { params(_: String).returns(String) }
+        def line1=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :locality
+        def locality
+        end
+
+        sig { params(_: String).returns(String) }
+        def locality=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :postal_code
+        def postal_code
+        end
+
+        sig { params(_: String).returns(String) }
+        def postal_code=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :region
+        def region
+        end
+
+        sig { params(_: String).returns(String) }
+        def region=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :line2
+        def line2
+        end
 
-        sig { params(line2: String).void }
-        attr_writer :line2
+        sig { params(_: String).returns(String) }
+        def line2=(_)
+        end
 
         sig do
           params(
@@ -425,25 +716,52 @@ module ModernTreasury
 
       class InvoicerAddress < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: String).returns(String) }
+        def country=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :line1
+        def line1
+        end
+
+        sig { params(_: String).returns(String) }
+        def line1=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :locality
+        def locality
+        end
+
+        sig { params(_: String).returns(String) }
+        def locality=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :postal_code
+        def postal_code
+        end
+
+        sig { params(_: String).returns(String) }
+        def postal_code=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :region
+        def region
+        end
+
+        sig { params(_: String).returns(String) }
+        def region=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :line2
+        def line2
+        end
 
-        sig { params(line2: String).void }
-        attr_writer :line2
+        sig { params(_: String).returns(String) }
+        def line2=(_)
+        end
 
         sig do
           params(

@@ -20,7 +20,7 @@ module ModernTreasury
 
       def receiving_countries=: (
         ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
 
       def initialize:
         (

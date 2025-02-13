@@ -7,25 +7,36 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(Symbol) }
-      attr_accessor :direction
+      def direction
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :custom_redirect
+      def custom_redirect
+      end
 
-      sig { params(custom_redirect: String).void }
-      attr_writer :custom_redirect
+      sig { params(_: String).returns(String) }
+      def custom_redirect=(_)
+      end
 
       sig { returns(T.nilable(T::Array[Symbol])) }
-      attr_reader :fields
+      def fields
+      end
 
-      sig { params(fields: T::Array[Symbol]).void }
-      attr_writer :fields
+      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      def fields=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :send_email
+      def send_email
+      end
 
-      sig { params(send_email: T::Boolean).void }
-      attr_writer :send_email
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def send_email=(_)
+      end
 
       sig do
         params(

@@ -7,61 +7,86 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(T::Array[String])) }
-      attr_reader :id
+      def id
+      end
 
-      sig { params(id: T::Array[String]).void }
-      attr_writer :id
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances)) }
-      attr_reader :balances
+      def balances
+      end
 
-      sig { params(balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances).void }
-      attr_writer :balances
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :currency
-
-      sig { params(currency: String).void }
-      attr_writer :currency
+      sig do
+        params(_: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances).returns(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances)
+      end
+      def balances=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_account_id
+      def currency
+      end
 
-      sig { params(ledger_account_id: String).void }
-      attr_writer :ledger_account_id
+      sig { params(_: String).returns(String) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_id
+      def ledger_account_id
+      end
 
-      sig { params(ledger_id: String).void }
-      attr_writer :ledger_id
+      sig { params(_: String).returns(String) }
+      def ledger_account_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def ledger_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :name
-
-      sig { params(name: String).void }
-      attr_writer :name
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :parent_ledger_account_category_id
+      def name
+      end
 
-      sig { params(parent_ledger_account_category_id: String).void }
-      attr_writer :parent_ledger_account_category_id
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def parent_ledger_account_category_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def parent_ledger_account_category_id=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig do
         params(
@@ -115,10 +140,12 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at
+        def effective_at
+        end
 
-        sig { params(effective_at: Time).void }
-        attr_writer :effective_at
+        sig { params(_: Time).returns(Time) }
+        def effective_at=(_)
+        end
 
         sig { params(effective_at: Time).void }
         def initialize(effective_at: nil)

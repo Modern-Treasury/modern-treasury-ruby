@@ -7,34 +7,44 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
+      def counterparty_id
+      end
 
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_account_id
+      def ledger_account_id
+      end
 
-      sig { params(ledger_account_id: String).void }
-      attr_writer :ledger_account_id
+      sig { params(_: String).returns(String) }
+      def ledger_account_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :name
-
-      sig { params(name: String).void }
-      attr_writer :name
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :parent_account_id
+      def name
+      end
 
-      sig { params(parent_account_id: String).void }
-      attr_writer :parent_account_id
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def parent_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def parent_account_id=(_)
+      end
 
       sig do
         params(

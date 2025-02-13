@@ -31,11 +31,11 @@ module ModernTreasury
 
       attr_reader ledger_account_category_ids: ::Array[String]?
 
-      def ledger_account_category_ids=: (::Array[String]) -> void
+      def ledger_account_category_ids=: (::Array[String]) -> ::Array[String]
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       def initialize:
         (

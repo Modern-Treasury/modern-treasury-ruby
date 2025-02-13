@@ -23,43 +23,45 @@ module ModernTreasury
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader created_at_lower_bound: Time?
 
-      def created_at_lower_bound=: (Time) -> void
+      def created_at_lower_bound=: (Time) -> Time
 
       attr_reader created_at_upper_bound: Time?
 
-      def created_at_upper_bound=: (Time) -> void
+      def created_at_upper_bound=: (Time) -> Time
 
       attr_reader direction: ModernTreasury::Models::transaction_direction?
 
-      def direction=: (ModernTreasury::Models::transaction_direction) -> void
+      def direction=: (
+        ModernTreasury::Models::transaction_direction
+      ) -> ModernTreasury::Models::transaction_direction
 
       attr_reader internal_account_id: String?
 
-      def internal_account_id=: (String) -> void
+      def internal_account_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader status: ModernTreasury::Models::ExpectedPaymentListParams::status?
 
       def status=: (
         ModernTreasury::Models::ExpectedPaymentListParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::ExpectedPaymentListParams::status
 
       attr_reader type: ModernTreasury::Models::ExpectedPaymentListParams::type_?
 
       def type=: (
         ModernTreasury::Models::ExpectedPaymentListParams::type_
-      ) -> void
+      ) -> ModernTreasury::Models::ExpectedPaymentListParams::type_
 
       def initialize:
         (

@@ -7,19 +7,36 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :documentable_id
+      def documentable_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def documentable_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :documentable_type
+      def documentable_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def documentable_type=(_)
+      end
 
       sig { returns(T.any(IO, StringIO)) }
-      attr_accessor :file
+      def file
+      end
+
+      sig { params(_: T.any(IO, StringIO)).returns(T.any(IO, StringIO)) }
+      def file=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :document_type
+      def document_type
+      end
 
-      sig { params(document_type: String).void }
-      attr_writer :document_type
+      sig { params(_: String).returns(String) }
+      def document_type=(_)
+      end
 
       sig do
         params(

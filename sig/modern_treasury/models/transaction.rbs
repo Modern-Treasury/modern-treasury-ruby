@@ -78,7 +78,7 @@ module ModernTreasury
 
       attr_reader details: ::Hash[Symbol, String]?
 
-      def details=: (::Hash[Symbol, String]) -> void
+      def details=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_accessor vendor_description: String?
 

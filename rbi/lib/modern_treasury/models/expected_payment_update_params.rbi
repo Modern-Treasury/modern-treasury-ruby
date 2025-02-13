@@ -7,58 +7,142 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :amount_lower_bound
+      def amount_lower_bound
+      end
+
+      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+      def amount_lower_bound=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :amount_upper_bound
+      def amount_upper_bound
+      end
+
+      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+      def amount_upper_bound=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_accessor :date_lower_bound
+      def date_lower_bound
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def date_lower_bound=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_accessor :date_upper_bound
+      def date_upper_bound
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def date_upper_bound=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :direction
+      def direction
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def direction=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :internal_account_id
+      def internal_account_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(T.anything)) }
-      attr_accessor :reconciliation_filters
+      def reconciliation_filters
+      end
+
+      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
+      def reconciliation_filters=(_)
+      end
 
       sig { returns(T.nilable(T.anything)) }
-      attr_accessor :reconciliation_groups
+      def reconciliation_groups
+      end
+
+      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
+      def reconciliation_groups=(_)
+      end
 
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
-      attr_accessor :reconciliation_rule_variables
+      def reconciliation_rule_variables
+      end
+
+      sig do
+        params(_: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])).returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]))
+      end
+      def reconciliation_rule_variables=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :remittance_information
+      def remittance_information
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def remittance_information=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :statement_descriptor
+      def statement_descriptor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def statement_descriptor=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :status
+      def status
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def status=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :type
+      def type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def type=(_)
+      end
 
       sig do
         params(

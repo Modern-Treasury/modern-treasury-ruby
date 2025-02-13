@@ -7,62 +7,90 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :internal_account_id
+      def internal_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail])) }
-      attr_reader :account_details
+      def account_details
+      end
 
       sig do
-        params(account_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]).void
+        params(_: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]).returns(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail])
       end
-      attr_writer :account_details
+      def account_details=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
+      def counterparty_id
+      end
 
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :credit_ledger_account_id
-
-      sig { params(credit_ledger_account_id: String).void }
-      attr_writer :credit_ledger_account_id
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :debit_ledger_account_id
+      def credit_ledger_account_id
+      end
 
-      sig { params(debit_ledger_account_id: String).void }
-      attr_writer :debit_ledger_account_id
+      sig { params(_: String).returns(String) }
+      def credit_ledger_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :description
+      def debit_ledger_account_id
+      end
 
-      sig { params(description: String).void }
-      attr_writer :description
+      sig { params(_: String).returns(String) }
+      def debit_ledger_account_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def description
+      end
+
+      sig { params(_: String).returns(String) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)) }
-      attr_reader :ledger_account
-
-      sig { params(ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount).void }
-      attr_writer :ledger_account
-
-      sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
-
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
-
-      sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])) }
-      attr_reader :routing_details
+      def ledger_account
+      end
 
       sig do
-        params(routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]).void
+        params(_: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount).returns(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)
       end
-      attr_writer :routing_details
+      def ledger_account=(_)
+      end
+
+      sig { returns(T.nilable(T::Hash[Symbol, String])) }
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
+
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])) }
+      def routing_details
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]).returns(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])
+      end
+      def routing_details=(_)
+      end
 
       sig do
         params(
@@ -116,13 +144,20 @@ module ModernTreasury
 
       class AccountDetail < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :account_number
+        def account_number
+        end
+
+        sig { params(_: String).returns(String) }
+        def account_number=(_)
+        end
 
         sig { returns(T.nilable(Symbol)) }
-        attr_reader :account_number_type
+        def account_number_type
+        end
 
-        sig { params(account_number_type: Symbol).void }
-        attr_writer :account_number_type
+        sig { params(_: Symbol).returns(Symbol) }
+        def account_number_type=(_)
+        end
 
         sig { params(account_number: String, account_number_type: Symbol).void }
         def initialize(account_number:, account_number_type: nil)
@@ -154,46 +189,84 @@ module ModernTreasury
 
       class LedgerAccount < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :currency
+        def currency
+        end
+
+        sig { params(_: String).returns(String) }
+        def currency=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :ledger_id
+        def ledger_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def ledger_id=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :name
+        def name
+        end
+
+        sig { params(_: String).returns(String) }
+        def name=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :normal_balance
+        def normal_balance
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def normal_balance=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_accessor :currency_exponent
+        def currency_exponent
+        end
+
+        sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+        def currency_exponent=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :description
+        def description
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def description=(_)
+        end
 
         sig { returns(T.nilable(T::Array[String])) }
-        attr_reader :ledger_account_category_ids
+        def ledger_account_category_ids
+        end
 
-        sig { params(ledger_account_category_ids: T::Array[String]).void }
-        attr_writer :ledger_account_category_ids
+        sig { params(_: T::Array[String]).returns(T::Array[String]) }
+        def ledger_account_category_ids=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :ledgerable_id
+        def ledgerable_id
+        end
 
-        sig { params(ledgerable_id: String).void }
-        attr_writer :ledgerable_id
+        sig { params(_: String).returns(String) }
+        def ledgerable_id=(_)
+        end
 
         sig { returns(T.nilable(Symbol)) }
-        attr_reader :ledgerable_type
+        def ledgerable_type
+        end
 
-        sig { params(ledgerable_type: Symbol).void }
-        attr_writer :ledgerable_type
+        sig { params(_: Symbol).returns(Symbol) }
+        def ledgerable_type=(_)
+        end
 
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        attr_reader :metadata
+        def metadata
+        end
 
-        sig { params(metadata: T::Hash[Symbol, String]).void }
-        attr_writer :metadata
+        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+        def metadata=(_)
+        end
 
         sig do
           params(
@@ -258,13 +331,28 @@ module ModernTreasury
 
       class RoutingDetail < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :routing_number
+        def routing_number
+        end
+
+        sig { params(_: String).returns(String) }
+        def routing_number=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :routing_number_type
+        def routing_number_type
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def routing_number_type=(_)
+        end
 
         sig { returns(T.nilable(Symbol)) }
-        attr_accessor :payment_type
+        def payment_type
+        end
+
+        sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+        def payment_type=(_)
+        end
 
         sig do
           params(routing_number: String, routing_number_type: Symbol, payment_type: T.nilable(Symbol)).void

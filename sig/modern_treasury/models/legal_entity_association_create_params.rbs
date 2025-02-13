@@ -23,11 +23,11 @@ module ModernTreasury
 
       def child_legal_entity=: (
         ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity
-      ) -> void
+      ) -> ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity
 
       attr_reader child_legal_entity_id: String?
 
-      def child_legal_entity_id=: (String) -> void
+      def child_legal_entity_id=: (String) -> String
 
       attr_accessor ownership_percentage: Integer?
 
@@ -91,7 +91,7 @@ module ModernTreasury
 
         def addresses=: (
           ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
 
         attr_accessor bank_settings: ModernTreasury::Models::BankSettings?
 
@@ -105,7 +105,7 @@ module ModernTreasury
 
         attr_reader doing_business_as_names: ::Array[String]?
 
-        def doing_business_as_names=: (::Array[String]) -> void
+        def doing_business_as_names=: (::Array[String]) -> ::Array[String]
 
         attr_accessor email: String?
 
@@ -115,7 +115,7 @@ module ModernTreasury
 
         def identifications=: (
           ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
 
         attr_accessor last_name: String?
 
@@ -123,13 +123,13 @@ module ModernTreasury
 
         def legal_entity_type=: (
           ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_entity_type
-        ) -> void
+        ) -> ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_entity_type
 
         attr_accessor legal_structure: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_structure?
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         attr_accessor middle_name: String?
 
@@ -137,7 +137,7 @@ module ModernTreasury
 
         def phone_numbers=: (
           ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
 
         attr_accessor politically_exposed_person: bool?
 
@@ -212,7 +212,7 @@ module ModernTreasury
 
           def address_types=: (
             ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]
-          ) -> void
+          ) -> ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type]
 
           attr_accessor line2: String?
 
@@ -357,7 +357,7 @@ module ModernTreasury
         class PhoneNumber < ModernTreasury::BaseModel
           attr_reader phone_number: String?
 
-          def phone_number=: (String) -> void
+          def phone_number=: (String) -> String
 
           def initialize:
             (phone_number: String) -> void

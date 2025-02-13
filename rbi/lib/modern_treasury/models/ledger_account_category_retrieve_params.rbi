@@ -7,10 +7,14 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances)) }
-      attr_reader :balances
+      def balances
+      end
 
-      sig { params(balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances).void }
-      attr_writer :balances
+      sig do
+        params(_: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances).returns(ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances)
+      end
+      def balances=(_)
+      end
 
       sig do
         params(
@@ -34,16 +38,20 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Date)) }
-        attr_reader :as_of_date
+        def as_of_date
+        end
 
-        sig { params(as_of_date: Date).void }
-        attr_writer :as_of_date
+        sig { params(_: Date).returns(Date) }
+        def as_of_date=(_)
+        end
 
         sig { returns(T.nilable(Time)) }
-        attr_reader :effective_at
+        def effective_at
+        end
 
-        sig { params(effective_at: Time).void }
-        attr_writer :effective_at
+        sig { params(_: Time).returns(Time) }
+        def effective_at=(_)
+        end
 
         sig { params(as_of_date: Date, effective_at: Time).void }
         def initialize(as_of_date: nil, effective_at: nil)

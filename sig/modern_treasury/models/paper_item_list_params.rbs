@@ -18,19 +18,19 @@ module ModernTreasury
 
       attr_reader deposit_date_end: Date?
 
-      def deposit_date_end=: (Date) -> void
+      def deposit_date_end=: (Date) -> Date
 
       attr_reader deposit_date_start: Date?
 
-      def deposit_date_start=: (Date) -> void
+      def deposit_date_start=: (Date) -> Date
 
       attr_reader lockbox_number: String?
 
-      def lockbox_number=: (String) -> void
+      def lockbox_number=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       def initialize:
         (

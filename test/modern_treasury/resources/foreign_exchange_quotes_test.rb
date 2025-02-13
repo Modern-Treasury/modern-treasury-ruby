@@ -41,5 +41,10 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < Minitest::Tes
     assert_pattern do
       page => ModernTreasury::Page
     end
+
+    row = response.to_enum.first
+    assert_pattern do
+      row => ModernTreasury::Models::ForeignExchangeQuote
+    end
   end
 end

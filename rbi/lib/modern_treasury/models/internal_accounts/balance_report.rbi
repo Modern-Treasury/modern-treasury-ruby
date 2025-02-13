@@ -5,34 +5,86 @@ module ModernTreasury
     module InternalAccounts
       class BalanceReport < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(Date) }
-        attr_accessor :as_of_date
+        def as_of_date
+        end
+
+        sig { params(_: Date).returns(Date) }
+        def as_of_date=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :as_of_time
+        def as_of_time
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def as_of_time=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :balance_report_type
+        def balance_report_type
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def balance_report_type=(_)
+        end
 
         sig { returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]) }
-        attr_accessor :balances
+        def balances
+        end
+
+        sig do
+          params(_: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]).returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance])
+        end
+        def balances=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :created_at
+        def created_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def created_at=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :internal_account_id
+        def internal_account_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def internal_account_id=(_)
+        end
 
         sig { returns(T::Boolean) }
-        attr_accessor :live_mode
+        def live_mode
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def live_mode=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :object
+        def object
+        end
+
+        sig { params(_: String).returns(String) }
+        def object=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :updated_at
+        def updated_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def updated_at=(_)
+        end
 
         sig do
           params(
@@ -96,43 +148,108 @@ module ModernTreasury
 
         class Balance < ModernTreasury::BaseModel
           sig { returns(String) }
-          attr_accessor :id
+          def id
+          end
+
+          sig { params(_: String).returns(String) }
+          def id=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :amount
+          def amount
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def amount=(_)
+          end
 
           sig { returns(T.nilable(Date)) }
-          attr_accessor :as_of_date
+          def as_of_date
+          end
+
+          sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+          def as_of_date=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :as_of_time
+          def as_of_time
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def as_of_time=(_)
+          end
 
           sig { returns(Symbol) }
-          attr_accessor :balance_type
+          def balance_type
+          end
+
+          sig { params(_: Symbol).returns(Symbol) }
+          def balance_type=(_)
+          end
 
           sig { returns(Time) }
-          attr_accessor :created_at
+          def created_at
+          end
+
+          sig { params(_: Time).returns(Time) }
+          def created_at=(_)
+          end
 
           sig { returns(Symbol) }
-          attr_accessor :currency
+          def currency
+          end
+
+          sig { params(_: Symbol).returns(Symbol) }
+          def currency=(_)
+          end
 
           sig { returns(T::Boolean) }
-          attr_accessor :live_mode
+          def live_mode
+          end
+
+          sig { params(_: T::Boolean).returns(T::Boolean) }
+          def live_mode=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :object
+          def object
+          end
+
+          sig { params(_: String).returns(String) }
+          def object=(_)
+          end
 
           sig { returns(Time) }
-          attr_accessor :updated_at
+          def updated_at
+          end
+
+          sig { params(_: Time).returns(Time) }
+          def updated_at=(_)
+          end
 
           sig { returns(T.nilable(Date)) }
-          attr_accessor :value_date
+          def value_date
+          end
+
+          sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+          def value_date=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :vendor_code
+          def vendor_code
+          end
+
+          sig { params(_: String).returns(String) }
+          def vendor_code=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :vendor_code_type
+          def vendor_code_type
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def vendor_code_type=(_)
+          end
 
           sig do
             params(

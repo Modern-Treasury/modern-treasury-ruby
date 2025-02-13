@@ -21,31 +21,31 @@ module ModernTreasury
 
       attr_reader created_at_lower_bound: Time?
 
-      def created_at_lower_bound=: (Time) -> void
+      def created_at_lower_bound=: (Time) -> Time
 
       attr_reader created_at_upper_bound: Time?
 
-      def created_at_upper_bound=: (Time) -> void
+      def created_at_upper_bound=: (Time) -> Time
 
       attr_reader email: String?
 
-      def email=: (String) -> void
+      def email=: (String) -> String
 
       attr_reader legal_entity_id: String?
 
-      def legal_entity_id=: (String) -> void
+      def legal_entity_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader name: String?
 
-      def name=: (String) -> void
+      def name=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       def initialize:
         (

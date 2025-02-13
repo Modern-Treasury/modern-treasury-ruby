@@ -20,23 +20,23 @@ module ModernTreasury
 
         attr_reader created_at: ::Hash[Symbol, Time]?
 
-        def created_at=: (::Hash[Symbol, Time]) -> void
+        def created_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
         attr_reader ledger_account_statement_id: String?
 
-        def ledger_account_statement_id=: (String) -> void
+        def ledger_account_statement_id=: (String) -> String
 
         attr_reader ledger_transaction_id: String?
 
-        def ledger_transaction_id=: (String) -> void
+        def ledger_transaction_id=: (String) -> String
 
         attr_reader per_page: Integer?
 
-        def per_page=: (Integer) -> void
+        def per_page=: (Integer) -> Integer
 
         attr_reader version: ::Hash[Symbol, Integer]?
 
-        def version=: (::Hash[Symbol, Integer]) -> void
+        def version=: (::Hash[Symbol, Integer]) -> ::Hash[Symbol, Integer]
 
         def initialize:
           (

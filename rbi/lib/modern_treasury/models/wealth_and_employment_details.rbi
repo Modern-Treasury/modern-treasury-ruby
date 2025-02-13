@@ -4,58 +4,148 @@ module ModernTreasury
   module Models
     class WealthAndEmploymentDetails < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :annual_income
+      def annual_income
+      end
+
+      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+      def annual_income=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_accessor :discarded_at
+      def discarded_at
+      end
+
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+      def discarded_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :employer_country
+      def employer_country
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def employer_country=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :employer_name
+      def employer_name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def employer_name=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :employer_state
+      def employer_state
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def employer_state=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :employment_status
+      def employment_status
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def employment_status=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :income_country
+      def income_country
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def income_country=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :income_source
+      def income_source
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def income_source=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :income_state
+      def income_state
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def income_state=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :industry
+      def industry
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def industry=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :occupation
+      def occupation
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def occupation=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :source_of_funds
+      def source_of_funds
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def source_of_funds=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :wealth_source
+      def wealth_source
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def wealth_source=(_)
+      end
 
       sig do
         params(

@@ -3,7 +3,8 @@
 module ModernTreasury
   class Error < StandardError
     sig { returns(T.nilable(StandardError)) }
-    attr_reader :cause
+    def cause
+    end
   end
 
   class ConversionError < ModernTreasury::Error
@@ -11,13 +12,16 @@ module ModernTreasury
 
   class APIError < ModernTreasury::Error
     sig { returns(URI::Generic) }
-    attr_reader :url
+    def url
+    end
 
     sig { returns(T.nilable(Integer)) }
-    attr_reader :status
+    def status
+    end
 
     sig { returns(T.nilable(T.anything)) }
-    attr_reader :body
+    def body
+    end
 
     sig do
       params(
@@ -35,10 +39,12 @@ module ModernTreasury
 
   class APIConnectionError < ModernTreasury::APIError
     sig { void }
-    attr_reader :status
+    def status
+    end
 
     sig { void }
-    attr_reader :body
+    def body
+    end
 
     sig do
       params(
@@ -83,7 +89,8 @@ module ModernTreasury
     end
 
     sig { returns(Integer) }
-    attr_reader :status
+    def status
+    end
 
     sig do
       params(

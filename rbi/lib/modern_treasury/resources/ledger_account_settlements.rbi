@@ -4,7 +4,8 @@ module ModernTreasury
   module Resources
     class LedgerAccountSettlements
       sig { returns(ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries) }
-      attr_reader :account_entries
+      def account_entries
+      end
 
       sig do
         params(
