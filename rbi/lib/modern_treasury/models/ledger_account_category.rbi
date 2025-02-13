@@ -4,40 +4,102 @@ module ModernTreasury
   module Models
     class LedgerAccountCategory < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(ModernTreasury::Models::LedgerAccountCategory::Balances) }
-      attr_accessor :balances
+      def balances
+      end
+
+      sig do
+        params(_: ModernTreasury::Models::LedgerAccountCategory::Balances).returns(ModernTreasury::Models::LedgerAccountCategory::Balances)
+      end
+      def balances=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_accessor :discarded_at
+      def discarded_at
+      end
+
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+      def discarded_at=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :ledger_id
+      def ledger_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_id=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T::Hash[Symbol, String]) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :normal_balance
+      def normal_balance
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def normal_balance=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(
@@ -94,13 +156,34 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance) }
-        attr_accessor :available_balance
+        def available_balance
+        end
+
+        sig do
+          params(_: ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance).returns(ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance)
+        end
+        def available_balance=(_)
+        end
 
         sig { returns(ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance) }
-        attr_accessor :pending_balance
+        def pending_balance
+        end
+
+        sig do
+          params(_: ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance).returns(ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance)
+        end
+        def pending_balance=(_)
+        end
 
         sig { returns(ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance) }
-        attr_accessor :posted_balance
+        def posted_balance
+        end
+
+        sig do
+          params(_: ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance).returns(ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance)
+        end
+        def posted_balance=(_)
+        end
 
         sig do
           params(
@@ -124,19 +207,44 @@ module ModernTreasury
 
         class AvailableBalance < ModernTreasury::BaseModel
           sig { returns(Integer) }
-          attr_accessor :amount
+          def amount
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def amount=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :credits
+          def credits
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def credits=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :currency
+          def currency
+          end
+
+          sig { params(_: String).returns(String) }
+          def currency=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :currency_exponent
+          def currency_exponent
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def currency_exponent=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :debits
+          def debits
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def debits=(_)
+          end
 
           sig do
             params(
@@ -167,19 +275,44 @@ module ModernTreasury
 
         class PendingBalance < ModernTreasury::BaseModel
           sig { returns(Integer) }
-          attr_accessor :amount
+          def amount
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def amount=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :credits
+          def credits
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def credits=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :currency
+          def currency
+          end
+
+          sig { params(_: String).returns(String) }
+          def currency=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :currency_exponent
+          def currency_exponent
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def currency_exponent=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :debits
+          def debits
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def debits=(_)
+          end
 
           sig do
             params(
@@ -210,19 +343,44 @@ module ModernTreasury
 
         class PostedBalance < ModernTreasury::BaseModel
           sig { returns(Integer) }
-          attr_accessor :amount
+          def amount
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def amount=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :credits
+          def credits
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def credits=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :currency
+          def currency
+          end
+
+          sig { params(_: String).returns(String) }
+          def currency=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :currency_exponent
+          def currency_exponent
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def currency_exponent=(_)
+          end
 
           sig { returns(Integer) }
-          attr_accessor :debits
+          def debits
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def debits=(_)
+          end
 
           sig do
             params(

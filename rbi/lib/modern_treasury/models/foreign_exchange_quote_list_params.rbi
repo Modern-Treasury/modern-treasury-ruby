@@ -7,55 +7,76 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :base_currency
+      def base_currency
+      end
 
-      sig { params(base_currency: String).void }
-      attr_writer :base_currency
-
-      sig { returns(T.nilable(Date)) }
-      attr_reader :effective_at_end
-
-      sig { params(effective_at_end: Date).void }
-      attr_writer :effective_at_end
+      sig { params(_: String).returns(String) }
+      def base_currency=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :effective_at_start
+      def effective_at_end
+      end
 
-      sig { params(effective_at_start: Date).void }
-      attr_writer :effective_at_start
+      sig { params(_: Date).returns(Date) }
+      def effective_at_end=(_)
+      end
+
+      sig { returns(T.nilable(Date)) }
+      def effective_at_start
+      end
+
+      sig { params(_: Date).returns(Date) }
+      def effective_at_start=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :expires_at
+      def expires_at
+      end
 
-      sig { params(expires_at: Time).void }
-      attr_writer :expires_at
+      sig { params(_: Time).returns(Time) }
+      def expires_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :internal_account_id
+      def internal_account_id
+      end
 
-      sig { params(internal_account_id: String).void }
-      attr_writer :internal_account_id
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :target_currency
+      def target_currency
+      end
 
-      sig { params(target_currency: String).void }
-      attr_writer :target_currency
+      sig { params(_: String).returns(String) }
+      def target_currency=(_)
+      end
 
       sig do
         params(

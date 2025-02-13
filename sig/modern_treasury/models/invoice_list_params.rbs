@@ -24,43 +24,45 @@ module ModernTreasury
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader due_date_end: Date?
 
-      def due_date_end=: (Date) -> void
+      def due_date_end=: (Date) -> Date
 
       attr_reader due_date_start: Date?
 
-      def due_date_start=: (Date) -> void
+      def due_date_start=: (Date) -> Date
 
       attr_reader expected_payment_id: String?
 
-      def expected_payment_id=: (String) -> void
+      def expected_payment_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader number: String?
 
-      def number=: (String) -> void
+      def number=: (String) -> String
 
       attr_reader originating_account_id: String?
 
-      def originating_account_id=: (String) -> void
+      def originating_account_id=: (String) -> String
 
       attr_reader payment_order_id: String?
 
-      def payment_order_id=: (String) -> void
+      def payment_order_id=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader status: ModernTreasury::Models::InvoiceListParams::status?
 
-      def status=: (ModernTreasury::Models::InvoiceListParams::status) -> void
+      def status=: (
+        ModernTreasury::Models::InvoiceListParams::status
+      ) -> ModernTreasury::Models::InvoiceListParams::status
 
       def initialize:
         (

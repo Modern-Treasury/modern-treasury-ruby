@@ -41,7 +41,7 @@ module ModernTreasury
 
       attr_reader vendor_id: String?
 
-      def vendor_id=: (String) -> void
+      def vendor_id=: (String) -> String
 
       def initialize:
         (

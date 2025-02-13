@@ -16,21 +16,21 @@ module ModernTreasury
 
       attr_reader id: ::Array[String]?
 
-      def id=: (::Array[String]) -> void
+      def id=: (::Array[String]) -> ::Array[String]
 
       attr_accessor after_cursor: String?
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader updated_at: ::Hash[Symbol, Time]?
 
-      def updated_at=: (::Hash[Symbol, Time]) -> void
+      def updated_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       def initialize:
         (

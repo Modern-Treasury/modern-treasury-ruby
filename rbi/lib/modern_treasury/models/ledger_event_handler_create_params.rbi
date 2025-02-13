@@ -7,28 +7,74 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate) }
-      attr_accessor :ledger_transaction_template
+      def ledger_transaction_template
+      end
+
+      sig do
+        params(_: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate).returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate)
+      end
+      def ledger_transaction_template=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions)) }
-      attr_accessor :conditions
+      def conditions
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions)).returns(T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions))
+      end
+      def conditions=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_id
+      def ledger_id
+      end
 
-      sig { params(ledger_id: String).void }
-      attr_writer :ledger_id
+      sig { params(_: String).returns(String) }
+      def ledger_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T.nilable(T::Hash[Symbol, String])).returns(T.nilable(T::Hash[Symbol, String])) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])) }
-      attr_accessor :variables
+      def variables
+      end
+
+      sig do
+        params(
+          _: T.nilable(
+            T::Hash[Symbol,
+                    ModernTreasury::Models::LedgerEventHandlerVariable]
+          )
+        ).returns(T.nilable(
+                    T::Hash[Symbol,
+                            ModernTreasury::Models::LedgerEventHandlerVariable]
+                  ))
+      end
+      def variables=(_)
+      end
 
       sig do
         params(
@@ -76,18 +122,42 @@ module ModernTreasury
 
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_accessor :description
+        def description
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def description=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :effective_at
+        def effective_at
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def effective_at=(_)
+        end
 
         sig do
           returns(T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry])
         end
-        attr_accessor :ledger_entries
+        def ledger_entries
+        end
+
+        sig do
+          params(
+            _: T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
+          ).returns(T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry])
+        end
+        def ledger_entries=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :status
+        def status
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def status=(_)
+        end
 
         sig do
           params(
@@ -115,13 +185,28 @@ module ModernTreasury
 
         class LedgerEntry < ModernTreasury::BaseModel
           sig { returns(String) }
-          attr_accessor :amount
+          def amount
+          end
+
+          sig { params(_: String).returns(String) }
+          def amount=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :direction
+          def direction
+          end
+
+          sig { params(_: String).returns(String) }
+          def direction=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :ledger_account_id
+          def ledger_account_id
+          end
+
+          sig { params(_: String).returns(String) }
+          def ledger_account_id=(_)
+          end
 
           sig { params(amount: String, direction: String, ledger_account_id: String).void }
           def initialize(amount:, direction:, ledger_account_id:)
@@ -135,13 +220,28 @@ module ModernTreasury
 
       class Conditions < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :field
+        def field
+        end
+
+        sig { params(_: String).returns(String) }
+        def field=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :operator
+        def operator
+        end
+
+        sig { params(_: String).returns(String) }
+        def operator=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :value
+        def value
+        end
+
+        sig { params(_: String).returns(String) }
+        def value=(_)
+        end
 
         sig { params(field: String, operator: String, value: String).void }
         def initialize(field:, operator:, value:)

@@ -7,121 +7,166 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(T::Array[String])) }
-      attr_reader :id
+      def id
+      end
 
-      sig { params(id: T::Array[String]).void }
-      attr_writer :id
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :as_of_lock_version
+      def as_of_lock_version
+      end
 
-      sig { params(as_of_lock_version: Integer).void }
-      attr_writer :as_of_lock_version
+      sig { params(_: Integer).returns(Integer) }
+      def as_of_lock_version=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :direction
+      def direction
+      end
 
-      sig { params(direction: Symbol).void }
-      attr_writer :direction
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      attr_reader :effective_at
+      def effective_at
+      end
 
-      sig { params(effective_at: T::Hash[Symbol, Time]).void }
-      attr_writer :effective_at
+      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
+      def effective_at=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Date])) }
-      attr_reader :effective_date
+      def effective_date
+      end
 
-      sig { params(effective_date: T::Hash[Symbol, Date]).void }
-      attr_writer :effective_date
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :ledger_account_category_id
-
-      sig { params(ledger_account_category_id: String).void }
-      attr_writer :ledger_account_category_id
+      sig { params(_: T::Hash[Symbol, Date]).returns(T::Hash[Symbol, Date]) }
+      def effective_date=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_account_id
+      def ledger_account_category_id
+      end
 
-      sig { params(ledger_account_id: String).void }
-      attr_writer :ledger_account_id
+      sig { params(_: String).returns(String) }
+      def ledger_account_category_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def ledger_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_account_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-      attr_reader :ledger_account_lock_version
+      def ledger_account_lock_version
+      end
 
-      sig { params(ledger_account_lock_version: T::Hash[Symbol, Integer]).void }
-      attr_writer :ledger_account_lock_version
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :ledger_account_payout_id
-
-      sig { params(ledger_account_payout_id: String).void }
-      attr_writer :ledger_account_payout_id
+      sig { params(_: T::Hash[Symbol, Integer]).returns(T::Hash[Symbol, Integer]) }
+      def ledger_account_lock_version=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_account_settlement_id
+      def ledger_account_payout_id
+      end
 
-      sig { params(ledger_account_settlement_id: String).void }
-      attr_writer :ledger_account_settlement_id
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :ledger_account_statement_id
-
-      sig { params(ledger_account_statement_id: String).void }
-      attr_writer :ledger_account_statement_id
+      sig { params(_: String).returns(String) }
+      def ledger_account_payout_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_transaction_id
+      def ledger_account_settlement_id
+      end
 
-      sig { params(ledger_transaction_id: String).void }
-      attr_writer :ledger_transaction_id
+      sig { params(_: String).returns(String) }
+      def ledger_account_settlement_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def ledger_account_statement_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_account_statement_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def ledger_transaction_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_transaction_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::OrderBy)) }
-      attr_reader :order_by
+      def order_by
+      end
 
-      sig { params(order_by: ModernTreasury::Models::LedgerEntryListParams::OrderBy).void }
-      attr_writer :order_by
+      sig do
+        params(_: ModernTreasury::Models::LedgerEntryListParams::OrderBy).returns(ModernTreasury::Models::LedgerEntryListParams::OrderBy)
+      end
+      def order_by=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
-
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :show_balances
-
-      sig { params(show_balances: T::Boolean).void }
-      attr_writer :show_balances
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :show_deleted
+      def show_balances
+      end
 
-      sig { params(show_deleted: T::Boolean).void }
-      attr_writer :show_deleted
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def show_balances=(_)
+      end
+
+      sig { returns(T.nilable(T::Boolean)) }
+      def show_deleted
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def show_deleted=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :status
+      def status
+      end
 
-      sig { params(status: Symbol).void }
-      attr_writer :status
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      attr_reader :updated_at
+      def updated_at
+      end
 
-      sig { params(updated_at: T::Hash[Symbol, Time]).void }
-      attr_writer :updated_at
+      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
+      def updated_at=(_)
+      end
 
       sig do
         params(
@@ -205,16 +250,20 @@ module ModernTreasury
 
       class OrderBy < ModernTreasury::BaseModel
         sig { returns(T.nilable(Symbol)) }
-        attr_reader :created_at
+        def created_at
+        end
 
-        sig { params(created_at: Symbol).void }
-        attr_writer :created_at
+        sig { params(_: Symbol).returns(Symbol) }
+        def created_at=(_)
+        end
 
         sig { returns(T.nilable(Symbol)) }
-        attr_reader :effective_at
+        def effective_at
+        end
 
-        sig { params(effective_at: Symbol).void }
-        attr_writer :effective_at
+        sig { params(_: Symbol).returns(Symbol) }
+        def effective_at=(_)
+        end
 
         sig { params(created_at: Symbol, effective_at: Symbol).void }
         def initialize(created_at: nil, effective_at: nil)

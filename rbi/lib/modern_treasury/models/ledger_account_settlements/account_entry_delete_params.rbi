@@ -8,7 +8,12 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(T::Array[T.anything])) }
-        attr_accessor :ledger_entry_ids
+        def ledger_entry_ids
+        end
+
+        sig { params(_: T.nilable(T::Array[T.anything])).returns(T.nilable(T::Array[T.anything])) }
+        def ledger_entry_ids=(_)
+        end
 
         sig do
           params(

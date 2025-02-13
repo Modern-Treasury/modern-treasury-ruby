@@ -7,40 +7,84 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(Integer) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_accessor :as_of_date
+      def as_of_date
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def as_of_date=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :direction
+      def direction
+      end
+
+      sig { params(_: String).returns(String) }
+      def direction=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :internal_account_id
+      def internal_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :vendor_code
+      def vendor_code
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def vendor_code=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :vendor_code_type
+      def vendor_code_type
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def vendor_code_type=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :posted
+      def posted
+      end
 
-      sig { params(posted: T::Boolean).void }
-      attr_writer :posted
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def posted=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :type
+      def type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :vendor_description
+      def vendor_description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def vendor_description=(_)
+      end
 
       sig do
         params(

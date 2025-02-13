@@ -19,25 +19,25 @@ module ModernTreasury
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader internal_account_id: String?
 
-      def internal_account_id=: (String) -> void
+      def internal_account_id=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader returnable_id: String?
 
-      def returnable_id=: (String) -> void
+      def returnable_id=: (String) -> String
 
       attr_reader returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type?
 
       def returnable_type=: (
         ModernTreasury::Models::ReturnListParams::returnable_type
-      ) -> void
+      ) -> ModernTreasury::Models::ReturnListParams::returnable_type
 
       def initialize:
         (

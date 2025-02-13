@@ -18,13 +18,15 @@ module ModernTreasury
 
       attr_reader account_type: ModernTreasury::Models::external_account_type?
 
-      def account_type=: (ModernTreasury::Models::external_account_type) -> void
+      def account_type=: (
+        ModernTreasury::Models::external_account_type
+      ) -> ModernTreasury::Models::external_account_type
 
       attr_accessor counterparty_id: String?
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_accessor name: String?
 
@@ -32,11 +34,11 @@ module ModernTreasury
 
       def party_address=: (
         ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress
-      ) -> void
+      ) -> ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress
 
       attr_reader party_name: String?
 
-      def party_name=: (String) -> void
+      def party_name=: (String) -> String
 
       attr_accessor party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?
 

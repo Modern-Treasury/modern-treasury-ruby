@@ -15,31 +15,31 @@ module ModernTreasury
 
       def bank_address=: (
         ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress
-      ) -> void
+      ) -> ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress
 
       attr_reader bank_name: String?
 
-      def bank_name=: (String) -> void
+      def bank_name=: (String) -> String
 
       attr_reader routing_number: String?
 
-      def routing_number=: (String) -> void
+      def routing_number=: (String) -> String
 
       attr_reader routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type?
 
       def routing_number_type=: (
         ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type
-      ) -> void
+      ) -> ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type
 
       attr_reader sanctions: ::Hash[Symbol, top]?
 
-      def sanctions=: (::Hash[Symbol, top]) -> void
+      def sanctions=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
       attr_reader supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]?
 
       def supported_payment_types=: (
         ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
 
       def initialize:
         (

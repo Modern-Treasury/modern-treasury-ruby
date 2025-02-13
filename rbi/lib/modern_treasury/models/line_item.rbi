@@ -4,43 +4,110 @@ module ModernTreasury
   module Models
     class LineItem < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(ModernTreasury::Models::LineItem::Accounting) }
-      attr_accessor :accounting
+      def accounting
+      end
+
+      sig do
+        params(_: ModernTreasury::Models::LineItem::Accounting).returns(ModernTreasury::Models::LineItem::Accounting)
+      end
+      def accounting=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :accounting_category_id
+      def accounting_category_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def accounting_category_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :accounting_ledger_class_id
+      def accounting_ledger_class_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def accounting_ledger_class_id=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :itemizable_id
+      def itemizable_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def itemizable_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :itemizable_type
+      def itemizable_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def itemizable_type=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T::Hash[Symbol, String]) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(
@@ -100,10 +167,20 @@ module ModernTreasury
 
       class Accounting < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_accessor :account_id
+        def account_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def account_id=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :class_id
+        def class_id
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def class_id=(_)
+        end
 
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
         def initialize(account_id: nil, class_id: nil)

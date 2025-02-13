@@ -7,55 +7,76 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :as_of_date_end
+      def as_of_date_end
+      end
 
-      sig { params(as_of_date_end: Date).void }
-      attr_writer :as_of_date_end
+      sig { params(_: Date).returns(Date) }
+      def as_of_date_end=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :as_of_date_start
+      def as_of_date_start
+      end
 
-      sig { params(as_of_date_start: Date).void }
-      attr_writer :as_of_date_start
+      sig { params(_: Date).returns(Date) }
+      def as_of_date_start=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :direction
+      def direction
+      end
 
-      sig { params(direction: Symbol).void }
-      attr_writer :direction
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
-
-      sig { returns(T.nilable(Symbol)) }
-      attr_reader :status
-
-      sig { params(status: Symbol).void }
-      attr_writer :status
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :type
+      def status
+      end
 
-      sig { params(type: Symbol).void }
-      attr_writer :type
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
+
+      sig { returns(T.nilable(Symbol)) }
+      def type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :virtual_account_id
+      def virtual_account_id
+      end
 
-      sig { params(virtual_account_id: String).void }
-      attr_writer :virtual_account_id
+      sig { params(_: String).returns(String) }
+      def virtual_account_id=(_)
+      end
 
       sig do
         params(

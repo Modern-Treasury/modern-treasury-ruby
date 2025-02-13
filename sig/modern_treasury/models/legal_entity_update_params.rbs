@@ -35,7 +35,7 @@ module ModernTreasury
 
       def addresses=: (
         ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address]
 
       attr_accessor bank_settings: ModernTreasury::Models::BankSettings?
 
@@ -49,7 +49,7 @@ module ModernTreasury
 
       attr_reader doing_business_as_names: ::Array[String]?
 
-      def doing_business_as_names=: (::Array[String]) -> void
+      def doing_business_as_names=: (::Array[String]) -> ::Array[String]
 
       attr_accessor email: String?
 
@@ -59,7 +59,7 @@ module ModernTreasury
 
       def identifications=: (
         ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification]
 
       attr_accessor last_name: String?
 
@@ -67,7 +67,7 @@ module ModernTreasury
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_accessor middle_name: String?
 
@@ -75,7 +75,7 @@ module ModernTreasury
 
       def phone_numbers=: (
         ::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber]
 
       attr_accessor politically_exposed_person: bool?
 
@@ -150,7 +150,7 @@ module ModernTreasury
 
         def address_types=: (
           ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::address_type]
-        ) -> void
+        ) -> ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::address_type]
 
         attr_accessor line2: String?
 
@@ -286,7 +286,7 @@ module ModernTreasury
       class PhoneNumber < ModernTreasury::BaseModel
         attr_reader phone_number: String?
 
-        def phone_number=: (String) -> void
+        def phone_number=: (String) -> String
 
         def initialize:
           (phone_number: String) -> void

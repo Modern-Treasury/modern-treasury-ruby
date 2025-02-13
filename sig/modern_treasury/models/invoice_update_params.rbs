@@ -38,27 +38,29 @@ module ModernTreasury
 
       def contact_details=: (
         ::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail]
 
       attr_accessor counterparty_billing_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress?
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_accessor counterparty_shipping_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress?
 
       attr_reader currency: ModernTreasury::Models::currency?
 
-      def currency=: (ModernTreasury::Models::currency) -> void
+      def currency=: (
+        ModernTreasury::Models::currency
+      ) -> ModernTreasury::Models::currency
 
       attr_reader description: String?
 
-      def description=: (String) -> void
+      def description=: (String) -> String
 
       attr_reader due_date: Time?
 
-      def due_date=: (Time) -> void
+      def due_date=: (Time) -> Time
 
       attr_accessor fallback_payment_method: String?
 
@@ -76,29 +78,31 @@ module ModernTreasury
 
       attr_reader notifications_enabled: bool?
 
-      def notifications_enabled=: (bool) -> void
+      def notifications_enabled=: (bool) -> bool
 
       attr_reader originating_account_id: String?
 
-      def originating_account_id=: (String) -> void
+      def originating_account_id=: (String) -> String
 
       attr_reader payment_effective_date: Date?
 
-      def payment_effective_date=: (Date) -> void
+      def payment_effective_date=: (Date) -> Date
 
       attr_reader payment_method: ModernTreasury::Models::InvoiceUpdateParams::payment_method?
 
       def payment_method=: (
         ModernTreasury::Models::InvoiceUpdateParams::payment_method
-      ) -> void
+      ) -> ModernTreasury::Models::InvoiceUpdateParams::payment_method
 
       attr_reader payment_type: ModernTreasury::Models::payment_order_type?
 
-      def payment_type=: (ModernTreasury::Models::payment_order_type) -> void
+      def payment_type=: (
+        ModernTreasury::Models::payment_order_type
+      ) -> ModernTreasury::Models::payment_order_type
 
       attr_reader receiving_account_id: String?
 
-      def receiving_account_id=: (String) -> void
+      def receiving_account_id=: (String) -> String
 
       attr_accessor recipient_email: String?
 
@@ -108,7 +112,7 @@ module ModernTreasury
 
       attr_reader status: String?
 
-      def status=: (String) -> void
+      def status=: (String) -> String
 
       attr_accessor virtual_account_id: String?
 
@@ -229,7 +233,7 @@ module ModernTreasury
 
         attr_reader line2: String?
 
-        def line2=: (String) -> void
+        def line2=: (String) -> String
 
         def initialize:
           (
@@ -271,7 +275,7 @@ module ModernTreasury
 
         attr_reader line2: String?
 
-        def line2=: (String) -> void
+        def line2=: (String) -> String
 
         def initialize:
           (
@@ -308,23 +312,23 @@ module ModernTreasury
 
         attr_reader description: String?
 
-        def description=: (String) -> void
+        def description=: (String) -> String
 
         attr_reader direction: String?
 
-        def direction=: (String) -> void
+        def direction=: (String) -> String
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         attr_reader quantity: Integer?
 
-        def quantity=: (Integer) -> void
+        def quantity=: (Integer) -> Integer
 
         attr_reader unit_amount_decimal: String?
 
-        def unit_amount_decimal=: (String) -> void
+        def unit_amount_decimal=: (String) -> String
 
         def initialize:
           (
@@ -367,7 +371,7 @@ module ModernTreasury
 
         attr_reader line2: String?
 
-        def line2=: (String) -> void
+        def line2=: (String) -> String
 
         def initialize:
           (

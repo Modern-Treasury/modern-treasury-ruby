@@ -4,7 +4,8 @@ module ModernTreasury
   module Resources
     class Transactions
       sig { returns(ModernTreasury::Resources::Transactions::LineItems) }
-      attr_reader :line_items
+      def line_items
+      end
 
       sig do
         params(

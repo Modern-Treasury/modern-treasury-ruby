@@ -17,17 +17,17 @@ module ModernTreasury
 
       attr_reader custom_redirect: String?
 
-      def custom_redirect=: (String) -> void
+      def custom_redirect=: (String) -> String
 
       attr_reader fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]?
 
       def fields=: (
         ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
-      ) -> void
+      ) -> ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
 
       attr_reader send_email: bool?
 
-      def send_email=: (bool) -> void
+      def send_email=: (bool) -> bool
 
       def initialize:
         (

@@ -22,35 +22,35 @@ module ModernTreasury
 
       attr_reader base_currency: String?
 
-      def base_currency=: (String) -> void
+      def base_currency=: (String) -> String
 
       attr_reader effective_at_end: Date?
 
-      def effective_at_end=: (Date) -> void
+      def effective_at_end=: (Date) -> Date
 
       attr_reader effective_at_start: Date?
 
-      def effective_at_start=: (Date) -> void
+      def effective_at_start=: (Date) -> Date
 
       attr_reader expires_at: Time?
 
-      def expires_at=: (Time) -> void
+      def expires_at=: (Time) -> Time
 
       attr_reader internal_account_id: String?
 
-      def internal_account_id=: (String) -> void
+      def internal_account_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader target_currency: String?
 
-      def target_currency=: (String) -> void
+      def target_currency=: (String) -> String
 
       def initialize:
         (

@@ -30,83 +30,83 @@ module ModernTreasury
 
       attr_reader id: ::Array[String]?
 
-      def id=: (::Array[String]) -> void
+      def id=: (::Array[String]) -> ::Array[String]
 
       attr_accessor after_cursor: String?
 
       attr_reader effective_at: ::Hash[Symbol, Time]?
 
-      def effective_at=: (::Hash[Symbol, Time]) -> void
+      def effective_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       attr_reader effective_date: ::Hash[Symbol, Time]?
 
-      def effective_date=: (::Hash[Symbol, Time]) -> void
+      def effective_date=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       attr_reader external_id: String?
 
-      def external_id=: (String) -> void
+      def external_id=: (String) -> String
 
       attr_reader ledger_account_category_id: String?
 
-      def ledger_account_category_id=: (String) -> void
+      def ledger_account_category_id=: (String) -> String
 
       attr_reader ledger_account_id: String?
 
-      def ledger_account_id=: (String) -> void
+      def ledger_account_id=: (String) -> String
 
       attr_reader ledger_account_settlement_id: String?
 
-      def ledger_account_settlement_id=: (String) -> void
+      def ledger_account_settlement_id=: (String) -> String
 
       attr_reader ledger_id: String?
 
-      def ledger_id=: (String) -> void
+      def ledger_id=: (String) -> String
 
       attr_reader ledgerable_id: String?
 
-      def ledgerable_id=: (String) -> void
+      def ledgerable_id=: (String) -> String
 
       attr_reader ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type?
 
       def ledgerable_type=: (
         ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy?
 
       def order_by=: (
         ModernTreasury::Models::LedgerTransactionListParams::OrderBy
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerTransactionListParams::OrderBy
 
       attr_reader partially_posts_ledger_transaction_id: String?
 
-      def partially_posts_ledger_transaction_id=: (String) -> void
+      def partially_posts_ledger_transaction_id=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader posted_at: ::Hash[Symbol, Time]?
 
-      def posted_at=: (::Hash[Symbol, Time]) -> void
+      def posted_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       attr_reader reverses_ledger_transaction_id: String?
 
-      def reverses_ledger_transaction_id=: (String) -> void
+      def reverses_ledger_transaction_id=: (String) -> String
 
       attr_reader status: ModernTreasury::Models::LedgerTransactionListParams::status?
 
       def status=: (
         ModernTreasury::Models::LedgerTransactionListParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerTransactionListParams::status
 
       attr_reader updated_at: ::Hash[Symbol, Time]?
 
-      def updated_at=: (::Hash[Symbol, Time]) -> void
+      def updated_at=: (::Hash[Symbol, Time]) -> ::Hash[Symbol, Time]
 
       def initialize:
         (
@@ -168,13 +168,13 @@ module ModernTreasury
 
         def created_at=: (
           ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at
-        ) -> void
+        ) -> ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at
 
         attr_reader effective_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at?
 
         def effective_at=: (
           ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at
-        ) -> void
+        ) -> ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at
 
         def initialize:
           (

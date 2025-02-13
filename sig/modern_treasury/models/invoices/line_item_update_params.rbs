@@ -22,31 +22,31 @@ module ModernTreasury
 
         attr_reader description: String?
 
-        def description=: (String) -> void
+        def description=: (String) -> String
 
         attr_reader direction: String?
 
-        def direction=: (String) -> void
+        def direction=: (String) -> String
 
         attr_reader metadata: ::Hash[Symbol, String]?
 
-        def metadata=: (::Hash[Symbol, String]) -> void
+        def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         attr_reader name: String?
 
-        def name=: (String) -> void
+        def name=: (String) -> String
 
         attr_reader quantity: Integer?
 
-        def quantity=: (Integer) -> void
+        def quantity=: (Integer) -> Integer
 
         attr_reader unit_amount: Integer?
 
-        def unit_amount=: (Integer) -> void
+        def unit_amount=: (Integer) -> Integer
 
         attr_reader unit_amount_decimal: String?
 
-        def unit_amount_decimal=: (String) -> void
+        def unit_amount_decimal=: (String) -> String
 
         def initialize:
           (

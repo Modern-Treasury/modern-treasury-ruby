@@ -8,18 +8,40 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(Date) }
-        attr_accessor :as_of_date
+        def as_of_date
+        end
+
+        sig { params(_: Date).returns(Date) }
+        def as_of_date=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :as_of_time
+        def as_of_time
+        end
+
+        sig { params(_: String).returns(String) }
+        def as_of_time=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :balance_report_type
+        def balance_report_type
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def balance_report_type=(_)
+        end
 
         sig do
           returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance])
         end
-        attr_accessor :balances
+        def balances
+        end
+
+        sig do
+          params(_: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]).returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance])
+        end
+        def balances=(_)
+        end
 
         sig do
           params(
@@ -62,16 +84,36 @@ module ModernTreasury
 
         class Balance < ModernTreasury::BaseModel
           sig { returns(Integer) }
-          attr_accessor :amount
+          def amount
+          end
+
+          sig { params(_: Integer).returns(Integer) }
+          def amount=(_)
+          end
 
           sig { returns(Symbol) }
-          attr_accessor :balance_type
+          def balance_type
+          end
+
+          sig { params(_: Symbol).returns(Symbol) }
+          def balance_type=(_)
+          end
 
           sig { returns(String) }
-          attr_accessor :vendor_code
+          def vendor_code
+          end
+
+          sig { params(_: String).returns(String) }
+          def vendor_code=(_)
+          end
 
           sig { returns(T.nilable(String)) }
-          attr_accessor :vendor_code_type
+          def vendor_code_type
+          end
+
+          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          def vendor_code_type=(_)
+          end
 
           sig do
             params(

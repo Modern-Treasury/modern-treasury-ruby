@@ -7,16 +7,28 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(Symbol) }
-      attr_accessor :accounts_type
+      def accounts_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def accounts_type=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :account_number
+      def account_number
+      end
+
+      sig { params(_: String).returns(String) }
+      def account_number=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :account_number_type
+      def account_number_type
+      end
 
-      sig { params(account_number_type: Symbol).void }
-      attr_writer :account_number_type
+      sig { params(_: Symbol).returns(Symbol) }
+      def account_number_type=(_)
+      end
 
       sig do
         params(

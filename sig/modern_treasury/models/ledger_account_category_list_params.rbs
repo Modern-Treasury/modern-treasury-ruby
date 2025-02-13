@@ -21,7 +21,7 @@ module ModernTreasury
 
       attr_reader id: ::Array[String]?
 
-      def id=: (::Array[String]) -> void
+      def id=: (::Array[String]) -> ::Array[String]
 
       attr_accessor after_cursor: String?
 
@@ -29,35 +29,35 @@ module ModernTreasury
 
       def balances=: (
         ModernTreasury::Models::LedgerAccountCategoryListParams::Balances
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerAccountCategoryListParams::Balances
 
       attr_reader currency: String?
 
-      def currency=: (String) -> void
+      def currency=: (String) -> String
 
       attr_reader ledger_account_id: String?
 
-      def ledger_account_id=: (String) -> void
+      def ledger_account_id=: (String) -> String
 
       attr_reader ledger_id: String?
 
-      def ledger_id=: (String) -> void
+      def ledger_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader name: String?
 
-      def name=: (String) -> void
+      def name=: (String) -> String
 
       attr_reader parent_ledger_account_category_id: String?
 
-      def parent_ledger_account_category_id=: (String) -> void
+      def parent_ledger_account_category_id=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       def initialize:
         (
@@ -85,7 +85,7 @@ module ModernTreasury
       class Balances < ModernTreasury::BaseModel
         attr_reader effective_at: Time?
 
-        def effective_at=: (Time) -> void
+        def effective_at=: (Time) -> Time
 
         def initialize:
           (effective_at: Time) -> void

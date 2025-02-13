@@ -19,23 +19,23 @@ module ModernTreasury
 
       attr_reader client_token: String?
 
-      def client_token=: (String) -> void
+      def client_token=: (String) -> String
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader external_account_id: String?
 
-      def external_account_id=: (String) -> void
+      def external_account_id=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader status: String?
 
-      def status=: (String) -> void
+      def status=: (String) -> String
 
       def initialize:
         (

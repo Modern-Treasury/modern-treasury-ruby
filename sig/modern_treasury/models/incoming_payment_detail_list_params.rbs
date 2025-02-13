@@ -22,39 +22,41 @@ module ModernTreasury
 
       attr_reader as_of_date_end: Date?
 
-      def as_of_date_end=: (Date) -> void
+      def as_of_date_end=: (Date) -> Date
 
       attr_reader as_of_date_start: Date?
 
-      def as_of_date_start=: (Date) -> void
+      def as_of_date_start=: (Date) -> Date
 
       attr_reader direction: ModernTreasury::Models::transaction_direction?
 
-      def direction=: (ModernTreasury::Models::transaction_direction) -> void
+      def direction=: (
+        ModernTreasury::Models::transaction_direction
+      ) -> ModernTreasury::Models::transaction_direction
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader status: ModernTreasury::Models::IncomingPaymentDetailListParams::status?
 
       def status=: (
         ModernTreasury::Models::IncomingPaymentDetailListParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::IncomingPaymentDetailListParams::status
 
       attr_reader type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_?
 
       def type=: (
         ModernTreasury::Models::IncomingPaymentDetailListParams::type_
-      ) -> void
+      ) -> ModernTreasury::Models::IncomingPaymentDetailListParams::type_
 
       attr_reader virtual_account_id: String?
 
-      def virtual_account_id=: (String) -> void
+      def virtual_account_id=: (String) -> String
 
       def initialize:
         (

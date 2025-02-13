@@ -27,7 +27,7 @@ module ModernTreasury
 
       attr_reader due_date: Date?
 
-      def due_date=: (Date) -> void
+      def due_date=: (Date) -> Date
 
       def initialize:
         (

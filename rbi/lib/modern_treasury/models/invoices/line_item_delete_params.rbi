@@ -8,7 +8,12 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(String) }
-        attr_accessor :invoice_id
+        def invoice_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def invoice_id=(_)
+        end
 
         sig do
           params(

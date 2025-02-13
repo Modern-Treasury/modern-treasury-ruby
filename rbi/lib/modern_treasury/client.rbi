@@ -11,123 +11,162 @@ module ModernTreasury
     DEFAULT_MAX_RETRY_DELAY = T.let(8.0, Float)
 
     sig { returns(String) }
-    attr_reader :api_key
+    def api_key
+    end
 
     sig { returns(String) }
-    attr_reader :organization_id
+    def organization_id
+    end
 
     sig { returns(ModernTreasury::Resources::Connections) }
-    attr_reader :connections
+    def connections
+    end
 
     sig { returns(ModernTreasury::Resources::Counterparties) }
-    attr_reader :counterparties
+    def counterparties
+    end
 
     sig { returns(ModernTreasury::Resources::Events) }
-    attr_reader :events
+    def events
+    end
 
     sig { returns(ModernTreasury::Resources::ExpectedPayments) }
-    attr_reader :expected_payments
+    def expected_payments
+    end
 
     sig { returns(ModernTreasury::Resources::ExternalAccounts) }
-    attr_reader :external_accounts
+    def external_accounts
+    end
 
     sig { returns(ModernTreasury::Resources::IncomingPaymentDetails) }
-    attr_reader :incoming_payment_details
+    def incoming_payment_details
+    end
 
     sig { returns(ModernTreasury::Resources::Invoices) }
-    attr_reader :invoices
+    def invoices
+    end
 
     sig { returns(ModernTreasury::Resources::Documents) }
-    attr_reader :documents
+    def documents
+    end
 
     sig { returns(ModernTreasury::Resources::AccountCollectionFlows) }
-    attr_reader :account_collection_flows
+    def account_collection_flows
+    end
 
     sig { returns(ModernTreasury::Resources::AccountDetails) }
-    attr_reader :account_details
+    def account_details
+    end
 
     sig { returns(ModernTreasury::Resources::RoutingDetails) }
-    attr_reader :routing_details
+    def routing_details
+    end
 
     sig { returns(ModernTreasury::Resources::InternalAccounts) }
-    attr_reader :internal_accounts
+    def internal_accounts
+    end
 
     sig { returns(ModernTreasury::Resources::Ledgers) }
-    attr_reader :ledgers
+    def ledgers
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerableEvents) }
-    attr_reader :ledgerable_events
+    def ledgerable_events
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerAccountCategories) }
-    attr_reader :ledger_account_categories
+    def ledger_account_categories
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerAccounts) }
-    attr_reader :ledger_accounts
+    def ledger_accounts
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerAccountBalanceMonitors) }
-    attr_reader :ledger_account_balance_monitors
+    def ledger_account_balance_monitors
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerAccountStatements) }
-    attr_reader :ledger_account_statements
+    def ledger_account_statements
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerEntries) }
-    attr_reader :ledger_entries
+    def ledger_entries
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerEventHandlers) }
-    attr_reader :ledger_event_handlers
+    def ledger_event_handlers
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerTransactions) }
-    attr_reader :ledger_transactions
+    def ledger_transactions
+    end
 
     sig { returns(ModernTreasury::Resources::LineItems) }
-    attr_reader :line_items
+    def line_items
+    end
 
     sig { returns(ModernTreasury::Resources::PaymentFlows) }
-    attr_reader :payment_flows
+    def payment_flows
+    end
 
     sig { returns(ModernTreasury::Resources::PaymentOrders) }
-    attr_reader :payment_orders
+    def payment_orders
+    end
 
     sig { returns(ModernTreasury::Resources::PaymentReferences) }
-    attr_reader :payment_references
+    def payment_references
+    end
 
     sig { returns(ModernTreasury::Resources::Returns) }
-    attr_reader :returns
+    def returns
+    end
 
     sig { returns(ModernTreasury::Resources::Transactions) }
-    attr_reader :transactions
+    def transactions
+    end
 
     sig { returns(ModernTreasury::Resources::Validations) }
-    attr_reader :validations
+    def validations
+    end
 
     sig { returns(ModernTreasury::Resources::PaperItems) }
-    attr_reader :paper_items
+    def paper_items
+    end
 
     sig { returns(ModernTreasury::Resources::VirtualAccounts) }
-    attr_reader :virtual_accounts
+    def virtual_accounts
+    end
 
     sig { returns(ModernTreasury::Resources::BulkRequests) }
-    attr_reader :bulk_requests
+    def bulk_requests
+    end
 
     sig { returns(ModernTreasury::Resources::BulkResults) }
-    attr_reader :bulk_results
+    def bulk_results
+    end
 
     sig { returns(ModernTreasury::Resources::LedgerAccountSettlements) }
-    attr_reader :ledger_account_settlements
+    def ledger_account_settlements
+    end
 
     sig { returns(ModernTreasury::Resources::ForeignExchangeQuotes) }
-    attr_reader :foreign_exchange_quotes
+    def foreign_exchange_quotes
+    end
 
     sig { returns(ModernTreasury::Resources::ConnectionLegalEntities) }
-    attr_reader :connection_legal_entities
+    def connection_legal_entities
+    end
 
     sig { returns(ModernTreasury::Resources::LegalEntities) }
-    attr_reader :legal_entities
+    def legal_entities
+    end
 
     sig { returns(ModernTreasury::Resources::LegalEntityAssociations) }
-    attr_reader :legal_entity_associations
+    def legal_entity_associations
+    end
 
-    sig { returns(T::Hash[String, String]) }
+    sig { override.returns(T::Hash[String, String]) }
     private def auth_headers
     end
 

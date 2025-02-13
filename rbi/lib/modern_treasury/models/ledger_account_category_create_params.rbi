@@ -7,34 +7,68 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: String).returns(String) }
+      def currency=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :ledger_id
+      def ledger_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: String).returns(String) }
+      def name=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :normal_balance
+      def normal_balance
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def normal_balance=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :currency_exponent
+      def currency_exponent
+      end
+
+      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+      def currency_exponent=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :description
+      def description
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(T::Array[String])) }
-      attr_reader :ledger_account_category_ids
+      def ledger_account_category_ids
+      end
 
-      sig { params(ledger_account_category_ids: T::Array[String]).void }
-      attr_writer :ledger_account_category_ids
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def ledger_account_category_ids=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig do
         params(

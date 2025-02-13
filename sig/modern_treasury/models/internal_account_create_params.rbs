@@ -28,25 +28,25 @@ module ModernTreasury
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader legal_entity_id: String?
 
-      def legal_entity_id=: (String) -> void
+      def legal_entity_id=: (String) -> String
 
       attr_reader parent_account_id: String?
 
-      def parent_account_id=: (String) -> void
+      def parent_account_id=: (String) -> String
 
       attr_reader party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress?
 
       def party_address=: (
         ModernTreasury::Models::InternalAccountCreateParams::PartyAddress
-      ) -> void
+      ) -> ModernTreasury::Models::InternalAccountCreateParams::PartyAddress
 
       attr_reader vendor_attributes: ::Hash[Symbol, String]?
 
-      def vendor_attributes=: (::Hash[Symbol, String]) -> void
+      def vendor_attributes=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       def initialize:
         (
@@ -100,7 +100,7 @@ module ModernTreasury
 
         attr_reader line2: String?
 
-        def line2=: (String) -> void
+        def line2=: (String) -> String
 
         def initialize:
           (

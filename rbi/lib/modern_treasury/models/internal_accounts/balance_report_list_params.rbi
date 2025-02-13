@@ -8,25 +8,36 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :after_cursor
+        def after_cursor
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def after_cursor=(_)
+        end
 
         sig { returns(T.nilable(Date)) }
-        attr_reader :as_of_date
+        def as_of_date
+        end
 
-        sig { params(as_of_date: Date).void }
-        attr_writer :as_of_date
+        sig { params(_: Date).returns(Date) }
+        def as_of_date=(_)
+        end
 
         sig { returns(T.nilable(Symbol)) }
-        attr_reader :balance_report_type
+        def balance_report_type
+        end
 
-        sig { params(balance_report_type: Symbol).void }
-        attr_writer :balance_report_type
+        sig { params(_: Symbol).returns(Symbol) }
+        def balance_report_type=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :per_page
+        def per_page
+        end
 
-        sig { params(per_page: Integer).void }
-        attr_writer :per_page
+        sig { params(_: Integer).returns(Integer) }
+        def per_page=(_)
+        end
 
         sig do
           params(

@@ -14,7 +14,7 @@ module ModernTreasury
 
       def status=: (
         ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
 
       def initialize:
         (

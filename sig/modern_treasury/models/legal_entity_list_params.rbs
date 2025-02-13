@@ -20,19 +20,19 @@ module ModernTreasury
 
       def legal_entity_type=: (
         ModernTreasury::Models::LegalEntityListParams::legal_entity_type
-      ) -> void
+      ) -> ModernTreasury::Models::LegalEntityListParams::legal_entity_type
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader show_deleted: String?
 
-      def show_deleted=: (String) -> void
+      def show_deleted=: (String) -> String
 
       def initialize:
         (

@@ -22,5 +22,10 @@ class ModernTreasury::Test::Resources::LedgerTransactions::VersionsTest < Minite
     assert_pattern do
       page => ModernTreasury::Page
     end
+
+    row = response.to_enum.first
+    assert_pattern do
+      row => ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion
+    end
   end
 end

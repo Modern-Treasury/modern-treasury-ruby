@@ -16,13 +16,13 @@ module ModernTreasury
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status?
 
       def status=: (
         ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
 
       def initialize:
         (

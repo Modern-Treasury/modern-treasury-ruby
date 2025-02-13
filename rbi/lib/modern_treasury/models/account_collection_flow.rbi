@@ -4,61 +4,92 @@ module ModernTreasury
   module Models
     class AccountCollectionFlow < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T::Array[Symbol]) }
-      attr_accessor :payment_types
+      def payment_types
+      end
+
+      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      def payment_types=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :id
+      def id
+      end
 
-      sig { params(id: String).void }
-      attr_writer :id
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :client_token
+      def client_token
+      end
 
-      sig { params(client_token: String).void }
-      attr_writer :client_token
+      sig { params(_: String).returns(String) }
+      def client_token=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :created_at
+      def created_at
+      end
 
-      sig { params(created_at: Time).void }
-      attr_writer :created_at
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :external_account_id
+      def external_account_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def external_account_id=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :live_mode
+      def live_mode
+      end
 
-      sig { params(live_mode: T::Boolean).void }
-      attr_writer :live_mode
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :object
+      def object
+      end
 
-      sig { params(object: String).void }
-      attr_writer :object
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(T.nilable(T::Array[Symbol])) }
-      attr_reader :receiving_countries
+      def receiving_countries
+      end
 
-      sig { params(receiving_countries: T::Array[Symbol]).void }
-      attr_writer :receiving_countries
+      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      def receiving_countries=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :status
+      def status
+      end
 
-      sig { params(status: Symbol).void }
-      attr_writer :status
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :updated_at
+      def updated_at
+      end
 
-      sig { params(updated_at: Time).void }
-      attr_writer :updated_at
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(

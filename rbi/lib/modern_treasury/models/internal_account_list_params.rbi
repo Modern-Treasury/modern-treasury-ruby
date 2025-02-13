@@ -7,49 +7,68 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
+      def counterparty_id
+      end
 
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :currency
+      def currency
+      end
 
-      sig { params(currency: Symbol).void }
-      attr_writer :currency
+      sig { params(_: Symbol).returns(Symbol) }
+      def currency=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :legal_entity_id
+      def legal_entity_id
+      end
 
-      sig { params(legal_entity_id: String).void }
-      attr_writer :legal_entity_id
+      sig { params(_: String).returns(String) }
+      def legal_entity_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
-
-      sig { returns(T.nilable(Symbol)) }
-      attr_reader :payment_direction
-
-      sig { params(payment_direction: Symbol).void }
-      attr_writer :payment_direction
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :payment_type
+      def payment_direction
+      end
 
-      sig { params(payment_type: Symbol).void }
-      attr_writer :payment_type
+      sig { params(_: Symbol).returns(Symbol) }
+      def payment_direction=(_)
+      end
+
+      sig { returns(T.nilable(Symbol)) }
+      def payment_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def payment_type=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig do
         params(

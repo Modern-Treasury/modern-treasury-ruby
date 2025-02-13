@@ -19,29 +19,29 @@ module ModernTreasury
 
       def action_type=: (
         ModernTreasury::Models::BulkRequestListParams::action_type
-      ) -> void
+      ) -> ModernTreasury::Models::BulkRequestListParams::action_type
 
       attr_accessor after_cursor: String?
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader resource_type: ModernTreasury::Models::BulkRequestListParams::resource_type?
 
       def resource_type=: (
         ModernTreasury::Models::BulkRequestListParams::resource_type
-      ) -> void
+      ) -> ModernTreasury::Models::BulkRequestListParams::resource_type
 
       attr_reader status: ModernTreasury::Models::BulkRequestListParams::status?
 
       def status=: (
         ModernTreasury::Models::BulkRequestListParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::BulkRequestListParams::status
 
       def initialize:
         (

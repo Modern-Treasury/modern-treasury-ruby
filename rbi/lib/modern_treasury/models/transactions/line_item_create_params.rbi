@@ -8,13 +8,28 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(Integer) }
-        attr_accessor :amount
+        def amount
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def amount=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :expected_payment_id
+        def expected_payment_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def expected_payment_id=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :transaction_id
+        def transaction_id
+        end
+
+        sig { params(_: String).returns(String) }
+        def transaction_id=(_)
+        end
 
         sig do
           params(

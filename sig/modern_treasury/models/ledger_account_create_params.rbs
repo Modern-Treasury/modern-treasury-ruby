@@ -33,21 +33,21 @@ module ModernTreasury
 
       attr_reader ledger_account_category_ids: ::Array[String]?
 
-      def ledger_account_category_ids=: (::Array[String]) -> void
+      def ledger_account_category_ids=: (::Array[String]) -> ::Array[String]
 
       attr_reader ledgerable_id: String?
 
-      def ledgerable_id=: (String) -> void
+      def ledgerable_id=: (String) -> String
 
       attr_reader ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type?
 
       def ledgerable_type=: (
         ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       def initialize:
         (
