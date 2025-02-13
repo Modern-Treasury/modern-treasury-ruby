@@ -7,22 +7,38 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition) }
-      attr_accessor :alert_condition
+      def alert_condition
+      end
+
+      sig do
+        params(_: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition).returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition)
+      end
+      def alert_condition=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :ledger_account_id
+      def ledger_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :description
+      def description
+      end
 
-      sig { params(description: String).void }
-      attr_writer :description
+      sig { params(_: String).returns(String) }
+      def description=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig do
         params(
@@ -59,13 +75,28 @@ module ModernTreasury
 
       class AlertCondition < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :field
+        def field
+        end
+
+        sig { params(_: String).returns(String) }
+        def field=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :operator
+        def operator
+        end
+
+        sig { params(_: String).returns(String) }
+        def operator=(_)
+        end
 
         sig { returns(Integer) }
-        attr_accessor :value
+        def value
+        end
+
+        sig { params(_: Integer).returns(Integer) }
+        def value=(_)
+        end
 
         sig { params(field: String, operator: String, value: Integer).void }
         def initialize(field:, operator:, value:)

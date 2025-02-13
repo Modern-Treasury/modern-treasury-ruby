@@ -7,10 +7,12 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(T::Array[Integer])) }
-      attr_reader :amounts
+      def amounts
+      end
 
-      sig { params(amounts: T::Array[Integer]).void }
-      attr_writer :amounts
+      sig { params(_: T::Array[Integer]).returns(T::Array[Integer]) }
+      def amounts=(_)
+      end
 
       sig do
         params(

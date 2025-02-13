@@ -7,16 +7,28 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T::Array[String]) }
-      attr_accessor :payment_types
+      def payment_types
+      end
+
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def payment_types=(_)
+      end
 
       sig { returns(T.nilable(T::Array[Symbol])) }
-      attr_reader :receiving_countries
+      def receiving_countries
+      end
 
-      sig { params(receiving_countries: T::Array[Symbol]).void }
-      attr_writer :receiving_countries
+      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      def receiving_countries=(_)
+      end
 
       sig do
         params(

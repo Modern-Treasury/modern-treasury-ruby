@@ -17,17 +17,17 @@ module ModernTreasury
 
         attr_reader id: ::Hash[Symbol, String]?
 
-        def id=: (::Hash[Symbol, String]) -> void
+        def id=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
         attr_accessor after_cursor: String?
 
         attr_reader per_page: Integer?
 
-        def per_page=: (Integer) -> void
+        def per_page=: (Integer) -> Integer
 
         attr_reader transaction_id: String?
 
-        def transaction_id=: (String) -> void
+        def transaction_id=: (String) -> String
 
         attr_accessor type: ModernTreasury::Models::Transactions::LineItemListParams::type_?
 

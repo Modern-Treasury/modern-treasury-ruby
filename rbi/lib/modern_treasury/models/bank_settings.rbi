@@ -4,34 +4,84 @@ module ModernTreasury
   module Models
     class BankSettings < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :backup_withholding_percentage
+      def backup_withholding_percentage
+      end
+
+      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
+      def backup_withholding_percentage=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_accessor :discarded_at
+      def discarded_at
+      end
+
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+      def discarded_at=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :enable_backup_withholding
+      def enable_backup_withholding
+      end
+
+      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+      def enable_backup_withholding=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :privacy_opt_out
+      def privacy_opt_out
+      end
+
+      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+      def privacy_opt_out=(_)
+      end
 
       sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :regulation_o
+      def regulation_o
+      end
+
+      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
+      def regulation_o=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(

@@ -7,37 +7,62 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :account_type
+      def account_type
+      end
 
-      sig { params(account_type: Symbol).void }
-      attr_writer :account_type
+      sig { params(_: Symbol).returns(Symbol) }
+      def account_type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def name=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)) }
-      attr_reader :party_address
+      def party_address
+      end
 
-      sig { params(party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress).void }
-      attr_writer :party_address
+      sig do
+        params(_: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress).returns(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)
+      end
+      def party_address=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :party_name
+      def party_name
+      end
 
-      sig { params(party_name: String).void }
-      attr_writer :party_name
+      sig { params(_: String).returns(String) }
+      def party_name=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :party_type
+      def party_type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def party_type=(_)
+      end
 
       sig do
         params(
@@ -82,22 +107,52 @@ module ModernTreasury
 
       class PartyAddress < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def country=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :line1
+        def line1
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def line1=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :line2
+        def line2
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def line2=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :locality
+        def locality
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def locality=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :postal_code
+        def postal_code
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def postal_code=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :region
+        def region
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def region=(_)
+        end
 
         sig do
           params(

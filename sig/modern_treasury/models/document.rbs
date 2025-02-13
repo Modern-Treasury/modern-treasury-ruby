@@ -146,15 +146,15 @@ module ModernTreasury
       class File < ModernTreasury::BaseModel
         attr_reader content_type: String?
 
-        def content_type=: (String) -> void
+        def content_type=: (String) -> String
 
         attr_reader filename: String?
 
-        def filename=: (String) -> void
+        def filename=: (String) -> String
 
         attr_reader size: Integer?
 
-        def size=: (Integer) -> void
+        def size=: (Integer) -> Integer
 
         def initialize:
           (content_type: String, filename: String, size: Integer) -> void

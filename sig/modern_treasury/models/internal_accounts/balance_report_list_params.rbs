@@ -18,17 +18,17 @@ module ModernTreasury
 
         attr_reader as_of_date: Date?
 
-        def as_of_date=: (Date) -> void
+        def as_of_date=: (Date) -> Date
 
         attr_reader balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type?
 
         def balance_report_type=: (
           ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type
-        ) -> void
+        ) -> ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type
 
         attr_reader per_page: Integer?
 
-        def per_page=: (Integer) -> void
+        def per_page=: (Integer) -> Integer
 
         def initialize:
           (

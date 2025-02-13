@@ -18,19 +18,19 @@ module ModernTreasury
 
       attr_reader counterparty_id: String?
 
-      def counterparty_id=: (String) -> void
+      def counterparty_id=: (String) -> String
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader party_name: String?
 
-      def party_name=: (String) -> void
+      def party_name=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       def initialize:
         (

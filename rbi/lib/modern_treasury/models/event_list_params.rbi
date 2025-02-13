@@ -7,43 +7,60 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :entity_id
+      def entity_id
+      end
 
-      sig { params(entity_id: String).void }
-      attr_writer :entity_id
+      sig { params(_: String).returns(String) }
+      def entity_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :event_name
+      def event_name
+      end
 
-      sig { params(event_name: String).void }
-      attr_writer :event_name
-
-      sig { returns(T.nilable(Time)) }
-      attr_reader :event_time_end
-
-      sig { params(event_time_end: Time).void }
-      attr_writer :event_time_end
+      sig { params(_: String).returns(String) }
+      def event_name=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :event_time_start
+      def event_time_end
+      end
 
-      sig { params(event_time_start: Time).void }
-      attr_writer :event_time_start
+      sig { params(_: Time).returns(Time) }
+      def event_time_end=(_)
+      end
+
+      sig { returns(T.nilable(Time)) }
+      def event_time_start
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def event_time_start=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :resource
+      def resource
+      end
 
-      sig { params(resource: String).void }
-      attr_writer :resource
+      sig { params(_: String).returns(String) }
+      def resource=(_)
+      end
 
       sig do
         params(

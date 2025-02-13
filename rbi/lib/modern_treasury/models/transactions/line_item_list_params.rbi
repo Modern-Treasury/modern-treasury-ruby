@@ -8,28 +8,44 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        attr_reader :id
+        def id
+        end
 
-        sig { params(id: T::Hash[Symbol, String]).void }
-        attr_writer :id
+        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+        def id=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :after_cursor
+        def after_cursor
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def after_cursor=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :per_page
+        def per_page
+        end
 
-        sig { params(per_page: Integer).void }
-        attr_writer :per_page
+        sig { params(_: Integer).returns(Integer) }
+        def per_page=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :transaction_id
+        def transaction_id
+        end
 
-        sig { params(transaction_id: String).void }
-        attr_writer :transaction_id
+        sig { params(_: String).returns(String) }
+        def transaction_id=(_)
+        end
 
         sig { returns(T.nilable(Symbol)) }
-        attr_accessor :type
+        def type
+        end
+
+        sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+        def type=(_)
+        end
 
         sig do
           params(

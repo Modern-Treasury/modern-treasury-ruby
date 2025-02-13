@@ -4,40 +4,54 @@ module ModernTreasury
   module Models
     class RoutingNumberLookupRequest < ModernTreasury::BaseModel
       sig { returns(T.nilable(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)) }
-      attr_reader :bank_address
+      def bank_address
+      end
 
-      sig { params(bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress).void }
-      attr_writer :bank_address
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :bank_name
-
-      sig { params(bank_name: String).void }
-      attr_writer :bank_name
+      sig do
+        params(_: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress).returns(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)
+      end
+      def bank_address=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :routing_number
+      def bank_name
+      end
 
-      sig { params(routing_number: String).void }
-      attr_writer :routing_number
+      sig { params(_: String).returns(String) }
+      def bank_name=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def routing_number
+      end
+
+      sig { params(_: String).returns(String) }
+      def routing_number=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :routing_number_type
+      def routing_number_type
+      end
 
-      sig { params(routing_number_type: Symbol).void }
-      attr_writer :routing_number_type
+      sig { params(_: Symbol).returns(Symbol) }
+      def routing_number_type=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      attr_reader :sanctions
+      def sanctions
+      end
 
-      sig { params(sanctions: T::Hash[Symbol, T.anything]).void }
-      attr_writer :sanctions
+      sig { params(_: T::Hash[Symbol, T.anything]).returns(T::Hash[Symbol, T.anything]) }
+      def sanctions=(_)
+      end
 
       sig { returns(T.nilable(T::Array[Symbol])) }
-      attr_reader :supported_payment_types
+      def supported_payment_types
+      end
 
-      sig { params(supported_payment_types: T::Array[Symbol]).void }
-      attr_writer :supported_payment_types
+      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      def supported_payment_types=(_)
+      end
 
       sig do
         params(
@@ -76,22 +90,52 @@ module ModernTreasury
 
       class BankAddress < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def country=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :line1
+        def line1
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def line1=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :line2
+        def line2
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def line2=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :locality
+        def locality
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def locality=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :postal_code
+        def postal_code
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def postal_code=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :region
+        def region
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def region=(_)
+        end
 
         sig do
           params(

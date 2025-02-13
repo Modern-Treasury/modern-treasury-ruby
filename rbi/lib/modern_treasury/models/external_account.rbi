@@ -4,61 +4,164 @@ module ModernTreasury
   module Models
     class ExternalAccount < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(T::Array[ModernTreasury::Models::AccountDetail]) }
-      attr_accessor :account_details
+      def account_details
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::AccountDetail]).returns(T::Array[ModernTreasury::Models::AccountDetail])
+      end
+      def account_details=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :account_type
+      def account_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def account_type=(_)
+      end
 
       sig { returns(T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail]) }
-      attr_accessor :contact_details
+      def contact_details
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail]).returns(T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail])
+      end
+      def contact_details=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_accessor :discarded_at
+      def discarded_at
+      end
+
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+      def discarded_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ledger_account_id
+      def ledger_account_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ledger_account_id=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T::Hash[Symbol, String]) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :name
+      def name
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def name=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress)) }
-      attr_accessor :party_address
+      def party_address
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress)).returns(T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress))
+      end
+      def party_address=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :party_name
+      def party_name
+      end
+
+      sig { params(_: String).returns(String) }
+      def party_name=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :party_type
+      def party_type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def party_type=(_)
+      end
 
       sig { returns(T::Array[ModernTreasury::Models::RoutingDetail]) }
-      attr_accessor :routing_details
+      def routing_details
+      end
+
+      sig do
+        params(_: T::Array[ModernTreasury::Models::RoutingDetail]).returns(T::Array[ModernTreasury::Models::RoutingDetail])
+      end
+      def routing_details=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :verification_source
+      def verification_source
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def verification_source=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :verification_status
+      def verification_status
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def verification_status=(_)
+      end
 
       sig do
         params(
@@ -136,28 +239,68 @@ module ModernTreasury
 
       class ContactDetail < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :contact_identifier
+        def contact_identifier
+        end
+
+        sig { params(_: String).returns(String) }
+        def contact_identifier=(_)
+        end
 
         sig { returns(Symbol) }
-        attr_accessor :contact_identifier_type
+        def contact_identifier_type
+        end
+
+        sig { params(_: Symbol).returns(Symbol) }
+        def contact_identifier_type=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :created_at
+        def created_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def created_at=(_)
+        end
 
         sig { returns(T.nilable(Time)) }
-        attr_accessor :discarded_at
+        def discarded_at
+        end
+
+        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
+        def discarded_at=(_)
+        end
 
         sig { returns(T::Boolean) }
-        attr_accessor :live_mode
+        def live_mode
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def live_mode=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :object
+        def object
+        end
+
+        sig { params(_: String).returns(String) }
+        def object=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :updated_at
+        def updated_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def updated_at=(_)
+        end
 
         sig do
           params(
@@ -215,37 +358,92 @@ module ModernTreasury
 
       class PartyAddress < ModernTreasury::BaseModel
         sig { returns(String) }
-        attr_accessor :id
+        def id
+        end
+
+        sig { params(_: String).returns(String) }
+        def id=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :country
+        def country
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def country=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :created_at
+        def created_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def created_at=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :line1
+        def line1
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def line1=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :line2
+        def line2
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def line2=(_)
+        end
 
         sig { returns(T::Boolean) }
-        attr_accessor :live_mode
+        def live_mode
+        end
+
+        sig { params(_: T::Boolean).returns(T::Boolean) }
+        def live_mode=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :locality
+        def locality
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def locality=(_)
+        end
 
         sig { returns(String) }
-        attr_accessor :object
+        def object
+        end
+
+        sig { params(_: String).returns(String) }
+        def object=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :postal_code
+        def postal_code
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def postal_code=(_)
+        end
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :region
+        def region
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def region=(_)
+        end
 
         sig { returns(Time) }
-        attr_accessor :updated_at
+        def updated_at
+        end
+
+        sig { params(_: Time).returns(Time) }
+        def updated_at=(_)
+        end
 
         sig do
           params(

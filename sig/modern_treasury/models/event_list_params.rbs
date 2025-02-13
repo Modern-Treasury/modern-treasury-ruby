@@ -20,27 +20,27 @@ module ModernTreasury
 
       attr_reader entity_id: String?
 
-      def entity_id=: (String) -> void
+      def entity_id=: (String) -> String
 
       attr_reader event_name: String?
 
-      def event_name=: (String) -> void
+      def event_name=: (String) -> String
 
       attr_reader event_time_end: Time?
 
-      def event_time_end=: (Time) -> void
+      def event_time_end=: (Time) -> Time
 
       attr_reader event_time_start: Time?
 
-      def event_time_start=: (Time) -> void
+      def event_time_start=: (Time) -> Time
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader resource: String?
 
-      def resource=: (String) -> void
+      def resource=: (String) -> String
 
       def initialize:
         (

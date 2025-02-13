@@ -18,33 +18,33 @@ module ModernTreasury
 
       attr_reader description: String?
 
-      def description=: (String) -> void
+      def description=: (String) -> String
 
       attr_accessor effective_at: Time?
 
       attr_reader external_id: String?
 
-      def external_id=: (String) -> void
+      def external_id=: (String) -> String
 
       attr_reader ledgerable_id: String?
 
-      def ledgerable_id=: (String) -> void
+      def ledgerable_id=: (String) -> String
 
       attr_reader ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type?
 
       def ledgerable_type=: (
         ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       attr_reader status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status?
 
       def status=: (
         ModernTreasury::Models::LedgerTransactionCreateReversalParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::LedgerTransactionCreateReversalParams::status
 
       def initialize:
         (

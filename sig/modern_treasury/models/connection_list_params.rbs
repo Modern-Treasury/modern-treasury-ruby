@@ -17,15 +17,15 @@ module ModernTreasury
 
       attr_reader entity: String?
 
-      def entity=: (String) -> void
+      def entity=: (String) -> String
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader vendor_customer_id: String?
 
-      def vendor_customer_id=: (String) -> void
+      def vendor_customer_id=: (String) -> String
 
       def initialize:
         (

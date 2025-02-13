@@ -4,31 +4,76 @@ module ModernTreasury
   module Models
     class PaymentReference < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :reference_number
+      def reference_number
+      end
+
+      sig { params(_: String).returns(String) }
+      def reference_number=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :reference_number_type
+      def reference_number_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def reference_number_type=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :referenceable_id
+      def referenceable_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def referenceable_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :referenceable_type
+      def referenceable_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def referenceable_type=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(

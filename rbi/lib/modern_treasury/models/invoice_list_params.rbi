@@ -7,67 +7,92 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
+      def counterparty_id
+      end
 
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
-
-      sig { returns(T.nilable(Date)) }
-      attr_reader :due_date_end
-
-      sig { params(due_date_end: Date).void }
-      attr_writer :due_date_end
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :due_date_start
+      def due_date_end
+      end
 
-      sig { params(due_date_start: Date).void }
-      attr_writer :due_date_start
+      sig { params(_: Date).returns(Date) }
+      def due_date_end=(_)
+      end
+
+      sig { returns(T.nilable(Date)) }
+      def due_date_start
+      end
+
+      sig { params(_: Date).returns(Date) }
+      def due_date_start=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :expected_payment_id
+      def expected_payment_id
+      end
 
-      sig { params(expected_payment_id: String).void }
-      attr_writer :expected_payment_id
+      sig { params(_: String).returns(String) }
+      def expected_payment_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :number
-
-      sig { params(number: String).void }
-      attr_writer :number
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :originating_account_id
+      def number
+      end
 
-      sig { params(originating_account_id: String).void }
-      attr_writer :originating_account_id
+      sig { params(_: String).returns(String) }
+      def number=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :payment_order_id
+      def originating_account_id
+      end
 
-      sig { params(payment_order_id: String).void }
-      attr_writer :payment_order_id
+      sig { params(_: String).returns(String) }
+      def originating_account_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def payment_order_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def payment_order_id=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :status
+      def status
+      end
 
-      sig { params(status: Symbol).void }
-      attr_writer :status
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig do
         params(

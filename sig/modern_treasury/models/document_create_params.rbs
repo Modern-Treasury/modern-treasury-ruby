@@ -21,7 +21,7 @@ module ModernTreasury
 
       attr_reader document_type: String?
 
-      def document_type=: (String) -> void
+      def document_type=: (String) -> String
 
       def initialize:
         (

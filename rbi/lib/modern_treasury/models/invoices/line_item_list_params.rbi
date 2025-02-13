@@ -8,13 +8,20 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :after_cursor
+        def after_cursor
+        end
+
+        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        def after_cursor=(_)
+        end
 
         sig { returns(T.nilable(Integer)) }
-        attr_reader :per_page
+        def per_page
+        end
 
-        sig { params(per_page: Integer).void }
-        attr_writer :per_page
+        sig { params(_: Integer).returns(Integer) }
+        def per_page=(_)
+        end
 
         sig do
           params(

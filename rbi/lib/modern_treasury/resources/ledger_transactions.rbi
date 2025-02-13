@@ -4,7 +4,8 @@ module ModernTreasury
   module Resources
     class LedgerTransactions
       sig { returns(ModernTreasury::Resources::LedgerTransactions::Versions) }
-      attr_reader :versions
+      def versions
+      end
 
       sig do
         params(

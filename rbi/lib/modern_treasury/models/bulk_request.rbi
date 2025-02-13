@@ -4,40 +4,100 @@ module ModernTreasury
   module Models
     class BulkRequest < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :action_type
+      def action_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def action_type=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :failed_result_count
+      def failed_result_count
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def failed_result_count=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T::Hash[Symbol, String]) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :resource_type
+      def resource_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def resource_type=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :status
+      def status
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :success_result_count
+      def success_result_count
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def success_result_count=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :total_resource_count
+      def total_resource_count
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def total_resource_count=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig do
         params(

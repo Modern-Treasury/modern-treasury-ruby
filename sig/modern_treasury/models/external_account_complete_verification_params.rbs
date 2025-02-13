@@ -9,7 +9,7 @@ module ModernTreasury
 
       attr_reader amounts: ::Array[Integer]?
 
-      def amounts=: (::Array[Integer]) -> void
+      def amounts=: (::Array[Integer]) -> ::Array[Integer]
 
       def initialize:
         (

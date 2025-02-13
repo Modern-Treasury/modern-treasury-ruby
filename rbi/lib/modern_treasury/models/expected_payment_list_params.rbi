@@ -7,61 +7,84 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :counterparty_id
+      def counterparty_id
+      end
 
-      sig { params(counterparty_id: String).void }
-      attr_writer :counterparty_id
-
-      sig { returns(T.nilable(Time)) }
-      attr_reader :created_at_lower_bound
-
-      sig { params(created_at_lower_bound: Time).void }
-      attr_writer :created_at_lower_bound
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(T.nilable(Time)) }
-      attr_reader :created_at_upper_bound
+      def created_at_lower_bound
+      end
 
-      sig { params(created_at_upper_bound: Time).void }
-      attr_writer :created_at_upper_bound
+      sig { params(_: Time).returns(Time) }
+      def created_at_lower_bound=(_)
+      end
+
+      sig { returns(T.nilable(Time)) }
+      def created_at_upper_bound
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at_upper_bound=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :direction
+      def direction
+      end
 
-      sig { params(direction: Symbol).void }
-      attr_writer :direction
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :internal_account_id
+      def internal_account_id
+      end
 
-      sig { params(internal_account_id: String).void }
-      attr_writer :internal_account_id
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
-
-      sig { returns(T.nilable(Symbol)) }
-      attr_reader :status
-
-      sig { params(status: Symbol).void }
-      attr_writer :status
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :type
+      def status
+      end
 
-      sig { params(type: Symbol).void }
-      attr_writer :type
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
+
+      sig { returns(T.nilable(Symbol)) }
+      def type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def type=(_)
+      end
 
       sig do
         params(

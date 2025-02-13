@@ -18,7 +18,7 @@ module ModernTreasury
 
       attr_reader metadata: ::Hash[Symbol, String]?
 
-      def metadata=: (::Hash[Symbol, String]) -> void
+      def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
       def initialize:
         (

@@ -7,31 +7,44 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_reader :legal_entity_type
+      def legal_entity_type
+      end
 
-      sig { params(legal_entity_type: Symbol).void }
-      attr_writer :legal_entity_type
+      sig { params(_: Symbol).returns(Symbol) }
+      def legal_entity_type=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :show_deleted
+      def show_deleted
+      end
 
-      sig { params(show_deleted: String).void }
-      attr_writer :show_deleted
+      sig { params(_: String).returns(String) }
+      def show_deleted=(_)
+      end
 
       sig do
         params(

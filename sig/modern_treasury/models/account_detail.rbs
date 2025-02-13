@@ -32,7 +32,7 @@ module ModernTreasury
 
       attr_reader account_number: String?
 
-      def account_number=: (String) -> void
+      def account_number=: (String) -> String
 
       def initialize:
         (

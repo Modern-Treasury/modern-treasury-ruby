@@ -21,19 +21,21 @@ module ModernTreasury
 
       attr_reader base_amount: Integer?
 
-      def base_amount=: (Integer) -> void
+      def base_amount=: (Integer) -> Integer
 
       attr_reader base_currency: ModernTreasury::Models::currency?
 
-      def base_currency=: (ModernTreasury::Models::currency) -> void
+      def base_currency=: (
+        ModernTreasury::Models::currency
+      ) -> ModernTreasury::Models::currency
 
       attr_reader effective_at: Time?
 
-      def effective_at=: (Time) -> void
+      def effective_at=: (Time) -> Time
 
       attr_reader target_amount: Integer?
 
-      def target_amount=: (Integer) -> void
+      def target_amount=: (Integer) -> Integer
 
       def initialize:
         (

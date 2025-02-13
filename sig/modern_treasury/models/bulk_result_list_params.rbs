@@ -20,33 +20,33 @@ module ModernTreasury
 
       attr_reader entity_id: String?
 
-      def entity_id=: (String) -> void
+      def entity_id=: (String) -> String
 
       attr_reader entity_type: ModernTreasury::Models::BulkResultListParams::entity_type?
 
       def entity_type=: (
         ModernTreasury::Models::BulkResultListParams::entity_type
-      ) -> void
+      ) -> ModernTreasury::Models::BulkResultListParams::entity_type
 
       attr_reader per_page: Integer?
 
-      def per_page=: (Integer) -> void
+      def per_page=: (Integer) -> Integer
 
       attr_reader request_id: String?
 
-      def request_id=: (String) -> void
+      def request_id=: (String) -> String
 
       attr_reader request_type: ModernTreasury::Models::BulkResultListParams::request_type?
 
       def request_type=: (
         ModernTreasury::Models::BulkResultListParams::request_type
-      ) -> void
+      ) -> ModernTreasury::Models::BulkResultListParams::request_type
 
       attr_reader status: ModernTreasury::Models::BulkResultListParams::status?
 
       def status=: (
         ModernTreasury::Models::BulkResultListParams::status
-      ) -> void
+      ) -> ModernTreasury::Models::BulkResultListParams::status
 
       def initialize:
         (

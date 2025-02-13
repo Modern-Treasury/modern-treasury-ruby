@@ -4,79 +4,206 @@ module ModernTreasury
   module Models
     class IncomingPaymentDetail < ModernTreasury::BaseModel
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig { returns(Integer) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount=(_)
+      end
 
       sig { returns(Date) }
-      attr_accessor :as_of_date
+      def as_of_date
+      end
+
+      sig { params(_: Date).returns(Date) }
+      def as_of_date=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :created_at
+      def created_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def created_at=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def currency=(_)
+      end
 
       sig { returns(T::Hash[Symbol, T.anything]) }
-      attr_accessor :data
+      def data
+      end
+
+      sig { params(_: T::Hash[Symbol, T.anything]).returns(T::Hash[Symbol, T.anything]) }
+      def data=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :direction
+      def direction
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :internal_account_id
+      def internal_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def internal_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :ledger_transaction_id
+      def ledger_transaction_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def ledger_transaction_id=(_)
+      end
 
       sig { returns(T::Boolean) }
-      attr_accessor :live_mode
+      def live_mode
+      end
+
+      sig { params(_: T::Boolean).returns(T::Boolean) }
+      def live_mode=(_)
+      end
 
       sig { returns(T::Hash[Symbol, String]) }
-      attr_accessor :metadata
+      def metadata
+      end
+
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :object
+      def object
+      end
+
+      sig { params(_: String).returns(String) }
+      def object=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :originating_account_number_safe
+      def originating_account_number_safe
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def originating_account_number_safe=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :originating_account_number_type
+      def originating_account_number_type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def originating_account_number_type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :originating_routing_number
+      def originating_routing_number
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def originating_routing_number=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :originating_routing_number_type
+      def originating_routing_number_type
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def originating_routing_number_type=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :status
+      def status
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def status=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :transaction_id
+      def transaction_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def transaction_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :transaction_line_item_id
+      def transaction_line_item_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def transaction_line_item_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :type
+      def type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def type=(_)
+      end
 
       sig { returns(Time) }
-      attr_accessor :updated_at
+      def updated_at
+      end
+
+      sig { params(_: Time).returns(Time) }
+      def updated_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :vendor_id
+      def vendor_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def vendor_id=(_)
+      end
 
       sig { returns(T.nilable(ModernTreasury::Models::VirtualAccount)) }
-      attr_accessor :virtual_account
+      def virtual_account
+      end
+
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::VirtualAccount)).returns(T.nilable(ModernTreasury::Models::VirtualAccount))
+      end
+      def virtual_account=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :virtual_account_id
+      def virtual_account_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def virtual_account_id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :originating_account_number
+      def originating_account_number
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def originating_account_number=(_)
+      end
 
       sig do
         params(

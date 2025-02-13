@@ -7,7 +7,12 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(String) }
-      attr_accessor :id
+      def id
+      end
+
+      sig { params(_: String).returns(String) }
+      def id=(_)
+      end
 
       sig do
         params(

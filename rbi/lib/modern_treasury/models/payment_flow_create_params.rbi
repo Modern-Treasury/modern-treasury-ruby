@@ -7,25 +7,52 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(Integer) }
-      attr_accessor :amount
+      def amount
+      end
+
+      sig { params(_: Integer).returns(Integer) }
+      def amount=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :counterparty_id
+      def counterparty_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def counterparty_id=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :currency
+      def currency
+      end
+
+      sig { params(_: String).returns(String) }
+      def currency=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :direction
+      def direction
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def direction=(_)
+      end
 
       sig { returns(String) }
-      attr_accessor :originating_account_id
+      def originating_account_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def originating_account_id=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_reader :due_date
+      def due_date
+      end
 
-      sig { params(due_date: Date).void }
-      attr_writer :due_date
+      sig { params(_: Date).returns(Date) }
+      def due_date=(_)
+      end
 
       sig do
         params(

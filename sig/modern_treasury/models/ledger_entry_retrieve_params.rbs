@@ -9,7 +9,7 @@ module ModernTreasury
 
       attr_reader show_balances: bool?
 
-      def show_balances=: (bool) -> void
+      def show_balances=: (bool) -> bool
 
       def initialize:
         (

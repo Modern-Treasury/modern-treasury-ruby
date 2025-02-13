@@ -7,61 +7,84 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(T::Array[String])) }
-      attr_reader :id
+      def id
+      end
 
-      sig { params(id: T::Array[String]).void }
-      attr_writer :id
+      sig { params(_: T::Array[String]).returns(T::Array[String]) }
+      def id=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :after_cursor
+      def after_cursor
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def after_cursor=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      attr_reader :created_at
+      def created_at
+      end
 
-      sig { params(created_at: T::Hash[Symbol, Time]).void }
-      attr_writer :created_at
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :ledger_id
-
-      sig { params(ledger_id: String).void }
-      attr_writer :ledger_id
+      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
+      def created_at=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :ledger_transaction_id
+      def ledger_id
+      end
 
-      sig { params(ledger_transaction_id: String).void }
-      attr_writer :ledger_transaction_id
+      sig { params(_: String).returns(String) }
+      def ledger_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def ledger_transaction_id
+      end
+
+      sig { params(_: String).returns(String) }
+      def ledger_transaction_id=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      attr_reader :metadata
+      def metadata
+      end
 
-      sig { params(metadata: T::Hash[Symbol, String]).void }
-      attr_writer :metadata
+      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
+      def metadata=(_)
+      end
 
       sig { returns(T.nilable(Integer)) }
-      attr_reader :per_page
+      def per_page
+      end
 
-      sig { params(per_page: Integer).void }
-      attr_writer :per_page
-
-      sig { returns(T.nilable(String)) }
-      attr_reader :settled_ledger_account_id
-
-      sig { params(settled_ledger_account_id: String).void }
-      attr_writer :settled_ledger_account_id
+      sig { params(_: Integer).returns(Integer) }
+      def per_page=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_reader :settlement_entry_direction
+      def settled_ledger_account_id
+      end
 
-      sig { params(settlement_entry_direction: String).void }
-      attr_writer :settlement_entry_direction
+      sig { params(_: String).returns(String) }
+      def settled_ledger_account_id=(_)
+      end
+
+      sig { returns(T.nilable(String)) }
+      def settlement_entry_direction
+      end
+
+      sig { params(_: String).returns(String) }
+      def settlement_entry_direction=(_)
+      end
 
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      attr_reader :updated_at
+      def updated_at
+      end
 
-      sig { params(updated_at: T::Hash[Symbol, Time]).void }
-      attr_writer :updated_at
+      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
+      def updated_at=(_)
+      end
 
       sig do
         params(

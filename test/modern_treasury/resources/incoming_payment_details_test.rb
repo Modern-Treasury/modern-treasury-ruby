@@ -38,6 +38,11 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < Minitest::Te
     assert_pattern do
       page => ModernTreasury::Page
     end
+
+    row = response.to_enum.first
+    assert_pattern do
+      row => ModernTreasury::Models::IncomingPaymentDetail
+    end
   end
 
   def test_create_async

@@ -4,7 +4,8 @@ module ModernTreasury
   module Resources
     class Invoices
       sig { returns(ModernTreasury::Resources::Invoices::LineItems) }
-      attr_reader :line_items
+      def line_items
+      end
 
       sig do
         params(

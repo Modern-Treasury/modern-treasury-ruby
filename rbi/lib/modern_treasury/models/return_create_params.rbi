@@ -7,22 +7,52 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :returnable_id
+      def returnable_id
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def returnable_id=(_)
+      end
 
       sig { returns(Symbol) }
-      attr_accessor :returnable_type
+      def returnable_type
+      end
+
+      sig { params(_: Symbol).returns(Symbol) }
+      def returnable_type=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :additional_information
+      def additional_information
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def additional_information=(_)
+      end
 
       sig { returns(T.nilable(Symbol)) }
-      attr_accessor :code
+      def code
+      end
+
+      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      def code=(_)
+      end
 
       sig { returns(T.nilable(Date)) }
-      attr_accessor :date_of_death
+      def date_of_death
+      end
+
+      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
+      def date_of_death=(_)
+      end
 
       sig { returns(T.nilable(String)) }
-      attr_accessor :reason
+      def reason
+      end
+
+      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      def reason=(_)
+      end
 
       sig do
         params(
