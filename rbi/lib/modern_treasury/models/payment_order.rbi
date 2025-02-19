@@ -16,7 +16,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrder::Accounting).returns(ModernTreasury::Models::PaymentOrder::Accounting)
+        params(_: ModernTreasury::Models::PaymentOrder::Accounting)
+          .returns(ModernTreasury::Models::PaymentOrder::Accounting)
       end
       def accounting=(_)
       end
@@ -92,7 +93,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::ReturnObject)).returns(T.nilable(ModernTreasury::Models::ReturnObject))
+        params(_: T.nilable(ModernTreasury::Models::ReturnObject))
+          .returns(T.nilable(ModernTreasury::Models::ReturnObject))
       end
       def current_return=(_)
       end
@@ -158,7 +160,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate)).returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate))
+        params(_: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate))
+          .returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate))
       end
       def foreign_exchange_rate=(_)
       end
@@ -264,7 +267,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber]).returns(T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber])
+        params(_: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber])
+          .returns(T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber])
       end
       def reference_numbers=(_)
       end
@@ -333,28 +337,15 @@ module ModernTreasury
       def type=(_)
       end
 
-      sig do
-        returns(
-          T.nilable(
-            T.any(
-              ModernTreasury::Models::VirtualAccount,
-              ModernTreasury::Models::InternalAccount
-            )
-          )
-        )
-      end
+      sig { returns(T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount))) }
       def ultimate_originating_account
       end
 
       sig do
         params(
           _: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount))
-        ).returns(T.nilable(
-                    T.any(
-                      ModernTreasury::Models::VirtualAccount,
-                      ModernTreasury::Models::InternalAccount
-                    )
-                  ))
+        )
+          .returns(T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)))
       end
       def ultimate_originating_account=(_)
       end
@@ -473,12 +464,7 @@ module ModernTreasury
           transaction_ids: T::Array[String],
           transaction_monitoring_enabled: T::Boolean,
           type: Symbol,
-          ultimate_originating_account: T.nilable(
-            T.any(
-              ModernTreasury::Models::VirtualAccount,
-              ModernTreasury::Models::InternalAccount
-            )
-          ),
+          ultimate_originating_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)),
           ultimate_originating_account_id: T.nilable(String),
           ultimate_originating_account_type: T.nilable(Symbol),
           ultimate_originating_party_identifier: T.nilable(String),
@@ -488,7 +474,8 @@ module ModernTreasury
           updated_at: Time,
           vendor_attributes: T.nilable(T.anything),
           vendor_failure_reason: T.nilable(String)
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -545,65 +532,61 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            accounting: ModernTreasury::Models::PaymentOrder::Accounting,
-            accounting_category_id: T.nilable(String),
-            accounting_ledger_class_id: T.nilable(String),
-            amount: Integer,
-            charge_bearer: T.nilable(Symbol),
-            compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
-            counterparty_id: T.nilable(String),
-            created_at: Time,
-            currency: Symbol,
-            current_return: T.nilable(ModernTreasury::Models::ReturnObject),
-            decision_id: T.nilable(String),
-            description: T.nilable(String),
-            direction: Symbol,
-            effective_date: Date,
-            expires_at: T.nilable(Time),
-            foreign_exchange_contract: T.nilable(String),
-            foreign_exchange_indicator: T.nilable(Symbol),
-            foreign_exchange_rate: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate),
-            ledger_transaction_id: T.nilable(String),
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            nsf_protected: T::Boolean,
-            object: String,
-            originating_account_id: String,
-            originating_party_name: T.nilable(String),
-            priority: Symbol,
-            process_after: T.nilable(Time),
-            purpose: T.nilable(String),
-            receiving_account_id: String,
-            receiving_account_type: Symbol,
-            reference_numbers: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
-            remittance_information: T.nilable(String),
-            send_remittance_advice: T.nilable(T::Boolean),
-            statement_descriptor: T.nilable(String),
-            status: Symbol,
-            subtype: T.nilable(Symbol),
-            transaction_ids: T::Array[String],
-            transaction_monitoring_enabled: T::Boolean,
-            type: Symbol,
-            ultimate_originating_account: T.nilable(
-              T.any(
-                ModernTreasury::Models::VirtualAccount,
-                ModernTreasury::Models::InternalAccount
-              )
-            ),
-            ultimate_originating_account_id: T.nilable(String),
-            ultimate_originating_account_type: T.nilable(Symbol),
-            ultimate_originating_party_identifier: T.nilable(String),
-            ultimate_originating_party_name: T.nilable(String),
-            ultimate_receiving_party_identifier: T.nilable(String),
-            ultimate_receiving_party_name: T.nilable(String),
-            updated_at: Time,
-            vendor_attributes: T.nilable(T.anything),
-            vendor_failure_reason: T.nilable(String)
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              accounting: ModernTreasury::Models::PaymentOrder::Accounting,
+              accounting_category_id: T.nilable(String),
+              accounting_ledger_class_id: T.nilable(String),
+              amount: Integer,
+              charge_bearer: T.nilable(Symbol),
+              compliance_rule_metadata: T.nilable(T::Hash[Symbol, T.anything]),
+              counterparty_id: T.nilable(String),
+              created_at: Time,
+              currency: Symbol,
+              current_return: T.nilable(ModernTreasury::Models::ReturnObject),
+              decision_id: T.nilable(String),
+              description: T.nilable(String),
+              direction: Symbol,
+              effective_date: Date,
+              expires_at: T.nilable(Time),
+              foreign_exchange_contract: T.nilable(String),
+              foreign_exchange_indicator: T.nilable(Symbol),
+              foreign_exchange_rate: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate),
+              ledger_transaction_id: T.nilable(String),
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              nsf_protected: T::Boolean,
+              object: String,
+              originating_account_id: String,
+              originating_party_name: T.nilable(String),
+              priority: Symbol,
+              process_after: T.nilable(Time),
+              purpose: T.nilable(String),
+              receiving_account_id: String,
+              receiving_account_type: Symbol,
+              reference_numbers: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
+              remittance_information: T.nilable(String),
+              send_remittance_advice: T.nilable(T::Boolean),
+              statement_descriptor: T.nilable(String),
+              status: Symbol,
+              subtype: T.nilable(Symbol),
+              transaction_ids: T::Array[String],
+              transaction_monitoring_enabled: T::Boolean,
+              type: Symbol,
+              ultimate_originating_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)),
+              ultimate_originating_account_id: T.nilable(String),
+              ultimate_originating_account_type: T.nilable(Symbol),
+              ultimate_originating_party_identifier: T.nilable(String),
+              ultimate_originating_party_name: T.nilable(String),
+              ultimate_receiving_party_identifier: T.nilable(String),
+              ultimate_receiving_party_name: T.nilable(String),
+              updated_at: Time,
+              vendor_attributes: T.nilable(T.anything),
+              vendor_failure_reason: T.nilable(String)
+            }
+          )
       end
       def to_hash
       end
@@ -734,7 +717,8 @@ module ModernTreasury
             target_amount: Integer,
             target_currency: Symbol,
             value: Integer
-          ).void
+          )
+            .void
         end
         def initialize(
           base_amount:,
@@ -748,17 +732,18 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              base_amount: Integer,
-              base_currency: Symbol,
-              exponent: Integer,
-              rate_string: String,
-              target_amount: Integer,
-              target_currency: Symbol,
-              value: Integer
-            }
-          )
+          override
+            .returns(
+              {
+                base_amount: Integer,
+                base_currency: Symbol,
+                exponent: Integer,
+                rate_string: String,
+                target_amount: Integer,
+                target_currency: Symbol,
+                value: Integer
+              }
+            )
         end
         def to_hash
         end
@@ -852,7 +837,8 @@ module ModernTreasury
             reference_number: String,
             reference_number_type: Symbol,
             updated_at: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           id:,
@@ -866,17 +852,18 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              created_at: Time,
-              live_mode: T::Boolean,
-              object: String,
-              reference_number: String,
-              reference_number_type: Symbol,
-              updated_at: Time
-            }
-          )
+          override
+            .returns(
+              {
+                id: String,
+                created_at: Time,
+                live_mode: T::Boolean,
+                object: String,
+                reference_number: String,
+                reference_number_type: Symbol,
+                updated_at: Time
+              }
+            )
         end
         def to_hash
         end
@@ -986,12 +973,10 @@ module ModernTreasury
         abstract!
 
         sig do
-          override.returns(
-            [
-              [NilClass, ModernTreasury::Models::VirtualAccount],
-              [NilClass, ModernTreasury::Models::InternalAccount]
-            ]
-          )
+          override
+            .returns(
+              [[NilClass, ModernTreasury::Models::VirtualAccount], [NilClass, ModernTreasury::Models::InternalAccount]]
+            )
         end
         private_class_method def self.variants
         end

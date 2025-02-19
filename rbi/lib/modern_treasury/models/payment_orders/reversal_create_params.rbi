@@ -15,14 +15,13 @@ module ModernTreasury
         def reason=(_)
         end
 
-        sig do
-          returns(T.nilable(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction))
-        end
+        sig { returns(T.nilable(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction)) }
         def ledger_transaction
         end
 
         sig do
-          params(_: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction).returns(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction)
+          params(_: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction)
+            .returns(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction)
         end
         def ledger_transaction=(_)
         end
@@ -41,20 +40,22 @@ module ModernTreasury
             ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
             metadata: T::Hash[Symbol, String],
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-          ).void
+          )
+            .void
         end
         def initialize(reason:, ledger_transaction: nil, metadata: nil, request_options: {})
         end
 
         sig do
-          override.returns(
-            {
-              reason: Symbol,
-              ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-              metadata: T::Hash[Symbol, String],
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+          override
+            .returns(
+              {
+                reason: Symbol,
+                ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+                metadata: T::Hash[Symbol, String],
+                request_options: ModernTreasury::RequestOptions
+              }
+            )
         end
         def to_hash
         end
@@ -75,7 +76,9 @@ module ModernTreasury
 
         class LedgerTransaction < ModernTreasury::BaseModel
           sig do
-            returns(T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry])
+            returns(
+              T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
+            )
           end
           def ledger_entries
           end
@@ -83,7 +86,10 @@ module ModernTreasury
           sig do
             params(
               _: T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
-            ).returns(T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry])
+            )
+              .returns(
+                T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
+              )
           end
           def ledger_entries=(_)
           end
@@ -163,7 +169,8 @@ module ModernTreasury
               ledgerable_type: Symbol,
               metadata: T::Hash[Symbol, String],
               status: Symbol
-            ).void
+            )
+              .void
           end
           def initialize(
             ledger_entries:,
@@ -179,20 +186,20 @@ module ModernTreasury
           end
 
           sig do
-            override.returns(
-              {
-                ledger_entries: T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry],
-                description: T.nilable(String),
-                effective_at: Time,
-                effective_date: Date,
-                external_id: String,
-                ledgerable_id: String,
-                ledgerable_type: Symbol,
-                metadata: T::Hash[Symbol,
-                                  String],
-                status: Symbol
-              }
-            )
+            override
+              .returns(
+                {
+                  ledger_entries: T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry],
+                  description: T.nilable(String),
+                  effective_at: Time,
+                  effective_date: Date,
+                  external_id: String,
+                  ledgerable_id: String,
+                  ledgerable_type: Symbol,
+                  metadata: T::Hash[Symbol, String],
+                  status: Symbol
+                }
+              )
           end
           def to_hash
           end
@@ -287,7 +294,8 @@ module ModernTreasury
                 pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                 posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                 show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-              ).void
+              )
+                .void
             end
             def initialize(
               amount:,
@@ -303,19 +311,20 @@ module ModernTreasury
             end
 
             sig do
-              override.returns(
-                {
-                  amount: Integer,
-                  direction: Symbol,
-                  ledger_account_id: String,
-                  available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  lock_version: T.nilable(Integer),
-                  metadata: T::Hash[Symbol, String],
-                  pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-                  show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-                }
-              )
+              override
+                .returns(
+                  {
+                    amount: Integer,
+                    direction: Symbol,
+                    ledger_account_id: String,
+                    available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    lock_version: T.nilable(Integer),
+                    metadata: T::Hash[Symbol, String],
+                    pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                    show_resulting_ledger_account_balances: T.nilable(T::Boolean)
+                  }
+                )
             end
             def to_hash
             end

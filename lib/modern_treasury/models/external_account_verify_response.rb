@@ -70,18 +70,14 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType]
         required :payment_type,
-                 enum: -> {
-                   ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType
-                 }
+                 enum: -> { ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType }
 
         # @!attribute priority
         #   The priority of the payment. Can be `normal` or `high`.
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority, nil]
         required :priority,
-                 enum: -> {
-                   ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority
-                 },
+                 enum: -> { ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority },
                  nil?: true
 
         # @!attribute status
@@ -90,9 +86,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status]
         required :status,
-                 enum: -> {
-                   ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status
-                 }
+                 enum: -> { ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status }
 
         # @!attribute updated_at
         #

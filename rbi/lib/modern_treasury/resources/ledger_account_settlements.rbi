@@ -18,7 +18,8 @@ module ModernTreasury
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
           status: T.nilable(Symbol),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountSettlement)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
       def create(
         contra_ledger_account_id:,
@@ -37,7 +38,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountSettlement)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
       def retrieve(id, request_options: {})
       end
@@ -49,7 +51,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           status: Symbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountSettlement)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountSettlement)
       end
       def update(id, description: nil, metadata: nil, status: nil, request_options: {})
       end
@@ -67,7 +70,8 @@ module ModernTreasury
           settlement_entry_direction: String,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountSettlement])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountSettlement])
       end
       def list(
         id: nil,

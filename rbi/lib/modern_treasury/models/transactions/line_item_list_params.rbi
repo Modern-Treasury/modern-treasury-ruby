@@ -55,7 +55,8 @@ module ModernTreasury
             transaction_id: String,
             type: T.nilable(Symbol),
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-          ).void
+          )
+            .void
         end
         def initialize(
           id: nil,
@@ -68,16 +69,17 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              id: T::Hash[Symbol, String],
-              after_cursor: T.nilable(String),
-              per_page: Integer,
-              transaction_id: String,
-              type: T.nilable(Symbol),
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+          override
+            .returns(
+              {
+                id: T::Hash[Symbol, String],
+                after_cursor: T.nilable(String),
+                per_page: Integer,
+                transaction_id: String,
+                type: T.nilable(Symbol),
+                request_options: ModernTreasury::RequestOptions
+              }
+            )
         end
         def to_hash
         end

@@ -11,7 +11,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances).returns(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances)
+        params(_: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances)
+          .returns(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances)
       end
       def balances=(_)
       end
@@ -20,18 +21,20 @@ module ModernTreasury
         params(
           balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(balances: nil, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -84,7 +87,8 @@ module ModernTreasury
             effective_at: Time,
             effective_at_lower_bound: Time,
             effective_at_upper_bound: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           as_of_date: nil,
@@ -96,15 +100,16 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              as_of_date: Date,
-              as_of_lock_version: Integer,
-              effective_at: Time,
-              effective_at_lower_bound: Time,
-              effective_at_upper_bound: Time
-            }
-          )
+          override
+            .returns(
+              {
+                as_of_date: Date,
+                as_of_lock_version: Integer,
+                effective_at: Time,
+                effective_at_lower_bound: Time,
+                effective_at_upper_bound: Time
+              }
+            )
         end
         def to_hash
         end

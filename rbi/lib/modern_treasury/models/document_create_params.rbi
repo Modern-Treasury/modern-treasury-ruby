@@ -45,21 +45,23 @@ module ModernTreasury
           file: T.any(IO, StringIO),
           document_type: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            documentable_id: String,
-            documentable_type: Symbol,
-            file: T.any(IO, StringIO),
-            document_type: String,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              documentable_id: String,
+              documentable_type: Symbol,
+              file: T.any(IO, StringIO),
+              document_type: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

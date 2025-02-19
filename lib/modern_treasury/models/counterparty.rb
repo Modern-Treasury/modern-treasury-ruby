@@ -239,11 +239,7 @@ module ModernTreasury
         #   The address associated with the owner or `null`.
         #
         #   @return [ModernTreasury::Models::Counterparty::Account::PartyAddress, nil]
-        optional :party_address,
-                 -> {
-                   ModernTreasury::Models::Counterparty::Account::PartyAddress
-                 },
-                 nil?: true
+        optional :party_address, -> { ModernTreasury::Models::Counterparty::Account::PartyAddress }, nil?: true
 
         # @!attribute [r] party_name
         #   The legal name of the entity which owns the account.
@@ -259,11 +255,7 @@ module ModernTreasury
         #   Either `individual` or `business`.
         #
         #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::PartyType, nil]
-        optional :party_type,
-                 enum: -> {
-                   ModernTreasury::Models::Counterparty::Account::PartyType
-                 },
-                 nil?: true
+        optional :party_type, enum: -> { ModernTreasury::Models::Counterparty::Account::PartyType }, nil?: true
 
         # @!attribute [r] routing_details
         #
@@ -372,9 +364,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType]
           required :contact_identifier_type,
-                   enum: -> {
-                     ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType
-                   }
+                   enum: -> { ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType }
 
           # @!attribute created_at
           #

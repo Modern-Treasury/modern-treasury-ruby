@@ -11,7 +11,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition).returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition)
+        params(_: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition)
+          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition)
       end
       def alert_condition=(_)
       end
@@ -47,7 +48,8 @@ module ModernTreasury
           description: String,
           metadata: T::Hash[Symbol, String],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         alert_condition:,
@@ -59,16 +61,16 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-            ledger_account_id: String,
-            description: String,
-            metadata: T::Hash[Symbol,
-                              String],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+              ledger_account_id: String,
+              description: String,
+              metadata: T::Hash[Symbol, String],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

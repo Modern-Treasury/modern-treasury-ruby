@@ -98,7 +98,8 @@ module ModernTreasury
             priority: T.nilable(Symbol),
             status: Symbol,
             updated_at: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           id:,
@@ -115,20 +116,21 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              created_at: Time,
-              external_account_id: String,
-              live_mode: T::Boolean,
-              object: String,
-              originating_account_id: String,
-              payment_type: Symbol,
-              priority: T.nilable(Symbol),
-              status: Symbol,
-              updated_at: Time
-            }
-          )
+          override
+            .returns(
+              {
+                id: String,
+                created_at: Time,
+                external_account_id: String,
+                live_mode: T::Boolean,
+                object: String,
+                originating_account_id: String,
+                payment_type: Symbol,
+                priority: T.nilable(Symbol),
+                status: Symbol,
+                updated_at: Time
+              }
+            )
         end
         def to_hash
         end
@@ -198,15 +200,10 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          [
-            [NilClass, ModernTreasury::Models::ExternalAccount],
-            [
-              NilClass,
-              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-            ]
-          ]
-        )
+        override
+          .returns(
+            [[NilClass, ModernTreasury::Models::ExternalAccount], [NilClass, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]]
+          )
       end
       private_class_method def self.variants
       end

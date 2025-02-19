@@ -19,7 +19,8 @@ module ModernTreasury
           plaid_processor_token: String,
           routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::ExternalAccount)
+        )
+          .returns(ModernTreasury::Models::ExternalAccount)
       end
       def create(
         counterparty_id:,
@@ -43,7 +44,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::ExternalAccount)
+        )
+          .returns(ModernTreasury::Models::ExternalAccount)
       end
       def retrieve(id, request_options: {})
       end
@@ -59,7 +61,8 @@ module ModernTreasury
           party_name: String,
           party_type: T.nilable(Symbol),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::ExternalAccount)
+        )
+          .returns(ModernTreasury::Models::ExternalAccount)
       end
       def update(
         id,
@@ -82,7 +85,8 @@ module ModernTreasury
           party_name: String,
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::ExternalAccount])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::ExternalAccount])
       end
       def list(
         after_cursor: nil,
@@ -98,7 +102,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).void
+        )
+          .void
       end
       def delete(id, request_options: {})
       end
@@ -108,7 +113,8 @@ module ModernTreasury
           id: String,
           amounts: T::Array[Integer],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::ExternalAccount)
+        )
+          .returns(ModernTreasury::Models::ExternalAccount)
       end
       def complete_verification(id, amounts: nil, request_options: {})
       end
@@ -122,10 +128,13 @@ module ModernTreasury
           fallback_type: Symbol,
           priority: Symbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(T.any(
-                    ModernTreasury::Models::ExternalAccount,
-                    ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-                  ))
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::ExternalAccount,
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+            )
+          )
       end
       def verify(
         id,

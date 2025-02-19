@@ -46,7 +46,8 @@ module ModernTreasury
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::PaymentOrder)
+        )
+          .returns(ModernTreasury::Models::PaymentOrder)
       end
       def create(
         amount:,
@@ -93,7 +94,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::PaymentOrder)
+        )
+          .returns(ModernTreasury::Models::PaymentOrder)
       end
       def retrieve(id, request_options: {})
       end
@@ -136,7 +138,8 @@ module ModernTreasury
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::PaymentOrder)
+        )
+          .returns(ModernTreasury::Models::PaymentOrder)
       end
       def update(
         id,
@@ -198,7 +201,8 @@ module ModernTreasury
           transaction_id: String,
           type: Symbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::PaymentOrder])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::PaymentOrder])
       end
       def list(
         after_cursor: nil,
@@ -260,7 +264,8 @@ module ModernTreasury
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::AsyncResponse)
+        )
+          .returns(ModernTreasury::Models::AsyncResponse)
       end
       def create_async(
         amount:,

@@ -12,7 +12,8 @@ module ModernTreasury
           effective_at: Time,
           target_amount: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::ForeignExchangeQuote)
+        )
+          .returns(ModernTreasury::Models::ForeignExchangeQuote)
       end
       def create(
         internal_account_id:,
@@ -29,7 +30,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::ForeignExchangeQuote)
+        )
+          .returns(ModernTreasury::Models::ForeignExchangeQuote)
       end
       def retrieve(id, request_options: {})
       end
@@ -46,7 +48,8 @@ module ModernTreasury
           per_page: Integer,
           target_currency: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::ForeignExchangeQuote])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::ForeignExchangeQuote])
       end
       def list(
         after_cursor: nil,

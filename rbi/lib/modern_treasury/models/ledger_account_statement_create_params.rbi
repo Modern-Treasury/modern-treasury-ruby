@@ -54,7 +54,8 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         effective_at_lower_bound:,
@@ -67,16 +68,17 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            effective_at_lower_bound: Time,
-            effective_at_upper_bound: Time,
-            ledger_account_id: String,
-            description: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              effective_at_lower_bound: Time,
+              effective_at_upper_bound: Time,
+              ledger_account_id: String,
+              description: T.nilable(String),
+              metadata: T::Hash[Symbol, String],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

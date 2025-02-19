@@ -17,7 +17,8 @@ module ModernTreasury
           taxpayer_identifier: String,
           verification_status: Symbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Counterparty)
+        )
+          .returns(ModernTreasury::Models::Counterparty)
       end
       def create(
         name:,
@@ -39,7 +40,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Counterparty)
+        )
+          .returns(ModernTreasury::Models::Counterparty)
       end
       def retrieve(id, request_options: {})
       end
@@ -54,7 +56,8 @@ module ModernTreasury
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Counterparty)
+        )
+          .returns(ModernTreasury::Models::Counterparty)
       end
       def update(
         id,
@@ -79,7 +82,8 @@ module ModernTreasury
           name: String,
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::Counterparty])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::Counterparty])
       end
       def list(
         after_cursor: nil,
@@ -98,7 +102,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).void
+        )
+          .void
       end
       def delete(id, request_options: {})
       end
@@ -111,7 +116,8 @@ module ModernTreasury
           fields: T::Array[Symbol],
           send_email: T::Boolean,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::CounterpartyCollectAccountResponse)
+        )
+          .returns(ModernTreasury::Models::CounterpartyCollectAccountResponse)
       end
       def collect_account(
         id,

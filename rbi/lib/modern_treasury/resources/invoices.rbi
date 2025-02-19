@@ -35,7 +35,8 @@ module ModernTreasury
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           virtual_account_id: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Invoice)
+        )
+          .returns(ModernTreasury::Models::Invoice)
       end
       def create(
         counterparty_id:,
@@ -71,7 +72,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Invoice)
+        )
+          .returns(ModernTreasury::Models::Invoice)
       end
       def retrieve(id, request_options: {})
       end
@@ -105,7 +107,8 @@ module ModernTreasury
           status: String,
           virtual_account_id: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Invoice)
+        )
+          .returns(ModernTreasury::Models::Invoice)
       end
       def update(
         id,
@@ -152,7 +155,8 @@ module ModernTreasury
           per_page: Integer,
           status: Symbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::Invoice])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::Invoice])
       end
       def list(
         after_cursor: nil,
@@ -175,7 +179,8 @@ module ModernTreasury
           payment_order_id: String,
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).void
+        )
+          .void
       end
       def add_payment_order(payment_order_id, id:, request_options: {})
       end

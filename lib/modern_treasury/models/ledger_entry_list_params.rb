@@ -289,10 +289,7 @@ module ModernTreasury
         # @!attribute [r] effective_at
         #
         #   @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt, nil]
-        optional :effective_at,
-                 enum: -> {
-                   ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt
-                 }
+        optional :effective_at, enum: -> { ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt]

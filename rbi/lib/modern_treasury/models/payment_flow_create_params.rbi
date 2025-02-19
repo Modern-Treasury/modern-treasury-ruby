@@ -63,7 +63,8 @@ module ModernTreasury
           originating_account_id: String,
           due_date: Date,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         amount:,
@@ -77,17 +78,18 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            amount: Integer,
-            counterparty_id: String,
-            currency: String,
-            direction: Symbol,
-            originating_account_id: String,
-            due_date: Date,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              amount: Integer,
+              counterparty_id: String,
+              currency: String,
+              direction: Symbol,
+              originating_account_id: String,
+              due_date: Date,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

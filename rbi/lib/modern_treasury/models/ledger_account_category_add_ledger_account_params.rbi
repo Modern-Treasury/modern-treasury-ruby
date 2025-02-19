@@ -17,8 +17,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+          request_options: T.any(
+            ModernTreasury::RequestOptions,
+            T::Hash[Symbol, T.anything]
+          )
+        )
+          .void
       end
       def initialize(id:, request_options: {})
       end

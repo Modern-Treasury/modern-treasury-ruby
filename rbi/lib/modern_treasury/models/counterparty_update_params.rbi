@@ -63,7 +63,8 @@ module ModernTreasury
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         email: nil,
@@ -77,17 +78,18 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            email: String,
-            legal_entity_id: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            name: String,
-            send_remittance_advice: T::Boolean,
-            taxpayer_identifier: String,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              email: String,
+              legal_entity_id: T.nilable(String),
+              metadata: T::Hash[Symbol, String],
+              name: String,
+              send_remittance_advice: T::Boolean,
+              taxpayer_identifier: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

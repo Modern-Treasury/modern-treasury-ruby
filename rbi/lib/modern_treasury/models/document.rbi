@@ -32,7 +32,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::Document::DocumentDetail]).returns(T::Array[ModernTreasury::Models::Document::DocumentDetail])
+        params(_: T::Array[ModernTreasury::Models::Document::DocumentDetail])
+          .returns(T::Array[ModernTreasury::Models::Document::DocumentDetail])
       end
       def document_details=(_)
       end
@@ -65,9 +66,7 @@ module ModernTreasury
       def file
       end
 
-      sig do
-        params(_: ModernTreasury::Models::Document::File).returns(ModernTreasury::Models::Document::File)
-      end
+      sig { params(_: ModernTreasury::Models::Document::File).returns(ModernTreasury::Models::Document::File) }
       def file=(_)
       end
 
@@ -117,7 +116,8 @@ module ModernTreasury
           object: String,
           source: String,
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -136,22 +136,23 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            created_at: Time,
-            discarded_at: T.nilable(Time),
-            document_details: T::Array[ModernTreasury::Models::Document::DocumentDetail],
-            document_type: T.nilable(String),
-            documentable_id: String,
-            documentable_type: Symbol,
-            file: ModernTreasury::Models::Document::File,
-            live_mode: T::Boolean,
-            object: String,
-            source: String,
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              document_details: T::Array[ModernTreasury::Models::Document::DocumentDetail],
+              document_type: T.nilable(String),
+              documentable_id: String,
+              documentable_type: Symbol,
+              file: ModernTreasury::Models::Document::File,
+              live_mode: T::Boolean,
+              object: String,
+              source: String,
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end
@@ -231,7 +232,8 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             updated_at: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           id:,
@@ -246,18 +248,19 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              document_identifier: String,
-              document_identifier_type: String,
-              live_mode: T::Boolean,
-              object: String,
-              updated_at: Time
-            }
-          )
+          override
+            .returns(
+              {
+                id: String,
+                created_at: Time,
+                discarded_at: T.nilable(Time),
+                document_identifier: String,
+                document_identifier_type: String,
+                live_mode: T::Boolean,
+                object: String,
+                updated_at: Time
+              }
+            )
         end
         def to_hash
         end

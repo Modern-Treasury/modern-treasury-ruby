@@ -11,7 +11,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances).returns(ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances)
+        params(_: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances)
+          .returns(ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances)
       end
       def balances=(_)
       end
@@ -20,18 +21,20 @@ module ModernTreasury
         params(
           balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(balances: nil, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

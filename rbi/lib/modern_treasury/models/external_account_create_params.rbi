@@ -19,7 +19,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail]).returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail])
+        params(_: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail])
+          .returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail])
       end
       def account_details=(_)
       end
@@ -37,7 +38,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail]).returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail])
+        params(_: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail])
+          .returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail])
       end
       def contact_details=(_)
       end
@@ -47,7 +49,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount).returns(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount)
+        params(_: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount)
+          .returns(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount)
       end
       def ledger_account=(_)
       end
@@ -73,7 +76,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress).returns(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress)
+        params(_: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress)
+          .returns(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress)
       end
       def party_address=(_)
       end
@@ -115,7 +119,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]).returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail])
+        params(_: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail])
+          .returns(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail])
       end
       def routing_details=(_)
       end
@@ -136,7 +141,8 @@ module ModernTreasury
           plaid_processor_token: String,
           routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         counterparty_id:,
@@ -157,24 +163,25 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            counterparty_id: T.nilable(String),
-            account_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
-            account_type: Symbol,
-            contact_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
-            ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-            metadata: T::Hash[Symbol, String],
-            name: T.nilable(String),
-            party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
-            party_identifier: String,
-            party_name: String,
-            party_type: T.nilable(Symbol),
-            plaid_processor_token: String,
-            routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              counterparty_id: T.nilable(String),
+              account_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+              account_type: Symbol,
+              contact_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
+              ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+              metadata: T::Hash[Symbol, String],
+              name: T.nilable(String),
+              party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+              party_identifier: String,
+              party_name: String,
+              party_type: T.nilable(Symbol),
+              plaid_processor_token: String,
+              routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -355,7 +362,8 @@ module ModernTreasury
             ledgerable_id: String,
             ledgerable_type: Symbol,
             metadata: T::Hash[Symbol, String]
-          ).void
+          )
+            .void
         end
         def initialize(
           currency:,
@@ -372,20 +380,21 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              currency: String,
-              ledger_id: String,
-              name: String,
-              normal_balance: Symbol,
-              currency_exponent: T.nilable(Integer),
-              description: T.nilable(String),
-              ledger_account_category_ids: T::Array[String],
-              ledgerable_id: String,
-              ledgerable_type: Symbol,
-              metadata: T::Hash[Symbol, String]
-            }
-          )
+          override
+            .returns(
+              {
+                currency: String,
+                ledger_id: String,
+                name: String,
+                normal_balance: Symbol,
+                currency_exponent: T.nilable(Integer),
+                description: T.nilable(String),
+                ledger_account_category_ids: T::Array[String],
+                ledgerable_id: String,
+                ledgerable_type: Symbol,
+                metadata: T::Hash[Symbol, String]
+              }
+            )
         end
         def to_hash
         end
@@ -461,22 +470,24 @@ module ModernTreasury
             locality: T.nilable(String),
             postal_code: T.nilable(String),
             region: T.nilable(String)
-          ).void
+          )
+            .void
         end
         def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         end
 
         sig do
-          override.returns(
-            {
-              country: T.nilable(String),
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              locality: T.nilable(String),
-              postal_code: T.nilable(String),
-              region: T.nilable(String)
-            }
-          )
+          override
+            .returns(
+              {
+                country: T.nilable(String),
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                locality: T.nilable(String),
+                postal_code: T.nilable(String),
+                region: T.nilable(String)
+              }
+            )
         end
         def to_hash
         end

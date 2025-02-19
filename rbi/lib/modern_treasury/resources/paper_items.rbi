@@ -7,7 +7,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::PaperItem)
+        )
+          .returns(ModernTreasury::Models::PaperItem)
       end
       def retrieve(id, request_options: {})
       end
@@ -20,7 +21,8 @@ module ModernTreasury
           lockbox_number: String,
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::PaperItem])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::PaperItem])
       end
       def list(
         after_cursor: nil,

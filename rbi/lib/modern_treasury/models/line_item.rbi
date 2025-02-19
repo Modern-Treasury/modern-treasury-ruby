@@ -16,7 +16,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LineItem::Accounting).returns(ModernTreasury::Models::LineItem::Accounting)
+        params(_: ModernTreasury::Models::LineItem::Accounting)
+          .returns(ModernTreasury::Models::LineItem::Accounting)
       end
       def accounting=(_)
       end
@@ -124,7 +125,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           object: String,
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -144,23 +146,24 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            accounting: ModernTreasury::Models::LineItem::Accounting,
-            accounting_category_id: T.nilable(String),
-            accounting_ledger_class_id: T.nilable(String),
-            amount: Integer,
-            created_at: Time,
-            description: T.nilable(String),
-            itemizable_id: String,
-            itemizable_type: Symbol,
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            object: String,
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              accounting: ModernTreasury::Models::LineItem::Accounting,
+              accounting_category_id: T.nilable(String),
+              accounting_ledger_class_id: T.nilable(String),
+              amount: Integer,
+              created_at: Time,
+              description: T.nilable(String),
+              itemizable_id: String,
+              itemizable_type: Symbol,
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              object: String,
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end

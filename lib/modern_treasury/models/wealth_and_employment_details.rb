@@ -85,11 +85,7 @@ module ModernTreasury
       #   The industry of the individual.
       #
       #   @return [Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry, nil]
-      required :industry,
-               enum: -> {
-                 ModernTreasury::Models::WealthAndEmploymentDetails::Industry
-               },
-               nil?: true
+      required :industry, enum: -> { ModernTreasury::Models::WealthAndEmploymentDetails::Industry }, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false

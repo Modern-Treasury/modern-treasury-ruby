@@ -20,7 +20,8 @@ module ModernTreasury
           type: T.nilable(Symbol),
           vendor_description: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Transaction)
+        )
+          .returns(ModernTreasury::Models::Transaction)
       end
       def create(
         amount:,
@@ -41,7 +42,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Transaction)
+        )
+          .returns(ModernTreasury::Models::Transaction)
       end
       def retrieve(id, request_options: {})
       end
@@ -51,7 +53,8 @@ module ModernTreasury
           id: String,
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Transaction)
+        )
+          .returns(ModernTreasury::Models::Transaction)
       end
       def update(id, metadata: nil, request_options: {})
       end
@@ -73,7 +76,8 @@ module ModernTreasury
           vendor_id: String,
           virtual_account_id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::Transaction])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::Transaction])
       end
       def list(
         after_cursor: nil,
@@ -98,7 +102,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).void
+        )
+          .void
       end
       def delete(id, request_options: {})
       end

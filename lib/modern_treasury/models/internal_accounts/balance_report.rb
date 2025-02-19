@@ -45,9 +45,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
         required :balances,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance] }
 
         # @!attribute created_at
         #

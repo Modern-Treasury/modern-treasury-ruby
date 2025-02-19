@@ -16,7 +16,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::VirtualAccount)
+        )
+          .returns(ModernTreasury::Models::VirtualAccount)
       end
       def create(
         internal_account_id:,
@@ -37,7 +38,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::VirtualAccount)
+        )
+          .returns(ModernTreasury::Models::VirtualAccount)
       end
       def retrieve(id, request_options: {})
       end
@@ -50,7 +52,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::VirtualAccount)
+        )
+          .returns(ModernTreasury::Models::VirtualAccount)
       end
       def update(
         id,
@@ -70,7 +73,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::VirtualAccount])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::VirtualAccount])
       end
       def list(
         after_cursor: nil,
@@ -86,7 +90,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::VirtualAccount)
+        )
+          .returns(ModernTreasury::Models::VirtualAccount)
       end
       def delete(id, request_options: {})
       end

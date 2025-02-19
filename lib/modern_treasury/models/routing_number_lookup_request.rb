@@ -75,9 +75,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>, nil]
       optional :supported_payment_types,
-               -> {
-                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType]
-               }
+               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]

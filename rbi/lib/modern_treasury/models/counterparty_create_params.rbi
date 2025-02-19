@@ -19,7 +19,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::CounterpartyCreateParams::Accounting).returns(ModernTreasury::Models::CounterpartyCreateParams::Accounting)
+        params(_: ModernTreasury::Models::CounterpartyCreateParams::Accounting)
+          .returns(ModernTreasury::Models::CounterpartyCreateParams::Accounting)
       end
       def accounting=(_)
       end
@@ -29,7 +30,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account]).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account])
+        params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account])
+          .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account])
       end
       def accounts=(_)
       end
@@ -55,7 +57,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity).returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity)
+        params(_: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity)
+          .returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity)
       end
       def legal_entity=(_)
       end
@@ -114,7 +117,8 @@ module ModernTreasury
           taxpayer_identifier: String,
           verification_status: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         name:,
@@ -133,22 +137,23 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            name: T.nilable(String),
-            accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
-            accounts: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
-            email: T.nilable(String),
-            ledger_type: Symbol,
-            legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
-            legal_entity_id: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            send_remittance_advice: T::Boolean,
-            taxpayer_identifier: String,
-            verification_status: Symbol,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              name: T.nilable(String),
+              accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
+              accounts: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
+              email: T.nilable(String),
+              ledger_type: Symbol,
+              legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
+              legal_entity_id: T.nilable(String),
+              metadata: T::Hash[Symbol, String],
+              send_remittance_advice: T::Boolean,
+              taxpayer_identifier: String,
+              verification_status: Symbol,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -183,14 +188,13 @@ module ModernTreasury
       end
 
       class Account < ModernTreasury::BaseModel
-        sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail]))
-        end
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail])) }
         def account_details
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail]).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail])
+          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail])
+            .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail])
         end
         def account_details=(_)
         end
@@ -203,14 +207,13 @@ module ModernTreasury
         def account_type=(_)
         end
 
-        sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail]))
-        end
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail])) }
         def contact_details
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail]).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail])
+          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail])
+            .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail])
         end
         def contact_details=(_)
         end
@@ -220,7 +223,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount).returns(ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount)
+          params(_: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount)
+            .returns(ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount)
         end
         def ledger_account=(_)
         end
@@ -246,7 +250,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress).returns(ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress)
+          params(_: ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress)
+            .returns(ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress)
         end
         def party_address=(_)
         end
@@ -283,14 +288,13 @@ module ModernTreasury
         def plaid_processor_token=(_)
         end
 
-        sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]))
-        end
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail])) }
         def routing_details
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail])
+          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail])
+            .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail])
         end
         def routing_details=(_)
         end
@@ -309,7 +313,8 @@ module ModernTreasury
             party_type: T.nilable(Symbol),
             plaid_processor_token: String,
             routing_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]
-          ).void
+          )
+            .void
         end
         def initialize(
           account_details: nil,
@@ -328,23 +333,23 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              account_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail],
-              account_type: Symbol,
-              contact_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail],
-              ledger_account: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
-              metadata: T::Hash[Symbol,
-                                String],
-              name: T.nilable(String),
-              party_address: ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
-              party_identifier: String,
-              party_name: String,
-              party_type: T.nilable(Symbol),
-              plaid_processor_token: String,
-              routing_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]
-            }
-          )
+          override
+            .returns(
+              {
+                account_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail],
+                account_type: Symbol,
+                contact_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail],
+                ledger_account: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
+                metadata: T::Hash[Symbol, String],
+                name: T.nilable(String),
+                party_address: ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
+                party_identifier: String,
+                party_name: String,
+                party_type: T.nilable(Symbol),
+                plaid_processor_token: String,
+                routing_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail]
+              }
+            )
         end
         def to_hash
         end
@@ -525,7 +530,8 @@ module ModernTreasury
               ledgerable_id: String,
               ledgerable_type: Symbol,
               metadata: T::Hash[Symbol, String]
-            ).void
+            )
+              .void
           end
           def initialize(
             currency:,
@@ -542,20 +548,21 @@ module ModernTreasury
           end
 
           sig do
-            override.returns(
-              {
-                currency: String,
-                ledger_id: String,
-                name: String,
-                normal_balance: Symbol,
-                currency_exponent: T.nilable(Integer),
-                description: T.nilable(String),
-                ledger_account_category_ids: T::Array[String],
-                ledgerable_id: String,
-                ledgerable_type: Symbol,
-                metadata: T::Hash[Symbol, String]
-              }
-            )
+            override
+              .returns(
+                {
+                  currency: String,
+                  ledger_id: String,
+                  name: String,
+                  normal_balance: Symbol,
+                  currency_exponent: T.nilable(Integer),
+                  description: T.nilable(String),
+                  ledger_account_category_ids: T::Array[String],
+                  ledgerable_id: String,
+                  ledgerable_type: Symbol,
+                  metadata: T::Hash[Symbol, String]
+                }
+              )
           end
           def to_hash
           end
@@ -631,22 +638,24 @@ module ModernTreasury
               locality: T.nilable(String),
               postal_code: T.nilable(String),
               region: T.nilable(String)
-            ).void
+            )
+              .void
           end
           def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
           end
 
           sig do
-            override.returns(
-              {
-                country: T.nilable(String),
-                line1: T.nilable(String),
-                line2: T.nilable(String),
-                locality: T.nilable(String),
-                postal_code: T.nilable(String),
-                region: T.nilable(String)
-              }
-            )
+            override
+              .returns(
+                {
+                  country: T.nilable(String),
+                  line1: T.nilable(String),
+                  line2: T.nilable(String),
+                  locality: T.nilable(String),
+                  postal_code: T.nilable(String),
+                  region: T.nilable(String)
+                }
+              )
           end
           def to_hash
           end
@@ -789,14 +798,13 @@ module ModernTreasury
         def legal_entity_type=(_)
         end
 
-        sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address]))
-        end
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address])) }
         def addresses
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address]).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address])
+          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address])
+            .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address])
         end
         def addresses=(_)
         end
@@ -806,7 +814,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T.nilable(ModernTreasury::Models::BankSettings)).returns(T.nilable(ModernTreasury::Models::BankSettings))
+          params(_: T.nilable(ModernTreasury::Models::BankSettings))
+            .returns(T.nilable(ModernTreasury::Models::BankSettings))
         end
         def bank_settings=(_)
         end
@@ -868,13 +877,16 @@ module ModernTreasury
         end
 
         sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification]))
+          returns(
+            T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification])
+          )
         end
         def identifications
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification]).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification])
+          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification])
+            .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification])
         end
         def identifications=(_)
         end
@@ -888,7 +900,9 @@ module ModernTreasury
         end
 
         sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]))
+          returns(
+            T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation])
+          )
         end
         def legal_entity_associations
         end
@@ -896,7 +910,10 @@ module ModernTreasury
         sig do
           params(
             _: T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation])
-          ).returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]))
+          )
+            .returns(
+              T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation])
+            )
         end
         def legal_entity_associations=(_)
         end
@@ -925,14 +942,13 @@ module ModernTreasury
         def middle_name=(_)
         end
 
-        sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber]))
-        end
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber])) }
         def phone_numbers
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber]).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber])
+          params(_: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber])
+            .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber])
         end
         def phone_numbers=(_)
         end
@@ -982,7 +998,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)).returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+          params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+            .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
         end
         def wealth_and_employment_details=(_)
         end
@@ -1021,7 +1038,8 @@ module ModernTreasury
             suffix: T.nilable(String),
             wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
             website: T.nilable(String)
-          ).void
+          )
+            .void
         end
         def initialize(
           legal_entity_type:,
@@ -1052,34 +1070,35 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              legal_entity_type: Symbol,
-              addresses: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address],
-              bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
-              business_name: T.nilable(String),
-              citizenship_country: T.nilable(String),
-              date_formed: T.nilable(Date),
-              date_of_birth: T.nilable(Date),
-              doing_business_as_names: T::Array[String],
-              email: T.nilable(String),
-              first_name: T.nilable(String),
-              identifications: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification],
-              last_name: T.nilable(String),
-              legal_entity_associations: T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]),
-              legal_structure: T.nilable(Symbol),
-              metadata: T::Hash[Symbol, String],
-              middle_name: T.nilable(String),
-              phone_numbers: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber],
-              politically_exposed_person: T.nilable(T::Boolean),
-              preferred_name: T.nilable(String),
-              prefix: T.nilable(String),
-              risk_rating: T.nilable(Symbol),
-              suffix: T.nilable(String),
-              wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
-              website: T.nilable(String)
-            }
-          )
+          override
+            .returns(
+              {
+                legal_entity_type: Symbol,
+                addresses: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address],
+                bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
+                business_name: T.nilable(String),
+                citizenship_country: T.nilable(String),
+                date_formed: T.nilable(Date),
+                date_of_birth: T.nilable(Date),
+                doing_business_as_names: T::Array[String],
+                email: T.nilable(String),
+                first_name: T.nilable(String),
+                identifications: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification],
+                last_name: T.nilable(String),
+                legal_entity_associations: T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation]),
+                legal_structure: T.nilable(Symbol),
+                metadata: T::Hash[Symbol, String],
+                middle_name: T.nilable(String),
+                phone_numbers: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber],
+                politically_exposed_person: T.nilable(T::Boolean),
+                preferred_name: T.nilable(String),
+                prefix: T.nilable(String),
+                risk_rating: T.nilable(Symbol),
+                suffix: T.nilable(String),
+                wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
+                website: T.nilable(String)
+              }
+            )
         end
         def to_hash
         end
@@ -1161,23 +1180,25 @@ module ModernTreasury
               region: T.nilable(String),
               address_types: T::Array[Symbol],
               line2: T.nilable(String)
-            ).void
+            )
+              .void
           end
           def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
           end
 
           sig do
-            override.returns(
-              {
-                country: T.nilable(String),
-                line1: T.nilable(String),
-                locality: T.nilable(String),
-                postal_code: T.nilable(String),
-                region: T.nilable(String),
-                address_types: T::Array[Symbol],
-                line2: T.nilable(String)
-              }
-            )
+            override
+              .returns(
+                {
+                  country: T.nilable(String),
+                  line1: T.nilable(String),
+                  locality: T.nilable(String),
+                  postal_code: T.nilable(String),
+                  region: T.nilable(String),
+                  address_types: T::Array[Symbol],
+                  line2: T.nilable(String)
+                }
+              )
           end
           def to_hash
           end
@@ -1271,7 +1292,11 @@ module ModernTreasury
           end
 
           sig do
-            returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity))
+            returns(
+              T.nilable(
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity
+              )
+            )
           end
           def child_legal_entity
           end
@@ -1279,7 +1304,10 @@ module ModernTreasury
           sig do
             params(
               _: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity
-            ).returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity)
+            )
+              .returns(
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity
+              )
           end
           def child_legal_entity=(_)
           end
@@ -1315,7 +1343,8 @@ module ModernTreasury
               child_legal_entity_id: String,
               ownership_percentage: T.nilable(Integer),
               title: T.nilable(String)
-            ).void
+            )
+              .void
           end
           def initialize(
             relationship_types:,
@@ -1327,15 +1356,16 @@ module ModernTreasury
           end
 
           sig do
-            override.returns(
-              {
-                relationship_types: T::Array[Symbol],
-                child_legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
-                child_legal_entity_id: String,
-                ownership_percentage: T.nilable(Integer),
-                title: T.nilable(String)
-              }
-            )
+            override
+              .returns(
+                {
+                  relationship_types: T::Array[Symbol],
+                  child_legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+                  child_legal_entity_id: String,
+                  ownership_percentage: T.nilable(Integer),
+                  title: T.nilable(String)
+                }
+              )
           end
           def to_hash
           end
@@ -1353,15 +1383,28 @@ module ModernTreasury
 
           class ChildLegalEntity < ModernTreasury::BaseModel
             sig do
-              returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]))
+              returns(
+                T.nilable(
+                  T::Array[
+                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                  ]
+                )
+              )
             end
             def addresses
             end
 
             sig do
               params(
-                _: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address]
-              ).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address])
+                _: T::Array[
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                ]
+              )
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                  ]
+                )
             end
             def addresses=(_)
             end
@@ -1371,7 +1414,8 @@ module ModernTreasury
             end
 
             sig do
-              params(_: T.nilable(ModernTreasury::Models::BankSettings)).returns(T.nilable(ModernTreasury::Models::BankSettings))
+              params(_: T.nilable(ModernTreasury::Models::BankSettings))
+                .returns(T.nilable(ModernTreasury::Models::BankSettings))
             end
             def bank_settings=(_)
             end
@@ -1433,15 +1477,28 @@ module ModernTreasury
             end
 
             sig do
-              returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]))
+              returns(
+                T.nilable(
+                  T::Array[
+                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                  ]
+                )
+              )
             end
             def identifications
             end
 
             sig do
               params(
-                _: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]
-              ).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification])
+                _: T::Array[
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                ]
+              )
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                  ]
+                )
             end
             def identifications=(_)
             end
@@ -1487,15 +1544,28 @@ module ModernTreasury
             end
 
             sig do
-              returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]))
+              returns(
+                T.nilable(
+                  T::Array[
+                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                  ]
+                )
+              )
             end
             def phone_numbers
             end
 
             sig do
               params(
-                _: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber]
-              ).returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber])
+                _: T::Array[
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                ]
+              )
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                  ]
+                )
             end
             def phone_numbers=(_)
             end
@@ -1545,7 +1615,8 @@ module ModernTreasury
             end
 
             sig do
-              params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)).returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+              params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+                .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
             end
             def wealth_and_employment_details=(_)
             end
@@ -1560,7 +1631,9 @@ module ModernTreasury
 
             sig do
               params(
-                addresses: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address],
+                addresses: T::Array[
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                ],
                 bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
                 business_name: T.nilable(String),
                 citizenship_country: T.nilable(String),
@@ -1569,13 +1642,17 @@ module ModernTreasury
                 doing_business_as_names: T::Array[String],
                 email: T.nilable(String),
                 first_name: T.nilable(String),
-                identifications: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification],
+                identifications: T::Array[
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                ],
                 last_name: T.nilable(String),
                 legal_entity_type: Symbol,
                 legal_structure: T.nilable(Symbol),
                 metadata: T::Hash[Symbol, String],
                 middle_name: T.nilable(String),
-                phone_numbers: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber],
+                phone_numbers: T::Array[
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                ],
                 politically_exposed_person: T.nilable(T::Boolean),
                 preferred_name: T.nilable(String),
                 prefix: T.nilable(String),
@@ -1583,7 +1660,8 @@ module ModernTreasury
                 suffix: T.nilable(String),
                 wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
                 website: T.nilable(String)
-              ).void
+              )
+                .void
             end
             def initialize(
               addresses: nil,
@@ -1613,34 +1691,40 @@ module ModernTreasury
             end
 
             sig do
-              override.returns(
-                {
-                  addresses: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address],
-                  bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
-                  business_name: T.nilable(String),
-                  citizenship_country: T.nilable(String),
-                  date_formed: T.nilable(Date),
-                  date_of_birth: T.nilable(Date),
-                  doing_business_as_names: T::Array[String],
-                  email: T.nilable(String),
-                  first_name: T.nilable(String),
-                  identifications: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification],
-                  last_name: T.nilable(String),
-                  legal_entity_type: Symbol,
-                  legal_structure: T.nilable(Symbol),
-                  metadata: T::Hash[Symbol,
-                                    String],
-                  middle_name: T.nilable(String),
-                  phone_numbers: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber],
-                  politically_exposed_person: T.nilable(T::Boolean),
-                  preferred_name: T.nilable(String),
-                  prefix: T.nilable(String),
-                  risk_rating: T.nilable(Symbol),
-                  suffix: T.nilable(String),
-                  wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
-                  website: T.nilable(String)
-                }
-              )
+              override
+                .returns(
+                  {
+                    addresses: T::Array[
+                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
+                    ],
+                    bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
+                    business_name: T.nilable(String),
+                    citizenship_country: T.nilable(String),
+                    date_formed: T.nilable(Date),
+                    date_of_birth: T.nilable(Date),
+                    doing_business_as_names: T::Array[String],
+                    email: T.nilable(String),
+                    first_name: T.nilable(String),
+                    identifications: T::Array[
+                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
+                    ],
+                    last_name: T.nilable(String),
+                    legal_entity_type: Symbol,
+                    legal_structure: T.nilable(Symbol),
+                    metadata: T::Hash[Symbol, String],
+                    middle_name: T.nilable(String),
+                    phone_numbers: T::Array[
+                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
+                    ],
+                    politically_exposed_person: T.nilable(T::Boolean),
+                    preferred_name: T.nilable(String),
+                    prefix: T.nilable(String),
+                    risk_rating: T.nilable(Symbol),
+                    suffix: T.nilable(String),
+                    wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
+                    website: T.nilable(String)
+                  }
+                )
             end
             def to_hash
             end
@@ -1711,7 +1795,8 @@ module ModernTreasury
                   region: T.nilable(String),
                   address_types: T::Array[Symbol],
                   line2: T.nilable(String)
-                ).void
+                )
+                  .void
               end
               def initialize(
                 country:,
@@ -1725,17 +1810,18 @@ module ModernTreasury
               end
 
               sig do
-                override.returns(
-                  {
-                    country: T.nilable(String),
-                    line1: T.nilable(String),
-                    locality: T.nilable(String),
-                    postal_code: T.nilable(String),
-                    region: T.nilable(String),
-                    address_types: T::Array[Symbol],
-                    line2: T.nilable(String)
-                  }
-                )
+                override
+                  .returns(
+                    {
+                      country: T.nilable(String),
+                      line1: T.nilable(String),
+                      locality: T.nilable(String),
+                      postal_code: T.nilable(String),
+                      region: T.nilable(String),
+                      address_types: T::Array[Symbol],
+                      line2: T.nilable(String)
+                    }
+                  )
               end
               def to_hash
               end

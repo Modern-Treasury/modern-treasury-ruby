@@ -16,7 +16,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions)).returns(T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions))
+        params(_: T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions))
+          .returns(T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions))
       end
       def conditions=(_)
       end
@@ -58,7 +59,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate).returns(ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate)
+        params(_: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate)
+          .returns(ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate)
       end
       def ledger_transaction_template=(_)
       end
@@ -108,15 +110,8 @@ module ModernTreasury
       end
 
       sig do
-        params(
-          _: T.nilable(
-            T::Hash[Symbol,
-                    ModernTreasury::Models::LedgerEventHandlerVariable]
-          )
-        ).returns(T.nilable(
-                    T::Hash[Symbol,
-                            ModernTreasury::Models::LedgerEventHandlerVariable]
-                  ))
+        params(_: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]))
+          .returns(T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]))
       end
       def variables=(_)
       end
@@ -136,7 +131,8 @@ module ModernTreasury
           object: String,
           updated_at: Time,
           variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -156,23 +152,24 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            conditions: T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions),
-            created_at: Time,
-            description: T.nilable(String),
-            discarded_at: T.nilable(Time),
-            ledger_id: T.nilable(String),
-            ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-            live_mode: T::Boolean,
-            metadata: T.nilable(T::Hash[Symbol, String]),
-            name: String,
-            object: String,
-            updated_at: Time,
-            variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              conditions: T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions),
+              created_at: Time,
+              description: T.nilable(String),
+              discarded_at: T.nilable(Time),
+              ledger_id: T.nilable(String),
+              ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+              live_mode: T::Boolean,
+              metadata: T.nilable(T::Hash[Symbol, String]),
+              name: String,
+              object: String,
+              updated_at: Time,
+              variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])
+            }
+          )
       end
       def to_hash
       end
@@ -228,14 +225,13 @@ module ModernTreasury
         def effective_at=(_)
         end
 
-        sig do
-          returns(T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry])
-        end
+        sig { returns(T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry]) }
         def ledger_entries
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry]).returns(T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry])
+          params(_: T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry])
+            .returns(T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry])
         end
         def ledger_entries=(_)
         end
@@ -254,20 +250,22 @@ module ModernTreasury
             effective_at: T.nilable(String),
             ledger_entries: T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry],
             status: T.nilable(String)
-          ).void
+          )
+            .void
         end
         def initialize(description:, effective_at:, ledger_entries:, status:)
         end
 
         sig do
-          override.returns(
-            {
-              description: T.nilable(String),
-              effective_at: T.nilable(String),
-              ledger_entries: T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry],
-              status: T.nilable(String)
-            }
-          )
+          override
+            .returns(
+              {
+                description: T.nilable(String),
+                effective_at: T.nilable(String),
+                ledger_entries: T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry],
+                status: T.nilable(String)
+              }
+            )
         end
         def to_hash
         end

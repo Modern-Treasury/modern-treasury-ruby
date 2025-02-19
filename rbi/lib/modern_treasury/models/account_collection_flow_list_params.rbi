@@ -63,7 +63,8 @@ module ModernTreasury
           per_page: Integer,
           status: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         after_cursor: nil,
@@ -77,17 +78,18 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            after_cursor: T.nilable(String),
-            client_token: String,
-            counterparty_id: String,
-            external_account_id: String,
-            per_page: Integer,
-            status: String,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              after_cursor: T.nilable(String),
+              client_token: String,
+              counterparty_id: String,
+              external_account_id: String,
+              per_page: Integer,
+              status: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
