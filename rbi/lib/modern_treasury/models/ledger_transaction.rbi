@@ -56,7 +56,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::LedgerEntry]).returns(T::Array[ModernTreasury::Models::LedgerEntry])
+        params(_: T::Array[ModernTreasury::Models::LedgerEntry])
+          .returns(T::Array[ModernTreasury::Models::LedgerEntry])
       end
       def ledger_entries=(_)
       end
@@ -178,7 +179,8 @@ module ModernTreasury
           reverses_ledger_transaction_id: T.nilable(String),
           status: Symbol,
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -204,29 +206,30 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            created_at: Time,
-            description: T.nilable(String),
-            effective_at: Time,
-            effective_date: Date,
-            external_id: T.nilable(String),
-            ledger_entries: T::Array[ModernTreasury::Models::LedgerEntry],
-            ledger_id: String,
-            ledgerable_id: T.nilable(String),
-            ledgerable_type: T.nilable(Symbol),
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            object: String,
-            partially_posts_ledger_transaction_id: T.nilable(String),
-            posted_at: T.nilable(Time),
-            reversed_by_ledger_transaction_id: T.nilable(String),
-            reverses_ledger_transaction_id: T.nilable(String),
-            status: Symbol,
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              created_at: Time,
+              description: T.nilable(String),
+              effective_at: Time,
+              effective_date: Date,
+              external_id: T.nilable(String),
+              ledger_entries: T::Array[ModernTreasury::Models::LedgerEntry],
+              ledger_id: String,
+              ledgerable_id: T.nilable(String),
+              ledgerable_type: T.nilable(Symbol),
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              object: String,
+              partially_posts_ledger_transaction_id: T.nilable(String),
+              posted_at: T.nilable(Time),
+              reversed_by_ledger_transaction_id: T.nilable(String),
+              reverses_ledger_transaction_id: T.nilable(String),
+              status: Symbol,
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end

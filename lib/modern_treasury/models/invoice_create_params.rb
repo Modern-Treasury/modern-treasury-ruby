@@ -309,9 +309,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType]
         required :contact_identifier_type,
-                 enum: -> {
-                   ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType
-                 }
+                 enum: -> { ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType }
 
         # @!attribute created_at
         #

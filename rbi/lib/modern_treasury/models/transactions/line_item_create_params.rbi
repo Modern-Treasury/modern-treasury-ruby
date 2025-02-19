@@ -37,20 +37,22 @@ module ModernTreasury
             expected_payment_id: String,
             transaction_id: String,
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-          ).void
+          )
+            .void
         end
         def initialize(amount:, expected_payment_id:, transaction_id:, request_options: {})
         end
 
         sig do
-          override.returns(
-            {
-              amount: Integer,
-              expected_payment_id: String,
-              transaction_id: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+          override
+            .returns(
+              {
+                amount: Integer,
+                expected_payment_id: String,
+                transaction_id: String,
+                request_options: ModernTreasury::RequestOptions
+              }
+            )
         end
         def to_hash
         end

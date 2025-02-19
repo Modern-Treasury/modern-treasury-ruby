@@ -18,7 +18,8 @@ module ModernTreasury
         params(
           status: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(status:, request_options: {})
       end

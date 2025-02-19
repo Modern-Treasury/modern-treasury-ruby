@@ -81,7 +81,8 @@ module ModernTreasury
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
           status: T.nilable(Symbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         contra_ledger_account_id:,
@@ -97,19 +98,20 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            contra_ledger_account_id: String,
-            settled_ledger_account_id: String,
-            allow_either_direction: T.nilable(T::Boolean),
-            description: T.nilable(String),
-            effective_at_upper_bound: T.nilable(Time),
-            metadata: T::Hash[Symbol, String],
-            skip_settlement_ledger_transaction: T.nilable(T::Boolean),
-            status: T.nilable(Symbol),
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              contra_ledger_account_id: String,
+              settled_ledger_account_id: String,
+              allow_either_direction: T.nilable(T::Boolean),
+              description: T.nilable(String),
+              effective_at_upper_bound: T.nilable(Time),
+              metadata: T::Hash[Symbol, String],
+              skip_settlement_ledger_transaction: T.nilable(T::Boolean),
+              status: T.nilable(Symbol),
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

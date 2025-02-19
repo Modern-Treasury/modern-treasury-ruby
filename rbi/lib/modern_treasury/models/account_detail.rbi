@@ -86,7 +86,8 @@ module ModernTreasury
           object: String,
           updated_at: Time,
           account_number: String
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -102,19 +103,20 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            account_number_safe: String,
-            account_number_type: Symbol,
-            created_at: Time,
-            discarded_at: T.nilable(Time),
-            live_mode: T::Boolean,
-            object: String,
-            updated_at: Time,
-            account_number: String
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              account_number_safe: String,
+              account_number_type: Symbol,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              live_mode: T::Boolean,
+              object: String,
+              updated_at: Time,
+              account_number: String
+            }
+          )
       end
       def to_hash
       end

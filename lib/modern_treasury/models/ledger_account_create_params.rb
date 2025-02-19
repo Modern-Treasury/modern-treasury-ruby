@@ -71,10 +71,7 @@ module ModernTreasury
       #     external_account.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType, nil]
-      optional :ledgerable_type,
-               enum: -> {
-                 ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType
-               }
+      optional :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType }
 
       # @!parse
       #   # @return [Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType]

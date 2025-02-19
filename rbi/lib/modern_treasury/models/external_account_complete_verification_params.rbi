@@ -18,7 +18,8 @@ module ModernTreasury
         params(
           amounts: T::Array[Integer],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(amounts: nil, request_options: {})
       end

@@ -55,7 +55,6 @@ module ModernTreasury
     end
 
     # @return [Boolean]
-    #
     def next_page?
       !after_cursor.nil?
     end
@@ -65,7 +64,7 @@ module ModernTreasury
     #
     def next_page
       unless next_page?
-        raise "No more pages available; please check #next_page? before calling #next_page"
+        raise RuntimeError.new("No more pages available; please check #next_page? before calling #next_page")
       end
 
       req = ModernTreasury::Util.deep_merge(@req, {query: {after_cursor: after_cursor}})

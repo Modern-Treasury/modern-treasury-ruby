@@ -29,9 +29,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType, nil]
         optional :balance_report_type,
-                 enum: -> {
-                   ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType
-                 }
+                 enum: -> { ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType]

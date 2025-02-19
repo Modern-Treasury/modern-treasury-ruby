@@ -27,7 +27,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount).returns(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)
+        params(_: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)
+          .returns(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)
       end
       def available_balance_amount=(_)
       end
@@ -37,7 +38,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountListParams::Balances).returns(ModernTreasury::Models::LedgerAccountListParams::Balances)
+        params(_: ModernTreasury::Models::LedgerAccountListParams::Balances)
+          .returns(ModernTreasury::Models::LedgerAccountListParams::Balances)
       end
       def balances=(_)
       end
@@ -95,7 +97,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount).returns(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)
+        params(_: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)
+          .returns(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)
       end
       def pending_balance_amount=(_)
       end
@@ -113,7 +116,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount).returns(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)
+        params(_: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)
+          .returns(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)
       end
       def posted_balance_amount=(_)
       end
@@ -143,7 +147,8 @@ module ModernTreasury
           posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         id: nil,
@@ -165,25 +170,26 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: T::Array[String],
-            after_cursor: T.nilable(String),
-            available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-            balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
-            created_at: T::Hash[Symbol, Time],
-            currency: String,
-            ledger_account_category_id: String,
-            ledger_id: String,
-            metadata: T::Hash[Symbol, String],
-            name: T::Array[String],
-            pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-            per_page: Integer,
-            posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-            updated_at: T::Hash[Symbol, Time],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              id: T::Array[String],
+              after_cursor: T.nilable(String),
+              available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
+              balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
+              created_at: T::Hash[Symbol, Time],
+              currency: String,
+              ledger_account_category_id: String,
+              ledger_id: String,
+              metadata: T::Hash[Symbol, String],
+              name: T::Array[String],
+              pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+              per_page: Integer,
+              posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
+              updated_at: T::Hash[Symbol, Time],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -298,7 +304,8 @@ module ModernTreasury
             effective_at: Time,
             effective_at_lower_bound: Time,
             effective_at_upper_bound: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           as_of_date: nil,
@@ -309,14 +316,15 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              as_of_date: Date,
-              effective_at: Time,
-              effective_at_lower_bound: Time,
-              effective_at_upper_bound: Time
-            }
-          )
+          override
+            .returns(
+              {
+                as_of_date: Date,
+                effective_at: Time,
+                effective_at_lower_bound: Time,
+                effective_at_upper_bound: Time
+              }
+            )
         end
         def to_hash
         end

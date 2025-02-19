@@ -14,9 +14,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
       required :posted_ledger_entries,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]
-               }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry] }
 
       # @!attribute [r] description
       #   An optional free-form description for the posted ledger transaction. Maximum of
@@ -87,9 +85,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction]
         required :direction,
-                 enum: -> {
-                   ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction
-                 }
+                 enum: -> { ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction }
 
         # @!attribute ledger_account_id
         #   The ledger account that this ledger entry is associated with.

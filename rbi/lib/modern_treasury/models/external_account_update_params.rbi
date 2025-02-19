@@ -43,7 +43,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress).returns(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)
+        params(_: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)
+          .returns(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)
       end
       def party_address=(_)
       end
@@ -74,7 +75,8 @@ module ModernTreasury
           party_name: String,
           party_type: T.nilable(Symbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         account_type: nil,
@@ -89,18 +91,19 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            account_type: Symbol,
-            counterparty_id: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            name: T.nilable(String),
-            party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-            party_name: String,
-            party_type: T.nilable(Symbol),
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              account_type: Symbol,
+              counterparty_id: T.nilable(String),
+              metadata: T::Hash[Symbol, String],
+              name: T.nilable(String),
+              party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+              party_name: String,
+              party_type: T.nilable(Symbol),
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -162,22 +165,24 @@ module ModernTreasury
             locality: T.nilable(String),
             postal_code: T.nilable(String),
             region: T.nilable(String)
-          ).void
+          )
+            .void
         end
         def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         end
 
         sig do
-          override.returns(
-            {
-              country: T.nilable(String),
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              locality: T.nilable(String),
-              postal_code: T.nilable(String),
-              region: T.nilable(String)
-            }
-          )
+          override
+            .returns(
+              {
+                country: T.nilable(String),
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                locality: T.nilable(String),
+                postal_code: T.nilable(String),
+                region: T.nilable(String)
+              }
+            )
         end
         def to_hash
         end

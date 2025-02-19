@@ -27,19 +27,19 @@ module ModernTreasury
           accounts_type: Symbol,
           account_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(accounts_type:, account_id:, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            accounts_type: Symbol,
-            account_id: String,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns({
+                     accounts_type: Symbol,
+                     account_id: String,
+                     request_options: ModernTreasury::RequestOptions
+                   })
       end
       def to_hash
       end

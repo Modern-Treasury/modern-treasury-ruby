@@ -7,7 +7,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Event)
+        )
+          .returns(ModernTreasury::Models::Event)
       end
       def retrieve(id, request_options: {})
       end
@@ -22,7 +23,8 @@ module ModernTreasury
           per_page: Integer,
           resource: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::Event])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::Event])
       end
       def list(
         after_cursor: nil,

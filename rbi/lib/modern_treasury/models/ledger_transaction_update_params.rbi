@@ -27,7 +27,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]).returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry])
+        params(_: T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry])
+          .returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry])
       end
       def ledger_entries=(_)
       end
@@ -74,7 +75,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           status: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         description: nil,
@@ -89,18 +91,19 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            description: T.nilable(String),
-            effective_at: Time,
-            ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry],
-            ledgerable_id: String,
-            ledgerable_type: Symbol,
-            metadata: T::Hash[Symbol, String],
-            status: Symbol,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              description: T.nilable(String),
+              effective_at: Time,
+              ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry],
+              ledgerable_id: String,
+              ledgerable_type: Symbol,
+              metadata: T::Hash[Symbol, String],
+              status: Symbol,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -189,7 +192,8 @@ module ModernTreasury
             pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
             posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
             show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-          ).void
+          )
+            .void
         end
         def initialize(
           amount:,
@@ -205,19 +209,20 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              amount: Integer,
-              direction: Symbol,
-              ledger_account_id: String,
-              available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-              lock_version: T.nilable(Integer),
-              metadata: T::Hash[Symbol, String],
-              pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-              posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
-              show_resulting_ledger_account_balances: T.nilable(T::Boolean)
-            }
-          )
+          override
+            .returns(
+              {
+                amount: Integer,
+                direction: Symbol,
+                ledger_account_id: String,
+                available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                lock_version: T.nilable(Integer),
+                metadata: T::Hash[Symbol, String],
+                pending_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
+                show_resulting_ledger_account_balances: T.nilable(T::Boolean)
+              }
+            )
         end
         def to_hash
         end

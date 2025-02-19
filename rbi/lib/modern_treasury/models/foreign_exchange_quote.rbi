@@ -48,7 +48,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate).returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate)
+        params(_: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate)
+          .returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate)
       end
       def foreign_exchange_rate=(_)
       end
@@ -115,7 +116,8 @@ module ModernTreasury
           object: String,
           updated_at: Time,
           vendor_id: String
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -134,22 +136,23 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            created_at: Time,
-            effective_at: Time,
-            expires_at: Time,
-            foreign_exchange_indicator: String,
-            foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
-            internal_account_id: String,
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            object: String,
-            updated_at: Time,
-            vendor_id: String
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              created_at: Time,
+              effective_at: Time,
+              expires_at: Time,
+              foreign_exchange_indicator: String,
+              foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+              internal_account_id: String,
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              object: String,
+              updated_at: Time,
+              vendor_id: String
+            }
+          )
       end
       def to_hash
       end
@@ -220,7 +223,8 @@ module ModernTreasury
             target_amount: Integer,
             target_currency: Symbol,
             value: Integer
-          ).void
+          )
+            .void
         end
         def initialize(
           base_amount:,
@@ -234,17 +238,18 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              base_amount: Integer,
-              base_currency: Symbol,
-              exponent: Integer,
-              rate_string: String,
-              target_amount: Integer,
-              target_currency: Symbol,
-              value: Integer
-            }
-          )
+          override
+            .returns(
+              {
+                base_amount: Integer,
+                base_currency: Symbol,
+                exponent: Integer,
+                rate_string: String,
+                target_amount: Integer,
+                target_currency: Symbol,
+                value: Integer
+              }
+            )
         end
         def to_hash
         end

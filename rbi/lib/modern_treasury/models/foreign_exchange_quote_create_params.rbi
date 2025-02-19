@@ -63,7 +63,8 @@ module ModernTreasury
           effective_at: Time,
           target_amount: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         internal_account_id:,
@@ -77,17 +78,18 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            internal_account_id: String,
-            target_currency: Symbol,
-            base_amount: Integer,
-            base_currency: Symbol,
-            effective_at: Time,
-            target_amount: Integer,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              internal_account_id: String,
+              target_currency: Symbol,
+              base_amount: Integer,
+              base_currency: Symbol,
+              effective_at: Time,
+              target_amount: Integer,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

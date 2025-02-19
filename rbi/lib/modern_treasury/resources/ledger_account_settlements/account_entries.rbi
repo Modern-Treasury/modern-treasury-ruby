@@ -9,7 +9,8 @@ module ModernTreasury
             id: String,
             ledger_entry_ids: T.nilable(T::Array[String]),
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-          ).void
+          )
+            .void
         end
         def update(id, ledger_entry_ids:, request_options: {})
         end
@@ -19,7 +20,8 @@ module ModernTreasury
             id: String,
             ledger_entry_ids: T.nilable(T::Array[T.anything]),
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-          ).void
+          )
+            .void
         end
         def delete(id, ledger_entry_ids:, request_options: {})
         end

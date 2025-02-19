@@ -9,7 +9,8 @@ module ModernTreasury
           payment_types: T::Array[String],
           receiving_countries: T::Array[Symbol],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::AccountCollectionFlow)
+        )
+          .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
       def create(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
       end
@@ -18,7 +19,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::AccountCollectionFlow)
+        )
+          .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
       def retrieve(id, request_options: {})
       end
@@ -28,7 +30,8 @@ module ModernTreasury
           id: String,
           status: Symbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::AccountCollectionFlow)
+        )
+          .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
       def update(id, status:, request_options: {})
       end
@@ -42,7 +45,8 @@ module ModernTreasury
           per_page: Integer,
           status: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow])
       end
       def list(
         after_cursor: nil,

@@ -8,7 +8,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress).returns(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)
+        params(_: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)
+          .returns(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)
       end
       def bank_address=(_)
       end
@@ -61,7 +62,8 @@ module ModernTreasury
           routing_number_type: Symbol,
           sanctions: T::Hash[Symbol, T.anything],
           supported_payment_types: T::Array[Symbol]
-        ).void
+        )
+          .void
       end
       def initialize(
         bank_address: nil,
@@ -74,16 +76,17 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
-            bank_name: String,
-            routing_number: String,
-            routing_number_type: Symbol,
-            sanctions: T::Hash[Symbol, T.anything],
-            supported_payment_types: T::Array[Symbol]
-          }
-        )
+        override
+          .returns(
+            {
+              bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
+              bank_name: String,
+              routing_number: String,
+              routing_number_type: Symbol,
+              sanctions: T::Hash[Symbol, T.anything],
+              supported_payment_types: T::Array[Symbol]
+            }
+          )
       end
       def to_hash
       end
@@ -145,22 +148,24 @@ module ModernTreasury
             locality: T.nilable(String),
             postal_code: T.nilable(String),
             region: T.nilable(String)
-          ).void
+          )
+            .void
         end
         def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         end
 
         sig do
-          override.returns(
-            {
-              country: T.nilable(String),
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              locality: T.nilable(String),
-              postal_code: T.nilable(String),
-              region: T.nilable(String)
-            }
-          )
+          override
+            .returns(
+              {
+                country: T.nilable(String),
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                locality: T.nilable(String),
+                postal_code: T.nilable(String),
+                region: T.nilable(String)
+              }
+            )
         end
         def to_hash
         end

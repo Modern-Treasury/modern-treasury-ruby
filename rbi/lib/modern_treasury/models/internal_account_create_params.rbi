@@ -67,7 +67,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress).returns(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)
+        params(_: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)
+          .returns(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)
       end
       def party_address=(_)
       end
@@ -92,7 +93,8 @@ module ModernTreasury
           party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
           vendor_attributes: T::Hash[Symbol, String],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         connection_id:,
@@ -109,20 +111,21 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            connection_id: String,
-            currency: Symbol,
-            name: String,
-            party_name: String,
-            counterparty_id: String,
-            legal_entity_id: String,
-            parent_account_id: String,
-            party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-            vendor_attributes: T::Hash[Symbol, String],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              connection_id: String,
+              currency: Symbol,
+              name: String,
+              party_name: String,
+              counterparty_id: String,
+              legal_entity_id: String,
+              parent_account_id: String,
+              party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+              vendor_attributes: T::Hash[Symbol, String],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -195,22 +198,24 @@ module ModernTreasury
             postal_code: String,
             region: String,
             line2: String
-          ).void
+          )
+            .void
         end
         def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
         end
 
         sig do
-          override.returns(
-            {
-              country: String,
-              line1: String,
-              locality: String,
-              postal_code: String,
-              region: String,
-              line2: String
-            }
-          )
+          override
+            .returns(
+              {
+                country: String,
+                line1: String,
+                locality: String,
+                postal_code: String,
+                region: String,
+                line2: String
+              }
+            )
         end
         def to_hash
         end

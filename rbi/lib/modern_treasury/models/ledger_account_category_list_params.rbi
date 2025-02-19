@@ -27,7 +27,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances).returns(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances)
+        params(_: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances)
+          .returns(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances)
       end
       def balances=(_)
       end
@@ -101,7 +102,8 @@ module ModernTreasury
           parent_ledger_account_category_id: String,
           per_page: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         id: nil,
@@ -119,21 +121,22 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: T::Array[String],
-            after_cursor: T.nilable(String),
-            balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
-            currency: String,
-            ledger_account_id: String,
-            ledger_id: String,
-            metadata: T::Hash[Symbol, String],
-            name: String,
-            parent_ledger_account_category_id: String,
-            per_page: Integer,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              id: T::Array[String],
+              after_cursor: T.nilable(String),
+              balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
+              currency: String,
+              ledger_account_id: String,
+              ledger_id: String,
+              metadata: T::Hash[Symbol, String],
+              name: String,
+              parent_ledger_account_category_id: String,
+              per_page: Integer,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

@@ -19,7 +19,8 @@ module ModernTreasury
           params(
             payment_order_id: String,
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-          ).void
+          )
+            .void
         end
         def initialize(payment_order_id:, request_options: {})
         end

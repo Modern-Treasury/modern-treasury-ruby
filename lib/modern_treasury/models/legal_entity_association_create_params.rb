@@ -18,9 +18,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
       required :relationship_types,
-               -> {
-                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType]
-               }
+               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType] }
 
       # @!attribute [r] child_legal_entity
       #   The child legal entity.
@@ -121,9 +119,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address>, nil]
         optional :addresses,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address>]
@@ -184,9 +180,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification>, nil]
         optional :identifications,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification>]
@@ -203,9 +197,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalEntityType, nil]
         optional :legal_entity_type,
-                 enum: -> {
-                   ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalEntityType
-                 }
+                 enum: -> { ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalEntityType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalEntityType]
@@ -216,9 +208,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalStructure, nil]
         optional :legal_structure,
-                 enum: -> {
-                   ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalStructure
-                 },
+                 enum: -> { ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalStructure },
                  nil?: true
 
         # @!attribute [r] metadata
@@ -242,9 +232,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber>, nil]
         optional :phone_numbers,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber>]
@@ -273,9 +261,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::RiskRating, nil]
         optional :risk_rating,
-                 enum: -> {
-                   ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::RiskRating
-                 },
+                 enum: -> { ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::RiskRating },
                  nil?: true
 
         # @!attribute suffix
@@ -401,9 +387,7 @@ module ModernTreasury
           #
           #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType>, nil]
           optional :address_types,
-                   -> {
-                     ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType]
-                   }
+                   -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType] }
 
           # @!parse
           #   # @return [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType>]
@@ -480,9 +464,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::IDType]
           required :id_type,
-                   enum: -> {
-                     ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::IDType
-                   }
+                   enum: -> { ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::IDType }
 
           # @!attribute issuing_country
           #   The ISO 3166-1 alpha-2 country code of the country that issued the

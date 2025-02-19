@@ -63,7 +63,8 @@ module ModernTreasury
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         returnable_id:,
@@ -77,17 +78,18 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            returnable_id: T.nilable(String),
-            returnable_type: Symbol,
-            additional_information: T.nilable(String),
-            code: T.nilable(Symbol),
-            date_of_death: T.nilable(Date),
-            reason: T.nilable(String),
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              returnable_id: T.nilable(String),
+              returnable_type: Symbol,
+              additional_information: T.nilable(String),
+              code: T.nilable(Symbol),
+              date_of_death: T.nilable(Date),
+              reason: T.nilable(String),
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

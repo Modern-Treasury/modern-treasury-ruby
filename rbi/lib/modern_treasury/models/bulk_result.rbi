@@ -42,13 +42,16 @@ module ModernTreasury
             ModernTreasury::Models::Transaction,
             ModernTreasury::Models::BulkResult::Entity::BulkError
           )
-        ).returns(T.any(
-                    ModernTreasury::Models::PaymentOrder,
-                    ModernTreasury::Models::ExpectedPayment,
-                    ModernTreasury::Models::LedgerTransaction,
-                    ModernTreasury::Models::Transaction,
-                    ModernTreasury::Models::BulkResult::Entity::BulkError
-                  ))
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::PaymentOrder,
+              ModernTreasury::Models::ExpectedPayment,
+              ModernTreasury::Models::LedgerTransaction,
+              ModernTreasury::Models::Transaction,
+              ModernTreasury::Models::BulkResult::Entity::BulkError
+            )
+          )
       end
       def entity=(_)
       end
@@ -145,7 +148,8 @@ module ModernTreasury
           request_type: Symbol,
           status: Symbol,
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -164,28 +168,29 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            created_at: Time,
-            entity: T.any(
-              ModernTreasury::Models::PaymentOrder,
-              ModernTreasury::Models::ExpectedPayment,
-              ModernTreasury::Models::LedgerTransaction,
-              ModernTreasury::Models::Transaction,
-              ModernTreasury::Models::BulkResult::Entity::BulkError
-            ),
-            entity_id: String,
-            entity_type: Symbol,
-            live_mode: T::Boolean,
-            object: String,
-            request_id: String,
-            request_params: T.nilable(T::Hash[Symbol, String]),
-            request_type: Symbol,
-            status: Symbol,
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              created_at: Time,
+              entity: T.any(
+                ModernTreasury::Models::PaymentOrder,
+                ModernTreasury::Models::ExpectedPayment,
+                ModernTreasury::Models::LedgerTransaction,
+                ModernTreasury::Models::Transaction,
+                ModernTreasury::Models::BulkResult::Entity::BulkError
+              ),
+              entity_id: String,
+              entity_type: Symbol,
+              live_mode: T::Boolean,
+              object: String,
+              request_id: String,
+              request_params: T.nilable(T::Hash[Symbol, String]),
+              request_type: Symbol,
+              status: Symbol,
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end
@@ -231,7 +236,8 @@ module ModernTreasury
           end
 
           sig do
-            params(_: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError]).returns(T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError])
+            params(_: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError])
+              .returns(T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError])
           end
           def request_errors=(_)
           end
@@ -252,22 +258,24 @@ module ModernTreasury
               object: String,
               request_errors: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
               updated_at: Time
-            ).void
+            )
+              .void
           end
           def initialize(id:, created_at:, live_mode:, object:, request_errors:, updated_at:)
           end
 
           sig do
-            override.returns(
-              {
-                id: String,
-                created_at: Time,
-                live_mode: T::Boolean,
-                object: String,
-                request_errors: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
-                updated_at: Time
-              }
-            )
+            override
+              .returns(
+                {
+                  id: String,
+                  created_at: Time,
+                  live_mode: T::Boolean,
+                  object: String,
+                  request_errors: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
+                  updated_at: Time
+                }
+              )
           end
           def to_hash
           end
@@ -308,15 +316,10 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            [
-              [NilClass, ModernTreasury::Models::PaymentOrder],
-              [NilClass, ModernTreasury::Models::ExpectedPayment],
-              [NilClass, ModernTreasury::Models::LedgerTransaction],
-              [NilClass, ModernTreasury::Models::Transaction],
-              [NilClass, ModernTreasury::Models::BulkResult::Entity::BulkError]
-            ]
-          )
+          override
+            .returns(
+              [[NilClass, ModernTreasury::Models::PaymentOrder], [NilClass, ModernTreasury::Models::ExpectedPayment], [NilClass, ModernTreasury::Models::LedgerTransaction], [NilClass, ModernTreasury::Models::Transaction], [NilClass, ModernTreasury::Models::BulkResult::Entity::BulkError]]
+            )
         end
         private_class_method def self.variants
         end

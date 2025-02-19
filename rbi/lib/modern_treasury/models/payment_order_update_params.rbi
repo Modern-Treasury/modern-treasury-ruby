@@ -11,7 +11,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrderUpdateParams::Accounting).returns(ModernTreasury::Models::PaymentOrderUpdateParams::Accounting)
+        params(_: ModernTreasury::Models::PaymentOrderUpdateParams::Accounting)
+          .returns(ModernTreasury::Models::PaymentOrderUpdateParams::Accounting)
       end
       def accounting=(_)
       end
@@ -125,7 +126,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem]).returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem])
+        params(_: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem])
+          .returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem])
       end
       def line_items=(_)
       end
@@ -191,7 +193,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount).returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount)
+        params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount)
+          .returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount)
       end
       def receiving_account=(_)
       end
@@ -321,7 +324,8 @@ module ModernTreasury
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         accounting: nil,
@@ -363,45 +367,46 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            accounting: ModernTreasury::Models::PaymentOrderUpdateParams::Accounting,
-            accounting_category_id: T.nilable(String),
-            accounting_ledger_class_id: T.nilable(String),
-            amount: Integer,
-            charge_bearer: T.nilable(Symbol),
-            counterparty_id: T.nilable(String),
-            currency: Symbol,
-            description: T.nilable(String),
-            direction: Symbol,
-            effective_date: Date,
-            expires_at: T.nilable(Time),
-            fallback_type: Symbol,
-            foreign_exchange_contract: T.nilable(String),
-            foreign_exchange_indicator: T.nilable(Symbol),
-            line_items: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem],
-            metadata: T::Hash[Symbol, String],
-            nsf_protected: T::Boolean,
-            originating_account_id: String,
-            originating_party_name: T.nilable(String),
-            priority: Symbol,
-            process_after: T.nilable(Time),
-            purpose: T.nilable(String),
-            receiving_account: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount,
-            receiving_account_id: String,
-            remittance_information: T.nilable(String),
-            send_remittance_advice: T.nilable(T::Boolean),
-            statement_descriptor: T.nilable(String),
-            status: Symbol,
-            subtype: T.nilable(Symbol),
-            type: Symbol,
-            ultimate_originating_party_identifier: T.nilable(String),
-            ultimate_originating_party_name: T.nilable(String),
-            ultimate_receiving_party_identifier: T.nilable(String),
-            ultimate_receiving_party_name: T.nilable(String),
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              accounting: ModernTreasury::Models::PaymentOrderUpdateParams::Accounting,
+              accounting_category_id: T.nilable(String),
+              accounting_ledger_class_id: T.nilable(String),
+              amount: Integer,
+              charge_bearer: T.nilable(Symbol),
+              counterparty_id: T.nilable(String),
+              currency: Symbol,
+              description: T.nilable(String),
+              direction: Symbol,
+              effective_date: Date,
+              expires_at: T.nilable(Time),
+              fallback_type: Symbol,
+              foreign_exchange_contract: T.nilable(String),
+              foreign_exchange_indicator: T.nilable(Symbol),
+              line_items: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::LineItem],
+              metadata: T::Hash[Symbol, String],
+              nsf_protected: T::Boolean,
+              originating_account_id: String,
+              originating_party_name: T.nilable(String),
+              priority: Symbol,
+              process_after: T.nilable(Time),
+              purpose: T.nilable(String),
+              receiving_account: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount,
+              receiving_account_id: String,
+              remittance_information: T.nilable(String),
+              send_remittance_advice: T.nilable(T::Boolean),
+              statement_descriptor: T.nilable(String),
+              status: Symbol,
+              subtype: T.nilable(Symbol),
+              type: Symbol,
+              ultimate_originating_party_identifier: T.nilable(String),
+              ultimate_originating_party_name: T.nilable(String),
+              ultimate_receiving_party_identifier: T.nilable(String),
+              ultimate_receiving_party_name: T.nilable(String),
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -515,20 +520,22 @@ module ModernTreasury
             accounting_category_id: T.nilable(String),
             description: T.nilable(String),
             metadata: T::Hash[Symbol, String]
-          ).void
+          )
+            .void
         end
         def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
         end
 
         sig do
-          override.returns(
-            {
-              amount: Integer,
-              accounting_category_id: T.nilable(String),
-              description: T.nilable(String),
-              metadata: T::Hash[Symbol, String]
-            }
-          )
+          override
+            .returns(
+              {
+                amount: Integer,
+                accounting_category_id: T.nilable(String),
+                description: T.nilable(String),
+                metadata: T::Hash[Symbol, String]
+              }
+            )
         end
         def to_hash
         end
@@ -547,13 +554,16 @@ module ModernTreasury
 
       class ReceivingAccount < ModernTreasury::BaseModel
         sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail]))
+          returns(
+            T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail])
+          )
         end
         def account_details
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail]).returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail])
+          params(_: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail])
+            .returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail])
         end
         def account_details=(_)
         end
@@ -567,25 +577,27 @@ module ModernTreasury
         end
 
         sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail]))
+          returns(
+            T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail])
+          )
         end
         def contact_details
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail]).returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail])
+          params(_: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail])
+            .returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail])
         end
         def contact_details=(_)
         end
 
-        sig do
-          returns(T.nilable(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount))
-        end
+        sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount)) }
         def ledger_account
         end
 
         sig do
-          params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount).returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount)
+          params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount)
+            .returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount)
         end
         def ledger_account=(_)
         end
@@ -606,14 +618,13 @@ module ModernTreasury
         def name=(_)
         end
 
-        sig do
-          returns(T.nilable(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress))
-        end
+        sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress)) }
         def party_address
         end
 
         sig do
-          params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress).returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress)
+          params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress)
+            .returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress)
         end
         def party_address=(_)
         end
@@ -651,13 +662,16 @@ module ModernTreasury
         end
 
         sig do
-          returns(T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]))
+          returns(
+            T.nilable(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail])
+          )
         end
         def routing_details
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]).returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail])
+          params(_: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail])
+            .returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail])
         end
         def routing_details=(_)
         end
@@ -676,7 +690,8 @@ module ModernTreasury
             party_type: T.nilable(Symbol),
             plaid_processor_token: String,
             routing_details: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]
-          ).void
+          )
+            .void
         end
         def initialize(
           account_details: nil,
@@ -695,23 +710,23 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              account_details: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail],
-              account_type: Symbol,
-              contact_details: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail],
-              ledger_account: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount,
-              metadata: T::Hash[Symbol,
-                                String],
-              name: T.nilable(String),
-              party_address: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress,
-              party_identifier: String,
-              party_name: String,
-              party_type: T.nilable(Symbol),
-              plaid_processor_token: String,
-              routing_details: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]
-            }
-          )
+          override
+            .returns(
+              {
+                account_details: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail],
+                account_type: Symbol,
+                contact_details: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail],
+                ledger_account: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount,
+                metadata: T::Hash[Symbol, String],
+                name: T.nilable(String),
+                party_address: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress,
+                party_identifier: String,
+                party_name: String,
+                party_type: T.nilable(Symbol),
+                plaid_processor_token: String,
+                routing_details: T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]
+              }
+            )
         end
         def to_hash
         end
@@ -892,7 +907,8 @@ module ModernTreasury
               ledgerable_id: String,
               ledgerable_type: Symbol,
               metadata: T::Hash[Symbol, String]
-            ).void
+            )
+              .void
           end
           def initialize(
             currency:,
@@ -909,20 +925,21 @@ module ModernTreasury
           end
 
           sig do
-            override.returns(
-              {
-                currency: String,
-                ledger_id: String,
-                name: String,
-                normal_balance: Symbol,
-                currency_exponent: T.nilable(Integer),
-                description: T.nilable(String),
-                ledger_account_category_ids: T::Array[String],
-                ledgerable_id: String,
-                ledgerable_type: Symbol,
-                metadata: T::Hash[Symbol, String]
-              }
-            )
+            override
+              .returns(
+                {
+                  currency: String,
+                  ledger_id: String,
+                  name: String,
+                  normal_balance: Symbol,
+                  currency_exponent: T.nilable(Integer),
+                  description: T.nilable(String),
+                  ledger_account_category_ids: T::Array[String],
+                  ledgerable_id: String,
+                  ledgerable_type: Symbol,
+                  metadata: T::Hash[Symbol, String]
+                }
+              )
           end
           def to_hash
           end
@@ -998,22 +1015,24 @@ module ModernTreasury
               locality: T.nilable(String),
               postal_code: T.nilable(String),
               region: T.nilable(String)
-            ).void
+            )
+              .void
           end
           def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
           end
 
           sig do
-            override.returns(
-              {
-                country: T.nilable(String),
-                line1: T.nilable(String),
-                line2: T.nilable(String),
-                locality: T.nilable(String),
-                postal_code: T.nilable(String),
-                region: T.nilable(String)
-              }
-            )
+            override
+              .returns(
+                {
+                  country: T.nilable(String),
+                  line1: T.nilable(String),
+                  line2: T.nilable(String),
+                  locality: T.nilable(String),
+                  postal_code: T.nilable(String),
+                  region: T.nilable(String)
+                }
+              )
           end
           def to_hash
           end

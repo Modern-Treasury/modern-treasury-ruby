@@ -19,7 +19,8 @@ module ModernTreasury
           party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
           vendor_attributes: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::InternalAccount)
+        )
+          .returns(ModernTreasury::Models::InternalAccount)
       end
       def create(
         connection_id:,
@@ -39,7 +40,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::InternalAccount)
+        )
+          .returns(ModernTreasury::Models::InternalAccount)
       end
       def retrieve(id, request_options: {})
       end
@@ -53,7 +55,8 @@ module ModernTreasury
           name: String,
           parent_account_id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::InternalAccount)
+        )
+          .returns(ModernTreasury::Models::InternalAccount)
       end
       def update(
         id,
@@ -77,7 +80,8 @@ module ModernTreasury
           payment_type: Symbol,
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::InternalAccount])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::InternalAccount])
       end
       def list(
         after_cursor: nil,

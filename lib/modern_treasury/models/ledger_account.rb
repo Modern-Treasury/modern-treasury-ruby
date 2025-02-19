@@ -64,11 +64,7 @@ module ModernTreasury
       #     external_account.
       #
       #   @return [Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType, nil]
-      required :ledgerable_type,
-               enum: -> {
-                 ModernTreasury::Models::LedgerAccount::LedgerableType
-               },
-               nil?: true
+      required :ledgerable_type, enum: -> { ModernTreasury::Models::LedgerAccount::LedgerableType }, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false

@@ -54,7 +54,8 @@ module ModernTreasury
           lockbox_number: String,
           per_page: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         after_cursor: nil,
@@ -67,16 +68,17 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            after_cursor: T.nilable(String),
-            deposit_date_end: Date,
-            deposit_date_start: Date,
-            lockbox_number: String,
-            per_page: Integer,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              after_cursor: T.nilable(String),
+              deposit_date_end: Date,
+              deposit_date_start: Date,
+              lockbox_number: String,
+              per_page: Integer,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

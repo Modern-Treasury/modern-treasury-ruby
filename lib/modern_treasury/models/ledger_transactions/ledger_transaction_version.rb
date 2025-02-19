@@ -57,9 +57,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry>]
         required :ledger_entries,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry] }
 
         # @!attribute ledger_id
         #   The ID of the ledger this ledger transaction belongs to.
@@ -87,9 +85,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType, nil]
         required :ledgerable_type,
-                 enum: -> {
-                   ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType
-                 },
+                 enum: -> { ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType },
                  nil?: true
 
         # @!attribute live_mode
@@ -301,9 +297,7 @@ module ModernTreasury
           #
           #   @return [ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances, nil]
           required :resulting_ledger_account_balances,
-                   -> {
-                     ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances
-                   },
+                   -> { ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances },
                    nil?: true
 
           # @!attribute status
@@ -312,9 +306,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status]
           required :status,
-                   enum: -> {
-                     ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status
-                   }
+                   enum: -> { ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status }
 
           # @!parse
           #   # @param id [String]

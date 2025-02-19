@@ -267,9 +267,7 @@ module ModernTreasury
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>, nil]
         optional :address_types,
-                 -> {
-                   ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType]
-                 }
+                 -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType] }
 
         # @!parse
         #   # @return [Array<Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType>]
@@ -345,10 +343,7 @@ module ModernTreasury
         #   The type of ID number.
         #
         #   @return [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType]
-        required :id_type,
-                 enum: -> {
-                   ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType
-                 }
+        required :id_type, enum: -> { ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType }
 
         # @!attribute issuing_country
         #   The ISO 3166-1 alpha-2 country code of the country that issued the

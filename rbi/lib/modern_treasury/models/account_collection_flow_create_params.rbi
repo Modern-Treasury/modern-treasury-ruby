@@ -36,20 +36,22 @@ module ModernTreasury
           payment_types: T::Array[String],
           receiving_countries: T::Array[Symbol],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            counterparty_id: String,
-            payment_types: T::Array[String],
-            receiving_countries: T::Array[Symbol],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              counterparty_id: String,
+              payment_types: T::Array[String],
+              receiving_countries: T::Array[Symbol],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
