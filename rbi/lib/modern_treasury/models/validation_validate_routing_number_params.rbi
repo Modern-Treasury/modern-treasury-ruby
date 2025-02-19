@@ -27,19 +27,21 @@ module ModernTreasury
           routing_number: String,
           routing_number_type: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(routing_number:, routing_number_type:, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            routing_number: String,
-            routing_number_type: Symbol,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              routing_number: String,
+              routing_number_type: Symbol,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

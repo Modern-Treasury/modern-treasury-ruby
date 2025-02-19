@@ -103,9 +103,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry>]
           required :ledger_entries,
-                   -> {
-                     ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry]
-                   }
+                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry] }
 
           # @!attribute description
           #   An optional description for internal use.
@@ -165,9 +163,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType, nil]
           optional :ledgerable_type,
-                   enum: -> {
-                     ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType
-                   }
+                   enum: -> { ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType]
@@ -189,9 +185,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status, nil]
           optional :status,
-                   enum: -> {
-                     ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status
-                   }
+                   enum: -> { ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status]

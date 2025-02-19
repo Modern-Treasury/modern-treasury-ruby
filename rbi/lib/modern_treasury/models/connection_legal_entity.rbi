@@ -95,7 +95,8 @@ module ModernTreasury
           status: Symbol,
           updated_at: Time,
           vendor_id: String
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -112,20 +113,21 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            connection_id: String,
-            created_at: Time,
-            discarded_at: T.nilable(Time),
-            legal_entity_id: String,
-            live_mode: T::Boolean,
-            object: String,
-            status: Symbol,
-            updated_at: Time,
-            vendor_id: String
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              connection_id: String,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              legal_entity_id: String,
+              live_mode: T::Boolean,
+              object: String,
+              status: Symbol,
+              updated_at: Time,
+              vendor_id: String
+            }
+          )
       end
       def to_hash
       end

@@ -9,7 +9,8 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Ledger)
+        )
+          .returns(ModernTreasury::Models::Ledger)
       end
       def create(name:, description: nil, metadata: nil, request_options: {})
       end
@@ -18,7 +19,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Ledger)
+        )
+          .returns(ModernTreasury::Models::Ledger)
       end
       def retrieve(id, request_options: {})
       end
@@ -30,7 +32,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Ledger)
+        )
+          .returns(ModernTreasury::Models::Ledger)
       end
       def update(id, description: nil, metadata: nil, name: nil, request_options: {})
       end
@@ -43,7 +46,8 @@ module ModernTreasury
           per_page: Integer,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::Ledger])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::Ledger])
       end
       def list(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil, request_options: {})
       end
@@ -52,7 +56,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::Ledger)
+        )
+          .returns(ModernTreasury::Models::Ledger)
       end
       def delete(id, request_options: {})
       end

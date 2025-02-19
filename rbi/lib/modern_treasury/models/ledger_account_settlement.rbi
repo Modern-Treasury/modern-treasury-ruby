@@ -158,7 +158,8 @@ module ModernTreasury
           settlement_entry_direction: T.nilable(String),
           status: Symbol,
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -182,27 +183,28 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            amount: T.nilable(Integer),
-            contra_ledger_account_id: String,
-            created_at: Time,
-            currency: String,
-            currency_exponent: T.nilable(Integer),
-            description: T.nilable(String),
-            effective_at_upper_bound: Time,
-            ledger_id: String,
-            ledger_transaction_id: T.nilable(String),
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            object: String,
-            settled_ledger_account_id: String,
-            settlement_entry_direction: T.nilable(String),
-            status: Symbol,
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              amount: T.nilable(Integer),
+              contra_ledger_account_id: String,
+              created_at: Time,
+              currency: String,
+              currency_exponent: T.nilable(Integer),
+              description: T.nilable(String),
+              effective_at_upper_bound: Time,
+              ledger_id: String,
+              ledger_transaction_id: T.nilable(String),
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              object: String,
+              settled_ledger_account_id: String,
+              settlement_entry_direction: T.nilable(String),
+              status: Symbol,
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end

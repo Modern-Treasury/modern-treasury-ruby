@@ -25,9 +25,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType>]
       required :payment_types,
-               -> {
-                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]
-               }
+               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType] }
 
       # @!attribute [r] id
       #
@@ -88,9 +86,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>, nil]
       optional :receiving_countries,
-               -> {
-                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]
-               }
+               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry>]

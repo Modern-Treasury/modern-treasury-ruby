@@ -107,7 +107,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerTransactionListParams::OrderBy).returns(ModernTreasury::Models::LedgerTransactionListParams::OrderBy)
+        params(_: ModernTreasury::Models::LedgerTransactionListParams::OrderBy)
+          .returns(ModernTreasury::Models::LedgerTransactionListParams::OrderBy)
       end
       def order_by=(_)
       end
@@ -182,7 +183,8 @@ module ModernTreasury
           status: Symbol,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         id: nil,
@@ -209,30 +211,31 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: T::Array[String],
-            after_cursor: T.nilable(String),
-            effective_at: T::Hash[Symbol, Time],
-            effective_date: T::Hash[Symbol, Time],
-            external_id: String,
-            ledger_account_category_id: String,
-            ledger_account_id: String,
-            ledger_account_settlement_id: String,
-            ledger_id: String,
-            ledgerable_id: String,
-            ledgerable_type: Symbol,
-            metadata: T::Hash[Symbol, String],
-            order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
-            partially_posts_ledger_transaction_id: String,
-            per_page: Integer,
-            posted_at: T::Hash[Symbol, Time],
-            reverses_ledger_transaction_id: String,
-            status: Symbol,
-            updated_at: T::Hash[Symbol, Time],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              id: T::Array[String],
+              after_cursor: T.nilable(String),
+              effective_at: T::Hash[Symbol, Time],
+              effective_date: T::Hash[Symbol, Time],
+              external_id: String,
+              ledger_account_category_id: String,
+              ledger_account_id: String,
+              ledger_account_settlement_id: String,
+              ledger_id: String,
+              ledgerable_id: String,
+              ledgerable_type: Symbol,
+              metadata: T::Hash[Symbol, String],
+              order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
+              partially_posts_ledger_transaction_id: String,
+              per_page: Integer,
+              posted_at: T::Hash[Symbol, Time],
+              reverses_ledger_transaction_id: String,
+              status: Symbol,
+              updated_at: T::Hash[Symbol, Time],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

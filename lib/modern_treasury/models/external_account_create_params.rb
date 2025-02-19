@@ -16,9 +16,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>, nil]
       optional :account_details,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail]
-               }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail>]
@@ -38,9 +36,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>, nil]
       optional :contact_details,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail]
-               }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail>]
@@ -130,9 +126,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>, nil]
       optional :routing_details,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
-               }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail>]
@@ -193,9 +187,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType, nil]
         optional :account_number_type,
-                 enum: -> {
-                   ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType
-                 }
+                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType]
@@ -270,9 +262,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType, nil]
         optional :contact_identifier_type,
-                 enum: -> {
-                   ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType
-                 }
+                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType]
@@ -390,9 +380,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType, nil]
         optional :ledgerable_type,
-                 enum: -> {
-                   ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType
-                 }
+                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType]
@@ -582,9 +570,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType]
         required :routing_number_type,
-                 enum: -> {
-                   ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType
-                 }
+                 enum: -> { ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType }
 
         # @!attribute [r] payment_type
         #

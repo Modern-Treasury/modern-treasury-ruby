@@ -135,7 +135,8 @@ module ModernTreasury
           vendor_id: String,
           virtual_account_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         after_cursor: nil,
@@ -157,25 +158,26 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            after_cursor: T.nilable(String),
-            as_of_date_end: Date,
-            as_of_date_start: Date,
-            counterparty_id: String,
-            description: String,
-            direction: String,
-            internal_account_id: String,
-            metadata: T::Hash[Symbol, String],
-            payment_type: String,
-            per_page: Integer,
-            posted: T::Boolean,
-            transactable_type: String,
-            vendor_id: String,
-            virtual_account_id: String,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              after_cursor: T.nilable(String),
+              as_of_date_end: Date,
+              as_of_date_start: Date,
+              counterparty_id: String,
+              description: String,
+              direction: String,
+              internal_account_id: String,
+              metadata: T::Hash[Symbol, String],
+              payment_type: String,
+              per_page: Integer,
+              posted: T::Boolean,
+              transactable_type: String,
+              vendor_id: String,
+              virtual_account_id: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

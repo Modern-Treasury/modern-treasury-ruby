@@ -45,21 +45,23 @@ module ModernTreasury
           fields: T::Array[Symbol],
           send_email: T::Boolean,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            direction: Symbol,
-            custom_redirect: String,
-            fields: T::Array[Symbol],
-            send_email: T::Boolean,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              direction: Symbol,
+              custom_redirect: String,
+              fields: T::Array[Symbol],
+              send_email: T::Boolean,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

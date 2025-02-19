@@ -36,20 +36,22 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(description: nil, metadata: nil, name: nil, request_options: {})
       end
 
       sig do
-        override.returns(
-          {
-            description: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            name: String,
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              description: T.nilable(String),
+              metadata: T::Hash[Symbol, String],
+              name: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

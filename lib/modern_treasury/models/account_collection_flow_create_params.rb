@@ -22,9 +22,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>, nil]
       optional :receiving_countries,
-               -> {
-                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry]
-               }
+               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry>]

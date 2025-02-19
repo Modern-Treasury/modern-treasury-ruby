@@ -107,7 +107,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])).returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]))
+        params(_: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]))
+          .returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]))
       end
       def reconciliation_rule_variables=(_)
       end
@@ -164,7 +165,8 @@ module ModernTreasury
           status: T.nilable(Symbol),
           type: T.nilable(Symbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         amount_lower_bound: nil,
@@ -189,28 +191,29 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            amount_lower_bound: T.nilable(Integer),
-            amount_upper_bound: T.nilable(Integer),
-            counterparty_id: T.nilable(String),
-            currency: T.nilable(Symbol),
-            date_lower_bound: T.nilable(Date),
-            date_upper_bound: T.nilable(Date),
-            description: T.nilable(String),
-            direction: T.nilable(Symbol),
-            internal_account_id: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            reconciliation_filters: T.nilable(T.anything),
-            reconciliation_groups: T.nilable(T.anything),
-            reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
-            remittance_information: T.nilable(String),
-            statement_descriptor: T.nilable(String),
-            status: T.nilable(Symbol),
-            type: T.nilable(Symbol),
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              amount_lower_bound: T.nilable(Integer),
+              amount_upper_bound: T.nilable(Integer),
+              counterparty_id: T.nilable(String),
+              currency: T.nilable(Symbol),
+              date_lower_bound: T.nilable(Date),
+              date_upper_bound: T.nilable(Date),
+              description: T.nilable(String),
+              direction: T.nilable(Symbol),
+              internal_account_id: T.nilable(String),
+              metadata: T::Hash[Symbol, String],
+              reconciliation_filters: T.nilable(T.anything),
+              reconciliation_groups: T.nilable(T.anything),
+              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
+              remittance_information: T.nilable(String),
+              statement_descriptor: T.nilable(String),
+              status: T.nilable(Symbol),
+              type: T.nilable(Symbol),
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

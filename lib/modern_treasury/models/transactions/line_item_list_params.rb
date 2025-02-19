@@ -43,11 +43,7 @@ module ModernTreasury
         # @!attribute type
         #
         #   @return [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
-        optional :type,
-                 enum: -> {
-                   ModernTreasury::Models::Transactions::LineItemListParams::Type
-                 },
-                 nil?: true
+        optional :type, enum: -> { ModernTreasury::Models::Transactions::LineItemListParams::Type }, nil?: true
 
         # @!parse
         #   # @param id [Hash{Symbol=>String}]

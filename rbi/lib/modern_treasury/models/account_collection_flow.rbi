@@ -104,7 +104,8 @@ module ModernTreasury
           receiving_countries: T::Array[Symbol],
           status: Symbol,
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         counterparty_id:,
@@ -122,21 +123,22 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            counterparty_id: String,
-            payment_types: T::Array[Symbol],
-            id: String,
-            client_token: String,
-            created_at: Time,
-            external_account_id: T.nilable(String),
-            live_mode: T::Boolean,
-            object: String,
-            receiving_countries: T::Array[Symbol],
-            status: Symbol,
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              counterparty_id: String,
+              payment_types: T::Array[Symbol],
+              id: String,
+              client_token: String,
+              created_at: Time,
+              external_account_id: T.nilable(String),
+              live_mode: T::Boolean,
+              object: String,
+              receiving_countries: T::Array[Symbol],
+              status: Symbol,
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end

@@ -10,7 +10,8 @@ module ModernTreasury
           description: String,
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
       def create(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
       end
@@ -19,7 +20,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
       def retrieve(id, request_options: {})
       end
@@ -30,7 +32,8 @@ module ModernTreasury
           description: String,
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
       def update(id, description: nil, metadata: nil, request_options: {})
       end
@@ -43,7 +46,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor])
       end
       def list(
         id: nil,
@@ -59,7 +63,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor)
       end
       def delete(id, request_options: {})
       end

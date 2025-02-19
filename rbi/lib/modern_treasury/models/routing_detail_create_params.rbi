@@ -45,7 +45,8 @@ module ModernTreasury
           routing_number_type: Symbol,
           payment_type: T.nilable(Symbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         accounts_type:,
@@ -57,15 +58,16 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            accounts_type: Symbol,
-            routing_number: String,
-            routing_number_type: Symbol,
-            payment_type: T.nilable(Symbol),
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              accounts_type: Symbol,
+              routing_number: String,
+              routing_number_type: Symbol,
+              payment_type: T.nilable(Symbol),
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

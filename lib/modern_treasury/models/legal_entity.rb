@@ -142,10 +142,7 @@ module ModernTreasury
       # @!attribute phone_numbers
       #
       #   @return [Array<ModernTreasury::Models::LegalEntity::PhoneNumber>]
-      required :phone_numbers,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber]
-               }
+      required :phone_numbers, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber] }
 
       # @!attribute politically_exposed_person
       #   Whether the individual is a politically exposed person.
@@ -287,9 +284,7 @@ module ModernTreasury
         #
         #   @return [Array<Symbol, ModernTreasury::Models::LegalEntity::Address::AddressType>]
         required :address_types,
-                 -> {
-                   ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntity::Address::AddressType]
-                 }
+                 -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntity::Address::AddressType] }
 
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]

@@ -14,7 +14,8 @@ module ModernTreasury
           ledger_account_category_ids: T::Array[String],
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountCategory)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
       def create(
         currency:,
@@ -34,7 +35,8 @@ module ModernTreasury
           id: String,
           balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountCategory)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
       def retrieve(id, balances: nil, request_options: {})
       end
@@ -46,7 +48,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountCategory)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
       def update(id, description: nil, metadata: nil, name: nil, request_options: {})
       end
@@ -64,7 +67,8 @@ module ModernTreasury
           parent_ledger_account_category_id: String,
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory])
       end
       def list(
         id: nil,
@@ -85,7 +89,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountCategory)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountCategory)
       end
       def delete(id, request_options: {})
       end
@@ -95,7 +100,8 @@ module ModernTreasury
           ledger_account_id: String,
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).void
+        )
+          .void
       end
       def add_ledger_account(ledger_account_id, id:, request_options: {})
       end
@@ -105,7 +111,8 @@ module ModernTreasury
           sub_category_id: String,
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).void
+        )
+          .void
       end
       def add_nested_category(sub_category_id, id:, request_options: {})
       end
@@ -115,7 +122,8 @@ module ModernTreasury
           ledger_account_id: String,
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).void
+        )
+          .void
       end
       def remove_ledger_account(ledger_account_id, id:, request_options: {})
       end
@@ -125,7 +133,8 @@ module ModernTreasury
           sub_category_id: String,
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).void
+        )
+          .void
       end
       def remove_nested_category(sub_category_id, id:, request_options: {})
       end

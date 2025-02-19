@@ -184,7 +184,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::VirtualAccount)).returns(T.nilable(ModernTreasury::Models::VirtualAccount))
+        params(_: T.nilable(ModernTreasury::Models::VirtualAccount))
+          .returns(T.nilable(ModernTreasury::Models::VirtualAccount))
       end
       def virtual_account=(_)
       end
@@ -232,7 +233,8 @@ module ModernTreasury
           virtual_account: T.nilable(ModernTreasury::Models::VirtualAccount),
           virtual_account_id: T.nilable(String),
           originating_account_number: T.nilable(String)
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -264,35 +266,36 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            amount: Integer,
-            as_of_date: Date,
-            created_at: Time,
-            currency: Symbol,
-            data: T::Hash[Symbol, T.anything],
-            direction: Symbol,
-            internal_account_id: String,
-            ledger_transaction_id: T.nilable(String),
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            object: String,
-            originating_account_number_safe: T.nilable(String),
-            originating_account_number_type: T.nilable(Symbol),
-            originating_routing_number: T.nilable(String),
-            originating_routing_number_type: T.nilable(Symbol),
-            status: Symbol,
-            transaction_id: T.nilable(String),
-            transaction_line_item_id: T.nilable(String),
-            type: Symbol,
-            updated_at: Time,
-            vendor_id: T.nilable(String),
-            virtual_account: T.nilable(ModernTreasury::Models::VirtualAccount),
-            virtual_account_id: T.nilable(String),
-            originating_account_number: T.nilable(String)
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              amount: Integer,
+              as_of_date: Date,
+              created_at: Time,
+              currency: Symbol,
+              data: T::Hash[Symbol, T.anything],
+              direction: Symbol,
+              internal_account_id: String,
+              ledger_transaction_id: T.nilable(String),
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              object: String,
+              originating_account_number_safe: T.nilable(String),
+              originating_account_number_type: T.nilable(Symbol),
+              originating_routing_number: T.nilable(String),
+              originating_routing_number_type: T.nilable(Symbol),
+              status: Symbol,
+              transaction_id: T.nilable(String),
+              transaction_line_item_id: T.nilable(String),
+              type: Symbol,
+              updated_at: Time,
+              vendor_id: T.nilable(String),
+              virtual_account: T.nilable(ModernTreasury::Models::VirtualAccount),
+              virtual_account_id: T.nilable(String),
+              originating_account_number: T.nilable(String)
+            }
+          )
       end
       def to_hash
       end

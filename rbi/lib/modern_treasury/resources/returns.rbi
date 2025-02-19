@@ -12,7 +12,8 @@ module ModernTreasury
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::ReturnObject)
+        )
+          .returns(ModernTreasury::Models::ReturnObject)
       end
       def create(
         returnable_id:,
@@ -29,7 +30,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::ReturnObject)
+        )
+          .returns(ModernTreasury::Models::ReturnObject)
       end
       def retrieve(id, request_options: {})
       end
@@ -43,7 +45,8 @@ module ModernTreasury
           returnable_id: String,
           returnable_type: Symbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::ReturnObject])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::ReturnObject])
       end
       def list(
         after_cursor: nil,

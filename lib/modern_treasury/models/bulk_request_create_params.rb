@@ -25,9 +25,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID>]
       required :resources,
-               -> {
-                 ModernTreasury::ArrayOf[union: ModernTreasury::Models::BulkRequestCreateParams::Resource]
-               }
+               -> { ModernTreasury::ArrayOf[union: ModernTreasury::Models::BulkRequestCreateParams::Resource] }
 
       # @!attribute [r] metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
@@ -136,35 +134,23 @@ module ModernTreasury
       # end
       # ```
       class Resource < ModernTreasury::Union
-        variant -> {
-          ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest
-        }
+        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest }
 
         variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest }
 
-        variant -> {
-          ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest
-        }
+        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest }
 
         variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest }
 
         variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ID }
 
-        variant -> {
-          ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID
-        }
+        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID }
 
-        variant -> {
-          ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID
-        }
+        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID }
 
-        variant -> {
-          ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID
-        }
+        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID }
 
-        variant -> {
-          ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
-        }
+        variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID }
 
         # @example
         # ```ruby
@@ -193,9 +179,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction]
           required :direction,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction }
 
           # @!attribute originating_account_id
           #   The ID of one of your organization's internal accounts.
@@ -242,9 +226,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer, nil]
           optional :charge_bearer,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer
-                   },
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer },
                    nil?: true
 
           # @!attribute [r] currency
@@ -288,9 +270,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType, nil]
           optional :fallback_type,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType]
@@ -310,9 +290,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator, nil]
           optional :foreign_exchange_indicator,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator
-                   },
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator },
                    nil?: true
 
           # @!attribute [r] ledger_transaction
@@ -347,9 +325,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>, nil]
           optional :line_items,
-                   -> {
-                     ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem]
-                   }
+                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem] }
 
           # @!parse
           #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem>]
@@ -393,9 +369,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority, nil]
           optional :priority,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority]
@@ -738,7 +712,11 @@ module ModernTreasury
           # @example
           # ```ruby
           # ledger_transaction => {
-          #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry] === _1 },
+          #   ledger_entries: -> do
+          #     ModernTreasury::ArrayOf[
+          #     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry
+          #     ] === _1
+          #   end,
           #   description: String,
           #   effective_at: Time,
           #   effective_date: Date,
@@ -752,9 +730,11 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry>]
             required :ledger_entries,
-                     -> {
-                       ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry]
-                     }
+                     -> do
+                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry
+                       ]
+                     end
 
             # @!attribute description
             #   An optional description for internal use.
@@ -814,9 +794,7 @@ module ModernTreasury
             #
             #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType, nil]
             optional :ledgerable_type,
-                     enum: -> {
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType
-                     }
+                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType }
 
             # @!parse
             #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType]
@@ -838,9 +816,7 @@ module ModernTreasury
             #
             #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status, nil]
             optional :status,
-                     enum: -> {
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status
-                     }
+                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status }
 
             # @!parse
             #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status]
@@ -1144,9 +1120,17 @@ module ModernTreasury
           # @example
           # ```ruby
           # receiving_account => {
-          #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail] === _1 },
+          #   account_details: -> do
+          #     ModernTreasury::ArrayOf[
+          #     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
+          #     ] === _1
+          #   end,
           #   account_type: ModernTreasury::Models::ExternalAccountType,
-          #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail] === _1 },
+          #   contact_details: -> do
+          #     ModernTreasury::ArrayOf[
+          #     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
+          #     ] === _1
+          #   end,
           #   ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
           #   metadata: -> { ModernTreasury::HashOf[String] === _1 },
           #   **_
@@ -1157,9 +1141,11 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>, nil]
             optional :account_details,
-                     -> {
-                       ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail]
-                     }
+                     -> do
+                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
+                       ]
+                     end
 
             # @!parse
             #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail>]
@@ -1179,9 +1165,11 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>, nil]
             optional :contact_details,
-                     -> {
-                       ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail]
-                     }
+                     -> do
+                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
+                       ]
+                     end
 
             # @!parse
             #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail>]
@@ -1255,9 +1243,7 @@ module ModernTreasury
             #
             #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType, nil]
             optional :party_type,
-                     enum: -> {
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType
-                     },
+                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType },
                      nil?: true
 
             # @!attribute [r] plaid_processor_token
@@ -1275,9 +1261,11 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>, nil]
             optional :routing_details,
-                     -> {
-                       ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]
-                     }
+                     -> do
+                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
+                       ]
+                     end
 
             # @!parse
             #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail>]
@@ -1338,9 +1326,7 @@ module ModernTreasury
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType, nil]
               optional :account_number_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType }
 
               # @!parse
               #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType]
@@ -1415,9 +1401,7 @@ module ModernTreasury
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
               optional :contact_identifier_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType }
 
               # @!parse
               #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType]
@@ -1535,9 +1519,7 @@ module ModernTreasury
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType, nil]
               optional :ledgerable_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType }
 
               # @!parse
               #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType]
@@ -1727,17 +1709,13 @@ module ModernTreasury
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType]
               required :routing_number_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType }
 
               # @!attribute [r] payment_type
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType, nil]
               optional :payment_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType }
 
               # @!parse
               #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType]
@@ -1926,9 +1904,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction, nil]
           optional :direction,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction
-                   },
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction },
                    nil?: true
 
           # @!attribute internal_account_id
@@ -1968,9 +1944,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>, nil]
           optional :line_items,
-                   -> {
-                     ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem]
-                   }
+                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem] }
 
           # @!parse
           #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem>]
@@ -2108,7 +2082,11 @@ module ModernTreasury
           # @example
           # ```ruby
           # ledger_transaction => {
-          #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry] === _1 },
+          #   ledger_entries: -> do
+          #     ModernTreasury::ArrayOf[
+          #     ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry
+          #     ] === _1
+          #   end,
           #   description: String,
           #   effective_at: Time,
           #   effective_date: Date,
@@ -2122,9 +2100,11 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry>]
             required :ledger_entries,
-                     -> {
-                       ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry]
-                     }
+                     -> do
+                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry
+                       ]
+                     end
 
             # @!attribute description
             #   An optional description for internal use.
@@ -2184,9 +2164,7 @@ module ModernTreasury
             #
             #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType, nil]
             optional :ledgerable_type,
-                     enum: -> {
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType
-                     }
+                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType }
 
             # @!parse
             #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType]
@@ -2208,9 +2186,7 @@ module ModernTreasury
             #
             #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status, nil]
             optional :status,
-                     enum: -> {
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status
-                     }
+                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status }
 
             # @!parse
             #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status]
@@ -2502,9 +2478,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry>]
           required :ledger_entries,
-                   -> {
-                     ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry]
-                   }
+                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry] }
 
           # @!attribute description
           #   An optional description for internal use.
@@ -2564,9 +2538,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType, nil]
           optional :ledgerable_type,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType]
@@ -2588,9 +2560,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status, nil]
           optional :status,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status]
@@ -2887,9 +2857,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type, nil]
           optional :type,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type
-                   },
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type },
                    nil?: true
 
           # @!attribute vendor_description
@@ -3080,9 +3048,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer, nil]
           optional :charge_bearer,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer
-                   },
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer },
                    nil?: true
 
           # @!attribute counterparty_id
@@ -3115,9 +3081,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction, nil]
           optional :direction,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction]
@@ -3148,9 +3112,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType, nil]
           optional :fallback_type,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType]
@@ -3170,9 +3132,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator, nil]
           optional :foreign_exchange_indicator,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator
-                   },
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator },
                    nil?: true
 
           # @!attribute [r] line_items
@@ -3180,9 +3140,7 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>, nil]
           optional :line_items,
-                   -> {
-                     ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem]
-                   }
+                   -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem] }
 
           # @!parse
           #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem>]
@@ -3236,9 +3194,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority, nil]
           optional :priority,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority]
@@ -3320,9 +3276,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status, nil]
           optional :status,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status]
@@ -3684,9 +3638,17 @@ module ModernTreasury
           # @example
           # ```ruby
           # receiving_account => {
-          #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail] === _1 },
+          #   account_details: -> do
+          #     ModernTreasury::ArrayOf[
+          #     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
+          #     ] === _1
+          #   end,
           #   account_type: ModernTreasury::Models::ExternalAccountType,
-          #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail] === _1 },
+          #   contact_details: -> do
+          #     ModernTreasury::ArrayOf[
+          #     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
+          #     ] === _1
+          #   end,
           #   ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
           #   metadata: -> { ModernTreasury::HashOf[String] === _1 },
           #   **_
@@ -3697,9 +3659,11 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>, nil]
             optional :account_details,
-                     -> {
-                       ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail]
-                     }
+                     -> do
+                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
+                       ]
+                     end
 
             # @!parse
             #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail>]
@@ -3719,9 +3683,11 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>, nil]
             optional :contact_details,
-                     -> {
-                       ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail]
-                     }
+                     -> do
+                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
+                       ]
+                     end
 
             # @!parse
             #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail>]
@@ -3795,9 +3761,7 @@ module ModernTreasury
             #
             #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType, nil]
             optional :party_type,
-                     enum: -> {
-                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType
-                     },
+                     enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType },
                      nil?: true
 
             # @!attribute [r] plaid_processor_token
@@ -3815,9 +3779,11 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>, nil]
             optional :routing_details,
-                     -> {
-                       ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]
-                     }
+                     -> do
+                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
+                       ]
+                     end
 
             # @!parse
             #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail>]
@@ -3878,9 +3844,7 @@ module ModernTreasury
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType, nil]
               optional :account_number_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType }
 
               # @!parse
               #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType]
@@ -3955,9 +3919,7 @@ module ModernTreasury
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
               optional :contact_identifier_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType }
 
               # @!parse
               #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType]
@@ -4075,9 +4037,7 @@ module ModernTreasury
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType, nil]
               optional :ledgerable_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType }
 
               # @!parse
               #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType]
@@ -4267,17 +4227,13 @@ module ModernTreasury
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType]
               required :routing_number_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType }
 
               # @!attribute [r] payment_type
               #
               #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType, nil]
               optional :payment_type,
-                       enum: -> {
-                         ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType
-                       }
+                       enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType }
 
               # @!parse
               #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType]
@@ -4519,9 +4475,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction, nil]
           optional :direction,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction
-                   },
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction },
                    nil?: true
 
           # @!attribute internal_account_id
@@ -4584,9 +4538,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status, nil]
           optional :status,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status
-                   },
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status },
                    nil?: true
 
           # @!attribute type
@@ -4735,7 +4687,11 @@ module ModernTreasury
         #   id: String,
         #   description: String,
         #   effective_at: Time,
-        #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry] === _1 },
+        #   ledger_entries: -> do
+        #     ModernTreasury::ArrayOf[
+        #     ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
+        #     ] === _1
+        #   end,
         #   ledgerable_id: String,
         #   **_
         # }
@@ -4772,9 +4728,11 @@ module ModernTreasury
           #
           #   @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>, nil]
           optional :ledger_entries,
-                   -> {
-                     ModernTreasury::ArrayOf[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry]
-                   }
+                   -> do
+                     ModernTreasury::ArrayOf[
+                     ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
+                     ]
+                   end
 
           # @!parse
           #   # @return [Array<ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry>]
@@ -4799,9 +4757,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType, nil]
           optional :ledgerable_type,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType]
@@ -4823,9 +4779,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status, nil]
           optional :status,
-                   enum: -> {
-                     ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status
-                   }
+                   enum: -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status]

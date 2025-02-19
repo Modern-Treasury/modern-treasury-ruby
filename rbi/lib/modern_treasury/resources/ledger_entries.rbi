@@ -8,7 +8,8 @@ module ModernTreasury
           id: String,
           show_balances: T::Boolean,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerEntry)
+        )
+          .returns(ModernTreasury::Models::LedgerEntry)
       end
       def retrieve(id, show_balances: nil, request_options: {})
       end
@@ -18,7 +19,8 @@ module ModernTreasury
           id: String,
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerEntry)
+        )
+          .returns(ModernTreasury::Models::LedgerEntry)
       end
       def update(id, metadata: nil, request_options: {})
       end
@@ -46,7 +48,8 @@ module ModernTreasury
           status: Symbol,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEntry])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEntry])
       end
       def list(
         id: nil,

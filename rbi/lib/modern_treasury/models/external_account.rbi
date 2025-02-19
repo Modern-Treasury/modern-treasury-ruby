@@ -16,7 +16,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::AccountDetail]).returns(T::Array[ModernTreasury::Models::AccountDetail])
+        params(_: T::Array[ModernTreasury::Models::AccountDetail])
+          .returns(T::Array[ModernTreasury::Models::AccountDetail])
       end
       def account_details=(_)
       end
@@ -34,7 +35,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail]).returns(T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail])
+        params(_: T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail])
+          .returns(T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail])
       end
       def contact_details=(_)
       end
@@ -108,7 +110,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress)).returns(T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress))
+        params(_: T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress))
+          .returns(T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress))
       end
       def party_address=(_)
       end
@@ -134,7 +137,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::RoutingDetail]).returns(T::Array[ModernTreasury::Models::RoutingDetail])
+        params(_: T::Array[ModernTreasury::Models::RoutingDetail])
+          .returns(T::Array[ModernTreasury::Models::RoutingDetail])
       end
       def routing_details=(_)
       end
@@ -184,7 +188,8 @@ module ModernTreasury
           updated_at: Time,
           verification_source: T.nilable(Symbol),
           verification_status: Symbol
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -210,29 +215,30 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            account_details: T::Array[ModernTreasury::Models::AccountDetail],
-            account_type: Symbol,
-            contact_details: T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
-            counterparty_id: T.nilable(String),
-            created_at: Time,
-            discarded_at: T.nilable(Time),
-            ledger_account_id: T.nilable(String),
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            name: T.nilable(String),
-            object: String,
-            party_address: T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress),
-            party_name: String,
-            party_type: T.nilable(Symbol),
-            routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
-            updated_at: Time,
-            verification_source: T.nilable(Symbol),
-            verification_status: Symbol
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              account_details: T::Array[ModernTreasury::Models::AccountDetail],
+              account_type: Symbol,
+              contact_details: T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
+              counterparty_id: T.nilable(String),
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              ledger_account_id: T.nilable(String),
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              name: T.nilable(String),
+              object: String,
+              party_address: T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress),
+              party_name: String,
+              party_type: T.nilable(Symbol),
+              routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
+              updated_at: Time,
+              verification_source: T.nilable(Symbol),
+              verification_status: Symbol
+            }
+          )
       end
       def to_hash
       end
@@ -312,7 +318,8 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             updated_at: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           id:,
@@ -327,18 +334,19 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              contact_identifier: String,
-              contact_identifier_type: Symbol,
-              created_at: Time,
-              discarded_at: T.nilable(Time),
-              live_mode: T::Boolean,
-              object: String,
-              updated_at: Time
-            }
-          )
+          override
+            .returns(
+              {
+                id: String,
+                contact_identifier: String,
+                contact_identifier_type: Symbol,
+                created_at: Time,
+                discarded_at: T.nilable(Time),
+                live_mode: T::Boolean,
+                object: String,
+                updated_at: Time
+              }
+            )
         end
         def to_hash
         end
@@ -458,7 +466,8 @@ module ModernTreasury
             postal_code: T.nilable(String),
             region: T.nilable(String),
             updated_at: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           id:,
@@ -476,21 +485,22 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              country: T.nilable(String),
-              created_at: Time,
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              live_mode: T::Boolean,
-              locality: T.nilable(String),
-              object: String,
-              postal_code: T.nilable(String),
-              region: T.nilable(String),
-              updated_at: Time
-            }
-          )
+          override
+            .returns(
+              {
+                id: String,
+                country: T.nilable(String),
+                created_at: Time,
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                live_mode: T::Boolean,
+                locality: T.nilable(String),
+                object: String,
+                postal_code: T.nilable(String),
+                region: T.nilable(String),
+                updated_at: Time
+              }
+            )
         end
         def to_hash
         end

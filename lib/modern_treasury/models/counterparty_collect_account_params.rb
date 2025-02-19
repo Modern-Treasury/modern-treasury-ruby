@@ -36,9 +36,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>, nil]
       optional :fields,
-               -> {
-                 ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field]
-               }
+               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::CounterpartyCollectAccountParams::Field] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field>]

@@ -251,9 +251,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry>]
         required :ledger_entries,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry] }
 
         # @!attribute description
         #   An optional description for internal use.
@@ -313,9 +311,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType, nil]
         optional :ledgerable_type,
-                 enum: -> {
-                   ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType
-                 }
+                 enum: -> { ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType]
