@@ -1,6 +1,6 @@
 # Modern Treasury Ruby API library
 
-The Modern Treasury Ruby library provides convenient access to the Modern Treasury REST API from any Ruby 3.0+
+The Modern Treasury Ruby library provides convenient access to the Modern Treasury REST API from any Ruby 3.0.0+
 application.
 
 ## Documentation
