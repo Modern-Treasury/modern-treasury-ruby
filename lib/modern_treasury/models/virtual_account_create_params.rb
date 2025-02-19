@@ -24,9 +24,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>, nil]
       optional :account_details,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]
-               }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>]
@@ -104,9 +102,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>, nil]
       optional :routing_details,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
-               }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
@@ -164,9 +160,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType, nil]
         optional :account_number_type,
-                 enum: -> {
-                   ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType
-                 }
+                 enum: -> { ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType]
@@ -300,9 +294,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType, nil]
         optional :ledgerable_type,
-                 enum: -> {
-                   ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType
-                 }
+                 enum: -> { ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType]
@@ -409,9 +401,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType]
         required :routing_number_type,
-                 enum: -> {
-                   ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType
-                 }
+                 enum: -> { ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType }
 
         # @!attribute payment_type
         #   If the routing detail is to be used for a specific payment type this field will

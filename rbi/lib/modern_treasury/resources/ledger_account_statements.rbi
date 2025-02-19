@@ -11,7 +11,8 @@ module ModernTreasury
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountStatementCreateResponse)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountStatementCreateResponse)
       end
       def create(
         effective_at_lower_bound:,
@@ -27,7 +28,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse)
+        )
+          .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse)
       end
       def retrieve(id, request_options: {})
       end

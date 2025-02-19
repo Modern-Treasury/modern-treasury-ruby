@@ -99,7 +99,8 @@ module ModernTreasury
           ledgerable_type: Symbol,
           metadata: T::Hash[Symbol, String],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         currency:,
@@ -117,21 +118,22 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: Symbol,
-            currency_exponent: T.nilable(Integer),
-            description: T.nilable(String),
-            ledger_account_category_ids: T::Array[String],
-            ledgerable_id: String,
-            ledgerable_type: Symbol,
-            metadata: T::Hash[Symbol, String],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              currency: String,
+              ledger_id: String,
+              name: String,
+              normal_balance: Symbol,
+              currency_exponent: T.nilable(Integer),
+              description: T.nilable(String),
+              ledger_account_category_ids: T::Array[String],
+              ledgerable_id: String,
+              ledgerable_type: Symbol,
+              metadata: T::Hash[Symbol, String],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

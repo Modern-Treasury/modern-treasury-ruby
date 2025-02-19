@@ -7,7 +7,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::IncomingPaymentDetail)
+        )
+          .returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
       def retrieve(id, request_options: {})
       end
@@ -17,7 +18,8 @@ module ModernTreasury
           id: String,
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::IncomingPaymentDetail)
+        )
+          .returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
       def update(id, metadata: nil, request_options: {})
       end
@@ -34,7 +36,8 @@ module ModernTreasury
           type: Symbol,
           virtual_account_id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::IncomingPaymentDetail])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::IncomingPaymentDetail])
       end
       def list(
         after_cursor: nil,
@@ -61,7 +64,8 @@ module ModernTreasury
           type: Symbol,
           virtual_account_id: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::AsyncResponse)
+        )
+          .returns(ModernTreasury::Models::AsyncResponse)
       end
       def create_async(
         amount: nil,

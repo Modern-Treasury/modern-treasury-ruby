@@ -99,7 +99,8 @@ module ModernTreasury
           type: T.nilable(Symbol),
           vendor_description: T.nilable(String),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         amount:,
@@ -117,21 +118,22 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            amount: Integer,
-            as_of_date: T.nilable(Date),
-            direction: String,
-            internal_account_id: String,
-            vendor_code: T.nilable(String),
-            vendor_code_type: T.nilable(String),
-            metadata: T::Hash[Symbol, String],
-            posted: T::Boolean,
-            type: T.nilable(Symbol),
-            vendor_description: T.nilable(String),
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              amount: Integer,
+              as_of_date: T.nilable(Date),
+              direction: String,
+              internal_account_id: String,
+              vendor_code: T.nilable(String),
+              vendor_code_type: T.nilable(String),
+              metadata: T::Hash[Symbol, String],
+              posted: T::Boolean,
+              type: T.nilable(Symbol),
+              vendor_description: T.nilable(String),
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

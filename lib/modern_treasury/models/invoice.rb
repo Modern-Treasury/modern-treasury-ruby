@@ -37,10 +37,7 @@ module ModernTreasury
       #   The invoicer's contact details displayed at the top of the invoice.
       #
       #   @return [Array<ModernTreasury::Models::Invoice::ContactDetail>]
-      required :contact_details,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail]
-               }
+      required :contact_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail] }
 
       # @!attribute counterparty_billing_address
       #   The counterparty's billing address.

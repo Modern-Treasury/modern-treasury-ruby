@@ -48,10 +48,7 @@ module ModernTreasury
       #   The serialized rate information represented by this quote.
       #
       #   @return [ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate]
-      required :foreign_exchange_rate,
-               -> {
-                 ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate
-               }
+      required :foreign_exchange_rate, -> { ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate }
 
       # @!attribute internal_account_id
       #   The ID for the `InternalAccount` this quote is associated with.

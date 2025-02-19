@@ -668,9 +668,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry>]
         required :ledger_entries,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry] }
 
         # @!attribute description
         #   An optional description for internal use.
@@ -730,9 +728,7 @@ module ModernTreasury
         #
         #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType, nil]
         optional :ledgerable_type,
-                 enum: -> {
-                   ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType
-                 }
+                 enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType]
@@ -753,10 +749,7 @@ module ModernTreasury
         #   To post a ledger transaction at creation, use `posted`.
         #
         #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::Status, nil]
-        optional :status,
-                 enum: -> {
-                   ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::Status
-                 }
+        optional :status, enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::Status }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::Status]
@@ -1073,9 +1066,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail>, nil]
         optional :account_details,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail>]
@@ -1095,9 +1086,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail>, nil]
         optional :contact_details,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail>]
@@ -1189,9 +1178,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail>, nil]
         optional :routing_details,
-                 -> {
-                   ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail]
-                 }
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail>]
@@ -1252,9 +1239,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType, nil]
           optional :account_number_type,
-                   enum: -> {
-                     ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType
-                   }
+                   enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType]
@@ -1329,9 +1314,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType, nil]
           optional :contact_identifier_type,
-                   enum: -> {
-                     ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType
-                   }
+                   enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType]
@@ -1449,9 +1432,7 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType, nil]
           optional :ledgerable_type,
-                   enum: -> {
-                     ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType
-                   }
+                   enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType]
@@ -1641,17 +1622,13 @@ module ModernTreasury
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType]
           required :routing_number_type,
-                   enum: -> {
-                     ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType
-                   }
+                   enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType }
 
           # @!attribute [r] payment_type
           #
           #   @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType, nil]
           optional :payment_type,
-                   enum: -> {
-                     ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType
-                   }
+                   enum: -> { ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType }
 
           # @!parse
           #   # @return [Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType]

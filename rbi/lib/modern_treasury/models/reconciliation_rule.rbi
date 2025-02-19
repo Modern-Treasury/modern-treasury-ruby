@@ -95,7 +95,8 @@ module ModernTreasury
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           type: T.nilable(Symbol)
-        ).void
+        )
+          .void
       end
       def initialize(
         amount_lower_bound:,
@@ -112,20 +113,21 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            amount_lower_bound: Integer,
-            amount_upper_bound: Integer,
-            direction: Symbol,
-            internal_account_id: String,
-            counterparty_id: T.nilable(String),
-            currency: Symbol,
-            custom_identifiers: T.nilable(T::Hash[Symbol, String]),
-            date_lower_bound: T.nilable(Date),
-            date_upper_bound: T.nilable(Date),
-            type: T.nilable(Symbol)
-          }
-        )
+        override
+          .returns(
+            {
+              amount_lower_bound: Integer,
+              amount_upper_bound: Integer,
+              direction: Symbol,
+              internal_account_id: String,
+              counterparty_id: T.nilable(String),
+              currency: Symbol,
+              custom_identifiers: T.nilable(T::Hash[Symbol, String]),
+              date_lower_bound: T.nilable(Date),
+              date_upper_bound: T.nilable(Date),
+              type: T.nilable(Symbol)
+            }
+          )
       end
       def to_hash
       end

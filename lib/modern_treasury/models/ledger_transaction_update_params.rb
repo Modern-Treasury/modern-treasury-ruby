@@ -29,9 +29,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>, nil]
       optional :ledger_entries,
-               -> {
-                 ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry]
-               }
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry>]

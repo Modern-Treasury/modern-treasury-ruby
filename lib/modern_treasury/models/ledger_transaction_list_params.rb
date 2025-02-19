@@ -291,10 +291,7 @@ module ModernTreasury
         # @!attribute [r] created_at
         #
         #   @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt, nil]
-        optional :created_at,
-                 enum: -> {
-                   ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt
-                 }
+        optional :created_at, enum: -> { ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt }
 
         # @!parse
         #   # @return [Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt]

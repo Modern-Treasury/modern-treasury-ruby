@@ -18,7 +18,8 @@ module ModernTreasury
         params(
           show_balances: T::Boolean,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(show_balances: nil, request_options: {})
       end

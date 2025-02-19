@@ -105,7 +105,8 @@ module ModernTreasury
             status: Symbol,
             transaction_ids: T::Array[T.nilable(T.anything)],
             updated_at: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           id:,
@@ -123,21 +124,22 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              created_at: Time,
-              ledger_transaction_id: T.nilable(String),
-              live_mode: T::Boolean,
-              metadata: T::Hash[Symbol, String],
-              object: String,
-              payment_order_id: T.nilable(String),
-              reason: Symbol,
-              status: Symbol,
-              transaction_ids: T::Array[T.nilable(T.anything)],
-              updated_at: Time
-            }
-          )
+          override
+            .returns(
+              {
+                id: String,
+                created_at: Time,
+                ledger_transaction_id: T.nilable(String),
+                live_mode: T::Boolean,
+                metadata: T::Hash[Symbol, String],
+                object: String,
+                payment_order_id: T.nilable(String),
+                reason: Symbol,
+                status: Symbol,
+                transaction_ids: T::Array[T.nilable(T.anything)],
+                updated_at: Time
+              }
+            )
         end
         def to_hash
         end

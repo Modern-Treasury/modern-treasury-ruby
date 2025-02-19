@@ -16,7 +16,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress)).returns(T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress))
+        params(_: T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress))
+          .returns(T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress))
       end
       def bank_address=(_)
       end
@@ -106,7 +107,8 @@ module ModernTreasury
           routing_number: String,
           routing_number_type: Symbol,
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -124,21 +126,22 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            bank_address: T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress),
-            bank_name: String,
-            created_at: Time,
-            discarded_at: T.nilable(Time),
-            live_mode: T::Boolean,
-            object: String,
-            payment_type: T.nilable(Symbol),
-            routing_number: String,
-            routing_number_type: Symbol,
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              bank_address: T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress),
+              bank_name: String,
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              live_mode: T::Boolean,
+              object: String,
+              payment_type: T.nilable(Symbol),
+              routing_number: String,
+              routing_number_type: Symbol,
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end
@@ -245,7 +248,8 @@ module ModernTreasury
             postal_code: T.nilable(String),
             region: T.nilable(String),
             updated_at: Time
-          ).void
+          )
+            .void
         end
         def initialize(
           id:,
@@ -263,21 +267,22 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              id: String,
-              country: T.nilable(String),
-              created_at: Time,
-              line1: T.nilable(String),
-              line2: T.nilable(String),
-              live_mode: T::Boolean,
-              locality: T.nilable(String),
-              object: String,
-              postal_code: T.nilable(String),
-              region: T.nilable(String),
-              updated_at: Time
-            }
-          )
+          override
+            .returns(
+              {
+                id: String,
+                country: T.nilable(String),
+                created_at: Time,
+                line1: T.nilable(String),
+                line2: T.nilable(String),
+                live_mode: T::Boolean,
+                locality: T.nilable(String),
+                object: String,
+                postal_code: T.nilable(String),
+                region: T.nilable(String),
+                updated_at: Time
+              }
+            )
         end
         def to_hash
         end

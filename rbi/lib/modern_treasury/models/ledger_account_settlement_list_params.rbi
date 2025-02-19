@@ -99,7 +99,8 @@ module ModernTreasury
           settlement_entry_direction: String,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         id: nil,
@@ -117,21 +118,22 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: T::Array[String],
-            after_cursor: T.nilable(String),
-            created_at: T::Hash[Symbol, Time],
-            ledger_id: String,
-            ledger_transaction_id: String,
-            metadata: T::Hash[Symbol, String],
-            per_page: Integer,
-            settled_ledger_account_id: String,
-            settlement_entry_direction: String,
-            updated_at: T::Hash[Symbol, Time],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              id: T::Array[String],
+              after_cursor: T.nilable(String),
+              created_at: T::Hash[Symbol, Time],
+              ledger_id: String,
+              ledger_transaction_id: String,
+              metadata: T::Hash[Symbol, String],
+              per_page: Integer,
+              settled_ledger_account_id: String,
+              settlement_entry_direction: String,
+              updated_at: T::Hash[Symbol, Time],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end

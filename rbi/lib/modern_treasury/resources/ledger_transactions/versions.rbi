@@ -13,7 +13,8 @@ module ModernTreasury
             per_page: Integer,
             version: T::Hash[Symbol, Integer],
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-          ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion])
+          )
+            .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion])
         end
         def list(
           after_cursor: nil,

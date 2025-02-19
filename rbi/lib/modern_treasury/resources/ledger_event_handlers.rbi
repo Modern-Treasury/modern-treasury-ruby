@@ -13,7 +13,8 @@ module ModernTreasury
           metadata: T.nilable(T::Hash[Symbol, String]),
           variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerEventHandler)
+        )
+          .returns(ModernTreasury::Models::LedgerEventHandler)
       end
       def create(
         ledger_transaction_template:,
@@ -31,7 +32,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerEventHandler)
+        )
+          .returns(ModernTreasury::Models::LedgerEventHandler)
       end
       def retrieve(id, request_options: {})
       end
@@ -44,7 +46,8 @@ module ModernTreasury
           name: String,
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEventHandler])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEventHandler])
       end
       def list(
         after_cursor: nil,
@@ -60,7 +63,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerEventHandler)
+        )
+          .returns(ModernTreasury::Models::LedgerEventHandler)
       end
       def delete(id, request_options: {})
       end

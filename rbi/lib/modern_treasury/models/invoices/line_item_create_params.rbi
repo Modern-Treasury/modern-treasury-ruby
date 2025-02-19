@@ -73,7 +73,8 @@ module ModernTreasury
             quantity: Integer,
             unit_amount_decimal: String,
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-          ).void
+          )
+            .void
         end
         def initialize(
           name:,
@@ -88,18 +89,19 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              name: String,
-              unit_amount: Integer,
-              description: String,
-              direction: String,
-              metadata: T::Hash[Symbol, String],
-              quantity: Integer,
-              unit_amount_decimal: String,
-              request_options: ModernTreasury::RequestOptions
-            }
-          )
+          override
+            .returns(
+              {
+                name: String,
+                unit_amount: Integer,
+                description: String,
+                direction: String,
+                metadata: T::Hash[Symbol, String],
+                quantity: Integer,
+                unit_amount_decimal: String,
+                request_options: ModernTreasury::RequestOptions
+              }
+            )
         end
         def to_hash
         end

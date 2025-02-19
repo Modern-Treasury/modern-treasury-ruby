@@ -8,7 +8,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerEventHandlerVariable::Query).returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query)
+        params(_: ModernTreasury::Models::LedgerEventHandlerVariable::Query)
+          .returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query)
       end
       def query=(_)
       end
@@ -25,9 +26,7 @@ module ModernTreasury
       def initialize(query:, type:)
       end
 
-      sig do
-        override.returns({query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String})
-      end
+      sig { override.returns({query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String}) }
       def to_hash
       end
 

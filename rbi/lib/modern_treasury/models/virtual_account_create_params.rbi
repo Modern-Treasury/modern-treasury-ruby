@@ -27,7 +27,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail]).returns(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail])
+        params(_: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail])
+          .returns(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail])
       end
       def account_details=(_)
       end
@@ -69,7 +70,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount).returns(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)
+        params(_: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)
+          .returns(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)
       end
       def ledger_account=(_)
       end
@@ -87,7 +89,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]).returns(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])
+        params(_: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])
+          .returns(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])
       end
       def routing_details=(_)
       end
@@ -105,7 +108,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
-        ).void
+        )
+          .void
       end
       def initialize(
         internal_account_id:,
@@ -123,21 +127,22 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            internal_account_id: String,
-            name: String,
-            account_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
-            counterparty_id: String,
-            credit_ledger_account_id: String,
-            debit_ledger_account_id: String,
-            description: String,
-            ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
-            metadata: T::Hash[Symbol, String],
-            routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
-            request_options: ModernTreasury::RequestOptions
-          }
-        )
+        override
+          .returns(
+            {
+              internal_account_id: String,
+              name: String,
+              account_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+              counterparty_id: String,
+              credit_ledger_account_id: String,
+              debit_ledger_account_id: String,
+              description: String,
+              ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+              metadata: T::Hash[Symbol, String],
+              routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
@@ -280,7 +285,8 @@ module ModernTreasury
             ledgerable_id: String,
             ledgerable_type: Symbol,
             metadata: T::Hash[Symbol, String]
-          ).void
+          )
+            .void
         end
         def initialize(
           currency:,
@@ -297,20 +303,21 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              currency: String,
-              ledger_id: String,
-              name: String,
-              normal_balance: Symbol,
-              currency_exponent: T.nilable(Integer),
-              description: T.nilable(String),
-              ledger_account_category_ids: T::Array[String],
-              ledgerable_id: String,
-              ledgerable_type: Symbol,
-              metadata: T::Hash[Symbol, String]
-            }
-          )
+          override
+            .returns(
+              {
+                currency: String,
+                ledger_id: String,
+                name: String,
+                normal_balance: Symbol,
+                currency_exponent: T.nilable(Integer),
+                description: T.nilable(String),
+                ledger_account_category_ids: T::Array[String],
+                ledgerable_id: String,
+                ledgerable_type: Symbol,
+                metadata: T::Hash[Symbol, String]
+              }
+            )
         end
         def to_hash
         end

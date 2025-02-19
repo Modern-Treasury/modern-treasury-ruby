@@ -144,19 +144,13 @@ module ModernTreasury
         #   The pending_balance is the sum of all pending and posted entries.
         #
         #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance]
-        required :pending_balance,
-                 -> {
-                   ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance
-                 }
+        required :pending_balance, -> { ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance }
 
         # @!attribute posted_balance
         #   The posted_balance is the sum of all posted entries.
         #
         #   @return [ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance]
-        required :posted_balance,
-                 -> {
-                   ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance
-                 }
+        required :posted_balance, -> { ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance }
 
         # @!parse
         #   # The pending, posted, and available balances for this ledger account category.

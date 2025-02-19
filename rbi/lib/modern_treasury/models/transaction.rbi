@@ -88,7 +88,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate)).returns(T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate))
+        params(_: T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate))
+          .returns(T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate))
       end
       def foreign_exchange_rate=(_)
       end
@@ -232,7 +233,8 @@ module ModernTreasury
           vendor_id: T.nilable(String),
           details: T::Hash[Symbol, String],
           vendor_description: T.nilable(String)
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -264,35 +266,36 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            amount: Integer,
-            as_of_date: T.nilable(Date),
-            as_of_time: T.nilable(String),
-            as_of_timezone: T.nilable(String),
-            created_at: Time,
-            currency: Symbol,
-            custom_identifiers: T::Hash[Symbol, String],
-            direction: String,
-            discarded_at: T.nilable(Time),
-            foreign_exchange_rate: T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate),
-            internal_account_id: String,
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            object: String,
-            posted: T::Boolean,
-            reconciled: T::Boolean,
-            type: Symbol,
-            updated_at: Time,
-            vendor_code: T.nilable(String),
-            vendor_code_type: T.nilable(Symbol),
-            vendor_customer_id: T.nilable(String),
-            vendor_id: T.nilable(String),
-            details: T::Hash[Symbol, String],
-            vendor_description: T.nilable(String)
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              amount: Integer,
+              as_of_date: T.nilable(Date),
+              as_of_time: T.nilable(String),
+              as_of_timezone: T.nilable(String),
+              created_at: Time,
+              currency: Symbol,
+              custom_identifiers: T::Hash[Symbol, String],
+              direction: String,
+              discarded_at: T.nilable(Time),
+              foreign_exchange_rate: T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate),
+              internal_account_id: String,
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              object: String,
+              posted: T::Boolean,
+              reconciled: T::Boolean,
+              type: Symbol,
+              updated_at: Time,
+              vendor_code: T.nilable(String),
+              vendor_code_type: T.nilable(Symbol),
+              vendor_customer_id: T.nilable(String),
+              vendor_id: T.nilable(String),
+              details: T::Hash[Symbol, String],
+              vendor_description: T.nilable(String)
+            }
+          )
       end
       def to_hash
       end
@@ -363,7 +366,8 @@ module ModernTreasury
             target_amount: Integer,
             target_currency: Symbol,
             value: Integer
-          ).void
+          )
+            .void
         end
         def initialize(
           base_amount:,
@@ -377,17 +381,18 @@ module ModernTreasury
         end
 
         sig do
-          override.returns(
-            {
-              base_amount: Integer,
-              base_currency: Symbol,
-              exponent: Integer,
-              rate_string: String,
-              target_amount: Integer,
-              target_currency: Symbol,
-              value: Integer
-            }
-          )
+          override
+            .returns(
+              {
+                base_amount: Integer,
+                base_currency: Symbol,
+                exponent: Integer,
+                rate_string: String,
+                target_amount: Integer,
+                target_currency: Symbol,
+                value: Integer
+              }
+            )
         end
         def to_hash
         end

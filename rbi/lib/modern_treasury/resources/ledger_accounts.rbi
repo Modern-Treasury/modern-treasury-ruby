@@ -16,7 +16,8 @@ module ModernTreasury
           ledgerable_type: Symbol,
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccount)
+        )
+          .returns(ModernTreasury::Models::LedgerAccount)
       end
       def create(
         currency:,
@@ -38,7 +39,8 @@ module ModernTreasury
           id: String,
           balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccount)
+        )
+          .returns(ModernTreasury::Models::LedgerAccount)
       end
       def retrieve(id, balances: nil, request_options: {})
       end
@@ -50,7 +52,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccount)
+        )
+          .returns(ModernTreasury::Models::LedgerAccount)
       end
       def update(id, description: nil, metadata: nil, name: nil, request_options: {})
       end
@@ -72,7 +75,8 @@ module ModernTreasury
           posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccount])
+        )
+          .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerAccount])
       end
       def list(
         id: nil,
@@ -97,7 +101,8 @@ module ModernTreasury
         params(
           id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        ).returns(ModernTreasury::Models::LedgerAccount)
+        )
+          .returns(ModernTreasury::Models::LedgerAccount)
       end
       def delete(id, request_options: {})
       end

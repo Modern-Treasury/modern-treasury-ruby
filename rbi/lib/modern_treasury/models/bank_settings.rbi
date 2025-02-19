@@ -95,7 +95,8 @@ module ModernTreasury
           privacy_opt_out: T.nilable(T::Boolean),
           regulation_o: T.nilable(T::Boolean),
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -112,20 +113,21 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            backup_withholding_percentage: T.nilable(Integer),
-            created_at: Time,
-            discarded_at: T.nilable(Time),
-            enable_backup_withholding: T.nilable(T::Boolean),
-            live_mode: T::Boolean,
-            object: String,
-            privacy_opt_out: T.nilable(T::Boolean),
-            regulation_o: T.nilable(T::Boolean),
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              backup_withholding_percentage: T.nilable(Integer),
+              created_at: Time,
+              discarded_at: T.nilable(Time),
+              enable_backup_withholding: T.nilable(T::Boolean),
+              live_mode: T::Boolean,
+              object: String,
+              privacy_opt_out: T.nilable(T::Boolean),
+              regulation_o: T.nilable(T::Boolean),
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end

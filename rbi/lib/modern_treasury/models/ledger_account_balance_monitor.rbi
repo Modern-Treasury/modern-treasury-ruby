@@ -16,7 +16,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition)
+        params(_: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition)
+          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition)
       end
       def alert_condition=(_)
       end
@@ -34,7 +35,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState)
+        params(_: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState)
+          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState)
       end
       def current_ledger_account_balance_state=(_)
       end
@@ -108,7 +110,8 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           object: String,
           updated_at: Time
-        ).void
+        )
+          .void
       end
       def initialize(
         id:,
@@ -126,21 +129,22 @@ module ModernTreasury
       end
 
       sig do
-        override.returns(
-          {
-            id: String,
-            alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
-            created_at: Time,
-            current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
-            description: T.nilable(String),
-            discarded_at: T.nilable(Time),
-            ledger_account_id: String,
-            live_mode: T::Boolean,
-            metadata: T::Hash[Symbol, String],
-            object: String,
-            updated_at: Time
-          }
-        )
+        override
+          .returns(
+            {
+              id: String,
+              alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+              created_at: Time,
+              current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+              description: T.nilable(String),
+              discarded_at: T.nilable(Time),
+              ledger_account_id: String,
+              live_mode: T::Boolean,
+              metadata: T::Hash[Symbol, String],
+              object: String,
+              updated_at: Time
+            }
+          )
       end
       def to_hash
       end
@@ -180,14 +184,13 @@ module ModernTreasury
       end
 
       class CurrentLedgerAccountBalanceState < ModernTreasury::BaseModel
-        sig do
-          returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances)
-        end
+        sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances) }
         def balances
         end
 
         sig do
-          params(_: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances)
+          params(_: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances)
+            .returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances)
         end
         def balances=(_)
         end
@@ -213,24 +216,30 @@ module ModernTreasury
             balances: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
             ledger_account_lock_version: Integer,
             triggered: T::Boolean
-          ).void
+          )
+            .void
         end
         def initialize(balances:, ledger_account_lock_version:, triggered:)
         end
 
         sig do
-          override.returns(
-            {
-              balances: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances, ledger_account_lock_version: Integer, triggered: T::Boolean
-            }
-          )
+          override
+            .returns(
+              {
+                balances: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
+                ledger_account_lock_version: Integer,
+                triggered: T::Boolean
+              }
+            )
         end
         def to_hash
         end
 
         class Balances < ModernTreasury::BaseModel
           sig do
-            returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance)
+            returns(
+              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance
+            )
           end
           def available_balance
           end
@@ -238,13 +247,18 @@ module ModernTreasury
           sig do
             params(
               _: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance
-            ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance)
+            )
+              .returns(
+                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance
+              )
           end
           def available_balance=(_)
           end
 
           sig do
-            returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance)
+            returns(
+              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance
+            )
           end
           def pending_balance
           end
@@ -252,13 +266,18 @@ module ModernTreasury
           sig do
             params(
               _: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance
-            ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance)
+            )
+              .returns(
+                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance
+              )
           end
           def pending_balance=(_)
           end
 
           sig do
-            returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance)
+            returns(
+              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+            )
           end
           def posted_balance
           end
@@ -266,7 +285,10 @@ module ModernTreasury
           sig do
             params(
               _: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
-            ).returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance)
+            )
+              .returns(
+                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+              )
           end
           def posted_balance=(_)
           end
@@ -276,17 +298,21 @@ module ModernTreasury
               available_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
               pending_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
               posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
-            ).void
+            )
+              .void
           end
           def initialize(available_balance:, pending_balance:, posted_balance:)
           end
 
           sig do
-            override.returns(
-              {
-                available_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance, pending_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance, posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
-              }
-            )
+            override
+              .returns(
+                {
+                  available_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
+                  pending_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
+                  posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+                }
+              )
           end
           def to_hash
           end
@@ -339,21 +365,23 @@ module ModernTreasury
                 currency: String,
                 currency_exponent: Integer,
                 debits: Integer
-              ).void
+              )
+                .void
             end
             def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
             end
 
             sig do
-              override.returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+              override
+                .returns(
+                  {
+                    amount: Integer,
+                    credits: Integer,
+                    currency: String,
+                    currency_exponent: Integer,
+                    debits: Integer
+                  }
+                )
             end
             def to_hash
             end
@@ -407,21 +435,23 @@ module ModernTreasury
                 currency: String,
                 currency_exponent: Integer,
                 debits: Integer
-              ).void
+              )
+                .void
             end
             def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
             end
 
             sig do
-              override.returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+              override
+                .returns(
+                  {
+                    amount: Integer,
+                    credits: Integer,
+                    currency: String,
+                    currency_exponent: Integer,
+                    debits: Integer
+                  }
+                )
             end
             def to_hash
             end
@@ -475,21 +505,23 @@ module ModernTreasury
                 currency: String,
                 currency_exponent: Integer,
                 debits: Integer
-              ).void
+              )
+                .void
             end
             def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
             end
 
             sig do
-              override.returns(
-                {
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                }
-              )
+              override
+                .returns(
+                  {
+                    amount: Integer,
+                    credits: Integer,
+                    currency: String,
+                    currency_exponent: Integer,
+                    debits: Integer
+                  }
+                )
             end
             def to_hash
             end
