@@ -25,7 +25,7 @@ module ModernTreasury
     sig do
       params(
         client: ModernTreasury::BaseClient,
-        req: ModernTreasury::BaseClient::RequestShape,
+        req: ModernTreasury::BaseClient::RequestComponentsShape,
         headers: T::Hash[String, String],
         unwrapped: T::Hash[Symbol, T.anything]
       )
