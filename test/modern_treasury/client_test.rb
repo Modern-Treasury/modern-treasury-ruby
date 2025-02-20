@@ -20,23 +20,14 @@ class ModernTreasuryTest < Minitest::Test
 
   class MockResponse
     # @return [Integer]
-    attr_accessor :code
-
-    # @return [String]
-    attr_accessor :content_type
-
-    # @return [String]
-    attr_accessor :body
+    attr_reader :code
 
     # @param code [Integer]
     # @param headers [Hash{String=>String}]
-    # @param data [Object]
     #
-    def initialize(code, headers, data)
+    def initialize(code, headers)
       @code = code
-      @headers = headers
-      @content_type = "application/json"
-      @body = JSON.generate(data)
+      @headers = {"content-type" => "application/json", **headers}
     end
 
     # @param header [String]
@@ -58,13 +49,13 @@ class ModernTreasuryTest < Minitest::Test
 
   class MockRequester
     # @return [Integer]
-    attr_accessor :response_code
+    attr_reader :response_code
 
     # @return [Hash{String=>String}]
-    attr_accessor :response_headers
+    attr_reader :response_headers
 
     # @return [Object]
-    attr_accessor :response_data
+    attr_reader :response_data
 
     # @return [Array<Hash{Symbol=>Object}>]
     attr_accessor :attempts
@@ -76,7 +67,7 @@ class ModernTreasuryTest < Minitest::Test
     def initialize(response_code, response_headers, response_data)
       @response_code = response_code
       @response_headers = response_headers
-      @response_data = response_data
+      @response_data = JSON.fast_generate(response_data)
       @attempts = []
     end
 
@@ -85,7 +76,7 @@ class ModernTreasuryTest < Minitest::Test
     def execute(req)
       # Deep copy the request because it is mutated on each retry.
       attempts.push(Marshal.load(Marshal.dump(req)))
-      MockResponse.new(response_code, response_headers, response_data)
+      [MockResponse.new(response_code, response_headers), response_data.grapheme_clusters]
     end
   end
 
