@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # legal_entity_association => {
-    #   id: String,
-    #   child_legal_entity: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity,
-    #   created_at: Time,
-    #   discarded_at: Time,
-    #   live_mode: ModernTreasury::BooleanModel,
-    #   **_
-    # }
-    # ```
     class LegalEntityAssociation < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -109,17 +98,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # child_legal_entity => {
-      #   id: String,
-      #   addresses: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address] === _1 },
-      #   bank_settings: ModernTreasury::Models::BankSettings,
-      #   business_name: String,
-      #   citizenship_country: String,
-      #   **_
-      # }
-      # ```
       class ChildLegalEntity < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -368,17 +346,6 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @example
-        # ```ruby
-        # address => {
-        #   id: String,
-        #   address_types: -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType] === _1 },
-        #   country: String,
-        #   created_at: Time,
-        #   discarded_at: Time,
-        #   **_
-        # }
-        # ```
         class Address < ModernTreasury::BaseModel
           # @!attribute id
           #
@@ -522,17 +489,6 @@ module ModernTreasury
           end
         end
 
-        # @example
-        # ```ruby
-        # identification => {
-        #   id: String,
-        #   created_at: Time,
-        #   discarded_at: Time,
-        #   id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType,
-        #   issuing_country: String,
-        #   **_
-        # }
-        # ```
         class Identification < ModernTreasury::BaseModel
           # @!attribute id
           #
@@ -712,12 +668,6 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        # @example
-        # ```ruby
-        # phone_number => {
-        #   phone_number: String
-        # }
-        # ```
         class PhoneNumber < ModernTreasury::BaseModel
           # @!attribute [r] phone_number
           #

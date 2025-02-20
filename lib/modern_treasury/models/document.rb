@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # document => {
-    #   id: String,
-    #   created_at: Time,
-    #   discarded_at: Time,
-    #   document_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail] === _1 },
-    #   document_type: String,
-    #   **_
-    # }
-    # ```
     class Document < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -117,17 +106,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # document_detail => {
-      #   id: String,
-      #   created_at: Time,
-      #   discarded_at: Time,
-      #   document_identifier: String,
-      #   document_identifier_type: String,
-      #   **_
-      # }
-      # ```
       class DocumentDetail < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -243,14 +221,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # file => {
-      #   content_type: String,
-      #   filename: String,
-      #   size: Integer
-      # }
-      # ```
       class File < ModernTreasury::BaseModel
         # @!attribute [r] content_type
         #   The MIME content type of the document.

@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # payment_flow => {
-    #   id: String,
-    #   amount: Integer,
-    #   client_token: String,
-    #   counterparty_id: String,
-    #   created_at: Time,
-    #   **_
-    # }
-    # ```
     class PaymentFlow < ModernTreasury::BaseModel
       # @!attribute [r] id
       #

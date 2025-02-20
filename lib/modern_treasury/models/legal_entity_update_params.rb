@@ -221,17 +221,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # address => {
-      #   country: String,
-      #   line1: String,
-      #   locality: String,
-      #   postal_code: String,
-      #   region: String,
-      #   **_
-      # }
-      # ```
       class Address < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -324,14 +313,6 @@ module ModernTreasury
         end
       end
 
-      # @example
-      # ```ruby
-      # identification => {
-      #   id_number: String,
-      #   id_type: ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType,
-      #   issuing_country: String
-      # }
-      # ```
       class Identification < ModernTreasury::BaseModel
         # @!attribute id_number
         #   The ID number of identification document.
@@ -451,12 +432,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # phone_number => {
-      #   phone_number: String
-      # }
-      # ```
       class PhoneNumber < ModernTreasury::BaseModel
         # @!attribute [r] phone_number
         #

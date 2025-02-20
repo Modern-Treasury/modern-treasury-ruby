@@ -22,6 +22,22 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::RoutingDetail
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        bank_address: ModernTreasury::Models::RoutingDetail::BankAddress | nil,
+        bank_name: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
+        routing_number: String,
+        routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve_required_params
@@ -33,6 +49,22 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::RoutingDetail
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        bank_address: ModernTreasury::Models::RoutingDetail::BankAddress | nil,
+        bank_name: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
+        routing_number: String,
+        routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType,
+        updated_at: Time
+      }
     end
   end
 
@@ -51,6 +83,22 @@ class ModernTreasury::Test::Resources::RoutingDetailsTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::RoutingDetail
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        bank_address: ModernTreasury::Models::RoutingDetail::BankAddress | nil,
+        bank_name: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        payment_type: ModernTreasury::Models::RoutingDetail::PaymentType | nil,
+        routing_number: String,
+        routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType,
+        updated_at: Time
+      }
     end
   end
 

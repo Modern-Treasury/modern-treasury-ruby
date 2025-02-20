@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # incoming_payment_detail => {
-    #   id: String,
-    #   amount: Integer,
-    #   as_of_date: Date,
-    #   created_at: Time,
-    #   currency: ModernTreasury::Models::Currency,
-    #   **_
-    # }
-    # ```
     class IncomingPaymentDetail < ModernTreasury::BaseModel
       # @!attribute id
       #

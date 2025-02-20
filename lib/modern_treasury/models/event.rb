@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # event => {
-    #   id: String,
-    #   created_at: Time,
-    #   data: -> { ModernTreasury::HashOf[ModernTreasury::Unknown] === _1 },
-    #   entity_id: String,
-    #   event_name: String,
-    #   **_
-    # }
-    # ```
     class Event < ModernTreasury::BaseModel
       # @!attribute id
       #

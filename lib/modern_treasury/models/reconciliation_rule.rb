@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # reconciliation_rule => {
-    #   amount_lower_bound: Integer,
-    #   amount_upper_bound: Integer,
-    #   direction: ModernTreasury::Models::ReconciliationRule::Direction,
-    #   internal_account_id: String,
-    #   counterparty_id: String,
-    #   **_
-    # }
-    # ```
     class ReconciliationRule < ModernTreasury::BaseModel
       # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified

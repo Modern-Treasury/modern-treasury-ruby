@@ -86,17 +86,6 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        # @example
-        # ```ruby
-        # ledger_transaction => {
-        #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry] === _1 },
-        #   description: String,
-        #   effective_at: Time,
-        #   effective_date: Date,
-        #   external_id: String,
-        #   **_
-        # }
-        # ```
         class LedgerTransaction < ModernTreasury::BaseModel
           # @!attribute ledger_entries
           #   An array of ledger entry objects.
@@ -223,17 +212,6 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-          # @example
-          # ```ruby
-          # ledger_entry => {
-          #   amount: Integer,
-          #   direction: ModernTreasury::Models::TransactionDirection,
-          #   ledger_account_id: String,
-          #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
-          #   lock_version: Integer,
-          #   **_
-          # }
-          # ```
           class LedgerEntry < ModernTreasury::BaseModel
             # @!attribute amount
             #   Value in specified currency's smallest unit. e.g. $10 would be represented

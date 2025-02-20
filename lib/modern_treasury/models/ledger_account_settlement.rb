@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # ledger_account_settlement => {
-    #   id: String,
-    #   amount: Integer,
-    #   contra_ledger_account_id: String,
-    #   created_at: Time,
-    #   currency: String,
-    #   **_
-    # }
-    # ```
     class LedgerAccountSettlement < ModernTreasury::BaseModel
       # @!attribute id
       #

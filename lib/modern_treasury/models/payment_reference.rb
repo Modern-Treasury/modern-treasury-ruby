@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # payment_reference => {
-    #   id: String,
-    #   created_at: Time,
-    #   live_mode: ModernTreasury::BooleanModel,
-    #   object: String,
-    #   reference_number: String,
-    #   **_
-    # }
-    # ```
     class PaymentReference < ModernTreasury::BaseModel
       # @!attribute id
       #
