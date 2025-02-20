@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.homepage = "https://gemdocs.org/gems/modern_treasury/latest"
   s.metadata["homepage_uri"] = s.homepage
   s.metadata["source_code_uri"] = "https://github.com/Modern-Treasury/modern-treasury-ruby"
-  s.metadata["rubygems_mfa_required"] = "true"
+  s.metadata["rubygems_mfa_required"] = "false"
 end
