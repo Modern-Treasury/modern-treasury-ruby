@@ -21,6 +21,48 @@ class ModernTreasury::Test::Resources::InvoicesTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Invoice
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount_paid: Integer,
+        amount_remaining: Integer,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail]),
+        counterparty_billing_address: ModernTreasury::Models::Invoice::CounterpartyBillingAddress | nil,
+        counterparty_id: String,
+        counterparty_shipping_address: ModernTreasury::Models::Invoice::CounterpartyShippingAddress | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        description: String,
+        due_date: Time,
+        expected_payments: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPayment]),
+        fallback_payment_method: String | nil,
+        hosted_url: String,
+        invoicer_address: ModernTreasury::Models::Invoice::InvoicerAddress | nil,
+        ledger_account_settlement_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        notification_email_addresses: ^(ModernTreasury::ArrayOf[String]) | nil,
+        notifications_enabled: ModernTreasury::BooleanModel,
+        number: String,
+        object: String,
+        originating_account_id: String,
+        payment_effective_date: Date | nil,
+        payment_method: ModernTreasury::Models::Invoice::PaymentMethod | nil,
+        payment_orders: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder]),
+        payment_type: ModernTreasury::Models::Invoice::PaymentType | nil,
+        pdf_url: String | nil,
+        receiving_account_id: String | nil,
+        recipient_email: String | nil,
+        recipient_name: String | nil,
+        remind_after_overdue_days: ^(ModernTreasury::ArrayOf[Integer]) | nil,
+        status: ModernTreasury::Models::Invoice::Status,
+        total_amount: Integer,
+        transaction_line_item_ids: ^(ModernTreasury::ArrayOf[String]),
+        updated_at: Time,
+        virtual_account_id: String | nil
+      }
+    end
   end
 
   def test_retrieve
@@ -29,6 +71,48 @@ class ModernTreasury::Test::Resources::InvoicesTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Invoice
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount_paid: Integer,
+        amount_remaining: Integer,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail]),
+        counterparty_billing_address: ModernTreasury::Models::Invoice::CounterpartyBillingAddress | nil,
+        counterparty_id: String,
+        counterparty_shipping_address: ModernTreasury::Models::Invoice::CounterpartyShippingAddress | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        description: String,
+        due_date: Time,
+        expected_payments: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPayment]),
+        fallback_payment_method: String | nil,
+        hosted_url: String,
+        invoicer_address: ModernTreasury::Models::Invoice::InvoicerAddress | nil,
+        ledger_account_settlement_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        notification_email_addresses: ^(ModernTreasury::ArrayOf[String]) | nil,
+        notifications_enabled: ModernTreasury::BooleanModel,
+        number: String,
+        object: String,
+        originating_account_id: String,
+        payment_effective_date: Date | nil,
+        payment_method: ModernTreasury::Models::Invoice::PaymentMethod | nil,
+        payment_orders: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder]),
+        payment_type: ModernTreasury::Models::Invoice::PaymentType | nil,
+        pdf_url: String | nil,
+        receiving_account_id: String | nil,
+        recipient_email: String | nil,
+        recipient_name: String | nil,
+        remind_after_overdue_days: ^(ModernTreasury::ArrayOf[Integer]) | nil,
+        status: ModernTreasury::Models::Invoice::Status,
+        total_amount: Integer,
+        transaction_line_item_ids: ^(ModernTreasury::ArrayOf[String]),
+        updated_at: Time,
+        virtual_account_id: String | nil
+      }
+    end
   end
 
   def test_update
@@ -36,6 +120,48 @@ class ModernTreasury::Test::Resources::InvoicesTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::Invoice
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount_paid: Integer,
+        amount_remaining: Integer,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail]),
+        counterparty_billing_address: ModernTreasury::Models::Invoice::CounterpartyBillingAddress | nil,
+        counterparty_id: String,
+        counterparty_shipping_address: ModernTreasury::Models::Invoice::CounterpartyShippingAddress | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        description: String,
+        due_date: Time,
+        expected_payments: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPayment]),
+        fallback_payment_method: String | nil,
+        hosted_url: String,
+        invoicer_address: ModernTreasury::Models::Invoice::InvoicerAddress | nil,
+        ledger_account_settlement_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        notification_email_addresses: ^(ModernTreasury::ArrayOf[String]) | nil,
+        notifications_enabled: ModernTreasury::BooleanModel,
+        number: String,
+        object: String,
+        originating_account_id: String,
+        payment_effective_date: Date | nil,
+        payment_method: ModernTreasury::Models::Invoice::PaymentMethod | nil,
+        payment_orders: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder]),
+        payment_type: ModernTreasury::Models::Invoice::PaymentType | nil,
+        pdf_url: String | nil,
+        receiving_account_id: String | nil,
+        recipient_email: String | nil,
+        recipient_name: String | nil,
+        remind_after_overdue_days: ^(ModernTreasury::ArrayOf[Integer]) | nil,
+        status: ModernTreasury::Models::Invoice::Status,
+        total_amount: Integer,
+        transaction_line_item_ids: ^(ModernTreasury::ArrayOf[String]),
+        updated_at: Time,
+        virtual_account_id: String | nil
+      }
     end
   end
 
@@ -54,6 +180,48 @@ class ModernTreasury::Test::Resources::InvoicesTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::Invoice
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        amount_paid: Integer,
+        amount_remaining: Integer,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail]),
+        counterparty_billing_address: ModernTreasury::Models::Invoice::CounterpartyBillingAddress | nil,
+        counterparty_id: String,
+        counterparty_shipping_address: ModernTreasury::Models::Invoice::CounterpartyShippingAddress | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        description: String,
+        due_date: Time,
+        expected_payments: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExpectedPayment]),
+        fallback_payment_method: String | nil,
+        hosted_url: String,
+        invoicer_address: ModernTreasury::Models::Invoice::InvoicerAddress | nil,
+        ledger_account_settlement_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        notification_email_addresses: ^(ModernTreasury::ArrayOf[String]) | nil,
+        notifications_enabled: ModernTreasury::BooleanModel,
+        number: String,
+        object: String,
+        originating_account_id: String,
+        payment_effective_date: Date | nil,
+        payment_method: ModernTreasury::Models::Invoice::PaymentMethod | nil,
+        payment_orders: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder]),
+        payment_type: ModernTreasury::Models::Invoice::PaymentType | nil,
+        pdf_url: String | nil,
+        receiving_account_id: String | nil,
+        recipient_email: String | nil,
+        recipient_name: String | nil,
+        remind_after_overdue_days: ^(ModernTreasury::ArrayOf[Integer]) | nil,
+        status: ModernTreasury::Models::Invoice::Status,
+        total_amount: Integer,
+        transaction_line_item_ids: ^(ModernTreasury::ArrayOf[String]),
+        updated_at: Time,
+        virtual_account_id: String | nil
+      }
     end
   end
 

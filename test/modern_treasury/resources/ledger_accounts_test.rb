@@ -22,6 +22,26 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccount
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccount::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        ledgerable_id: String | nil,
+        ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        lock_version: Integer,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -30,6 +50,26 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccount
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccount::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        ledgerable_id: String | nil,
+        ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        lock_version: Integer,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_update
@@ -37,6 +77,26 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccount
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccount::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        ledgerable_id: String | nil,
+        ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        lock_version: Integer,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 
@@ -56,6 +116,26 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < Minitest::Test
     assert_pattern do
       row => ModernTreasury::Models::LedgerAccount
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccount::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        ledgerable_id: String | nil,
+        ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        lock_version: Integer,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_delete
@@ -63,6 +143,26 @@ class ModernTreasury::Test::Resources::LedgerAccountsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccount
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccount::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        ledgerable_id: String | nil,
+        ledgerable_type: ModernTreasury::Models::LedgerAccount::LedgerableType | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        lock_version: Integer,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 end

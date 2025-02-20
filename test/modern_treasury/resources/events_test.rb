@@ -17,6 +17,21 @@ class ModernTreasury::Test::Resources::EventsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Event
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        data: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]),
+        entity_id: String,
+        event_name: String,
+        event_time: Time,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        resource: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_list
@@ -34,6 +49,21 @@ class ModernTreasury::Test::Resources::EventsTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::Event
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        created_at: Time,
+        data: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]),
+        entity_id: String,
+        event_name: String,
+        event_time: Time,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        resource: String,
+        updated_at: Time
+      }
     end
   end
 end

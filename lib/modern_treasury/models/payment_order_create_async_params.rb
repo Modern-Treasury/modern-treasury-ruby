@@ -437,13 +437,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # accounting => {
-      #   account_id: String,
-      #   class_id: String
-      # }
-      # ```
       class Accounting < ModernTreasury::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
@@ -550,17 +543,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # ledger_transaction => {
-      #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry] === _1 },
-      #   description: String,
-      #   effective_at: Time,
-      #   effective_date: Date,
-      #   external_id: String,
-      #   **_
-      # }
-      # ```
       class LedgerTransaction < ModernTreasury::BaseModel
         # @!attribute ledger_entries
         #   An array of ledger entry objects.
@@ -688,17 +670,6 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @example
-        # ```ruby
-        # ledger_entry => {
-        #   amount: Integer,
-        #   direction: ModernTreasury::Models::TransactionDirection,
-        #   ledger_account_id: String,
-        #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
-        #   lock_version: Integer,
-        #   **_
-        # }
-        # ```
         class LedgerEntry < ModernTreasury::BaseModel
           # @!attribute amount
           #   Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -871,15 +842,6 @@ module ModernTreasury
         end
       end
 
-      # @example
-      # ```ruby
-      # line_item => {
-      #   amount: Integer,
-      #   accounting_category_id: String,
-      #   description: String,
-      #   metadata: -> { ModernTreasury::HashOf[String] === _1 }
-      # }
-      # ```
       class LineItem < ModernTreasury::BaseModel
         # @!attribute amount
         #   Value in specified currency's smallest unit. e.g. $10 would be represented
@@ -950,17 +912,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # receiving_account => {
-      #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail] === _1 },
-      #   account_type: ModernTreasury::Models::ExternalAccountType,
-      #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail] === _1 },
-      #   ledger_account: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
-      #   metadata: -> { ModernTreasury::HashOf[String] === _1 },
-      #   **_
-      # }
-      # ```
       class ReceivingAccount < ModernTreasury::BaseModel
         # @!attribute [r] account_details
         #
@@ -1122,13 +1073,6 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @example
-        # ```ruby
-        # account_detail => {
-        #   account_number: String,
-        #   account_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail::AccountNumberType
-        # }
-        # ```
         class AccountDetail < ModernTreasury::BaseModel
           # @!attribute account_number
           #
@@ -1193,13 +1137,6 @@ module ModernTreasury
           end
         end
 
-        # @example
-        # ```ruby
-        # contact_detail => {
-        #   contact_identifier: String,
-        #   contact_identifier_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail::ContactIdentifierType
-        # }
-        # ```
         class ContactDetail < ModernTreasury::BaseModel
           # @!attribute [r] contact_identifier
           #
@@ -1255,17 +1192,6 @@ module ModernTreasury
           end
         end
 
-        # @example
-        # ```ruby
-        # ledger_account => {
-        #   currency: String,
-        #   ledger_id: String,
-        #   name: String,
-        #   normal_balance: ModernTreasury::Models::TransactionDirection,
-        #   currency_exponent: Integer,
-        #   **_
-        # }
-        # ```
         class LedgerAccount < ModernTreasury::BaseModel
           # @!attribute currency
           #   The currency of the ledger account.
@@ -1419,16 +1345,6 @@ module ModernTreasury
           end
         end
 
-        # @example
-        # ```ruby
-        # party_address => {
-        #   country: String,
-        #   line1: String,
-        #   line2: String,
-        #   locality: String,
-        #   postal_code: String
-        # }
-        # ```
         class PartyAddress < ModernTreasury::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -1504,14 +1420,6 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        # @example
-        # ```ruby
-        # routing_detail => {
-        #   routing_number: String,
-        #   routing_number_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::RoutingNumberType,
-        #   payment_type: ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail::PaymentType
-        # }
-        # ```
         class RoutingDetail < ModernTreasury::BaseModel
           # @!attribute routing_number
           #

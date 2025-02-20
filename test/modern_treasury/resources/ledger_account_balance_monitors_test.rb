@@ -20,6 +20,22 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Minite
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountBalanceMonitor
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        created_at: Time,
+        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -28,6 +44,22 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Minite
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountBalanceMonitor
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        created_at: Time,
+        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_update
@@ -35,6 +67,22 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Minite
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountBalanceMonitor
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        created_at: Time,
+        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        updated_at: Time
+      }
     end
   end
 
@@ -54,6 +102,22 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Minite
     assert_pattern do
       row => ModernTreasury::Models::LedgerAccountBalanceMonitor
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        created_at: Time,
+        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_delete
@@ -61,6 +125,22 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Minite
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountBalanceMonitor
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        created_at: Time,
+        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        updated_at: Time
+      }
     end
   end
 end

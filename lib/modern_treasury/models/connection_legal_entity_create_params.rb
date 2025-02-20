@@ -43,17 +43,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # legal_entity => {
-      #   addresses: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address] === _1 },
-      #   bank_settings: ModernTreasury::Models::BankSettings,
-      #   business_name: String,
-      #   citizenship_country: String,
-      #   date_formed: Date,
-      #   **_
-      # }
-      # ```
       class LegalEntity < ModernTreasury::BaseModel
         # @!attribute [r] addresses
         #   A list of addresses for the entity.
@@ -292,17 +281,6 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @example
-        # ```ruby
-        # address => {
-        #   country: String,
-        #   line1: String,
-        #   locality: String,
-        #   postal_code: String,
-        #   region: String,
-        #   **_
-        # }
-        # ```
         class Address < ModernTreasury::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -395,14 +373,6 @@ module ModernTreasury
           end
         end
 
-        # @example
-        # ```ruby
-        # identification => {
-        #   id_number: String,
-        #   id_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::IDType,
-        #   issuing_country: String
-        # }
-        # ```
         class Identification < ModernTreasury::BaseModel
           # @!attribute id_number
           #   The ID number of identification document.
@@ -486,20 +456,6 @@ module ModernTreasury
           end
         end
 
-        # @example
-        # ```ruby
-        # legal_entity_association => {
-        #   relationship_types: -> do
-        #     ModernTreasury::ArrayOf[
-        #     enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType
-        #     ] === _1
-        #   end,
-        #   child_legal_entity: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
-        #   child_legal_entity_id: String,
-        #   ownership_percentage: Integer,
-        #   title: String
-        # }
-        # ```
         class LegalEntityAssociation < ModernTreasury::BaseModel
           # @!attribute relationship_types
           #
@@ -589,21 +545,6 @@ module ModernTreasury
             #   def self.values; end
           end
 
-          # @example
-          # ```ruby
-          # child_legal_entity => {
-          #   addresses: -> do
-          #     ModernTreasury::ArrayOf[
-          #     ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
-          #     ] === _1
-          #   end,
-          #   bank_settings: ModernTreasury::Models::BankSettings,
-          #   business_name: String,
-          #   citizenship_country: String,
-          #   date_formed: Date,
-          #   **_
-          # }
-          # ```
           class ChildLegalEntity < ModernTreasury::BaseModel
             # @!attribute [r] addresses
             #   A list of addresses for the entity.
@@ -844,17 +785,6 @@ module ModernTreasury
 
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-            # @example
-            # ```ruby
-            # address => {
-            #   country: String,
-            #   line1: String,
-            #   locality: String,
-            #   postal_code: String,
-            #   region: String,
-            #   **_
-            # }
-            # ```
             class Address < ModernTreasury::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -951,14 +881,6 @@ module ModernTreasury
               end
             end
 
-            # @example
-            # ```ruby
-            # identification => {
-            #   id_number: String,
-            #   id_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType,
-            #   issuing_country: String
-            # }
-            # ```
             class Identification < ModernTreasury::BaseModel
               # @!attribute id_number
               #   The ID number of identification document.
@@ -1104,12 +1026,6 @@ module ModernTreasury
               #   def self.values; end
             end
 
-            # @example
-            # ```ruby
-            # phone_number => {
-            #   phone_number: String
-            # }
-            # ```
             class PhoneNumber < ModernTreasury::BaseModel
               # @!attribute [r] phone_number
               #
@@ -1222,12 +1138,6 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        # @example
-        # ```ruby
-        # phone_number => {
-        #   phone_number: String
-        # }
-        # ```
         class PhoneNumber < ModernTreasury::BaseModel
           # @!attribute [r] phone_number
           #

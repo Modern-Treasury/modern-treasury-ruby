@@ -30,6 +30,21 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
     assert_pattern do
       response => ModernTreasury::Models::InternalAccounts::BalanceReport
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        as_of_date: Date,
+        as_of_time: String | nil,
+        balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
+        balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        created_at: Time,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve_required_params
@@ -40,6 +55,21 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
 
     assert_pattern do
       response => ModernTreasury::Models::InternalAccounts::BalanceReport
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        as_of_date: Date,
+        as_of_time: String | nil,
+        balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
+        balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        created_at: Time,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 
@@ -58,6 +88,21 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::InternalAccounts::BalanceReport
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        as_of_date: Date,
+        as_of_time: String | nil,
+        balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
+        balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
+        created_at: Time,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 

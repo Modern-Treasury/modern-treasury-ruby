@@ -139,16 +139,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # party_address => {
-      #   country: String,
-      #   line1: String,
-      #   locality: String,
-      #   postal_code: String,
-      #   region: String
-      # }
-      # ```
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]

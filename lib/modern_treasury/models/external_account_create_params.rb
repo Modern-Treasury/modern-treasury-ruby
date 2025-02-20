@@ -170,13 +170,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # account_detail => {
-      #   account_number: String,
-      #   account_number_type: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType
-      # }
-      # ```
       class AccountDetail < ModernTreasury::BaseModel
         # @!attribute account_number
         #
@@ -241,13 +234,6 @@ module ModernTreasury
         end
       end
 
-      # @example
-      # ```ruby
-      # contact_detail => {
-      #   contact_identifier: String,
-      #   contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType
-      # }
-      # ```
       class ContactDetail < ModernTreasury::BaseModel
         # @!attribute [r] contact_identifier
         #
@@ -303,17 +289,6 @@ module ModernTreasury
         end
       end
 
-      # @example
-      # ```ruby
-      # ledger_account => {
-      #   currency: String,
-      #   ledger_id: String,
-      #   name: String,
-      #   normal_balance: ModernTreasury::Models::TransactionDirection,
-      #   currency_exponent: Integer,
-      #   **_
-      # }
-      # ```
       class LedgerAccount < ModernTreasury::BaseModel
         # @!attribute currency
         #   The currency of the ledger account.
@@ -467,16 +442,6 @@ module ModernTreasury
         end
       end
 
-      # @example
-      # ```ruby
-      # party_address => {
-      #   country: String,
-      #   line1: String,
-      #   line2: String,
-      #   locality: String,
-      #   postal_code: String
-      # }
-      # ```
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -552,14 +517,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # routing_detail => {
-      #   routing_number: String,
-      #   routing_number_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType,
-      #   payment_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType
-      # }
-      # ```
       class RoutingDetail < ModernTreasury::BaseModel
         # @!attribute routing_number
         #

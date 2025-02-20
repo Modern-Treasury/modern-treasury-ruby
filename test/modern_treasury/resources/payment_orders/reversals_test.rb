@@ -17,6 +17,22 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < Minitest::
     assert_pattern do
       response => ModernTreasury::Models::PaymentOrders::Reversal
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        payment_order_id: String | nil,
+        reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
+        status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
+        transaction_ids: ^(ModernTreasury::ArrayOf[ModernTreasury::Unknown, nil?: true]),
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve_required_params
@@ -27,6 +43,22 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < Minitest::
 
     assert_pattern do
       response => ModernTreasury::Models::PaymentOrders::Reversal
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        payment_order_id: String | nil,
+        reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
+        status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
+        transaction_ids: ^(ModernTreasury::ArrayOf[ModernTreasury::Unknown, nil?: true]),
+        updated_at: Time
+      }
     end
   end
 
@@ -45,6 +77,22 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < Minitest::
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::PaymentOrders::Reversal
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        created_at: Time,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        payment_order_id: String | nil,
+        reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
+        status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
+        transaction_ids: ^(ModernTreasury::ArrayOf[ModernTreasury::Unknown, nil?: true]),
+        updated_at: Time
+      }
     end
   end
 end

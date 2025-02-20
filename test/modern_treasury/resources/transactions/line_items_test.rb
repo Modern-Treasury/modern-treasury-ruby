@@ -21,6 +21,26 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < Minitest::T
     assert_pattern do
       response => ModernTreasury::Models::Transactions::TransactionLineItem
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        counterparty_id: String | nil,
+        created_at: Time,
+        description: String,
+        discarded_at: Time | nil,
+        expected_payment_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reconcilable: ModernTreasury::BooleanModel,
+        transactable_id: String | nil,
+        transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
+        transaction_id: String,
+        type: ModernTreasury::Models::Transactions::TransactionLineItem::Type,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -28,6 +48,26 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < Minitest::T
 
     assert_pattern do
       response => ModernTreasury::Models::Transactions::TransactionLineItem
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        counterparty_id: String | nil,
+        created_at: Time,
+        description: String,
+        discarded_at: Time | nil,
+        expected_payment_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reconcilable: ModernTreasury::BooleanModel,
+        transactable_id: String | nil,
+        transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
+        transaction_id: String,
+        type: ModernTreasury::Models::Transactions::TransactionLineItem::Type,
+        updated_at: Time
+      }
     end
   end
 
@@ -46,6 +86,26 @@ class ModernTreasury::Test::Resources::Transactions::LineItemsTest < Minitest::T
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::Transactions::TransactionLineItem
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        amount: Integer,
+        counterparty_id: String | nil,
+        created_at: Time,
+        description: String,
+        discarded_at: Time | nil,
+        expected_payment_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reconcilable: ModernTreasury::BooleanModel,
+        transactable_id: String | nil,
+        transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType | nil,
+        transaction_id: String,
+        type: ModernTreasury::Models::Transactions::TransactionLineItem::Type,
+        updated_at: Time
+      }
     end
   end
 

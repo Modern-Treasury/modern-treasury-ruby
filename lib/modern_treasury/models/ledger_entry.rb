@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # ledger_entry => {
-    #   id: String,
-    #   amount: Integer,
-    #   created_at: Time,
-    #   direction: ModernTreasury::Models::TransactionDirection,
-    #   discarded_at: Time,
-    #   **_
-    # }
-    # ```
     class LedgerEntry < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -165,14 +154,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # resulting_ledger_account_balances => {
-      #   available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
-      #   pending_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
-      #   posted_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
-      # }
-      # ```
       class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
@@ -215,16 +196,6 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @example
-        # ```ruby
-        # available_balance => {
-        #   amount: Integer,
-        #   credits: Integer,
-        #   currency: String,
-        #   currency_exponent: Integer,
-        #   debits: Integer
-        # }
-        # ```
         class AvailableBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -270,16 +241,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
-        # @example
-        # ```ruby
-        # pending_balance => {
-        #   amount: Integer,
-        #   credits: Integer,
-        #   currency: String,
-        #   currency_exponent: Integer,
-        #   debits: Integer
-        # }
-        # ```
         class PendingBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -322,16 +283,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
-        # @example
-        # ```ruby
-        # posted_balance => {
-        #   amount: Integer,
-        #   credits: Integer,
-        #   currency: String,
-        #   currency_exponent: Integer,
-        #   debits: Integer
-        # }
-        # ```
         class PostedBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #

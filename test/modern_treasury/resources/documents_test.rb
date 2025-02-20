@@ -23,6 +23,23 @@ class ModernTreasury::Test::Resources::DocumentsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Document
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        document_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_type: String | nil,
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::Document::DocumentableType,
+        file: ModernTreasury::Models::Document::File,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        source: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -30,6 +47,23 @@ class ModernTreasury::Test::Resources::DocumentsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::Document
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        document_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_type: String | nil,
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::Document::DocumentableType,
+        file: ModernTreasury::Models::Document::File,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        source: String,
+        updated_at: Time
+      }
     end
   end
 
@@ -48,6 +82,23 @@ class ModernTreasury::Test::Resources::DocumentsTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::Document
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        document_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail]),
+        document_type: String | nil,
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::Document::DocumentableType,
+        file: ModernTreasury::Models::Document::File,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        source: String,
+        updated_at: Time
+      }
     end
   end
 end

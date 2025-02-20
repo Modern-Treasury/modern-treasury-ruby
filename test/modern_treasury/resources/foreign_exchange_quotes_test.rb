@@ -20,6 +20,23 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < Minitest::Tes
     assert_pattern do
       response => ModernTreasury::Models::ForeignExchangeQuote
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        effective_at: Time,
+        expires_at: Time,
+        foreign_exchange_indicator: String,
+        foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        updated_at: Time,
+        vendor_id: String | nil
+      }
+    end
   end
 
   def test_retrieve
@@ -27,6 +44,23 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < Minitest::Tes
 
     assert_pattern do
       response => ModernTreasury::Models::ForeignExchangeQuote
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        effective_at: Time,
+        expires_at: Time,
+        foreign_exchange_indicator: String,
+        foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        updated_at: Time,
+        vendor_id: String | nil
+      }
     end
   end
 
@@ -45,6 +79,23 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < Minitest::Tes
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::ForeignExchangeQuote
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        created_at: Time,
+        effective_at: Time,
+        expires_at: Time,
+        foreign_exchange_indicator: String,
+        foreign_exchange_rate: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        updated_at: Time,
+        vendor_id: String | nil
+      }
     end
   end
 end

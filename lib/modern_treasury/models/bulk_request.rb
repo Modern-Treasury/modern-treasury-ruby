@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # bulk_request => {
-    #   id: String,
-    #   action_type: ModernTreasury::Models::BulkRequest::ActionType,
-    #   created_at: Time,
-    #   failed_result_count: Integer,
-    #   live_mode: ModernTreasury::BooleanModel,
-    #   **_
-    # }
-    # ```
     class BulkRequest < ModernTreasury::BaseModel
       # @!attribute id
       #

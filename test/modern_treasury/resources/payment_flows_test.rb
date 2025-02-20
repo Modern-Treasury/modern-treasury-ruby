@@ -23,6 +23,30 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::PaymentFlow
     end
+
+    assert_pattern do
+      response => {
+        id: String | nil,
+        amount: Integer | nil,
+        client_token: String | nil,
+        counterparty_id: String | nil,
+        created_at: Time | nil,
+        currency: String | nil,
+        direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
+        due_date: Date | nil,
+        effective_date_selection_enabled: ModernTreasury::BooleanModel | nil,
+        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
+        external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
+        live_mode: ModernTreasury::BooleanModel | nil,
+        object: String | nil,
+        originating_account_id: String | nil,
+        payment_order_id: String | nil,
+        receiving_account_id: String | nil,
+        selected_effective_date: Date | nil,
+        status: ModernTreasury::Models::PaymentFlow::Status | nil,
+        updated_at: Time | nil
+      }
+    end
   end
 
   def test_retrieve
@@ -31,6 +55,30 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::PaymentFlow
     end
+
+    assert_pattern do
+      response => {
+        id: String | nil,
+        amount: Integer | nil,
+        client_token: String | nil,
+        counterparty_id: String | nil,
+        created_at: Time | nil,
+        currency: String | nil,
+        direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
+        due_date: Date | nil,
+        effective_date_selection_enabled: ModernTreasury::BooleanModel | nil,
+        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
+        external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
+        live_mode: ModernTreasury::BooleanModel | nil,
+        object: String | nil,
+        originating_account_id: String | nil,
+        payment_order_id: String | nil,
+        receiving_account_id: String | nil,
+        selected_effective_date: Date | nil,
+        status: ModernTreasury::Models::PaymentFlow::Status | nil,
+        updated_at: Time | nil
+      }
+    end
   end
 
   def test_update_required_params
@@ -38,6 +86,30 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::PaymentFlow
+    end
+
+    assert_pattern do
+      response => {
+        id: String | nil,
+        amount: Integer | nil,
+        client_token: String | nil,
+        counterparty_id: String | nil,
+        created_at: Time | nil,
+        currency: String | nil,
+        direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
+        due_date: Date | nil,
+        effective_date_selection_enabled: ModernTreasury::BooleanModel | nil,
+        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
+        external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
+        live_mode: ModernTreasury::BooleanModel | nil,
+        object: String | nil,
+        originating_account_id: String | nil,
+        payment_order_id: String | nil,
+        receiving_account_id: String | nil,
+        selected_effective_date: Date | nil,
+        status: ModernTreasury::Models::PaymentFlow::Status | nil,
+        updated_at: Time | nil
+      }
     end
   end
 
@@ -56,6 +128,30 @@ class ModernTreasury::Test::Resources::PaymentFlowsTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::PaymentFlow
+    end
+
+    assert_pattern do
+      row => {
+        id: String | nil,
+        amount: Integer | nil,
+        client_token: String | nil,
+        counterparty_id: String | nil,
+        created_at: Time | nil,
+        currency: String | nil,
+        direction: ModernTreasury::Models::PaymentFlow::Direction | nil,
+        due_date: Date | nil,
+        effective_date_selection_enabled: ModernTreasury::BooleanModel | nil,
+        existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter | nil,
+        external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection | nil,
+        live_mode: ModernTreasury::BooleanModel | nil,
+        object: String | nil,
+        originating_account_id: String | nil,
+        payment_order_id: String | nil,
+        receiving_account_id: String | nil,
+        selected_effective_date: Date | nil,
+        status: ModernTreasury::Models::PaymentFlow::Status | nil,
+        updated_at: Time | nil
+      }
     end
   end
 end

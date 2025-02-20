@@ -23,6 +23,26 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < Minitest::T
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountStatementCreateResponse
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        description: String | nil,
+        effective_at_lower_bound: Time,
+        effective_at_upper_bound: Time,
+        ending_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer,
+        ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection,
+        ledger_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        starting_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -30,6 +50,26 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < Minitest::T
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountStatementRetrieveResponse
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        description: String | nil,
+        effective_at_lower_bound: Time,
+        effective_at_upper_bound: Time,
+        ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer,
+        ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection,
+        ledger_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+        updated_at: Time
+      }
     end
   end
 end

@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # legal_entity => {
-    #   id: String,
-    #   addresses: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Address] === _1 },
-    #   bank_settings: ModernTreasury::Models::BankSettings,
-    #   business_name: String,
-    #   citizenship_country: String,
-    #   **_
-    # }
-    # ```
     class LegalEntity < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -262,17 +251,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # address => {
-      #   id: String,
-      #   address_types: -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntity::Address::AddressType] === _1 },
-      #   country: String,
-      #   created_at: Time,
-      #   discarded_at: Time,
-      #   **_
-      # }
-      # ```
       class Address < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -416,17 +394,6 @@ module ModernTreasury
         end
       end
 
-      # @example
-      # ```ruby
-      # identification => {
-      #   id: String,
-      #   created_at: Time,
-      #   discarded_at: Time,
-      #   id_type: ModernTreasury::Models::LegalEntity::Identification::IDType,
-      #   issuing_country: String,
-      #   **_
-      # }
-      # ```
       class Identification < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -605,12 +572,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # phone_number => {
-      #   phone_number: String
-      # }
-      # ```
       class PhoneNumber < ModernTreasury::BaseModel
         # @!attribute [r] phone_number
         #

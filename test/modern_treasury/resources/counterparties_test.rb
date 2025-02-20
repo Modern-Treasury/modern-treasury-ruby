@@ -17,6 +17,24 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Counterparty
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        accounts: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        created_at: Time,
+        discarded_at: Time | nil,
+        email: String | nil,
+        legal_entity_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        send_remittance_advice: ModernTreasury::BooleanModel,
+        updated_at: Time,
+        verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
+      }
+    end
   end
 
   def test_retrieve
@@ -25,6 +43,24 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Counterparty
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        accounts: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        created_at: Time,
+        discarded_at: Time | nil,
+        email: String | nil,
+        legal_entity_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        send_remittance_advice: ModernTreasury::BooleanModel,
+        updated_at: Time,
+        verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
+      }
+    end
   end
 
   def test_update
@@ -32,6 +68,24 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::Counterparty
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        accounts: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        created_at: Time,
+        discarded_at: Time | nil,
+        email: String | nil,
+        legal_entity_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        send_remittance_advice: ModernTreasury::BooleanModel,
+        updated_at: Time,
+        verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
+      }
     end
   end
 
@@ -51,6 +105,24 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Minitest::Test
     assert_pattern do
       row => ModernTreasury::Models::Counterparty
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        accounts: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        created_at: Time,
+        discarded_at: Time | nil,
+        email: String | nil,
+        legal_entity_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        send_remittance_advice: ModernTreasury::BooleanModel,
+        updated_at: Time,
+        verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
+      }
+    end
   end
 
   def test_delete
@@ -66,6 +138,14 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::CounterpartyCollectAccountResponse
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        form_link: String,
+        is_resend: ModernTreasury::BooleanModel
+      }
     end
   end
 end

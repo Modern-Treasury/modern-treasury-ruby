@@ -107,17 +107,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # ledger_entry => {
-      #   amount: Integer,
-      #   direction: ModernTreasury::Models::TransactionDirection,
-      #   ledger_account_id: String,
-      #   available_balance_amount: -> { ModernTreasury::HashOf[Integer] === _1 },
-      #   lock_version: Integer,
-      #   **_
-      # }
-      # ```
       class LedgerEntry < ModernTreasury::BaseModel
         # @!attribute amount
         #   Value in specified currency's smallest unit. e.g. $10 would be represented

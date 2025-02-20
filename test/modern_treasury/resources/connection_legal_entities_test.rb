@@ -17,6 +17,21 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < Minitest::T
     assert_pattern do
       response => ModernTreasury::Models::ConnectionLegalEntity
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        connection_id: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        legal_entity_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        status: ModernTreasury::Models::ConnectionLegalEntity::Status,
+        updated_at: Time,
+        vendor_id: String
+      }
+    end
   end
 
   def test_retrieve
@@ -25,6 +40,21 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < Minitest::T
     assert_pattern do
       response => ModernTreasury::Models::ConnectionLegalEntity
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        connection_id: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        legal_entity_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        status: ModernTreasury::Models::ConnectionLegalEntity::Status,
+        updated_at: Time,
+        vendor_id: String
+      }
+    end
   end
 
   def test_update
@@ -32,6 +62,21 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < Minitest::T
 
     assert_pattern do
       response => ModernTreasury::Models::ConnectionLegalEntity
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        connection_id: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        legal_entity_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        status: ModernTreasury::Models::ConnectionLegalEntity::Status,
+        updated_at: Time,
+        vendor_id: String
+      }
     end
   end
 
@@ -50,6 +95,21 @@ class ModernTreasury::Test::Resources::ConnectionLegalEntitiesTest < Minitest::T
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::ConnectionLegalEntity
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        connection_id: String,
+        created_at: Time,
+        discarded_at: Time | nil,
+        legal_entity_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        status: ModernTreasury::Models::ConnectionLegalEntity::Status,
+        updated_at: Time,
+        vendor_id: String
+      }
     end
   end
 end
