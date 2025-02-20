@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # wealth_and_employment_details => {
-    #   id: String,
-    #   annual_income: Integer,
-    #   created_at: Time,
-    #   discarded_at: Time,
-    #   employer_country: String,
-    #   **_
-    # }
-    # ```
     class WealthAndEmploymentDetails < ModernTreasury::BaseModel
       # @!attribute id
       #

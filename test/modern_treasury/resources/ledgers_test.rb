@@ -17,6 +17,20 @@ class ModernTreasury::Test::Resources::LedgersTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Ledger
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -25,6 +39,20 @@ class ModernTreasury::Test::Resources::LedgersTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Ledger
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_update
@@ -32,6 +60,20 @@ class ModernTreasury::Test::Resources::LedgersTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::Ledger
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 
@@ -51,6 +93,20 @@ class ModernTreasury::Test::Resources::LedgersTest < Minitest::Test
     assert_pattern do
       row => ModernTreasury::Models::Ledger
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_delete
@@ -58,6 +114,20 @@ class ModernTreasury::Test::Resources::LedgersTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::Ledger
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 end

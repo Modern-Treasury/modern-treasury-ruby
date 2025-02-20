@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # internal_account => {
-    #   id: String,
-    #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] === _1 },
-    #   account_type: ModernTreasury::Models::InternalAccount::AccountType,
-    #   connection: ModernTreasury::Models::Connection,
-    #   counterparty_id: String,
-    #   **_
-    # }
-    # ```
     class InternalAccount < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -214,17 +203,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # party_address => {
-      #   id: String,
-      #   country: String,
-      #   created_at: Time,
-      #   line1: String,
-      #   line2: String,
-      #   **_
-      # }
-      # ```
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute id
         #

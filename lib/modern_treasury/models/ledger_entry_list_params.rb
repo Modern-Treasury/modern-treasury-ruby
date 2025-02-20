@@ -269,13 +269,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # order_by => {
-      #   created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt,
-      #   effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt
-      # }
-      # ```
       class OrderBy < ModernTreasury::BaseModel
         # @!attribute [r] created_at
         #

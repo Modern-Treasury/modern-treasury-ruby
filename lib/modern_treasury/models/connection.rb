@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # connection => {
-    #   id: String,
-    #   created_at: Time,
-    #   discarded_at: Time,
-    #   live_mode: ModernTreasury::BooleanModel,
-    #   object: String,
-    #   **_
-    # }
-    # ```
     class Connection < ModernTreasury::BaseModel
       # @!attribute id
       #

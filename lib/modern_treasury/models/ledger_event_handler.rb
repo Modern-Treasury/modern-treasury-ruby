@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # ledger_event_handler => {
-    #   id: String,
-    #   conditions: ModernTreasury::Models::LedgerEventHandler::Conditions,
-    #   created_at: Time,
-    #   description: String,
-    #   discarded_at: Time,
-    #   **_
-    # }
-    # ```
     class LedgerEventHandler < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -125,14 +114,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # conditions => {
-      #   field: String,
-      #   operator: String,
-      #   value: String
-      # }
-      # ```
       class Conditions < ModernTreasury::BaseModel
         # @!attribute field
         #   The LHS of the conditional.
@@ -162,15 +143,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # ledger_transaction_template => {
-      #   description: String,
-      #   effective_at: String,
-      #   ledger_entries: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry] === _1 },
-      #   status: String
-      # }
-      # ```
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
         # @!attribute description
         #   An optional description for internal use.
@@ -208,14 +180,6 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @example
-        # ```ruby
-        # ledger_entry => {
-        #   amount: String,
-        #   direction: String,
-        #   ledger_account_id: String
-        # }
-        # ```
         class LedgerEntry < ModernTreasury::BaseModel
           # @!attribute amount
           #   The LHS of the conditional.

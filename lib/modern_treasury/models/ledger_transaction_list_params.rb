@@ -280,13 +280,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # order_by => {
-      #   created_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt,
-      #   effective_at: ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt
-      # }
-      # ```
       class OrderBy < ModernTreasury::BaseModel
         # @!attribute [r] created_at
         #

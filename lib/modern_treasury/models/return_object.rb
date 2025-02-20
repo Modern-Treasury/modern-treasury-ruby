@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # return_object => {
-    #   id: String,
-    #   amount: Integer,
-    #   code: ModernTreasury::Models::ReturnObject::Code,
-    #   created_at: Time,
-    #   currency: ModernTreasury::Models::Currency,
-    #   **_
-    # }
-    # ```
     class ReturnObject < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -297,17 +286,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # reference_number => {
-      #   id: String,
-      #   created_at: Time,
-      #   live_mode: ModernTreasury::BooleanModel,
-      #   object: String,
-      #   reference_number: String,
-      #   **_
-      # }
-      # ```
       class ReferenceNumber < ModernTreasury::BaseModel
         # @!attribute id
         #

@@ -17,6 +17,30 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::ExternalAccount
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_type: ModernTreasury::Models::ExternalAccountType,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail]),
+        counterparty_id: String | nil,
+        created_at: Time,
+        discarded_at: Time | nil,
+        ledger_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        party_address: ModernTreasury::Models::ExternalAccount::PartyAddress | nil,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        updated_at: Time,
+        verification_source: ModernTreasury::Models::ExternalAccount::VerificationSource | nil,
+        verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus
+      }
+    end
   end
 
   def test_retrieve
@@ -25,6 +49,30 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::ExternalAccount
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_type: ModernTreasury::Models::ExternalAccountType,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail]),
+        counterparty_id: String | nil,
+        created_at: Time,
+        discarded_at: Time | nil,
+        ledger_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        party_address: ModernTreasury::Models::ExternalAccount::PartyAddress | nil,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        updated_at: Time,
+        verification_source: ModernTreasury::Models::ExternalAccount::VerificationSource | nil,
+        verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus
+      }
+    end
   end
 
   def test_update
@@ -32,6 +80,30 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::ExternalAccount
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_type: ModernTreasury::Models::ExternalAccountType,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail]),
+        counterparty_id: String | nil,
+        created_at: Time,
+        discarded_at: Time | nil,
+        ledger_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        party_address: ModernTreasury::Models::ExternalAccount::PartyAddress | nil,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        updated_at: Time,
+        verification_source: ModernTreasury::Models::ExternalAccount::VerificationSource | nil,
+        verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus
+      }
     end
   end
 
@@ -51,6 +123,30 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
     assert_pattern do
       row => ModernTreasury::Models::ExternalAccount
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_type: ModernTreasury::Models::ExternalAccountType,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail]),
+        counterparty_id: String | nil,
+        created_at: Time,
+        discarded_at: Time | nil,
+        ledger_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        party_address: ModernTreasury::Models::ExternalAccount::PartyAddress | nil,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        updated_at: Time,
+        verification_source: ModernTreasury::Models::ExternalAccount::VerificationSource | nil,
+        verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus
+      }
+    end
   end
 
   def test_delete
@@ -66,6 +162,30 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::ExternalAccount
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_type: ModernTreasury::Models::ExternalAccountType,
+        contact_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail]),
+        counterparty_id: String | nil,
+        created_at: Time,
+        discarded_at: Time | nil,
+        ledger_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String | nil,
+        object: String,
+        party_address: ModernTreasury::Models::ExternalAccount::PartyAddress | nil,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccount::PartyType | nil,
+        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        updated_at: Time,
+        verification_source: ModernTreasury::Models::ExternalAccount::VerificationSource | nil,
+        verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus
+      }
     end
   end
 

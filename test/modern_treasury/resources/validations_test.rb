@@ -20,5 +20,16 @@ class ModernTreasury::Test::Resources::ValidationsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::RoutingNumberLookupRequest
     end
+
+    assert_pattern do
+      response => {
+        bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress | nil,
+        bank_name: String | nil,
+        routing_number: String | nil,
+        routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType | nil,
+        sanctions: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]) | nil,
+        supported_payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType]) | nil
+      }
+    end
   end
 end

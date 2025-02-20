@@ -60,15 +60,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # posted_ledger_entry => {
-      #   amount: Integer,
-      #   direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction,
-      #   ledger_account_id: String,
-      #   metadata: -> { ModernTreasury::HashOf[String] === _1 }
-      # }
-      # ```
       class PostedLedgerEntry < ModernTreasury::BaseModel
         # @!attribute amount
         #   Value in specified currency's smallest unit. e.g. $10 would be represented

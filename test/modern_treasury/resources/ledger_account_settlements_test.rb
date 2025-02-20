@@ -20,6 +20,28 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < Minitest::
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountSettlement
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer | nil,
+        contra_ledger_account_id: String,
+        created_at: Time,
+        currency: String,
+        currency_exponent: Integer | nil,
+        description: String | nil,
+        effective_at_upper_bound: Time,
+        ledger_id: String,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        settled_ledger_account_id: String,
+        settlement_entry_direction: String | nil,
+        status: ModernTreasury::Models::LedgerAccountSettlement::Status,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -28,6 +50,28 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < Minitest::
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountSettlement
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer | nil,
+        contra_ledger_account_id: String,
+        created_at: Time,
+        currency: String,
+        currency_exponent: Integer | nil,
+        description: String | nil,
+        effective_at_upper_bound: Time,
+        ledger_id: String,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        settled_ledger_account_id: String,
+        settlement_entry_direction: String | nil,
+        status: ModernTreasury::Models::LedgerAccountSettlement::Status,
+        updated_at: Time
+      }
+    end
   end
 
   def test_update
@@ -35,6 +79,28 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < Minitest::
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountSettlement
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer | nil,
+        contra_ledger_account_id: String,
+        created_at: Time,
+        currency: String,
+        currency_exponent: Integer | nil,
+        description: String | nil,
+        effective_at_upper_bound: Time,
+        ledger_id: String,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        settled_ledger_account_id: String,
+        settlement_entry_direction: String | nil,
+        status: ModernTreasury::Models::LedgerAccountSettlement::Status,
+        updated_at: Time
+      }
     end
   end
 
@@ -53,6 +119,28 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < Minitest::
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::LedgerAccountSettlement
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        amount: Integer | nil,
+        contra_ledger_account_id: String,
+        created_at: Time,
+        currency: String,
+        currency_exponent: Integer | nil,
+        description: String | nil,
+        effective_at_upper_bound: Time,
+        ledger_id: String,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        settled_ledger_account_id: String,
+        settlement_entry_direction: String | nil,
+        status: ModernTreasury::Models::LedgerAccountSettlement::Status,
+        updated_at: Time
+      }
     end
   end
 end

@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # expected_payment => {
-    #   id: String,
-    #   amount_lower_bound: Integer,
-    #   amount_upper_bound: Integer,
-    #   counterparty_id: String,
-    #   created_at: Time,
-    #   **_
-    # }
-    # ```
     class ExpectedPayment < ModernTreasury::BaseModel
       # @!attribute id
       #

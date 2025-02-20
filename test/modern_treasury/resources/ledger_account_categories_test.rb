@@ -22,6 +22,23 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Minitest::T
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountCategory
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccountCategory::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -30,6 +47,23 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Minitest::T
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountCategory
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccountCategory::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_update
@@ -37,6 +71,23 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Minitest::T
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountCategory
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccountCategory::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 
@@ -56,6 +107,23 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Minitest::T
     assert_pattern do
       row => ModernTreasury::Models::LedgerAccountCategory
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccountCategory::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_delete
@@ -63,6 +131,23 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < Minitest::T
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountCategory
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        balances: ModernTreasury::Models::LedgerAccountCategory::Balances,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        normal_balance: ModernTreasury::Models::TransactionDirection,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 

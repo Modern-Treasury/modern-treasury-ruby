@@ -78,15 +78,6 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        # @example
-        # ```ruby
-        # balance => {
-        #   amount: Integer,
-        #   balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType,
-        #   vendor_code: String,
-        #   vendor_code_type: String
-        # }
-        # ```
         class Balance < ModernTreasury::BaseModel
           # @!attribute amount
           #   The balance amount.

@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # paper_item => {
-    #   id: String,
-    #   account_number: String,
-    #   account_number_safe: String,
-    #   amount: Integer,
-    #   check_number: String,
-    #   **_
-    # }
-    # ```
     class PaperItem < ModernTreasury::BaseModel
       # @!attribute id
       #

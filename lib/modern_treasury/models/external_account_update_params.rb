@@ -93,16 +93,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # party_address => {
-      #   country: String,
-      #   line1: String,
-      #   line2: String,
-      #   locality: String,
-      #   postal_code: String
-      # }
-      # ```
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]

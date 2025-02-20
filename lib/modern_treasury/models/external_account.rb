@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # external_account => {
-    #   id: String,
-    #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] === _1 },
-    #   account_type: ModernTreasury::Models::ExternalAccountType,
-    #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail] === _1 },
-    #   counterparty_id: String,
-    #   **_
-    # }
-    # ```
     class ExternalAccount < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -172,17 +161,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # contact_detail => {
-      #   id: String,
-      #   contact_identifier: String,
-      #   contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType,
-      #   created_at: Time,
-      #   discarded_at: Time,
-      #   **_
-      # }
-      # ```
       class ContactDetail < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -280,17 +258,6 @@ module ModernTreasury
         end
       end
 
-      # @example
-      # ```ruby
-      # party_address => {
-      #   id: String,
-      #   country: String,
-      #   created_at: Time,
-      #   line1: String,
-      #   line2: String,
-      #   **_
-      # }
-      # ```
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute id
         #

@@ -20,6 +20,34 @@ class ModernTreasury::Test::Resources::ReturnsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::ReturnObject
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        code: ModernTreasury::Models::ReturnObject::Code | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        current_return: ModernTreasury::Models::ReturnObject | nil,
+        date_of_death: Date | nil,
+        failure_reason: String | nil,
+        internal_account_id: String | nil,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reason: String | nil,
+        reference_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
+        returnable_id: String | nil,
+        returnable_type: ModernTreasury::Models::ReturnObject::ReturnableType | nil,
+        role: ModernTreasury::Models::ReturnObject::Role,
+        status: ModernTreasury::Models::ReturnObject::Status,
+        transaction_id: String | nil,
+        transaction_line_item_id: String | nil,
+        type: ModernTreasury::Models::ReturnObject::Type,
+        updated_at: Time,
+        additional_information: String | nil
+      }
+    end
   end
 
   def test_retrieve
@@ -27,6 +55,34 @@ class ModernTreasury::Test::Resources::ReturnsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::ReturnObject
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        code: ModernTreasury::Models::ReturnObject::Code | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        current_return: ModernTreasury::Models::ReturnObject | nil,
+        date_of_death: Date | nil,
+        failure_reason: String | nil,
+        internal_account_id: String | nil,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reason: String | nil,
+        reference_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
+        returnable_id: String | nil,
+        returnable_type: ModernTreasury::Models::ReturnObject::ReturnableType | nil,
+        role: ModernTreasury::Models::ReturnObject::Role,
+        status: ModernTreasury::Models::ReturnObject::Status,
+        transaction_id: String | nil,
+        transaction_line_item_id: String | nil,
+        type: ModernTreasury::Models::ReturnObject::Type,
+        updated_at: Time,
+        additional_information: String | nil
+      }
     end
   end
 
@@ -45,6 +101,34 @@ class ModernTreasury::Test::Resources::ReturnsTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::ReturnObject
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        amount: Integer,
+        code: ModernTreasury::Models::ReturnObject::Code | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        current_return: ModernTreasury::Models::ReturnObject | nil,
+        date_of_death: Date | nil,
+        failure_reason: String | nil,
+        internal_account_id: String | nil,
+        ledger_transaction_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reason: String | nil,
+        reference_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::ReturnObject::ReferenceNumber]),
+        returnable_id: String | nil,
+        returnable_type: ModernTreasury::Models::ReturnObject::ReturnableType | nil,
+        role: ModernTreasury::Models::ReturnObject::Role,
+        status: ModernTreasury::Models::ReturnObject::Status,
+        transaction_id: String | nil,
+        transaction_line_item_id: String | nil,
+        type: ModernTreasury::Models::ReturnObject::Type,
+        updated_at: Time,
+        additional_information: String | nil
+      }
     end
   end
 end
