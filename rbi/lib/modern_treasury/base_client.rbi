@@ -93,7 +93,8 @@ module ModernTreasury
     end
 
     sig do
-      params(req: ModernTreasury::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
+      overridable
+        .params(req: ModernTreasury::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
         .returns(ModernTreasury::BaseClient::RequestInputShape)
     end
     private def build_request(req, opts)
