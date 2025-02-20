@@ -26,7 +26,7 @@ module ModernTreasury
       params(
         client: ModernTreasury::BaseClient,
         req: ModernTreasury::BaseClient::RequestComponentsShape,
-        headers: T::Hash[String, String],
+        headers: T.any(T::Hash[String, String], Net::HTTPHeader),
         unwrapped: T::Hash[Symbol, T.anything]
       )
         .void
