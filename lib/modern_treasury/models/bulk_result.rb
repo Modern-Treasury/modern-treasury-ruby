@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # bulk_result => {
-    #   id: String,
-    #   created_at: Time,
-    #   entity: ModernTreasury::Models::BulkResult::Entity,
-    #   entity_id: String,
-    #   entity_type: ModernTreasury::Models::BulkResult::EntityType,
-    #   **_
-    # }
-    # ```
     class BulkResult < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -157,16 +146,6 @@ module ModernTreasury
 
         variant -> { ModernTreasury::Models::BulkResult::Entity::BulkError }
 
-        # @example
-        # ```ruby
-        # bulk_error => {
-        #   id: String,
-        #   created_at: Time,
-        #   live_mode: ModernTreasury::BooleanModel,
-        #   object: String,
-        #   request_errors: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError] === _1 }
-        # }
-        # ```
         class BulkError < ModernTreasury::BaseModel
           # @!attribute id
           #
@@ -213,14 +192,6 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-          # @example
-          # ```ruby
-          # request_error => {
-          #   code: String,
-          #   message: String,
-          #   parameter: String
-          # }
-          # ```
           class RequestError < ModernTreasury::BaseModel
             # @!attribute [r] code
             #

@@ -17,6 +17,21 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::LedgerableEvent
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        custom_data: ModernTreasury::Unknown | nil,
+        description: String | nil,
+        ledger_event_handler_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        name: String,
+        object: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -24,6 +39,21 @@ class ModernTreasury::Test::Resources::LedgerableEventsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerableEvent
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        custom_data: ModernTreasury::Unknown | nil,
+        description: String | nil,
+        ledger_event_handler_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        name: String,
+        object: String,
+        updated_at: Time
+      }
     end
   end
 end

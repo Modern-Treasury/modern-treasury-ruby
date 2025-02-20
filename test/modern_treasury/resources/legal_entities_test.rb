@@ -17,6 +17,41 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::LegalEntity
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        addresses: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Address]),
+        bank_settings: ModernTreasury::Models::BankSettings | nil,
+        business_name: String | nil,
+        citizenship_country: String | nil,
+        created_at: Time,
+        date_formed: Date | nil,
+        date_of_birth: Date | nil,
+        discarded_at: Time | nil,
+        doing_business_as_names: ^(ModernTreasury::ArrayOf[String]),
+        email: String | nil,
+        first_name: String | nil,
+        identifications: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Identification]),
+        last_name: String | nil,
+        legal_entity_associations: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation]) | nil,
+        legal_entity_type: ModernTreasury::Models::LegalEntity::LegalEntityType,
+        legal_structure: ModernTreasury::Models::LegalEntity::LegalStructure | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        middle_name: String | nil,
+        object: String,
+        phone_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber]),
+        politically_exposed_person: ModernTreasury::BooleanModel | nil,
+        preferred_name: String | nil,
+        prefix: String | nil,
+        risk_rating: ModernTreasury::Models::LegalEntity::RiskRating | nil,
+        suffix: String | nil,
+        updated_at: Time,
+        wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails | nil,
+        website: String | nil
+      }
+    end
   end
 
   def test_retrieve
@@ -25,6 +60,41 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::LegalEntity
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        addresses: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Address]),
+        bank_settings: ModernTreasury::Models::BankSettings | nil,
+        business_name: String | nil,
+        citizenship_country: String | nil,
+        created_at: Time,
+        date_formed: Date | nil,
+        date_of_birth: Date | nil,
+        discarded_at: Time | nil,
+        doing_business_as_names: ^(ModernTreasury::ArrayOf[String]),
+        email: String | nil,
+        first_name: String | nil,
+        identifications: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Identification]),
+        last_name: String | nil,
+        legal_entity_associations: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation]) | nil,
+        legal_entity_type: ModernTreasury::Models::LegalEntity::LegalEntityType,
+        legal_structure: ModernTreasury::Models::LegalEntity::LegalStructure | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        middle_name: String | nil,
+        object: String,
+        phone_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber]),
+        politically_exposed_person: ModernTreasury::BooleanModel | nil,
+        preferred_name: String | nil,
+        prefix: String | nil,
+        risk_rating: ModernTreasury::Models::LegalEntity::RiskRating | nil,
+        suffix: String | nil,
+        updated_at: Time,
+        wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails | nil,
+        website: String | nil
+      }
+    end
   end
 
   def test_update
@@ -32,6 +102,41 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::LegalEntity
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        addresses: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Address]),
+        bank_settings: ModernTreasury::Models::BankSettings | nil,
+        business_name: String | nil,
+        citizenship_country: String | nil,
+        created_at: Time,
+        date_formed: Date | nil,
+        date_of_birth: Date | nil,
+        discarded_at: Time | nil,
+        doing_business_as_names: ^(ModernTreasury::ArrayOf[String]),
+        email: String | nil,
+        first_name: String | nil,
+        identifications: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Identification]),
+        last_name: String | nil,
+        legal_entity_associations: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation]) | nil,
+        legal_entity_type: ModernTreasury::Models::LegalEntity::LegalEntityType,
+        legal_structure: ModernTreasury::Models::LegalEntity::LegalStructure | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        middle_name: String | nil,
+        object: String,
+        phone_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber]),
+        politically_exposed_person: ModernTreasury::BooleanModel | nil,
+        preferred_name: String | nil,
+        prefix: String | nil,
+        risk_rating: ModernTreasury::Models::LegalEntity::RiskRating | nil,
+        suffix: String | nil,
+        updated_at: Time,
+        wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails | nil,
+        website: String | nil
+      }
     end
   end
 
@@ -50,6 +155,41 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::LegalEntity
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        addresses: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Address]),
+        bank_settings: ModernTreasury::Models::BankSettings | nil,
+        business_name: String | nil,
+        citizenship_country: String | nil,
+        created_at: Time,
+        date_formed: Date | nil,
+        date_of_birth: Date | nil,
+        discarded_at: Time | nil,
+        doing_business_as_names: ^(ModernTreasury::ArrayOf[String]),
+        email: String | nil,
+        first_name: String | nil,
+        identifications: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Identification]),
+        last_name: String | nil,
+        legal_entity_associations: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityAssociation]) | nil,
+        legal_entity_type: ModernTreasury::Models::LegalEntity::LegalEntityType,
+        legal_structure: ModernTreasury::Models::LegalEntity::LegalStructure | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        middle_name: String | nil,
+        object: String,
+        phone_numbers: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::PhoneNumber]),
+        politically_exposed_person: ModernTreasury::BooleanModel | nil,
+        preferred_name: String | nil,
+        prefix: String | nil,
+        risk_rating: ModernTreasury::Models::LegalEntity::RiskRating | nil,
+        suffix: String | nil,
+        updated_at: Time,
+        wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails | nil,
+        website: String | nil
+      }
     end
   end
 end

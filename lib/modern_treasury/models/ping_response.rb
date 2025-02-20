@@ -2,12 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # ping_response => {
-    #   ping: String
-    # }
-    # ```
     class PingResponse < ModernTreasury::BaseModel
       # @!attribute ping
       #

@@ -30,6 +30,23 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::BulkRequest
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        action_type: ModernTreasury::Models::BulkRequest::ActionType,
+        created_at: Time,
+        failed_result_count: Integer,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
+        status: ModernTreasury::Models::BulkRequest::Status,
+        success_result_count: Integer,
+        total_resource_count: Integer,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve
@@ -37,6 +54,23 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::BulkRequest
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        action_type: ModernTreasury::Models::BulkRequest::ActionType,
+        created_at: Time,
+        failed_result_count: Integer,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
+        status: ModernTreasury::Models::BulkRequest::Status,
+        success_result_count: Integer,
+        total_resource_count: Integer,
+        updated_at: Time
+      }
     end
   end
 
@@ -55,6 +89,23 @@ class ModernTreasury::Test::Resources::BulkRequestsTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::BulkRequest
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        action_type: ModernTreasury::Models::BulkRequest::ActionType,
+        created_at: Time,
+        failed_result_count: Integer,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        resource_type: ModernTreasury::Models::BulkRequest::ResourceType,
+        status: ModernTreasury::Models::BulkRequest::Status,
+        success_result_count: Integer,
+        total_resource_count: Integer,
+        updated_at: Time
+      }
     end
   end
 end

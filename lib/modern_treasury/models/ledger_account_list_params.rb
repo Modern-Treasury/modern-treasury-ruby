@@ -196,16 +196,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # available_balance_amount => {
-      #   eq: Integer,
-      #   gt: Integer,
-      #   gte: Integer,
-      #   lt: Integer,
-      #   lte: Integer
-      # }
-      # ```
       class AvailableBalanceAmount < ModernTreasury::BaseModel
         # @!attribute [r] eq
         #
@@ -277,15 +267,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # balances => {
-      #   as_of_date: Date,
-      #   effective_at: Time,
-      #   effective_at_lower_bound: Time,
-      #   effective_at_upper_bound: Time
-      # }
-      # ```
       class Balances < ModernTreasury::BaseModel
         # @!attribute [r] as_of_date
         #
@@ -340,16 +321,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # pending_balance_amount => {
-      #   eq: Integer,
-      #   gt: Integer,
-      #   gte: Integer,
-      #   lt: Integer,
-      #   lte: Integer
-      # }
-      # ```
       class PendingBalanceAmount < ModernTreasury::BaseModel
         # @!attribute [r] eq
         #
@@ -421,16 +392,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # posted_balance_amount => {
-      #   eq: Integer,
-      #   gt: Integer,
-      #   gte: Integer,
-      #   lt: Integer,
-      #   lte: Integer
-      # }
-      # ```
       class PostedBalanceAmount < ModernTreasury::BaseModel
         # @!attribute [r] eq
         #

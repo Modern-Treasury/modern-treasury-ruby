@@ -25,6 +25,24 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::LedgerEventHandler
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions | nil,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String | nil,
+        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        name: String,
+        object: String,
+        updated_at: Time,
+        variables: ^(ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+      }
+    end
   end
 
   def test_retrieve
@@ -32,6 +50,24 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerEventHandler
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions | nil,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String | nil,
+        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        name: String,
+        object: String,
+        updated_at: Time,
+        variables: ^(ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+      }
     end
   end
 
@@ -51,6 +87,24 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Minitest::Test
     assert_pattern do
       row => ModernTreasury::Models::LedgerEventHandler
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions | nil,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String | nil,
+        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        name: String,
+        object: String,
+        updated_at: Time,
+        variables: ^(ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+      }
+    end
   end
 
   def test_delete
@@ -58,6 +112,24 @@ class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerEventHandler
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions | nil,
+        created_at: Time,
+        description: String | nil,
+        discarded_at: Time | nil,
+        ledger_id: String | nil,
+        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]) | nil,
+        name: String,
+        object: String,
+        updated_at: Time,
+        variables: ^(ModernTreasury::HashOf[ModernTreasury::Models::LedgerEventHandlerVariable]) | nil
+      }
     end
   end
 end

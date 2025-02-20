@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # payment_order => {
-    #   id: String,
-    #   accounting: ModernTreasury::Models::PaymentOrder::Accounting,
-    #   accounting_category_id: String,
-    #   accounting_ledger_class_id: String,
-    #   amount: Integer,
-    #   **_
-    # }
-    # ```
     class PaymentOrder < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -475,13 +464,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # accounting => {
-      #   account_id: String,
-      #   class_id: String
-      # }
-      # ```
       class Accounting < ModernTreasury::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
@@ -592,17 +574,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # foreign_exchange_rate => {
-      #   base_amount: Integer,
-      #   base_currency: ModernTreasury::Models::Currency,
-      #   exponent: Integer,
-      #   rate_string: String,
-      #   target_amount: Integer,
-      #   **_
-      # }
-      # ```
       class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
@@ -716,17 +687,6 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      # @example
-      # ```ruby
-      # reference_number => {
-      #   id: String,
-      #   created_at: Time,
-      #   live_mode: ModernTreasury::BooleanModel,
-      #   object: String,
-      #   reference_number: String,
-      #   **_
-      # }
-      # ```
       class ReferenceNumber < ModernTreasury::BaseModel
         # @!attribute id
         #

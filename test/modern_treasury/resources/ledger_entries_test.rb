@@ -17,6 +17,27 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::LedgerEntry
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        direction: ModernTreasury::Models::TransactionDirection,
+        discarded_at: Time | nil,
+        ledger_account_currency: String,
+        ledger_account_currency_exponent: Integer,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer | nil,
+        ledger_transaction_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
+        status: ModernTreasury::Models::LedgerEntry::Status,
+        updated_at: Time
+      }
+    end
   end
 
   def test_update
@@ -24,6 +45,27 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerEntry
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        direction: ModernTreasury::Models::TransactionDirection,
+        discarded_at: Time | nil,
+        ledger_account_currency: String,
+        ledger_account_currency_exponent: Integer,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer | nil,
+        ledger_transaction_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
+        status: ModernTreasury::Models::LedgerEntry::Status,
+        updated_at: Time
+      }
     end
   end
 
@@ -42,6 +84,27 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::LedgerEntry
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        direction: ModernTreasury::Models::TransactionDirection,
+        discarded_at: Time | nil,
+        ledger_account_currency: String,
+        ledger_account_currency_exponent: Integer,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer | nil,
+        ledger_transaction_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        resulting_ledger_account_balances: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances | nil,
+        status: ModernTreasury::Models::LedgerEntry::Status,
+        updated_at: Time
+      }
     end
   end
 end

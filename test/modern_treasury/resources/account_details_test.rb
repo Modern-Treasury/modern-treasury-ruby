@@ -21,6 +21,20 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::AccountDetail
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        account_number_safe: String,
+        account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
+        created_at: Time,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        updated_at: Time,
+        account_number: String | nil
+      }
+    end
   end
 
   def test_retrieve_required_params
@@ -32,6 +46,20 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::AccountDetail
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        account_number_safe: String,
+        account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
+        created_at: Time,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        updated_at: Time,
+        account_number: String | nil
+      }
     end
   end
 
@@ -50,6 +78,20 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::AccountDetail
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        account_number_safe: String,
+        account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType,
+        created_at: Time,
+        discarded_at: Time | nil,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        updated_at: Time,
+        account_number: String | nil
+      }
     end
   end
 

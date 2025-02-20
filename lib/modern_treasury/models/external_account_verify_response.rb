@@ -18,17 +18,6 @@ module ModernTreasury
 
       variant -> { ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt }
 
-      # @example
-      # ```ruby
-      # external_account_verification_attempt => {
-      #   id: String,
-      #   created_at: Time,
-      #   external_account_id: String,
-      #   live_mode: ModernTreasury::BooleanModel,
-      #   object: String,
-      #   **_
-      # }
-      # ```
       class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
         # @!attribute id
         #

@@ -136,12 +136,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # balances => {
-      #   effective_at: Time
-      # }
-      # ```
       class Balances < ModernTreasury::BaseModel
         # @!attribute [r] effective_at
         #

@@ -17,6 +17,20 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::PaymentReference
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reference_number: String,
+        reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,
+        referenceable_id: String,
+        referenceable_type: ModernTreasury::Models::PaymentReference::ReferenceableType,
+        updated_at: Time
+      }
+    end
   end
 
   def test_list
@@ -35,6 +49,20 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < Minitest::Test
     assert_pattern do
       row => ModernTreasury::Models::PaymentReference
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        created_at: Time,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reference_number: String,
+        reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,
+        referenceable_id: String,
+        referenceable_type: ModernTreasury::Models::PaymentReference::ReferenceableType,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retireve
@@ -42,6 +70,20 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::PaymentReference
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        created_at: Time,
+        live_mode: ModernTreasury::BooleanModel,
+        object: String,
+        reference_number: String,
+        reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType,
+        referenceable_id: String,
+        referenceable_type: ModernTreasury::Models::PaymentReference::ReferenceableType,
+        updated_at: Time
+      }
     end
   end
 end

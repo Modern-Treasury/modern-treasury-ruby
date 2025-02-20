@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # invoice => {
-    #   id: String,
-    #   amount_paid: Integer,
-    #   amount_remaining: Integer,
-    #   contact_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Invoice::ContactDetail] === _1 },
-    #   counterparty_billing_address: ModernTreasury::Models::Invoice::CounterpartyBillingAddress,
-    #   **_
-    # }
-    # ```
     class Invoice < ModernTreasury::BaseModel
       # @!attribute id
       #
@@ -336,17 +325,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # contact_detail => {
-      #   id: String,
-      #   contact_identifier: String,
-      #   contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType,
-      #   created_at: Time,
-      #   discarded_at: Time,
-      #   **_
-      # }
-      # ```
       class ContactDetail < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -444,16 +422,6 @@ module ModernTreasury
         end
       end
 
-      # @example
-      # ```ruby
-      # counterparty_billing_address => {
-      #   country: String,
-      #   line1: String,
-      #   locality: String,
-      #   postal_code: String,
-      #   region: String
-      # }
-      # ```
       class CounterpartyBillingAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -508,16 +476,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # counterparty_shipping_address => {
-      #   country: String,
-      #   line1: String,
-      #   locality: String,
-      #   postal_code: String,
-      #   region: String
-      # }
-      # ```
       class CounterpartyShippingAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -572,16 +530,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @example
-      # ```ruby
-      # invoicer_address => {
-      #   country: String,
-      #   line1: String,
-      #   locality: String,
-      #   postal_code: String,
-      #   region: String
-      # }
-      # ```
       class InvoicerAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]

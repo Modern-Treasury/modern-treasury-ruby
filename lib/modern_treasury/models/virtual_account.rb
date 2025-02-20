@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # virtual_account => {
-    #   id: String,
-    #   account_details: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] === _1 },
-    #   counterparty_id: String,
-    #   created_at: Time,
-    #   credit_ledger_account_id: String,
-    #   **_
-    # }
-    # ```
     class VirtualAccount < ModernTreasury::BaseModel
       # @!attribute id
       #

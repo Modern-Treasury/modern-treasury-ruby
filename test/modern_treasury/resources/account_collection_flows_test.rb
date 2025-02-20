@@ -20,6 +20,22 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < Minitest::Te
     assert_pattern do
       response => ModernTreasury::Models::AccountCollectionFlow
     end
+
+    assert_pattern do
+      response => {
+        counterparty_id: String,
+        payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        id: String | nil,
+        client_token: String | nil,
+        created_at: Time | nil,
+        external_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel | nil,
+        object: String | nil,
+        receiving_countries: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
+        status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
+        updated_at: Time | nil
+      }
+    end
   end
 
   def test_retrieve
@@ -28,6 +44,22 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < Minitest::Te
     assert_pattern do
       response => ModernTreasury::Models::AccountCollectionFlow
     end
+
+    assert_pattern do
+      response => {
+        counterparty_id: String,
+        payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        id: String | nil,
+        client_token: String | nil,
+        created_at: Time | nil,
+        external_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel | nil,
+        object: String | nil,
+        receiving_countries: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
+        status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
+        updated_at: Time | nil
+      }
+    end
   end
 
   def test_update_required_params
@@ -35,6 +67,22 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < Minitest::Te
 
     assert_pattern do
       response => ModernTreasury::Models::AccountCollectionFlow
+    end
+
+    assert_pattern do
+      response => {
+        counterparty_id: String,
+        payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        id: String | nil,
+        client_token: String | nil,
+        created_at: Time | nil,
+        external_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel | nil,
+        object: String | nil,
+        receiving_countries: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
+        status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
+        updated_at: Time | nil
+      }
     end
   end
 
@@ -53,6 +101,22 @@ class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < Minitest::Te
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::AccountCollectionFlow
+    end
+
+    assert_pattern do
+      row => {
+        counterparty_id: String,
+        payment_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::PaymentType]),
+        id: String | nil,
+        client_token: String | nil,
+        created_at: Time | nil,
+        external_account_id: String | nil,
+        live_mode: ModernTreasury::BooleanModel | nil,
+        object: String | nil,
+        receiving_countries: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry]) | nil,
+        status: ModernTreasury::Models::AccountCollectionFlow::Status | nil,
+        updated_at: Time | nil
+      }
     end
   end
 end

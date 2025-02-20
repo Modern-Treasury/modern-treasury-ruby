@@ -17,6 +17,24 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Invoices::InvoiceLineItem
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        description: String,
+        direction: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        quantity: Integer,
+        unit_amount: Integer,
+        unit_amount_decimal: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_retrieve_required_params
@@ -25,6 +43,24 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Invoices::InvoiceLineItem
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        description: String,
+        direction: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        quantity: Integer,
+        unit_amount: Integer,
+        unit_amount_decimal: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_update_required_params
@@ -32,6 +68,24 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::Invoices::InvoiceLineItem
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        description: String,
+        direction: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        quantity: Integer,
+        unit_amount: Integer,
+        unit_amount_decimal: String,
+        updated_at: Time
+      }
     end
   end
 
@@ -51,6 +105,24 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < Minitest::Test
     assert_pattern do
       row => ModernTreasury::Models::Invoices::InvoiceLineItem
     end
+
+    assert_pattern do
+      row => {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        description: String,
+        direction: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        quantity: Integer,
+        unit_amount: Integer,
+        unit_amount_decimal: String,
+        updated_at: Time
+      }
+    end
   end
 
   def test_delete_required_params
@@ -58,6 +130,24 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::Invoices::InvoiceLineItem
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        created_at: Time,
+        description: String,
+        direction: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        name: String,
+        object: String,
+        quantity: Integer,
+        unit_amount: Integer,
+        unit_amount_decimal: String,
+        updated_at: Time
+      }
     end
   end
 end

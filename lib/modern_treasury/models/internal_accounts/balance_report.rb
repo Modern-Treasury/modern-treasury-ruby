@@ -3,17 +3,6 @@
 module ModernTreasury
   module Models
     module InternalAccounts
-      # @example
-      # ```ruby
-      # balance_report => {
-      #   id: String,
-      #   as_of_date: Date,
-      #   as_of_time: String,
-      #   balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
-      #   balances: -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance] === _1 },
-      #   **_
-      # }
-      # ```
       class BalanceReport < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -137,17 +126,6 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        # @example
-        # ```ruby
-        # balance => {
-        #   id: String,
-        #   amount: Integer,
-        #   as_of_date: Date,
-        #   as_of_time: String,
-        #   balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType,
-        #   **_
-        # }
-        # ```
         class Balance < ModernTreasury::BaseModel
           # @!attribute id
           #

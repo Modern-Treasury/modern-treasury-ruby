@@ -24,6 +24,36 @@ class ModernTreasury::Test::Resources::TransactionsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Transaction
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        as_of_date: Date | nil,
+        as_of_time: String | nil,
+        as_of_timezone: String | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        custom_identifiers: ^(ModernTreasury::HashOf[String]),
+        direction: String,
+        discarded_at: Time | nil,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate | nil,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        posted: ModernTreasury::BooleanModel,
+        reconciled: ModernTreasury::BooleanModel,
+        type: ModernTreasury::Models::Transaction::Type,
+        updated_at: Time,
+        vendor_code: String | nil,
+        vendor_code_type: ModernTreasury::Models::Transaction::VendorCodeType | nil,
+        vendor_customer_id: String | nil,
+        vendor_id: String | nil,
+        details: ^(ModernTreasury::HashOf[String]) | nil,
+        vendor_description: String | nil
+      }
+    end
   end
 
   def test_retrieve
@@ -32,6 +62,36 @@ class ModernTreasury::Test::Resources::TransactionsTest < Minitest::Test
     assert_pattern do
       response => ModernTreasury::Models::Transaction
     end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        as_of_date: Date | nil,
+        as_of_time: String | nil,
+        as_of_timezone: String | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        custom_identifiers: ^(ModernTreasury::HashOf[String]),
+        direction: String,
+        discarded_at: Time | nil,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate | nil,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        posted: ModernTreasury::BooleanModel,
+        reconciled: ModernTreasury::BooleanModel,
+        type: ModernTreasury::Models::Transaction::Type,
+        updated_at: Time,
+        vendor_code: String | nil,
+        vendor_code_type: ModernTreasury::Models::Transaction::VendorCodeType | nil,
+        vendor_customer_id: String | nil,
+        vendor_id: String | nil,
+        details: ^(ModernTreasury::HashOf[String]) | nil,
+        vendor_description: String | nil
+      }
+    end
   end
 
   def test_update
@@ -39,6 +99,36 @@ class ModernTreasury::Test::Resources::TransactionsTest < Minitest::Test
 
     assert_pattern do
       response => ModernTreasury::Models::Transaction
+    end
+
+    assert_pattern do
+      response => {
+        id: String,
+        amount: Integer,
+        as_of_date: Date | nil,
+        as_of_time: String | nil,
+        as_of_timezone: String | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        custom_identifiers: ^(ModernTreasury::HashOf[String]),
+        direction: String,
+        discarded_at: Time | nil,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate | nil,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        posted: ModernTreasury::BooleanModel,
+        reconciled: ModernTreasury::BooleanModel,
+        type: ModernTreasury::Models::Transaction::Type,
+        updated_at: Time,
+        vendor_code: String | nil,
+        vendor_code_type: ModernTreasury::Models::Transaction::VendorCodeType | nil,
+        vendor_customer_id: String | nil,
+        vendor_id: String | nil,
+        details: ^(ModernTreasury::HashOf[String]) | nil,
+        vendor_description: String | nil
+      }
     end
   end
 
@@ -57,6 +147,36 @@ class ModernTreasury::Test::Resources::TransactionsTest < Minitest::Test
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::Transaction
+    end
+
+    assert_pattern do
+      row => {
+        id: String,
+        amount: Integer,
+        as_of_date: Date | nil,
+        as_of_time: String | nil,
+        as_of_timezone: String | nil,
+        created_at: Time,
+        currency: ModernTreasury::Models::Currency,
+        custom_identifiers: ^(ModernTreasury::HashOf[String]),
+        direction: String,
+        discarded_at: Time | nil,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate | nil,
+        internal_account_id: String,
+        live_mode: ModernTreasury::BooleanModel,
+        metadata: ^(ModernTreasury::HashOf[String]),
+        object: String,
+        posted: ModernTreasury::BooleanModel,
+        reconciled: ModernTreasury::BooleanModel,
+        type: ModernTreasury::Models::Transaction::Type,
+        updated_at: Time,
+        vendor_code: String | nil,
+        vendor_code_type: ModernTreasury::Models::Transaction::VendorCodeType | nil,
+        vendor_customer_id: String | nil,
+        vendor_id: String | nil,
+        details: ^(ModernTreasury::HashOf[String]) | nil,
+        vendor_description: String | nil
+      }
     end
   end
 

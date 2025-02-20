@@ -30,16 +30,6 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @example
-      # ```ruby
-      # balances => {
-      #   as_of_date: Date,
-      #   as_of_lock_version: Integer,
-      #   effective_at: Time,
-      #   effective_at_lower_bound: Time,
-      #   effective_at_upper_bound: Time
-      # }
-      # ```
       class Balances < ModernTreasury::BaseModel
         # @!attribute [r] as_of_date
         #

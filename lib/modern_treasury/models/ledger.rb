@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # ledger => {
-    #   id: String,
-    #   created_at: Time,
-    #   description: String,
-    #   discarded_at: Time,
-    #   live_mode: ModernTreasury::BooleanModel,
-    #   **_
-    # }
-    # ```
     class Ledger < ModernTreasury::BaseModel
       # @!attribute id
       #

@@ -2,17 +2,6 @@
 
 module ModernTreasury
   module Models
-    # @example
-    # ```ruby
-    # ledger_transaction => {
-    #   id: String,
-    #   created_at: Time,
-    #   description: String,
-    #   effective_at: Time,
-    #   effective_date: Date,
-    #   **_
-    # }
-    # ```
     class LedgerTransaction < ModernTreasury::BaseModel
       # @!attribute id
       #
