@@ -34,7 +34,7 @@ module ModernTreasury
     #
     # @param client [ModernTreasury::BaseClient]
     # @param req [Hash{Symbol=>Object}]
-    # @param headers [Hash{String=>String}]
+    # @param headers [Hash{String=>String}, Net::HTTPHeader]
     # @param unwrapped [Hash{Symbol=>Object}]
     #
     def initialize(client:, req:, headers:, unwrapped:)
