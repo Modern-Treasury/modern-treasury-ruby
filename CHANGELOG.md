@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.15 (2025-02-21)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
+
+### Features
+
+* make `build_request` overridable ([#238](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/238)) ([6e779f7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6e779f7d539463db7518abdc0c71913580f2ab1f))
+
+
+### Chores
+
+* add type annotations for requester ([#239](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/239)) ([fa0d3fe](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fa0d3fef94a8b038ef2b793feeb68e424a20c139))
+* **internal:** refactor request stack ([#237](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/237)) ([1aa2a1d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1aa2a1d4937b4bffc69705563612ed50fec39c82))
+* make MFA optional depending on token ([#234](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/234)) ([b5af3cf](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b5af3cfce0877b2b9acb88cf0a700ea911ecb7fe))
+* move basemodel examples into tests ([#236](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/236)) ([6243121](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/624312124e248600fb0292cabe46eccc0dc7f939))
+* reorganize import ordering ([#240](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/240)) ([e862d05](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e862d052b61501c761d2ca69b1eee81b7570c56d))
+* sort imports via topological dependency & file path ([#241](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/241)) ([2d17f3e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/2d17f3e3d27e8fdab2eff3574de3d65a2dc68f67))
+
 ## 0.1.0-alpha.14 (2025-02-19)
 
 Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
