@@ -369,7 +369,6 @@ module ModernTreasury
   # @abstract
   #
   class Union
-    extend ModernTreasury::Extern
     extend ModernTreasury::Converter
 
     # @private
@@ -842,7 +841,6 @@ module ModernTreasury
   # @abstract
   #
   class BaseModel
-    extend ModernTreasury::Extern
     extend ModernTreasury::Converter
 
     # @private

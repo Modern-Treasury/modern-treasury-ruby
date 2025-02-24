@@ -153,7 +153,6 @@ module ModernTreasury
   class Union
     abstract!
 
-    extend ModernTreasury::Extern
     extend ModernTreasury::Converter
 
     sig { returns(T::Array[[T.nilable(Symbol), Proc]]) }
@@ -331,7 +330,6 @@ module ModernTreasury
   class BaseModel
     abstract!
 
-    extend ModernTreasury::Extern
     extend ModernTreasury::Converter
 
     KnownFieldShape = T.type_alias { {mode: T.nilable(Symbol), required: T::Boolean} }
