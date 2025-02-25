@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    # @deprecated
+    #
     class LedgerEventHandlerVariable < ModernTreasury::BaseModel
       # @!attribute query
       #
@@ -23,6 +25,8 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @deprecated
+      #
       class Query < ModernTreasury::BaseModel
         # @!attribute field
         #   The LHS of the conditional.
