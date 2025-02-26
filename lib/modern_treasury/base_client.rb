@@ -77,8 +77,6 @@ module ModernTreasury
       #
       #   @option request [Object] :body
       #
-      #   @option request [Boolean] :streaming
-      #
       #   @option request [Integer] :max_retries
       #
       #   @option request [Float] :timeout
@@ -268,7 +266,6 @@ module ModernTreasury
         url: ModernTreasury::Util.join_parsed_uri(@base_url, {**req, path: path, query: query}),
         headers: headers,
         body: encoded,
-        streaming: false,
         max_retries: opts.fetch(:max_retries, @max_retries),
         timeout: timeout
       }
@@ -311,8 +308,6 @@ module ModernTreasury
     #
     #   @option request [Object] :body
     #
-    #   @option request [Boolean] :streaming
-    #
     #   @option request [Integer] :max_retries
     #
     #   @option request [Float] :timeout
@@ -341,14 +336,22 @@ module ModernTreasury
         status = e
       end
 
+      # normally we want to drain the response body and reuse the HTTP session by clearing the socket buffers
+      # unless we hit a server error
+      srv_fault = (500...).include?(status)
+
       case status
       in ..299
         [response, stream]
       in 300..399 if redirect_count >= self.class::MAX_REDIRECTS
         message = "Failed to complete the request within #{self.class::MAX_REDIRECTS} redirects."
+
+        stream.each { next }
         raise ModernTreasury::APIConnectionError.new(url: url, message: message)
       in 300..399
         request = self.class.follow_redirect(request, status: status, response_headers: response)
+
+        stream.each { next }
         send_request(
           request,
           redirect_count: redirect_count + 1,
@@ -363,6 +366,7 @@ module ModernTreasury
       ))
         decoded = ModernTreasury::Util.decode_content(response, stream: stream, suppress_error: true)
 
+        stream.each { srv_fault ? break : next }
         raise ModernTreasury::APIStatusError.for(
           url: url,
           status: status,
@@ -372,6 +376,8 @@ module ModernTreasury
         )
       in (400..) | ModernTreasury::APIConnectionError
         delay = retry_delay(response, retry_count: retry_count)
+
+        stream&.each { srv_fault ? break : next }
         sleep(delay)
 
         send_request(
@@ -381,8 +387,6 @@ module ModernTreasury
           send_retry_header: send_retry_header
         )
       end
-    ensure
-      stream&.each { break } unless status.is_a?(Integer) && status < 300
     end
 
     # @private
