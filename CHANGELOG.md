@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2025-02-26)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Features
+
+* add deprecation notice to enum members and resources ([#244](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/244)) ([fb72692](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fb72692ef48d0beeb9c5cc0ce29d9ce57cdb9fd5))
+* isolate platform headers ([#245](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/245)) ([37ee661](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/37ee661500df8b2a5c5b45fa48152a14ec7fb601))
+* use Time type instead of String ([#248](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/248)) ([43a8bce](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/43a8bce634d49d9e185c70030ba5eebbbee1fe88))
+
+
+### Chores
+
+* **internal:** group related utils together ([#247](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/247)) ([7433b72](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7433b728498965cd6c403d8111f0574dfec54335))
+* **internal:** prune unused `extern` references ([#242](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/242)) ([3a44bf4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3a44bf4d6624ed702295e6b7f434f2d1cec1f4a3))
+* **refactor:** improve requester internals ([#246](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/246)) ([cf4388f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cf4388faaf7f871a005a6ef60b9e0f44f4ea03b0))
+
 ## 0.1.0-alpha.15 (2025-02-21)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
