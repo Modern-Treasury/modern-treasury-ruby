@@ -9,6 +9,17 @@ module ModernTreasury
     # from whatwg fetch spec
     MAX_REDIRECTS = 20
 
+    # rubocop:disable Style/MutableConstant
+    PLATFORM_HEADERS = {
+      "x-stainless-arch" => ModernTreasury::Util.arch,
+      "x-stainless-lang" => "ruby",
+      "x-stainless-os" => ModernTreasury::Util.os,
+      "x-stainless-package-version" => ModernTreasury::VERSION,
+      "x-stainless-runtime" => ::RUBY_ENGINE,
+      "x-stainless-runtime-version" => ::RUBY_ENGINE_VERSION
+    }
+    # rubocop:enable Style/MutableConstant
+
     class << self
       # @private
       #
@@ -66,8 +77,6 @@ module ModernTreasury
       #
       #   @option request [Object] :body
       #
-      #   @option request [Boolean] :streaming
-      #
       #   @option request [Integer] :max_retries
       #
       #   @option request [Float] :timeout
@@ -81,14 +90,12 @@ module ModernTreasury
       def follow_redirect(request, status:, response_headers:)
         method, url, headers = request.fetch_values(:method, :url, :headers)
         location =
-          ModernTreasury::Util.suppress(ArgumentError) do
+          Kernel.then do
             URI.join(url, response_headers["location"])
+          rescue ArgumentError
+            message = "Server responded with status #{status} but no valid location header."
+            raise ModernTreasury::APIConnectionError.new(url: url, message: message)
           end
-
-        unless location
-          message = "Server responded with status #{status} but no valid location header."
-          raise ModernTreasury::APIConnectionError.new(url: url, message: message)
-        end
 
         request = {**request, url: location}
 
@@ -149,13 +156,10 @@ module ModernTreasury
     )
       @requester = ModernTreasury::PooledNetRequester.new
       @headers = ModernTreasury::Util.normalized_headers(
+        self.class::PLATFORM_HEADERS,
         {
-          "X-Stainless-Lang" => "ruby",
-          "X-Stainless-Package-Version" => ModernTreasury::VERSION,
-          "X-Stainless-Runtime" => RUBY_ENGINE,
-          "X-Stainless-Runtime-Version" => RUBY_ENGINE_VERSION,
-          "Content-Type" => "application/json",
-          "Accept" => "application/json"
+          "accept" => "application/json",
+          "content-type" => "application/json"
         },
         headers
       )
@@ -220,10 +224,7 @@ module ModernTreasury
 
       path = ModernTreasury::Util.interpolate_path(uninterpolated_path)
 
-      query = ModernTreasury::Util.deep_merge(
-        req[:query].to_h,
-        opts[:extra_query].to_h
-      )
+      query = ModernTreasury::Util.deep_merge(req[:query].to_h, opts[:extra_query].to_h)
 
       headers = ModernTreasury::Util.normalized_headers(
         @headers,
@@ -263,7 +264,6 @@ module ModernTreasury
         url: ModernTreasury::Util.join_parsed_uri(@base_url, {**req, path: path, query: query}),
         headers: headers,
         body: encoded,
-        streaming: false,
         max_retries: opts.fetch(:max_retries, @max_retries),
         timeout: timeout
       }
@@ -284,8 +284,10 @@ module ModernTreasury
       retry_header = headers["retry-after"]
       return span if (span = Float(retry_header, exception: false))
 
-      span = retry_header && ModernTreasury::Util.suppress(ArgumentError) do
-        Time.httpdate(retry_header) - Time.now
+      span = retry_header&.then do
+        Time.httpdate(_1) - Time.now
+      rescue ArgumentError
+        nil
       end
       return span if span
 
@@ -305,8 +307,6 @@ module ModernTreasury
     #   @option request [Hash{String=>String}] :headers
     #
     #   @option request [Object] :body
-    #
-    #   @option request [Boolean] :streaming
     #
     #   @option request [Integer] :max_retries
     #
@@ -336,14 +336,22 @@ module ModernTreasury
         status = e
       end
 
+      # normally we want to drain the response body and reuse the HTTP session by clearing the socket buffers
+      # unless we hit a server error
+      srv_fault = (500...).include?(status)
+
       case status
       in ..299
         [response, stream]
-      in 300..399 if redirect_count >= MAX_REDIRECTS
-        message = "Failed to complete the request within #{MAX_REDIRECTS} redirects."
+      in 300..399 if redirect_count >= self.class::MAX_REDIRECTS
+        message = "Failed to complete the request within #{self.class::MAX_REDIRECTS} redirects."
+
+        stream.each { next }
         raise ModernTreasury::APIConnectionError.new(url: url, message: message)
       in 300..399
         request = self.class.follow_redirect(request, status: status, response_headers: response)
+
+        stream.each { next }
         send_request(
           request,
           redirect_count: redirect_count + 1,
@@ -358,6 +366,7 @@ module ModernTreasury
       ))
         decoded = ModernTreasury::Util.decode_content(response, stream: stream, suppress_error: true)
 
+        stream.each { srv_fault ? break : next }
         raise ModernTreasury::APIStatusError.for(
           url: url,
           status: status,
@@ -367,6 +376,8 @@ module ModernTreasury
         )
       in (400..) | ModernTreasury::APIConnectionError
         delay = retry_delay(response, retry_count: retry_count)
+
+        stream&.each { srv_fault ? break : next }
         sleep(delay)
 
         send_request(
@@ -376,8 +387,6 @@ module ModernTreasury
           send_retry_header: send_retry_header
         )
       end
-    ensure
-      stream&.each { break } unless status.is_a?(Integer) && status < 300
     end
 
     # @private

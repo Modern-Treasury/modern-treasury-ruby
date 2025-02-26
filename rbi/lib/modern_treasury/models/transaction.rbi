@@ -27,11 +27,11 @@ module ModernTreasury
       def as_of_date=(_)
       end
 
-      sig { returns(T.nilable(String)) }
+      sig { returns(T.nilable(Time)) }
       def as_of_time
       end
 
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
       def as_of_time=(_)
       end
 
@@ -211,7 +211,7 @@ module ModernTreasury
           id: String,
           amount: Integer,
           as_of_date: T.nilable(Date),
-          as_of_time: T.nilable(String),
+          as_of_time: T.nilable(Time),
           as_of_timezone: T.nilable(String),
           created_at: Time,
           currency: Symbol,
@@ -272,7 +272,7 @@ module ModernTreasury
               id: String,
               amount: Integer,
               as_of_date: T.nilable(Date),
-              as_of_time: T.nilable(String),
+              as_of_time: T.nilable(Time),
               as_of_timezone: T.nilable(String),
               created_at: Time,
               currency: Symbol,

@@ -25,8 +25,8 @@ module ModernTreasury
       #   The time on which the transaction occurred. Depending on the granularity of the
       #     timestamp information received from the bank, it may be `null`.
       #
-      #   @return [String, nil]
-      required :as_of_time, String, nil?: true
+      #   @return [Time, nil]
+      required :as_of_time, Time, nil?: true
 
       # @!attribute as_of_timezone
       #   The timezone in which the `as_of_time` is represented. Can be `null` if the bank
@@ -178,7 +178,7 @@ module ModernTreasury
       #   # @param id [String]
       #   # @param amount [Integer]
       #   # @param as_of_date [Date, nil]
-      #   # @param as_of_time [String, nil]
+      #   # @param as_of_time [Time, nil]
       #   # @param as_of_timezone [String, nil]
       #   # @param created_at [Time]
       #   # @param currency [Symbol, ModernTreasury::Models::Currency]

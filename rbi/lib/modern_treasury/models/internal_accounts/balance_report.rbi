@@ -20,11 +20,11 @@ module ModernTreasury
         def as_of_date=(_)
         end
 
-        sig { returns(T.nilable(String)) }
+        sig { returns(T.nilable(Time)) }
         def as_of_time
         end
 
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
         def as_of_time=(_)
         end
 
@@ -91,7 +91,7 @@ module ModernTreasury
           params(
             id: String,
             as_of_date: Date,
-            as_of_time: T.nilable(String),
+            as_of_time: T.nilable(Time),
             balance_report_type: Symbol,
             balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
             created_at: Time,
@@ -122,7 +122,7 @@ module ModernTreasury
               {
                 id: String,
                 as_of_date: Date,
-                as_of_time: T.nilable(String),
+                as_of_time: T.nilable(Time),
                 balance_report_type: Symbol,
                 balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
                 created_at: Time,
@@ -174,11 +174,11 @@ module ModernTreasury
           def as_of_date=(_)
           end
 
-          sig { returns(T.nilable(String)) }
+          sig { returns(T.nilable(Time)) }
           def as_of_time
           end
 
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
+          sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
           def as_of_time=(_)
           end
 
@@ -259,7 +259,7 @@ module ModernTreasury
               id: String,
               amount: Integer,
               as_of_date: T.nilable(Date),
-              as_of_time: T.nilable(String),
+              as_of_time: T.nilable(Time),
               balance_type: Symbol,
               created_at: Time,
               currency: Symbol,
@@ -296,7 +296,7 @@ module ModernTreasury
                   id: String,
                   amount: Integer,
                   as_of_date: T.nilable(Date),
-                  as_of_time: T.nilable(String),
+                  as_of_time: T.nilable(Time),
                   balance_type: Symbol,
                   created_at: Time,
                   currency: Symbol,

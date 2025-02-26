@@ -5,7 +5,7 @@ module ModernTreasury
         id: String,
         amount: Integer,
         as_of_date: Date?,
-        as_of_time: String?,
+        as_of_time: Time?,
         as_of_timezone: String?,
         created_at: Time,
         currency: ModernTreasury::Models::currency,
@@ -36,7 +36,7 @@ module ModernTreasury
 
       attr_accessor as_of_date: Date?
 
-      attr_accessor as_of_time: String?
+      attr_accessor as_of_time: Time?
 
       attr_accessor as_of_timezone: String?
 
@@ -87,7 +87,7 @@ module ModernTreasury
           id: String,
           amount: Integer,
           as_of_date: Date?,
-          as_of_time: String?,
+          as_of_time: Time?,
           as_of_timezone: String?,
           created_at: Time,
           currency: ModernTreasury::Models::currency,

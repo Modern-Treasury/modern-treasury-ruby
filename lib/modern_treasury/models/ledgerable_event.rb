@@ -2,6 +2,8 @@
 
 module ModernTreasury
   module Models
+    # @deprecated
+    #
     class LedgerableEvent < ModernTreasury::BaseModel
       # @!attribute id
       #

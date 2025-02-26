@@ -153,10 +153,11 @@ module ModernTreasury
           in [-> { _1 <= String }, Symbol]
             [true, value.to_s, 1]
           in [-> { _1 <= Date || _1 <= Time }, String]
-            ModernTreasury::Util.suppress(ArgumentError, Date::Error) do
-              return [true, target.parse(value), 1]
+            Kernel.then do
+              [true, target.parse(value), 1]
+            rescue ArgumentError, Date::Error
+              [false, false, 0]
             end
-            [false, false, 0]
           in [_, ^target]
             [true, value, 1]
           else
@@ -369,7 +370,6 @@ module ModernTreasury
   # @abstract
   #
   class Union
-    extend ModernTreasury::Extern
     extend ModernTreasury::Converter
 
     # @private
@@ -504,9 +504,7 @@ module ModernTreasury
         end
       end
 
-      # rubocop:disable Style/NumberedParametersLimit
       _, variant = matches.sort! { _2.first <=> _1.first }.find { |score,| !score.zero? }
-      # rubocop:enable Style/NumberedParametersLimit
       variant.nil? ? value : ModernTreasury::Converter.coerce(variant, value)
     end
 
@@ -842,7 +840,6 @@ module ModernTreasury
   # @abstract
   #
   class BaseModel
-    extend ModernTreasury::Extern
     extend ModernTreasury::Converter
 
     # @private

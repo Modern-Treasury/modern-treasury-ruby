@@ -18,8 +18,8 @@ module ModernTreasury
         # @!attribute as_of_time
         #   The time (24-hour clock) of the balance report in local time.
         #
-        #   @return [String, nil]
-        required :as_of_time, String, nil?: true
+        #   @return [Time, nil]
+        required :as_of_time, Time, nil?: true
 
         # @!attribute balance_report_type
         #   The specific type of balance report. One of `intraday`, `previous_day`,
@@ -67,7 +67,7 @@ module ModernTreasury
         # @!parse
         #   # @param id [String]
         #   # @param as_of_date [Date]
-        #   # @param as_of_time [String, nil]
+        #   # @param as_of_time [Time, nil]
         #   # @param balance_report_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType]
         #   # @param balances [Array<ModernTreasury::Models::InternalAccounts::BalanceReport::Balance>]
         #   # @param created_at [Time]
@@ -147,8 +147,8 @@ module ModernTreasury
           # @!attribute as_of_time
           #   The time on which the balance became true for the account.
           #
-          #   @return [String, nil]
-          required :as_of_time, String, nil?: true
+          #   @return [Time, nil]
+          required :as_of_time, Time, nil?: true
 
           # @!attribute balance_type
           #   The specific type of balance reported. One of `opening_ledger`,
@@ -213,7 +213,7 @@ module ModernTreasury
           #   # @param id [String]
           #   # @param amount [Integer]
           #   # @param as_of_date [Date, nil]
-          #   # @param as_of_time [String, nil]
+          #   # @param as_of_time [Time, nil]
           #   # @param balance_type [Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType]
           #   # @param created_at [Time]
           #   # @param currency [Symbol, ModernTreasury::Models::Currency]
