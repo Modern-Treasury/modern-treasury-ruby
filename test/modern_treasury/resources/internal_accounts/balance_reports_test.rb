@@ -35,7 +35,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
       response => {
         id: String,
         as_of_date: Date,
-        as_of_time: String | nil,
+        as_of_time: Time | nil,
         balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
         balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
@@ -61,7 +61,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
       response => {
         id: String,
         as_of_date: Date,
-        as_of_time: String | nil,
+        as_of_time: Time | nil,
         balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
         balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
@@ -94,7 +94,7 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mi
       row => {
         id: String,
         as_of_date: Date,
-        as_of_time: String | nil,
+        as_of_time: Time | nil,
         balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType,
         balances: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]),
         created_at: Time,
