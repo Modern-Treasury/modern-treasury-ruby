@@ -2,15 +2,7 @@
 
 require_relative "../test_helper"
 
-class ModernTreasury::Test::Resources::ValidationsTest < Minitest::Test
-  def before_all
-    @modern_treasury = ModernTreasury::Client.new(
-      base_url: ENV.fetch("TEST_API_BASE_URL", "http://localhost:4010"),
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
-  end
-
+class ModernTreasury::Test::Resources::ValidationsTest < ModernTreasury::Test::ResourceTest
   def test_validate_routing_number_required_params
     response = @modern_treasury.validations.validate_routing_number(
       routing_number: "routing_number",

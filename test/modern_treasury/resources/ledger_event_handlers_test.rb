@@ -2,15 +2,7 @@
 
 require_relative "../test_helper"
 
-class ModernTreasury::Test::Resources::LedgerEventHandlersTest < Minitest::Test
-  def before_all
-    @modern_treasury = ModernTreasury::Client.new(
-      base_url: ENV.fetch("TEST_API_BASE_URL", "http://localhost:4010"),
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
-  end
-
+class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
     response = @modern_treasury.ledger_event_handlers.create(
       ledger_transaction_template: {
