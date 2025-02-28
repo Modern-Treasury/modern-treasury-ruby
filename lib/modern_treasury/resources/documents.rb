@@ -24,7 +24,7 @@ module ModernTreasury
         @client.request(
           method: :post,
           path: "api/documents",
-          headers: {"Content-Type" => "multipart/form-data"},
+          headers: {"content-type" => "multipart/form-data"},
           body: parsed,
           model: ModernTreasury::Models::Document,
           options: options
