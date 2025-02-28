@@ -269,7 +269,7 @@ module ModernTreasury
       #
       def add_payment_order(payment_order_id, params)
         parsed, options = ModernTreasury::Models::InvoiceAddPaymentOrderParams.dump_request(params)
-        id = parsed.fetch(:id) do
+        id = parsed.delete(:id) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
         @client.request(
