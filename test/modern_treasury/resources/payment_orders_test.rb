@@ -2,15 +2,7 @@
 
 require_relative "../test_helper"
 
-class ModernTreasury::Test::Resources::PaymentOrdersTest < Minitest::Test
-  def before_all
-    @modern_treasury = ModernTreasury::Client.new(
-      base_url: ENV.fetch("TEST_API_BASE_URL", "http://localhost:4010"),
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
-  end
-
+class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
     response = @modern_treasury.payment_orders.create(
       amount: 0,
