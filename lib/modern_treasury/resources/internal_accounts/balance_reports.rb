@@ -49,7 +49,7 @@ module ModernTreasury
         #
         def retrieve(id, params)
           parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump_request(params)
-          internal_account_id = parsed.fetch(:internal_account_id) do
+          internal_account_id = parsed.delete(:internal_account_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
           @client.request(
@@ -106,7 +106,7 @@ module ModernTreasury
         #
         def delete(id, params)
           parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump_request(params)
-          internal_account_id = parsed.fetch(:internal_account_id) do
+          internal_account_id = parsed.delete(:internal_account_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
           @client.request(

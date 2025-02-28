@@ -172,7 +172,7 @@ module ModernTreasury
       #
       def add_ledger_account(ledger_account_id, params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams.dump_request(params)
-        id = parsed.fetch(:id) do
+        id = parsed.delete(:id) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
         @client.request(
@@ -197,7 +197,7 @@ module ModernTreasury
       #
       def add_nested_category(sub_category_id, params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams.dump_request(params)
-        id = parsed.fetch(:id) do
+        id = parsed.delete(:id) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
         @client.request(
@@ -222,7 +222,7 @@ module ModernTreasury
       #
       def remove_ledger_account(ledger_account_id, params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams.dump_request(params)
-        id = parsed.fetch(:id) do
+        id = parsed.delete(:id) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
         @client.request(
@@ -247,7 +247,7 @@ module ModernTreasury
       #
       def remove_nested_category(sub_category_id, params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams.dump_request(params)
-        id = parsed.fetch(:id) do
+        id = parsed.delete(:id) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
         @client.request(
