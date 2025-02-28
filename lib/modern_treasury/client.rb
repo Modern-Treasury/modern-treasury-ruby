@@ -140,7 +140,7 @@ module ModernTreasury
       return {} if @organization_id.nil? || @api_key.nil?
 
       base64_credentials = ["#{@organization_id}:#{@api_key}"].pack("m0")
-      {"Authorization" => "Basic #{base64_credentials}"}
+      {"authorization" => "Basic #{base64_credentials}"}
     end
 
     # Creates and returns a new client for interacting with the API.
