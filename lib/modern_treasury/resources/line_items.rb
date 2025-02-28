@@ -19,10 +19,10 @@ module ModernTreasury
       #
       def retrieve(id, params)
         parsed, options = ModernTreasury::Models::LineItemRetrieveParams.dump_request(params)
-        itemizable_type = parsed.fetch(:itemizable_type) do
+        itemizable_type = parsed.delete(:itemizable_type) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
-        itemizable_id = parsed.fetch(:itemizable_id) do
+        itemizable_id = parsed.delete(:itemizable_id) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
         @client.request(
@@ -52,16 +52,16 @@ module ModernTreasury
       #
       def update(id, params)
         parsed, options = ModernTreasury::Models::LineItemUpdateParams.dump_request(params)
-        itemizable_type = parsed.fetch(:itemizable_type) do
+        itemizable_type = parsed.delete(:itemizable_type) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
-        itemizable_id = parsed.fetch(:itemizable_id) do
+        itemizable_id = parsed.delete(:itemizable_id) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
         @client.request(
           method: :patch,
           path: ["api/%0s/%1s/line_items/%2s", itemizable_type, itemizable_id, id],
-          body: parsed.except(:itemizable_type, :itemizable_id),
+          body: parsed,
           model: ModernTreasury::Models::LineItem,
           options: options
         )
@@ -85,13 +85,13 @@ module ModernTreasury
       #
       def list(itemizable_id, params)
         parsed, options = ModernTreasury::Models::LineItemListParams.dump_request(params)
-        itemizable_type = parsed.fetch(:itemizable_type) do
+        itemizable_type = parsed.delete(:itemizable_type) do
           raise ArgumentError.new("missing required path argument #{_1}")
         end
         @client.request(
           method: :get,
           path: ["api/%0s/%1s/line_items", itemizable_type, itemizable_id],
-          query: parsed.except(:itemizable_type),
+          query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LineItem,
           options: options

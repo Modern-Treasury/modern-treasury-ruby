@@ -60,7 +60,7 @@ module ModernTreasury
         #
         def retrieve(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump_request(params)
-          invoice_id = parsed.fetch(:invoice_id) do
+          invoice_id = parsed.delete(:invoice_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
           @client.request(
@@ -106,13 +106,13 @@ module ModernTreasury
         #
         def update(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump_request(params)
-          invoice_id = parsed.fetch(:invoice_id) do
+          invoice_id = parsed.delete(:invoice_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
           @client.request(
             method: :patch,
             path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
-            body: parsed.except(:invoice_id),
+            body: parsed,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
           )
@@ -158,7 +158,7 @@ module ModernTreasury
         #
         def delete(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump_request(params)
-          invoice_id = parsed.fetch(:invoice_id) do
+          invoice_id = parsed.delete(:invoice_id) do
             raise ArgumentError.new("missing required path argument #{_1}")
           end
           @client.request(
