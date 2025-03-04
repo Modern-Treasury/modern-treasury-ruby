@@ -11,6 +11,7 @@ module ModernTreasury
         body: top?,
         unwrap: Symbol?,
         page: Class?,
+        stream: Class?,
         model: ModernTreasury::Converter::input?,
         options: ModernTreasury::request_opts?
       }
@@ -78,13 +79,7 @@ module ModernTreasury
       redirect_count: Integer,
       retry_count: Integer,
       send_retry_header: bool
-    ) -> [top, Enumerable[String]]
-
-    private def parse_response: (
-      ModernTreasury::BaseClient::request_components req,
-      headers: ::Hash[String, String],
-      stream: Enumerable[String]
-    ) -> top
+    ) -> [Integer, top, Enumerable[String]]
 
     def request:
       (
@@ -97,6 +92,7 @@ module ModernTreasury
         body: top?,
         unwrap: Symbol?,
         page: Class?,
+        stream: Class?,
         model: ModernTreasury::Converter::input?,
         options: ModernTreasury::request_opts?
       ) -> top
