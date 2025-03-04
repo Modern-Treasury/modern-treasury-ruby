@@ -51,7 +51,8 @@ module ModernTreasury
       status: Integer,
       body: Object?,
       request: nil,
-      response: nil
+      response: nil,
+      message: String?
     ) -> instance
 
     def initialize: (
