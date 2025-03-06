@@ -301,24 +301,6 @@ module ModernTreasury
       #
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      #
-      # @example
-      # ```ruby
-      # case type
-      # in :ach
-      #   # ...
-      # in :au_becs
-      #   # ...
-      # in :bacs
-      #   # ...
-      # in :book
-      #   # ...
-      # in :card
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs
@@ -366,24 +348,6 @@ module ModernTreasury
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
-      #
-      # @example
-      # ```ruby
-      # case vendor_code_type
-      # in :bai2
-      #   # ...
-      # in :banking_circle
-      #   # ...
-      # in :bankprov
-      #   # ...
-      # in :bnk_dev
-      #   # ...
-      # in :cleartouch
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class VendorCodeType < ModernTreasury::Enum
         BAI2 = :bai2
         BANKING_CIRCLE = :banking_circle

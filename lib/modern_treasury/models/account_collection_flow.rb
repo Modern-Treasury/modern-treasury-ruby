@@ -136,16 +136,6 @@ module ModernTreasury
       # @abstract
       #
       # An account created with this flow will support payments of one of these types.
-      #
-      # @example
-      # ```ruby
-      # case payment_type
-      # in :ach
-      #   # ...
-      # in :wire
-      #   # ...
-      # end
-      # ```
       class PaymentType < ModernTreasury::Enum
         ACH = :ach
         WIRE = :wire
@@ -162,24 +152,6 @@ module ModernTreasury
       #
       # An account created with this flow will support wires from the US to these
       #   countries.
-      #
-      # @example
-      # ```ruby
-      # case receiving_country
-      # in :USA
-      #   # ...
-      # in :AUS
-      #   # ...
-      # in :BEL
-      #   # ...
-      # in :CAN
-      #   # ...
-      # in :CHL
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class ReceivingCountry < ModernTreasury::Enum
         USA = :USA
         AUS = :AUS
@@ -212,20 +184,6 @@ module ModernTreasury
       #
       # The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :cancelled
-      #   # ...
-      # in :completed
-      #   # ...
-      # in :expired
-      #   # ...
-      # in :pending
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         CANCELLED = :cancelled
         COMPLETED = :completed

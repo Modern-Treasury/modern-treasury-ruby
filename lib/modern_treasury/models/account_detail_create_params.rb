@@ -42,13 +42,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case accounts_type
-      # in :external_accounts
-      #   # ...
-      # end
-      # ```
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS = :external_accounts
 
@@ -64,24 +57,6 @@ module ModernTreasury
       #
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
-      #
-      # @example
-      # ```ruby
-      # case account_number_type
-      # in :au_number
-      #   # ...
-      # in :clabe
-      #   # ...
-      # in :hk_number
-      #   # ...
-      # in :iban
-      #   # ...
-      # in :id_number
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class AccountNumberType < ModernTreasury::Enum
         AU_NUMBER = :au_number
         CLABE = :clabe

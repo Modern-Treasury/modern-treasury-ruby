@@ -226,24 +226,6 @@ module ModernTreasury
       # @abstract
       #
       # The type of the originating account number for the incoming payment detail.
-      #
-      # @example
-      # ```ruby
-      # case originating_account_number_type
-      # in :au_number
-      #   # ...
-      # in :clabe
-      #   # ...
-      # in :hk_number
-      #   # ...
-      # in :iban
-      #   # ...
-      # in :id_number
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class OriginatingAccountNumberType < ModernTreasury::Enum
         AU_NUMBER = :au_number
         CLABE = :clabe
@@ -267,24 +249,6 @@ module ModernTreasury
       # @abstract
       #
       # The type of the originating routing number for the incoming payment detail.
-      #
-      # @example
-      # ```ruby
-      # case originating_routing_number_type
-      # in :aba
-      #   # ...
-      # in :au_bsb
-      #   # ...
-      # in :br_codigo
-      #   # ...
-      # in :ca_cpa
-      #   # ...
-      # in :chips
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class OriginatingRoutingNumberType < ModernTreasury::Enum
         ABA = :aba
         AU_BSB = :au_bsb
@@ -320,18 +284,6 @@ module ModernTreasury
       #
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :completed
-      #   # ...
-      # in :pending
-      #   # ...
-      # in :returned
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         COMPLETED = :completed
         PENDING = :pending
@@ -349,24 +301,6 @@ module ModernTreasury
       #
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
-      #
-      # @example
-      # ```ruby
-      # case type
-      # in :ach
-      #   # ...
-      # in :book
-      #   # ...
-      # in :check
-      #   # ...
-      # in :eft
-      #   # ...
-      # in :interac
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         BOOK = :book

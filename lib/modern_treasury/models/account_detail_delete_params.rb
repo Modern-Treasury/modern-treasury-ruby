@@ -28,13 +28,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case accounts_type
-      # in :external_accounts
-      #   # ...
-      # end
-      # ```
       class AccountsType < ModernTreasury::Enum
         EXTERNAL_ACCOUNTS = :external_accounts
 

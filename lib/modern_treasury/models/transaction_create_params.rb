@@ -119,24 +119,6 @@ module ModernTreasury
       #
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      #
-      # @example
-      # ```ruby
-      # case type
-      # in :ach
-      #   # ...
-      # in :au_becs
-      #   # ...
-      # in :bacs
-      #   # ...
-      # in :book
-      #   # ...
-      # in :card
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

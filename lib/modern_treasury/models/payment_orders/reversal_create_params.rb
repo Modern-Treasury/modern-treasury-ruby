@@ -55,22 +55,6 @@ module ModernTreasury
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #   `incorrect_receiving_account`, `date_earlier_than_intended`,
         #   `date_later_than_intended`.
-        #
-        # @example
-        # ```ruby
-        # case reason
-        # in :duplicate
-        #   # ...
-        # in :incorrect_amount
-        #   # ...
-        # in :incorrect_receiving_account
-        #   # ...
-        # in :date_earlier_than_intended
-        #   # ...
-        # in :date_later_than_intended
-        #   # ...
-        # end
-        # ```
         class Reason < ModernTreasury::Enum
           DUPLICATE = :duplicate
           INCORRECT_AMOUNT = :incorrect_amount
@@ -321,24 +305,6 @@ module ModernTreasury
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
-          #
-          # @example
-          # ```ruby
-          # case ledgerable_type
-          # in :expected_payment
-          #   # ...
-          # in :incoming_payment_detail
-          #   # ...
-          # in :paper_item
-          #   # ...
-          # in :payment_order
-          #   # ...
-          # in :return
-          #   # ...
-          # in ...
-          #   #...
-          # end
-          # ```
           class LedgerableType < ModernTreasury::Enum
             EXPECTED_PAYMENT = :expected_payment
             INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -358,18 +324,6 @@ module ModernTreasury
           # @abstract
           #
           # To post a ledger transaction at creation, use `posted`.
-          #
-          # @example
-          # ```ruby
-          # case status
-          # in :archived
-          #   # ...
-          # in :pending
-          #   # ...
-          # in :posted
-          #   # ...
-          # end
-          # ```
           class Status < ModernTreasury::Enum
             ARCHIVED = :archived
             PENDING = :pending

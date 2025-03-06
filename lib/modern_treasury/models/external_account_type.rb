@@ -5,24 +5,6 @@ module ModernTreasury
     # @abstract
     #
     # Can be `checking`, `savings` or `other`.
-    #
-    # @example
-    # ```ruby
-    # case external_account_type
-    # in :cash
-    #   # ...
-    # in :checking
-    #   # ...
-    # in :general_ledger
-    #   # ...
-    # in :loan
-    #   # ...
-    # in :non_resident
-    #   # ...
-    # in ...
-    #   #...
-    # end
-    # ```
     class ExternalAccountType < ModernTreasury::Enum
       CASH = :cash
       CHECKING = :checking

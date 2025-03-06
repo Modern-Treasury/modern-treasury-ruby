@@ -26,14 +26,6 @@ module ModernTreasury
       #
       # Required. The updated status of the account collection flow. Can only be used to
       #   mark a flow as `cancelled`.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :cancelled
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         CANCELLED = :cancelled
 

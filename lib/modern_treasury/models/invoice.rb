@@ -397,17 +397,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case contact_identifier_type
-        # in :email
-        #   # ...
-        # in :phone_number
-        #   # ...
-        # in :website
-        #   # ...
-        # end
-        # ```
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -588,18 +577,6 @@ module ModernTreasury
       #
       # When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
-      #
-      # @example
-      # ```ruby
-      # case payment_method
-      # in :ui
-      #   # ...
-      # in :manual
-      #   # ...
-      # in :automatic
-      #   # ...
-      # end
-      # ```
       class PaymentMethod < ModernTreasury::Enum
         UI = :ui
         MANUAL = :manual
@@ -616,16 +593,6 @@ module ModernTreasury
       # @abstract
       #
       # One of `ach` or `eft`.
-      #
-      # @example
-      # ```ruby
-      # case payment_type
-      # in :eft
-      #   # ...
-      # in :ach
-      #   # ...
-      # end
-      # ```
       class PaymentType < ModernTreasury::Enum
         EFT = :eft
         ACH = :ach
@@ -641,24 +608,6 @@ module ModernTreasury
       # @abstract
       #
       # The status of the invoice.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :draft
-      #   # ...
-      # in :paid
-      #   # ...
-      # in :partially_paid
-      #   # ...
-      # in :payment_pending
-      #   # ...
-      # in :unpaid
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         DRAFT = :draft
         PAID = :paid

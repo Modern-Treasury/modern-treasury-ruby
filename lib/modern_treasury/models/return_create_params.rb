@@ -75,14 +75,6 @@ module ModernTreasury
       #
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
-      #
-      # @example
-      # ```ruby
-      # case returnable_type
-      # in :incoming_payment_detail
-      #   # ...
-      # end
-      # ```
       class ReturnableType < ModernTreasury::Enum
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
 
@@ -97,24 +89,6 @@ module ModernTreasury
       # @abstract
       #
       # The return code. For ACH returns, this is the required ACH return code.
-      #
-      # @example
-      # ```ruby
-      # case code
-      # in :"901"
-      #   # ...
-      # in :"902"
-      #   # ...
-      # in :"903"
-      #   # ...
-      # in :"904"
-      #   # ...
-      # in :"905"
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Code < ModernTreasury::Enum
         NUMBER_901 = :"901"
         NUMBER_902 = :"902"

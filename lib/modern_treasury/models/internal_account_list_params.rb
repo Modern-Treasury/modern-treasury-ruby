@@ -114,24 +114,6 @@ module ModernTreasury
       # @abstract
       #
       # Only return internal accounts that can make this type of payment.
-      #
-      # @example
-      # ```ruby
-      # case payment_type
-      # in :ach
-      #   # ...
-      # in :au_becs
-      #   # ...
-      # in :bacs
-      #   # ...
-      # in :book
-      #   # ...
-      # in :card
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class PaymentType < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

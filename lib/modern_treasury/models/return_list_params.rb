@@ -92,22 +92,6 @@ module ModernTreasury
       #
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
-      #
-      # @example
-      # ```ruby
-      # case returnable_type
-      # in :incoming_payment_detail
-      #   # ...
-      # in :paper_item
-      #   # ...
-      # in :payment_order
-      #   # ...
-      # in :return
-      #   # ...
-      # in :reversal
-      #   # ...
-      # end
-      # ```
       class ReturnableType < ModernTreasury::Enum
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         PAPER_ITEM = :paper_item
