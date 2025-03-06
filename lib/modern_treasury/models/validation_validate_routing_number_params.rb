@@ -38,24 +38,6 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
-      #
-      # @example
-      # ```ruby
-      # case routing_number_type
-      # in :aba
-      #   # ...
-      # in :au_bsb
-      #   # ...
-      # in :br_codigo
-      #   # ...
-      # in :ca_cpa
-      #   # ...
-      # in :chips
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class RoutingNumberType < ModernTreasury::Enum
         ABA = :aba
         AU_BSB = :au_bsb

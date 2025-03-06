@@ -238,16 +238,6 @@ module ModernTreasury
       #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      #
-      # @example
-      # ```ruby
-      # case direction
-      # in :credit
-      #   # ...
-      # in :debit
-      #   # ...
-      # end
-      # ```
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
@@ -265,16 +255,6 @@ module ModernTreasury
       # One of manual if this expected payment was manually reconciled in the dashboard,
       #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   is unreconciled.
-      #
-      # @example
-      # ```ruby
-      # case reconciliation_method
-      # in :automatic
-      #   # ...
-      # in :manual
-      #   # ...
-      # end
-      # ```
       class ReconciliationMethod < ModernTreasury::Enum
         AUTOMATIC = :automatic
         MANUAL = :manual
@@ -290,20 +270,6 @@ module ModernTreasury
       # @abstract
       #
       # One of unreconciled, partially_reconciled, reconciled, or archived.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :archived
-      #   # ...
-      # in :partially_reconciled
-      #   # ...
-      # in :reconciled
-      #   # ...
-      # in :unreconciled
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         ARCHIVED = :archived
         PARTIALLY_RECONCILED = :partially_reconciled

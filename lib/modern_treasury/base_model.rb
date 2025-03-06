@@ -294,6 +294,31 @@ module ModernTreasury
   #
   #   We can therefore convert string values to Symbols, but can't convert other
   #   values safely.
+  #
+  # @example
+  # ```ruby
+  # # `accounts_type` is a `ModernTreasury::Models::AccountsType`
+  # case accounts_type
+  # when ModernTreasury::Models::AccountsType::EXTERNAL_ACCOUNTS
+  #   # ...
+  # when ModernTreasury::Models::AccountsType::INTERNAL_ACCOUNTS
+  #   # ...
+  # else
+  #   # ...
+  # end
+  # ```
+  #
+  # @example
+  # ```ruby
+  # case accounts_type
+  # in :external_accounts
+  #   # ...
+  # in :internal_accounts
+  #   # ...
+  # else
+  #   # ...
+  # end
+  # ```
   class Enum
     extend ModernTreasury::Converter
 
@@ -369,6 +394,18 @@ module ModernTreasury
   #
   # @abstract
   #
+  # @example
+  # ```ruby
+  # # `external_account_verify_response` is a `ModernTreasury::Models::ExternalAccountVerifyResponse`
+  # case external_account_verify_response
+  # when ModernTreasury::Models::ExternalAccount
+  #   # ...
+  # when ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+  #   # ...
+  # else
+  #   # ...
+  # end
+  # ```
   class Union
     extend ModernTreasury::Converter
 
@@ -839,6 +876,14 @@ module ModernTreasury
   #
   # @abstract
   #
+  # @example
+  # ```ruby
+  # # `async_response` is a `ModernTreasury::Models::AsyncResponse`
+  # async_response => {
+  #   id: id,
+  #   object: object
+  # }
+  # ```
   class BaseModel
     extend ModernTreasury::Converter
 

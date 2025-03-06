@@ -233,17 +233,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case contact_identifier_type
-        # in :email
-        #   # ...
-        # in :phone_number
-        #   # ...
-        # in :website
-        #   # ...
-        # end
-        # ```
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -358,16 +347,6 @@ module ModernTreasury
       # @abstract
       #
       # Either `individual` or `business`.
-      #
-      # @example
-      # ```ruby
-      # case party_type
-      # in :business
-      #   # ...
-      # in :individual
-      #   # ...
-      # end
-      # ```
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
@@ -382,17 +361,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case verification_source
-      # in :ach_prenote
-      #   # ...
-      # in :microdeposits
-      #   # ...
-      # in :plaid
-      #   # ...
-      # end
-      # ```
       class VerificationSource < ModernTreasury::Enum
         ACH_PRENOTE = :ach_prenote
         MICRODEPOSITS = :microdeposits
@@ -408,17 +376,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case verification_status
-      # in :pending_verification
-      #   # ...
-      # in :unverified
-      #   # ...
-      # in :verified
-      #   # ...
-      # end
-      # ```
       class VerificationStatus < ModernTreasury::Enum
         PENDING_VERIFICATION = :pending_verification
         UNVERIFIED = :unverified

@@ -52,18 +52,6 @@ module ModernTreasury
       # @abstract
       #
       # One of create, or update.
-      #
-      # @example
-      # ```ruby
-      # case action_type
-      # in :create
-      #   # ...
-      # in :update
-      #   # ...
-      # in :delete
-      #   # ...
-      # end
-      # ```
       class ActionType < ModernTreasury::Enum
         CREATE = :create
         UPDATE = :update
@@ -80,20 +68,6 @@ module ModernTreasury
       # @abstract
       #
       # One of payment_order, expected_payment, or ledger_transaction.
-      #
-      # @example
-      # ```ruby
-      # case resource_type
-      # in :payment_order
-      #   # ...
-      # in :ledger_transaction
-      #   # ...
-      # in :transaction
-      #   # ...
-      # in :expected_payment
-      #   # ...
-      # end
-      # ```
       class ResourceType < ModernTreasury::Enum
         PAYMENT_ORDER = :payment_order
         LEDGER_TRANSACTION = :ledger_transaction
@@ -110,29 +84,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case resource
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest
-      #   # ...
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest
-      #   # ...
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest
-      #   # ...
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest
-      #   # ...
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::ID
-      #   # ...
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID
-      #   # ...
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID
-      #   # ...
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID
-      #   # ...
-      # in ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
-      #   # ...
-      # end
-      # ```
       class Resource < ModernTreasury::Union
         variant -> { ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest }
 
@@ -563,16 +514,6 @@ module ModernTreasury
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
-          #
-          # @example
-          # ```ruby
-          # case direction
-          # in :credit
-          #   # ...
-          # in :debit
-          #   # ...
-          # end
-          # ```
           class Direction < ModernTreasury::Enum
             CREDIT = :credit
             DEBIT = :debit
@@ -615,18 +556,6 @@ module ModernTreasury
           # The party that will pay the fees for the payment order. Only applies to wire
           #   payment orders. Can be one of shared, sender, or receiver, which correspond
           #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
-          #
-          # @example
-          # ```ruby
-          # case charge_bearer
-          # in :shared
-          #   # ...
-          # in :sender
-          #   # ...
-          # in :receiver
-          #   # ...
-          # end
-          # ```
           class ChargeBearer < ModernTreasury::Enum
             SHARED = :shared
             SENDER = :sender
@@ -645,14 +574,6 @@ module ModernTreasury
           # A payment type to fallback to if the original type is not valid for the
           #   receiving account. Currently, this only supports falling back from RTP to ACH
           #   (type=rtp and fallback_type=ach)
-          #
-          # @example
-          # ```ruby
-          # case fallback_type
-          # in :ach
-          #   # ...
-          # end
-          # ```
           class FallbackType < ModernTreasury::Enum
             ACH = :ach
 
@@ -669,16 +590,6 @@ module ModernTreasury
           # Indicates the type of FX transfer to initiate, can be either
           #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           #   currency matches the originating account currency.
-          #
-          # @example
-          # ```ruby
-          # case foreign_exchange_indicator
-          # in :fixed_to_variable
-          #   # ...
-          # in :variable_to_fixed
-          #   # ...
-          # end
-          # ```
           class ForeignExchangeIndicator < ModernTreasury::Enum
             FIXED_TO_VARIABLE = :fixed_to_variable
             VARIABLE_TO_FIXED = :variable_to_fixed
@@ -931,24 +842,6 @@ module ModernTreasury
             #   Treasury, the type will be populated here, otherwise null. This can be one of
             #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             #   reversal.
-            #
-            # @example
-            # ```ruby
-            # case ledgerable_type
-            # in :expected_payment
-            #   # ...
-            # in :incoming_payment_detail
-            #   # ...
-            # in :paper_item
-            #   # ...
-            # in :payment_order
-            #   # ...
-            # in :return
-            #   # ...
-            # in ...
-            #   #...
-            # end
-            # ```
             class LedgerableType < ModernTreasury::Enum
               EXPECTED_PAYMENT = :expected_payment
               INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -968,18 +861,6 @@ module ModernTreasury
             # @abstract
             #
             # To post a ledger transaction at creation, use `posted`.
-            #
-            # @example
-            # ```ruby
-            # case status
-            # in :archived
-            #   # ...
-            # in :pending
-            #   # ...
-            # in :posted
-            #   # ...
-            # end
-            # ```
             class Status < ModernTreasury::Enum
               ARCHIVED = :archived
               PENDING = :pending
@@ -1042,16 +923,6 @@ module ModernTreasury
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
           #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           #   an overnight check rather than standard mail.
-          #
-          # @example
-          # ```ruby
-          # case priority
-          # in :high
-          #   # ...
-          # in :normal
-          #   # ...
-          # end
-          # ```
           class Priority < ModernTreasury::Enum
             HIGH = :high
             NORMAL = :normal
@@ -1263,23 +1134,6 @@ module ModernTreasury
 
               # @abstract
               #
-              # @example
-              # ```ruby
-              # case account_number_type
-              # in :au_number
-              #   # ...
-              # in :clabe
-              #   # ...
-              # in :hk_number
-              #   # ...
-              # in :iban
-              #   # ...
-              # in :id_number
-              #   # ...
-              # in ...
-              #   #...
-              # end
-              # ```
               class AccountNumberType < ModernTreasury::Enum
                 AU_NUMBER = :au_number
                 CLABE = :clabe
@@ -1331,17 +1185,6 @@ module ModernTreasury
 
               # @abstract
               #
-              # @example
-              # ```ruby
-              # case contact_identifier_type
-              # in :email
-              #   # ...
-              # in :phone_number
-              #   # ...
-              # in :website
-              #   # ...
-              # end
-              # ```
               class ContactIdentifierType < ModernTreasury::Enum
                 EMAIL = :email
                 PHONE_NUMBER = :phone_number
@@ -1480,20 +1323,6 @@ module ModernTreasury
               # If the ledger account links to another object in Modern Treasury, the type will
               #   be populated here, otherwise null. The value is one of internal_account or
               #   external_account.
-              #
-              # @example
-              # ```ruby
-              # case ledgerable_type
-              # in :counterparty
-              #   # ...
-              # in :external_account
-              #   # ...
-              # in :internal_account
-              #   # ...
-              # in :virtual_account
-              #   # ...
-              # end
-              # ```
               class LedgerableType < ModernTreasury::Enum
                 COUNTERPARTY = :counterparty
                 EXTERNAL_ACCOUNT = :external_account
@@ -1562,16 +1391,6 @@ module ModernTreasury
             # @abstract
             #
             # Either `individual` or `business`.
-            #
-            # @example
-            # ```ruby
-            # case party_type
-            # in :business
-            #   # ...
-            # in :individual
-            #   # ...
-            # end
-            # ```
             class PartyType < ModernTreasury::Enum
               BUSINESS = :business
               INDIVIDUAL = :individual
@@ -1617,23 +1436,6 @@ module ModernTreasury
 
               # @abstract
               #
-              # @example
-              # ```ruby
-              # case routing_number_type
-              # in :aba
-              #   # ...
-              # in :au_bsb
-              #   # ...
-              # in :br_codigo
-              #   # ...
-              # in :ca_cpa
-              #   # ...
-              # in :chips
-              #   # ...
-              # in ...
-              #   #...
-              # end
-              # ```
               class RoutingNumberType < ModernTreasury::Enum
                 ABA = :aba
                 AU_BSB = :au_bsb
@@ -1667,23 +1469,6 @@ module ModernTreasury
 
               # @abstract
               #
-              # @example
-              # ```ruby
-              # case payment_type
-              # in :ach
-              #   # ...
-              # in :au_becs
-              #   # ...
-              # in :bacs
-              #   # ...
-              # in :book
-              #   # ...
-              # in :card
-              #   # ...
-              # in ...
-              #   #...
-              # end
-              # ```
               class PaymentType < ModernTreasury::Enum
                 ACH = :ach
                 AU_BECS = :au_becs
@@ -1931,16 +1716,6 @@ module ModernTreasury
           #
           # One of credit or debit. When you are receiving money, use credit. When you are
           #   being charged, use debit.
-          #
-          # @example
-          # ```ruby
-          # case direction
-          # in :credit
-          #   # ...
-          # in :debit
-          #   # ...
-          # end
-          # ```
           class Direction < ModernTreasury::Enum
             CREDIT = :credit
             DEBIT = :debit
@@ -2193,24 +1968,6 @@ module ModernTreasury
             #   Treasury, the type will be populated here, otherwise null. This can be one of
             #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             #   reversal.
-            #
-            # @example
-            # ```ruby
-            # case ledgerable_type
-            # in :expected_payment
-            #   # ...
-            # in :incoming_payment_detail
-            #   # ...
-            # in :paper_item
-            #   # ...
-            # in :payment_order
-            #   # ...
-            # in :return
-            #   # ...
-            # in ...
-            #   #...
-            # end
-            # ```
             class LedgerableType < ModernTreasury::Enum
               EXPECTED_PAYMENT = :expected_payment
               INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -2230,18 +1987,6 @@ module ModernTreasury
             # @abstract
             #
             # To post a ledger transaction at creation, use `posted`.
-            #
-            # @example
-            # ```ruby
-            # case status
-            # in :archived
-            #   # ...
-            # in :pending
-            #   # ...
-            # in :posted
-            #   # ...
-            # end
-            # ```
             class Status < ModernTreasury::Enum
               ARCHIVED = :archived
               PENDING = :pending
@@ -2531,24 +2276,6 @@ module ModernTreasury
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
-          #
-          # @example
-          # ```ruby
-          # case ledgerable_type
-          # in :expected_payment
-          #   # ...
-          # in :incoming_payment_detail
-          #   # ...
-          # in :paper_item
-          #   # ...
-          # in :payment_order
-          #   # ...
-          # in :return
-          #   # ...
-          # in ...
-          #   #...
-          # end
-          # ```
           class LedgerableType < ModernTreasury::Enum
             EXPECTED_PAYMENT = :expected_payment
             INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -2568,18 +2295,6 @@ module ModernTreasury
           # @abstract
           #
           # To post a ledger transaction at creation, use `posted`.
-          #
-          # @example
-          # ```ruby
-          # case status
-          # in :archived
-          #   # ...
-          # in :pending
-          #   # ...
-          # in :posted
-          #   # ...
-          # end
-          # ```
           class Status < ModernTreasury::Enum
             ARCHIVED = :archived
             PENDING = :pending
@@ -2707,24 +2422,6 @@ module ModernTreasury
           #
           # The type of the transaction. Examples could be
           #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-          #
-          # @example
-          # ```ruby
-          # case type
-          # in :ach
-          #   # ...
-          # in :au_becs
-          #   # ...
-          # in :bacs
-          #   # ...
-          # in :book
-          #   # ...
-          # in :card
-          #   # ...
-          # in ...
-          #   #...
-          # end
-          # ```
           class Type < ModernTreasury::Enum
             ACH = :ach
             AU_BECS = :au_becs
@@ -3234,18 +2931,6 @@ module ModernTreasury
           # The party that will pay the fees for the payment order. Only applies to wire
           #   payment orders. Can be one of shared, sender, or receiver, which correspond
           #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
-          #
-          # @example
-          # ```ruby
-          # case charge_bearer
-          # in :shared
-          #   # ...
-          # in :sender
-          #   # ...
-          # in :receiver
-          #   # ...
-          # end
-          # ```
           class ChargeBearer < ModernTreasury::Enum
             SHARED = :shared
             SENDER = :sender
@@ -3265,16 +2950,6 @@ module ModernTreasury
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
-          #
-          # @example
-          # ```ruby
-          # case direction
-          # in :credit
-          #   # ...
-          # in :debit
-          #   # ...
-          # end
-          # ```
           class Direction < ModernTreasury::Enum
             CREDIT = :credit
             DEBIT = :debit
@@ -3292,14 +2967,6 @@ module ModernTreasury
           # A payment type to fallback to if the original type is not valid for the
           #   receiving account. Currently, this only supports falling back from RTP to ACH
           #   (type=rtp and fallback_type=ach)
-          #
-          # @example
-          # ```ruby
-          # case fallback_type
-          # in :ach
-          #   # ...
-          # end
-          # ```
           class FallbackType < ModernTreasury::Enum
             ACH = :ach
 
@@ -3316,16 +2983,6 @@ module ModernTreasury
           # Indicates the type of FX transfer to initiate, can be either
           #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           #   currency matches the originating account currency.
-          #
-          # @example
-          # ```ruby
-          # case foreign_exchange_indicator
-          # in :fixed_to_variable
-          #   # ...
-          # in :variable_to_fixed
-          #   # ...
-          # end
-          # ```
           class ForeignExchangeIndicator < ModernTreasury::Enum
             FIXED_TO_VARIABLE = :fixed_to_variable
             VARIABLE_TO_FIXED = :variable_to_fixed
@@ -3386,16 +3043,6 @@ module ModernTreasury
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
           #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           #   an overnight check rather than standard mail.
-          #
-          # @example
-          # ```ruby
-          # case priority
-          # in :high
-          #   # ...
-          # in :normal
-          #   # ...
-          # end
-          # ```
           class Priority < ModernTreasury::Enum
             HIGH = :high
             NORMAL = :normal
@@ -3607,23 +3254,6 @@ module ModernTreasury
 
               # @abstract
               #
-              # @example
-              # ```ruby
-              # case account_number_type
-              # in :au_number
-              #   # ...
-              # in :clabe
-              #   # ...
-              # in :hk_number
-              #   # ...
-              # in :iban
-              #   # ...
-              # in :id_number
-              #   # ...
-              # in ...
-              #   #...
-              # end
-              # ```
               class AccountNumberType < ModernTreasury::Enum
                 AU_NUMBER = :au_number
                 CLABE = :clabe
@@ -3675,17 +3305,6 @@ module ModernTreasury
 
               # @abstract
               #
-              # @example
-              # ```ruby
-              # case contact_identifier_type
-              # in :email
-              #   # ...
-              # in :phone_number
-              #   # ...
-              # in :website
-              #   # ...
-              # end
-              # ```
               class ContactIdentifierType < ModernTreasury::Enum
                 EMAIL = :email
                 PHONE_NUMBER = :phone_number
@@ -3824,20 +3443,6 @@ module ModernTreasury
               # If the ledger account links to another object in Modern Treasury, the type will
               #   be populated here, otherwise null. The value is one of internal_account or
               #   external_account.
-              #
-              # @example
-              # ```ruby
-              # case ledgerable_type
-              # in :counterparty
-              #   # ...
-              # in :external_account
-              #   # ...
-              # in :internal_account
-              #   # ...
-              # in :virtual_account
-              #   # ...
-              # end
-              # ```
               class LedgerableType < ModernTreasury::Enum
                 COUNTERPARTY = :counterparty
                 EXTERNAL_ACCOUNT = :external_account
@@ -3906,16 +3511,6 @@ module ModernTreasury
             # @abstract
             #
             # Either `individual` or `business`.
-            #
-            # @example
-            # ```ruby
-            # case party_type
-            # in :business
-            #   # ...
-            # in :individual
-            #   # ...
-            # end
-            # ```
             class PartyType < ModernTreasury::Enum
               BUSINESS = :business
               INDIVIDUAL = :individual
@@ -3961,23 +3556,6 @@ module ModernTreasury
 
               # @abstract
               #
-              # @example
-              # ```ruby
-              # case routing_number_type
-              # in :aba
-              #   # ...
-              # in :au_bsb
-              #   # ...
-              # in :br_codigo
-              #   # ...
-              # in :ca_cpa
-              #   # ...
-              # in :chips
-              #   # ...
-              # in ...
-              #   #...
-              # end
-              # ```
               class RoutingNumberType < ModernTreasury::Enum
                 ABA = :aba
                 AU_BSB = :au_bsb
@@ -4011,23 +3589,6 @@ module ModernTreasury
 
               # @abstract
               #
-              # @example
-              # ```ruby
-              # case payment_type
-              # in :ach
-              #   # ...
-              # in :au_becs
-              #   # ...
-              # in :bacs
-              #   # ...
-              # in :book
-              #   # ...
-              # in :card
-              #   # ...
-              # in ...
-              #   #...
-              # end
-              # ```
               class PaymentType < ModernTreasury::Enum
                 ACH = :ach
                 AU_BECS = :au_becs
@@ -4075,24 +3636,6 @@ module ModernTreasury
           # To cancel a payment order, use `cancelled`. To redraft a returned payment order,
           #   use `approved`. To undo approval on a denied or approved payment order, use
           #   `needs_approval`.
-          #
-          # @example
-          # ```ruby
-          # case status
-          # in :approved
-          #   # ...
-          # in :cancelled
-          #   # ...
-          # in :completed
-          #   # ...
-          # in :denied
-          #   # ...
-          # in :failed
-          #   # ...
-          # in ...
-          #   #...
-          # end
-          # ```
           class Status < ModernTreasury::Enum
             APPROVED = :approved
             CANCELLED = :cancelled
@@ -4298,16 +3841,6 @@ module ModernTreasury
           #
           # One of credit or debit. When you are receiving money, use credit. When you are
           #   being charged, use debit.
-          #
-          # @example
-          # ```ruby
-          # case direction
-          # in :credit
-          #   # ...
-          # in :debit
-          #   # ...
-          # end
-          # ```
           class Direction < ModernTreasury::Enum
             CREDIT = :credit
             DEBIT = :debit
@@ -4324,14 +3857,6 @@ module ModernTreasury
           #
           # The Expected Payment's status can be updated from partially_reconciled to
           #   reconciled.
-          #
-          # @example
-          # ```ruby
-          # case status
-          # in :reconciled
-          #   # ...
-          # end
-          # ```
           class Status < ModernTreasury::Enum
             RECONCILED = :reconciled
 
@@ -4598,24 +4123,6 @@ module ModernTreasury
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
-          #
-          # @example
-          # ```ruby
-          # case ledgerable_type
-          # in :expected_payment
-          #   # ...
-          # in :incoming_payment_detail
-          #   # ...
-          # in :paper_item
-          #   # ...
-          # in :payment_order
-          #   # ...
-          # in :return
-          #   # ...
-          # in ...
-          #   #...
-          # end
-          # ```
           class LedgerableType < ModernTreasury::Enum
             EXPECTED_PAYMENT = :expected_payment
             INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -4635,18 +4142,6 @@ module ModernTreasury
           # @abstract
           #
           # To post a ledger transaction at creation, use `posted`.
-          #
-          # @example
-          # ```ruby
-          # case status
-          # in :archived
-          #   # ...
-          # in :pending
-          #   # ...
-          # in :posted
-          #   # ...
-          # end
-          # ```
           class Status < ModernTreasury::Enum
             ARCHIVED = :archived
             PENDING = :pending

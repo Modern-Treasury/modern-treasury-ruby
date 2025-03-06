@@ -181,24 +181,6 @@ module ModernTreasury
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
-      #
-      # @example
-      # ```ruby
-      # case documentable_type
-      # in :case
-      #   # ...
-      # in :counterparty
-      #   # ...
-      # in :expected_payment
-      #   # ...
-      # in :external_account
-      #   # ...
-      # in :incoming_payment_detail
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class DocumentableType < ModernTreasury::Enum
         CASE = :case
         COUNTERPARTY = :counterparty

@@ -167,24 +167,6 @@ module ModernTreasury
       # @abstract
       #
       # Can be checking, savings or other.
-      #
-      # @example
-      # ```ruby
-      # case account_type
-      # in :cash
-      #   # ...
-      # in :checking
-      #   # ...
-      # in :general_ledger
-      #   # ...
-      # in :loan
-      #   # ...
-      # in :non_resident
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class AccountType < ModernTreasury::Enum
         CASH = :cash
         CHECKING = :checking
@@ -303,16 +285,6 @@ module ModernTreasury
       # @abstract
       #
       # Either individual or business.
-      #
-      # @example
-      # ```ruby
-      # case party_type
-      # in :business
-      #   # ...
-      # in :individual
-      #   # ...
-      # end
-      # ```
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual

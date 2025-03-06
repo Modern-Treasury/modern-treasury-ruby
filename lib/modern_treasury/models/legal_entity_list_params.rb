@@ -75,15 +75,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case legal_entity_type
-      # in :business
-      #   # ...
-      # in :individual
-      #   # ...
-      # end
-      # ```
       class LegalEntityType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual

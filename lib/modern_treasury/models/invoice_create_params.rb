@@ -355,17 +355,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case contact_identifier_type
-        # in :email
-        #   # ...
-        # in :phone_number
-        #   # ...
-        # in :website
-        #   # ...
-        # end
-        # ```
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -645,18 +634,6 @@ module ModernTreasury
       #   the automatically initiated payment order's direction will be debit. If the
       #   invoice amount is negative, the automatically initiated payment order's
       #   direction will be credit. One of `manual`, `ui`, or `automatic`.
-      #
-      # @example
-      # ```ruby
-      # case payment_method
-      # in :ui
-      #   # ...
-      # in :manual
-      #   # ...
-      # in :automatic
-      #   # ...
-      # end
-      # ```
       class PaymentMethod < ModernTreasury::Enum
         UI = :ui
         MANUAL = :manual

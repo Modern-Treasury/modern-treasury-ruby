@@ -159,18 +159,6 @@ module ModernTreasury
       #
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :completed
-      #   # ...
-      # in :pending
-      #   # ...
-      # in :returned
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         COMPLETED = :completed
         PENDING = :pending

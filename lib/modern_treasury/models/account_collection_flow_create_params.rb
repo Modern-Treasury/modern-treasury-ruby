@@ -41,24 +41,6 @@ module ModernTreasury
       # @abstract
       #
       # Optional. Array of 3-digit ISO country codes.
-      #
-      # @example
-      # ```ruby
-      # case receiving_country
-      # in :USA
-      #   # ...
-      # in :AUS
-      #   # ...
-      # in :BEL
-      #   # ...
-      # in :CAN
-      #   # ...
-      # in :CHL
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class ReceivingCountry < ModernTreasury::Enum
         USA = :USA
         AUS = :AUS

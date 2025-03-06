@@ -178,16 +178,6 @@ module ModernTreasury
       #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      #
-      # @example
-      # ```ruby
-      # case direction
-      # in :credit
-      #   # ...
-      # in :debit
-      #   # ...
-      # end
-      # ```
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
@@ -204,14 +194,6 @@ module ModernTreasury
       #
       # The Expected Payment's status can be updated from partially_reconciled to
       #   reconciled.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :reconciled
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         RECONCILED = :reconciled
 

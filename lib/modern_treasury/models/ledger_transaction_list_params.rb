@@ -247,23 +247,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case ledgerable_type
-      # in :expected_payment
-      #   # ...
-      # in :incoming_payment_detail
-      #   # ...
-      # in :paper_item
-      #   # ...
-      # in :payment_order
-      #   # ...
-      # in :return
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class LedgerableType < ModernTreasury::Enum
         EXPECTED_PAYMENT = :expected_payment
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -314,15 +297,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case created_at
-        # in :asc
-        #   # ...
-        # in :desc
-        #   # ...
-        # end
-        # ```
         class CreatedAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
@@ -337,15 +311,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case effective_at
-        # in :asc
-        #   # ...
-        # in :desc
-        #   # ...
-        # end
-        # ```
         class EffectiveAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
@@ -361,17 +326,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case status
-      # in :pending
-      #   # ...
-      # in :posted
-      #   # ...
-      # in :archived
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         PENDING = :pending
         POSTED = :posted

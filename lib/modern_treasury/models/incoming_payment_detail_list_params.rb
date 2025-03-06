@@ -132,18 +132,6 @@ module ModernTreasury
       #
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :completed
-      #   # ...
-      # in :pending
-      #   # ...
-      # in :returned
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         COMPLETED = :completed
         PENDING = :pending
@@ -161,24 +149,6 @@ module ModernTreasury
       #
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
-      #
-      # @example
-      # ```ruby
-      # case type
-      # in :ach
-      #   # ...
-      # in :book
-      #   # ...
-      # in :check
-      #   # ...
-      # in :eft
-      #   # ...
-      # in :interac
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         BOOK = :book
