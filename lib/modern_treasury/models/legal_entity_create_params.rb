@@ -242,16 +242,6 @@ module ModernTreasury
       # @abstract
       #
       # The type of legal entity.
-      #
-      # @example
-      # ```ruby
-      # case legal_entity_type
-      # in :business
-      #   # ...
-      # in :individual
-      #   # ...
-      # end
-      # ```
       class LegalEntityType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
@@ -325,21 +315,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case address_type
-        # in :business
-        #   # ...
-        # in :mailing
-        #   # ...
-        # in :other
-        #   # ...
-        # in :po_box
-        #   # ...
-        # in :residential
-        #   # ...
-        # end
-        # ```
         class AddressType < ModernTreasury::Enum
           BUSINESS = :business
           MAILING = :mailing
@@ -388,24 +363,6 @@ module ModernTreasury
         # @abstract
         #
         # The type of ID number.
-        #
-        # @example
-        # ```ruby
-        # case id_type
-        # in :ar_cuil
-        #   # ...
-        # in :ar_cuit
-        #   # ...
-        # in :br_cnpj
-        #   # ...
-        # in :br_cpf
-        #   # ...
-        # in :cl_run
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class IDType < ModernTreasury::Enum
           AR_CUIL = :ar_cuil
           AR_CUIT = :ar_cuit
@@ -501,16 +458,6 @@ module ModernTreasury
         # @abstract
         #
         # A list of relationship types for how the child entity relates to parent entity.
-        #
-        # @example
-        # ```ruby
-        # case relationship_type
-        # in :beneficial_owner
-        #   # ...
-        # in :control_person
-        #   # ...
-        # end
-        # ```
         class RelationshipType < ModernTreasury::Enum
           BENEFICIAL_OWNER = :beneficial_owner
           CONTROL_PERSON = :control_person
@@ -816,21 +763,6 @@ module ModernTreasury
 
             # @abstract
             #
-            # @example
-            # ```ruby
-            # case address_type
-            # in :business
-            #   # ...
-            # in :mailing
-            #   # ...
-            # in :other
-            #   # ...
-            # in :po_box
-            #   # ...
-            # in :residential
-            #   # ...
-            # end
-            # ```
             class AddressType < ModernTreasury::Enum
               BUSINESS = :business
               MAILING = :mailing
@@ -880,24 +812,6 @@ module ModernTreasury
             # @abstract
             #
             # The type of ID number.
-            #
-            # @example
-            # ```ruby
-            # case id_type
-            # in :ar_cuil
-            #   # ...
-            # in :ar_cuit
-            #   # ...
-            # in :br_cnpj
-            #   # ...
-            # in :br_cpf
-            #   # ...
-            # in :cl_run
-            #   # ...
-            # in ...
-            #   #...
-            # end
-            # ```
             class IDType < ModernTreasury::Enum
               AR_CUIL = :ar_cuil
               AR_CUIT = :ar_cuit
@@ -933,16 +847,6 @@ module ModernTreasury
           # @abstract
           #
           # The type of legal entity.
-          #
-          # @example
-          # ```ruby
-          # case legal_entity_type
-          # in :business
-          #   # ...
-          # in :individual
-          #   # ...
-          # end
-          # ```
           class LegalEntityType < ModernTreasury::Enum
             BUSINESS = :business
             INDIVIDUAL = :individual
@@ -958,24 +862,6 @@ module ModernTreasury
           # @abstract
           #
           # The business's legal structure.
-          #
-          # @example
-          # ```ruby
-          # case legal_structure
-          # in :corporation
-          #   # ...
-          # in :llc
-          #   # ...
-          # in :non_profit
-          #   # ...
-          # in :partnership
-          #   # ...
-          # in :sole_proprietorship
-          #   # ...
-          # in ...
-          #   #...
-          # end
-          # ```
           class LegalStructure < ModernTreasury::Enum
             CORPORATION = :corporation
             LLC = :llc
@@ -1015,18 +901,6 @@ module ModernTreasury
           # @abstract
           #
           # The risk rating of the legal entity. One of low, medium, high.
-          #
-          # @example
-          # ```ruby
-          # case risk_rating
-          # in :low
-          #   # ...
-          # in :medium
-          #   # ...
-          # in :high
-          #   # ...
-          # end
-          # ```
           class RiskRating < ModernTreasury::Enum
             LOW = :low
             MEDIUM = :medium
@@ -1045,24 +919,6 @@ module ModernTreasury
       # @abstract
       #
       # The business's legal structure.
-      #
-      # @example
-      # ```ruby
-      # case legal_structure
-      # in :corporation
-      #   # ...
-      # in :llc
-      #   # ...
-      # in :non_profit
-      #   # ...
-      # in :partnership
-      #   # ...
-      # in :sole_proprietorship
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class LegalStructure < ModernTreasury::Enum
         CORPORATION = :corporation
         LLC = :llc
@@ -1102,18 +958,6 @@ module ModernTreasury
       # @abstract
       #
       # The risk rating of the legal entity. One of low, medium, high.
-      #
-      # @example
-      # ```ruby
-      # case risk_rating
-      # in :low
-      #   # ...
-      # in :medium
-      #   # ...
-      # in :high
-      #   # ...
-      # end
-      # ```
       class RiskRating < ModernTreasury::Enum
         LOW = :low
         MEDIUM = :medium

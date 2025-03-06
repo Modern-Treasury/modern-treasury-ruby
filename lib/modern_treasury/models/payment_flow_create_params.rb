@@ -80,16 +80,6 @@ module ModernTreasury
       #
       # Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
-      #
-      # @example
-      # ```ruby
-      # case direction
-      # in :credit
-      #   # ...
-      # in :debit
-      #   # ...
-      # end
-      # ```
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit

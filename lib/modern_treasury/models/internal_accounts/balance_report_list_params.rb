@@ -59,20 +59,6 @@ module ModernTreasury
         #
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
-        #
-        # @example
-        # ```ruby
-        # case balance_report_type
-        # in :intraday
-        #   # ...
-        # in :other
-        #   # ...
-        # in :previous_day
-        #   # ...
-        # in :real_time
-        #   # ...
-        # end
-        # ```
         class BalanceReportType < ModernTreasury::Enum
           INTRADAY = :intraday
           OTHER = :other

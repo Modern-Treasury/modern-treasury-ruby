@@ -196,23 +196,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case account_number_type
-        # in :au_number
-        #   # ...
-        # in :clabe
-        #   # ...
-        # in :hk_number
-        #   # ...
-        # in :iban
-        #   # ...
-        # in :id_number
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class AccountNumberType < ModernTreasury::Enum
           AU_NUMBER = :au_number
           CLABE = :clabe
@@ -264,17 +247,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case contact_identifier_type
-        # in :email
-        #   # ...
-        # in :phone_number
-        #   # ...
-        # in :website
-        #   # ...
-        # end
-        # ```
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -413,20 +385,6 @@ module ModernTreasury
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
-        #
-        # @example
-        # ```ruby
-        # case ledgerable_type
-        # in :counterparty
-        #   # ...
-        # in :external_account
-        #   # ...
-        # in :internal_account
-        #   # ...
-        # in :virtual_account
-        #   # ...
-        # end
-        # ```
         class LedgerableType < ModernTreasury::Enum
           COUNTERPARTY = :counterparty
           EXTERNAL_ACCOUNT = :external_account
@@ -495,16 +453,6 @@ module ModernTreasury
       # @abstract
       #
       # Either `individual` or `business`.
-      #
-      # @example
-      # ```ruby
-      # case party_type
-      # in :business
-      #   # ...
-      # in :individual
-      #   # ...
-      # end
-      # ```
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual
@@ -550,23 +498,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case routing_number_type
-        # in :aba
-        #   # ...
-        # in :au_bsb
-        #   # ...
-        # in :br_codigo
-        #   # ...
-        # in :ca_cpa
-        #   # ...
-        # in :chips
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class RoutingNumberType < ModernTreasury::Enum
           ABA = :aba
           AU_BSB = :au_bsb
@@ -600,23 +531,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case payment_type
-        # in :ach
-        #   # ...
-        # in :au_becs
-        #   # ...
-        # in :bacs
-        #   # ...
-        # in :book
-        #   # ...
-        # in :card
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class PaymentType < ModernTreasury::Enum
           ACH = :ach
           AU_BECS = :au_becs

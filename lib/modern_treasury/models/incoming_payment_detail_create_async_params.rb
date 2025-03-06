@@ -105,16 +105,6 @@ module ModernTreasury
       # @abstract
       #
       # One of `credit`, `debit`.
-      #
-      # @example
-      # ```ruby
-      # case direction
-      # in :credit
-      #   # ...
-      # in :debit
-      #   # ...
-      # end
-      # ```
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
@@ -130,24 +120,6 @@ module ModernTreasury
       # @abstract
       #
       # One of `ach`, `wire`, `check`.
-      #
-      # @example
-      # ```ruby
-      # case type
-      # in :ach
-      #   # ...
-      # in :book
-      #   # ...
-      # in :check
-      #   # ...
-      # in :eft
-      #   # ...
-      # in :interac
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         BOOK = :book

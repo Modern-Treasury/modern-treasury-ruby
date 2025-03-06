@@ -144,23 +144,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case status
-      # in :draft
-      #   # ...
-      # in :paid
-      #   # ...
-      # in :partially_paid
-      #   # ...
-      # in :payment_pending
-      #   # ...
-      # in :unpaid
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         DRAFT = :draft
         PAID = :paid

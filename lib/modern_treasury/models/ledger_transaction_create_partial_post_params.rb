@@ -111,16 +111,6 @@ module ModernTreasury
         #   transaction. A `credit` moves money from your account to someone else's. A
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
-        #
-        # @example
-        # ```ruby
-        # case direction
-        # in :credit
-        #   # ...
-        # in :debit
-        #   # ...
-        # end
-        # ```
         class Direction < ModernTreasury::Enum
           CREDIT = :credit
           DEBIT = :debit

@@ -49,16 +49,6 @@ module ModernTreasury
       #
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :posted
-      #   # ...
-      # in :archived
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         POSTED = :posted
         ARCHIVED = :archived

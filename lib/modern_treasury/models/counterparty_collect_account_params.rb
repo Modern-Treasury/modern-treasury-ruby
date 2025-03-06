@@ -68,23 +68,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case field
-      # in :name
-      #   # ...
-      # in :nameOnAccount
-      #   # ...
-      # in :taxpayerIdentifier
-      #   # ...
-      # in :accountType
-      #   # ...
-      # in :accountNumber
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Field < ModernTreasury::Enum
         NAME = :name
         NAME_ON_ACCOUNT = :nameOnAccount

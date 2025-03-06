@@ -144,16 +144,6 @@ module ModernTreasury
       # @abstract
       #
       # Either `individual` or `business`.
-      #
-      # @example
-      # ```ruby
-      # case party_type
-      # in :business
-      #   # ...
-      # in :individual
-      #   # ...
-      # end
-      # ```
       class PartyType < ModernTreasury::Enum
         BUSINESS = :business
         INDIVIDUAL = :individual

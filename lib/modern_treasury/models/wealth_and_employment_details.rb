@@ -166,22 +166,6 @@ module ModernTreasury
       # @abstract
       #
       # The employment status of the individual.
-      #
-      # @example
-      # ```ruby
-      # case employment_status
-      # in :employed
-      #   # ...
-      # in :retired
-      #   # ...
-      # in :self_employed
-      #   # ...
-      # in :student
-      #   # ...
-      # in :unemployed
-      #   # ...
-      # end
-      # ```
       class EmploymentStatus < ModernTreasury::Enum
         EMPLOYED = :employed
         RETIRED = :retired
@@ -200,24 +184,6 @@ module ModernTreasury
       # @abstract
       #
       # The source of the individual's income.
-      #
-      # @example
-      # ```ruby
-      # case income_source
-      # in :family_support
-      #   # ...
-      # in :government_benefits
-      #   # ...
-      # in :inheritance
-      #   # ...
-      # in :investments
-      #   # ...
-      # in :rental_income
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class IncomeSource < ModernTreasury::Enum
         FAMILY_SUPPORT = :family_support
         GOVERNMENT_BENEFITS = :government_benefits
@@ -239,24 +205,6 @@ module ModernTreasury
       # @abstract
       #
       # The industry of the individual.
-      #
-      # @example
-      # ```ruby
-      # case industry
-      # in :accounting
-      #   # ...
-      # in :agriculture
-      #   # ...
-      # in :automotive
-      #   # ...
-      # in :chemical_manufacturing
-      #   # ...
-      # in :construction
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Industry < ModernTreasury::Enum
         ACCOUNTING = :accounting
         AGRICULTURE = :agriculture
@@ -303,24 +251,6 @@ module ModernTreasury
       # @abstract
       #
       # The occupation of the individual.
-      #
-      # @example
-      # ```ruby
-      # case occupation
-      # in :consulting
-      #   # ...
-      # in :executive
-      #   # ...
-      # in :finance_accounting
-      #   # ...
-      # in :food_services
-      #   # ...
-      # in :government
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Occupation < ModernTreasury::Enum
         CONSULTING = :consulting
         EXECUTIVE = :executive
@@ -346,24 +276,6 @@ module ModernTreasury
       # @abstract
       #
       # The source of the individual's funds.
-      #
-      # @example
-      # ```ruby
-      # case source_of_funds
-      # in :alimony
-      #   # ...
-      # in :annuity
-      #   # ...
-      # in :business_owner
-      #   # ...
-      # in :general_employee
-      #   # ...
-      # in :government_benefits
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class SourceOfFunds < ModernTreasury::Enum
         ALIMONY = :alimony
         ANNUITY = :annuity
@@ -394,24 +306,6 @@ module ModernTreasury
       # @abstract
       #
       # The source of the individual's wealth.
-      #
-      # @example
-      # ```ruby
-      # case wealth_source
-      # in :business_sale
-      #   # ...
-      # in :family_support
-      #   # ...
-      # in :government_benefits
-      #   # ...
-      # in :inheritance
-      #   # ...
-      # in :investments
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class WealthSource < ModernTreasury::Enum
         BUSINESS_SALE = :business_sale
         FAMILY_SUPPORT = :family_support

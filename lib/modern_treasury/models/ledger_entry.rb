@@ -330,18 +330,6 @@ module ModernTreasury
       #
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :archived
-      #   # ...
-      # in :pending
-      #   # ...
-      # in :posted
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         ARCHIVED = :archived
         PENDING = :pending
