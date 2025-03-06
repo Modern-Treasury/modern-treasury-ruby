@@ -102,22 +102,6 @@ module ModernTreasury
         # @abstract
         #
         # The reason for the reversal.
-        #
-        # @example
-        # ```ruby
-        # case reason
-        # in :duplicate
-        #   # ...
-        # in :incorrect_amount
-        #   # ...
-        # in :incorrect_receiving_account
-        #   # ...
-        # in :date_earlier_than_intended
-        #   # ...
-        # in :date_later_than_intended
-        #   # ...
-        # end
-        # ```
         class Reason < ModernTreasury::Enum
           DUPLICATE = :duplicate
           INCORRECT_AMOUNT = :incorrect_amount
@@ -136,24 +120,6 @@ module ModernTreasury
         # @abstract
         #
         # The current status of the reversal.
-        #
-        # @example
-        # ```ruby
-        # case status
-        # in :completed
-        #   # ...
-        # in :failed
-        #   # ...
-        # in :pending
-        #   # ...
-        # in :processing
-        #   # ...
-        # in :returned
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class Status < ModernTreasury::Enum
           COMPLETED = :completed
           FAILED = :failed

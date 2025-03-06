@@ -59,15 +59,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case type
-        # in :originating
-        #   # ...
-        # in :receiving
-        #   # ...
-        # end
-        # ```
         class Type < ModernTreasury::Enum
           ORIGINATING = :originating
           RECEIVING = :receiving

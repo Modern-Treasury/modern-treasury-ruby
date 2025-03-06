@@ -191,5 +191,12 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < ModernTreasury::Te
     assert_pattern do
       response => ModernTreasury::Models::ExternalAccountVerifyResponse
     end
+
+    assert_pattern do
+      case response
+      in ModernTreasury::Models::ExternalAccount
+      in ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+      end
+    end
   end
 end

@@ -28,15 +28,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case itemizable_type
-      # in :expected_payments
-      #   # ...
-      # in :payment_orders
-      #   # ...
-      # end
-      # ```
       class ItemizableType < ModernTreasury::Enum
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders

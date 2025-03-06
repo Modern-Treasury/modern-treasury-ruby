@@ -105,16 +105,6 @@ module ModernTreasury
       #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      #
-      # @example
-      # ```ruby
-      # case direction
-      # in :credit
-      #   # ...
-      # in :debit
-      #   # ...
-      # end
-      # ```
       class Direction < ModernTreasury::Enum
         CREDIT = :credit
         DEBIT = :debit
@@ -131,24 +121,6 @@ module ModernTreasury
       #
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet wire
-      #
-      # @example
-      # ```ruby
-      # case type
-      # in :ach
-      #   # ...
-      # in :au_becs
-      #   # ...
-      # in :bacs
-      #   # ...
-      # in :book
-      #   # ...
-      # in :card
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

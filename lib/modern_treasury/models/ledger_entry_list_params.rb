@@ -302,15 +302,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case created_at
-        # in :asc
-        #   # ...
-        # in :desc
-        #   # ...
-        # end
-        # ```
         class CreatedAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
@@ -325,15 +316,6 @@ module ModernTreasury
 
         # @abstract
         #
-        # @example
-        # ```ruby
-        # case effective_at
-        # in :asc
-        #   # ...
-        # in :desc
-        #   # ...
-        # end
-        # ```
         class EffectiveAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
@@ -351,18 +333,6 @@ module ModernTreasury
       #
       # Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :pending
-      #   # ...
-      # in :posted
-      #   # ...
-      # in :archived
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         PENDING = :pending
         POSTED = :posted

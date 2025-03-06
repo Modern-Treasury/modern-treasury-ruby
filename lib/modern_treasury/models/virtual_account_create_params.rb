@@ -171,24 +171,6 @@ module ModernTreasury
         #
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   account number is in a generic format.
-        #
-        # @example
-        # ```ruby
-        # case account_number_type
-        # in :au_number
-        #   # ...
-        # in :clabe
-        #   # ...
-        # in :hk_number
-        #   # ...
-        # in :iban
-        #   # ...
-        # in :id_number
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class AccountNumberType < ModernTreasury::Enum
           AU_NUMBER = :au_number
           CLABE = :clabe
@@ -332,20 +314,6 @@ module ModernTreasury
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
-        #
-        # @example
-        # ```ruby
-        # case ledgerable_type
-        # in :counterparty
-        #   # ...
-        # in :external_account
-        #   # ...
-        # in :internal_account
-        #   # ...
-        # in :virtual_account
-        #   # ...
-        # end
-        # ```
         class LedgerableType < ModernTreasury::Enum
           COUNTERPARTY = :counterparty
           EXTERNAL_ACCOUNT = :external_account
@@ -400,24 +368,6 @@ module ModernTreasury
         # The type of routing number. See
         #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
         #   more details.
-        #
-        # @example
-        # ```ruby
-        # case routing_number_type
-        # in :aba
-        #   # ...
-        # in :au_bsb
-        #   # ...
-        # in :br_codigo
-        #   # ...
-        # in :ca_cpa
-        #   # ...
-        # in :chips
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class RoutingNumberType < ModernTreasury::Enum
           ABA = :aba
           AU_BSB = :au_bsb
@@ -453,24 +403,6 @@ module ModernTreasury
         #
         # If the routing detail is to be used for a specific payment type this field will
         #   be populated, otherwise null.
-        #
-        # @example
-        # ```ruby
-        # case payment_type
-        # in :ach
-        #   # ...
-        # in :au_becs
-        #   # ...
-        # in :bacs
-        #   # ...
-        # in :book
-        #   # ...
-        # in :card
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class PaymentType < ModernTreasury::Enum
           ACH = :ach
           AU_BECS = :au_becs

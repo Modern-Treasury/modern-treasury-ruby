@@ -80,18 +80,6 @@ module ModernTreasury
       #
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
-      #
-      # @example
-      # ```ruby
-      # case referenceable_type
-      # in :payment_order
-      #   # ...
-      # in :return
-      #   # ...
-      # in :reversal
-      #   # ...
-      # end
-      # ```
       class ReferenceableType < ModernTreasury::Enum
         PAYMENT_ORDER = :payment_order
         RETURN = :return

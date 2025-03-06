@@ -221,16 +221,6 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
-      #
-      # @example
-      # ```ruby
-      # case priority
-      # in :high
-      #   # ...
-      # in :normal
-      #   # ...
-      # end
-      # ```
       class Priority < ModernTreasury::Enum
         HIGH = :high
         NORMAL = :normal
@@ -245,23 +235,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case status
-      # in :approved
-      #   # ...
-      # in :cancelled
-      #   # ...
-      # in :completed
-      #   # ...
-      # in :denied
-      #   # ...
-      # in :failed
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         APPROVED = :approved
         CANCELLED = :cancelled
@@ -285,23 +258,6 @@ module ModernTreasury
 
       # @abstract
       #
-      # @example
-      # ```ruby
-      # case type
-      # in :ach
-      #   # ...
-      # in :au_becs
-      #   # ...
-      # in :bacs
-      #   # ...
-      # in :book
-      #   # ...
-      # in :card
-      #   # ...
-      # in ...
-      #   #...
-      # end
-      # ```
       class Type < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

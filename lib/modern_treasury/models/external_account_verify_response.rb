@@ -4,15 +4,6 @@ module ModernTreasury
   module Models
     # @abstract
     #
-    # @example
-    # ```ruby
-    # case external_account_verify_response
-    # in ModernTreasury::Models::ExternalAccount
-    #   # ...
-    # in ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-    #   # ...
-    # end
-    # ```
     class ExternalAccountVerifyResponse < ModernTreasury::Union
       variant -> { ModernTreasury::Models::ExternalAccount }
 
@@ -116,24 +107,6 @@ module ModernTreasury
         #
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         #   `rtp`.
-        #
-        # @example
-        # ```ruby
-        # case payment_type
-        # in :ach
-        #   # ...
-        # in :au_becs
-        #   # ...
-        # in :bacs
-        #   # ...
-        # in :book
-        #   # ...
-        # in :card
-        #   # ...
-        # in ...
-        #   #...
-        # end
-        # ```
         class PaymentType < ModernTreasury::Enum
           ACH = :ach
           AU_BECS = :au_becs
@@ -177,16 +150,6 @@ module ModernTreasury
         # @abstract
         #
         # The priority of the payment. Can be `normal` or `high`.
-        #
-        # @example
-        # ```ruby
-        # case priority
-        # in :high
-        #   # ...
-        # in :normal
-        #   # ...
-        # end
-        # ```
         class Priority < ModernTreasury::Enum
           HIGH = :high
           NORMAL = :normal
@@ -203,20 +166,6 @@ module ModernTreasury
         #
         # The status of the verification attempt. Can be `pending_verification`,
         #   `verified`, `failed`, or `cancelled`.
-        #
-        # @example
-        # ```ruby
-        # case status
-        # in :cancelled
-        #   # ...
-        # in :failed
-        #   # ...
-        # in :pending_verification
-        #   # ...
-        # in :verified
-        #   # ...
-        # end
-        # ```
         class Status < ModernTreasury::Enum
           CANCELLED = :cancelled
           FAILED = :failed

@@ -28,14 +28,6 @@ module ModernTreasury
       # @abstract
       #
       # The status of the connection legal entity.
-      #
-      # @example
-      # ```ruby
-      # case status
-      # in :processing
-      #   # ...
-      # end
-      # ```
       class Status < ModernTreasury::Enum
         PROCESSING = :processing
 
