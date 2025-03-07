@@ -229,11 +229,6 @@ module ModernTreasury
         BULK_ERROR = :bulk_error
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -244,11 +239,6 @@ module ModernTreasury
         BULK_REQUEST = :bulk_request
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -260,11 +250,6 @@ module ModernTreasury
         FAILED = :failed
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

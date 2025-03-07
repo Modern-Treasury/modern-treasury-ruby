@@ -122,11 +122,6 @@ module ModernTreasury
         CAD = :CAD
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class PartyAddress < ModernTreasury::BaseModel

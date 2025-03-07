@@ -62,8 +62,10 @@ module ModernTreasury
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

@@ -226,11 +226,6 @@ module ModernTreasury
         NORMAL = :normal
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -249,11 +244,6 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -291,11 +281,6 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

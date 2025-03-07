@@ -103,11 +103,6 @@ module ModernTreasury
         WALLET_ADDRESS = :wallet_address
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

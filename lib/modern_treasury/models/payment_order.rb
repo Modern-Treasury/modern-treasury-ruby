@@ -500,11 +500,6 @@ module ModernTreasury
         RECEIVER = :receiver
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -518,11 +513,6 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -535,11 +525,6 @@ module ModernTreasury
         VARIABLE_TO_FIXED = :variable_to_fixed
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
@@ -615,11 +600,6 @@ module ModernTreasury
         NORMAL = :normal
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -629,11 +609,6 @@ module ModernTreasury
         EXTERNAL_ACCOUNT = :external_account
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -767,11 +742,6 @@ module ModernTreasury
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -792,11 +762,6 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -816,11 +781,6 @@ module ModernTreasury
         VIRTUAL_ACCOUNT = :virtual_account
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

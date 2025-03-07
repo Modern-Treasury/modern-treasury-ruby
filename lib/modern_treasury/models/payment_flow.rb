@@ -235,11 +235,6 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -251,11 +246,6 @@ module ModernTreasury
         VERIFIED = :verified
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -268,11 +258,6 @@ module ModernTreasury
         ENABLED = :enabled
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -286,11 +271,6 @@ module ModernTreasury
         PENDING = :pending
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

@@ -57,11 +57,6 @@ module ModernTreasury
           REAL_TIME = :real_time
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
 
         class Balance < ModernTreasury::BaseModel
@@ -124,11 +119,6 @@ module ModernTreasury
             PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
 
             finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   #
-            #   def self.values; end
           end
         end
       end

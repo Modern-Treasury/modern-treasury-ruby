@@ -315,13 +315,15 @@ module ModernTreasury
           end
         end
 
-        sig do
-          override
-            .returns(
-              [[NilClass, ModernTreasury::Models::PaymentOrder], [NilClass, ModernTreasury::Models::ExpectedPayment], [NilClass, ModernTreasury::Models::LedgerTransaction], [NilClass, ModernTreasury::Models::Transaction], [NilClass, ModernTreasury::Models::BulkResult::Entity::BulkError]]
-            )
-        end
-        private_class_method def self.variants
+        class << self
+          sig do
+            override
+              .returns(
+                [[NilClass, ModernTreasury::Models::PaymentOrder], [NilClass, ModernTreasury::Models::ExpectedPayment], [NilClass, ModernTreasury::Models::LedgerTransaction], [NilClass, ModernTreasury::Models::Transaction], [NilClass, ModernTreasury::Models::BulkResult::Entity::BulkError]]
+              )
+          end
+          private def variants
+          end
         end
       end
 
@@ -334,8 +336,10 @@ module ModernTreasury
         EXPECTED_PAYMENT = :expected_payment
         BULK_ERROR = :bulk_error
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -344,8 +348,10 @@ module ModernTreasury
 
         BULK_REQUEST = :bulk_request
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -356,8 +362,10 @@ module ModernTreasury
         SUCCESSFUL = :successful
         FAILED = :failed
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

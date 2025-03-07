@@ -196,8 +196,10 @@ module ModernTreasury
         WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
         WELLS_FARGO_UETR = :wells_fargo_uetr
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -208,8 +210,10 @@ module ModernTreasury
         REVERSAL = :reversal
         RETURN = :return
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

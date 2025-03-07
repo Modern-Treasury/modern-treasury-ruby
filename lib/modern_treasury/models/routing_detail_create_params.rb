@@ -53,11 +53,6 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS = :external_accounts
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -89,11 +84,6 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -133,11 +123,6 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

@@ -433,8 +433,10 @@ module ModernTreasury
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
 
-          sig { override.returns(T::Array[Symbol]) }
-          def self.values
+          class << self
+            sig { override.returns(T::Array[Symbol]) }
+            def values
+            end
           end
         end
       end
@@ -784,8 +786,10 @@ module ModernTreasury
         MANUAL = :manual
         AUTOMATIC = :automatic
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

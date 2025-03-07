@@ -118,11 +118,6 @@ module ModernTreasury
         DELETE = :delete
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -135,11 +130,6 @@ module ModernTreasury
         EXPECTED_PAYMENT = :expected_payment
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -151,11 +141,6 @@ module ModernTreasury
         COMPLETED = :completed
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

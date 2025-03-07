@@ -110,11 +110,6 @@ module ModernTreasury
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
 
         # @abstract
@@ -129,11 +124,6 @@ module ModernTreasury
           SENT = :sent
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
     end

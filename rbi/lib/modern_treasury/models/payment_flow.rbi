@@ -237,8 +237,10 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -247,8 +249,10 @@ module ModernTreasury
 
         VERIFIED = T.let(:verified, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -258,8 +262,10 @@ module ModernTreasury
         DISABLED = :disabled
         ENABLED = :enabled
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -271,8 +277,10 @@ module ModernTreasury
         EXPIRED = :expired
         PENDING = :pending
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end
