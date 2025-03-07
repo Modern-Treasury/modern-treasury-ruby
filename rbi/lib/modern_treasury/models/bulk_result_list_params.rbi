@@ -114,8 +114,10 @@ module ModernTreasury
         EXPECTED_PAYMENT = :expected_payment
         BULK_ERROR = :bulk_error
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -124,8 +126,10 @@ module ModernTreasury
 
         BULK_REQUEST = :bulk_request
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -136,8 +140,10 @@ module ModernTreasury
         SUCCESSFUL = :successful
         FAILED = :failed
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

@@ -162,11 +162,6 @@ module ModernTreasury
         WELLS_FARGO_UETR = :wells_fargo_uetr
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -179,11 +174,6 @@ module ModernTreasury
         RETURN = :return
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

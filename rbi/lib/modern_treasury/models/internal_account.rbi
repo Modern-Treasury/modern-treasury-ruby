@@ -252,8 +252,10 @@ module ModernTreasury
         OVERDRAFT = T.let(:overdraft, T.nilable(Symbol))
         SAVINGS = T.let(:savings, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -405,8 +407,10 @@ module ModernTreasury
         BUSINESS = T.let(:business, T.nilable(Symbol))
         INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

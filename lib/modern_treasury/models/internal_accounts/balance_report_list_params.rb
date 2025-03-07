@@ -66,11 +66,6 @@ module ModernTreasury
           REAL_TIME = :real_time
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
     end

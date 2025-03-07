@@ -403,11 +403,6 @@ module ModernTreasury
           WEBSITE = :website
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -583,11 +578,6 @@ module ModernTreasury
         AUTOMATIC = :automatic
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -598,11 +588,6 @@ module ModernTreasury
         ACH = :ach
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -617,11 +602,6 @@ module ModernTreasury
         VOIDED = :voided
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

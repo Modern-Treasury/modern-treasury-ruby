@@ -314,8 +314,10 @@ module ModernTreasury
         SG_NUMBER = T.let(:sg_number, T.nilable(Symbol))
         WALLET_ADDRESS = T.let(:wallet_address, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -344,8 +346,10 @@ module ModernTreasury
         SWIFT = T.let(:swift, T.nilable(Symbol))
         ZA_NATIONAL_CLEARING_CODE = T.let(:za_national_clearing_code, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -356,8 +360,10 @@ module ModernTreasury
         PENDING = :pending
         RETURNED = :returned
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -374,8 +380,10 @@ module ModernTreasury
         SIGNET = :signet
         WIRE = :wire
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

@@ -196,11 +196,6 @@ module ModernTreasury
         CONNECTION = :connection
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class File < ModernTreasury::BaseModel

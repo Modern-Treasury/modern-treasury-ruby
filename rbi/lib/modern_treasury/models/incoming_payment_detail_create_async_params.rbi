@@ -122,8 +122,10 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -140,8 +142,10 @@ module ModernTreasury
         SIGNET = :signet
         WIRE = :wire
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

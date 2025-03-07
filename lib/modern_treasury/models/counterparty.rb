@@ -394,11 +394,6 @@ module ModernTreasury
             WEBSITE = :website
 
             finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   #
-            #   def self.values; end
           end
         end
 
@@ -507,11 +502,6 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
 
         # @abstract
@@ -522,11 +512,6 @@ module ModernTreasury
           PLAID = :plaid
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
 
         # @abstract
@@ -537,11 +522,6 @@ module ModernTreasury
           VERIFIED = :verified
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -555,11 +535,6 @@ module ModernTreasury
         VERIFIED = :verified
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

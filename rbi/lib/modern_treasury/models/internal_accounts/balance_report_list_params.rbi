@@ -81,8 +81,10 @@ module ModernTreasury
           PREVIOUS_DAY = :previous_day
           REAL_TIME = :real_time
 
-          sig { override.returns(T::Array[Symbol]) }
-          def self.values
+          class << self
+            sig { override.returns(T::Array[Symbol]) }
+            def values
+            end
           end
         end
       end

@@ -79,11 +79,6 @@ module ModernTreasury
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -145,11 +140,6 @@ module ModernTreasury
         CURRENCYCLOUD = :currencycloud
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

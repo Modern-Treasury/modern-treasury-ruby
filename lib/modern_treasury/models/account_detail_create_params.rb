@@ -46,11 +46,6 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS = :external_accounts
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -70,11 +65,6 @@ module ModernTreasury
         WALLET_ADDRESS = :wallet_address
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

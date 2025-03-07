@@ -197,11 +197,6 @@ module ModernTreasury
       ZWR = :ZWR
 
       finalize!
-
-      # @!parse
-      #   # @return [Array<Symbol>]
-      #   #
-      #   def self.values; end
     end
   end
 end
