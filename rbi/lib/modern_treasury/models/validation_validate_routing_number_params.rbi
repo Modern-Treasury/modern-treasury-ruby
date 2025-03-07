@@ -28,9 +28,9 @@ module ModernTreasury
           routing_number_type: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(routing_number:, routing_number_type:, request_options: {})
+      def self.new(routing_number:, routing_number_type:, request_options: {})
       end
 
       sig do

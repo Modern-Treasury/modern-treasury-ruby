@@ -144,9 +144,9 @@ module ModernTreasury
             type: Symbol,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           amount:,
           counterparty_id:,

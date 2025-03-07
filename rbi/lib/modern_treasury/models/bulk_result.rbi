@@ -149,9 +149,9 @@ module ModernTreasury
           status: Symbol,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         created_at:,
         entity:,
@@ -259,9 +259,9 @@ module ModernTreasury
               request_errors: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
               updated_at: Time
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(id:, created_at:, live_mode:, object:, request_errors:, updated_at:)
+          def self.new(id:, created_at:, live_mode:, object:, request_errors:, updated_at:)
           end
 
           sig do
@@ -305,8 +305,8 @@ module ModernTreasury
             def parameter=(_)
             end
 
-            sig { params(code: String, message: String, parameter: String).void }
-            def initialize(code: nil, message: nil, parameter: nil)
+            sig { params(code: String, message: String, parameter: String).returns(T.attached_class) }
+            def self.new(code: nil, message: nil, parameter: nil)
             end
 
             sig { override.returns({code: String, message: String, parameter: String}) }

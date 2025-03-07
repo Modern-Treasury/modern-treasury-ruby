@@ -181,9 +181,9 @@ module ModernTreasury
         max_retry_delay: Float,
         idempotency_header: String
       )
-        .void
+        .returns(T.attached_class)
     end
-    def initialize(
+    def self.new(
       base_url: nil,
       api_key: ENV["MODERN_TREASURY_API_KEY"],
       organization_id: ENV["MODERN_TREASURY_ORGANIZATION_ID"],

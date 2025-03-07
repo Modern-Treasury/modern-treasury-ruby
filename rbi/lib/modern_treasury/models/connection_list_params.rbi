@@ -46,15 +46,9 @@ module ModernTreasury
           vendor_customer_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        after_cursor: nil,
-        entity: nil,
-        per_page: nil,
-        vendor_customer_id: nil,
-        request_options: {}
-      )
+      def self.new(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, request_options: {})
       end
 
       sig do

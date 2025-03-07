@@ -41,9 +41,9 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(reason:, ledger_transaction: nil, metadata: nil, request_options: {})
+        def self.new(reason:, ledger_transaction: nil, metadata: nil, request_options: {})
         end
 
         sig do
@@ -172,9 +172,9 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               status: Symbol
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             ledger_entries:,
             description: nil,
             effective_at: nil,
@@ -297,9 +297,9 @@ module ModernTreasury
                 posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                 show_resulting_ledger_account_balances: T.nilable(T::Boolean)
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
+            def self.new(
               amount:,
               direction:,
               ledger_account_id:,

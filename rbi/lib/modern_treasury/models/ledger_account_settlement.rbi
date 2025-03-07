@@ -159,9 +159,9 @@ module ModernTreasury
           status: Symbol,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         amount:,
         contra_ledger_account_id:,

@@ -219,9 +219,9 @@ module ModernTreasury
           updated_at: Time,
           additional_information: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         amount:,
         code:,
@@ -412,17 +412,9 @@ module ModernTreasury
             reference_number_type: Symbol,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
-          id:,
-          created_at:,
-          live_mode:,
-          object:,
-          reference_number:,
-          reference_number_type:,
-          updated_at:
-        )
+        def self.new(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
         end
 
         sig do

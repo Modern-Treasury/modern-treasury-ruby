@@ -46,9 +46,9 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(name:, custom_data: nil, description: nil, metadata: nil, request_options: {})
+      def self.new(name:, custom_data: nil, description: nil, metadata: nil, request_options: {})
       end
 
       sig do

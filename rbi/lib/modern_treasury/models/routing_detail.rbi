@@ -108,9 +108,9 @@ module ModernTreasury
           routing_number_type: Symbol,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         bank_address:,
         bank_name:,
@@ -249,9 +249,9 @@ module ModernTreasury
             region: T.nilable(String),
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           country:,
           created_at:,

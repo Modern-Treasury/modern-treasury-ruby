@@ -82,9 +82,9 @@ module ModernTreasury
           status: T.nilable(Symbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         contra_ledger_account_id:,
         settled_ledger_account_id:,
         allow_either_direction: nil,

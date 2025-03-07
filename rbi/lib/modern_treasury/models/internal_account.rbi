@@ -186,9 +186,9 @@ module ModernTreasury
           routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         account_details:,
         account_type:,
@@ -362,9 +362,9 @@ module ModernTreasury
             region: T.nilable(String),
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           country:,
           created_at:,

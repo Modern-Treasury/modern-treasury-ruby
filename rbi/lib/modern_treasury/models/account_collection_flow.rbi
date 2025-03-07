@@ -105,9 +105,9 @@ module ModernTreasury
           status: Symbol,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         counterparty_id:,
         payment_types:,
         id: nil,

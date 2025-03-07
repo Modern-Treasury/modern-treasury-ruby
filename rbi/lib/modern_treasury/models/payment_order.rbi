@@ -475,9 +475,9 @@ module ModernTreasury
           vendor_attributes: T.nilable(T.anything),
           vendor_failure_reason: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         accounting:,
         accounting_category_id:,
@@ -608,8 +608,8 @@ module ModernTreasury
         def class_id=(_)
         end
 
-        sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
-        def initialize(account_id: nil, class_id: nil)
+        sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
+        def self.new(account_id: nil, class_id: nil)
         end
 
         sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
@@ -724,17 +724,9 @@ module ModernTreasury
             target_currency: Symbol,
             value: Integer
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
-          base_amount:,
-          base_currency:,
-          exponent:,
-          rate_string:,
-          target_amount:,
-          target_currency:,
-          value:
-        )
+        def self.new(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
         end
 
         sig do
@@ -848,17 +840,9 @@ module ModernTreasury
             reference_number_type: Symbol,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
-          id:,
-          created_at:,
-          live_mode:,
-          object:,
-          reference_number:,
-          reference_number_type:,
-          updated_at:
-        )
+        def self.new(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
         end
 
         sig do

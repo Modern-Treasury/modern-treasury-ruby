@@ -99,9 +99,9 @@ module ModernTreasury
             status: Symbol,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           created_at:,
           external_account_id:,

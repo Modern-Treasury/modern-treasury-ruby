@@ -28,9 +28,9 @@ module ModernTreasury
           account_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(accounts_type:, account_id:, request_options: {})
+      def self.new(accounts_type:, account_id:, request_options: {})
       end
 
       sig do

@@ -55,9 +55,9 @@ module ModernTreasury
           parent_account_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         counterparty_id: nil,
         ledger_account_id: nil,
         metadata: nil,

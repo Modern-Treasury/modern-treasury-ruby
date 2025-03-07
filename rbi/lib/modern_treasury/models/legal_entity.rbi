@@ -294,9 +294,9 @@ module ModernTreasury
           wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
           website: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         addresses:,
         bank_settings:,
@@ -491,9 +491,9 @@ module ModernTreasury
             region: T.nilable(String),
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           address_types:,
           country:,
@@ -626,18 +626,9 @@ module ModernTreasury
             object: String,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
-          id:,
-          created_at:,
-          discarded_at:,
-          id_type:,
-          issuing_country:,
-          live_mode:,
-          object:,
-          updated_at:
-        )
+        def self.new(id:, created_at:, discarded_at:, id_type:, issuing_country:, live_mode:, object:, updated_at:)
         end
 
         sig do
@@ -731,8 +722,8 @@ module ModernTreasury
         def phone_number=(_)
         end
 
-        sig { params(phone_number: String).void }
-        def initialize(phone_number: nil)
+        sig { params(phone_number: String).returns(T.attached_class) }
+        def self.new(phone_number: nil)
         end
 
         sig { override.returns({phone_number: String}) }
