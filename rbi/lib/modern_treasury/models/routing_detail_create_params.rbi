@@ -46,15 +46,9 @@ module ModernTreasury
           payment_type: T.nilable(Symbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        accounts_type:,
-        routing_number:,
-        routing_number_type:,
-        payment_type: nil,
-        request_options: {}
-      )
+      def self.new(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {})
       end
 
       sig do

@@ -74,9 +74,9 @@ module ModernTreasury
             unit_amount_decimal: String,
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           name:,
           unit_amount:,
           description: nil,

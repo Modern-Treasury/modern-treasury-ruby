@@ -100,9 +100,9 @@ module ModernTreasury
           vendor_description: T.nilable(String),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         amount:,
         as_of_date:,
         direction:,

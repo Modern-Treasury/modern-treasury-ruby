@@ -177,9 +177,9 @@ module ModernTreasury
           status: Symbol,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id: nil,
         amount: nil,
         client_token: nil,

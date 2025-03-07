@@ -50,9 +50,9 @@ module ModernTreasury
             balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
+        def self.new(as_of_date:, as_of_time:, balance_report_type:, balances:, request_options: {})
         end
 
         sig do
@@ -125,9 +125,9 @@ module ModernTreasury
               vendor_code: String,
               vendor_code_type: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(amount:, balance_type:, vendor_code:, vendor_code_type:)
+          def self.new(amount:, balance_type:, vendor_code:, vendor_code_type:)
           end
 
           sig do

@@ -22,8 +22,11 @@ module ModernTreasury
       def type=(_)
       end
 
-      sig { params(query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String).void }
-      def initialize(query:, type:)
+      sig do
+        params(query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String)
+          .returns(T.attached_class)
+      end
+      def self.new(query:, type:)
       end
 
       sig { override.returns({query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String}) }
@@ -55,8 +58,8 @@ module ModernTreasury
         def value=(_)
         end
 
-        sig { params(field: String, operator: String, value: String).void }
-        def initialize(field:, operator:, value:)
+        sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
+        def self.new(field:, operator:, value:)
         end
 
         sig { override.returns({field: String, operator: String, value: String}) }

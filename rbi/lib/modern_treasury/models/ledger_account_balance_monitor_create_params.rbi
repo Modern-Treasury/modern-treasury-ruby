@@ -49,15 +49,9 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        alert_condition:,
-        ledger_account_id:,
-        description: nil,
-        metadata: nil,
-        request_options: {}
-      )
+      def self.new(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
       end
 
       sig do
@@ -100,8 +94,8 @@ module ModernTreasury
         def value=(_)
         end
 
-        sig { params(field: String, operator: String, value: Integer).void }
-        def initialize(field:, operator:, value:)
+        sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }
+        def self.new(field:, operator:, value:)
         end
 
         sig { override.returns({field: String, operator: String, value: Integer}) }

@@ -20,9 +20,9 @@ module ModernTreasury
             invoice_id: String,
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(invoice_id:, request_options: {})
+        def self.new(invoice_id:, request_options: {})
         end
 
         sig { override.returns({invoice_id: String, request_options: ModernTreasury::RequestOptions}) }

@@ -56,16 +56,9 @@ module ModernTreasury
             type: T.nilable(Symbol),
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
-          id: nil,
-          after_cursor: nil,
-          per_page: nil,
-          transaction_id: nil,
-          type: nil,
-          request_options: {}
-        )
+        def self.new(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {})
         end
 
         sig do

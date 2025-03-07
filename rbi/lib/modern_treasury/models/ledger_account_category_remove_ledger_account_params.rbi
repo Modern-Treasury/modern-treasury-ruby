@@ -22,9 +22,9 @@ module ModernTreasury
             T::Hash[Symbol, T.anything]
           )
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(id:, request_options: {})
+      def self.new(id:, request_options: {})
       end
 
       sig { override.returns({id: String, request_options: ModernTreasury::RequestOptions}) }

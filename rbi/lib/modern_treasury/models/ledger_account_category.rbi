@@ -117,9 +117,9 @@ module ModernTreasury
           object: String,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         balances:,
         created_at:,
@@ -197,9 +197,9 @@ module ModernTreasury
             pending_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance,
             posted_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(available_balance:, pending_balance:, posted_balance:)
+        def self.new(available_balance:, pending_balance:, posted_balance:)
         end
 
         sig do
@@ -264,9 +264,9 @@ module ModernTreasury
               currency_exponent: Integer,
               debits: Integer
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
           end
 
           sig do
@@ -334,9 +334,9 @@ module ModernTreasury
               currency_exponent: Integer,
               debits: Integer
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
           end
 
           sig do
@@ -404,9 +404,9 @@ module ModernTreasury
               currency_exponent: Integer,
               debits: Integer
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(amount:, credits:, currency:, currency_exponent:, debits:)
+          def self.new(amount:, credits:, currency:, currency_exponent:, debits:)
           end
 
           sig do

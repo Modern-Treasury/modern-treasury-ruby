@@ -103,9 +103,9 @@ module ModernTreasury
           per_page: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id: nil,
         after_cursor: nil,
         balances: nil,
@@ -150,8 +150,8 @@ module ModernTreasury
         def effective_at=(_)
         end
 
-        sig { params(effective_at: Time).void }
-        def initialize(effective_at: nil)
+        sig { params(effective_at: Time).returns(T.attached_class) }
+        def self.new(effective_at: nil)
         end
 
         sig { override.returns({effective_at: Time}) }

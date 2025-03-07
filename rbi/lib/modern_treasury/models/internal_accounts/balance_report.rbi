@@ -100,9 +100,9 @@ module ModernTreasury
             object: String,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           as_of_date:,
           as_of_time:,
@@ -272,9 +272,9 @@ module ModernTreasury
               vendor_code: String,
               vendor_code_type: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             id:,
             amount:,
             as_of_date:,

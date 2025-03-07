@@ -22,9 +22,9 @@ module ModernTreasury
           balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(balances: nil, request_options: {})
+      def self.new(balances: nil, request_options: {})
       end
 
       sig do
@@ -56,8 +56,8 @@ module ModernTreasury
         def effective_at=(_)
         end
 
-        sig { params(as_of_date: Date, effective_at: Time).void }
-        def initialize(as_of_date: nil, effective_at: nil)
+        sig { params(as_of_date: Date, effective_at: Time).returns(T.attached_class) }
+        def self.new(as_of_date: nil, effective_at: nil)
         end
 
         sig { override.returns({as_of_date: Date, effective_at: Time}) }

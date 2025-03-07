@@ -114,9 +114,9 @@ module ModernTreasury
           total_resource_count: Integer,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         action_type:,
         created_at:,

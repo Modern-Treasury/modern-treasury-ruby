@@ -37,9 +37,9 @@ module ModernTreasury
           receiving_countries: T::Array[Symbol],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
+      def self.new(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
       end
 
       sig do

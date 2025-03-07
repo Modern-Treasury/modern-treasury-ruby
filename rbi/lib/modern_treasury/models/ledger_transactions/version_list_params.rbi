@@ -65,9 +65,9 @@ module ModernTreasury
             version: T::Hash[Symbol, Integer],
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           after_cursor: nil,
           created_at: nil,
           ledger_account_statement_id: nil,

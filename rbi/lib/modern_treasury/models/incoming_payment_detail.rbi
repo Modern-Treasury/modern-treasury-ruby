@@ -234,9 +234,9 @@ module ModernTreasury
           virtual_account_id: T.nilable(String),
           originating_account_number: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         amount:,
         as_of_date:,

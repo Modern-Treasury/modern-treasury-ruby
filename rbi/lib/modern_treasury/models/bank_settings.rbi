@@ -96,9 +96,9 @@ module ModernTreasury
           regulation_o: T.nilable(T::Boolean),
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         backup_withholding_percentage:,
         created_at:,

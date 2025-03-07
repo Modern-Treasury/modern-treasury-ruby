@@ -82,9 +82,9 @@ module ModernTreasury
           variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         ledger_transaction_template:,
         name:,
         conditions: nil,
@@ -165,9 +165,9 @@ module ModernTreasury
             ledger_entries: T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry],
             status: T.nilable(String)
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(description:, effective_at:, ledger_entries:, status:)
+        def self.new(description:, effective_at:, ledger_entries:, status:)
         end
 
         sig do
@@ -209,8 +209,10 @@ module ModernTreasury
           def ledger_account_id=(_)
           end
 
-          sig { params(amount: String, direction: String, ledger_account_id: String).void }
-          def initialize(amount:, direction:, ledger_account_id:)
+          sig do
+            params(amount: String, direction: String, ledger_account_id: String).returns(T.attached_class)
+          end
+          def self.new(amount:, direction:, ledger_account_id:)
           end
 
           sig { override.returns({amount: String, direction: String, ledger_account_id: String}) }
@@ -244,8 +246,8 @@ module ModernTreasury
         def value=(_)
         end
 
-        sig { params(field: String, operator: String, value: String).void }
-        def initialize(field:, operator:, value:)
+        sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
+        def self.new(field:, operator:, value:)
         end
 
         sig { override.returns({field: String, operator: String, value: String}) }

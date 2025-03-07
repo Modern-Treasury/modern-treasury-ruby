@@ -76,9 +76,9 @@ module ModernTreasury
           status: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         description: nil,
         effective_at: nil,
         ledger_entries: nil,
@@ -193,9 +193,9 @@ module ModernTreasury
             posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
             show_resulting_ledger_account_balances: T.nilable(T::Boolean)
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           amount:,
           direction:,
           ledger_account_id:,

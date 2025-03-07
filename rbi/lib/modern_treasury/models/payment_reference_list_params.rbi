@@ -55,9 +55,9 @@ module ModernTreasury
           referenceable_type: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         after_cursor: nil,
         per_page: nil,
         reference_number: nil,
