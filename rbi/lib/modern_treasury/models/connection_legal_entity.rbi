@@ -96,9 +96,9 @@ module ModernTreasury
           updated_at: Time,
           vendor_id: String
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         connection_id:,
         created_at:,

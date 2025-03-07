@@ -40,9 +40,9 @@ module ModernTreasury
           legal_entity_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {})
+      def self.new(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {})
       end
 
       sig do
@@ -329,9 +329,9 @@ module ModernTreasury
             wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
             website: T.nilable(String)
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           addresses: nil,
           bank_settings: nil,
           business_name: nil,
@@ -462,9 +462,9 @@ module ModernTreasury
               address_types: T::Array[Symbol],
               line2: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
+          def self.new(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
           end
 
           sig do
@@ -526,8 +526,14 @@ module ModernTreasury
           def issuing_country=(_)
           end
 
-          sig { params(id_number: String, id_type: Symbol, issuing_country: T.nilable(String)).void }
-          def initialize(id_number:, id_type:, issuing_country: nil)
+          sig do
+            params(
+              id_number: String,
+              id_type: Symbol,
+              issuing_country: T.nilable(String)
+            ).returns(T.attached_class)
+          end
+          def self.new(id_number:, id_type:, issuing_country: nil)
           end
 
           sig { override.returns({id_number: String, id_type: Symbol, issuing_country: T.nilable(String)}) }
@@ -629,9 +635,9 @@ module ModernTreasury
               ownership_percentage: T.nilable(Integer),
               title: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             relationship_types:,
             child_legal_entity: nil,
             child_legal_entity_id: nil,
@@ -948,9 +954,9 @@ module ModernTreasury
                 wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
                 website: T.nilable(String)
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
+            def self.new(
               addresses: nil,
               bank_settings: nil,
               business_name: nil,
@@ -1083,17 +1089,9 @@ module ModernTreasury
                   address_types: T::Array[Symbol],
                   line2: T.nilable(String)
                 )
-                  .void
+                  .returns(T.attached_class)
               end
-              def initialize(
-                country:,
-                line1:,
-                locality:,
-                postal_code:,
-                region:,
-                address_types: nil,
-                line2: nil
-              )
+              def self.new(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil)
               end
 
               sig do
@@ -1155,8 +1153,14 @@ module ModernTreasury
               def issuing_country=(_)
               end
 
-              sig { params(id_number: String, id_type: Symbol, issuing_country: T.nilable(String)).void }
-              def initialize(id_number:, id_type:, issuing_country: nil)
+              sig do
+                params(
+                  id_number: String,
+                  id_type: Symbol,
+                  issuing_country: T.nilable(String)
+                ).returns(T.attached_class)
+              end
+              def self.new(id_number:, id_type:, issuing_country: nil)
               end
 
               sig do
@@ -1237,8 +1241,8 @@ module ModernTreasury
               def phone_number=(_)
               end
 
-              sig { params(phone_number: String).void }
-              def initialize(phone_number: nil)
+              sig { params(phone_number: String).returns(T.attached_class) }
+              def self.new(phone_number: nil)
               end
 
               sig { override.returns({phone_number: String}) }
@@ -1301,8 +1305,8 @@ module ModernTreasury
           def phone_number=(_)
           end
 
-          sig { params(phone_number: String).void }
-          def initialize(phone_number: nil)
+          sig { params(phone_number: String).returns(T.attached_class) }
+          def self.new(phone_number: nil)
           end
 
           sig { override.returns({phone_number: String}) }

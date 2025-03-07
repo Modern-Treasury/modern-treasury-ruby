@@ -126,9 +126,9 @@ module ModernTreasury
           object: String,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         accounting:,
         accounting_category_id:,
@@ -185,8 +185,8 @@ module ModernTreasury
         def class_id=(_)
         end
 
-        sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
-        def initialize(account_id: nil, class_id: nil)
+        sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
+        def self.new(account_id: nil, class_id: nil)
         end
 
         sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }

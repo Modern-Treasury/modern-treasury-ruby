@@ -96,9 +96,9 @@ module ModernTreasury
           date_upper_bound: T.nilable(Date),
           type: T.nilable(Symbol)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         amount_lower_bound:,
         amount_upper_bound:,
         direction:,

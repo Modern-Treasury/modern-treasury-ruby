@@ -19,9 +19,9 @@ module ModernTreasury
           show_balances: T::Boolean,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(show_balances: nil, request_options: {})
+      def self.new(show_balances: nil, request_options: {})
       end
 
       sig { override.returns({show_balances: T::Boolean, request_options: ModernTreasury::RequestOptions}) }

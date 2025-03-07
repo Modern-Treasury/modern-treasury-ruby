@@ -126,9 +126,9 @@ module ModernTreasury
             unit_amount_decimal: String,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           amount:,
           created_at:,

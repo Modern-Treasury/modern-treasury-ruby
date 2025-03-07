@@ -11,8 +11,8 @@ module ModernTreasury
       def ping=(_)
       end
 
-      sig { params(ping: String).void }
-      def initialize(ping:)
+      sig { params(ping: String).returns(T.attached_class) }
+      def self.new(ping:)
       end
 
       sig { override.returns({ping: String}) }

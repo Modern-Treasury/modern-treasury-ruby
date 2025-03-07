@@ -105,9 +105,9 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(action_type:, resource_type:, resources:, metadata: nil, request_options: {})
+      def self.new(action_type:, resource_type:, resources:, metadata: nil, request_options: {})
       end
 
       sig do
@@ -540,9 +540,9 @@ module ModernTreasury
               ultimate_receiving_party_identifier: T.nilable(String),
               ultimate_receiving_party_name: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             amount:,
             direction:,
             originating_account_id:,
@@ -656,8 +656,10 @@ module ModernTreasury
             def class_id=(_)
             end
 
-            sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
-            def initialize(account_id: nil, class_id: nil)
+            sig do
+              params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class)
+            end
+            def self.new(account_id: nil, class_id: nil)
             end
 
             sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
@@ -808,9 +810,9 @@ module ModernTreasury
                 metadata: T::Hash[Symbol, String],
                 status: Symbol
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
+            def self.new(
               ledger_entries:,
               description: nil,
               effective_at: nil,
@@ -935,9 +937,9 @@ module ModernTreasury
                   posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                   show_resulting_ledger_account_balances: T.nilable(T::Boolean)
                 )
-                  .void
+                  .returns(T.attached_class)
               end
-              def initialize(
+              def self.new(
                 amount:,
                 direction:,
                 ledger_account_id:,
@@ -1042,9 +1044,9 @@ module ModernTreasury
                 description: T.nilable(String),
                 metadata: T::Hash[Symbol, String]
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
+            def self.new(amount:, accounting_category_id: nil, description: nil, metadata: nil)
             end
 
             sig do
@@ -1276,9 +1278,9 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
                 ]
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
+            def self.new(
               account_details: nil,
               account_type: nil,
               contact_details: nil,
@@ -1339,8 +1341,8 @@ module ModernTreasury
               def account_number_type=(_)
               end
 
-              sig { params(account_number: String, account_number_type: Symbol).void }
-              def initialize(account_number:, account_number_type: nil)
+              sig { params(account_number: String, account_number_type: Symbol).returns(T.attached_class) }
+              def self.new(account_number:, account_number_type: nil)
               end
 
               sig { override.returns({account_number: String, account_number_type: Symbol}) }
@@ -1386,8 +1388,10 @@ module ModernTreasury
               def contact_identifier_type=(_)
               end
 
-              sig { params(contact_identifier: String, contact_identifier_type: Symbol).void }
-              def initialize(contact_identifier: nil, contact_identifier_type: nil)
+              sig do
+                params(contact_identifier: String, contact_identifier_type: Symbol).returns(T.attached_class)
+              end
+              def self.new(contact_identifier: nil, contact_identifier_type: nil)
               end
 
               sig { override.returns({contact_identifier: String, contact_identifier_type: Symbol}) }
@@ -1503,9 +1507,9 @@ module ModernTreasury
                   ledgerable_type: Symbol,
                   metadata: T::Hash[Symbol, String]
                 )
-                  .void
+                  .returns(T.attached_class)
               end
-              def initialize(
+              def self.new(
                 currency:,
                 ledger_id:,
                 name:,
@@ -1613,16 +1617,9 @@ module ModernTreasury
                   postal_code: T.nilable(String),
                   region: T.nilable(String)
                 )
-                  .void
+                  .returns(T.attached_class)
               end
-              def initialize(
-                country: nil,
-                line1: nil,
-                line2: nil,
-                locality: nil,
-                postal_code: nil,
-                region: nil
-              )
+              def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
               end
 
               sig do
@@ -1680,8 +1677,14 @@ module ModernTreasury
               def payment_type=(_)
               end
 
-              sig { params(routing_number: String, routing_number_type: Symbol, payment_type: Symbol).void }
-              def initialize(routing_number:, routing_number_type:, payment_type: nil)
+              sig do
+                params(
+                  routing_number: String,
+                  routing_number_type: Symbol,
+                  payment_type: Symbol
+                ).returns(T.attached_class)
+              end
+              def self.new(routing_number:, routing_number_type:, payment_type: nil)
               end
 
               sig do
@@ -1970,9 +1973,9 @@ module ModernTreasury
               statement_descriptor: T.nilable(String),
               type: T.nilable(Symbol)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             amount_lower_bound: nil,
             amount_upper_bound: nil,
             counterparty_id: nil,
@@ -2141,9 +2144,9 @@ module ModernTreasury
                 metadata: T::Hash[Symbol, String],
                 status: Symbol
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
+            def self.new(
               ledger_entries:,
               description: nil,
               effective_at: nil,
@@ -2268,9 +2271,9 @@ module ModernTreasury
                   posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                   show_resulting_ledger_account_balances: T.nilable(T::Boolean)
                 )
-                  .void
+                  .returns(T.attached_class)
               end
-              def initialize(
+              def self.new(
                 amount:,
                 direction:,
                 ledger_account_id:,
@@ -2375,9 +2378,9 @@ module ModernTreasury
                 description: T.nilable(String),
                 metadata: T::Hash[Symbol, String]
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
+            def self.new(amount:, accounting_category_id: nil, description: nil, metadata: nil)
             end
 
             sig do
@@ -2492,9 +2495,9 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               status: Symbol
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             ledger_entries:,
             description: nil,
             effective_at: nil,
@@ -2617,9 +2620,9 @@ module ModernTreasury
                 posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                 show_resulting_ledger_account_balances: T.nilable(T::Boolean)
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
+            def self.new(
               amount:,
               direction:,
               ledger_account_id:,
@@ -2778,9 +2781,9 @@ module ModernTreasury
               type: T.nilable(Symbol),
               vendor_description: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             amount:,
             as_of_date:,
             direction:,
@@ -2866,8 +2869,8 @@ module ModernTreasury
           def id=(_)
           end
 
-          sig { params(id: String).void }
-          def initialize(id: nil)
+          sig { params(id: String).returns(T.attached_class) }
+          def self.new(id: nil)
           end
 
           sig { override.returns({id: String}) }
@@ -3233,9 +3236,9 @@ module ModernTreasury
               ultimate_receiving_party_identifier: T.nilable(String),
               ultimate_receiving_party_name: T.nilable(String)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             id: nil,
             accounting: nil,
             accounting_category_id: nil,
@@ -3336,8 +3339,10 @@ module ModernTreasury
             def class_id=(_)
             end
 
-            sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).void }
-            def initialize(account_id: nil, class_id: nil)
+            sig do
+              params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class)
+            end
+            def self.new(account_id: nil, class_id: nil)
             end
 
             sig { override.returns({account_id: T.nilable(String), class_id: T.nilable(String)}) }
@@ -3437,9 +3442,9 @@ module ModernTreasury
                 description: T.nilable(String),
                 metadata: T::Hash[Symbol, String]
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(amount:, accounting_category_id: nil, description: nil, metadata: nil)
+            def self.new(amount:, accounting_category_id: nil, description: nil, metadata: nil)
             end
 
             sig do
@@ -3671,9 +3676,9 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
                 ]
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
+            def self.new(
               account_details: nil,
               account_type: nil,
               contact_details: nil,
@@ -3734,8 +3739,8 @@ module ModernTreasury
               def account_number_type=(_)
               end
 
-              sig { params(account_number: String, account_number_type: Symbol).void }
-              def initialize(account_number:, account_number_type: nil)
+              sig { params(account_number: String, account_number_type: Symbol).returns(T.attached_class) }
+              def self.new(account_number:, account_number_type: nil)
               end
 
               sig { override.returns({account_number: String, account_number_type: Symbol}) }
@@ -3781,8 +3786,10 @@ module ModernTreasury
               def contact_identifier_type=(_)
               end
 
-              sig { params(contact_identifier: String, contact_identifier_type: Symbol).void }
-              def initialize(contact_identifier: nil, contact_identifier_type: nil)
+              sig do
+                params(contact_identifier: String, contact_identifier_type: Symbol).returns(T.attached_class)
+              end
+              def self.new(contact_identifier: nil, contact_identifier_type: nil)
               end
 
               sig { override.returns({contact_identifier: String, contact_identifier_type: Symbol}) }
@@ -3898,9 +3905,9 @@ module ModernTreasury
                   ledgerable_type: Symbol,
                   metadata: T::Hash[Symbol, String]
                 )
-                  .void
+                  .returns(T.attached_class)
               end
-              def initialize(
+              def self.new(
                 currency:,
                 ledger_id:,
                 name:,
@@ -4008,16 +4015,9 @@ module ModernTreasury
                   postal_code: T.nilable(String),
                   region: T.nilable(String)
                 )
-                  .void
+                  .returns(T.attached_class)
               end
-              def initialize(
-                country: nil,
-                line1: nil,
-                line2: nil,
-                locality: nil,
-                postal_code: nil,
-                region: nil
-              )
+              def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
               end
 
               sig do
@@ -4075,8 +4075,14 @@ module ModernTreasury
               def payment_type=(_)
               end
 
-              sig { params(routing_number: String, routing_number_type: Symbol, payment_type: Symbol).void }
-              def initialize(routing_number:, routing_number_type:, payment_type: nil)
+              sig do
+                params(
+                  routing_number: String,
+                  routing_number_type: Symbol,
+                  payment_type: Symbol
+                ).returns(T.attached_class)
+              end
+              def self.new(routing_number:, routing_number_type:, payment_type: nil)
               end
 
               sig do
@@ -4352,9 +4358,9 @@ module ModernTreasury
               status: T.nilable(Symbol),
               type: T.nilable(Symbol)
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             id: nil,
             amount_lower_bound: nil,
             amount_upper_bound: nil,
@@ -4447,8 +4453,8 @@ module ModernTreasury
           def metadata=(_)
           end
 
-          sig { params(id: String, metadata: T::Hash[Symbol, String]).void }
-          def initialize(id: nil, metadata: nil)
+          sig { params(id: String, metadata: T::Hash[Symbol, String]).returns(T.attached_class) }
+          def self.new(id: nil, metadata: nil)
           end
 
           sig { override.returns({id: String, metadata: T::Hash[Symbol, String]}) }
@@ -4553,9 +4559,9 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               status: Symbol
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             id: nil,
             description: nil,
             effective_at: nil,
@@ -4678,9 +4684,9 @@ module ModernTreasury
                 posted_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                 show_resulting_ledger_account_balances: T.nilable(T::Boolean)
               )
-                .void
+                .returns(T.attached_class)
             end
-            def initialize(
+            def self.new(
               amount:,
               direction:,
               ledger_account_id:,

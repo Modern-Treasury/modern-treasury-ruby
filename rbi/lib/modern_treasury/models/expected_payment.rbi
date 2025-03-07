@@ -243,9 +243,9 @@ module ModernTreasury
           type: T.nilable(Symbol),
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         amount_lower_bound:,
         amount_upper_bound:,

@@ -46,9 +46,9 @@ module ModernTreasury
           send_email: T::Boolean,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
+      def self.new(direction:, custom_redirect: nil, fields: nil, send_email: nil, request_options: {})
       end
 
       sig do

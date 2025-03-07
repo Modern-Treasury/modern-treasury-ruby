@@ -94,9 +94,9 @@ module ModernTreasury
           vendor_attributes: T::Hash[Symbol, String],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         connection_id:,
         currency:,
         name:,
@@ -201,9 +201,9 @@ module ModernTreasury
             region: String,
             line2: String
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil)
         end
 
         sig do

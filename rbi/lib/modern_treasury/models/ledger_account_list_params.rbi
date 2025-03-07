@@ -148,9 +148,9 @@ module ModernTreasury
           updated_at: T::Hash[Symbol, Time],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id: nil,
         after_cursor: nil,
         available_balance_amount: nil,
@@ -244,9 +244,10 @@ module ModernTreasury
         end
 
         sig do
-          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void
+          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
+            .returns(T.attached_class)
         end
-        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
         end
 
         sig do
@@ -305,14 +306,9 @@ module ModernTreasury
             effective_at_lower_bound: Time,
             effective_at_upper_bound: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
-          as_of_date: nil,
-          effective_at: nil,
-          effective_at_lower_bound: nil,
-          effective_at_upper_bound: nil
-        )
+        def self.new(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil)
         end
 
         sig do
@@ -380,9 +376,10 @@ module ModernTreasury
         end
 
         sig do
-          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void
+          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
+            .returns(T.attached_class)
         end
-        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
         end
 
         sig do
@@ -451,9 +448,10 @@ module ModernTreasury
         end
 
         sig do
-          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer).void
+          params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
+            .returns(T.attached_class)
         end
-        def initialize(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
+        def self.new(eq: nil, gt: nil, gte: nil, lt: nil, lte: nil, not_eq: nil)
         end
 
         sig do

@@ -234,9 +234,9 @@ module ModernTreasury
           details: T::Hash[Symbol, String],
           vendor_description: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         amount:,
         as_of_date:,
@@ -367,17 +367,9 @@ module ModernTreasury
             target_currency: Symbol,
             value: Integer
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
-          base_amount:,
-          base_currency:,
-          exponent:,
-          rate_string:,
-          target_amount:,
-          target_currency:,
-          value:
-        )
+        def self.new(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
         end
 
         sig do

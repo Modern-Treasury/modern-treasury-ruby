@@ -357,9 +357,9 @@ module ModernTreasury
           updated_at: Time,
           virtual_account_id: T.nilable(String)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         amount_paid:,
         amount_remaining:,
@@ -523,9 +523,9 @@ module ModernTreasury
             object: String,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           contact_identifier:,
           contact_identifier_type:,
@@ -628,9 +628,9 @@ module ModernTreasury
             region: String,
             line2: String
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil)
         end
 
         sig do
@@ -708,9 +708,9 @@ module ModernTreasury
             region: String,
             line2: String
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil)
         end
 
         sig do
@@ -788,9 +788,9 @@ module ModernTreasury
             region: String,
             line2: String
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil)
+        def self.new(country:, line1:, locality:, postal_code:, region:, line2: nil)
         end
 
         sig do

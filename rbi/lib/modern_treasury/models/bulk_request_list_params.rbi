@@ -64,9 +64,9 @@ module ModernTreasury
           status: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         action_type: nil,
         after_cursor: nil,
         metadata: nil,

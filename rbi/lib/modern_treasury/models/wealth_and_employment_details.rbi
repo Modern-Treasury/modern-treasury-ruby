@@ -168,9 +168,9 @@ module ModernTreasury
           updated_at: Time,
           wealth_source: T.nilable(Symbol)
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         annual_income:,
         created_at:,

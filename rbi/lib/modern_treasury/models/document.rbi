@@ -117,9 +117,9 @@ module ModernTreasury
           source: String,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         created_at:,
         discarded_at:,
@@ -233,9 +233,9 @@ module ModernTreasury
             object: String,
             updated_at: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id:,
           created_at:,
           discarded_at:,
@@ -314,8 +314,8 @@ module ModernTreasury
         def size=(_)
         end
 
-        sig { params(content_type: String, filename: String, size: Integer).void }
-        def initialize(content_type: nil, filename: nil, size: nil)
+        sig { params(content_type: String, filename: String, size: Integer).returns(T.attached_class) }
+        def self.new(content_type: nil, filename: nil, size: nil)
         end
 
         sig { override.returns({content_type: String, filename: String, size: Integer}) }

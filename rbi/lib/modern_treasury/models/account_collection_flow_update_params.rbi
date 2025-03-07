@@ -19,9 +19,9 @@ module ModernTreasury
           status: Symbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(status:, request_options: {})
+      def self.new(status:, request_options: {})
       end
 
       sig { override.returns({status: Symbol, request_options: ModernTreasury::RequestOptions}) }
