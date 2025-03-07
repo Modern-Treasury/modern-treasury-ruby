@@ -166,9 +166,9 @@ module ModernTreasury
           type: T.nilable(Symbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         amount_lower_bound: nil,
         amount_upper_bound: nil,
         counterparty_id: nil,

@@ -38,9 +38,9 @@ module ModernTreasury
             transaction_id: String,
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(amount:, expected_payment_id:, transaction_id:, request_options: {})
+        def self.new(amount:, expected_payment_id:, transaction_id:, request_options: {})
         end
 
         sig do

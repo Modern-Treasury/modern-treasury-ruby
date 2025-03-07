@@ -19,8 +19,8 @@ module ModernTreasury
       def object=(_)
       end
 
-      sig { params(id: String, object: String).void }
-      def initialize(id:, object:)
+      sig { params(id: String, object: String).returns(T.attached_class) }
+      def self.new(id:, object:)
       end
 
       sig { override.returns({id: String, object: String}) }

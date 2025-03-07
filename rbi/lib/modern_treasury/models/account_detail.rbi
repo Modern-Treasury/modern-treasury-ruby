@@ -87,9 +87,9 @@ module ModernTreasury
           updated_at: Time,
           account_number: String
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         account_number_safe:,
         account_number_type:,

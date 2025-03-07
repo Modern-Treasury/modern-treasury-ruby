@@ -63,9 +63,9 @@ module ModernTreasury
           sanctions: T::Hash[Symbol, T.anything],
           supported_payment_types: T::Array[Symbol]
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         bank_address: nil,
         bank_name: nil,
         routing_number: nil,
@@ -149,9 +149,9 @@ module ModernTreasury
             postal_code: T.nilable(String),
             region: T.nilable(String)
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
+        def self.new(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil)
         end
 
         sig do

@@ -96,20 +96,9 @@ module ModernTreasury
           resource: String,
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
-        id:,
-        created_at:,
-        data:,
-        entity_id:,
-        event_name:,
-        event_time:,
-        live_mode:,
-        object:,
-        resource:,
-        updated_at:
-      )
+      def self.new(id:, created_at:, data:, entity_id:, event_name:, event_time:, live_mode:, object:, resource:, updated_at:)
       end
 
       sig do

@@ -8,9 +8,10 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig do
-          params(request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])).void
+          params(request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            .returns(T.attached_class)
         end
-        def initialize(request_options: {})
+        def self.new(request_options: {})
         end
 
         sig { override.returns({request_options: ModernTreasury::RequestOptions}) }

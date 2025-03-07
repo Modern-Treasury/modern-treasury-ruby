@@ -168,9 +168,9 @@ module ModernTreasury
           transaction_line_item_id: T.nilable(String),
           updated_at: Time
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         account_number:,
         account_number_safe:,

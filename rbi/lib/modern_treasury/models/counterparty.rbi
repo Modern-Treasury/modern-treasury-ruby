@@ -126,9 +126,9 @@ module ModernTreasury
           updated_at: Time,
           verification_status: Symbol
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         id:,
         accounts:,
         created_at:,
@@ -346,9 +346,9 @@ module ModernTreasury
             verification_source: T.nilable(Symbol),
             verification_status: Symbol
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           id: nil,
           account_details: nil,
           account_type: nil,
@@ -474,9 +474,9 @@ module ModernTreasury
               object: String,
               updated_at: Time
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             id:,
             contact_identifier:,
             contact_identifier_type:,
@@ -624,9 +624,9 @@ module ModernTreasury
               region: T.nilable(String),
               updated_at: Time
             )
-              .void
+              .returns(T.attached_class)
           end
-          def initialize(
+          def self.new(
             id:,
             country:,
             created_at:,

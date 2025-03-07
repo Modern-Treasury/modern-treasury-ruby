@@ -64,9 +64,9 @@ module ModernTreasury
           target_amount: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         internal_account_id:,
         target_currency:,
         base_amount: nil,

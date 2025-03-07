@@ -57,8 +57,8 @@ module ModernTreasury
         def delete(id, request_options: {})
         end
 
-        sig { params(client: ModernTreasury::Client).void }
-        def initialize(client:)
+        sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
+        def self.new(client:)
         end
       end
     end

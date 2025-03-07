@@ -55,9 +55,9 @@ module ModernTreasury
           per_page: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         after_cursor: nil,
         counterparty_id: nil,
         internal_account_id: nil,

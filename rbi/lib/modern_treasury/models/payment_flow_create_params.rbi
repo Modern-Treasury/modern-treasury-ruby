@@ -64,9 +64,9 @@ module ModernTreasury
           due_date: Date,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(
+      def self.new(
         amount:,
         counterparty_id:,
         currency:,

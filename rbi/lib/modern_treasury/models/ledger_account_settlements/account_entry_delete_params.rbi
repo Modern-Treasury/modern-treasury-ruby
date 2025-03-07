@@ -20,9 +20,9 @@ module ModernTreasury
             ledger_entry_ids: T.nilable(T::Array[T.anything]),
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(ledger_entry_ids:, request_options: {})
+        def self.new(ledger_entry_ids:, request_options: {})
         end
 
         sig do

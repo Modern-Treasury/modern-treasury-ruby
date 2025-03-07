@@ -27,8 +27,8 @@ module ModernTreasury
       def is_resend=(_)
       end
 
-      sig { params(id: String, form_link: String, is_resend: T::Boolean).void }
-      def initialize(id:, form_link:, is_resend:)
+      sig { params(id: String, form_link: String, is_resend: T::Boolean).returns(T.attached_class) }
+      def self.new(id:, form_link:, is_resend:)
       end
 
       sig { override.returns({id: String, form_link: String, is_resend: T::Boolean}) }

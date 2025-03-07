@@ -22,9 +22,9 @@ module ModernTreasury
           balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
-          .void
+          .returns(T.attached_class)
       end
-      def initialize(balances: nil, request_options: {})
+      def self.new(balances: nil, request_options: {})
       end
 
       sig do
@@ -88,9 +88,9 @@ module ModernTreasury
             effective_at_lower_bound: Time,
             effective_at_upper_bound: Time
           )
-            .void
+            .returns(T.attached_class)
         end
-        def initialize(
+        def self.new(
           as_of_date: nil,
           as_of_lock_version: nil,
           effective_at: nil,
