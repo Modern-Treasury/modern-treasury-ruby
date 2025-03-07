@@ -154,11 +154,6 @@ module ModernTreasury
           REVERSAL = :reversal
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
 
         # @abstract
@@ -170,11 +165,6 @@ module ModernTreasury
           RECEIVING = :receiving
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
     end

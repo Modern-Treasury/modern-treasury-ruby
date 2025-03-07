@@ -624,8 +624,10 @@ module ModernTreasury
         SENDER = T.let(:sender, T.nilable(Symbol))
         RECEIVER = T.let(:receiver, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -635,8 +637,10 @@ module ModernTreasury
         CREDIT = :credit
         DEBIT = :debit
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -646,8 +650,10 @@ module ModernTreasury
         FIXED_TO_VARIABLE = T.let(:fixed_to_variable, T.nilable(Symbol))
         VARIABLE_TO_FIXED = T.let(:variable_to_fixed, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -755,8 +761,10 @@ module ModernTreasury
         HIGH = :high
         NORMAL = :normal
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -766,8 +774,10 @@ module ModernTreasury
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -943,8 +953,10 @@ module ModernTreasury
           WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
-          sig { override.returns(T::Array[Symbol]) }
-          def self.values
+          class << self
+            sig { override.returns(T::Array[Symbol]) }
+            def values
+            end
           end
         end
       end
@@ -964,21 +976,25 @@ module ModernTreasury
         REVERSED = :reversed
         SENT = :sent
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
       class UltimateOriginatingAccount < ModernTreasury::Union
         abstract!
 
-        sig do
-          override
-            .returns(
-              [[NilClass, ModernTreasury::Models::VirtualAccount], [NilClass, ModernTreasury::Models::InternalAccount]]
-            )
-        end
-        private_class_method def self.variants
+        class << self
+          sig do
+            override
+              .returns(
+                [[NilClass, ModernTreasury::Models::VirtualAccount], [NilClass, ModernTreasury::Models::InternalAccount]]
+              )
+          end
+          private def variants
+          end
         end
       end
 
@@ -988,8 +1004,10 @@ module ModernTreasury
         INTERNAL_ACCOUNT = T.let(:internal_account, T.nilable(Symbol))
         VIRTUAL_ACCOUNT = T.let(:virtual_account, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

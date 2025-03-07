@@ -14,8 +14,10 @@ module ModernTreasury
       OVERDRAFT = :overdraft
       SAVINGS = :savings
 
-      sig { override.returns(T::Array[Symbol]) }
-      def self.values
+      class << self
+        sig { override.returns(T::Array[Symbol]) }
+        def values
+        end
       end
     end
   end

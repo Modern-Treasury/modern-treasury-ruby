@@ -506,11 +506,6 @@ module ModernTreasury
             POSTED = :posted
 
             finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   #
-            #   def self.values; end
           end
         end
 
@@ -528,11 +523,6 @@ module ModernTreasury
           REVERSAL = :reversal
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
 
         # @abstract
@@ -544,11 +534,6 @@ module ModernTreasury
           POSTED = :posted
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
     end

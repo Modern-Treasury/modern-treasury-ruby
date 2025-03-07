@@ -89,8 +89,10 @@ module ModernTreasury
         BUSINESS = :business
         INDIVIDUAL = :individual
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

@@ -36,8 +36,10 @@ module ModernTreasury
       WIRE = T.let(:wire, T.nilable(Symbol))
       ZENGIN = T.let(:zengin, T.nilable(Symbol))
 
-      sig { override.returns(T::Array[Symbol]) }
-      def self.values
+      class << self
+        sig { override.returns(T::Array[Symbol]) }
+        def values
+        end
       end
     end
   end

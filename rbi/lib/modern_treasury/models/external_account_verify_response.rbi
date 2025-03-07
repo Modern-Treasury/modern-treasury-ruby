@@ -169,8 +169,10 @@ module ModernTreasury
           WIRE = :wire
           ZENGIN = :zengin
 
-          sig { override.returns(T::Array[Symbol]) }
-          def self.values
+          class << self
+            sig { override.returns(T::Array[Symbol]) }
+            def values
+            end
           end
         end
 
@@ -180,8 +182,10 @@ module ModernTreasury
           HIGH = T.let(:high, T.nilable(Symbol))
           NORMAL = T.let(:normal, T.nilable(Symbol))
 
-          sig { override.returns(T::Array[Symbol]) }
-          def self.values
+          class << self
+            sig { override.returns(T::Array[Symbol]) }
+            def values
+            end
           end
         end
 
@@ -193,19 +197,23 @@ module ModernTreasury
           PENDING_VERIFICATION = :pending_verification
           VERIFIED = :verified
 
-          sig { override.returns(T::Array[Symbol]) }
-          def self.values
+          class << self
+            sig { override.returns(T::Array[Symbol]) }
+            def values
+            end
           end
         end
       end
 
-      sig do
-        override
-          .returns(
-            [[NilClass, ModernTreasury::Models::ExternalAccount], [NilClass, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]]
-          )
-      end
-      private_class_method def self.variants
+      class << self
+        sig do
+          override
+            .returns(
+              [[NilClass, ModernTreasury::Models::ExternalAccount], [NilClass, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]]
+            )
+        end
+        private def variants
+        end
       end
     end
   end

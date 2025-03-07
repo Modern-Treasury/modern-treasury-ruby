@@ -261,11 +261,6 @@ module ModernTreasury
         CURRENCYCLOUD = :currencycloud
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -399,11 +394,6 @@ module ModernTreasury
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -418,11 +408,6 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -433,11 +418,6 @@ module ModernTreasury
         RECEIVING = :receiving
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -452,11 +432,6 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -479,11 +454,6 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

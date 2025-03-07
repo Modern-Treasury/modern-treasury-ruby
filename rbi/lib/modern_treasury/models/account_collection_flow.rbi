@@ -149,8 +149,10 @@ module ModernTreasury
         ACH = :ach
         WIRE = :wire
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -176,8 +178,10 @@ module ModernTreasury
         ESP = :ESP
         GBR = :GBR
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -189,8 +193,10 @@ module ModernTreasury
         EXPIRED = :expired
         PENDING = :pending
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

@@ -135,8 +135,10 @@ module ModernTreasury
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

@@ -174,11 +174,6 @@ module ModernTreasury
         UNEMPLOYED = :unemployed
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -195,11 +190,6 @@ module ModernTreasury
         SELF_EMPLOYED = :self_employed
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -241,11 +231,6 @@ module ModernTreasury
         UTILITIES = :utilities
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -266,11 +251,6 @@ module ModernTreasury
         TECHNOLOGY = :technology
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -296,11 +276,6 @@ module ModernTreasury
         TRUST_INCOME = :trust_income
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -319,11 +294,6 @@ module ModernTreasury
         SELF_EMPLOYED = :self_employed
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end
