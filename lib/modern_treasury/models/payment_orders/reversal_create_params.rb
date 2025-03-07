@@ -63,11 +63,6 @@ module ModernTreasury
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
 
         class LedgerTransaction < ModernTreasury::BaseModel
@@ -314,11 +309,6 @@ module ModernTreasury
             REVERSAL = :reversal
 
             finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   #
-            #   def self.values; end
           end
 
           # @abstract
@@ -330,11 +320,6 @@ module ModernTreasury
             POSTED = :posted
 
             finalize!
-
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   #
-            #   def self.values; end
           end
         end
       end

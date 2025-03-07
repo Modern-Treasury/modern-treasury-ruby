@@ -101,8 +101,10 @@ module ModernTreasury
         UPDATE = :update
         DELETE = :delete
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -114,8 +116,10 @@ module ModernTreasury
         TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -126,8 +130,10 @@ module ModernTreasury
         PROCESSING = :processing
         COMPLETED = :completed
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

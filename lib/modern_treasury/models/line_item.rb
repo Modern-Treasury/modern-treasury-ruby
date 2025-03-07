@@ -151,11 +151,6 @@ module ModernTreasury
         PAYMENT_ORDER = :PaymentOrder
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

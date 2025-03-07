@@ -79,11 +79,6 @@ module ModernTreasury
         PROCESSING = :processing
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

@@ -371,11 +371,6 @@ module ModernTreasury
           RESIDENTIAL = :residential
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -466,11 +461,6 @@ module ModernTreasury
           VN_TIN = :vn_tin
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -483,11 +473,6 @@ module ModernTreasury
         JOINT = :joint
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -502,11 +487,6 @@ module ModernTreasury
         TRUST = :trust
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class PhoneNumber < ModernTreasury::BaseModel
@@ -538,11 +518,6 @@ module ModernTreasury
         HIGH = :high
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

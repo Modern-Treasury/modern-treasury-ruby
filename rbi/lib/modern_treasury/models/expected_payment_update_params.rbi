@@ -224,8 +224,10 @@ module ModernTreasury
         CREDIT = T.let(:credit, T.nilable(Symbol))
         DEBIT = T.let(:debit, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -234,8 +236,10 @@ module ModernTreasury
 
         RECONCILED = T.let(:reconciled, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

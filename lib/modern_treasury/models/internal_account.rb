@@ -178,11 +178,6 @@ module ModernTreasury
         SAVINGS = :savings
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class PartyAddress < ModernTreasury::BaseModel
@@ -290,11 +285,6 @@ module ModernTreasury
         INDIVIDUAL = :individual
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

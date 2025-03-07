@@ -209,11 +209,6 @@ module ModernTreasury
           WALLET_ADDRESS = :wallet_address
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -253,11 +248,6 @@ module ModernTreasury
           WEBSITE = :website
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -392,11 +382,6 @@ module ModernTreasury
           VIRTUAL_ACCOUNT = :virtual_account
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
 
@@ -458,11 +443,6 @@ module ModernTreasury
         INDIVIDUAL = :individual
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       class RoutingDetail < ModernTreasury::BaseModel
@@ -522,11 +502,6 @@ module ModernTreasury
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
 
         # @abstract
@@ -564,11 +539,6 @@ module ModernTreasury
           ZENGIN = :zengin
 
           finalize!
-
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   #
-          #   def self.values; end
         end
       end
     end

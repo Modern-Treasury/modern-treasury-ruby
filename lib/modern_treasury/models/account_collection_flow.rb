@@ -141,11 +141,6 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -173,11 +168,6 @@ module ModernTreasury
         GBR = :GBR
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
 
       # @abstract
@@ -191,11 +181,6 @@ module ModernTreasury
         PENDING = :pending
 
         finalize!
-
-        # @!parse
-        #   # @return [Array<Symbol>]
-        #   #
-        #   def self.values; end
       end
     end
   end

@@ -99,8 +99,10 @@ module ModernTreasury
 
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
 
@@ -161,8 +163,10 @@ module ModernTreasury
         R53 = T.let(:R53, T.nilable(Symbol))
         CURRENCYCLOUD = T.let(:currencycloud, T.nilable(Symbol))
 
-        sig { override.returns(T::Array[Symbol]) }
-        def self.values
+        class << self
+          sig { override.returns(T::Array[Symbol]) }
+          def values
+          end
         end
       end
     end

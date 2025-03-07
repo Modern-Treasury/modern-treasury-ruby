@@ -9,11 +9,6 @@ module ModernTreasury
       DEBIT = :debit
 
       finalize!
-
-      # @!parse
-      #   # @return [Array<Symbol>]
-      #   #
-      #   def self.values; end
     end
   end
 end
