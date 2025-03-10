@@ -132,6 +132,24 @@ module ModernTreasury
     # @return [ModernTreasury::Resources::LegalEntityAssociations]
     attr_reader :legal_entity_associations
 
+    # A test endpoint often used to confirm credentials and headers are being passed
+    #   in correctly.
+    #
+    # @param params [ModernTreasury::Models::ClientPingParams, Hash{Symbol=>Object}] .
+    #
+    #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+    #
+    # @return [ModernTreasury::Models::PingResponse]
+    #
+    def ping(params = {})
+      request(
+        method: :get,
+        path: "api/ping",
+        model: ModernTreasury::Models::PingResponse,
+        options: params[:request_options]
+      )
+    end
+
     # @private
     #
     # @return [Hash{String=>String}]
