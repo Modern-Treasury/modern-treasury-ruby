@@ -57,23 +57,7 @@ module ModernTreasury
       # @deprecated use `retrieve` instead
       #
       # get payment_reference
-      #
-      # @param id [String] id
-      #
-      # @param params [ModernTreasury::Models::PaymentReferenceRetireveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
-      #
-      # @return [ModernTreasury::Models::PaymentReference]
-      #
-      def retireve(id, params = {})
-        @client.request(
-          method: :get,
-          path: ["api/payment_references/%0s", id],
-          model: ModernTreasury::Models::PaymentReference,
-          options: params[:request_options]
-        )
-      end
+      alias_method :retireve, :retrieve
 
       # @param client [ModernTreasury::Client]
       #

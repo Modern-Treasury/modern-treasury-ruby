@@ -34,15 +34,7 @@ module ModernTreasury
       )
       end
 
-      sig do
-        params(
-          id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
-        )
-          .returns(ModernTreasury::Models::PaymentReference)
-      end
-      def retireve(id, request_options: {})
-      end
+      alias_method :retireve, :retrieve
 
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)

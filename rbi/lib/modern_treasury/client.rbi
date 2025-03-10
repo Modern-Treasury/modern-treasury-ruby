@@ -166,6 +166,13 @@ module ModernTreasury
     def legal_entity_associations
     end
 
+    sig do
+      params(request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])))
+        .returns(ModernTreasury::Models::PingResponse)
+    end
+    def ping(request_options: {})
+    end
+
     sig { override.returns(T::Hash[String, String]) }
     private def auth_headers
     end

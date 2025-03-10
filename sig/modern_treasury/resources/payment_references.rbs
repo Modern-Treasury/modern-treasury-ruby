@@ -26,16 +26,7 @@ module ModernTreasury
           request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentReference]
 
-      def retireve:
-        (
-          String id,
-          ?ModernTreasury::Models::PaymentReferenceRetireveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::PaymentReference
-        | (
-          String id,
-          request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::PaymentReference
+      alias retireve retrieve
 
       def initialize: (client: ModernTreasury::Client) -> void
     end
