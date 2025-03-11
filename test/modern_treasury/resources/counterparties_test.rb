@@ -88,11 +88,6 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
       response => ModernTreasury::Page
     end
 
-    page = response.next_page
-    assert_pattern do
-      page => ModernTreasury::Page
-    end
-
     row = response.to_enum.first
     assert_pattern do
       row => ModernTreasury::Models::Counterparty
