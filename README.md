@@ -44,7 +44,7 @@ counterparty = modern_treasury.counterparties.create(name: "my first counterpart
 puts(counterparty.id)
 ```
 
-## Pagination
+### Pagination
 
 List methods in the Modern Treasury API are paginated.
 
