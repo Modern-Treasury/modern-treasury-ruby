@@ -5,6 +5,26 @@ module ModernTreasury
   #
   # @abstract
   #
+  # @example
+  # ```ruby
+  # if page.has_next?
+  #   page = page.next_page
+  # end
+  # ```
+  #
+  # @example
+  # ```ruby
+  # page.auto_paging_each do |client|
+  #   puts(client)
+  # end
+  # ```
+  #
+  # @example
+  # ```ruby
+  # clients = page.to_enum.take(2)
+  #
+  # clients => Array
+  # ```
   module BasePage
     # @return [Boolean]
     #
