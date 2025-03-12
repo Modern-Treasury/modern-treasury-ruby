@@ -10,16 +10,16 @@ module ModernTreasury
   #
   # @example
   # ```ruby
-  # page.auto_paging_each do |item|
-  # #   item ...
+  # page.auto_paging_each do |connection|
+  #   puts(connection)
   # end
   # ```
   #
   # @example
   # ```ruby
-  # items = page.to_enum.take(2)
+  # connections = page.to_enum.take(2)
   #
-  # items => Array
+  # connections => Array
   # ```
   class Page < ::Array
     include ModernTreasury::BasePage
