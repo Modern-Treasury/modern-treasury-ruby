@@ -16,9 +16,13 @@ module ModernTreasury
       end
 
       sig do
-        params(request: ModernTreasury::PooledNetRequester::RequestShape).returns(Net::HTTPGenericRequest)
+        params(
+          request: ModernTreasury::PooledNetRequester::RequestShape,
+          blk: T.proc.params(arg0: String).void
+        )
+          .returns(Net::HTTPGenericRequest)
       end
-      def build_request(request)
+      def build_request(request, &blk)
       end
     end
 
@@ -33,8 +37,8 @@ module ModernTreasury
     def execute(request)
     end
 
-    sig { returns(T.attached_class) }
-    def self.new
+    sig { params(size: Integer).returns(T.attached_class) }
+    def self.new(size: Etc.nprocessors)
     end
   end
 end
