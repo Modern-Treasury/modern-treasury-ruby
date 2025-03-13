@@ -38,15 +38,13 @@ module ModernTreasury
     # @param page_data [Hash{Symbol=>Object}]
     #
     def initialize(client:, req:, headers:, page_data:)
-      @client = client
-      @req = req
+      super
       model = req.fetch(:model)
 
       case page_data
       in Array
-        super(page_data&.map { model.coerce(_1) })
+        replace(page_data&.map { model.coerce(_1) })
       else
-        super([])
       end
 
       @per_page = ModernTreasury::Util.coerce_integer(headers["X-Per-Page"])
