@@ -6,13 +6,6 @@ module ModernTreasury
 
     attr_accessor after_cursor: String
 
-    def initialize: (
-      client: ModernTreasury::BaseClient,
-      req: ModernTreasury::BaseClient::request_components,
-      headers: ::Hash[String, String],
-      page_data: ::Hash[Symbol, top]
-    ) -> void
-
     def next_page?: -> bool
 
     def next_page: -> self

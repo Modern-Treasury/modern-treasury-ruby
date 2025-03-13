@@ -22,18 +22,6 @@ module ModernTreasury
     def after_cursor=(_)
     end
 
-    sig do
-      params(
-        client: ModernTreasury::BaseClient,
-        req: ModernTreasury::BaseClient::RequestComponentsShape,
-        headers: T.any(T::Hash[String, String], Net::HTTPHeader),
-        page_data: T::Hash[Symbol, T.anything]
-      )
-        .returns(T.attached_class)
-    end
-    def self.new(client:, req:, headers:, page_data:)
-    end
-
     sig { override.returns(T::Boolean) }
     def next_page?
     end
