@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The inclusive lower bound of the effective_at timestamp of the ledger entries to
+      #   be included in the ledger account statement.
       sig { returns(Time) }
       def effective_at_lower_bound
       end
@@ -14,6 +16,8 @@ module ModernTreasury
       def effective_at_lower_bound=(_)
       end
 
+      # The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      #   be included in the ledger account statement.
       sig { returns(Time) }
       def effective_at_upper_bound
       end
@@ -22,6 +26,8 @@ module ModernTreasury
       def effective_at_upper_bound=(_)
       end
 
+      # The id of the ledger account whose ledger entries are queried against, and its
+      #   balances are computed as a result.
       sig { returns(String) }
       def ledger_account_id
       end
@@ -30,6 +36,7 @@ module ModernTreasury
       def ledger_account_id=(_)
       end
 
+      # The description of the ledger account statement.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -38,6 +45,8 @@ module ModernTreasury
       def description=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end

@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # A list of addresses for the entity.
       sig { returns(T::Array[ModernTreasury::Models::LegalEntity::Address]) }
       def addresses
       end
@@ -33,6 +34,7 @@ module ModernTreasury
       def bank_settings=(_)
       end
 
+      # The business's legal business name.
       sig { returns(T.nilable(String)) }
       def business_name
       end
@@ -41,6 +43,7 @@ module ModernTreasury
       def business_name=(_)
       end
 
+      # The country of citizenship for an individual.
       sig { returns(T.nilable(String)) }
       def citizenship_country
       end
@@ -57,6 +60,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # A business's formation date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       def date_formed
       end
@@ -65,6 +69,7 @@ module ModernTreasury
       def date_formed=(_)
       end
 
+      # An individual's date of birth (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       def date_of_birth
       end
@@ -89,6 +94,7 @@ module ModernTreasury
       def doing_business_as_names=(_)
       end
 
+      # The entity's primary email.
       sig { returns(T.nilable(String)) }
       def email
       end
@@ -97,6 +103,7 @@ module ModernTreasury
       def email=(_)
       end
 
+      # An individual's first name.
       sig { returns(T.nilable(String)) }
       def first_name
       end
@@ -105,6 +112,7 @@ module ModernTreasury
       def first_name=(_)
       end
 
+      # A list of identifications for the legal entity.
       sig { returns(T::Array[ModernTreasury::Models::LegalEntity::Identification]) }
       def identifications
       end
@@ -116,6 +124,7 @@ module ModernTreasury
       def identifications=(_)
       end
 
+      # An individual's last name.
       sig { returns(T.nilable(String)) }
       def last_name
       end
@@ -124,6 +133,7 @@ module ModernTreasury
       def last_name=(_)
       end
 
+      # The legal entity associations and its child legal entities.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityAssociation])) }
       def legal_entity_associations
       end
@@ -135,6 +145,7 @@ module ModernTreasury
       def legal_entity_associations=(_)
       end
 
+      # The type of legal entity.
       sig { returns(Symbol) }
       def legal_entity_type
       end
@@ -143,6 +154,7 @@ module ModernTreasury
       def legal_entity_type=(_)
       end
 
+      # The business's legal structure.
       sig { returns(T.nilable(Symbol)) }
       def legal_structure
       end
@@ -151,6 +163,8 @@ module ModernTreasury
       def legal_structure=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -159,6 +173,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -167,6 +183,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # An individual's middle name.
       sig { returns(T.nilable(String)) }
       def middle_name
       end
@@ -194,6 +211,7 @@ module ModernTreasury
       def phone_numbers=(_)
       end
 
+      # Whether the individual is a politically exposed person.
       sig { returns(T.nilable(T::Boolean)) }
       def politically_exposed_person
       end
@@ -202,6 +220,7 @@ module ModernTreasury
       def politically_exposed_person=(_)
       end
 
+      # An individual's preferred name.
       sig { returns(T.nilable(String)) }
       def preferred_name
       end
@@ -210,6 +229,7 @@ module ModernTreasury
       def preferred_name=(_)
       end
 
+      # An individual's prefix.
       sig { returns(T.nilable(String)) }
       def prefix
       end
@@ -218,6 +238,7 @@ module ModernTreasury
       def prefix=(_)
       end
 
+      # The risk rating of the legal entity. One of low, medium, high.
       sig { returns(T.nilable(Symbol)) }
       def risk_rating
       end
@@ -226,6 +247,7 @@ module ModernTreasury
       def risk_rating=(_)
       end
 
+      # An individual's suffix.
       sig { returns(T.nilable(String)) }
       def suffix
       end
@@ -253,6 +275,7 @@ module ModernTreasury
       def wealth_and_employment_details=(_)
       end
 
+      # The entity's primary website URL.
       sig { returns(T.nilable(String)) }
       def website
       end
@@ -379,6 +402,7 @@ module ModernTreasury
         def id=(_)
         end
 
+        # The types of this address.
         sig { returns(T::Array[Symbol]) }
         def address_types
         end
@@ -387,6 +411,7 @@ module ModernTreasury
         def address_types=(_)
         end
 
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         def country
         end
@@ -427,6 +452,8 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -435,6 +462,7 @@ module ModernTreasury
         def live_mode=(_)
         end
 
+        # Locality or City.
         sig { returns(T.nilable(String)) }
         def locality
         end
@@ -451,6 +479,7 @@ module ModernTreasury
         def object=(_)
         end
 
+        # The postal code of the address.
         sig { returns(T.nilable(String)) }
         def postal_code
         end
@@ -459,6 +488,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(T.nilable(String)) }
         def region
         end
@@ -575,6 +605,7 @@ module ModernTreasury
         def discarded_at=(_)
         end
 
+        # The type of ID number.
         sig { returns(Symbol) }
         def id_type
         end
@@ -583,6 +614,8 @@ module ModernTreasury
         def id_type=(_)
         end
 
+        # The ISO 3166-1 alpha-2 country code of the country that issued the
+        #   identification
         sig { returns(T.nilable(String)) }
         def issuing_country
         end
@@ -591,6 +624,8 @@ module ModernTreasury
         def issuing_country=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -649,6 +684,7 @@ module ModernTreasury
         def to_hash
         end
 
+        # The type of ID number.
         class IDType < ModernTreasury::Enum
           abstract!
 
@@ -682,6 +718,7 @@ module ModernTreasury
         end
       end
 
+      # The type of legal entity.
       class LegalEntityType < ModernTreasury::Enum
         abstract!
 
@@ -696,6 +733,7 @@ module ModernTreasury
         end
       end
 
+      # The business's legal structure.
       class LegalStructure < ModernTreasury::Enum
         abstract!
 
@@ -722,6 +760,7 @@ module ModernTreasury
         def phone_number=(_)
         end
 
+        # A list of phone numbers in E.164 format.
         sig { params(phone_number: String).returns(T.attached_class) }
         def self.new(phone_number: nil)
         end
@@ -731,6 +770,7 @@ module ModernTreasury
         end
       end
 
+      # The risk rating of the legal entity. One of low, medium, high.
       class RiskRating < ModernTreasury::Enum
         abstract!
 

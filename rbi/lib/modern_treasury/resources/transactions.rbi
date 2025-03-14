@@ -7,6 +7,7 @@ module ModernTreasury
       def line_items
       end
 
+      # create transaction
       sig do
         params(
           amount: Integer,
@@ -38,6 +39,7 @@ module ModernTreasury
       )
       end
 
+      # Get details on a single transaction.
       sig do
         params(
           id: String,
@@ -48,6 +50,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update a single transaction.
       sig do
         params(
           id: String,
@@ -59,6 +62,7 @@ module ModernTreasury
       def update(id, metadata: nil, request_options: {})
       end
 
+      # Get a list of all transactions.
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -98,6 +102,7 @@ module ModernTreasury
       )
       end
 
+      # delete transaction
       sig do
         params(
           id: String,

@@ -64,7 +64,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
-      #
       def create(params = {})
         parsed, options = ModernTreasury::Models::ExpectedPaymentCreateParams.dump_request(params)
         @client.request(
@@ -85,7 +84,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -149,7 +147,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
-      #
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::ExpectedPaymentUpdateParams.dump_request(params)
         @client.request(
@@ -191,7 +188,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::ExpectedPaymentListParams.dump_request(params)
         @client.request(
@@ -213,7 +209,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
-      #
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -224,7 +219,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

@@ -15,6 +15,7 @@ module ModernTreasury
         def invoice_id=(_)
         end
 
+        # An optional free-form description of the line item.
         sig { returns(T.nilable(String)) }
         def description
         end
@@ -23,6 +24,9 @@ module ModernTreasury
         def description=(_)
         end
 
+        # Either `debit` or `credit`. `debit` indicates that a client owes the business
+        #   money and increases the invoice's `total_amount` due. `credit` has the opposite
+        #   intention and effect.
         sig { returns(T.nilable(String)) }
         def direction
         end
@@ -31,6 +35,8 @@ module ModernTreasury
         def direction=(_)
         end
 
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         def metadata
         end
@@ -39,6 +45,7 @@ module ModernTreasury
         def metadata=(_)
         end
 
+        # The name of the line item, typically a product or SKU name.
         sig { returns(T.nilable(String)) }
         def name
         end
@@ -47,6 +54,8 @@ module ModernTreasury
         def name=(_)
         end
 
+        # The number of units of a product or service that this line item is for. Must be
+        #   a whole number. Defaults to 1 if not provided.
         sig { returns(T.nilable(Integer)) }
         def quantity
         end
@@ -55,6 +64,8 @@ module ModernTreasury
         def quantity=(_)
         end
 
+        # The cost per unit of the product or service that this line item is for,
+        #   specified in the invoice currency's smallest unit.
         sig { returns(T.nilable(Integer)) }
         def unit_amount
         end
@@ -63,6 +74,9 @@ module ModernTreasury
         def unit_amount=(_)
         end
 
+        # The cost per unit of the product or service that this line item is for,
+        #   specified in the invoice currency's smallest unit. Accepts decimal strings with
+        #   up to 12 decimals
         sig { returns(T.nilable(String)) }
         def unit_amount_decimal
         end

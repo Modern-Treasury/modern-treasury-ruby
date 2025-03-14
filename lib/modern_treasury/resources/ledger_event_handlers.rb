@@ -25,7 +25,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerEventHandlerCreateParams.dump_request(params)
         @client.request(
@@ -46,7 +45,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -77,7 +75,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerEventHandlerListParams.dump_request(params)
         @client.request(
@@ -99,7 +96,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
-      #
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -110,7 +106,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

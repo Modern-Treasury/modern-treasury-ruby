@@ -7,6 +7,7 @@ module ModernTreasury
       def line_items
       end
 
+      # create invoice
       sig do
         params(
           counterparty_id: String,
@@ -68,6 +69,7 @@ module ModernTreasury
       )
       end
 
+      # get invoice
       sig do
         params(
           id: String,
@@ -78,6 +80,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # update invoice
       sig do
         params(
           id: String,
@@ -141,6 +144,7 @@ module ModernTreasury
       )
       end
 
+      # list invoices
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -174,6 +178,7 @@ module ModernTreasury
       )
       end
 
+      # Add a payment order to an invoice.
       sig do
         params(
           payment_order_id: String,

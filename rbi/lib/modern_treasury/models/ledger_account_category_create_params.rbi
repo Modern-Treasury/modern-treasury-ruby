@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The currency of the ledger account category.
       sig { returns(String) }
       def currency
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # The id of the ledger that this account category belongs to.
       sig { returns(String) }
       def ledger_id
       end
@@ -22,6 +24,7 @@ module ModernTreasury
       def ledger_id=(_)
       end
 
+      # The name of the ledger account category.
       sig { returns(String) }
       def name
       end
@@ -30,6 +33,7 @@ module ModernTreasury
       def name=(_)
       end
 
+      # The normal balance of the ledger account category.
       sig { returns(Symbol) }
       def normal_balance
       end
@@ -38,6 +42,7 @@ module ModernTreasury
       def normal_balance=(_)
       end
 
+      # The currency exponent of the ledger account category.
       sig { returns(T.nilable(Integer)) }
       def currency_exponent
       end
@@ -46,6 +51,7 @@ module ModernTreasury
       def currency_exponent=(_)
       end
 
+      # The description of the ledger account category.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -54,6 +60,8 @@ module ModernTreasury
       def description=(_)
       end
 
+      # The array of ledger account category ids that this ledger account category
+      #   should be a child of.
       sig { returns(T.nilable(T::Array[String])) }
       def ledger_account_category_ids
       end
@@ -62,6 +70,8 @@ module ModernTreasury
       def ledger_account_category_ids=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end

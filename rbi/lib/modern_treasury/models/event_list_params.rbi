@@ -30,6 +30,7 @@ module ModernTreasury
       def event_name=(_)
       end
 
+      # An inclusive upper bound for when the event occurred
       sig { returns(T.nilable(Time)) }
       def event_time_end
       end
@@ -38,6 +39,7 @@ module ModernTreasury
       def event_time_end=(_)
       end
 
+      # An inclusive lower bound for when the event occurred
       sig { returns(T.nilable(Time)) }
       def event_time_start
       end

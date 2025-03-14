@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # If you have specific IDs to retrieve in bulk, you can pass them as query
+      #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
       def id
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)) }
       def available_balance_amount
       end
@@ -33,6 +37,11 @@ module ModernTreasury
       def available_balance_amount=(_)
       end
 
+      # Use `balances[effective_at_lower_bound]` and
+      #   `balances[effective_at_upper_bound]` to get the balances change between the two
+      #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
+      #   the provided timestamps. If no value is supplied the balances will be retrieved
+      #   not including that bound.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::Balances)) }
       def balances
       end
@@ -44,6 +53,9 @@ module ModernTreasury
       def balances=(_)
       end
 
+      # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       def created_at
       end
@@ -76,6 +88,9 @@ module ModernTreasury
       def ledger_id=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -84,6 +99,8 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # If you have specific names to retrieve in bulk, you can pass them as query
+      #   parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
       def name
       end
@@ -92,6 +109,8 @@ module ModernTreasury
       def name=(_)
       end
 
+      # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)) }
       def pending_balance_amount
       end
@@ -111,6 +130,8 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+      #   filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)) }
       def posted_balance_amount
       end
@@ -122,6 +143,9 @@ module ModernTreasury
       def posted_balance_amount=(_)
       end
 
+      # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+      #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+      #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
       def updated_at
       end
@@ -243,6 +267,8 @@ module ModernTreasury
         def not_eq=(_)
         end
 
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        #   filter by balance amount.
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
             .returns(T.attached_class)
@@ -299,6 +325,11 @@ module ModernTreasury
         def effective_at_upper_bound=(_)
         end
 
+        # Use `balances[effective_at_lower_bound]` and
+        #   `balances[effective_at_upper_bound]` to get the balances change between the two
+        #   timestamps. The lower bound is inclusive while the upper bound is exclusive of
+        #   the provided timestamps. If no value is supplied the balances will be retrieved
+        #   not including that bound.
         sig do
           params(
             as_of_date: Date,
@@ -375,6 +406,8 @@ module ModernTreasury
         def not_eq=(_)
         end
 
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        #   filter by balance amount.
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
             .returns(T.attached_class)
@@ -447,6 +480,8 @@ module ModernTreasury
         def not_eq=(_)
         end
 
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
+        #   filter by balance amount.
         sig do
           params(eq: Integer, gt: Integer, gte: Integer, lt: Integer, lte: Integer, not_eq: Integer)
             .returns(T.attached_class)

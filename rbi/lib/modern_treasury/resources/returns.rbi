@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Returns
+      # Create a return.
       sig do
         params(
           returnable_id: T.nilable(String),
@@ -26,6 +27,7 @@ module ModernTreasury
       )
       end
 
+      # Get a single return.
       sig do
         params(
           id: String,
@@ -36,6 +38,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Get a list of returns.
       sig do
         params(
           after_cursor: T.nilable(String),

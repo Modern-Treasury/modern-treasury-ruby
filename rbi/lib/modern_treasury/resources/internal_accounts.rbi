@@ -7,6 +7,7 @@ module ModernTreasury
       def balance_reports
       end
 
+      # create internal account
       sig do
         params(
           connection_id: String,
@@ -36,6 +37,7 @@ module ModernTreasury
       )
       end
 
+      # get internal account
       sig do
         params(
           id: String,
@@ -46,6 +48,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # update internal account
       sig do
         params(
           id: String,
@@ -69,6 +72,7 @@ module ModernTreasury
       )
       end
 
+      # list internal accounts
       sig do
         params(
           after_cursor: T.nilable(String),

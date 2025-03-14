@@ -11,6 +11,8 @@ module ModernTreasury
       def id=(_)
       end
 
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000.
       sig { returns(Integer) }
       def amount
       end
@@ -19,6 +21,7 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # The date on which the transaction occurred.
       sig { returns(T.nilable(Date)) }
       def as_of_date
       end
@@ -27,6 +30,8 @@ module ModernTreasury
       def as_of_date=(_)
       end
 
+      # The time on which the transaction occurred. Depending on the granularity of the
+      #   timestamp information received from the bank, it may be `null`.
       sig { returns(T.nilable(Time)) }
       def as_of_time
       end
@@ -35,6 +40,8 @@ module ModernTreasury
       def as_of_time=(_)
       end
 
+      # The timezone in which the `as_of_time` is represented. Can be `null` if the bank
+      #   does not provide timezone info.
       sig { returns(T.nilable(String)) }
       def as_of_timezone
       end
@@ -51,6 +58,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # Currency that this transaction is denominated in.
       sig { returns(Symbol) }
       def currency
       end
@@ -59,6 +67,8 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # An object containing key-value pairs, each with a custom identifier as the key
+      #   and a string value.
       sig { returns(T::Hash[Symbol, String]) }
       def custom_identifiers
       end
@@ -67,6 +77,7 @@ module ModernTreasury
       def custom_identifiers=(_)
       end
 
+      # Either `credit` or `debit`.
       sig { returns(String) }
       def direction
       end
@@ -83,6 +94,7 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # Associated serialized foreign exchange rate information.
       sig { returns(T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate)) }
       def foreign_exchange_rate
       end
@@ -94,6 +106,7 @@ module ModernTreasury
       def foreign_exchange_rate=(_)
       end
 
+      # The ID of the relevant Internal Account.
       sig { returns(String) }
       def internal_account_id
       end
@@ -102,6 +115,8 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -110,6 +125,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -126,6 +143,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # This field will be `true` if the transaction has posted to the account.
       sig { returns(T::Boolean) }
       def posted
       end
@@ -134,6 +152,9 @@ module ModernTreasury
       def posted=(_)
       end
 
+      # This field will be `true` if a transaction is reconciled by the Modern Treasury
+      #   system. This means that it has transaction line items that sum up to the
+      #   transaction's amount.
       sig { returns(T::Boolean) }
       def reconciled
       end
@@ -142,6 +163,8 @@ module ModernTreasury
       def reconciled=(_)
       end
 
+      # The type of the transaction. Examples could be
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       sig { returns(Symbol) }
       def type
       end
@@ -158,6 +181,8 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # When applicable, the bank-given code that determines the transaction's category.
+      #   For most banks this is the BAI2/BTRS transaction code.
       sig { returns(T.nilable(String)) }
       def vendor_code
       end
@@ -166,6 +191,10 @@ module ModernTreasury
       def vendor_code=(_)
       end
 
+      # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   `swift`, `us_bank`, or others.
       sig { returns(T.nilable(Symbol)) }
       def vendor_code_type
       end
@@ -174,6 +203,7 @@ module ModernTreasury
       def vendor_code_type=(_)
       end
 
+      # An identifier given to this transaction by the bank, often `null`.
       sig { returns(T.nilable(String)) }
       def vendor_customer_id
       end
@@ -182,6 +212,7 @@ module ModernTreasury
       def vendor_customer_id=(_)
       end
 
+      # An identifier given to this transaction by the bank.
       sig { returns(T.nilable(String)) }
       def vendor_id
       end
@@ -190,6 +221,13 @@ module ModernTreasury
       def vendor_id=(_)
       end
 
+      # This field contains additional information that the bank provided about the
+      #   transaction. This is structured data. Some of the data in here might overlap
+      #   with what is in the `vendor_description`. For example, the OBI could be a part
+      #   of the vendor description, and it would also be included in here. The attributes
+      #   that are passed through the details field will vary based on your banking
+      #   partner. Currently, the following keys may be in the details object:
+      #   `originator_name`, `originator_to_beneficiary_information`.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def details
       end
@@ -198,6 +236,8 @@ module ModernTreasury
       def details=(_)
       end
 
+      # The transaction detail text that often appears in on your bank statement and in
+      #   your banking portal.
       sig { returns(T.nilable(String)) }
       def vendor_description
       end
@@ -301,6 +341,8 @@ module ModernTreasury
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
+        # Amount in the lowest denomination of the `base_currency` to convert, often
+        #   called the "sell" amount.
         sig { returns(Integer) }
         def base_amount
         end
@@ -309,6 +351,7 @@ module ModernTreasury
         def base_amount=(_)
         end
 
+        # Currency to convert, often called the "sell" currency.
         sig { returns(Symbol) }
         def base_currency
         end
@@ -317,6 +360,8 @@ module ModernTreasury
         def base_currency=(_)
         end
 
+        # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
+        #   `exponent`).
         sig { returns(Integer) }
         def exponent
         end
@@ -325,6 +370,7 @@ module ModernTreasury
         def exponent=(_)
         end
 
+        # A string representation of the rate.
         sig { returns(String) }
         def rate_string
         end
@@ -333,6 +379,8 @@ module ModernTreasury
         def rate_string=(_)
         end
 
+        # Amount in the lowest denomination of the `target_currency`, often called the
+        #   "buy" amount.
         sig { returns(Integer) }
         def target_amount
         end
@@ -341,6 +389,7 @@ module ModernTreasury
         def target_amount=(_)
         end
 
+        # Currency to convert the `base_currency` to, often called the "buy" currency.
         sig { returns(Symbol) }
         def target_currency
         end
@@ -349,6 +398,8 @@ module ModernTreasury
         def target_currency=(_)
         end
 
+        # The whole number component of the rate. The decimal is calculated as `value` /
+        #   (10 ^ `exponent`).
         sig { returns(Integer) }
         def value
         end
@@ -357,6 +408,7 @@ module ModernTreasury
         def value=(_)
         end
 
+        # Associated serialized foreign exchange rate information.
         sig do
           params(
             base_amount: Integer,
@@ -390,6 +442,8 @@ module ModernTreasury
         end
       end
 
+      # The type of the transaction. Examples could be
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       class Type < ModernTreasury::Enum
         abstract!
 
@@ -432,6 +486,10 @@ module ModernTreasury
         end
       end
 
+      # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   `swift`, `us_bank`, or others.
       class VendorCodeType < ModernTreasury::Enum
         abstract!
 

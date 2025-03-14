@@ -19,6 +19,8 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -35,6 +37,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The actual reference number assigned by the bank.
       sig { returns(String) }
       def reference_number
       end
@@ -43,6 +46,7 @@ module ModernTreasury
       def reference_number=(_)
       end
 
+      # The type of reference number.
       sig { returns(Symbol) }
       def reference_number_type
       end
@@ -51,6 +55,8 @@ module ModernTreasury
       def reference_number_type=(_)
       end
 
+      # The id of the referenceable to search for. Must be accompanied by the
+      #   referenceable_type or will return an error.
       sig { returns(String) }
       def referenceable_id
       end
@@ -59,6 +65,8 @@ module ModernTreasury
       def referenceable_id=(_)
       end
 
+      # One of the referenceable types. This must be accompanied by the id of the
+      #   referenceable or will return an error.
       sig { returns(Symbol) }
       def referenceable_type
       end
@@ -121,6 +129,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # The type of reference number.
       class ReferenceNumberType < ModernTreasury::Enum
         abstract!
 
@@ -203,6 +212,8 @@ module ModernTreasury
         end
       end
 
+      # One of the referenceable types. This must be accompanied by the id of the
+      #   referenceable or will return an error.
       class ReferenceableType < ModernTreasury::Enum
         abstract!
 

@@ -19,7 +19,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountDetail]
-      #
       def create(account_id, params)
         parsed, options = ModernTreasury::Models::AccountDetailCreateParams.dump_request(params)
         accounts_type = parsed.delete(:accounts_type) do
@@ -47,7 +46,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountDetail]
-      #
       def retrieve(id, params)
         parsed, options = ModernTreasury::Models::AccountDetailRetrieveParams.dump_request(params)
         accounts_type = parsed.delete(:accounts_type) do
@@ -79,7 +77,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountDetail>]
-      #
       def list(account_id, params)
         parsed, options = ModernTreasury::Models::AccountDetailListParams.dump_request(params)
         accounts_type = parsed.delete(:accounts_type) do
@@ -108,7 +105,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
-      #
       def delete(id, params)
         parsed, options = ModernTreasury::Models::AccountDetailDeleteParams.dump_request(params)
         accounts_type = parsed.delete(:accounts_type) do
@@ -126,7 +122,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

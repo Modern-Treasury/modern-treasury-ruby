@@ -14,6 +14,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # The unique identifier for the associated object.
       sig { returns(T.nilable(String)) }
       def documentable_id
       end
@@ -22,6 +23,9 @@ module ModernTreasury
       def documentable_id=(_)
       end
 
+      # The type of the associated object. Currently can be one of `payment_order`,
+      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #   `case`, `internal_account`, `decision`, or `external_account`.
       sig { returns(T.nilable(Symbol)) }
       def documentable_type
       end
@@ -66,6 +70,9 @@ module ModernTreasury
       def to_hash
       end
 
+      # The type of the associated object. Currently can be one of `payment_order`,
+      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #   `case`, `internal_account`, `decision`, or `external_account`.
       class DocumentableType < ModernTreasury::Enum
         abstract!
 

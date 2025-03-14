@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # The Ledger Account associated to this account.
       sig { returns(T.nilable(String)) }
       def ledger_account_id
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def ledger_account_id=(_)
       end
 
+      # Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -30,6 +34,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # The nickname for the internal account.
       sig { returns(T.nilable(String)) }
       def name
       end
@@ -38,6 +43,7 @@ module ModernTreasury
       def name=(_)
       end
 
+      # The parent internal account for this account.
       sig { returns(T.nilable(String)) }
       def parent_account_id
       end

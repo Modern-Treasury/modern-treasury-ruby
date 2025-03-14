@@ -22,6 +22,7 @@ module ModernTreasury
         def created_at=(_)
         end
 
+        # An optional description for internal use.
         sig { returns(T.nilable(String)) }
         def description
         end
@@ -30,6 +31,8 @@ module ModernTreasury
         def description=(_)
         end
 
+        # The timestamp (ISO8601 format) at which the ledger transaction happened for
+        #   reporting purposes.
         sig { returns(Time) }
         def effective_at
         end
@@ -38,6 +41,8 @@ module ModernTreasury
         def effective_at=(_)
         end
 
+        # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+        #   purposes.
         sig { returns(Date) }
         def effective_date
         end
@@ -46,6 +51,8 @@ module ModernTreasury
         def effective_date=(_)
         end
 
+        # A unique string to represent the ledger transaction. Only one pending or posted
+        #   ledger transaction may have this ID in the ledger.
         sig { returns(T.nilable(String)) }
         def external_id
         end
@@ -54,6 +61,7 @@ module ModernTreasury
         def external_id=(_)
         end
 
+        # An array of ledger entry objects.
         sig { returns(T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry]) }
         def ledger_entries
         end
@@ -65,6 +73,7 @@ module ModernTreasury
         def ledger_entries=(_)
         end
 
+        # The ID of the ledger this ledger transaction belongs to.
         sig { returns(String) }
         def ledger_id
         end
@@ -73,6 +82,7 @@ module ModernTreasury
         def ledger_id=(_)
         end
 
+        # The ID of the ledger transaction
         sig { returns(String) }
         def ledger_transaction_id
         end
@@ -81,6 +91,8 @@ module ModernTreasury
         def ledger_transaction_id=(_)
         end
 
+        # If the ledger transaction can be reconciled to another object in Modern
+        #   Treasury, the id will be populated here, otherwise null.
         sig { returns(T.nilable(String)) }
         def ledgerable_id
         end
@@ -89,6 +101,9 @@ module ModernTreasury
         def ledgerable_id=(_)
         end
 
+        # If the ledger transaction can be reconciled to another object in Modern
+        #   Treasury, the type will be populated here, otherwise null. This can be one of
+        #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
         sig { returns(T.nilable(Symbol)) }
         def ledgerable_type
         end
@@ -97,6 +112,8 @@ module ModernTreasury
         def ledgerable_type=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -105,6 +122,8 @@ module ModernTreasury
         def live_mode=(_)
         end
 
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         sig { returns(T::Hash[Symbol, String]) }
         def metadata
         end
@@ -121,6 +140,7 @@ module ModernTreasury
         def object=(_)
         end
 
+        # The ID of the ledger transaction that this ledger transaction partially posts.
         sig { returns(T.nilable(String)) }
         def partially_posts_ledger_transaction_id
         end
@@ -129,6 +149,8 @@ module ModernTreasury
         def partially_posts_ledger_transaction_id=(_)
         end
 
+        # The time on which the ledger transaction posted. This is null if the ledger
+        #   transaction is pending.
         sig { returns(T.nilable(Time)) }
         def posted_at
         end
@@ -137,6 +159,7 @@ module ModernTreasury
         def posted_at=(_)
         end
 
+        # The ID of the ledger transaction that reversed this ledger transaction.
         sig { returns(T.nilable(String)) }
         def reversed_by_ledger_transaction_id
         end
@@ -145,6 +168,8 @@ module ModernTreasury
         def reversed_by_ledger_transaction_id=(_)
         end
 
+        # The ID of the original ledger transaction. that this ledger transaction
+        #   reverses.
         sig { returns(T.nilable(String)) }
         def reverses_ledger_transaction_id
         end
@@ -153,6 +178,7 @@ module ModernTreasury
         def reverses_ledger_transaction_id=(_)
         end
 
+        # One of `pending`, `posted`, or `archived`.
         sig { returns(Symbol) }
         def status
         end
@@ -161,6 +187,7 @@ module ModernTreasury
         def status=(_)
         end
 
+        # Version number of the ledger transaction.
         sig { returns(Integer) }
         def version
         end
@@ -257,6 +284,8 @@ module ModernTreasury
           def id=(_)
           end
 
+          # Value in specified currency's smallest unit. e.g. $10 would be represented
+          #   as 1000. Can be any integer up to 36 digits.
           sig { returns(Integer) }
           def amount
           end
@@ -273,6 +302,10 @@ module ModernTreasury
           def created_at=(_)
           end
 
+          # One of `credit`, `debit`. Describes the direction money is flowing in the
+          #   transaction. A `credit` moves money from your account to someone else's. A
+          #   `debit` pulls money from someone else's account to your own. Note that wire,
+          #   rtp, and check payments will always be `credit`.
           sig { returns(Symbol) }
           def direction
           end
@@ -281,6 +314,7 @@ module ModernTreasury
           def direction=(_)
           end
 
+          # The currency of the ledger account.
           sig { returns(String) }
           def ledger_account_currency
           end
@@ -289,6 +323,7 @@ module ModernTreasury
           def ledger_account_currency=(_)
           end
 
+          # The currency exponent of the ledger account.
           sig { returns(Integer) }
           def ledger_account_currency_exponent
           end
@@ -297,6 +332,7 @@ module ModernTreasury
           def ledger_account_currency_exponent=(_)
           end
 
+          # The ledger account that this ledger entry is associated with.
           sig { returns(String) }
           def ledger_account_id
           end
@@ -305,6 +341,10 @@ module ModernTreasury
           def ledger_account_id=(_)
           end
 
+          # Lock version of the ledger account. This can be passed when creating a ledger
+          #   transaction to only succeed if no ledger transactions have posted since the
+          #   given version. See our post about Designing the Ledgers API with Optimistic
+          #   Locking for more details.
           sig { returns(T.nilable(Integer)) }
           def ledger_account_lock_version
           end
@@ -313,6 +353,7 @@ module ModernTreasury
           def ledger_account_lock_version=(_)
           end
 
+          # The ledger transaction that this ledger entry is associated with.
           sig { returns(String) }
           def ledger_transaction_id
           end
@@ -321,6 +362,8 @@ module ModernTreasury
           def ledger_transaction_id=(_)
           end
 
+          # This field will be true if this object exists in the live environment or false
+          #   if it exists in the test environment.
           sig { returns(T::Boolean) }
           def live_mode
           end
@@ -329,6 +372,8 @@ module ModernTreasury
           def live_mode=(_)
           end
 
+          # Additional data represented as key-value pairs. Both the key and value must be
+          #   strings.
           sig { returns(T::Hash[Symbol, String]) }
           def metadata
           end
@@ -345,6 +390,13 @@ module ModernTreasury
           def object=(_)
           end
 
+          # The pending, posted, and available balances for this ledger entry's ledger
+          #   account. The posted balance is the sum of all posted entries on the account. The
+          #   pending balance is the sum of all pending and posted entries on the account. The
+          #   available balance is the posted incoming entries minus the sum of the pending
+          #   and posted outgoing amounts. Please see
+          #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
+          #   details.
           sig do
             returns(
               T.nilable(
@@ -370,6 +422,8 @@ module ModernTreasury
           def resulting_ledger_account_balances=(_)
           end
 
+          # Equal to the state of the ledger transaction when the ledger entry was created.
+          #   One of `pending`, `posted`, or `archived`.
           sig { returns(Symbol) }
           def status
           end
@@ -444,6 +498,10 @@ module ModernTreasury
           end
 
           class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
+            # The available_balance is the sum of all posted inbound entries and pending
+            #   outbound entries. For credit normal, available_amount = posted_credits -
+            #   pending_debits; for debit normal, available_amount = posted_debits -
+            #   pending_credits.
             sig do
               returns(
                 ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance
@@ -463,6 +521,7 @@ module ModernTreasury
             def available_balance=(_)
             end
 
+            # The pending_balance is the sum of all pending and posted entries.
             sig do
               returns(
                 ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance
@@ -482,6 +541,7 @@ module ModernTreasury
             def pending_balance=(_)
             end
 
+            # The posted_balance is the sum of all posted entries.
             sig do
               returns(
                 ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
@@ -501,6 +561,13 @@ module ModernTreasury
             def posted_balance=(_)
             end
 
+            # The pending, posted, and available balances for this ledger entry's ledger
+            #   account. The posted balance is the sum of all posted entries on the account. The
+            #   pending balance is the sum of all pending and posted entries on the account. The
+            #   available balance is the posted incoming entries minus the sum of the pending
+            #   and posted outgoing amounts. Please see
+            #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
+            #   details.
             sig do
               params(
                 available_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
@@ -542,6 +609,7 @@ module ModernTreasury
               def credits=(_)
               end
 
+              # The currency of the ledger account.
               sig { returns(String) }
               def currency
               end
@@ -550,6 +618,7 @@ module ModernTreasury
               def currency=(_)
               end
 
+              # The currency exponent of the ledger account.
               sig { returns(Integer) }
               def currency_exponent
               end
@@ -566,6 +635,10 @@ module ModernTreasury
               def debits=(_)
               end
 
+              # The available_balance is the sum of all posted inbound entries and pending
+              #   outbound entries. For credit normal, available_amount = posted_credits -
+              #   pending_debits; for debit normal, available_amount = posted_debits -
+              #   pending_credits.
               sig do
                 params(
                   amount: Integer,
@@ -612,6 +685,7 @@ module ModernTreasury
               def credits=(_)
               end
 
+              # The currency of the ledger account.
               sig { returns(String) }
               def currency
               end
@@ -620,6 +694,7 @@ module ModernTreasury
               def currency=(_)
               end
 
+              # The currency exponent of the ledger account.
               sig { returns(Integer) }
               def currency_exponent
               end
@@ -636,6 +711,7 @@ module ModernTreasury
               def debits=(_)
               end
 
+              # The pending_balance is the sum of all pending and posted entries.
               sig do
                 params(
                   amount: Integer,
@@ -682,6 +758,7 @@ module ModernTreasury
               def credits=(_)
               end
 
+              # The currency of the ledger account.
               sig { returns(String) }
               def currency
               end
@@ -690,6 +767,7 @@ module ModernTreasury
               def currency=(_)
               end
 
+              # The currency exponent of the ledger account.
               sig { returns(Integer) }
               def currency_exponent
               end
@@ -706,6 +784,7 @@ module ModernTreasury
               def debits=(_)
               end
 
+              # The posted_balance is the sum of all posted entries.
               sig do
                 params(
                   amount: Integer,
@@ -736,6 +815,8 @@ module ModernTreasury
             end
           end
 
+          # Equal to the state of the ledger transaction when the ledger entry was created.
+          #   One of `pending`, `posted`, or `archived`.
           class Status < ModernTreasury::Enum
             abstract!
 
@@ -751,6 +832,9 @@ module ModernTreasury
           end
         end
 
+        # If the ledger transaction can be reconciled to another object in Modern
+        #   Treasury, the type will be populated here, otherwise null. This can be one of
+        #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
         class LedgerableType < ModernTreasury::Enum
           abstract!
 
@@ -768,6 +852,7 @@ module ModernTreasury
           end
         end
 
+        # One of `pending`, `posted`, or `archived`.
         class Status < ModernTreasury::Enum
           abstract!
 

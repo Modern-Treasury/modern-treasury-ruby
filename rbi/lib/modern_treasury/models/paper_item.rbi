@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # The account number on the paper item.
       sig { returns(T.nilable(String)) }
       def account_number
       end
@@ -19,6 +20,7 @@ module ModernTreasury
       def account_number=(_)
       end
 
+      # The last 4 digits of the account_number.
       sig { returns(T.nilable(String)) }
       def account_number_safe
       end
@@ -27,6 +29,7 @@ module ModernTreasury
       def account_number_safe=(_)
       end
 
+      # The amount of the paper item.
       sig { returns(Integer) }
       def amount
       end
@@ -35,6 +38,7 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # The check number on the paper item.
       sig { returns(T.nilable(String)) }
       def check_number
       end
@@ -51,6 +55,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The currency of the paper item.
       sig { returns(Symbol) }
       def currency
       end
@@ -59,6 +64,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # The date the paper item was deposited into your organization's bank account.
       sig { returns(Date) }
       def deposit_date
       end
@@ -67,6 +73,8 @@ module ModernTreasury
       def deposit_date=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -75,6 +83,7 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # The identifier for the lockbox assigned by the bank.
       sig { returns(String) }
       def lockbox_number
       end
@@ -83,6 +92,7 @@ module ModernTreasury
       def lockbox_number=(_)
       end
 
+      # The memo field on the paper item.
       sig { returns(T.nilable(String)) }
       def memo_field
       end
@@ -99,6 +109,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The name of the remitter on the paper item.
       sig { returns(T.nilable(String)) }
       def remitter_name
       end
@@ -107,6 +118,7 @@ module ModernTreasury
       def remitter_name=(_)
       end
 
+      # The routing number on the paper item.
       sig { returns(T.nilable(String)) }
       def routing_number
       end
@@ -115,6 +127,8 @@ module ModernTreasury
       def routing_number=(_)
       end
 
+      # The current status of the paper item. One of `pending`, `completed`, or
+      #   `returned`.
       sig { returns(Symbol) }
       def status
       end
@@ -123,6 +137,7 @@ module ModernTreasury
       def status=(_)
       end
 
+      # The ID of the reconciled Transaction or `null`.
       sig { returns(T.nilable(String)) }
       def transaction_id
       end
@@ -131,6 +146,7 @@ module ModernTreasury
       def transaction_id=(_)
       end
 
+      # The ID of the reconciled Transaction Line Item or `null`.
       sig { returns(T.nilable(String)) }
       def transaction_line_item_id
       end
@@ -220,6 +236,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # The current status of the paper item. One of `pending`, `completed`, or
+      #   `returned`.
       class Status < ModernTreasury::Enum
         abstract!
 

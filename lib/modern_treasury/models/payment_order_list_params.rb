@@ -229,7 +229,6 @@ module ModernTreasury
       end
 
       # @abstract
-      #
       class Status < ModernTreasury::Enum
         APPROVED = :approved
         CANCELLED = :cancelled
@@ -247,7 +246,6 @@ module ModernTreasury
       end
 
       # @abstract
-      #
       class Type < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

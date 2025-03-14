@@ -14,6 +14,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Unique identifier for the result entity object.
       sig { returns(T.nilable(String)) }
       def entity_id
       end
@@ -22,6 +23,8 @@ module ModernTreasury
       def entity_id=(_)
       end
 
+      # The type of the request that created this result. bulk_request is the only
+      #   supported `request_type`
       sig { returns(T.nilable(Symbol)) }
       def entity_type
       end
@@ -38,6 +41,8 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # Unique identifier for the request that created this bulk result. This is the ID
+      #   of the bulk request when `request_type` is bulk_request
       sig { returns(T.nilable(String)) }
       def request_id
       end
@@ -46,6 +51,8 @@ module ModernTreasury
       def request_id=(_)
       end
 
+      # The type of the request that created this result. bulk_request is the only
+      #   supported `request_type`
       sig { returns(T.nilable(Symbol)) }
       def request_type
       end
@@ -54,6 +61,7 @@ module ModernTreasury
       def request_type=(_)
       end
 
+      # One of successful or failed.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -105,6 +113,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # The type of the request that created this result. bulk_request is the only
+      #   supported `request_type`
       class EntityType < ModernTreasury::Enum
         abstract!
 
@@ -121,6 +131,8 @@ module ModernTreasury
         end
       end
 
+      # The type of the request that created this result. bulk_request is the only
+      #   supported `request_type`
       class RequestType < ModernTreasury::Enum
         abstract!
 
@@ -133,6 +145,7 @@ module ModernTreasury
         end
       end
 
+      # One of successful or failed.
       class Status < ModernTreasury::Enum
         abstract!
 

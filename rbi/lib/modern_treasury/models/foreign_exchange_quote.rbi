@@ -19,6 +19,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The timestamp until when the quoted rate is valid.
       sig { returns(Time) }
       def effective_at
       end
@@ -27,6 +28,7 @@ module ModernTreasury
       def effective_at=(_)
       end
 
+      # The timestamp until which the quote must be booked by.
       sig { returns(Time) }
       def expires_at
       end
@@ -35,6 +37,9 @@ module ModernTreasury
       def expires_at=(_)
       end
 
+      # Either `fixed_to_variable` if the `base_amount` was specified, or
+      #   `variable_to_fixed` if the `target_amount` was specified when requesting the
+      #   quote.
       sig { returns(String) }
       def foreign_exchange_indicator
       end
@@ -43,6 +48,7 @@ module ModernTreasury
       def foreign_exchange_indicator=(_)
       end
 
+      # The serialized rate information represented by this quote.
       sig { returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate) }
       def foreign_exchange_rate
       end
@@ -54,6 +60,7 @@ module ModernTreasury
       def foreign_exchange_rate=(_)
       end
 
+      # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(String) }
       def internal_account_id
       end
@@ -62,6 +69,8 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -70,6 +79,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -94,6 +105,7 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # This vendor assigned ID for this quote.
       sig { returns(T.nilable(String)) }
       def vendor_id
       end
@@ -158,6 +170,8 @@ module ModernTreasury
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
+        # Amount in the lowest denomination of the `base_currency` to convert, often
+        #   called the "sell" amount.
         sig { returns(Integer) }
         def base_amount
         end
@@ -166,6 +180,7 @@ module ModernTreasury
         def base_amount=(_)
         end
 
+        # Currency to convert, often called the "sell" currency.
         sig { returns(Symbol) }
         def base_currency
         end
@@ -174,6 +189,8 @@ module ModernTreasury
         def base_currency=(_)
         end
 
+        # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
+        #   `exponent`).
         sig { returns(Integer) }
         def exponent
         end
@@ -182,6 +199,7 @@ module ModernTreasury
         def exponent=(_)
         end
 
+        # A string representation of the rate.
         sig { returns(String) }
         def rate_string
         end
@@ -190,6 +208,8 @@ module ModernTreasury
         def rate_string=(_)
         end
 
+        # Amount in the lowest denomination of the `target_currency`, often called the
+        #   "buy" amount.
         sig { returns(Integer) }
         def target_amount
         end
@@ -198,6 +218,7 @@ module ModernTreasury
         def target_amount=(_)
         end
 
+        # Currency to convert the `base_currency` to, often called the "buy" currency.
         sig { returns(Symbol) }
         def target_currency
         end
@@ -206,6 +227,8 @@ module ModernTreasury
         def target_currency=(_)
         end
 
+        # The whole number component of the rate. The decimal is calculated as `value` /
+        #   (10 ^ `exponent`).
         sig { returns(Integer) }
         def value
         end
@@ -214,6 +237,7 @@ module ModernTreasury
         def value=(_)
         end
 
+        # The serialized rate information represented by this quote.
         sig do
           params(
             base_amount: Integer,

@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     class RoutingNumberLookupRequest < ModernTreasury::BaseModel
+      # The address of the bank.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)) }
       def bank_address
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def bank_address=(_)
       end
 
+      # The name of the bank.
       sig { returns(T.nilable(String)) }
       def bank_name
       end
@@ -22,6 +24,7 @@ module ModernTreasury
       def bank_name=(_)
       end
 
+      # The routing number of the bank.
       sig { returns(T.nilable(String)) }
       def routing_number
       end
@@ -30,6 +33,10 @@ module ModernTreasury
       def routing_number=(_)
       end
 
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details. In sandbox mode we currently only support `aba` and `swift` with
+      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       sig { returns(T.nilable(Symbol)) }
       def routing_number_type
       end
@@ -38,6 +45,9 @@ module ModernTreasury
       def routing_number_type=(_)
       end
 
+      # An object containing key-value pairs, each with a sanctions list as the key and
+      #   a boolean value representing whether the bank is on that particular sanctions
+      #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
       def sanctions
       end
@@ -46,6 +56,8 @@ module ModernTreasury
       def sanctions=(_)
       end
 
+      # An array of payment types that are supported for this routing number. This can
+      #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
       sig { returns(T.nilable(T::Array[Symbol])) }
       def supported_payment_types
       end
@@ -92,6 +104,7 @@ module ModernTreasury
       end
 
       class BankAddress < ModernTreasury::BaseModel
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         def country
         end
@@ -116,6 +129,7 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # Locality or City.
         sig { returns(T.nilable(String)) }
         def locality
         end
@@ -124,6 +138,7 @@ module ModernTreasury
         def locality=(_)
         end
 
+        # The postal code of the address.
         sig { returns(T.nilable(String)) }
         def postal_code
         end
@@ -132,6 +147,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(T.nilable(String)) }
         def region
         end
@@ -140,6 +156,7 @@ module ModernTreasury
         def region=(_)
         end
 
+        # The address of the bank.
         sig do
           params(
             country: T.nilable(String),
@@ -171,6 +188,10 @@ module ModernTreasury
         end
       end
 
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details. In sandbox mode we currently only support `aba` and `swift` with
+      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       class RoutingNumberType < ModernTreasury::Enum
         abstract!
 

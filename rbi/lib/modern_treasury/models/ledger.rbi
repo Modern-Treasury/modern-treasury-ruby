@@ -19,6 +19,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # An optional free-form description for internal use.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -35,6 +36,8 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -43,6 +46,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -51,6 +56,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # The name of the ledger.
       sig { returns(String) }
       def name
       end

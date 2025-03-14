@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Required.
       sig { returns(String) }
       def counterparty_id
       end
@@ -56,6 +57,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # Optional. Array of 3-digit ISO country codes.
       class ReceivingCountry < ModernTreasury::Enum
         abstract!
 

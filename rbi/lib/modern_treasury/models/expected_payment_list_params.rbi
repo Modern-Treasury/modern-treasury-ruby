@@ -14,6 +14,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Specify counterparty_id to see expected_payments for a specific account.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -22,6 +23,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # Used to return expected payments created after some datetime
       sig { returns(T.nilable(Time)) }
       def created_at_lower_bound
       end
@@ -30,6 +32,7 @@ module ModernTreasury
       def created_at_lower_bound=(_)
       end
 
+      # Used to return expected payments created before some datetime
       sig { returns(T.nilable(Time)) }
       def created_at_upper_bound
       end
@@ -38,6 +41,7 @@ module ModernTreasury
       def created_at_upper_bound=(_)
       end
 
+      # One of credit, debit
       sig { returns(T.nilable(Symbol)) }
       def direction
       end
@@ -46,6 +50,7 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # Specify internal_account_id to see expected_payments for a specific account.
       sig { returns(T.nilable(String)) }
       def internal_account_id
       end
@@ -54,6 +59,9 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -70,6 +78,7 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # One of unreconciled, reconciled, or archived.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -78,6 +87,8 @@ module ModernTreasury
       def status=(_)
       end
 
+      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      #   sepa, signet, wire
       sig { returns(T.nilable(Symbol)) }
       def type
       end
@@ -138,6 +149,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # One of unreconciled, reconciled, or archived.
       class Status < ModernTreasury::Enum
         abstract!
 
@@ -153,6 +165,8 @@ module ModernTreasury
         end
       end
 
+      # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
+      #   sepa, signet, wire
       class Type < ModernTreasury::Enum
         abstract!
 

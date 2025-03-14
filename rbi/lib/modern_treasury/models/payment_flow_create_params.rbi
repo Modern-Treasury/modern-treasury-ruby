@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Required. Value in specified currency's smallest unit. e.g. $10 would be
+      #   represented as 1000. Can be any integer up to 36 digits.
       sig { returns(Integer) }
       def amount
       end
@@ -14,6 +16,8 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # Required. The ID of a counterparty associated with the payment. As part of the
+      #   payment workflow an external account will be associated with this model.
       sig { returns(String) }
       def counterparty_id
       end
@@ -22,6 +26,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # Required. The currency of the payment.
       sig { returns(String) }
       def currency
       end
@@ -30,6 +35,8 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # Required. Describes the direction money is flowing in the transaction. Can only
+      #   be `debit`. A `debit` pulls money from someone else's account to your own.
       sig { returns(Symbol) }
       def direction
       end
@@ -38,6 +45,7 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # Required. The ID of one of your organization's internal accounts.
       sig { returns(String) }
       def originating_account_id
       end
@@ -46,6 +54,9 @@ module ModernTreasury
       def originating_account_id=(_)
       end
 
+      # Optional. Can only be passed in when `effective_date_selection_enabled` is
+      #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
+      #   they are selecting a payment `effective_date`.
       sig { returns(T.nilable(Date)) }
       def due_date
       end
@@ -94,6 +105,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # Required. Describes the direction money is flowing in the transaction. Can only
+      #   be `debit`. A `debit` pulls money from someone else's account to your own.
       class Direction < ModernTreasury::Enum
         abstract!
 

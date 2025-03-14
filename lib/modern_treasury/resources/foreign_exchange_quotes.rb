@@ -24,7 +24,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::ForeignExchangeQuoteCreateParams.dump_request(params)
         @client.request(
@@ -45,7 +44,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -82,7 +80,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::ForeignExchangeQuoteListParams.dump_request(params)
         @client.request(
@@ -96,7 +93,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

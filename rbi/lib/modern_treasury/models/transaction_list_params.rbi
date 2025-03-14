@@ -14,6 +14,8 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Filters transactions with an `as_of_date` starting on or before the specified
+      #   date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       def as_of_date_end
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def as_of_date_end=(_)
       end
 
+      # Filters transactions with an `as_of_date` starting on or after the specified
+      #   date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       def as_of_date_start
       end
@@ -38,6 +42,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # Filters for transactions including the queried string in the description.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -54,6 +59,8 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # Specify `internal_account_id` if you wish to see transactions to/from a specific
+      #   account.
       sig { returns(T.nilable(String)) }
       def internal_account_id
       end
@@ -62,6 +69,9 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -86,6 +96,7 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # Either `true` or `false`.
       sig { returns(T.nilable(T::Boolean)) }
       def posted
       end
@@ -102,6 +113,8 @@ module ModernTreasury
       def transactable_type=(_)
       end
 
+      # Filters for transactions including the queried vendor id (an identifier given to
+      #   transactions by the bank).
       sig { returns(T.nilable(String)) }
       def vendor_id
       end

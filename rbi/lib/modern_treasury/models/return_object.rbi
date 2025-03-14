@@ -11,6 +11,8 @@ module ModernTreasury
       def id=(_)
       end
 
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000.
       sig { returns(Integer) }
       def amount
       end
@@ -19,6 +21,7 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # The return code. For ACH returns, this is the required ACH return code.
       sig { returns(T.nilable(Symbol)) }
       def code
       end
@@ -35,6 +38,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # Currency that this transaction is denominated in.
       sig { returns(Symbol) }
       def currency
       end
@@ -43,6 +47,8 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # If the return's status is `returned`, this will include the return object's data
+      #   that is returning this return.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnObject)) }
       def current_return
       end
@@ -54,6 +60,8 @@ module ModernTreasury
       def current_return=(_)
       end
 
+      # If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #   passed away.
       sig { returns(T.nilable(Date)) }
       def date_of_death
       end
@@ -62,6 +70,8 @@ module ModernTreasury
       def date_of_death=(_)
       end
 
+      # If an originating return failed to be processed by the bank, a description of
+      #   the failure reason will be available.
       sig { returns(T.nilable(String)) }
       def failure_reason
       end
@@ -70,6 +80,7 @@ module ModernTreasury
       def failure_reason=(_)
       end
 
+      # The ID of the relevant Internal Account.
       sig { returns(T.nilable(String)) }
       def internal_account_id
       end
@@ -78,6 +89,7 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # The ID of the ledger transaction linked to the return.
       sig { returns(T.nilable(String)) }
       def ledger_transaction_id
       end
@@ -86,6 +98,8 @@ module ModernTreasury
       def ledger_transaction_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -102,6 +116,8 @@ module ModernTreasury
       def object=(_)
       end
 
+      # Often the bank will provide an explanation for the return, which is a short
+      #   human readable string.
       sig { returns(T.nilable(String)) }
       def reason
       end
@@ -110,6 +126,7 @@ module ModernTreasury
       def reason=(_)
       end
 
+      # An array of Payment Reference objects.
       sig { returns(T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber]) }
       def reference_numbers
       end
@@ -121,6 +138,7 @@ module ModernTreasury
       def reference_numbers=(_)
       end
 
+      # The ID of the object being returned or `null`.
       sig { returns(T.nilable(String)) }
       def returnable_id
       end
@@ -129,6 +147,7 @@ module ModernTreasury
       def returnable_id=(_)
       end
 
+      # The type of object being returned or `null`.
       sig { returns(T.nilable(Symbol)) }
       def returnable_type
       end
@@ -137,6 +156,7 @@ module ModernTreasury
       def returnable_type=(_)
       end
 
+      # The role of the return, can be `originating` or `receiving`.
       sig { returns(Symbol) }
       def role
       end
@@ -145,6 +165,7 @@ module ModernTreasury
       def role=(_)
       end
 
+      # The current status of the return.
       sig { returns(Symbol) }
       def status
       end
@@ -153,6 +174,7 @@ module ModernTreasury
       def status=(_)
       end
 
+      # The ID of the relevant Transaction or `null`.
       sig { returns(T.nilable(String)) }
       def transaction_id
       end
@@ -161,6 +183,7 @@ module ModernTreasury
       def transaction_id=(_)
       end
 
+      # The ID of the relevant Transaction Line Item or `null`.
       sig { returns(T.nilable(String)) }
       def transaction_line_item_id
       end
@@ -169,6 +192,8 @@ module ModernTreasury
       def transaction_line_item_id=(_)
       end
 
+      # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
+      #   `interac`, `manual`, `paper_item`, `wire`.
       sig { returns(Symbol) }
       def type
       end
@@ -185,6 +210,8 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # Some returns may include additional information from the bank. In these cases,
+      #   this string will be present.
       sig { returns(T.nilable(String)) }
       def additional_information
       end
@@ -281,6 +308,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # The return code. For ACH returns, this is the required ACH return code.
       class Code < ModernTreasury::Enum
         abstract!
 
@@ -362,6 +390,8 @@ module ModernTreasury
         def created_at=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -378,6 +408,7 @@ module ModernTreasury
         def object=(_)
         end
 
+        # The vendor reference number.
         sig { returns(String) }
         def reference_number
         end
@@ -386,6 +417,7 @@ module ModernTreasury
         def reference_number=(_)
         end
 
+        # The type of the reference number. Referring to the vendor payment id.
         sig { returns(Symbol) }
         def reference_number_type
         end
@@ -434,6 +466,7 @@ module ModernTreasury
         def to_hash
         end
 
+        # The type of the reference number. Referring to the vendor payment id.
         class ReferenceNumberType < ModernTreasury::Enum
           abstract!
 
@@ -517,6 +550,7 @@ module ModernTreasury
         end
       end
 
+      # The type of object being returned or `null`.
       class ReturnableType < ModernTreasury::Enum
         abstract!
 
@@ -533,6 +567,7 @@ module ModernTreasury
         end
       end
 
+      # The role of the return, can be `originating` or `receiving`.
       class Role < ModernTreasury::Enum
         abstract!
 
@@ -546,6 +581,7 @@ module ModernTreasury
         end
       end
 
+      # The current status of the return.
       class Status < ModernTreasury::Enum
         abstract!
 
@@ -563,6 +599,8 @@ module ModernTreasury
         end
       end
 
+      # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
+      #   `interac`, `manual`, `paper_item`, `wire`.
       class Type < ModernTreasury::Enum
         abstract!
 

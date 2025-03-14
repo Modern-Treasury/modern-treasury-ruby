@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The description of the ledger account settlement.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -14,6 +15,8 @@ module ModernTreasury
       def description=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -22,6 +25,8 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # To post a pending ledger account settlement, use `posted`. To archive a pending
+      #   ledger transaction, use `archived`.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -56,6 +61,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # To post a pending ledger account settlement, use `posted`. To archive a pending
+      #   ledger transaction, use `archived`.
       class Status < ModernTreasury::Enum
         abstract!
 

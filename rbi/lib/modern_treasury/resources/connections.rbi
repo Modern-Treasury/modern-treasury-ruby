@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Connections
+      # Get a list of all connections.
       sig do
         params(
           after_cursor: T.nilable(String),

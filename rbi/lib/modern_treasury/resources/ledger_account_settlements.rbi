@@ -7,6 +7,7 @@ module ModernTreasury
       def account_entries
       end
 
+      # Create a ledger account settlement.
       sig do
         params(
           contra_ledger_account_id: String,
@@ -34,6 +35,7 @@ module ModernTreasury
       )
       end
 
+      # Get details on a single ledger account settlement.
       sig do
         params(
           id: String,
@@ -44,6 +46,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update the details of a ledger account settlement.
       sig do
         params(
           id: String,
@@ -57,6 +60,7 @@ module ModernTreasury
       def update(id, description: nil, metadata: nil, status: nil, request_options: {})
       end
 
+      # Get a list of ledger account settlements.
       sig do
         params(
           id: T::Array[String],

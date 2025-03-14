@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Documents
+      # Create a document.
       sig do
         params(
           documentable_id: String,
@@ -16,6 +17,7 @@ module ModernTreasury
       def create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
       end
 
+      # Get an existing document.
       sig do
         params(
           id: String,
@@ -26,6 +28,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Get a list of documents.
       sig do
         params(
           after_cursor: T.nilable(String),

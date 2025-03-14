@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Name of the ledgerable event.
       sig { returns(String) }
       def name
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def name=(_)
       end
 
+      # Additionally data to be used by the Ledger Event Handler.
       sig { returns(T.nilable(T.anything)) }
       def custom_data
       end
@@ -22,6 +24,7 @@ module ModernTreasury
       def custom_data=(_)
       end
 
+      # Description of the ledgerable event.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -30,6 +33,8 @@ module ModernTreasury
       def description=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
