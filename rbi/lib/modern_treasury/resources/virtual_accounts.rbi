@@ -21,15 +21,32 @@ module ModernTreasury
           .returns(ModernTreasury::Models::VirtualAccount)
       end
       def create(
+        # The ID of the internal account that this virtual account is associated with.
         internal_account_id:,
+        # The name of the virtual account.
         name:,
+        # An array of account detail objects.
         account_details: nil,
+        # The ID of the counterparty that the virtual account belongs to.
         counterparty_id: nil,
+        # The ID of a credit normal ledger account. When money leaves the virtual account,
+        #   this ledger account will be credited. Must be accompanied by a
+        #   debit_ledger_account_id if present.
         credit_ledger_account_id: nil,
+        # The ID of a debit normal ledger account. When money enters the virtual account,
+        #   this ledger account will be debited. Must be accompanied by a
+        #   credit_ledger_account_id if present.
         debit_ledger_account_id: nil,
+        # An optional description for internal use.
         description: nil,
+        # Specifies a ledger account object that will be created with the virtual account.
+        #   The resulting ledger account is linked to the virtual account for auto-ledgering
+        #   IPDs.
         ledger_account: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         metadata: nil,
+        # An array of routing detail objects.
         routing_details: nil,
         request_options: {}
       )
@@ -43,7 +60,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # Virtual Acccount ID
+        id,
+        request_options: {}
+      )
       end
 
       # update virtual_account
@@ -59,8 +80,10 @@ module ModernTreasury
           .returns(ModernTreasury::Models::VirtualAccount)
       end
       def update(
+        # Virtual Acccount ID
         id,
         counterparty_id: nil,
+        # The ledger account that you'd like to link to the virtual account.
         ledger_account_id: nil,
         metadata: nil,
         name: nil,
@@ -84,6 +107,9 @@ module ModernTreasury
         after_cursor: nil,
         counterparty_id: nil,
         internal_account_id: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        #   parameters.
         metadata: nil,
         per_page: nil,
         request_options: {}
@@ -98,7 +124,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
-      def delete(id, request_options: {})
+      def delete(
+        # Virtual Acccount ID
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }

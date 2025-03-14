@@ -440,6 +440,7 @@ module ModernTreasury
       def known_fields
       end
 
+      # @api private
       sig do
         returns(
           T::Hash[Symbol,

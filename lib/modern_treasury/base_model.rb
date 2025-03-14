@@ -854,8 +854,6 @@ module ModernTreasury
     end
   end
 
-  # @api private
-  #
   # @abstract
   #
   # @example
@@ -880,6 +878,8 @@ module ModernTreasury
         @known_fields ||= (self < ModernTreasury::BaseModel ? superclass.known_fields.dup : {})
       end
 
+      # @api private
+      #
       # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
       def fields
         known_fields.transform_values do |field|
