@@ -14,7 +14,15 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::Document)
       end
-      def create(documentable_id:, documentable_type:, file:, document_type: nil, request_options: {})
+      def create(
+        # The unique identifier for the associated object.
+        documentable_id:,
+        documentable_type:,
+        file:,
+        # A category given to the document, can be `null`.
+        document_type: nil,
+        request_options: {}
+      )
       end
 
       # Get an existing document.
@@ -25,7 +33,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::Document)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # The ID of the document.
+        id,
+        request_options: {}
+      )
       end
 
       # Get a list of documents.
@@ -41,7 +53,11 @@ module ModernTreasury
       end
       def list(
         after_cursor: nil,
+        # The unique identifier for the associated object.
         documentable_id: nil,
+        # The type of the associated object. Currently can be one of `payment_order`,
+        #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+        #   `case`, `internal_account`, `decision`, or `external_account`.
         documentable_type: nil,
         per_page: nil,
         request_options: {}

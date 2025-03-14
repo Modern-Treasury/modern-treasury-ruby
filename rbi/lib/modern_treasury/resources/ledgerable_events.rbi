@@ -14,7 +14,18 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::LedgerableEvent)
       end
-      def create(name:, custom_data: nil, description: nil, metadata: nil, request_options: {})
+      def create(
+        # Name of the ledgerable event.
+        name:,
+        # Additionally data to be used by the Ledger Event Handler.
+        custom_data: nil,
+        # Description of the ledgerable event.
+        description: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
+        metadata: nil,
+        request_options: {}
+      )
       end
 
       # Get details on a single ledgerable event.
@@ -25,7 +36,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::LedgerableEvent)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
