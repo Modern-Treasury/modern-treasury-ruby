@@ -22,6 +22,7 @@ module ModernTreasury
       def bank_address=(_)
       end
 
+      # The name of the bank.
       sig { returns(String) }
       def bank_name
       end
@@ -46,6 +47,8 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -62,6 +65,8 @@ module ModernTreasury
       def object=(_)
       end
 
+      # If the routing detail is to be used for a specific payment type this field will
+      #   be populated, otherwise null.
       sig { returns(T.nilable(Symbol)) }
       def payment_type
       end
@@ -70,6 +75,7 @@ module ModernTreasury
       def payment_type=(_)
       end
 
+      # The routing number of the bank.
       sig { returns(String) }
       def routing_number
       end
@@ -78,6 +84,9 @@ module ModernTreasury
       def routing_number=(_)
       end
 
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details.
       sig { returns(Symbol) }
       def routing_number_type
       end
@@ -155,6 +164,7 @@ module ModernTreasury
         def id=(_)
         end
 
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         def country
         end
@@ -187,6 +197,8 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -195,6 +207,7 @@ module ModernTreasury
         def live_mode=(_)
         end
 
+        # Locality or City.
         sig { returns(T.nilable(String)) }
         def locality
         end
@@ -211,6 +224,7 @@ module ModernTreasury
         def object=(_)
         end
 
+        # The postal code of the address.
         sig { returns(T.nilable(String)) }
         def postal_code
         end
@@ -219,6 +233,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(T.nilable(String)) }
         def region
         end
@@ -288,6 +303,8 @@ module ModernTreasury
         end
       end
 
+      # If the routing detail is to be used for a specific payment type this field will
+      #   be populated, otherwise null.
       class PaymentType < ModernTreasury::Enum
         abstract!
 
@@ -329,6 +346,9 @@ module ModernTreasury
         end
       end
 
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details.
       class RoutingNumberType < ModernTreasury::Enum
         abstract!
 

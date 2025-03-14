@@ -22,6 +22,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # An inclusive upper bound for searching due_date
       sig { returns(T.nilable(Date)) }
       def due_date_end
       end
@@ -30,6 +31,7 @@ module ModernTreasury
       def due_date_end=(_)
       end
 
+      # An inclusive lower bound for searching due_date
       sig { returns(T.nilable(Date)) }
       def due_date_start
       end
@@ -46,6 +48,9 @@ module ModernTreasury
       def expected_payment_id=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -54,6 +59,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # A unique record number assigned to each invoice that is issued.
       sig { returns(T.nilable(String)) }
       def number
       end

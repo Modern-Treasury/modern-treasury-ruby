@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerAccountSettlements
       class AccountEntries
+        # Add ledger entries to a draft ledger account settlement.
         sig do
           params(
             id: String,
@@ -15,6 +16,7 @@ module ModernTreasury
         def update(id, ledger_entry_ids:, request_options: {})
         end
 
+        # Remove ledger entries from a draft ledger account settlement.
         sig do
           params(
             id: String,

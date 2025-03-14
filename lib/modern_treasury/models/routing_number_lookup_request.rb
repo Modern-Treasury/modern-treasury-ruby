@@ -163,7 +163,6 @@ module ModernTreasury
       end
 
       # @abstract
-      #
       class SupportedPaymentType < ModernTreasury::Enum
         ACH = :ach
         AU_BECS = :au_becs

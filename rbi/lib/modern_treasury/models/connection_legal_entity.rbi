@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # The ID of the connection.
       sig { returns(String) }
       def connection_id
       end
@@ -35,6 +36,7 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # The ID of the legal entity.
       sig { returns(String) }
       def legal_entity_id
       end
@@ -43,6 +45,8 @@ module ModernTreasury
       def legal_entity_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -59,6 +63,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The status of the connection legal entity.
       sig { returns(Symbol) }
       def status
       end
@@ -75,6 +80,7 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # The ID of the legal entity at the vendor.
       sig { returns(String) }
       def vendor_id
       end
@@ -132,6 +138,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # The status of the connection legal entity.
       class Status < ModernTreasury::Enum
         abstract!
 

@@ -246,7 +246,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @abstract
-      #
       class LedgerableType < ModernTreasury::Enum
         EXPECTED_PAYMENT = :expected_payment
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -291,7 +290,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @abstract
-        #
         class CreatedAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
@@ -300,7 +298,6 @@ module ModernTreasury
         end
 
         # @abstract
-        #
         class EffectiveAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
@@ -310,7 +307,6 @@ module ModernTreasury
       end
 
       # @abstract
-      #
       class Status < ModernTreasury::Enum
         PENDING = :pending
         POSTED = :posted

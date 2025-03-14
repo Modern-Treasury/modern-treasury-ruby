@@ -603,7 +603,6 @@ module ModernTreasury
       end
 
       # @abstract
-      #
       class ReceivingAccountType < ModernTreasury::Enum
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
@@ -775,7 +774,6 @@ module ModernTreasury
       end
 
       # @abstract
-      #
       class UltimateOriginatingAccountType < ModernTreasury::Enum
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account

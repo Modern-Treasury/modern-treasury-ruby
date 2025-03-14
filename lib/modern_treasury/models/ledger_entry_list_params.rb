@@ -301,7 +301,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @abstract
-        #
         class CreatedAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc
@@ -310,7 +309,6 @@ module ModernTreasury
         end
 
         # @abstract
-        #
         class EffectiveAt < ModernTreasury::Enum
           ASC = :asc
           DESC = :desc

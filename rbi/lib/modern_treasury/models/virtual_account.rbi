@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # An array of account detail objects.
       sig { returns(T::Array[ModernTreasury::Models::AccountDetail]) }
       def account_details
       end
@@ -22,6 +23,7 @@ module ModernTreasury
       def account_details=(_)
       end
 
+      # The ID of a counterparty that the virtual account belongs to. Optional.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -38,6 +40,9 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The ID of a credit normal ledger account. When money enters the virtual account,
+      #   this ledger account will be credited. Must be accompanied by a
+      #   debit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
       def credit_ledger_account_id
       end
@@ -46,6 +51,9 @@ module ModernTreasury
       def credit_ledger_account_id=(_)
       end
 
+      # The ID of a debit normal ledger account. When money enters the virtual account,
+      #   this ledger account will be debited. Must be accompanied by a
+      #   credit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
       def debit_ledger_account_id
       end
@@ -54,6 +62,7 @@ module ModernTreasury
       def debit_ledger_account_id=(_)
       end
 
+      # An optional free-form description for internal use.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -70,6 +79,7 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # The ID of the internal account that the virtual account is in.
       sig { returns(String) }
       def internal_account_id
       end
@@ -78,6 +88,8 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # If the virtual account links to a ledger account in Modern Treasury, the id of
+      #   the ledger account will be populated here.
       sig { returns(T.nilable(String)) }
       def ledger_account_id
       end
@@ -86,6 +98,8 @@ module ModernTreasury
       def ledger_account_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -94,6 +108,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -102,6 +118,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # The name of the virtual account.
       sig { returns(String) }
       def name
       end
@@ -118,6 +135,8 @@ module ModernTreasury
       def object=(_)
       end
 
+      # An array of routing detail objects. These will be the routing details of the
+      #   internal account.
       sig { returns(T::Array[ModernTreasury::Models::RoutingDetail]) }
       def routing_details
       end

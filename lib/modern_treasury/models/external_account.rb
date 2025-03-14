@@ -232,7 +232,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @abstract
-        #
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -350,7 +349,6 @@ module ModernTreasury
       end
 
       # @abstract
-      #
       class VerificationSource < ModernTreasury::Enum
         ACH_PRENOTE = :ach_prenote
         MICRODEPOSITS = :microdeposits
@@ -360,7 +358,6 @@ module ModernTreasury
       end
 
       # @abstract
-      #
       class VerificationStatus < ModernTreasury::Enum
         PENDING_VERIFICATION = :pending_verification
         UNVERIFIED = :unverified

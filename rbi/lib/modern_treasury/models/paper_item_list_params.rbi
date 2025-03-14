@@ -14,6 +14,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
       sig { returns(T.nilable(Date)) }
       def deposit_date_end
       end
@@ -22,6 +23,7 @@ module ModernTreasury
       def deposit_date_end=(_)
       end
 
+      # Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
       sig { returns(T.nilable(Date)) }
       def deposit_date_start
       end
@@ -30,6 +32,8 @@ module ModernTreasury
       def deposit_date_start=(_)
       end
 
+      # Specify `lockbox_number` if you wish to see paper items that are associated with
+      #   a specific lockbox number.
       sig { returns(T.nilable(String)) }
       def lockbox_number
       end

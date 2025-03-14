@@ -27,6 +27,8 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -51,6 +53,7 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # An identifier given to this connection by the bank.
       sig { returns(T.nilable(String)) }
       def vendor_customer_id
       end
@@ -59,6 +62,7 @@ module ModernTreasury
       def vendor_customer_id=(_)
       end
 
+      # Unique identifier for the bank or vendor.
       sig { returns(String) }
       def vendor_id
       end
@@ -67,6 +71,7 @@ module ModernTreasury
       def vendor_id=(_)
       end
 
+      # A human-friendly name for the bank or vendor.
       sig { returns(String) }
       def vendor_name
       end

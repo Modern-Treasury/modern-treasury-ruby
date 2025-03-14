@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The ID of the internal account where the micro-deposits originate from. Both
+      #   credit and debit capabilities must be enabled.
       sig { returns(String) }
       def originating_account_id
       end
@@ -14,6 +16,7 @@ module ModernTreasury
       def originating_account_id=(_)
       end
 
+      # Can be `ach`, `eft`, or `rtp`.
       sig { returns(Symbol) }
       def payment_type
       end
@@ -22,6 +25,7 @@ module ModernTreasury
       def payment_type=(_)
       end
 
+      # Defaults to the currency of the originating account.
       sig { returns(T.nilable(Symbol)) }
       def currency
       end
@@ -30,6 +34,9 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # A payment type to fallback to if the original type is not valid for the
+      #   receiving account. Currently, this only supports falling back from RTP to ACH
+      #   (payment_type=rtp and fallback_type=ach)
       sig { returns(T.nilable(Symbol)) }
       def fallback_type
       end
@@ -38,6 +45,8 @@ module ModernTreasury
       def fallback_type=(_)
       end
 
+      # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
+      #   transfer. This will apply to both `payment_type` and `fallback_type`.
       sig { returns(T.nilable(Symbol)) }
       def priority
       end
@@ -83,6 +92,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # Can be `ach`, `eft`, or `rtp`.
       class PaymentType < ModernTreasury::Enum
         abstract!
 
@@ -124,6 +134,9 @@ module ModernTreasury
         end
       end
 
+      # A payment type to fallback to if the original type is not valid for the
+      #   receiving account. Currently, this only supports falling back from RTP to ACH
+      #   (payment_type=rtp and fallback_type=ach)
       class FallbackType < ModernTreasury::Enum
         abstract!
 
@@ -136,6 +149,8 @@ module ModernTreasury
         end
       end
 
+      # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
+      #   transfer. This will apply to both `payment_type` and `fallback_type`.
       class Priority < ModernTreasury::Enum
         abstract!
 

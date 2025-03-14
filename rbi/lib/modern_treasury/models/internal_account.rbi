@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # An array of account detail objects.
       sig { returns(T::Array[ModernTreasury::Models::AccountDetail]) }
       def account_details
       end
@@ -22,6 +23,7 @@ module ModernTreasury
       def account_details=(_)
       end
 
+      # Can be checking, savings or other.
       sig { returns(T.nilable(Symbol)) }
       def account_type
       end
@@ -30,6 +32,7 @@ module ModernTreasury
       def account_type=(_)
       end
 
+      # Specifies which financial institution the accounts belong to.
       sig { returns(ModernTreasury::Models::Connection) }
       def connection
       end
@@ -38,6 +41,7 @@ module ModernTreasury
       def connection=(_)
       end
 
+      # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -54,6 +58,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The currency of the account.
       sig { returns(Symbol) }
       def currency
       end
@@ -62,6 +67,8 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # If the internal account links to a ledger account in Modern Treasury, the id of
+      #   the ledger account will be populated here.
       sig { returns(T.nilable(String)) }
       def ledger_account_id
       end
@@ -70,6 +77,7 @@ module ModernTreasury
       def ledger_account_id=(_)
       end
 
+      # The Legal Entity associated to this account
       sig { returns(T.nilable(String)) }
       def legal_entity_id
       end
@@ -78,6 +86,8 @@ module ModernTreasury
       def legal_entity_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -86,6 +96,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -94,6 +106,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # A nickname for the account.
       sig { returns(T.nilable(String)) }
       def name
       end
@@ -110,6 +123,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The parent InternalAccount of this account.
       sig { returns(T.nilable(String)) }
       def parent_account_id
       end
@@ -118,6 +132,7 @@ module ModernTreasury
       def parent_account_id=(_)
       end
 
+      # The address associated with the owner or null.
       sig { returns(T.nilable(ModernTreasury::Models::InternalAccount::PartyAddress)) }
       def party_address
       end
@@ -129,6 +144,7 @@ module ModernTreasury
       def party_address=(_)
       end
 
+      # The legal name of the entity which owns the account.
       sig { returns(String) }
       def party_name
       end
@@ -137,6 +153,7 @@ module ModernTreasury
       def party_name=(_)
       end
 
+      # Either individual or business.
       sig { returns(T.nilable(Symbol)) }
       def party_type
       end
@@ -145,6 +162,7 @@ module ModernTreasury
       def party_type=(_)
       end
 
+      # An array of routing detail objects.
       sig { returns(T::Array[ModernTreasury::Models::RoutingDetail]) }
       def routing_details
       end
@@ -240,6 +258,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # Can be checking, savings or other.
       class AccountType < ModernTreasury::Enum
         abstract!
 
@@ -268,6 +287,7 @@ module ModernTreasury
         def id=(_)
         end
 
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         def country
         end
@@ -300,6 +320,8 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -308,6 +330,7 @@ module ModernTreasury
         def live_mode=(_)
         end
 
+        # Locality or City.
         sig { returns(T.nilable(String)) }
         def locality
         end
@@ -324,6 +347,7 @@ module ModernTreasury
         def object=(_)
         end
 
+        # The postal code of the address.
         sig { returns(T.nilable(String)) }
         def postal_code
         end
@@ -332,6 +356,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(T.nilable(String)) }
         def region
         end
@@ -348,6 +373,7 @@ module ModernTreasury
         def updated_at=(_)
         end
 
+        # The address associated with the owner or null.
         sig do
           params(
             id: String,
@@ -401,6 +427,7 @@ module ModernTreasury
         end
       end
 
+      # Either individual or business.
       class PartyType < ModernTreasury::Enum
         abstract!
 

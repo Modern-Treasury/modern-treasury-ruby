@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class PaymentReferences
+      # get payment_reference
       sig do
         params(
           id: String,
@@ -13,6 +14,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # list payment_references
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -34,6 +36,7 @@ module ModernTreasury
       )
       end
 
+      # get payment_reference
       alias_method :retireve, :retrieve
 
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }

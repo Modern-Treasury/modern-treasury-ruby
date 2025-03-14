@@ -396,7 +396,6 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # @abstract
-        #
         class ContactIdentifierType < ModernTreasury::Enum
           EMAIL = :email
           PHONE_NUMBER = :phone_number

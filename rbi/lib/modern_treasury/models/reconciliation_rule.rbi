@@ -3,6 +3,8 @@
 module ModernTreasury
   module Models
     class ReconciliationRule < ModernTreasury::BaseModel
+      # The lowest amount this expected payment may be equal to. Value in specified
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(Integer) }
       def amount_lower_bound
       end
@@ -11,6 +13,8 @@ module ModernTreasury
       def amount_lower_bound=(_)
       end
 
+      # The highest amount this expected payment may be equal to. Value in specified
+      #   currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(Integer) }
       def amount_upper_bound
       end
@@ -19,6 +23,8 @@ module ModernTreasury
       def amount_upper_bound=(_)
       end
 
+      # One of credit or debit. When you are receiving money, use credit. When you are
+      #   being charged, use debit.
       sig { returns(Symbol) }
       def direction
       end
@@ -27,6 +33,7 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # The ID of the Internal Account for the expected payment
       sig { returns(String) }
       def internal_account_id
       end
@@ -35,6 +42,7 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # The ID of the counterparty you expect for this payment
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -43,6 +51,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # Must conform to ISO 4217. Defaults to the currency of the internal account
       sig { returns(T.nilable(Symbol)) }
       def currency
       end
@@ -51,6 +60,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # A hash of custom identifiers for this payment
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def custom_identifiers
       end
@@ -59,6 +69,7 @@ module ModernTreasury
       def custom_identifiers=(_)
       end
 
+      # The earliest date the payment may come in. Format is yyyy-mm-dd
       sig { returns(T.nilable(Date)) }
       def date_lower_bound
       end
@@ -67,6 +78,7 @@ module ModernTreasury
       def date_lower_bound=(_)
       end
 
+      # The latest date the payment may come in. Format is yyyy-mm-dd
       sig { returns(T.nilable(Date)) }
       def date_upper_bound
       end
@@ -75,6 +87,8 @@ module ModernTreasury
       def date_upper_bound=(_)
       end
 
+      # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+      #   sepa, signet wire
       sig { returns(T.nilable(Symbol)) }
       def type
       end
@@ -132,6 +146,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # One of credit or debit. When you are receiving money, use credit. When you are
+      #   being charged, use debit.
       class Direction < ModernTreasury::Enum
         abstract!
 
@@ -145,6 +161,8 @@ module ModernTreasury
         end
       end
 
+      # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+      #   sepa, signet wire
       class Type < ModernTreasury::Enum
         abstract!
 

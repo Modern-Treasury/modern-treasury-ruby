@@ -22,6 +22,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # An inclusive upper bound for searching created_at
       sig { returns(T.nilable(Date)) }
       def created_at_end
       end
@@ -30,6 +31,7 @@ module ModernTreasury
       def created_at_end=(_)
       end
 
+      # An inclusive lower bound for searching created_at
       sig { returns(T.nilable(Date)) }
       def created_at_start
       end
@@ -46,6 +48,7 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # An inclusive upper bound for searching effective_date
       sig { returns(T.nilable(Date)) }
       def effective_date_end
       end
@@ -54,6 +57,7 @@ module ModernTreasury
       def effective_date_end=(_)
       end
 
+      # An inclusive lower bound for searching effective_date
       sig { returns(T.nilable(Date)) }
       def effective_date_start
       end
@@ -62,6 +66,9 @@ module ModernTreasury
       def effective_date_start=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -86,6 +93,9 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      #   an overnight check rather than standard mail.
       sig { returns(T.nilable(Symbol)) }
       def priority
       end
@@ -94,6 +104,7 @@ module ModernTreasury
       def priority=(_)
       end
 
+      # An inclusive upper bound for searching process_after
       sig { returns(T.nilable(Time)) }
       def process_after_end
       end
@@ -102,6 +113,7 @@ module ModernTreasury
       def process_after_end=(_)
       end
 
+      # An inclusive lower bound for searching process_after
       sig { returns(T.nilable(Time)) }
       def process_after_start
       end
@@ -110,6 +122,7 @@ module ModernTreasury
       def process_after_start=(_)
       end
 
+      # Query for records with the provided reference number
       sig { returns(T.nilable(String)) }
       def reference_number
       end
@@ -126,6 +139,7 @@ module ModernTreasury
       def status=(_)
       end
 
+      # The ID of a transaction that the payment order has been reconciled to.
       sig { returns(T.nilable(String)) }
       def transaction_id
       end
@@ -215,6 +229,9 @@ module ModernTreasury
       def to_hash
       end
 
+      # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+      #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+      #   an overnight check rather than standard mail.
       class Priority < ModernTreasury::Enum
         abstract!
 

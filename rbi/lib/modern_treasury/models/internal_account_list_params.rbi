@@ -14,6 +14,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Only return internal accounts associated with this counterparty.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -22,6 +23,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # Only return internal accounts with this currency.
       sig { returns(T.nilable(Symbol)) }
       def currency
       end
@@ -30,6 +32,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # Only return internal accounts associated with this legal entity.
       sig { returns(T.nilable(String)) }
       def legal_entity_id
       end
@@ -38,6 +41,9 @@ module ModernTreasury
       def legal_entity_id=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -46,6 +52,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # Only return internal accounts that can originate payments with this direction.
       sig { returns(T.nilable(Symbol)) }
       def payment_direction
       end
@@ -54,6 +61,7 @@ module ModernTreasury
       def payment_direction=(_)
       end
 
+      # Only return internal accounts that can make this type of payment.
       sig { returns(T.nilable(Symbol)) }
       def payment_type
       end
@@ -116,6 +124,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # Only return internal accounts that can make this type of payment.
       class PaymentType < ModernTreasury::Enum
         abstract!
 

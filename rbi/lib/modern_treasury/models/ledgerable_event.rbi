@@ -19,6 +19,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # Additionally data to be used by the Ledger Event Handler.
       sig { returns(T.nilable(T.anything)) }
       def custom_data
       end
@@ -27,6 +28,7 @@ module ModernTreasury
       def custom_data=(_)
       end
 
+      # Description of the ledgerable event.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -35,6 +37,7 @@ module ModernTreasury
       def description=(_)
       end
 
+      # Id of the ledger event handler that is used to create a ledger transaction.
       sig { returns(String) }
       def ledger_event_handler_id
       end
@@ -43,6 +46,8 @@ module ModernTreasury
       def ledger_event_handler_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -51,6 +56,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -59,6 +66,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # Name of the ledgerable event.
       sig { returns(String) }
       def name
       end

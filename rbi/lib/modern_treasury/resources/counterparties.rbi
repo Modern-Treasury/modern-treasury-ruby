@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Counterparties
+      # Create a new counterparty.
       sig do
         params(
           name: T.nilable(String),
@@ -36,6 +37,7 @@ module ModernTreasury
       )
       end
 
+      # Get details on a single counterparty.
       sig do
         params(
           id: String,
@@ -46,6 +48,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Updates a given counterparty with new information.
       sig do
         params(
           id: String,
@@ -71,6 +74,7 @@ module ModernTreasury
       )
       end
 
+      # Get a paginated list of all counterparties.
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -98,6 +102,7 @@ module ModernTreasury
       )
       end
 
+      # Deletes a given counterparty.
       sig do
         params(
           id: String,
@@ -108,6 +113,7 @@ module ModernTreasury
       def delete(id, request_options: {})
       end
 
+      # Send an email requesting account details.
       sig do
         params(
           id: String,

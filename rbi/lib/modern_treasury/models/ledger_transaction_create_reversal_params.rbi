@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # An optional free-form description for the reversal ledger transaction. Maximum
+      #   of 1000 characters allowed.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -14,6 +16,9 @@ module ModernTreasury
       def description=(_)
       end
 
+      # The timestamp (ISO8601 format) at which the reversal ledger transaction happened
+      #   for reporting purposes. It defaults to the `effective_at` of the original ledger
+      #   transaction if not provided.
       sig { returns(T.nilable(Time)) }
       def effective_at
       end
@@ -22,6 +27,7 @@ module ModernTreasury
       def effective_at=(_)
       end
 
+      # Must be unique within the ledger.
       sig { returns(T.nilable(String)) }
       def external_id
       end
@@ -30,6 +36,8 @@ module ModernTreasury
       def external_id=(_)
       end
 
+      # Specify this if you'd like to link the reversal ledger transaction to a Payment
+      #   object like Return or Reversal.
       sig { returns(T.nilable(String)) }
       def ledgerable_id
       end
@@ -38,6 +46,8 @@ module ModernTreasury
       def ledgerable_id=(_)
       end
 
+      # Specify this if you'd like to link the reversal ledger transaction to a Payment
+      #   object like Return or Reversal.
       sig { returns(T.nilable(Symbol)) }
       def ledgerable_type
       end
@@ -46,6 +56,8 @@ module ModernTreasury
       def ledgerable_type=(_)
       end
 
+      # Additional data to be added to the reversal ledger transaction as key-value
+      #   pairs. Both the key and value must be strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -54,6 +66,8 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # Status of the reversal ledger transaction. It defaults to `posted` if not
+      #   provided.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -105,6 +119,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # Specify this if you'd like to link the reversal ledger transaction to a Payment
+      #   object like Return or Reversal.
       class LedgerableType < ModernTreasury::Enum
         abstract!
 
@@ -122,6 +138,8 @@ module ModernTreasury
         end
       end
 
+      # Status of the reversal ledger transaction. It defaults to `posted` if not
+      #   provided.
       class Status < ModernTreasury::Enum
         abstract!
 

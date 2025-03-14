@@ -11,6 +11,8 @@ module ModernTreasury
       def id=(_)
       end
 
+      # Amount paid on the invoice in specified currency's smallest unit, e.g., $10 USD
+      #   would be represented as 1000.
       sig { returns(Integer) }
       def amount_paid
       end
@@ -19,6 +21,8 @@ module ModernTreasury
       def amount_paid=(_)
       end
 
+      # Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
+      #   $10 USD would be represented as 1000.
       sig { returns(Integer) }
       def amount_remaining
       end
@@ -27,6 +31,7 @@ module ModernTreasury
       def amount_remaining=(_)
       end
 
+      # The invoicer's contact details displayed at the top of the invoice.
       sig { returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail]) }
       def contact_details
       end
@@ -38,6 +43,7 @@ module ModernTreasury
       def contact_details=(_)
       end
 
+      # The counterparty's billing address.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress)) }
       def counterparty_billing_address
       end
@@ -49,6 +55,7 @@ module ModernTreasury
       def counterparty_billing_address=(_)
       end
 
+      # The ID of the counterparty receiving the invoice.
       sig { returns(String) }
       def counterparty_id
       end
@@ -57,6 +64,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # The counterparty's shipping address where physical goods should be delivered.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress)) }
       def counterparty_shipping_address
       end
@@ -76,6 +84,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       sig { returns(Symbol) }
       def currency
       end
@@ -84,6 +93,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # A free-form description of the invoice.
       sig { returns(String) }
       def description
       end
@@ -92,6 +102,7 @@ module ModernTreasury
       def description=(_)
       end
 
+      # A future date by when the invoice needs to be paid.
       sig { returns(Time) }
       def due_date
       end
@@ -100,6 +111,7 @@ module ModernTreasury
       def due_date=(_)
       end
 
+      # The expected payments created for an unpaid invoice.
       sig { returns(T::Array[ModernTreasury::Models::ExpectedPayment]) }
       def expected_payments
       end
@@ -111,6 +123,8 @@ module ModernTreasury
       def expected_payments=(_)
       end
 
+      # When payment_method is automatic, the fallback payment method to use when an
+      #   automatic payment fails. One of `manual` or `ui`.
       sig { returns(T.nilable(String)) }
       def fallback_payment_method
       end
@@ -119,6 +133,7 @@ module ModernTreasury
       def fallback_payment_method=(_)
       end
 
+      # The URL of the hosted web UI where the invoice can be viewed.
       sig { returns(String) }
       def hosted_url
       end
@@ -127,6 +142,7 @@ module ModernTreasury
       def hosted_url=(_)
       end
 
+      # The invoice issuer's business address.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress)) }
       def invoicer_address
       end
@@ -138,6 +154,7 @@ module ModernTreasury
       def invoicer_address=(_)
       end
 
+      # The ledger account settlement object linked to the invoice.
       sig { returns(T.nilable(String)) }
       def ledger_account_settlement_id
       end
@@ -146,6 +163,8 @@ module ModernTreasury
       def ledger_account_settlement_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -154,6 +173,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -162,6 +183,9 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # Emails in addition to the counterparty email to send invoice status
+      #   notifications to. At least one email is required if notifications are enabled
+      #   and the counterparty doesn't have an email.
       sig { returns(T.nilable(T::Array[String])) }
       def notification_email_addresses
       end
@@ -170,6 +194,8 @@ module ModernTreasury
       def notification_email_addresses=(_)
       end
 
+      # If true, the invoice will send email notifications to the invoice recipients
+      #   about invoice status changes.
       sig { returns(T::Boolean) }
       def notifications_enabled
       end
@@ -178,6 +204,7 @@ module ModernTreasury
       def notifications_enabled=(_)
       end
 
+      # A unique record number assigned to each invoice that is issued.
       sig { returns(String) }
       def number
       end
@@ -194,6 +221,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The ID of the internal account the invoice should be paid to.
       sig { returns(String) }
       def originating_account_id
       end
@@ -202,6 +230,9 @@ module ModernTreasury
       def originating_account_id=(_)
       end
 
+      # Date transactions are to be posted to the participants' account. Defaults to the
+      #   current business day or the next business day if the current day is a bank
+      #   holiday or weekend. Format: yyyy-mm-dd.
       sig { returns(T.nilable(Date)) }
       def payment_effective_date
       end
@@ -210,6 +241,8 @@ module ModernTreasury
       def payment_effective_date=(_)
       end
 
+      # When opening an invoice, whether to show the embedded payment UI , automatically
+      #   debit the recipient, or rely on manual payment from the recipient.
       sig { returns(T.nilable(Symbol)) }
       def payment_method
       end
@@ -218,6 +251,8 @@ module ModernTreasury
       def payment_method=(_)
       end
 
+      # The payment orders created for paying the invoice through the invoice payment
+      #   UI.
       sig { returns(T::Array[ModernTreasury::Models::PaymentOrder]) }
       def payment_orders
       end
@@ -229,6 +264,7 @@ module ModernTreasury
       def payment_orders=(_)
       end
 
+      # One of `ach` or `eft`.
       sig { returns(T.nilable(Symbol)) }
       def payment_type
       end
@@ -237,6 +273,7 @@ module ModernTreasury
       def payment_type=(_)
       end
 
+      # The URL where the invoice PDF can be downloaded.
       sig { returns(T.nilable(String)) }
       def pdf_url
       end
@@ -245,6 +282,7 @@ module ModernTreasury
       def pdf_url=(_)
       end
 
+      # The receiving account ID. Can be an `internal_account`.
       sig { returns(T.nilable(String)) }
       def receiving_account_id
       end
@@ -253,6 +291,8 @@ module ModernTreasury
       def receiving_account_id=(_)
       end
 
+      # The email of the recipient of the invoice. Leaving this value as null will
+      #   fallback to using the counterparty's name.
       sig { returns(T.nilable(String)) }
       def recipient_email
       end
@@ -261,6 +301,8 @@ module ModernTreasury
       def recipient_email=(_)
       end
 
+      # The name of the recipient of the invoice. Leaving this value as null will
+      #   fallback to using the counterparty's name.
       sig { returns(T.nilable(String)) }
       def recipient_name
       end
@@ -269,6 +311,8 @@ module ModernTreasury
       def recipient_name=(_)
       end
 
+      # Number of days after due date when overdue reminder emails will be sent out to
+      #   invoice recipients.
       sig { returns(T.nilable(T::Array[Integer])) }
       def remind_after_overdue_days
       end
@@ -277,6 +321,7 @@ module ModernTreasury
       def remind_after_overdue_days=(_)
       end
 
+      # The status of the invoice.
       sig { returns(Symbol) }
       def status
       end
@@ -285,6 +330,8 @@ module ModernTreasury
       def status=(_)
       end
 
+      # Total amount due in specified currency's smallest unit, e.g., $10 USD would be
+      #   represented as 1000.
       sig { returns(Integer) }
       def total_amount
       end
@@ -293,6 +340,7 @@ module ModernTreasury
       def total_amount=(_)
       end
 
+      # IDs of transaction line items associated with an invoice.
       sig { returns(T::Array[String]) }
       def transaction_line_item_ids
       end
@@ -309,6 +357,7 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # The ID of the virtual account the invoice should be paid to.
       sig { returns(T.nilable(String)) }
       def virtual_account_id
       end
@@ -488,6 +537,8 @@ module ModernTreasury
         def discarded_at=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -571,6 +622,7 @@ module ModernTreasury
       end
 
       class CounterpartyBillingAddress < ModernTreasury::BaseModel
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         def country
         end
@@ -587,6 +639,7 @@ module ModernTreasury
         def line1=(_)
         end
 
+        # Locality or City.
         sig { returns(String) }
         def locality
         end
@@ -595,6 +648,7 @@ module ModernTreasury
         def locality=(_)
         end
 
+        # The postal code of the address.
         sig { returns(String) }
         def postal_code
         end
@@ -603,6 +657,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(String) }
         def region
         end
@@ -619,6 +674,7 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # The counterparty's billing address.
         sig do
           params(
             country: String,
@@ -651,6 +707,7 @@ module ModernTreasury
       end
 
       class CounterpartyShippingAddress < ModernTreasury::BaseModel
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         def country
         end
@@ -667,6 +724,7 @@ module ModernTreasury
         def line1=(_)
         end
 
+        # Locality or City.
         sig { returns(String) }
         def locality
         end
@@ -675,6 +733,7 @@ module ModernTreasury
         def locality=(_)
         end
 
+        # The postal code of the address.
         sig { returns(String) }
         def postal_code
         end
@@ -683,6 +742,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(String) }
         def region
         end
@@ -699,6 +759,7 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # The counterparty's shipping address where physical goods should be delivered.
         sig do
           params(
             country: String,
@@ -731,6 +792,7 @@ module ModernTreasury
       end
 
       class InvoicerAddress < ModernTreasury::BaseModel
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         def country
         end
@@ -747,6 +809,7 @@ module ModernTreasury
         def line1=(_)
         end
 
+        # Locality or City.
         sig { returns(String) }
         def locality
         end
@@ -755,6 +818,7 @@ module ModernTreasury
         def locality=(_)
         end
 
+        # The postal code of the address.
         sig { returns(String) }
         def postal_code
         end
@@ -763,6 +827,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(String) }
         def region
         end
@@ -779,6 +844,7 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # The invoice issuer's business address.
         sig do
           params(
             country: String,
@@ -810,6 +876,8 @@ module ModernTreasury
         end
       end
 
+      # When opening an invoice, whether to show the embedded payment UI , automatically
+      #   debit the recipient, or rely on manual payment from the recipient.
       class PaymentMethod < ModernTreasury::Enum
         abstract!
 
@@ -824,6 +892,7 @@ module ModernTreasury
         end
       end
 
+      # One of `ach` or `eft`.
       class PaymentType < ModernTreasury::Enum
         abstract!
 
@@ -837,6 +906,7 @@ module ModernTreasury
         end
       end
 
+      # The status of the invoice.
       class Status < ModernTreasury::Enum
         abstract!
 

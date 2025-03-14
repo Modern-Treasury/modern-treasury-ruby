@@ -138,7 +138,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::PaymentOrderCreateParams.dump_request(params)
         @client.request(
@@ -159,7 +158,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -301,7 +299,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentOrder]
-      #
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::PaymentOrderUpdateParams.dump_request(params)
         @client.request(
@@ -358,7 +355,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrder>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::PaymentOrderListParams.dump_request(params)
         @client.request(
@@ -500,7 +496,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AsyncResponse]
-      #
       def create_async(params)
         parsed, options = ModernTreasury::Models::PaymentOrderCreateAsyncParams.dump_request(params)
         @client.request(
@@ -513,7 +508,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
         @reversals = ModernTreasury::Resources::PaymentOrders::Reversals.new(client: client)

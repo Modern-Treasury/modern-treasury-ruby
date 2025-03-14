@@ -341,7 +341,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @abstract
-          #
           class AddressType < ModernTreasury::Enum
             BUSINESS = :business
             MAILING = :mailing
@@ -791,7 +790,6 @@ module ModernTreasury
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
               # @abstract
-              #
               class AddressType < ModernTreasury::Enum
                 BUSINESS = :business
                 MAILING = :mailing

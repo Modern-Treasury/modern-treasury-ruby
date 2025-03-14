@@ -15,6 +15,9 @@ module ModernTreasury
         def after_cursor=(_)
         end
 
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use
+        #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         sig { returns(T.nilable(T::Hash[Symbol, Time])) }
         def created_at
         end
@@ -23,6 +26,8 @@ module ModernTreasury
         def created_at=(_)
         end
 
+        # Get all ledger transaction versions that are included in the ledger account
+        #   statement.
         sig { returns(T.nilable(String)) }
         def ledger_account_statement_id
         end
@@ -31,6 +36,8 @@ module ModernTreasury
         def ledger_account_statement_id=(_)
         end
 
+        # Get all the ledger transaction versions corresponding to the ID of a ledger
+        #   transaction.
         sig { returns(T.nilable(String)) }
         def ledger_transaction_id
         end
@@ -47,6 +54,8 @@ module ModernTreasury
         def per_page=(_)
         end
 
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   version. For example, for all versions after 2, use version%5Bgt%5D=2.
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
         def version
         end

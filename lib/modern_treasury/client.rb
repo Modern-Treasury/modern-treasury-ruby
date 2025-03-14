@@ -140,7 +140,6 @@ module ModernTreasury
     #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
     #
     # @return [ModernTreasury::Models::PingResponse]
-    #
     def ping(params = {})
       request(
         method: :get,
@@ -150,10 +149,9 @@ module ModernTreasury
       )
     end
 
-    # @private
+    # @api private
     #
     # @return [Hash{String=>String}]
-    #
     private def auth_headers
       return {} if @organization_id.nil? || @api_key.nil?
 
@@ -178,7 +176,6 @@ module ModernTreasury
     # @param max_retry_delay [Float]
     #
     # @param idempotency_header [String]
-    #
     def initialize(
       base_url: nil,
       api_key: ENV["MODERN_TREASURY_API_KEY"],

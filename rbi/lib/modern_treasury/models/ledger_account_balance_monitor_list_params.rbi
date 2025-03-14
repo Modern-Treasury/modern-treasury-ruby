@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # If you have specific IDs to retrieve in bulk, you can pass them as query
+      #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
       def id
       end
@@ -22,6 +24,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Query the balance monitors for a single ledger account.
       sig { returns(T.nilable(String)) }
       def ledger_account_id
       end
@@ -30,6 +33,9 @@ module ModernTreasury
       def ledger_account_id=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end

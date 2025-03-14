@@ -34,7 +34,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
-        #
         def create(invoice_id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemCreateParams.dump_request(params)
           @client.request(
@@ -57,7 +56,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
-        #
         def retrieve(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump_request(params)
           invoice_id = parsed.delete(:invoice_id) do
@@ -103,7 +101,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
-        #
         def update(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump_request(params)
           invoice_id = parsed.delete(:invoice_id) do
@@ -131,7 +128,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
-        #
         def list(invoice_id, params = {})
           parsed, options = ModernTreasury::Models::Invoices::LineItemListParams.dump_request(params)
           @client.request(
@@ -155,7 +151,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
-        #
         def delete(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump_request(params)
           invoice_id = parsed.delete(:invoice_id) do
@@ -170,7 +165,6 @@ module ModernTreasury
         end
 
         # @param client [ModernTreasury::Client]
-        #
         def initialize(client:)
           @client = client
         end

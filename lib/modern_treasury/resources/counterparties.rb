@@ -35,7 +35,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::CounterpartyCreateParams.dump_request(params)
         @client.request(
@@ -56,7 +55,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -89,7 +87,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
-      #
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::CounterpartyUpdateParams.dump_request(params)
         @client.request(
@@ -128,7 +125,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::CounterpartyListParams.dump_request(params)
         @client.request(
@@ -150,7 +146,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
-      #
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -188,7 +183,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
-      #
       def collect_account(id, params)
         parsed, options = ModernTreasury::Models::CounterpartyCollectAccountParams.dump_request(params)
         @client.request(
@@ -201,7 +195,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

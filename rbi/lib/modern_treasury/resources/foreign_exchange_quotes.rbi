@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class ForeignExchangeQuotes
+      # create foreign_exchange_quote
       sig do
         params(
           internal_account_id: String,
@@ -26,6 +27,7 @@ module ModernTreasury
       )
       end
 
+      # get foreign_exchange_quote
       sig do
         params(
           id: String,
@@ -36,6 +38,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # list foreign_exchange_quotes
       sig do
         params(
           after_cursor: T.nilable(String),

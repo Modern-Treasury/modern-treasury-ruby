@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Describes the condition that must be satisfied for the monitor to be triggered.
       sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition) }
       def alert_condition
       end
@@ -17,6 +18,7 @@ module ModernTreasury
       def alert_condition=(_)
       end
 
+      # The ledger account associated with this balance monitor.
       sig { returns(String) }
       def ledger_account_id
       end
@@ -25,6 +27,7 @@ module ModernTreasury
       def ledger_account_id=(_)
       end
 
+      # An optional, free-form description for internal use.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -33,6 +36,8 @@ module ModernTreasury
       def description=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -70,6 +75,8 @@ module ModernTreasury
       end
 
       class AlertCondition < ModernTreasury::BaseModel
+        # One of `available_balance_amount`, `pending_balance_amount`,
+        #   `posted_balance_amount`, `ledger_account_lock_version`.
         sig { returns(String) }
         def field
         end
@@ -78,6 +85,9 @@ module ModernTreasury
         def field=(_)
         end
 
+        # A logical operator to compare the `field` against the `value`. One of
+        #   `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
+        #   `greater_than`.
         sig { returns(String) }
         def operator
         end
@@ -86,6 +96,9 @@ module ModernTreasury
         def operator=(_)
         end
 
+        # The monitor's `current_ledger_account_balance_state.triggered` will be `true`
+        #   when comparing the `field` to this integer value using the `operator` is
+        #   logically true.
         sig { returns(Integer) }
         def value
         end
@@ -94,6 +107,7 @@ module ModernTreasury
         def value=(_)
         end
 
+        # Describes the condition that must be satisfied for the monitor to be triggered.
         sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }
         def self.new(field:, operator:, value:)
         end

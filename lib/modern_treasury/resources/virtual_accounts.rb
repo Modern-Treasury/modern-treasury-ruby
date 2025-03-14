@@ -37,7 +37,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::VirtualAccount]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::VirtualAccountCreateParams.dump_request(params)
         @client.request(
@@ -58,7 +57,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::VirtualAccount]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -85,7 +83,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::VirtualAccount]
-      #
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::VirtualAccountUpdateParams.dump_request(params)
         @client.request(
@@ -116,7 +113,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::VirtualAccount>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::VirtualAccountListParams.dump_request(params)
         @client.request(
@@ -138,7 +134,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::VirtualAccount]
-      #
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -149,7 +144,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

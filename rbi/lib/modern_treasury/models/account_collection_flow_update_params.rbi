@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Required. The updated status of the account collection flow. Can only be used to
+      #   mark a flow as `cancelled`.
       sig { returns(Symbol) }
       def status
       end
@@ -28,6 +30,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # Required. The updated status of the account collection flow. Can only be used to
+      #   mark a flow as `cancelled`.
       class Status < ModernTreasury::Enum
         abstract!
 

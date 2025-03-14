@@ -14,6 +14,8 @@ module ModernTreasury
       def query=(_)
       end
 
+      # The type of object this variable is. Currently, only "ledger_account" is
+      #   supported.
       sig { returns(String) }
       def type
       end
@@ -34,6 +36,7 @@ module ModernTreasury
       end
 
       class Query < ModernTreasury::BaseModel
+        # The LHS of the conditional.
         sig { returns(String) }
         def field
         end
@@ -42,6 +45,7 @@ module ModernTreasury
         def field=(_)
         end
 
+        # What the operator between the `field` and `value` is.
         sig { returns(String) }
         def operator
         end
@@ -50,6 +54,7 @@ module ModernTreasury
         def operator=(_)
         end
 
+        # The RHS of the conditional.
         sig { returns(String) }
         def value
         end

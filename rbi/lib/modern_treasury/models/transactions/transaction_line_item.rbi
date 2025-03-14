@@ -14,6 +14,8 @@ module ModernTreasury
         def id=(_)
         end
 
+        # If a matching object exists in Modern Treasury, `amount` will be populated.
+        #   Value in specified currency's smallest unit (taken from parent Transaction).
         sig { returns(Integer) }
         def amount
         end
@@ -22,6 +24,7 @@ module ModernTreasury
         def amount=(_)
         end
 
+        # The ID for the counterparty for this transaction line item.
         sig { returns(T.nilable(String)) }
         def counterparty_id
         end
@@ -38,6 +41,11 @@ module ModernTreasury
         def created_at=(_)
         end
 
+        # If no matching object is found, `description` will be a free-form text field
+        #   describing the line item. This field may contain personally identifiable
+        #   information (PII) and is not included in API responses by default. Learn more
+        #   about changing your settings at
+        #   https://docs.moderntreasury.com/reference/personally-identifiable-information.
         sig { returns(String) }
         def description
         end
@@ -54,6 +62,7 @@ module ModernTreasury
         def discarded_at=(_)
         end
 
+        # The ID of the reconciled Expected Payment, otherwise `null`.
         sig { returns(T.nilable(String)) }
         def expected_payment_id
         end
@@ -62,6 +71,8 @@ module ModernTreasury
         def expected_payment_id=(_)
         end
 
+        # This field will be true if this object exists in the live environment, or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -78,6 +89,8 @@ module ModernTreasury
         def object=(_)
         end
 
+        # Describes whether this line item should be counted towards the corresponding
+        #   transaction’s reconciliation.
         sig { returns(T::Boolean) }
         def reconcilable
         end
@@ -86,6 +99,8 @@ module ModernTreasury
         def reconcilable=(_)
         end
 
+        # If a matching object exists in Modern Treasury, the ID will be populated here,
+        #   otherwise `null`.
         sig { returns(T.nilable(String)) }
         def transactable_id
         end
@@ -94,6 +109,8 @@ module ModernTreasury
         def transactable_id=(_)
         end
 
+        # If a matching object exists in Modern Treasury, the type will be populated here,
+        #   otherwise `null`.
         sig { returns(T.nilable(Symbol)) }
         def transactable_type
         end
@@ -102,6 +119,7 @@ module ModernTreasury
         def transactable_type=(_)
         end
 
+        # The ID of the parent transaction.
         sig { returns(String) }
         def transaction_id
         end
@@ -110,6 +128,8 @@ module ModernTreasury
         def transaction_id=(_)
         end
 
+        # Indicates whether the line item is `originating` or `receiving` (see
+        #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         sig { returns(Symbol) }
         def type
         end
@@ -190,6 +210,8 @@ module ModernTreasury
         def to_hash
         end
 
+        # If a matching object exists in Modern Treasury, the type will be populated here,
+        #   otherwise `null`.
         class TransactableType < ModernTreasury::Enum
           abstract!
 
@@ -207,6 +229,8 @@ module ModernTreasury
           end
         end
 
+        # Indicates whether the line item is `originating` or `receiving` (see
+        #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         class Type < ModernTreasury::Enum
           abstract!
 

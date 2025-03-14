@@ -35,7 +35,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccount]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerAccountCreateParams.dump_request(params)
         @client.request(
@@ -63,7 +62,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccount]
-      #
       def retrieve(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountRetrieveParams.dump_request(params)
         @client.request(
@@ -91,7 +89,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccount]
-      #
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountUpdateParams.dump_request(params)
         @client.request(
@@ -153,7 +150,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccount>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountListParams.dump_request(params)
         @client.request(
@@ -175,7 +171,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccount]
-      #
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -186,7 +181,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

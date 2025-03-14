@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LedgerAccountBalanceMonitors
+      # Create a ledger account balance monitor.
       sig do
         params(
           alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
@@ -16,6 +17,7 @@ module ModernTreasury
       def create(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {})
       end
 
+      # Get details on a single ledger account balance monitor.
       sig do
         params(
           id: String,
@@ -26,6 +28,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update a ledger account balance monitor.
       sig do
         params(
           id: String,
@@ -38,6 +41,7 @@ module ModernTreasury
       def update(id, description: nil, metadata: nil, request_options: {})
       end
 
+      # Get a list of ledger account balance monitors.
       sig do
         params(
           id: T::Array[String],
@@ -59,6 +63,7 @@ module ModernTreasury
       )
       end
 
+      # Delete a ledger account balance monitor.
       sig do
         params(
           id: String,

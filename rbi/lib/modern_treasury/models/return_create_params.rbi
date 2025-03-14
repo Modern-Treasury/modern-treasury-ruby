@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The ID of the object being returned or `null`.
       sig { returns(T.nilable(String)) }
       def returnable_id
       end
@@ -14,6 +15,8 @@ module ModernTreasury
       def returnable_id=(_)
       end
 
+      # The type of object being returned. Currently, this may only be
+      #   incoming_payment_detail.
       sig { returns(Symbol) }
       def returnable_type
       end
@@ -22,6 +25,8 @@ module ModernTreasury
       def returnable_type=(_)
       end
 
+      # Some returns may include additional information from the bank. In these cases,
+      #   this string will be present.
       sig { returns(T.nilable(String)) }
       def additional_information
       end
@@ -30,6 +35,7 @@ module ModernTreasury
       def additional_information=(_)
       end
 
+      # The return code. For ACH returns, this is the required ACH return code.
       sig { returns(T.nilable(Symbol)) }
       def code
       end
@@ -38,6 +44,8 @@ module ModernTreasury
       def code=(_)
       end
 
+      # If the return code is `R14` or `R15` this is the date the deceased counterparty
+      #   passed away.
       sig { returns(T.nilable(Date)) }
       def date_of_death
       end
@@ -46,6 +54,8 @@ module ModernTreasury
       def date_of_death=(_)
       end
 
+      # An optional description of the reason for the return. This is for internal usage
+      #   and will not be transmitted to the bank.”
       sig { returns(T.nilable(String)) }
       def reason
       end
@@ -94,6 +104,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # The type of object being returned. Currently, this may only be
+      #   incoming_payment_detail.
       class ReturnableType < ModernTreasury::Enum
         abstract!
 
@@ -106,6 +118,7 @@ module ModernTreasury
         end
       end
 
+      # The return code. For ACH returns, this is the required ACH return code.
       class Code < ModernTreasury::Enum
         abstract!
 

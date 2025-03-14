@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Events
+      # get event
       sig do
         params(
           id: String,
@@ -13,6 +14,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # list events
       sig do
         params(
           after_cursor: T.nilable(String),

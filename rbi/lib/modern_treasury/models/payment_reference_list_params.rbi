@@ -22,6 +22,7 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # The actual reference number assigned by the bank.
       sig { returns(T.nilable(String)) }
       def reference_number
       end
@@ -30,6 +31,8 @@ module ModernTreasury
       def reference_number=(_)
       end
 
+      # The id of the referenceable to search for. Must be accompanied by the
+      #   referenceable_type or will return an error.
       sig { returns(T.nilable(String)) }
       def referenceable_id
       end
@@ -38,6 +41,8 @@ module ModernTreasury
       def referenceable_id=(_)
       end
 
+      # One of the referenceable types. This must be accompanied by the id of the
+      #   referenceable or will return an error.
       sig { returns(T.nilable(Symbol)) }
       def referenceable_type
       end
@@ -83,6 +88,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # One of the referenceable types. This must be accompanied by the id of the
+      #   referenceable or will return an error.
       class ReferenceableType < ModernTreasury::Enum
         abstract!
 

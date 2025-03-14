@@ -14,6 +14,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # A string code representing the vendor (i.e. bank).
       sig { returns(T.nilable(String)) }
       def entity
       end
@@ -30,6 +31,7 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # An identifier assigned by the vendor to your organization.
       sig { returns(T.nilable(String)) }
       def vendor_customer_id
       end

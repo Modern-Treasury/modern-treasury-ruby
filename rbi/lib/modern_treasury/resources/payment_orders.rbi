@@ -7,6 +7,7 @@ module ModernTreasury
       def reversals
       end
 
+      # Create a new Payment Order
       sig do
         params(
           amount: Integer,
@@ -90,6 +91,7 @@ module ModernTreasury
       )
       end
 
+      # Get details on a single payment order
       sig do
         params(
           id: String,
@@ -100,6 +102,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update a payment order
       sig do
         params(
           id: String,
@@ -181,6 +184,7 @@ module ModernTreasury
       )
       end
 
+      # Get a list of all payment orders
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -226,6 +230,7 @@ module ModernTreasury
       )
       end
 
+      # Create a new payment order asynchronously
       sig do
         params(
           amount: Integer,
