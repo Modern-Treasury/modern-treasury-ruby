@@ -14,6 +14,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Used to return counterparties created after some datetime.
       sig { returns(T.nilable(Time)) }
       def created_at_lower_bound
       end
@@ -22,6 +23,7 @@ module ModernTreasury
       def created_at_lower_bound=(_)
       end
 
+      # Used to return counterparties created before some datetime.
       sig { returns(T.nilable(Time)) }
       def created_at_upper_bound
       end
@@ -30,6 +32,8 @@ module ModernTreasury
       def created_at_upper_bound=(_)
       end
 
+      # Performs a partial string match of the email field. This is also case
+      #   insensitive.
       sig { returns(T.nilable(String)) }
       def email
       end
@@ -38,6 +42,7 @@ module ModernTreasury
       def email=(_)
       end
 
+      # Filters for counterparties with the given legal entity ID.
       sig { returns(T.nilable(String)) }
       def legal_entity_id
       end
@@ -46,6 +51,9 @@ module ModernTreasury
       def legal_entity_id=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -54,6 +62,8 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # Performs a partial string match of the name field. This is also case
+      #   insensitive.
       sig { returns(T.nilable(String)) }
       def name
       end

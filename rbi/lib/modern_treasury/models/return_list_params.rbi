@@ -14,6 +14,8 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Specify `counterparty_id` if you wish to see returns that occurred with a
+      #   specific counterparty.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # Specify `internal_account_id` if you wish to see returns to/from a specific
+      #   account.
       sig { returns(T.nilable(String)) }
       def internal_account_id
       end
@@ -38,6 +42,7 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # The ID of a valid returnable. Must be accompanied by `returnable_type`.
       sig { returns(T.nilable(String)) }
       def returnable_id
       end
@@ -46,6 +51,8 @@ module ModernTreasury
       def returnable_id=(_)
       end
 
+      # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #   Must be accompanied by `returnable_id`.
       sig { returns(T.nilable(Symbol)) }
       def returnable_type
       end
@@ -94,6 +101,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
+      #   Must be accompanied by `returnable_id`.
       class ReturnableType < ModernTreasury::Enum
         abstract!
 

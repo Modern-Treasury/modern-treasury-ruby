@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class AccountDetails
+      # Create an account detail for an external account.
       sig do
         params(
           account_id: String,
@@ -16,6 +17,7 @@ module ModernTreasury
       def create(account_id, accounts_type:, account_number:, account_number_type: nil, request_options: {})
       end
 
+      # Get a single account detail for a single internal or external account.
       sig do
         params(
           id: String,
@@ -28,6 +30,7 @@ module ModernTreasury
       def retrieve(id, accounts_type:, account_id:, request_options: {})
       end
 
+      # Get a list of account details for a single internal or external account.
       sig do
         params(
           account_id: String,
@@ -41,6 +44,7 @@ module ModernTreasury
       def list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {})
       end
 
+      # Delete a single account detail for an external account.
       sig do
         params(
           id: String,

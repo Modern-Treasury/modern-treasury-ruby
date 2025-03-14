@@ -353,7 +353,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @abstract
-          #
           class AccountNumberType < ModernTreasury::Enum
             AU_NUMBER = :au_number
             CLABE = :clabe
@@ -399,7 +398,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @abstract
-          #
           class ContactIdentifierType < ModernTreasury::Enum
             EMAIL = :email
             PHONE_NUMBER = :phone_number
@@ -635,7 +633,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @abstract
-          #
           class RoutingNumberType < ModernTreasury::Enum
             ABA = :aba
             AU_BSB = :au_bsb
@@ -663,7 +660,6 @@ module ModernTreasury
           end
 
           # @abstract
-          #
           class PaymentType < ModernTreasury::Enum
             ACH = :ach
             AU_BECS = :au_becs
@@ -1016,7 +1012,6 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # @abstract
-          #
           class AddressType < ModernTreasury::Enum
             BUSINESS = :business
             MAILING = :mailing
@@ -1466,7 +1461,6 @@ module ModernTreasury
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
               # @abstract
-              #
               class AddressType < ModernTreasury::Enum
                 BUSINESS = :business
                 MAILING = :mailing

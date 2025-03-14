@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LineItems
+      # Get a single line item
       sig do
         params(
           id: String,
@@ -15,6 +16,7 @@ module ModernTreasury
       def retrieve(id, itemizable_type:, itemizable_id:, request_options: {})
       end
 
+      # update line item
       sig do
         params(
           id: String,
@@ -28,6 +30,7 @@ module ModernTreasury
       def update(id, itemizable_type:, itemizable_id:, metadata: nil, request_options: {})
       end
 
+      # Get a list of line items
       sig do
         params(
           itemizable_id: String,

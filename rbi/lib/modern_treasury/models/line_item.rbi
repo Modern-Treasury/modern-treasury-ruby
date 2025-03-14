@@ -22,6 +22,8 @@ module ModernTreasury
       def accounting=(_)
       end
 
+      # The ID of one of your accounting categories. Note that these will only be
+      #   accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
       def accounting_category_id
       end
@@ -30,6 +32,9 @@ module ModernTreasury
       def accounting_category_id=(_)
       end
 
+      # The ID of one of the class objects in your accounting system. Class objects
+      #   track segments of your business independent of client or project. Note that
+      #   these will only be accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
       def accounting_ledger_class_id
       end
@@ -38,6 +43,8 @@ module ModernTreasury
       def accounting_ledger_class_id=(_)
       end
 
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000.
       sig { returns(Integer) }
       def amount
       end
@@ -54,6 +61,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # A free-form description of the line item.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -62,6 +70,7 @@ module ModernTreasury
       def description=(_)
       end
 
+      # The ID of the payment order or expected payment.
       sig { returns(String) }
       def itemizable_id
       end
@@ -70,6 +79,7 @@ module ModernTreasury
       def itemizable_id=(_)
       end
 
+      # One of `payment_orders` or `expected_payments`.
       sig { returns(Symbol) }
       def itemizable_type
       end
@@ -78,6 +88,8 @@ module ModernTreasury
       def itemizable_type=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -86,6 +98,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -169,6 +183,8 @@ module ModernTreasury
       end
 
       class Accounting < ModernTreasury::BaseModel
+        # The ID of one of your accounting categories. Note that these will only be
+        #   accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
         def account_id
         end
@@ -177,6 +193,9 @@ module ModernTreasury
         def account_id=(_)
         end
 
+        # The ID of one of the class objects in your accounting system. Class objects
+        #   track segments of your business independent of client or project. Note that
+        #   these will only be accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
         def class_id
         end
@@ -194,6 +213,7 @@ module ModernTreasury
         end
       end
 
+      # One of `payment_orders` or `expected_payments`.
       class ItemizableType < ModernTreasury::Enum
         abstract!
 

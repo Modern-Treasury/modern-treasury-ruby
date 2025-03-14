@@ -16,7 +16,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LineItem]
-      #
       def retrieve(id, params)
         parsed, options = ModernTreasury::Models::LineItemRetrieveParams.dump_request(params)
         itemizable_type = parsed.delete(:itemizable_type) do
@@ -49,7 +48,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LineItem]
-      #
       def update(id, params)
         parsed, options = ModernTreasury::Models::LineItemUpdateParams.dump_request(params)
         itemizable_type = parsed.delete(:itemizable_type) do
@@ -82,7 +80,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LineItem>]
-      #
       def list(itemizable_id, params)
         parsed, options = ModernTreasury::Models::LineItemListParams.dump_request(params)
         itemizable_type = parsed.delete(:itemizable_type) do
@@ -99,7 +96,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

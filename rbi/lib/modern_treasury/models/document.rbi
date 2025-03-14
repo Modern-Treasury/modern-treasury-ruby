@@ -38,6 +38,7 @@ module ModernTreasury
       def document_details=(_)
       end
 
+      # A category given to the document, can be `null`.
       sig { returns(T.nilable(String)) }
       def document_type
       end
@@ -46,6 +47,7 @@ module ModernTreasury
       def document_type=(_)
       end
 
+      # The unique identifier for the associated object.
       sig { returns(String) }
       def documentable_id
       end
@@ -54,6 +56,9 @@ module ModernTreasury
       def documentable_id=(_)
       end
 
+      # The type of the associated object. Currently can be one of `payment_order`,
+      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #   `case`, `internal_account`, `decision`, or `external_account`.
       sig { returns(Symbol) }
       def documentable_type
       end
@@ -70,6 +75,8 @@ module ModernTreasury
       def file=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -86,6 +93,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
       sig { returns(String) }
       def source
       end
@@ -198,6 +206,8 @@ module ModernTreasury
         def document_identifier_type=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -266,6 +276,9 @@ module ModernTreasury
         end
       end
 
+      # The type of the associated object. Currently can be one of `payment_order`,
+      #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
+      #   `case`, `internal_account`, `decision`, or `external_account`.
       class DocumentableType < ModernTreasury::Enum
         abstract!
 
@@ -290,6 +303,7 @@ module ModernTreasury
       end
 
       class File < ModernTreasury::BaseModel
+        # The MIME content type of the document.
         sig { returns(T.nilable(String)) }
         def content_type
         end
@@ -298,6 +312,7 @@ module ModernTreasury
         def content_type=(_)
         end
 
+        # The original filename of the document.
         sig { returns(T.nilable(String)) }
         def filename
         end
@@ -306,6 +321,7 @@ module ModernTreasury
         def filename=(_)
         end
 
+        # The size of the document in bytes.
         sig { returns(T.nilable(Integer)) }
         def size
         end

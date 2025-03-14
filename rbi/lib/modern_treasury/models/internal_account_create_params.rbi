@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The identifier of the financial institution the account belongs to.
       sig { returns(String) }
       def connection_id
       end
@@ -14,6 +15,8 @@ module ModernTreasury
       def connection_id=(_)
       end
 
+      # Either "USD" or "CAD". Internal accounts created at Increase only supports
+      #   "USD".
       sig { returns(Symbol) }
       def currency
       end
@@ -22,6 +25,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # The nickname of the account.
       sig { returns(String) }
       def name
       end
@@ -30,6 +34,7 @@ module ModernTreasury
       def name=(_)
       end
 
+      # The legal name of the entity which owns the account.
       sig { returns(String) }
       def party_name
       end
@@ -38,6 +43,7 @@ module ModernTreasury
       def party_name=(_)
       end
 
+      # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -46,6 +52,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # The LegalEntity associated to this account.
       sig { returns(T.nilable(String)) }
       def legal_entity_id
       end
@@ -54,6 +61,7 @@ module ModernTreasury
       def legal_entity_id=(_)
       end
 
+      # The parent internal account of this new account.
       sig { returns(T.nilable(String)) }
       def parent_account_id
       end
@@ -62,6 +70,7 @@ module ModernTreasury
       def parent_account_id=(_)
       end
 
+      # The address associated with the owner or null.
       sig { returns(T.nilable(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)) }
       def party_address
       end
@@ -73,6 +82,8 @@ module ModernTreasury
       def party_address=(_)
       end
 
+      # A hash of vendor specific attributes that will be used when creating the account
+      #   at the vendor specified by the given connection.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def vendor_attributes
       end
@@ -130,6 +141,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # Either "USD" or "CAD". Internal accounts created at Increase only supports
+      #   "USD".
       class Currency < ModernTreasury::Enum
         abstract!
 
@@ -144,6 +157,7 @@ module ModernTreasury
       end
 
       class PartyAddress < ModernTreasury::BaseModel
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
         def country
         end
@@ -160,6 +174,7 @@ module ModernTreasury
         def line1=(_)
         end
 
+        # Locality or City.
         sig { returns(String) }
         def locality
         end
@@ -168,6 +183,7 @@ module ModernTreasury
         def locality=(_)
         end
 
+        # The postal code of the address.
         sig { returns(String) }
         def postal_code
         end
@@ -176,6 +192,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(String) }
         def region
         end
@@ -192,6 +209,7 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # The address associated with the owner or null.
         sig do
           params(
             country: String,

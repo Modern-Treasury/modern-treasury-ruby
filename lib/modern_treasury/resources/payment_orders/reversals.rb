@@ -24,7 +24,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
-        #
         def create(payment_order_id, params)
           parsed, options = ModernTreasury::Models::PaymentOrders::ReversalCreateParams.dump_request(params)
           @client.request(
@@ -47,7 +46,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
-        #
         def retrieve(reversal_id, params)
           parsed, options = ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams.dump_request(params)
           payment_order_id = parsed.delete(:payment_order_id) do
@@ -74,7 +72,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentOrders::Reversal>]
-        #
         def list(payment_order_id, params = {})
           parsed, options = ModernTreasury::Models::PaymentOrders::ReversalListParams.dump_request(params)
           @client.request(
@@ -88,7 +85,6 @@ module ModernTreasury
         end
 
         # @param client [ModernTreasury::Client]
-        #
         def initialize(client:)
           @client = client
         end

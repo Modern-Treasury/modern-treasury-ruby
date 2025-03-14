@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerTransactions
       class Versions
+        # Get a list of ledger transaction versions.
         sig do
           params(
             after_cursor: T.nilable(String),

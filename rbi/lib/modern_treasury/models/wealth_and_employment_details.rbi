@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # The annual income of the individual.
       sig { returns(T.nilable(Integer)) }
       def annual_income
       end
@@ -35,6 +36,7 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # The country in which the employer is located.
       sig { returns(T.nilable(String)) }
       def employer_country
       end
@@ -43,6 +45,7 @@ module ModernTreasury
       def employer_country=(_)
       end
 
+      # The name of the employer.
       sig { returns(T.nilable(String)) }
       def employer_name
       end
@@ -51,6 +54,7 @@ module ModernTreasury
       def employer_name=(_)
       end
 
+      # The state in which the employer is located.
       sig { returns(T.nilable(String)) }
       def employer_state
       end
@@ -59,6 +63,7 @@ module ModernTreasury
       def employer_state=(_)
       end
 
+      # The employment status of the individual.
       sig { returns(T.nilable(Symbol)) }
       def employment_status
       end
@@ -67,6 +72,7 @@ module ModernTreasury
       def employment_status=(_)
       end
 
+      # The country in which the individual's income is earned.
       sig { returns(T.nilable(String)) }
       def income_country
       end
@@ -75,6 +81,7 @@ module ModernTreasury
       def income_country=(_)
       end
 
+      # The source of the individual's income.
       sig { returns(T.nilable(Symbol)) }
       def income_source
       end
@@ -83,6 +90,7 @@ module ModernTreasury
       def income_source=(_)
       end
 
+      # The state in which the individual's income is earned.
       sig { returns(T.nilable(String)) }
       def income_state
       end
@@ -91,6 +99,7 @@ module ModernTreasury
       def income_state=(_)
       end
 
+      # The industry of the individual.
       sig { returns(T.nilable(Symbol)) }
       def industry
       end
@@ -99,6 +108,8 @@ module ModernTreasury
       def industry=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -115,6 +126,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The occupation of the individual.
       sig { returns(T.nilable(Symbol)) }
       def occupation
       end
@@ -123,6 +135,7 @@ module ModernTreasury
       def occupation=(_)
       end
 
+      # The source of the individual's funds.
       sig { returns(T.nilable(Symbol)) }
       def source_of_funds
       end
@@ -139,6 +152,7 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # The source of the individual's wealth.
       sig { returns(T.nilable(Symbol)) }
       def wealth_source
       end
@@ -220,6 +234,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # The employment status of the individual.
       class EmploymentStatus < ModernTreasury::Enum
         abstract!
 
@@ -236,6 +251,7 @@ module ModernTreasury
         end
       end
 
+      # The source of the individual's income.
       class IncomeSource < ModernTreasury::Enum
         abstract!
 
@@ -255,6 +271,7 @@ module ModernTreasury
         end
       end
 
+      # The industry of the individual.
       class Industry < ModernTreasury::Enum
         abstract!
 
@@ -299,6 +316,7 @@ module ModernTreasury
         end
       end
 
+      # The occupation of the individual.
       class Occupation < ModernTreasury::Enum
         abstract!
 
@@ -322,6 +340,7 @@ module ModernTreasury
         end
       end
 
+      # The source of the individual's funds.
       class SourceOfFunds < ModernTreasury::Enum
         abstract!
 
@@ -350,6 +369,7 @@ module ModernTreasury
         end
       end
 
+      # The source of the individual's wealth.
       class WealthSource < ModernTreasury::Enum
         abstract!
 

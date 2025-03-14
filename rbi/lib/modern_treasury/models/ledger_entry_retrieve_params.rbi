@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # If true, response will include the balances attached to the ledger entry. If
+      #   there is no balance available, null will be returned instead.
       sig { returns(T.nilable(T::Boolean)) }
       def show_balances
       end

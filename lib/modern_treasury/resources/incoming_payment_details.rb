@@ -12,7 +12,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -34,7 +33,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::IncomingPaymentDetail]
-      #
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::IncomingPaymentDetailUpdateParams.dump_request(params)
         @client.request(
@@ -78,7 +76,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::IncomingPaymentDetail>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::IncomingPaymentDetailListParams.dump_request(params)
         @client.request(
@@ -116,7 +113,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AsyncResponse]
-      #
       def create_async(params = {})
         parsed, options = ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams.dump_request(params)
         @client.request(
@@ -129,7 +125,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

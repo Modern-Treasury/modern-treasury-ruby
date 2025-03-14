@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end

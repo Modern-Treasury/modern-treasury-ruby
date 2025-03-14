@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LegalEntityAssociations
+      # create legal_entity_association
       sig do
         params(
           parent_legal_entity_id: String,

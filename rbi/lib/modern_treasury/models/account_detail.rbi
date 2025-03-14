@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # The last 4 digits of the account_number.
       sig { returns(String) }
       def account_number_safe
       end
@@ -19,6 +20,8 @@ module ModernTreasury
       def account_number_safe=(_)
       end
 
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   account number is in a generic format.
       sig { returns(Symbol) }
       def account_number_type
       end
@@ -43,6 +46,8 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -67,6 +72,7 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # The account number for the bank account.
       sig { returns(T.nilable(String)) }
       def account_number
       end
@@ -121,6 +127,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   account number is in a generic format.
       class AccountNumberType < ModernTreasury::Enum
         abstract!
 

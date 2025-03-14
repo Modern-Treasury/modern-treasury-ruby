@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LedgerAccountCategories
+      # Create a ledger account category.
       sig do
         params(
           currency: String,
@@ -30,6 +31,7 @@ module ModernTreasury
       )
       end
 
+      # Get the details on a single ledger account category.
       sig do
         params(
           id: String,
@@ -41,6 +43,7 @@ module ModernTreasury
       def retrieve(id, balances: nil, request_options: {})
       end
 
+      # Update the details of a ledger account category.
       sig do
         params(
           id: String,
@@ -54,6 +57,7 @@ module ModernTreasury
       def update(id, description: nil, metadata: nil, name: nil, request_options: {})
       end
 
+      # Get a list of ledger account categories.
       sig do
         params(
           id: T::Array[String],
@@ -85,6 +89,7 @@ module ModernTreasury
       )
       end
 
+      # Delete a ledger account category.
       sig do
         params(
           id: String,
@@ -95,6 +100,7 @@ module ModernTreasury
       def delete(id, request_options: {})
       end
 
+      # Add a ledger account to a ledger account category.
       sig do
         params(
           ledger_account_id: String,
@@ -106,6 +112,7 @@ module ModernTreasury
       def add_ledger_account(ledger_account_id, id:, request_options: {})
       end
 
+      # Add a ledger account category to a ledger account category.
       sig do
         params(
           sub_category_id: String,
@@ -117,6 +124,7 @@ module ModernTreasury
       def add_nested_category(sub_category_id, id:, request_options: {})
       end
 
+      # Remove a ledger account from a ledger account category.
       sig do
         params(
           ledger_account_id: String,
@@ -128,6 +136,7 @@ module ModernTreasury
       def remove_ledger_account(ledger_account_id, id:, request_options: {})
       end
 
+      # Delete a ledger account category from a ledger account category.
       sig do
         params(
           sub_category_id: String,

@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class Ledgers
+      # Create a ledger.
       sig do
         params(
           name: String,
@@ -15,6 +16,7 @@ module ModernTreasury
       def create(name:, description: nil, metadata: nil, request_options: {})
       end
 
+      # Get details on a single ledger.
       sig do
         params(
           id: String,
@@ -25,6 +27,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update the details of a ledger.
       sig do
         params(
           id: String,
@@ -38,6 +41,7 @@ module ModernTreasury
       def update(id, description: nil, metadata: nil, name: nil, request_options: {})
       end
 
+      # Get a list of ledgers.
       sig do
         params(
           id: T::Array[String],
@@ -52,6 +56,7 @@ module ModernTreasury
       def list(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil, request_options: {})
       end
 
+      # Delete a ledger.
       sig do
         params(
           id: String,

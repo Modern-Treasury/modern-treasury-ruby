@@ -71,7 +71,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @abstract
-      #
       class Status < ModernTreasury::Enum
         COMPLETED = :completed
         DENIED = :denied

@@ -15,6 +15,7 @@ module ModernTreasury
         def after_cursor=(_)
         end
 
+        # The date of the balance report in local time.
         sig { returns(T.nilable(Date)) }
         def as_of_date
         end
@@ -23,6 +24,8 @@ module ModernTreasury
         def as_of_date=(_)
         end
 
+        # The specific type of balance report. One of `intraday`, `previous_day`,
+        #   `real_time`, or `other`.
         sig { returns(T.nilable(Symbol)) }
         def balance_report_type
         end
@@ -67,6 +70,8 @@ module ModernTreasury
         def to_hash
         end
 
+        # The specific type of balance report. One of `intraday`, `previous_day`,
+        #   `real_time`, or `other`.
         class BalanceReportType < ModernTreasury::Enum
           abstract!
 

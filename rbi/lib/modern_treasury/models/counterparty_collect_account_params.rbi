@@ -6,6 +6,9 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
+      #   Use `debit` when you need to charge a counterparty. This field helps us send a
+      #   more tailored email to your counterparties."
       sig { returns(Symbol) }
       def direction
       end
@@ -14,6 +17,9 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # The URL you want your customer to visit upon filling out the form. By default,
+      #   they will be sent to a Modern Treasury landing page. This must be a valid HTTPS
+      #   URL if set.
       sig { returns(T.nilable(String)) }
       def custom_redirect
       end
@@ -22,6 +28,11 @@ module ModernTreasury
       def custom_redirect=(_)
       end
 
+      # The list of fields you want on the form. This field is optional and if it is not
+      #   set, will default to [\"nameOnAccount\", \"accountType\", \"accountNumber\",
+      #   \"routingNumber\", \"address\"]. The full list of options is [\"name\",
+      #   \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\",
+      #   \"routingNumber\", \"address\", \"ibanNumber\", \"swiftCode\"].
       sig { returns(T.nilable(T::Array[Symbol])) }
       def fields
       end
@@ -30,6 +41,10 @@ module ModernTreasury
       def fields=(_)
       end
 
+      # By default, Modern Treasury will send an email to your counterparty that
+      #   includes a link to the form they must fill out. However, if you would like to
+      #   send the counterparty the link, you can set this parameter to `false`. The JSON
+      #   body will include the link to the secure Modern Treasury form.
       sig { returns(T.nilable(T::Boolean)) }
       def send_email
       end

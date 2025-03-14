@@ -22,7 +22,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
-        #
         def create(internal_account_id, params)
           parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump_request(params)
           @client.request(
@@ -46,7 +45,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
-        #
         def retrieve(id, params)
           parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump_request(params)
           internal_account_id = parsed.delete(:internal_account_id) do
@@ -78,7 +76,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccounts::BalanceReport>]
-        #
         def list(internal_account_id, params = {})
           parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportListParams.dump_request(params)
           @client.request(
@@ -103,7 +100,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [nil]
-        #
         def delete(id, params)
           parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump_request(params)
           internal_account_id = parsed.delete(:internal_account_id) do
@@ -118,7 +114,6 @@ module ModernTreasury
         end
 
         # @param client [ModernTreasury::Client]
-        #
         def initialize(client:)
           @client = client
         end

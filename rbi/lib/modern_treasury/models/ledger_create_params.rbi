@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The name of the ledger.
       sig { returns(String) }
       def name
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def name=(_)
       end
 
+      # An optional free-form description for internal use.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def description=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end

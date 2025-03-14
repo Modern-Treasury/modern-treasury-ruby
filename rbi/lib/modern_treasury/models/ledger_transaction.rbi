@@ -19,6 +19,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # An optional description for internal use.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -27,6 +28,8 @@ module ModernTreasury
       def description=(_)
       end
 
+      # The timestamp (ISO8601 format) at which the ledger transaction happened for
+      #   reporting purposes.
       sig { returns(Time) }
       def effective_at
       end
@@ -35,6 +38,8 @@ module ModernTreasury
       def effective_at=(_)
       end
 
+      # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+      #   purposes.
       sig { returns(Date) }
       def effective_date
       end
@@ -43,6 +48,8 @@ module ModernTreasury
       def effective_date=(_)
       end
 
+      # A unique string to represent the ledger transaction. Only one pending or posted
+      #   ledger transaction may have this ID in the ledger.
       sig { returns(T.nilable(String)) }
       def external_id
       end
@@ -51,6 +58,7 @@ module ModernTreasury
       def external_id=(_)
       end
 
+      # An array of ledger entry objects.
       sig { returns(T::Array[ModernTreasury::Models::LedgerEntry]) }
       def ledger_entries
       end
@@ -62,6 +70,7 @@ module ModernTreasury
       def ledger_entries=(_)
       end
 
+      # The ID of the ledger this ledger transaction belongs to.
       sig { returns(String) }
       def ledger_id
       end
@@ -70,6 +79,8 @@ module ModernTreasury
       def ledger_id=(_)
       end
 
+      # If the ledger transaction can be reconciled to another object in Modern
+      #   Treasury, the id will be populated here, otherwise null.
       sig { returns(T.nilable(String)) }
       def ledgerable_id
       end
@@ -78,6 +89,10 @@ module ModernTreasury
       def ledgerable_id=(_)
       end
 
+      # If the ledger transaction can be reconciled to another object in Modern
+      #   Treasury, the type will be populated here, otherwise null. This can be one of
+      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      #   reversal.
       sig { returns(T.nilable(Symbol)) }
       def ledgerable_type
       end
@@ -86,6 +101,8 @@ module ModernTreasury
       def ledgerable_type=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -94,6 +111,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -110,6 +129,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The ID of the ledger transaction that this ledger transaction partially posts.
       sig { returns(T.nilable(String)) }
       def partially_posts_ledger_transaction_id
       end
@@ -118,6 +138,8 @@ module ModernTreasury
       def partially_posts_ledger_transaction_id=(_)
       end
 
+      # The time on which the ledger transaction posted. This is null if the ledger
+      #   transaction is pending.
       sig { returns(T.nilable(Time)) }
       def posted_at
       end
@@ -126,6 +148,7 @@ module ModernTreasury
       def posted_at=(_)
       end
 
+      # The ID of the ledger transaction that reversed this ledger transaction.
       sig { returns(T.nilable(String)) }
       def reversed_by_ledger_transaction_id
       end
@@ -134,6 +157,7 @@ module ModernTreasury
       def reversed_by_ledger_transaction_id=(_)
       end
 
+      # The ID of the original ledger transaction that this ledger transaction reverses.
       sig { returns(T.nilable(String)) }
       def reverses_ledger_transaction_id
       end
@@ -142,6 +166,7 @@ module ModernTreasury
       def reverses_ledger_transaction_id=(_)
       end
 
+      # To post a ledger transaction at creation, use `posted`.
       sig { returns(Symbol) }
       def status
       end
@@ -234,6 +259,10 @@ module ModernTreasury
       def to_hash
       end
 
+      # If the ledger transaction can be reconciled to another object in Modern
+      #   Treasury, the type will be populated here, otherwise null. This can be one of
+      #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+      #   reversal.
       class LedgerableType < ModernTreasury::Enum
         abstract!
 
@@ -251,6 +280,7 @@ module ModernTreasury
         end
       end
 
+      # To post a ledger transaction at creation, use `posted`.
       class Status < ModernTreasury::Enum
         abstract!
 

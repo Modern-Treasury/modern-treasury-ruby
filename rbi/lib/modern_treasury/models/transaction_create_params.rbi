@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000.
       sig { returns(Integer) }
       def amount
       end
@@ -14,6 +16,7 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # The date on which the transaction occurred.
       sig { returns(T.nilable(Date)) }
       def as_of_date
       end
@@ -22,6 +25,7 @@ module ModernTreasury
       def as_of_date=(_)
       end
 
+      # Either `credit` or `debit`.
       sig { returns(String) }
       def direction
       end
@@ -30,6 +34,7 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # The ID of the relevant Internal Account.
       sig { returns(String) }
       def internal_account_id
       end
@@ -38,6 +43,8 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # When applicable, the bank-given code that determines the transaction's category.
+      #   For most banks this is the BAI2/BTRS transaction code.
       sig { returns(T.nilable(String)) }
       def vendor_code
       end
@@ -46,6 +53,10 @@ module ModernTreasury
       def vendor_code=(_)
       end
 
+      # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+      #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+      #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+      #   `swift`, `us_bank`, or others.
       sig { returns(T.nilable(String)) }
       def vendor_code_type
       end
@@ -54,6 +65,8 @@ module ModernTreasury
       def vendor_code_type=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -62,6 +75,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # This field will be `true` if the transaction has posted to the account.
       sig { returns(T.nilable(T::Boolean)) }
       def posted
       end
@@ -70,6 +84,8 @@ module ModernTreasury
       def posted=(_)
       end
 
+      # The type of the transaction. Examples could be
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       sig { returns(T.nilable(Symbol)) }
       def type
       end
@@ -78,6 +94,8 @@ module ModernTreasury
       def type=(_)
       end
 
+      # The transaction detail text that often appears in on your bank statement and in
+      #   your banking portal.
       sig { returns(T.nilable(String)) }
       def vendor_description
       end
@@ -138,6 +156,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # The type of the transaction. Examples could be
+      #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       class Type < ModernTreasury::Enum
         abstract!
 

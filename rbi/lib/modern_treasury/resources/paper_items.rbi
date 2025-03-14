@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class PaperItems
+      # Get details on a single paper item.
       sig do
         params(
           id: String,
@@ -13,6 +14,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Get a list of all paper items.
       sig do
         params(
           after_cursor: T.nilable(String),

@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LedgerAccountStatements
+      # Create a ledger account statement.
       sig do
         params(
           effective_at_lower_bound: Time,
@@ -24,6 +25,7 @@ module ModernTreasury
       )
       end
 
+      # Get details on a single ledger account statement.
       sig do
         params(
           id: String,

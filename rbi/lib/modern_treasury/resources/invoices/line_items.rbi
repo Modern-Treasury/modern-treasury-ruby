@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Invoices
       class LineItems
+        # create invoice_line_item
         sig do
           params(
             invoice_id: String,
@@ -31,6 +32,7 @@ module ModernTreasury
         )
         end
 
+        # get invoice_line_item
         sig do
           params(
             id: String,
@@ -42,6 +44,7 @@ module ModernTreasury
         def retrieve(id, invoice_id:, request_options: {})
         end
 
+        # update invoice_line_item
         sig do
           params(
             id: String,
@@ -71,6 +74,7 @@ module ModernTreasury
         )
         end
 
+        # list invoice_line_items
         sig do
           params(
             invoice_id: String,
@@ -83,6 +87,7 @@ module ModernTreasury
         def list(invoice_id, after_cursor: nil, per_page: nil, request_options: {})
         end
 
+        # delete invoice_line_item
         sig do
           params(
             id: String,

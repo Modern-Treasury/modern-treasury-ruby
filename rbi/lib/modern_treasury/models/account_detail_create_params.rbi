@@ -14,6 +14,7 @@ module ModernTreasury
       def accounts_type=(_)
       end
 
+      # The account number for the bank account.
       sig { returns(String) }
       def account_number
       end
@@ -22,6 +23,8 @@ module ModernTreasury
       def account_number=(_)
       end
 
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   account number is in a generic format.
       sig { returns(T.nilable(Symbol)) }
       def account_number_type
       end
@@ -68,6 +71,8 @@ module ModernTreasury
         end
       end
 
+      # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+      #   account number is in a generic format.
       class AccountNumberType < ModernTreasury::Enum
         abstract!
 

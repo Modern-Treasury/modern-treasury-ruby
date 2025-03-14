@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class ConnectionLegalEntities
+      # Create a connection legal entity.
       sig do
         params(
           connection_id: String,
@@ -15,6 +16,7 @@ module ModernTreasury
       def create(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {})
       end
 
+      # Get details on a single connection legal entity.
       sig do
         params(
           id: String,
@@ -25,6 +27,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update a connection legal entity.
       sig do
         params(
           id: String,
@@ -36,6 +39,7 @@ module ModernTreasury
       def update(id, status: nil, request_options: {})
       end
 
+      # Get a list of all connection legal entities.
       sig do
         params(
           after_cursor: T.nilable(String),

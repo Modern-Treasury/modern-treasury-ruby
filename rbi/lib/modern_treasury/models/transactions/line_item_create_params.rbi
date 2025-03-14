@@ -7,6 +7,8 @@ module ModernTreasury
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
+        # If a matching object exists in Modern Treasury, `amount` will be populated.
+        #   Value in specified currency's smallest unit (taken from parent Transaction).
         sig { returns(Integer) }
         def amount
         end
@@ -15,6 +17,7 @@ module ModernTreasury
         def amount=(_)
         end
 
+        # The ID of the reconciled Expected Payment, otherwise `null`.
         sig { returns(String) }
         def expected_payment_id
         end
@@ -23,6 +26,7 @@ module ModernTreasury
         def expected_payment_id=(_)
         end
 
+        # The ID of the parent transaction.
         sig { returns(String) }
         def transaction_id
         end

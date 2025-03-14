@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class AccountCollectionFlows
+      # create account_collection_flow
       sig do
         params(
           counterparty_id: String,
@@ -15,6 +16,7 @@ module ModernTreasury
       def create(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
       end
 
+      # get account_collection_flow
       sig do
         params(
           id: String,
@@ -25,6 +27,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # update account_collection_flow
       sig do
         params(
           id: String,
@@ -36,6 +39,7 @@ module ModernTreasury
       def update(id, status:, request_options: {})
       end
 
+      # list account_collection_flows
       sig do
         params(
           after_cursor: T.nilable(String),

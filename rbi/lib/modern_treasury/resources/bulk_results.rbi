@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class BulkResults
+      # get bulk_result
       sig do
         params(
           id: String,
@@ -13,6 +14,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # list bulk_results
       sig do
         params(
           after_cursor: T.nilable(String),

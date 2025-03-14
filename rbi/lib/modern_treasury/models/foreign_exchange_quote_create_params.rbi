@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(String) }
       def internal_account_id
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # Currency to convert the `base_currency` to, often called the "buy" currency.
       sig { returns(Symbol) }
       def target_currency
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def target_currency=(_)
       end
 
+      # Amount in the lowest denomination of the `base_currency` to convert, often
+      #   called the "sell" amount.
       sig { returns(T.nilable(Integer)) }
       def base_amount
       end
@@ -30,6 +34,7 @@ module ModernTreasury
       def base_amount=(_)
       end
 
+      # Currency to convert, often called the "sell" currency.
       sig { returns(T.nilable(Symbol)) }
       def base_currency
       end
@@ -38,6 +43,7 @@ module ModernTreasury
       def base_currency=(_)
       end
 
+      # The timestamp until when the quoted rate is valid.
       sig { returns(T.nilable(Time)) }
       def effective_at
       end
@@ -46,6 +52,8 @@ module ModernTreasury
       def effective_at=(_)
       end
 
+      # Amount in the lowest denomination of the `target_currency`, often called the
+      #   "buy" amount.
       sig { returns(T.nilable(Integer)) }
       def target_amount
       end

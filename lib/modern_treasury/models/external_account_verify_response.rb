@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @abstract
-    #
     class ExternalAccountVerifyResponse < ModernTreasury::Union
       variant -> { ModernTreasury::Models::ExternalAccount }
 

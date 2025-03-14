@@ -28,7 +28,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryCreateParams.dump_request(params)
         @client.request(
@@ -53,7 +52,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
-      #
       def retrieve(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryRetrieveParams.dump_request(params)
         @client.request(
@@ -81,7 +79,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
-      #
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryUpdateParams.dump_request(params)
         @client.request(
@@ -126,7 +123,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountCategory>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryListParams.dump_request(params)
         @client.request(
@@ -148,7 +144,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountCategory]
-      #
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -169,7 +164,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
-      #
       def add_ledger_account(ledger_account_id, params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams.dump_request(params)
         id = parsed.delete(:id) do
@@ -194,7 +188,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
-      #
       def add_nested_category(sub_category_id, params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams.dump_request(params)
         id = parsed.delete(:id) do
@@ -219,7 +212,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
-      #
       def remove_ledger_account(ledger_account_id, params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams.dump_request(params)
         id = parsed.delete(:id) do
@@ -244,7 +236,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
-      #
       def remove_nested_category(sub_category_id, params)
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams.dump_request(params)
         id = parsed.delete(:id) do
@@ -259,7 +250,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

@@ -22,6 +22,7 @@ module ModernTreasury
         def created_at=(_)
         end
 
+        # The ID of the external account.
         sig { returns(String) }
         def external_account_id
         end
@@ -30,6 +31,8 @@ module ModernTreasury
         def external_account_id=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -46,6 +49,7 @@ module ModernTreasury
         def object=(_)
         end
 
+        # The ID of the internal account where the micro-deposits originate from.
         sig { returns(String) }
         def originating_account_id
         end
@@ -54,6 +58,8 @@ module ModernTreasury
         def originating_account_id=(_)
         end
 
+        # The type of payment that can be made to this account. Can be `ach`, `eft`, or
+        #   `rtp`.
         sig { returns(Symbol) }
         def payment_type
         end
@@ -62,6 +68,7 @@ module ModernTreasury
         def payment_type=(_)
         end
 
+        # The priority of the payment. Can be `normal` or `high`.
         sig { returns(T.nilable(Symbol)) }
         def priority
         end
@@ -70,6 +77,8 @@ module ModernTreasury
         def priority=(_)
         end
 
+        # The status of the verification attempt. Can be `pending_verification`,
+        #   `verified`, `failed`, or `cancelled`.
         sig { returns(Symbol) }
         def status
         end
@@ -135,6 +144,8 @@ module ModernTreasury
         def to_hash
         end
 
+        # The type of payment that can be made to this account. Can be `ach`, `eft`, or
+        #   `rtp`.
         class PaymentType < ModernTreasury::Enum
           abstract!
 
@@ -176,6 +187,7 @@ module ModernTreasury
           end
         end
 
+        # The priority of the payment. Can be `normal` or `high`.
         class Priority < ModernTreasury::Enum
           abstract!
 
@@ -189,6 +201,8 @@ module ModernTreasury
           end
         end
 
+        # The status of the verification attempt. Can be `pending_verification`,
+        #   `verified`, `failed`, or `cancelled`.
         class Status < ModernTreasury::Enum
           abstract!
 
@@ -206,6 +220,7 @@ module ModernTreasury
       end
 
       class << self
+        # @api private
         sig do
           override
             .returns(

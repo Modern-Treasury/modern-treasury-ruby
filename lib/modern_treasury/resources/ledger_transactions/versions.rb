@@ -28,7 +28,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion>]
-        #
         def list(params = {})
           parsed, options = ModernTreasury::Models::LedgerTransactions::VersionListParams.dump_request(params)
           @client.request(
@@ -42,7 +41,6 @@ module ModernTreasury
         end
 
         # @param client [ModernTreasury::Client]
-        #
         def initialize(client:)
           @client = client
         end

@@ -16,7 +16,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [nil]
-        #
         def update(id, params)
           parsed, options = ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams.dump_request(params)
           @client.request(
@@ -40,7 +39,6 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [nil]
-        #
         def delete(id, params)
           parsed, options = ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams.dump_request(params)
           @client.request(
@@ -53,7 +51,6 @@ module ModernTreasury
         end
 
         # @param client [ModernTreasury::Client]
-        #
         def initialize(client:)
           @client = client
         end

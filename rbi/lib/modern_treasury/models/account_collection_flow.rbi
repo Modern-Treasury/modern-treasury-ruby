@@ -3,6 +3,8 @@
 module ModernTreasury
   module Models
     class AccountCollectionFlow < ModernTreasury::BaseModel
+      # The ID of a counterparty. An external account created with this flow will be
+      #   associated with this counterparty.
       sig { returns(String) }
       def counterparty_id
       end
@@ -27,6 +29,8 @@ module ModernTreasury
       def id=(_)
       end
 
+      # The client token of the account collection flow. This token can be used to embed
+      #   account collection in your client-side application.
       sig { returns(T.nilable(String)) }
       def client_token
       end
@@ -43,6 +47,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # If present, the ID of the external account created using this flow.
       sig { returns(T.nilable(String)) }
       def external_account_id
       end
@@ -51,6 +56,8 @@ module ModernTreasury
       def external_account_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T.nilable(T::Boolean)) }
       def live_mode
       end
@@ -75,6 +82,8 @@ module ModernTreasury
       def receiving_countries=(_)
       end
 
+      # The current status of the account collection flow. One of `pending`,
+      #   `completed`, `expired`, or `cancelled`.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -143,6 +152,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # An account created with this flow will support payments of one of these types.
       class PaymentType < ModernTreasury::Enum
         abstract!
 
@@ -156,6 +166,8 @@ module ModernTreasury
         end
       end
 
+      # An account created with this flow will support wires from the US to these
+      #   countries.
       class ReceivingCountry < ModernTreasury::Enum
         abstract!
 
@@ -185,6 +197,8 @@ module ModernTreasury
         end
       end
 
+      # The current status of the account collection flow. One of `pending`,
+      #   `completed`, `expired`, or `cancelled`.
       class Status < ModernTreasury::Enum
         abstract!
 

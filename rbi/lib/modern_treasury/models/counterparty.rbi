@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # The accounts for this counterparty.
       sig { returns(T::Array[ModernTreasury::Models::Counterparty::Account]) }
       def accounts
       end
@@ -38,6 +39,7 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # The counterparty's email.
       sig { returns(T.nilable(String)) }
       def email
       end
@@ -46,6 +48,7 @@ module ModernTreasury
       def email=(_)
       end
 
+      # The id of the legal entity.
       sig { returns(T.nilable(String)) }
       def legal_entity_id
       end
@@ -54,6 +57,8 @@ module ModernTreasury
       def legal_entity_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -62,6 +67,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -70,6 +77,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # A human friendly name for this counterparty.
       sig { returns(T.nilable(String)) }
       def name
       end
@@ -86,6 +94,8 @@ module ModernTreasury
       def object=(_)
       end
 
+      # Send an email to the counterparty whenever an associated payment order is sent
+      #   to the bank.
       sig { returns(T::Boolean) }
       def send_remittance_advice
       end
@@ -102,6 +112,7 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # The verification status of the counterparty.
       sig { returns(Symbol) }
       def verification_status
       end
@@ -188,6 +199,7 @@ module ModernTreasury
         def account_details=(_)
         end
 
+        # Can be `checking`, `savings` or `other`.
         sig { returns(T.nilable(Symbol)) }
         def account_type
         end
@@ -223,6 +235,8 @@ module ModernTreasury
         def discarded_at=(_)
         end
 
+        # If the external account links to a ledger account in Modern Treasury, the id of
+        #   the ledger account will be populated here.
         sig { returns(T.nilable(String)) }
         def ledger_account_id
         end
@@ -231,6 +245,8 @@ module ModernTreasury
         def ledger_account_id=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T.nilable(T::Boolean)) }
         def live_mode
         end
@@ -239,6 +255,8 @@ module ModernTreasury
         def live_mode=(_)
         end
 
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         def metadata
         end
@@ -247,6 +265,8 @@ module ModernTreasury
         def metadata=(_)
         end
 
+        # A nickname for the external account. This is only for internal usage and won't
+        #   affect any payments
         sig { returns(T.nilable(String)) }
         def name
         end
@@ -263,6 +283,7 @@ module ModernTreasury
         def object=(_)
         end
 
+        # The address associated with the owner or `null`.
         sig { returns(T.nilable(ModernTreasury::Models::Counterparty::Account::PartyAddress)) }
         def party_address
         end
@@ -274,6 +295,7 @@ module ModernTreasury
         def party_address=(_)
         end
 
+        # The legal name of the entity which owns the account.
         sig { returns(T.nilable(String)) }
         def party_name
         end
@@ -282,6 +304,7 @@ module ModernTreasury
         def party_name=(_)
         end
 
+        # Either `individual` or `business`.
         sig { returns(T.nilable(Symbol)) }
         def party_type
         end
@@ -439,6 +462,8 @@ module ModernTreasury
           def discarded_at=(_)
           end
 
+          # This field will be true if this object exists in the live environment or false
+          #   if it exists in the test environment.
           sig { returns(T::Boolean) }
           def live_mode
           end
@@ -530,6 +555,7 @@ module ModernTreasury
           def id=(_)
           end
 
+          # Country code conforms to [ISO 3166-1 alpha-2]
           sig { returns(T.nilable(String)) }
           def country
           end
@@ -562,6 +588,8 @@ module ModernTreasury
           def line2=(_)
           end
 
+          # This field will be true if this object exists in the live environment or false
+          #   if it exists in the test environment.
           sig { returns(T::Boolean) }
           def live_mode
           end
@@ -570,6 +598,7 @@ module ModernTreasury
           def live_mode=(_)
           end
 
+          # Locality or City.
           sig { returns(T.nilable(String)) }
           def locality
           end
@@ -586,6 +615,7 @@ module ModernTreasury
           def object=(_)
           end
 
+          # The postal code of the address.
           sig { returns(T.nilable(String)) }
           def postal_code
           end
@@ -594,6 +624,7 @@ module ModernTreasury
           def postal_code=(_)
           end
 
+          # Region or State.
           sig { returns(T.nilable(String)) }
           def region
           end
@@ -610,6 +641,7 @@ module ModernTreasury
           def updated_at=(_)
           end
 
+          # The address associated with the owner or `null`.
           sig do
             params(
               id: String,
@@ -663,6 +695,7 @@ module ModernTreasury
           end
         end
 
+        # Either `individual` or `business`.
         class PartyType < ModernTreasury::Enum
           abstract!
 
@@ -705,6 +738,7 @@ module ModernTreasury
         end
       end
 
+      # The verification status of the counterparty.
       class VerificationStatus < ModernTreasury::Enum
         abstract!
 
