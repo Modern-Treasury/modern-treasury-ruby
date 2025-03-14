@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # One of create, or update.
       sig { returns(Symbol) }
       def action_type
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def action_type=(_)
       end
 
+      # One of payment_order, expected_payment, or ledger_transaction.
       sig { returns(Symbol) }
       def resource_type
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def resource_type=(_)
       end
 
+      # An array of objects where each object contains the input params for a single
+      #   `action_type` request on a `resource_type` resource
       sig do
         returns(
           T::Array[
@@ -77,6 +81,8 @@ module ModernTreasury
       def resources=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -137,6 +143,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # One of create, or update.
       class ActionType < ModernTreasury::Enum
         abstract!
 
@@ -151,6 +158,7 @@ module ModernTreasury
         end
       end
 
+      # One of payment_order, expected_payment, or ledger_transaction.
       class ResourceType < ModernTreasury::Enum
         abstract!
 
@@ -170,6 +178,8 @@ module ModernTreasury
         abstract!
 
         class PaymentOrderAsyncCreateRequest < ModernTreasury::BaseModel
+          # Value in specified currency's smallest unit. e.g. $10 would be represented as
+          #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
           sig { returns(Integer) }
           def amount
           end
@@ -178,6 +188,10 @@ module ModernTreasury
           def amount=(_)
           end
 
+          # One of `credit`, `debit`. Describes the direction money is flowing in the
+          #   transaction. A `credit` moves money from your account to someone else's. A
+          #   `debit` pulls money from someone else's account to your own. Note that wire,
+          #   rtp, and check payments will always be `credit`.
           sig { returns(Symbol) }
           def direction
           end
@@ -186,6 +200,7 @@ module ModernTreasury
           def direction=(_)
           end
 
+          # The ID of one of your organization's internal accounts.
           sig { returns(String) }
           def originating_account_id
           end
@@ -194,6 +209,9 @@ module ModernTreasury
           def originating_account_id=(_)
           end
 
+          # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+          #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+          #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
           sig { returns(Symbol) }
           def type
           end
@@ -223,6 +241,8 @@ module ModernTreasury
           def accounting=(_)
           end
 
+          # The ID of one of your accounting categories. Note that these will only be
+          #   accessible if your accounting system has been connected.
           sig { returns(T.nilable(String)) }
           def accounting_category_id
           end
@@ -231,6 +251,8 @@ module ModernTreasury
           def accounting_category_id=(_)
           end
 
+          # The ID of one of your accounting ledger classes. Note that these will only be
+          #   accessible if your accounting system has been connected.
           sig { returns(T.nilable(String)) }
           def accounting_ledger_class_id
           end
@@ -239,6 +261,9 @@ module ModernTreasury
           def accounting_ledger_class_id=(_)
           end
 
+          # The party that will pay the fees for the payment order. Only applies to wire
+          #   payment orders. Can be one of shared, sender, or receiver, which correspond
+          #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
           sig { returns(T.nilable(Symbol)) }
           def charge_bearer
           end
@@ -247,6 +272,7 @@ module ModernTreasury
           def charge_bearer=(_)
           end
 
+          # Defaults to the currency of the originating account.
           sig { returns(T.nilable(Symbol)) }
           def currency
           end
@@ -255,6 +281,7 @@ module ModernTreasury
           def currency=(_)
           end
 
+          # An optional description for internal use.
           sig { returns(T.nilable(String)) }
           def description
           end
@@ -263,6 +290,9 @@ module ModernTreasury
           def description=(_)
           end
 
+          # Date transactions are to be posted to the participants' account. Defaults to the
+          #   current business day or the next business day if the current day is a bank
+          #   holiday or weekend. Format: yyyy-mm-dd.
           sig { returns(T.nilable(Date)) }
           def effective_date
           end
@@ -271,6 +301,7 @@ module ModernTreasury
           def effective_date=(_)
           end
 
+          # RFP payments require an expires_at. This value must be past the effective_date.
           sig { returns(T.nilable(Time)) }
           def expires_at
           end
@@ -279,6 +310,9 @@ module ModernTreasury
           def expires_at=(_)
           end
 
+          # A payment type to fallback to if the original type is not valid for the
+          #   receiving account. Currently, this only supports falling back from RTP to ACH
+          #   (type=rtp and fallback_type=ach)
           sig { returns(T.nilable(Symbol)) }
           def fallback_type
           end
@@ -287,6 +321,8 @@ module ModernTreasury
           def fallback_type=(_)
           end
 
+          # If present, indicates a specific foreign exchange contract number that has been
+          #   generated by your financial institution.
           sig { returns(T.nilable(String)) }
           def foreign_exchange_contract
           end
@@ -295,6 +331,9 @@ module ModernTreasury
           def foreign_exchange_contract=(_)
           end
 
+          # Indicates the type of FX transfer to initiate, can be either
+          #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
+          #   currency matches the originating account currency.
           sig { returns(T.nilable(Symbol)) }
           def foreign_exchange_indicator
           end
@@ -303,6 +342,10 @@ module ModernTreasury
           def foreign_exchange_indicator=(_)
           end
 
+          # Specifies a ledger transaction object that will be created with the payment
+          #   order. If the ledger transaction cannot be created, then the payment order
+          #   creation will fail. The resulting ledger transaction will mirror the status of
+          #   the payment order.
           sig do
             returns(
               T.nilable(
@@ -324,6 +367,10 @@ module ModernTreasury
           def ledger_transaction=(_)
           end
 
+          # Either ledger_transaction or ledger_transaction_id can be provided. Only a
+          #   pending ledger transaction can be attached upon payment order creation. Once the
+          #   payment order is created, the status of the ledger transaction tracks the
+          #   payment order automatically.
           sig { returns(T.nilable(String)) }
           def ledger_transaction_id
           end
@@ -332,6 +379,7 @@ module ModernTreasury
           def ledger_transaction_id=(_)
           end
 
+          # An array of line items that must sum up to the amount of the payment order.
           sig do
             returns(
               T.nilable(
@@ -353,6 +401,8 @@ module ModernTreasury
           def line_items=(_)
           end
 
+          # Additional data represented as key-value pairs. Both the key and value must be
+          #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           def metadata
           end
@@ -361,6 +411,8 @@ module ModernTreasury
           def metadata=(_)
           end
 
+          # A boolean to determine if NSF Protection is enabled for this payment order. Note
+          #   that this setting must also be turned on in your organization settings page.
           sig { returns(T.nilable(T::Boolean)) }
           def nsf_protected
           end
@@ -369,6 +421,10 @@ module ModernTreasury
           def nsf_protected=(_)
           end
 
+          # If present, this will replace your default company name on receiver's bank
+          #   statement. This field can only be used for ACH payments currently. For ACH, only
+          #   the first 16 characters of this string will be used. Any additional characters
+          #   will be truncated.
           sig { returns(T.nilable(String)) }
           def originating_party_name
           end
@@ -377,6 +433,9 @@ module ModernTreasury
           def originating_party_name=(_)
           end
 
+          # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+          #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+          #   an overnight check rather than standard mail.
           sig { returns(T.nilable(Symbol)) }
           def priority
           end
@@ -385,6 +444,11 @@ module ModernTreasury
           def priority=(_)
           end
 
+          # If present, Modern Treasury will not process the payment until after this time.
+          #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
+          #   take precedence and `effective_date` will automatically update to reflect the
+          #   earliest possible sending date after `process_after`. Format is ISO8601
+          #   timestamp.
           sig { returns(T.nilable(Time)) }
           def process_after
           end
@@ -393,6 +457,9 @@ module ModernTreasury
           def process_after=(_)
           end
 
+          # For `wire`, this is usually the purpose which is transmitted via the
+          #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
+          #   digit CPA Code that will be attached to the payment.
           sig { returns(T.nilable(String)) }
           def purpose
           end
@@ -401,6 +468,9 @@ module ModernTreasury
           def purpose=(_)
           end
 
+          # Either `receiving_account` or `receiving_account_id` must be present. When using
+          #   `receiving_account_id`, you may pass the id of an external account or an
+          #   internal account.
           sig do
             returns(
               T.nilable(
@@ -422,6 +492,9 @@ module ModernTreasury
           def receiving_account=(_)
           end
 
+          # Either `receiving_account` or `receiving_account_id` must be present. When using
+          #   `receiving_account_id`, you may pass the id of an external account or an
+          #   internal account.
           sig { returns(T.nilable(String)) }
           def receiving_account_id
           end
@@ -430,6 +503,9 @@ module ModernTreasury
           def receiving_account_id=(_)
           end
 
+          # For `ach`, this field will be passed through on an addenda record. For `wire`
+          #   payments the field will be passed through as the "Originator to Beneficiary
+          #   Information", also known as OBI or Fedwire tag 6000.
           sig { returns(T.nilable(String)) }
           def remittance_information
           end
@@ -438,6 +514,8 @@ module ModernTreasury
           def remittance_information=(_)
           end
 
+          # Send an email to the counterparty when the payment order is sent to the bank. If
+          #   `null`, `send_remittance_advice` on the Counterparty is used.
           sig { returns(T.nilable(T::Boolean)) }
           def send_remittance_advice
           end
@@ -446,6 +524,12 @@ module ModernTreasury
           def send_remittance_advice=(_)
           end
 
+          # An optional descriptor which will appear in the receiver's statement. For
+          #   `check` payments this field will be used as the memo line. For `ach` the maximum
+          #   length is 10 characters. Note that for ACH payments, the name on your bank
+          #   account will be included automatically by the bank, so you can use the
+          #   characters for other useful information. For `eft` the maximum length is 15
+          #   characters.
           sig { returns(T.nilable(String)) }
           def statement_descriptor
           end
@@ -454,6 +538,10 @@ module ModernTreasury
           def statement_descriptor=(_)
           end
 
+          # An additional layer of classification for the type of payment order you are
+          #   doing. This field is only used for `ach` payment orders currently. For `ach`
+          #   payment orders, the `subtype` represents the SEC code. We currently support
+          #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
           sig { returns(T.nilable(Symbol)) }
           def subtype
           end
@@ -462,6 +550,8 @@ module ModernTreasury
           def subtype=(_)
           end
 
+          # A flag that determines whether a payment order should go through transaction
+          #   monitoring.
           sig { returns(T.nilable(T::Boolean)) }
           def transaction_monitoring_enabled
           end
@@ -470,6 +560,7 @@ module ModernTreasury
           def transaction_monitoring_enabled=(_)
           end
 
+          # Identifier of the ultimate originator of the payment order.
           sig { returns(T.nilable(String)) }
           def ultimate_originating_party_identifier
           end
@@ -478,6 +569,7 @@ module ModernTreasury
           def ultimate_originating_party_identifier=(_)
           end
 
+          # Name of the ultimate originator of the payment order.
           sig { returns(T.nilable(String)) }
           def ultimate_originating_party_name
           end
@@ -486,6 +578,7 @@ module ModernTreasury
           def ultimate_originating_party_name=(_)
           end
 
+          # Identifier of the ultimate funds recipient.
           sig { returns(T.nilable(String)) }
           def ultimate_receiving_party_identifier
           end
@@ -494,6 +587,7 @@ module ModernTreasury
           def ultimate_receiving_party_identifier=(_)
           end
 
+          # Name of the ultimate funds recipient.
           sig { returns(T.nilable(String)) }
           def ultimate_receiving_party_name
           end
@@ -626,6 +720,10 @@ module ModernTreasury
           def to_hash
           end
 
+          # One of `credit`, `debit`. Describes the direction money is flowing in the
+          #   transaction. A `credit` moves money from your account to someone else's. A
+          #   `debit` pulls money from someone else's account to your own. Note that wire,
+          #   rtp, and check payments will always be `credit`.
           class Direction < ModernTreasury::Enum
             abstract!
 
@@ -640,6 +738,8 @@ module ModernTreasury
           end
 
           class Accounting < ModernTreasury::BaseModel
+            # The ID of one of your accounting categories. Note that these will only be
+            #   accessible if your accounting system has been connected.
             sig { returns(T.nilable(String)) }
             def account_id
             end
@@ -648,6 +748,9 @@ module ModernTreasury
             def account_id=(_)
             end
 
+            # The ID of one of the class objects in your accounting system. Class objects
+            #   track segments of your business independent of client or project. Note that
+            #   these will only be accessible if your accounting system has been connected.
             sig { returns(T.nilable(String)) }
             def class_id
             end
@@ -667,6 +770,9 @@ module ModernTreasury
             end
           end
 
+          # The party that will pay the fees for the payment order. Only applies to wire
+          #   payment orders. Can be one of shared, sender, or receiver, which correspond
+          #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
           class ChargeBearer < ModernTreasury::Enum
             abstract!
 
@@ -681,6 +787,9 @@ module ModernTreasury
             end
           end
 
+          # A payment type to fallback to if the original type is not valid for the
+          #   receiving account. Currently, this only supports falling back from RTP to ACH
+          #   (type=rtp and fallback_type=ach)
           class FallbackType < ModernTreasury::Enum
             abstract!
 
@@ -693,6 +802,9 @@ module ModernTreasury
             end
           end
 
+          # Indicates the type of FX transfer to initiate, can be either
+          #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
+          #   currency matches the originating account currency.
           class ForeignExchangeIndicator < ModernTreasury::Enum
             abstract!
 
@@ -707,6 +819,7 @@ module ModernTreasury
           end
 
           class LedgerTransaction < ModernTreasury::BaseModel
+            # An array of ledger entry objects.
             sig do
               returns(
                 T::Array[
@@ -732,6 +845,7 @@ module ModernTreasury
             def ledger_entries=(_)
             end
 
+            # An optional description for internal use.
             sig { returns(T.nilable(String)) }
             def description
             end
@@ -740,6 +854,8 @@ module ModernTreasury
             def description=(_)
             end
 
+            # The timestamp (ISO8601 format) at which the ledger transaction happened for
+            #   reporting purposes.
             sig { returns(T.nilable(Time)) }
             def effective_at
             end
@@ -748,6 +864,8 @@ module ModernTreasury
             def effective_at=(_)
             end
 
+            # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+            #   purposes.
             sig { returns(T.nilable(Date)) }
             def effective_date
             end
@@ -756,6 +874,8 @@ module ModernTreasury
             def effective_date=(_)
             end
 
+            # A unique string to represent the ledger transaction. Only one pending or posted
+            #   ledger transaction may have this ID in the ledger.
             sig { returns(T.nilable(String)) }
             def external_id
             end
@@ -764,6 +884,8 @@ module ModernTreasury
             def external_id=(_)
             end
 
+            # If the ledger transaction can be reconciled to another object in Modern
+            #   Treasury, the id will be populated here, otherwise null.
             sig { returns(T.nilable(String)) }
             def ledgerable_id
             end
@@ -772,6 +894,10 @@ module ModernTreasury
             def ledgerable_id=(_)
             end
 
+            # If the ledger transaction can be reconciled to another object in Modern
+            #   Treasury, the type will be populated here, otherwise null. This can be one of
+            #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+            #   reversal.
             sig { returns(T.nilable(Symbol)) }
             def ledgerable_type
             end
@@ -780,6 +906,8 @@ module ModernTreasury
             def ledgerable_type=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -788,6 +916,7 @@ module ModernTreasury
             def metadata=(_)
             end
 
+            # To post a ledger transaction at creation, use `posted`.
             sig { returns(T.nilable(Symbol)) }
             def status
             end
@@ -796,6 +925,10 @@ module ModernTreasury
             def status=(_)
             end
 
+            # Specifies a ledger transaction object that will be created with the payment
+            #   order. If the ledger transaction cannot be created, then the payment order
+            #   creation will fail. The resulting ledger transaction will mirror the status of
+            #   the payment order.
             sig do
               params(
                 ledger_entries: T::Array[
@@ -847,6 +980,8 @@ module ModernTreasury
             end
 
             class LedgerEntry < ModernTreasury::BaseModel
+              # Value in specified currency's smallest unit. e.g. $10 would be represented
+              #   as 1000. Can be any integer up to 36 digits.
               sig { returns(Integer) }
               def amount
               end
@@ -855,6 +990,10 @@ module ModernTreasury
               def amount=(_)
               end
 
+              # One of `credit`, `debit`. Describes the direction money is flowing in the
+              #   transaction. A `credit` moves money from your account to someone else's. A
+              #   `debit` pulls money from someone else's account to your own. Note that wire,
+              #   rtp, and check payments will always be `credit`.
               sig { returns(Symbol) }
               def direction
               end
@@ -863,6 +1002,7 @@ module ModernTreasury
               def direction=(_)
               end
 
+              # The ledger account that this ledger entry is associated with.
               sig { returns(String) }
               def ledger_account_id
               end
@@ -871,6 +1011,9 @@ module ModernTreasury
               def ledger_account_id=(_)
               end
 
+              # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+              #   account’s available balance. If any of these conditions would be false after the
+              #   transaction is created, the entire call will fail with error code 422.
               sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
               def available_balance_amount
               end
@@ -881,6 +1024,10 @@ module ModernTreasury
               def available_balance_amount=(_)
               end
 
+              # Lock version of the ledger account. This can be passed when creating a ledger
+              #   transaction to only succeed if no ledger transactions have posted since the
+              #   given version. See our post about Designing the Ledgers API with Optimistic
+              #   Locking for more details.
               sig { returns(T.nilable(Integer)) }
               def lock_version
               end
@@ -889,6 +1036,8 @@ module ModernTreasury
               def lock_version=(_)
               end
 
+              # Additional data represented as key-value pairs. Both the key and value must be
+              #   strings.
               sig { returns(T.nilable(T::Hash[Symbol, String])) }
               def metadata
               end
@@ -897,6 +1046,9 @@ module ModernTreasury
               def metadata=(_)
               end
 
+              # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+              #   account’s pending balance. If any of these conditions would be false after the
+              #   transaction is created, the entire call will fail with error code 422.
               sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
               def pending_balance_amount
               end
@@ -907,6 +1059,9 @@ module ModernTreasury
               def pending_balance_amount=(_)
               end
 
+              # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+              #   account’s posted balance. If any of these conditions would be false after the
+              #   transaction is created, the entire call will fail with error code 422.
               sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
               def posted_balance_amount
               end
@@ -917,6 +1072,8 @@ module ModernTreasury
               def posted_balance_amount=(_)
               end
 
+              # If true, response will include the balance of the associated ledger account for
+              #   the entry.
               sig { returns(T.nilable(T::Boolean)) }
               def show_resulting_ledger_account_balances
               end
@@ -972,6 +1129,10 @@ module ModernTreasury
               end
             end
 
+            # If the ledger transaction can be reconciled to another object in Modern
+            #   Treasury, the type will be populated here, otherwise null. This can be one of
+            #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+            #   reversal.
             class LedgerableType < ModernTreasury::Enum
               abstract!
 
@@ -989,6 +1150,7 @@ module ModernTreasury
               end
             end
 
+            # To post a ledger transaction at creation, use `posted`.
             class Status < ModernTreasury::Enum
               abstract!
 
@@ -1005,6 +1167,8 @@ module ModernTreasury
           end
 
           class LineItem < ModernTreasury::BaseModel
+            # Value in specified currency's smallest unit. e.g. $10 would be represented
+            #   as 1000.
             sig { returns(Integer) }
             def amount
             end
@@ -1013,6 +1177,8 @@ module ModernTreasury
             def amount=(_)
             end
 
+            # The ID of one of your accounting categories. Note that these will only be
+            #   accessible if your accounting system has been connected.
             sig { returns(T.nilable(String)) }
             def accounting_category_id
             end
@@ -1021,6 +1187,7 @@ module ModernTreasury
             def accounting_category_id=(_)
             end
 
+            # A free-form description of the line item.
             sig { returns(T.nilable(String)) }
             def description
             end
@@ -1029,6 +1196,8 @@ module ModernTreasury
             def description=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -1064,6 +1233,9 @@ module ModernTreasury
             end
           end
 
+          # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+          #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+          #   an overnight check rather than standard mail.
           class Priority < ModernTreasury::Enum
             abstract!
 
@@ -1105,6 +1277,7 @@ module ModernTreasury
             def account_details=(_)
             end
 
+            # Can be `checking`, `savings` or `other`.
             sig { returns(T.nilable(Symbol)) }
             def account_type
             end
@@ -1140,6 +1313,11 @@ module ModernTreasury
             def contact_details=(_)
             end
 
+            # Specifies a ledger account object that will be created with the external
+            #   account. The resulting ledger account is linked to the external account for
+            #   auto-ledgering Payment objects. See
+            #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+            #   for more details.
             sig do
               returns(
                 T.nilable(
@@ -1161,6 +1339,8 @@ module ModernTreasury
             def ledger_account=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -1169,6 +1349,8 @@ module ModernTreasury
             def metadata=(_)
             end
 
+            # A nickname for the external account. This is only for internal usage and won't
+            #   affect any payments
             sig { returns(T.nilable(String)) }
             def name
             end
@@ -1177,6 +1359,7 @@ module ModernTreasury
             def name=(_)
             end
 
+            # Required if receiving wire payments.
             sig do
               returns(
                 T.nilable(
@@ -1206,6 +1389,7 @@ module ModernTreasury
             def party_identifier=(_)
             end
 
+            # If this value isn't provided, it will be inherited from the counterparty's name.
             sig { returns(T.nilable(String)) }
             def party_name
             end
@@ -1214,6 +1398,7 @@ module ModernTreasury
             def party_name=(_)
             end
 
+            # Either `individual` or `business`.
             sig { returns(T.nilable(Symbol)) }
             def party_type
             end
@@ -1222,6 +1407,8 @@ module ModernTreasury
             def party_type=(_)
             end
 
+            # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+            #   you can pass the processor token in this field.
             sig { returns(T.nilable(String)) }
             def plaid_processor_token
             end
@@ -1257,6 +1444,9 @@ module ModernTreasury
             def routing_details=(_)
             end
 
+            # Either `receiving_account` or `receiving_account_id` must be present. When using
+            #   `receiving_account_id`, you may pass the id of an external account or an
+            #   internal account.
             sig do
               params(
                 account_details: T::Array[
@@ -1414,6 +1604,7 @@ module ModernTreasury
             end
 
             class LedgerAccount < ModernTreasury::BaseModel
+              # The currency of the ledger account.
               sig { returns(String) }
               def currency
               end
@@ -1422,6 +1613,7 @@ module ModernTreasury
               def currency=(_)
               end
 
+              # The id of the ledger that this account belongs to.
               sig { returns(String) }
               def ledger_id
               end
@@ -1430,6 +1622,7 @@ module ModernTreasury
               def ledger_id=(_)
               end
 
+              # The name of the ledger account.
               sig { returns(String) }
               def name
               end
@@ -1438,6 +1631,7 @@ module ModernTreasury
               def name=(_)
               end
 
+              # The normal balance of the ledger account.
               sig { returns(Symbol) }
               def normal_balance
               end
@@ -1446,6 +1640,7 @@ module ModernTreasury
               def normal_balance=(_)
               end
 
+              # The currency exponent of the ledger account.
               sig { returns(T.nilable(Integer)) }
               def currency_exponent
               end
@@ -1454,6 +1649,7 @@ module ModernTreasury
               def currency_exponent=(_)
               end
 
+              # The description of the ledger account.
               sig { returns(T.nilable(String)) }
               def description
               end
@@ -1462,6 +1658,8 @@ module ModernTreasury
               def description=(_)
               end
 
+              # The array of ledger account category ids that this ledger account should be a
+              #   child of.
               sig { returns(T.nilable(T::Array[String])) }
               def ledger_account_category_ids
               end
@@ -1470,6 +1668,8 @@ module ModernTreasury
               def ledger_account_category_ids=(_)
               end
 
+              # If the ledger account links to another object in Modern Treasury, the id will be
+              #   populated here, otherwise null.
               sig { returns(T.nilable(String)) }
               def ledgerable_id
               end
@@ -1478,6 +1678,9 @@ module ModernTreasury
               def ledgerable_id=(_)
               end
 
+              # If the ledger account links to another object in Modern Treasury, the type will
+              #   be populated here, otherwise null. The value is one of internal_account or
+              #   external_account.
               sig { returns(T.nilable(Symbol)) }
               def ledgerable_type
               end
@@ -1486,6 +1689,8 @@ module ModernTreasury
               def ledgerable_type=(_)
               end
 
+              # Additional data represented as key-value pairs. Both the key and value must be
+              #   strings.
               sig { returns(T.nilable(T::Hash[Symbol, String])) }
               def metadata
               end
@@ -1494,6 +1699,11 @@ module ModernTreasury
               def metadata=(_)
               end
 
+              # Specifies a ledger account object that will be created with the external
+              #   account. The resulting ledger account is linked to the external account for
+              #   auto-ledgering Payment objects. See
+              #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+              #   for more details.
               sig do
                 params(
                   currency: String,
@@ -1543,6 +1753,9 @@ module ModernTreasury
               def to_hash
               end
 
+              # If the ledger account links to another object in Modern Treasury, the type will
+              #   be populated here, otherwise null. The value is one of internal_account or
+              #   external_account.
               class LedgerableType < ModernTreasury::Enum
                 abstract!
 
@@ -1560,6 +1773,7 @@ module ModernTreasury
             end
 
             class PartyAddress < ModernTreasury::BaseModel
+              # Country code conforms to [ISO 3166-1 alpha-2]
               sig { returns(T.nilable(String)) }
               def country
               end
@@ -1584,6 +1798,7 @@ module ModernTreasury
               def line2=(_)
               end
 
+              # Locality or City.
               sig { returns(T.nilable(String)) }
               def locality
               end
@@ -1592,6 +1807,7 @@ module ModernTreasury
               def locality=(_)
               end
 
+              # The postal code of the address.
               sig { returns(T.nilable(String)) }
               def postal_code
               end
@@ -1600,6 +1816,7 @@ module ModernTreasury
               def postal_code=(_)
               end
 
+              # Region or State.
               sig { returns(T.nilable(String)) }
               def region
               end
@@ -1608,6 +1825,7 @@ module ModernTreasury
               def region=(_)
               end
 
+              # Required if receiving wire payments.
               sig do
                 params(
                   country: T.nilable(String),
@@ -1639,6 +1857,7 @@ module ModernTreasury
               end
             end
 
+            # Either `individual` or `business`.
             class PartyType < ModernTreasury::Enum
               abstract!
 
@@ -1770,6 +1989,8 @@ module ModernTreasury
         end
 
         class ExpectedPaymentCreateRequest < ModernTreasury::BaseModel
+          # The lowest amount this expected payment may be equal to. Value in specified
+          #   currency's smallest unit. e.g. $10 would be represented as 1000.
           sig { returns(T.nilable(Integer)) }
           def amount_lower_bound
           end
@@ -1778,6 +1999,8 @@ module ModernTreasury
           def amount_lower_bound=(_)
           end
 
+          # The highest amount this expected payment may be equal to. Value in specified
+          #   currency's smallest unit. e.g. $10 would be represented as 1000.
           sig { returns(T.nilable(Integer)) }
           def amount_upper_bound
           end
@@ -1786,6 +2009,7 @@ module ModernTreasury
           def amount_upper_bound=(_)
           end
 
+          # The ID of the counterparty you expect for this payment.
           sig { returns(T.nilable(String)) }
           def counterparty_id
           end
@@ -1794,6 +2018,7 @@ module ModernTreasury
           def counterparty_id=(_)
           end
 
+          # Must conform to ISO 4217. Defaults to the currency of the internal account.
           sig { returns(T.nilable(Symbol)) }
           def currency
           end
@@ -1802,6 +2027,7 @@ module ModernTreasury
           def currency=(_)
           end
 
+          # The earliest date the payment may come in. Format: yyyy-mm-dd
           sig { returns(T.nilable(Date)) }
           def date_lower_bound
           end
@@ -1810,6 +2036,7 @@ module ModernTreasury
           def date_lower_bound=(_)
           end
 
+          # The latest date the payment may come in. Format: yyyy-mm-dd
           sig { returns(T.nilable(Date)) }
           def date_upper_bound
           end
@@ -1818,6 +2045,7 @@ module ModernTreasury
           def date_upper_bound=(_)
           end
 
+          # An optional description for internal use.
           sig { returns(T.nilable(String)) }
           def description
           end
@@ -1826,6 +2054,8 @@ module ModernTreasury
           def description=(_)
           end
 
+          # One of credit or debit. When you are receiving money, use credit. When you are
+          #   being charged, use debit.
           sig { returns(T.nilable(Symbol)) }
           def direction
           end
@@ -1834,6 +2064,7 @@ module ModernTreasury
           def direction=(_)
           end
 
+          # The ID of the Internal Account for the expected payment.
           sig { returns(T.nilable(String)) }
           def internal_account_id
           end
@@ -1842,6 +2073,10 @@ module ModernTreasury
           def internal_account_id=(_)
           end
 
+          # Specifies a ledger transaction object that will be created with the expected
+          #   payment. If the ledger transaction cannot be created, then the expected payment
+          #   creation will fail. The resulting ledger transaction will mirror the status of
+          #   the expected payment.
           sig do
             returns(
               T.nilable(
@@ -1863,6 +2098,10 @@ module ModernTreasury
           def ledger_transaction=(_)
           end
 
+          # Either ledger_transaction or ledger_transaction_id can be provided. Only a
+          #   pending ledger transaction can be attached upon expected payment creation. Once
+          #   the expected payment is created, the status of the ledger transaction tracks the
+          #   expected payment automatically.
           sig { returns(T.nilable(String)) }
           def ledger_transaction_id
           end
@@ -1892,6 +2131,8 @@ module ModernTreasury
           def line_items=(_)
           end
 
+          # Additional data represented as key-value pairs. Both the key and value must be
+          #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           def metadata
           end
@@ -1900,6 +2141,7 @@ module ModernTreasury
           def metadata=(_)
           end
 
+          # The reconciliation filters you have for this payment.
           sig { returns(T.nilable(T.anything)) }
           def reconciliation_filters
           end
@@ -1908,6 +2150,7 @@ module ModernTreasury
           def reconciliation_filters=(_)
           end
 
+          # The reconciliation groups you have for this payment.
           sig { returns(T.nilable(T.anything)) }
           def reconciliation_groups
           end
@@ -1916,6 +2159,7 @@ module ModernTreasury
           def reconciliation_groups=(_)
           end
 
+          # An array of reconciliation rule variables for this payment.
           sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
           def reconciliation_rule_variables
           end
@@ -1927,6 +2171,9 @@ module ModernTreasury
           def reconciliation_rule_variables=(_)
           end
 
+          # For `ach`, this field will be passed through on an addenda record. For `wire`
+          #   payments the field will be passed through as the "Originator to Beneficiary
+          #   Information", also known as OBI or Fedwire tag 6000.
           sig { returns(T.nilable(String)) }
           def remittance_information
           end
@@ -1935,6 +2182,10 @@ module ModernTreasury
           def remittance_information=(_)
           end
 
+          # The statement description you expect to see on the transaction. For ACH
+          #   payments, this will be the full line item passed from the bank. For wire
+          #   payments, this will be the OBI field on the wire. For check payments, this will
+          #   be the memo field.
           sig { returns(T.nilable(String)) }
           def statement_descriptor
           end
@@ -1943,6 +2194,8 @@ module ModernTreasury
           def statement_descriptor=(_)
           end
 
+          # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+          #   sepa, signet, wire.
           sig { returns(T.nilable(Symbol)) }
           def type
           end
@@ -2027,6 +2280,8 @@ module ModernTreasury
           def to_hash
           end
 
+          # One of credit or debit. When you are receiving money, use credit. When you are
+          #   being charged, use debit.
           class Direction < ModernTreasury::Enum
             abstract!
 
@@ -2041,6 +2296,7 @@ module ModernTreasury
           end
 
           class LedgerTransaction < ModernTreasury::BaseModel
+            # An array of ledger entry objects.
             sig do
               returns(
                 T::Array[
@@ -2066,6 +2322,7 @@ module ModernTreasury
             def ledger_entries=(_)
             end
 
+            # An optional description for internal use.
             sig { returns(T.nilable(String)) }
             def description
             end
@@ -2074,6 +2331,8 @@ module ModernTreasury
             def description=(_)
             end
 
+            # The timestamp (ISO8601 format) at which the ledger transaction happened for
+            #   reporting purposes.
             sig { returns(T.nilable(Time)) }
             def effective_at
             end
@@ -2082,6 +2341,8 @@ module ModernTreasury
             def effective_at=(_)
             end
 
+            # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+            #   purposes.
             sig { returns(T.nilable(Date)) }
             def effective_date
             end
@@ -2090,6 +2351,8 @@ module ModernTreasury
             def effective_date=(_)
             end
 
+            # A unique string to represent the ledger transaction. Only one pending or posted
+            #   ledger transaction may have this ID in the ledger.
             sig { returns(T.nilable(String)) }
             def external_id
             end
@@ -2098,6 +2361,8 @@ module ModernTreasury
             def external_id=(_)
             end
 
+            # If the ledger transaction can be reconciled to another object in Modern
+            #   Treasury, the id will be populated here, otherwise null.
             sig { returns(T.nilable(String)) }
             def ledgerable_id
             end
@@ -2106,6 +2371,10 @@ module ModernTreasury
             def ledgerable_id=(_)
             end
 
+            # If the ledger transaction can be reconciled to another object in Modern
+            #   Treasury, the type will be populated here, otherwise null. This can be one of
+            #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+            #   reversal.
             sig { returns(T.nilable(Symbol)) }
             def ledgerable_type
             end
@@ -2114,6 +2383,8 @@ module ModernTreasury
             def ledgerable_type=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -2122,6 +2393,7 @@ module ModernTreasury
             def metadata=(_)
             end
 
+            # To post a ledger transaction at creation, use `posted`.
             sig { returns(T.nilable(Symbol)) }
             def status
             end
@@ -2130,6 +2402,10 @@ module ModernTreasury
             def status=(_)
             end
 
+            # Specifies a ledger transaction object that will be created with the expected
+            #   payment. If the ledger transaction cannot be created, then the expected payment
+            #   creation will fail. The resulting ledger transaction will mirror the status of
+            #   the expected payment.
             sig do
               params(
                 ledger_entries: T::Array[
@@ -2181,6 +2457,8 @@ module ModernTreasury
             end
 
             class LedgerEntry < ModernTreasury::BaseModel
+              # Value in specified currency's smallest unit. e.g. $10 would be represented
+              #   as 1000. Can be any integer up to 36 digits.
               sig { returns(Integer) }
               def amount
               end
@@ -2189,6 +2467,10 @@ module ModernTreasury
               def amount=(_)
               end
 
+              # One of `credit`, `debit`. Describes the direction money is flowing in the
+              #   transaction. A `credit` moves money from your account to someone else's. A
+              #   `debit` pulls money from someone else's account to your own. Note that wire,
+              #   rtp, and check payments will always be `credit`.
               sig { returns(Symbol) }
               def direction
               end
@@ -2197,6 +2479,7 @@ module ModernTreasury
               def direction=(_)
               end
 
+              # The ledger account that this ledger entry is associated with.
               sig { returns(String) }
               def ledger_account_id
               end
@@ -2205,6 +2488,9 @@ module ModernTreasury
               def ledger_account_id=(_)
               end
 
+              # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+              #   account’s available balance. If any of these conditions would be false after the
+              #   transaction is created, the entire call will fail with error code 422.
               sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
               def available_balance_amount
               end
@@ -2215,6 +2501,10 @@ module ModernTreasury
               def available_balance_amount=(_)
               end
 
+              # Lock version of the ledger account. This can be passed when creating a ledger
+              #   transaction to only succeed if no ledger transactions have posted since the
+              #   given version. See our post about Designing the Ledgers API with Optimistic
+              #   Locking for more details.
               sig { returns(T.nilable(Integer)) }
               def lock_version
               end
@@ -2223,6 +2513,8 @@ module ModernTreasury
               def lock_version=(_)
               end
 
+              # Additional data represented as key-value pairs. Both the key and value must be
+              #   strings.
               sig { returns(T.nilable(T::Hash[Symbol, String])) }
               def metadata
               end
@@ -2231,6 +2523,9 @@ module ModernTreasury
               def metadata=(_)
               end
 
+              # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+              #   account’s pending balance. If any of these conditions would be false after the
+              #   transaction is created, the entire call will fail with error code 422.
               sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
               def pending_balance_amount
               end
@@ -2241,6 +2536,9 @@ module ModernTreasury
               def pending_balance_amount=(_)
               end
 
+              # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+              #   account’s posted balance. If any of these conditions would be false after the
+              #   transaction is created, the entire call will fail with error code 422.
               sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
               def posted_balance_amount
               end
@@ -2251,6 +2549,8 @@ module ModernTreasury
               def posted_balance_amount=(_)
               end
 
+              # If true, response will include the balance of the associated ledger account for
+              #   the entry.
               sig { returns(T.nilable(T::Boolean)) }
               def show_resulting_ledger_account_balances
               end
@@ -2306,6 +2606,10 @@ module ModernTreasury
               end
             end
 
+            # If the ledger transaction can be reconciled to another object in Modern
+            #   Treasury, the type will be populated here, otherwise null. This can be one of
+            #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+            #   reversal.
             class LedgerableType < ModernTreasury::Enum
               abstract!
 
@@ -2323,6 +2627,7 @@ module ModernTreasury
               end
             end
 
+            # To post a ledger transaction at creation, use `posted`.
             class Status < ModernTreasury::Enum
               abstract!
 
@@ -2339,6 +2644,8 @@ module ModernTreasury
           end
 
           class LineItem < ModernTreasury::BaseModel
+            # Value in specified currency's smallest unit. e.g. $10 would be represented
+            #   as 1000.
             sig { returns(Integer) }
             def amount
             end
@@ -2347,6 +2654,8 @@ module ModernTreasury
             def amount=(_)
             end
 
+            # The ID of one of your accounting categories. Note that these will only be
+            #   accessible if your accounting system has been connected.
             sig { returns(T.nilable(String)) }
             def accounting_category_id
             end
@@ -2355,6 +2664,7 @@ module ModernTreasury
             def accounting_category_id=(_)
             end
 
+            # A free-form description of the line item.
             sig { returns(T.nilable(String)) }
             def description
             end
@@ -2363,6 +2673,8 @@ module ModernTreasury
             def description=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -2400,6 +2712,7 @@ module ModernTreasury
         end
 
         class LedgerTransactionCreateRequest < ModernTreasury::BaseModel
+          # An array of ledger entry objects.
           sig do
             returns(
               T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry]
@@ -2419,6 +2732,7 @@ module ModernTreasury
           def ledger_entries=(_)
           end
 
+          # An optional description for internal use.
           sig { returns(T.nilable(String)) }
           def description
           end
@@ -2427,6 +2741,8 @@ module ModernTreasury
           def description=(_)
           end
 
+          # The timestamp (ISO8601 format) at which the ledger transaction happened for
+          #   reporting purposes.
           sig { returns(T.nilable(Time)) }
           def effective_at
           end
@@ -2435,6 +2751,8 @@ module ModernTreasury
           def effective_at=(_)
           end
 
+          # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
+          #   purposes.
           sig { returns(T.nilable(Date)) }
           def effective_date
           end
@@ -2443,6 +2761,8 @@ module ModernTreasury
           def effective_date=(_)
           end
 
+          # A unique string to represent the ledger transaction. Only one pending or posted
+          #   ledger transaction may have this ID in the ledger.
           sig { returns(T.nilable(String)) }
           def external_id
           end
@@ -2451,6 +2771,8 @@ module ModernTreasury
           def external_id=(_)
           end
 
+          # If the ledger transaction can be reconciled to another object in Modern
+          #   Treasury, the id will be populated here, otherwise null.
           sig { returns(T.nilable(String)) }
           def ledgerable_id
           end
@@ -2459,6 +2781,10 @@ module ModernTreasury
           def ledgerable_id=(_)
           end
 
+          # If the ledger transaction can be reconciled to another object in Modern
+          #   Treasury, the type will be populated here, otherwise null. This can be one of
+          #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+          #   reversal.
           sig { returns(T.nilable(Symbol)) }
           def ledgerable_type
           end
@@ -2467,6 +2793,8 @@ module ModernTreasury
           def ledgerable_type=(_)
           end
 
+          # Additional data represented as key-value pairs. Both the key and value must be
+          #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           def metadata
           end
@@ -2475,6 +2803,7 @@ module ModernTreasury
           def metadata=(_)
           end
 
+          # To post a ledger transaction at creation, use `posted`.
           sig { returns(T.nilable(Symbol)) }
           def status
           end
@@ -2530,6 +2859,8 @@ module ModernTreasury
           end
 
           class LedgerEntry < ModernTreasury::BaseModel
+            # Value in specified currency's smallest unit. e.g. $10 would be represented
+            #   as 1000. Can be any integer up to 36 digits.
             sig { returns(Integer) }
             def amount
             end
@@ -2538,6 +2869,10 @@ module ModernTreasury
             def amount=(_)
             end
 
+            # One of `credit`, `debit`. Describes the direction money is flowing in the
+            #   transaction. A `credit` moves money from your account to someone else's. A
+            #   `debit` pulls money from someone else's account to your own. Note that wire,
+            #   rtp, and check payments will always be `credit`.
             sig { returns(Symbol) }
             def direction
             end
@@ -2546,6 +2881,7 @@ module ModernTreasury
             def direction=(_)
             end
 
+            # The ledger account that this ledger entry is associated with.
             sig { returns(String) }
             def ledger_account_id
             end
@@ -2554,6 +2890,9 @@ module ModernTreasury
             def ledger_account_id=(_)
             end
 
+            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   account’s available balance. If any of these conditions would be false after the
+            #   transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             def available_balance_amount
             end
@@ -2564,6 +2903,10 @@ module ModernTreasury
             def available_balance_amount=(_)
             end
 
+            # Lock version of the ledger account. This can be passed when creating a ledger
+            #   transaction to only succeed if no ledger transactions have posted since the
+            #   given version. See our post about Designing the Ledgers API with Optimistic
+            #   Locking for more details.
             sig { returns(T.nilable(Integer)) }
             def lock_version
             end
@@ -2572,6 +2915,8 @@ module ModernTreasury
             def lock_version=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -2580,6 +2925,9 @@ module ModernTreasury
             def metadata=(_)
             end
 
+            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   account’s pending balance. If any of these conditions would be false after the
+            #   transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             def pending_balance_amount
             end
@@ -2590,6 +2938,9 @@ module ModernTreasury
             def pending_balance_amount=(_)
             end
 
+            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   account’s posted balance. If any of these conditions would be false after the
+            #   transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             def posted_balance_amount
             end
@@ -2600,6 +2951,8 @@ module ModernTreasury
             def posted_balance_amount=(_)
             end
 
+            # If true, response will include the balance of the associated ledger account for
+            #   the entry.
             sig { returns(T.nilable(T::Boolean)) }
             def show_resulting_ledger_account_balances
             end
@@ -2655,6 +3008,10 @@ module ModernTreasury
             end
           end
 
+          # If the ledger transaction can be reconciled to another object in Modern
+          #   Treasury, the type will be populated here, otherwise null. This can be one of
+          #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+          #   reversal.
           class LedgerableType < ModernTreasury::Enum
             abstract!
 
@@ -2672,6 +3029,7 @@ module ModernTreasury
             end
           end
 
+          # To post a ledger transaction at creation, use `posted`.
           class Status < ModernTreasury::Enum
             abstract!
 
@@ -2688,6 +3046,8 @@ module ModernTreasury
         end
 
         class TransactionCreateRequest < ModernTreasury::BaseModel
+          # Value in specified currency's smallest unit. e.g. $10 would be represented
+          #   as 1000.
           sig { returns(Integer) }
           def amount
           end
@@ -2696,6 +3056,7 @@ module ModernTreasury
           def amount=(_)
           end
 
+          # The date on which the transaction occurred.
           sig { returns(T.nilable(Date)) }
           def as_of_date
           end
@@ -2704,6 +3065,7 @@ module ModernTreasury
           def as_of_date=(_)
           end
 
+          # Either `credit` or `debit`.
           sig { returns(String) }
           def direction
           end
@@ -2712,6 +3074,7 @@ module ModernTreasury
           def direction=(_)
           end
 
+          # The ID of the relevant Internal Account.
           sig { returns(String) }
           def internal_account_id
           end
@@ -2720,6 +3083,8 @@ module ModernTreasury
           def internal_account_id=(_)
           end
 
+          # When applicable, the bank-given code that determines the transaction's category.
+          #   For most banks this is the BAI2/BTRS transaction code.
           sig { returns(T.nilable(String)) }
           def vendor_code
           end
@@ -2728,6 +3093,10 @@ module ModernTreasury
           def vendor_code=(_)
           end
 
+          # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+          #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+          #   `swift`, `us_bank`, or others.
           sig { returns(T.nilable(String)) }
           def vendor_code_type
           end
@@ -2736,6 +3105,8 @@ module ModernTreasury
           def vendor_code_type=(_)
           end
 
+          # Additional data represented as key-value pairs. Both the key and value must be
+          #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           def metadata
           end
@@ -2744,6 +3115,7 @@ module ModernTreasury
           def metadata=(_)
           end
 
+          # This field will be `true` if the transaction has posted to the account.
           sig { returns(T.nilable(T::Boolean)) }
           def posted
           end
@@ -2752,6 +3124,8 @@ module ModernTreasury
           def posted=(_)
           end
 
+          # The type of the transaction. Examples could be
+          #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
           sig { returns(T.nilable(Symbol)) }
           def type
           end
@@ -2760,6 +3134,8 @@ module ModernTreasury
           def type=(_)
           end
 
+          # The transaction detail text that often appears in on your bank statement and in
+          #   your banking portal.
           sig { returns(T.nilable(String)) }
           def vendor_description
           end
@@ -2817,6 +3193,8 @@ module ModernTreasury
           def to_hash
           end
 
+          # The type of the transaction. Examples could be
+          #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
           class Type < ModernTreasury::Enum
             abstract!
 
@@ -2908,6 +3286,8 @@ module ModernTreasury
           def accounting=(_)
           end
 
+          # The ID of one of your accounting categories. Note that these will only be
+          #   accessible if your accounting system has been connected.
           sig { returns(T.nilable(String)) }
           def accounting_category_id
           end
@@ -2916,6 +3296,8 @@ module ModernTreasury
           def accounting_category_id=(_)
           end
 
+          # The ID of one of your accounting ledger classes. Note that these will only be
+          #   accessible if your accounting system has been connected.
           sig { returns(T.nilable(String)) }
           def accounting_ledger_class_id
           end
@@ -2924,6 +3306,8 @@ module ModernTreasury
           def accounting_ledger_class_id=(_)
           end
 
+          # Value in specified currency's smallest unit. e.g. $10 would be represented as
+          #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
           sig { returns(T.nilable(Integer)) }
           def amount
           end
@@ -2932,6 +3316,9 @@ module ModernTreasury
           def amount=(_)
           end
 
+          # The party that will pay the fees for the payment order. Only applies to wire
+          #   payment orders. Can be one of shared, sender, or receiver, which correspond
+          #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
           sig { returns(T.nilable(Symbol)) }
           def charge_bearer
           end
@@ -2940,6 +3327,7 @@ module ModernTreasury
           def charge_bearer=(_)
           end
 
+          # Required when receiving_account_id is passed the ID of an external account.
           sig { returns(T.nilable(String)) }
           def counterparty_id
           end
@@ -2948,6 +3336,7 @@ module ModernTreasury
           def counterparty_id=(_)
           end
 
+          # Defaults to the currency of the originating account.
           sig { returns(T.nilable(Symbol)) }
           def currency
           end
@@ -2956,6 +3345,7 @@ module ModernTreasury
           def currency=(_)
           end
 
+          # An optional description for internal use.
           sig { returns(T.nilable(String)) }
           def description
           end
@@ -2964,6 +3354,10 @@ module ModernTreasury
           def description=(_)
           end
 
+          # One of `credit`, `debit`. Describes the direction money is flowing in the
+          #   transaction. A `credit` moves money from your account to someone else's. A
+          #   `debit` pulls money from someone else's account to your own. Note that wire,
+          #   rtp, and check payments will always be `credit`.
           sig { returns(T.nilable(Symbol)) }
           def direction
           end
@@ -2972,6 +3366,9 @@ module ModernTreasury
           def direction=(_)
           end
 
+          # Date transactions are to be posted to the participants' account. Defaults to the
+          #   current business day or the next business day if the current day is a bank
+          #   holiday or weekend. Format: yyyy-mm-dd.
           sig { returns(T.nilable(Date)) }
           def effective_date
           end
@@ -2980,6 +3377,7 @@ module ModernTreasury
           def effective_date=(_)
           end
 
+          # RFP payments require an expires_at. This value must be past the effective_date.
           sig { returns(T.nilable(Time)) }
           def expires_at
           end
@@ -2988,6 +3386,9 @@ module ModernTreasury
           def expires_at=(_)
           end
 
+          # A payment type to fallback to if the original type is not valid for the
+          #   receiving account. Currently, this only supports falling back from RTP to ACH
+          #   (type=rtp and fallback_type=ach)
           sig { returns(T.nilable(Symbol)) }
           def fallback_type
           end
@@ -2996,6 +3397,8 @@ module ModernTreasury
           def fallback_type=(_)
           end
 
+          # If present, indicates a specific foreign exchange contract number that has been
+          #   generated by your financial institution.
           sig { returns(T.nilable(String)) }
           def foreign_exchange_contract
           end
@@ -3004,6 +3407,9 @@ module ModernTreasury
           def foreign_exchange_contract=(_)
           end
 
+          # Indicates the type of FX transfer to initiate, can be either
+          #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
+          #   currency matches the originating account currency.
           sig { returns(T.nilable(Symbol)) }
           def foreign_exchange_indicator
           end
@@ -3012,6 +3418,7 @@ module ModernTreasury
           def foreign_exchange_indicator=(_)
           end
 
+          # An array of line items that must sum up to the amount of the payment order.
           sig do
             returns(
               T.nilable(
@@ -3033,6 +3440,8 @@ module ModernTreasury
           def line_items=(_)
           end
 
+          # Additional data represented as key-value pairs. Both the key and value must be
+          #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           def metadata
           end
@@ -3041,6 +3450,8 @@ module ModernTreasury
           def metadata=(_)
           end
 
+          # A boolean to determine if NSF Protection is enabled for this payment order. Note
+          #   that this setting must also be turned on in your organization settings page.
           sig { returns(T.nilable(T::Boolean)) }
           def nsf_protected
           end
@@ -3049,6 +3460,7 @@ module ModernTreasury
           def nsf_protected=(_)
           end
 
+          # The ID of one of your organization's internal accounts.
           sig { returns(T.nilable(String)) }
           def originating_account_id
           end
@@ -3057,6 +3469,10 @@ module ModernTreasury
           def originating_account_id=(_)
           end
 
+          # If present, this will replace your default company name on receiver's bank
+          #   statement. This field can only be used for ACH payments currently. For ACH, only
+          #   the first 16 characters of this string will be used. Any additional characters
+          #   will be truncated.
           sig { returns(T.nilable(String)) }
           def originating_party_name
           end
@@ -3065,6 +3481,9 @@ module ModernTreasury
           def originating_party_name=(_)
           end
 
+          # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+          #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+          #   an overnight check rather than standard mail.
           sig { returns(T.nilable(Symbol)) }
           def priority
           end
@@ -3073,6 +3492,11 @@ module ModernTreasury
           def priority=(_)
           end
 
+          # If present, Modern Treasury will not process the payment until after this time.
+          #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
+          #   take precedence and `effective_date` will automatically update to reflect the
+          #   earliest possible sending date after `process_after`. Format is ISO8601
+          #   timestamp.
           sig { returns(T.nilable(Time)) }
           def process_after
           end
@@ -3081,6 +3505,9 @@ module ModernTreasury
           def process_after=(_)
           end
 
+          # For `wire`, this is usually the purpose which is transmitted via the
+          #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
+          #   digit CPA Code that will be attached to the payment.
           sig { returns(T.nilable(String)) }
           def purpose
           end
@@ -3089,6 +3516,9 @@ module ModernTreasury
           def purpose=(_)
           end
 
+          # Either `receiving_account` or `receiving_account_id` must be present. When using
+          #   `receiving_account_id`, you may pass the id of an external account or an
+          #   internal account.
           sig do
             returns(
               T.nilable(
@@ -3110,6 +3540,9 @@ module ModernTreasury
           def receiving_account=(_)
           end
 
+          # Either `receiving_account` or `receiving_account_id` must be present. When using
+          #   `receiving_account_id`, you may pass the id of an external account or an
+          #   internal account.
           sig { returns(T.nilable(String)) }
           def receiving_account_id
           end
@@ -3118,6 +3551,9 @@ module ModernTreasury
           def receiving_account_id=(_)
           end
 
+          # For `ach`, this field will be passed through on an addenda record. For `wire`
+          #   payments the field will be passed through as the "Originator to Beneficiary
+          #   Information", also known as OBI or Fedwire tag 6000.
           sig { returns(T.nilable(String)) }
           def remittance_information
           end
@@ -3126,6 +3562,8 @@ module ModernTreasury
           def remittance_information=(_)
           end
 
+          # Send an email to the counterparty when the payment order is sent to the bank. If
+          #   `null`, `send_remittance_advice` on the Counterparty is used.
           sig { returns(T.nilable(T::Boolean)) }
           def send_remittance_advice
           end
@@ -3134,6 +3572,12 @@ module ModernTreasury
           def send_remittance_advice=(_)
           end
 
+          # An optional descriptor which will appear in the receiver's statement. For
+          #   `check` payments this field will be used as the memo line. For `ach` the maximum
+          #   length is 10 characters. Note that for ACH payments, the name on your bank
+          #   account will be included automatically by the bank, so you can use the
+          #   characters for other useful information. For `eft` the maximum length is 15
+          #   characters.
           sig { returns(T.nilable(String)) }
           def statement_descriptor
           end
@@ -3142,6 +3586,9 @@ module ModernTreasury
           def statement_descriptor=(_)
           end
 
+          # To cancel a payment order, use `cancelled`. To redraft a returned payment order,
+          #   use `approved`. To undo approval on a denied or approved payment order, use
+          #   `needs_approval`.
           sig { returns(T.nilable(Symbol)) }
           def status
           end
@@ -3150,6 +3597,10 @@ module ModernTreasury
           def status=(_)
           end
 
+          # An additional layer of classification for the type of payment order you are
+          #   doing. This field is only used for `ach` payment orders currently. For `ach`
+          #   payment orders, the `subtype` represents the SEC code. We currently support
+          #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
           sig { returns(T.nilable(Symbol)) }
           def subtype
           end
@@ -3158,6 +3609,9 @@ module ModernTreasury
           def subtype=(_)
           end
 
+          # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
+          #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
+          #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
           sig { returns(T.nilable(Symbol)) }
           def type
           end
@@ -3166,6 +3620,9 @@ module ModernTreasury
           def type=(_)
           end
 
+          # This represents the identifier by which the person is known to the receiver when
+          #   using the CIE subtype for ACH payments. Only the first 22 characters of this
+          #   string will be used. Any additional characters will be truncated.
           sig { returns(T.nilable(String)) }
           def ultimate_originating_party_identifier
           end
@@ -3174,6 +3631,9 @@ module ModernTreasury
           def ultimate_originating_party_identifier=(_)
           end
 
+          # This represents the name of the person that the payment is on behalf of when
+          #   using the CIE subtype for ACH payments. Only the first 15 characters of this
+          #   string will be used. Any additional characters will be truncated.
           sig { returns(T.nilable(String)) }
           def ultimate_originating_party_name
           end
@@ -3182,6 +3642,9 @@ module ModernTreasury
           def ultimate_originating_party_name=(_)
           end
 
+          # This represents the name of the merchant that the payment is being sent to when
+          #   using the CIE subtype for ACH payments. Only the first 22 characters of this
+          #   string will be used. Any additional characters will be truncated.
           sig { returns(T.nilable(String)) }
           def ultimate_receiving_party_identifier
           end
@@ -3190,6 +3653,9 @@ module ModernTreasury
           def ultimate_receiving_party_identifier=(_)
           end
 
+          # This represents the identifier by which the merchant is known to the person
+          #   initiating an ACH payment with CIE subtype. Only the first 15 characters of this
+          #   string will be used. Any additional characters will be truncated.
           sig { returns(T.nilable(String)) }
           def ultimate_receiving_party_name
           end
@@ -3323,6 +3789,8 @@ module ModernTreasury
           end
 
           class Accounting < ModernTreasury::BaseModel
+            # The ID of one of your accounting categories. Note that these will only be
+            #   accessible if your accounting system has been connected.
             sig { returns(T.nilable(String)) }
             def account_id
             end
@@ -3331,6 +3799,9 @@ module ModernTreasury
             def account_id=(_)
             end
 
+            # The ID of one of the class objects in your accounting system. Class objects
+            #   track segments of your business independent of client or project. Note that
+            #   these will only be accessible if your accounting system has been connected.
             sig { returns(T.nilable(String)) }
             def class_id
             end
@@ -3350,6 +3821,9 @@ module ModernTreasury
             end
           end
 
+          # The party that will pay the fees for the payment order. Only applies to wire
+          #   payment orders. Can be one of shared, sender, or receiver, which correspond
+          #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
           class ChargeBearer < ModernTreasury::Enum
             abstract!
 
@@ -3364,6 +3838,10 @@ module ModernTreasury
             end
           end
 
+          # One of `credit`, `debit`. Describes the direction money is flowing in the
+          #   transaction. A `credit` moves money from your account to someone else's. A
+          #   `debit` pulls money from someone else's account to your own. Note that wire,
+          #   rtp, and check payments will always be `credit`.
           class Direction < ModernTreasury::Enum
             abstract!
 
@@ -3377,6 +3855,9 @@ module ModernTreasury
             end
           end
 
+          # A payment type to fallback to if the original type is not valid for the
+          #   receiving account. Currently, this only supports falling back from RTP to ACH
+          #   (type=rtp and fallback_type=ach)
           class FallbackType < ModernTreasury::Enum
             abstract!
 
@@ -3389,6 +3870,9 @@ module ModernTreasury
             end
           end
 
+          # Indicates the type of FX transfer to initiate, can be either
+          #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
+          #   currency matches the originating account currency.
           class ForeignExchangeIndicator < ModernTreasury::Enum
             abstract!
 
@@ -3403,6 +3887,8 @@ module ModernTreasury
           end
 
           class LineItem < ModernTreasury::BaseModel
+            # Value in specified currency's smallest unit. e.g. $10 would be represented
+            #   as 1000.
             sig { returns(Integer) }
             def amount
             end
@@ -3411,6 +3897,8 @@ module ModernTreasury
             def amount=(_)
             end
 
+            # The ID of one of your accounting categories. Note that these will only be
+            #   accessible if your accounting system has been connected.
             sig { returns(T.nilable(String)) }
             def accounting_category_id
             end
@@ -3419,6 +3907,7 @@ module ModernTreasury
             def accounting_category_id=(_)
             end
 
+            # A free-form description of the line item.
             sig { returns(T.nilable(String)) }
             def description
             end
@@ -3427,6 +3916,8 @@ module ModernTreasury
             def description=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -3462,6 +3953,9 @@ module ModernTreasury
             end
           end
 
+          # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
+          #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
+          #   an overnight check rather than standard mail.
           class Priority < ModernTreasury::Enum
             abstract!
 
@@ -3503,6 +3997,7 @@ module ModernTreasury
             def account_details=(_)
             end
 
+            # Can be `checking`, `savings` or `other`.
             sig { returns(T.nilable(Symbol)) }
             def account_type
             end
@@ -3538,6 +4033,11 @@ module ModernTreasury
             def contact_details=(_)
             end
 
+            # Specifies a ledger account object that will be created with the external
+            #   account. The resulting ledger account is linked to the external account for
+            #   auto-ledgering Payment objects. See
+            #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+            #   for more details.
             sig do
               returns(
                 T.nilable(
@@ -3559,6 +4059,8 @@ module ModernTreasury
             def ledger_account=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -3567,6 +4069,8 @@ module ModernTreasury
             def metadata=(_)
             end
 
+            # A nickname for the external account. This is only for internal usage and won't
+            #   affect any payments
             sig { returns(T.nilable(String)) }
             def name
             end
@@ -3575,6 +4079,7 @@ module ModernTreasury
             def name=(_)
             end
 
+            # Required if receiving wire payments.
             sig do
               returns(
                 T.nilable(
@@ -3604,6 +4109,7 @@ module ModernTreasury
             def party_identifier=(_)
             end
 
+            # If this value isn't provided, it will be inherited from the counterparty's name.
             sig { returns(T.nilable(String)) }
             def party_name
             end
@@ -3612,6 +4118,7 @@ module ModernTreasury
             def party_name=(_)
             end
 
+            # Either `individual` or `business`.
             sig { returns(T.nilable(Symbol)) }
             def party_type
             end
@@ -3620,6 +4127,8 @@ module ModernTreasury
             def party_type=(_)
             end
 
+            # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
+            #   you can pass the processor token in this field.
             sig { returns(T.nilable(String)) }
             def plaid_processor_token
             end
@@ -3655,6 +4164,9 @@ module ModernTreasury
             def routing_details=(_)
             end
 
+            # Either `receiving_account` or `receiving_account_id` must be present. When using
+            #   `receiving_account_id`, you may pass the id of an external account or an
+            #   internal account.
             sig do
               params(
                 account_details: T::Array[
@@ -3812,6 +4324,7 @@ module ModernTreasury
             end
 
             class LedgerAccount < ModernTreasury::BaseModel
+              # The currency of the ledger account.
               sig { returns(String) }
               def currency
               end
@@ -3820,6 +4333,7 @@ module ModernTreasury
               def currency=(_)
               end
 
+              # The id of the ledger that this account belongs to.
               sig { returns(String) }
               def ledger_id
               end
@@ -3828,6 +4342,7 @@ module ModernTreasury
               def ledger_id=(_)
               end
 
+              # The name of the ledger account.
               sig { returns(String) }
               def name
               end
@@ -3836,6 +4351,7 @@ module ModernTreasury
               def name=(_)
               end
 
+              # The normal balance of the ledger account.
               sig { returns(Symbol) }
               def normal_balance
               end
@@ -3844,6 +4360,7 @@ module ModernTreasury
               def normal_balance=(_)
               end
 
+              # The currency exponent of the ledger account.
               sig { returns(T.nilable(Integer)) }
               def currency_exponent
               end
@@ -3852,6 +4369,7 @@ module ModernTreasury
               def currency_exponent=(_)
               end
 
+              # The description of the ledger account.
               sig { returns(T.nilable(String)) }
               def description
               end
@@ -3860,6 +4378,8 @@ module ModernTreasury
               def description=(_)
               end
 
+              # The array of ledger account category ids that this ledger account should be a
+              #   child of.
               sig { returns(T.nilable(T::Array[String])) }
               def ledger_account_category_ids
               end
@@ -3868,6 +4388,8 @@ module ModernTreasury
               def ledger_account_category_ids=(_)
               end
 
+              # If the ledger account links to another object in Modern Treasury, the id will be
+              #   populated here, otherwise null.
               sig { returns(T.nilable(String)) }
               def ledgerable_id
               end
@@ -3876,6 +4398,9 @@ module ModernTreasury
               def ledgerable_id=(_)
               end
 
+              # If the ledger account links to another object in Modern Treasury, the type will
+              #   be populated here, otherwise null. The value is one of internal_account or
+              #   external_account.
               sig { returns(T.nilable(Symbol)) }
               def ledgerable_type
               end
@@ -3884,6 +4409,8 @@ module ModernTreasury
               def ledgerable_type=(_)
               end
 
+              # Additional data represented as key-value pairs. Both the key and value must be
+              #   strings.
               sig { returns(T.nilable(T::Hash[Symbol, String])) }
               def metadata
               end
@@ -3892,6 +4419,11 @@ module ModernTreasury
               def metadata=(_)
               end
 
+              # Specifies a ledger account object that will be created with the external
+              #   account. The resulting ledger account is linked to the external account for
+              #   auto-ledgering Payment objects. See
+              #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
+              #   for more details.
               sig do
                 params(
                   currency: String,
@@ -3941,6 +4473,9 @@ module ModernTreasury
               def to_hash
               end
 
+              # If the ledger account links to another object in Modern Treasury, the type will
+              #   be populated here, otherwise null. The value is one of internal_account or
+              #   external_account.
               class LedgerableType < ModernTreasury::Enum
                 abstract!
 
@@ -3958,6 +4493,7 @@ module ModernTreasury
             end
 
             class PartyAddress < ModernTreasury::BaseModel
+              # Country code conforms to [ISO 3166-1 alpha-2]
               sig { returns(T.nilable(String)) }
               def country
               end
@@ -3982,6 +4518,7 @@ module ModernTreasury
               def line2=(_)
               end
 
+              # Locality or City.
               sig { returns(T.nilable(String)) }
               def locality
               end
@@ -3990,6 +4527,7 @@ module ModernTreasury
               def locality=(_)
               end
 
+              # The postal code of the address.
               sig { returns(T.nilable(String)) }
               def postal_code
               end
@@ -3998,6 +4536,7 @@ module ModernTreasury
               def postal_code=(_)
               end
 
+              # Region or State.
               sig { returns(T.nilable(String)) }
               def region
               end
@@ -4006,6 +4545,7 @@ module ModernTreasury
               def region=(_)
               end
 
+              # Required if receiving wire payments.
               sig do
                 params(
                   country: T.nilable(String),
@@ -4037,6 +4577,7 @@ module ModernTreasury
               end
             end
 
+            # Either `individual` or `business`.
             class PartyType < ModernTreasury::Enum
               abstract!
 
@@ -4166,6 +4707,9 @@ module ModernTreasury
             end
           end
 
+          # To cancel a payment order, use `cancelled`. To redraft a returned payment order,
+          #   use `approved`. To undo approval on a denied or approved payment order, use
+          #   `needs_approval`.
           class Status < ModernTreasury::Enum
             abstract!
 
@@ -4198,6 +4742,8 @@ module ModernTreasury
           def id=(_)
           end
 
+          # The lowest amount this expected payment may be equal to. Value in specified
+          #   currency's smallest unit. e.g. $10 would be represented as 1000.
           sig { returns(T.nilable(Integer)) }
           def amount_lower_bound
           end
@@ -4206,6 +4752,8 @@ module ModernTreasury
           def amount_lower_bound=(_)
           end
 
+          # The highest amount this expected payment may be equal to. Value in specified
+          #   currency's smallest unit. e.g. $10 would be represented as 1000.
           sig { returns(T.nilable(Integer)) }
           def amount_upper_bound
           end
@@ -4214,6 +4762,7 @@ module ModernTreasury
           def amount_upper_bound=(_)
           end
 
+          # The ID of the counterparty you expect for this payment.
           sig { returns(T.nilable(String)) }
           def counterparty_id
           end
@@ -4222,6 +4771,7 @@ module ModernTreasury
           def counterparty_id=(_)
           end
 
+          # Must conform to ISO 4217. Defaults to the currency of the internal account.
           sig { returns(T.nilable(Symbol)) }
           def currency
           end
@@ -4230,6 +4780,7 @@ module ModernTreasury
           def currency=(_)
           end
 
+          # The earliest date the payment may come in. Format: yyyy-mm-dd
           sig { returns(T.nilable(Date)) }
           def date_lower_bound
           end
@@ -4238,6 +4789,7 @@ module ModernTreasury
           def date_lower_bound=(_)
           end
 
+          # The latest date the payment may come in. Format: yyyy-mm-dd
           sig { returns(T.nilable(Date)) }
           def date_upper_bound
           end
@@ -4246,6 +4798,7 @@ module ModernTreasury
           def date_upper_bound=(_)
           end
 
+          # An optional description for internal use.
           sig { returns(T.nilable(String)) }
           def description
           end
@@ -4254,6 +4807,8 @@ module ModernTreasury
           def description=(_)
           end
 
+          # One of credit or debit. When you are receiving money, use credit. When you are
+          #   being charged, use debit.
           sig { returns(T.nilable(Symbol)) }
           def direction
           end
@@ -4262,6 +4817,7 @@ module ModernTreasury
           def direction=(_)
           end
 
+          # The ID of the Internal Account for the expected payment.
           sig { returns(T.nilable(String)) }
           def internal_account_id
           end
@@ -4270,6 +4826,8 @@ module ModernTreasury
           def internal_account_id=(_)
           end
 
+          # Additional data represented as key-value pairs. Both the key and value must be
+          #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           def metadata
           end
@@ -4278,6 +4836,7 @@ module ModernTreasury
           def metadata=(_)
           end
 
+          # The reconciliation filters you have for this payment.
           sig { returns(T.nilable(T.anything)) }
           def reconciliation_filters
           end
@@ -4286,6 +4845,7 @@ module ModernTreasury
           def reconciliation_filters=(_)
           end
 
+          # The reconciliation groups you have for this payment.
           sig { returns(T.nilable(T.anything)) }
           def reconciliation_groups
           end
@@ -4294,6 +4854,7 @@ module ModernTreasury
           def reconciliation_groups=(_)
           end
 
+          # An array of reconciliation rule variables for this payment.
           sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
           def reconciliation_rule_variables
           end
@@ -4305,6 +4866,9 @@ module ModernTreasury
           def reconciliation_rule_variables=(_)
           end
 
+          # For `ach`, this field will be passed through on an addenda record. For `wire`
+          #   payments the field will be passed through as the "Originator to Beneficiary
+          #   Information", also known as OBI or Fedwire tag 6000.
           sig { returns(T.nilable(String)) }
           def remittance_information
           end
@@ -4313,6 +4877,10 @@ module ModernTreasury
           def remittance_information=(_)
           end
 
+          # The statement description you expect to see on the transaction. For ACH
+          #   payments, this will be the full line item passed from the bank. For wire
+          #   payments, this will be the OBI field on the wire. For check payments, this will
+          #   be the memo field.
           sig { returns(T.nilable(String)) }
           def statement_descriptor
           end
@@ -4321,6 +4889,8 @@ module ModernTreasury
           def statement_descriptor=(_)
           end
 
+          # The Expected Payment's status can be updated from partially_reconciled to
+          #   reconciled.
           sig { returns(T.nilable(Symbol)) }
           def status
           end
@@ -4329,6 +4899,8 @@ module ModernTreasury
           def status=(_)
           end
 
+          # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
+          #   sepa, signet, wire.
           sig { returns(T.nilable(Symbol)) }
           def type
           end
@@ -4410,6 +4982,8 @@ module ModernTreasury
           def to_hash
           end
 
+          # One of credit or debit. When you are receiving money, use credit. When you are
+          #   being charged, use debit.
           class Direction < ModernTreasury::Enum
             abstract!
 
@@ -4423,6 +4997,8 @@ module ModernTreasury
             end
           end
 
+          # The Expected Payment's status can be updated from partially_reconciled to
+          #   reconciled.
           class Status < ModernTreasury::Enum
             abstract!
 
@@ -4445,6 +5021,8 @@ module ModernTreasury
           def id=(_)
           end
 
+          # Additional data in the form of key-value pairs. Pairs can be removed by passing
+          #   an empty string or `null` as the value.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           def metadata
           end
@@ -4471,6 +5049,7 @@ module ModernTreasury
           def id=(_)
           end
 
+          # An optional description for internal use.
           sig { returns(T.nilable(String)) }
           def description
           end
@@ -4479,6 +5058,8 @@ module ModernTreasury
           def description=(_)
           end
 
+          # The timestamp (ISO8601 format) at which the ledger transaction happened for
+          #   reporting purposes.
           sig { returns(T.nilable(Time)) }
           def effective_at
           end
@@ -4487,6 +5068,7 @@ module ModernTreasury
           def effective_at=(_)
           end
 
+          # An array of ledger entry objects.
           sig do
             returns(
               T.nilable(
@@ -4514,6 +5096,8 @@ module ModernTreasury
           def ledger_entries=(_)
           end
 
+          # If the ledger transaction can be reconciled to another object in Modern
+          #   Treasury, the id will be populated here, otherwise null.
           sig { returns(T.nilable(String)) }
           def ledgerable_id
           end
@@ -4522,6 +5106,10 @@ module ModernTreasury
           def ledgerable_id=(_)
           end
 
+          # If the ledger transaction can be reconciled to another object in Modern
+          #   Treasury, the type will be populated here, otherwise null. This can be one of
+          #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+          #   reversal.
           sig { returns(T.nilable(Symbol)) }
           def ledgerable_type
           end
@@ -4530,6 +5118,8 @@ module ModernTreasury
           def ledgerable_type=(_)
           end
 
+          # Additional data represented as key-value pairs. Both the key and value must be
+          #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
           def metadata
           end
@@ -4538,6 +5128,7 @@ module ModernTreasury
           def metadata=(_)
           end
 
+          # To post a ledger transaction at creation, use `posted`.
           sig { returns(T.nilable(Symbol)) }
           def status
           end
@@ -4594,6 +5185,8 @@ module ModernTreasury
           end
 
           class LedgerEntry < ModernTreasury::BaseModel
+            # Value in specified currency's smallest unit. e.g. $10 would be represented
+            #   as 1000. Can be any integer up to 36 digits.
             sig { returns(Integer) }
             def amount
             end
@@ -4602,6 +5195,10 @@ module ModernTreasury
             def amount=(_)
             end
 
+            # One of `credit`, `debit`. Describes the direction money is flowing in the
+            #   transaction. A `credit` moves money from your account to someone else's. A
+            #   `debit` pulls money from someone else's account to your own. Note that wire,
+            #   rtp, and check payments will always be `credit`.
             sig { returns(Symbol) }
             def direction
             end
@@ -4610,6 +5207,7 @@ module ModernTreasury
             def direction=(_)
             end
 
+            # The ledger account that this ledger entry is associated with.
             sig { returns(String) }
             def ledger_account_id
             end
@@ -4618,6 +5216,9 @@ module ModernTreasury
             def ledger_account_id=(_)
             end
 
+            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   account’s available balance. If any of these conditions would be false after the
+            #   transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             def available_balance_amount
             end
@@ -4628,6 +5229,10 @@ module ModernTreasury
             def available_balance_amount=(_)
             end
 
+            # Lock version of the ledger account. This can be passed when creating a ledger
+            #   transaction to only succeed if no ledger transactions have posted since the
+            #   given version. See our post about Designing the Ledgers API with Optimistic
+            #   Locking for more details.
             sig { returns(T.nilable(Integer)) }
             def lock_version
             end
@@ -4636,6 +5241,8 @@ module ModernTreasury
             def lock_version=(_)
             end
 
+            # Additional data represented as key-value pairs. Both the key and value must be
+            #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
             def metadata
             end
@@ -4644,6 +5251,9 @@ module ModernTreasury
             def metadata=(_)
             end
 
+            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   account’s pending balance. If any of these conditions would be false after the
+            #   transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             def pending_balance_amount
             end
@@ -4654,6 +5264,9 @@ module ModernTreasury
             def pending_balance_amount=(_)
             end
 
+            # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
+            #   account’s posted balance. If any of these conditions would be false after the
+            #   transaction is created, the entire call will fail with error code 422.
             sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
             def posted_balance_amount
             end
@@ -4664,6 +5277,8 @@ module ModernTreasury
             def posted_balance_amount=(_)
             end
 
+            # If true, response will include the balance of the associated ledger account for
+            #   the entry.
             sig { returns(T.nilable(T::Boolean)) }
             def show_resulting_ledger_account_balances
             end
@@ -4719,6 +5334,10 @@ module ModernTreasury
             end
           end
 
+          # If the ledger transaction can be reconciled to another object in Modern
+          #   Treasury, the type will be populated here, otherwise null. This can be one of
+          #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
+          #   reversal.
           class LedgerableType < ModernTreasury::Enum
             abstract!
 
@@ -4736,6 +5355,7 @@ module ModernTreasury
             end
           end
 
+          # To post a ledger transaction at creation, use `posted`.
           class Status < ModernTreasury::Enum
             abstract!
 
@@ -4752,6 +5372,7 @@ module ModernTreasury
         end
 
         class << self
+          # @api private
           sig do
             override
               .returns(

@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class BulkRequests
+      # create bulk_request
       sig do
         params(
           action_type: Symbol,
@@ -28,6 +29,7 @@ module ModernTreasury
       def create(action_type:, resource_type:, resources:, metadata: nil, request_options: {})
       end
 
+      # get bulk_request
       sig do
         params(
           id: String,
@@ -38,6 +40,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # list bulk_requests
       sig do
         params(
           action_type: Symbol,

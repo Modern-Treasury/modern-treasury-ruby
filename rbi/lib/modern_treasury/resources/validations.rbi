@@ -3,6 +3,8 @@
 module ModernTreasury
   module Resources
     class Validations
+      # Validates the routing number information supplied without creating a routing
+      #   detail
       sig do
         params(
           routing_number: String,

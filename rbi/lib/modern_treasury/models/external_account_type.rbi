@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # Can be `checking`, `savings` or `other`.
     class ExternalAccountType < ModernTreasury::Enum
       abstract!
 

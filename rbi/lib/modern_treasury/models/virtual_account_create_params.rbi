@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The ID of the internal account that this virtual account is associated with.
       sig { returns(String) }
       def internal_account_id
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # The name of the virtual account.
       sig { returns(String) }
       def name
       end
@@ -22,6 +24,7 @@ module ModernTreasury
       def name=(_)
       end
 
+      # An array of account detail objects.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail])) }
       def account_details
       end
@@ -33,6 +36,7 @@ module ModernTreasury
       def account_details=(_)
       end
 
+      # The ID of the counterparty that the virtual account belongs to.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -41,6 +45,9 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # The ID of a credit normal ledger account. When money leaves the virtual account,
+      #   this ledger account will be credited. Must be accompanied by a
+      #   debit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
       def credit_ledger_account_id
       end
@@ -49,6 +56,9 @@ module ModernTreasury
       def credit_ledger_account_id=(_)
       end
 
+      # The ID of a debit normal ledger account. When money enters the virtual account,
+      #   this ledger account will be debited. Must be accompanied by a
+      #   credit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
       def debit_ledger_account_id
       end
@@ -57,6 +67,7 @@ module ModernTreasury
       def debit_ledger_account_id=(_)
       end
 
+      # An optional description for internal use.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -65,6 +76,9 @@ module ModernTreasury
       def description=(_)
       end
 
+      # Specifies a ledger account object that will be created with the virtual account.
+      #   The resulting ledger account is linked to the virtual account for auto-ledgering
+      #   IPDs.
       sig { returns(T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)) }
       def ledger_account
       end
@@ -76,6 +90,8 @@ module ModernTreasury
       def ledger_account=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -84,6 +100,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # An array of routing detail objects.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])) }
       def routing_details
       end
@@ -148,6 +165,7 @@ module ModernTreasury
       end
 
       class AccountDetail < ModernTreasury::BaseModel
+        # The account number for the bank account.
         sig { returns(String) }
         def account_number
         end
@@ -156,6 +174,8 @@ module ModernTreasury
         def account_number=(_)
         end
 
+        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+        #   account number is in a generic format.
         sig { returns(T.nilable(Symbol)) }
         def account_number_type
         end
@@ -172,6 +192,8 @@ module ModernTreasury
         def to_hash
         end
 
+        # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
+        #   account number is in a generic format.
         class AccountNumberType < ModernTreasury::Enum
           abstract!
 
@@ -195,6 +217,7 @@ module ModernTreasury
       end
 
       class LedgerAccount < ModernTreasury::BaseModel
+        # The currency of the ledger account.
         sig { returns(String) }
         def currency
         end
@@ -203,6 +226,7 @@ module ModernTreasury
         def currency=(_)
         end
 
+        # The id of the ledger that this account belongs to.
         sig { returns(String) }
         def ledger_id
         end
@@ -211,6 +235,7 @@ module ModernTreasury
         def ledger_id=(_)
         end
 
+        # The name of the ledger account.
         sig { returns(String) }
         def name
         end
@@ -219,6 +244,7 @@ module ModernTreasury
         def name=(_)
         end
 
+        # The normal balance of the ledger account.
         sig { returns(Symbol) }
         def normal_balance
         end
@@ -227,6 +253,7 @@ module ModernTreasury
         def normal_balance=(_)
         end
 
+        # The currency exponent of the ledger account.
         sig { returns(T.nilable(Integer)) }
         def currency_exponent
         end
@@ -235,6 +262,7 @@ module ModernTreasury
         def currency_exponent=(_)
         end
 
+        # The description of the ledger account.
         sig { returns(T.nilable(String)) }
         def description
         end
@@ -243,6 +271,8 @@ module ModernTreasury
         def description=(_)
         end
 
+        # The array of ledger account category ids that this ledger account should be a
+        #   child of.
         sig { returns(T.nilable(T::Array[String])) }
         def ledger_account_category_ids
         end
@@ -251,6 +281,8 @@ module ModernTreasury
         def ledger_account_category_ids=(_)
         end
 
+        # If the ledger account links to another object in Modern Treasury, the id will be
+        #   populated here, otherwise null.
         sig { returns(T.nilable(String)) }
         def ledgerable_id
         end
@@ -259,6 +291,9 @@ module ModernTreasury
         def ledgerable_id=(_)
         end
 
+        # If the ledger account links to another object in Modern Treasury, the type will
+        #   be populated here, otherwise null. The value is one of internal_account or
+        #   external_account.
         sig { returns(T.nilable(Symbol)) }
         def ledgerable_type
         end
@@ -267,6 +302,8 @@ module ModernTreasury
         def ledgerable_type=(_)
         end
 
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
         def metadata
         end
@@ -275,6 +312,9 @@ module ModernTreasury
         def metadata=(_)
         end
 
+        # Specifies a ledger account object that will be created with the virtual account.
+        #   The resulting ledger account is linked to the virtual account for auto-ledgering
+        #   IPDs.
         sig do
           params(
             currency: String,
@@ -324,6 +364,9 @@ module ModernTreasury
         def to_hash
         end
 
+        # If the ledger account links to another object in Modern Treasury, the type will
+        #   be populated here, otherwise null. The value is one of internal_account or
+        #   external_account.
         class LedgerableType < ModernTreasury::Enum
           abstract!
 
@@ -341,6 +384,7 @@ module ModernTreasury
       end
 
       class RoutingDetail < ModernTreasury::BaseModel
+        # The routing number of the bank.
         sig { returns(String) }
         def routing_number
         end
@@ -349,6 +393,9 @@ module ModernTreasury
         def routing_number=(_)
         end
 
+        # The type of routing number. See
+        #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+        #   more details.
         sig { returns(Symbol) }
         def routing_number_type
         end
@@ -357,6 +404,8 @@ module ModernTreasury
         def routing_number_type=(_)
         end
 
+        # If the routing detail is to be used for a specific payment type this field will
+        #   be populated, otherwise null.
         sig { returns(T.nilable(Symbol)) }
         def payment_type
         end
@@ -384,6 +433,9 @@ module ModernTreasury
         def to_hash
         end
 
+        # The type of routing number. See
+        #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+        #   more details.
         class RoutingNumberType < ModernTreasury::Enum
           abstract!
 
@@ -416,6 +468,8 @@ module ModernTreasury
           end
         end
 
+        # If the routing detail is to be used for a specific payment type this field will
+        #   be populated, otherwise null.
         class PaymentType < ModernTreasury::Enum
           abstract!
 

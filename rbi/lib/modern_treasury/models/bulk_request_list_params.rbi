@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # One of create, or update.
       sig { returns(T.nilable(Symbol)) }
       def action_type
       end
@@ -22,6 +23,9 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -38,6 +42,7 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # One of payment_order, expected_payment, or ledger_transaction.
       sig { returns(T.nilable(Symbol)) }
       def resource_type
       end
@@ -46,6 +51,7 @@ module ModernTreasury
       def resource_type=(_)
       end
 
+      # One of pending, processing, or completed.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -94,6 +100,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # One of create, or update.
       class ActionType < ModernTreasury::Enum
         abstract!
 
@@ -108,6 +115,7 @@ module ModernTreasury
         end
       end
 
+      # One of payment_order, expected_payment, or ledger_transaction.
       class ResourceType < ModernTreasury::Enum
         abstract!
 
@@ -123,6 +131,7 @@ module ModernTreasury
         end
       end
 
+      # One of pending, processing, or completed.
       class Status < ModernTreasury::Enum
         abstract!
 

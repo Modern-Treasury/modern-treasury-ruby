@@ -19,6 +19,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The body of the event.
       sig { returns(T::Hash[Symbol, T.anything]) }
       def data
       end
@@ -27,6 +28,7 @@ module ModernTreasury
       def data=(_)
       end
 
+      # The ID of the entity for the event.
       sig { returns(String) }
       def entity_id
       end
@@ -35,6 +37,7 @@ module ModernTreasury
       def entity_id=(_)
       end
 
+      # The name of the event.
       sig { returns(String) }
       def event_name
       end
@@ -43,6 +46,7 @@ module ModernTreasury
       def event_name=(_)
       end
 
+      # The time of the event.
       sig { returns(Time) }
       def event_time
       end
@@ -51,6 +55,8 @@ module ModernTreasury
       def event_time=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -67,6 +73,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The type of resource for the event.
       sig { returns(String) }
       def resource
       end

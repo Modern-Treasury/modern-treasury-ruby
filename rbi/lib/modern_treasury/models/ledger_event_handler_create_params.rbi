@@ -17,6 +17,7 @@ module ModernTreasury
       def ledger_transaction_template=(_)
       end
 
+      # Name of the ledger event handler.
       sig { returns(String) }
       def name
       end
@@ -36,6 +37,7 @@ module ModernTreasury
       def conditions=(_)
       end
 
+      # An optional description.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -44,6 +46,7 @@ module ModernTreasury
       def description=(_)
       end
 
+      # The id of the ledger that this account belongs to.
       sig { returns(T.nilable(String)) }
       def ledger_id
       end
@@ -52,6 +55,8 @@ module ModernTreasury
       def ledger_id=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -115,6 +120,7 @@ module ModernTreasury
       end
 
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
+        # An optional description for internal use.
         sig { returns(T.nilable(String)) }
         def description
         end
@@ -123,6 +129,8 @@ module ModernTreasury
         def description=(_)
         end
 
+        # The timestamp (ISO8601 format) at which the ledger transaction happened for
+        #   reporting purposes.
         sig { returns(T.nilable(String)) }
         def effective_at
         end
@@ -131,6 +139,7 @@ module ModernTreasury
         def effective_at=(_)
         end
 
+        # An array of ledger entry objects.
         sig do
           returns(
             T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
@@ -150,6 +159,7 @@ module ModernTreasury
         def ledger_entries=(_)
         end
 
+        # To post a ledger transaction at creation, use `posted`.
         sig { returns(T.nilable(String)) }
         def status
         end
@@ -185,6 +195,7 @@ module ModernTreasury
         end
 
         class LedgerEntry < ModernTreasury::BaseModel
+          # The LHS of the conditional.
           sig { returns(String) }
           def amount
           end
@@ -193,6 +204,7 @@ module ModernTreasury
           def amount=(_)
           end
 
+          # What the operator between the `field` and `value` is.
           sig { returns(String) }
           def direction
           end
@@ -201,6 +213,7 @@ module ModernTreasury
           def direction=(_)
           end
 
+          # The RHS of the conditional.
           sig { returns(String) }
           def ledger_account_id
           end
@@ -222,6 +235,7 @@ module ModernTreasury
       end
 
       class Conditions < ModernTreasury::BaseModel
+        # The LHS of the conditional.
         sig { returns(String) }
         def field
         end
@@ -230,6 +244,7 @@ module ModernTreasury
         def field=(_)
         end
 
+        # What the operator between the `field` and `value` is.
         sig { returns(String) }
         def operator
         end
@@ -238,6 +253,7 @@ module ModernTreasury
         def operator=(_)
         end
 
+        # The RHS of the conditional.
         sig { returns(String) }
         def value
         end

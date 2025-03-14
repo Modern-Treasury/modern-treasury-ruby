@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class ExternalAccounts
+      # create external account
       sig do
         params(
           counterparty_id: T.nilable(String),
@@ -40,6 +41,7 @@ module ModernTreasury
       )
       end
 
+      # show external account
       sig do
         params(
           id: String,
@@ -50,6 +52,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # update external account
       sig do
         params(
           id: String,
@@ -77,6 +80,7 @@ module ModernTreasury
       )
       end
 
+      # list external accounts
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -98,6 +102,7 @@ module ModernTreasury
       )
       end
 
+      # delete external account
       sig do
         params(
           id: String,
@@ -108,6 +113,7 @@ module ModernTreasury
       def delete(id, request_options: {})
       end
 
+      # complete verification of external account
       sig do
         params(
           id: String,
@@ -119,6 +125,7 @@ module ModernTreasury
       def complete_verification(id, amounts: nil, request_options: {})
       end
 
+      # verify external account
       sig do
         params(
           id: String,

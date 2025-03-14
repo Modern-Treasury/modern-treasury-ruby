@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The routing number that is being validated.
       sig { returns(String) }
       def routing_number
       end
@@ -14,6 +15,10 @@ module ModernTreasury
       def routing_number=(_)
       end
 
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details. In sandbox mode we currently only support `aba` and `swift` with
+      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       sig { returns(Symbol) }
       def routing_number_type
       end
@@ -46,6 +51,10 @@ module ModernTreasury
       def to_hash
       end
 
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details. In sandbox mode we currently only support `aba` and `swift` with
+      #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       class RoutingNumberType < ModernTreasury::Enum
         abstract!
 

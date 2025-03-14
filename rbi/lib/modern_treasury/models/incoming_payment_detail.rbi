@@ -11,6 +11,8 @@ module ModernTreasury
       def id=(_)
       end
 
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000.
       sig { returns(Integer) }
       def amount
       end
@@ -19,6 +21,7 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # The date on which the corresponding transaction will occur.
       sig { returns(Date) }
       def as_of_date
       end
@@ -35,6 +38,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The currency of the incoming payment detail.
       sig { returns(Symbol) }
       def currency
       end
@@ -43,6 +47,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # The raw data from the payment pre-notification file that we get from the bank.
       sig { returns(T::Hash[Symbol, T.anything]) }
       def data
       end
@@ -51,6 +56,7 @@ module ModernTreasury
       def data=(_)
       end
 
+      # One of `credit` or `debit`.
       sig { returns(Symbol) }
       def direction
       end
@@ -59,6 +65,8 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # The ID of the Internal Account for the incoming payment detail. This is always
+      #   present.
       sig { returns(String) }
       def internal_account_id
       end
@@ -67,6 +75,8 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # The ID of the ledger transaction linked to the incoming payment detail or
+      #   `null`.
       sig { returns(T.nilable(String)) }
       def ledger_transaction_id
       end
@@ -75,6 +85,8 @@ module ModernTreasury
       def ledger_transaction_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -83,6 +95,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -99,6 +113,8 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The last 4 digits of the originating account_number for the incoming payment
+      #   detail.
       sig { returns(T.nilable(String)) }
       def originating_account_number_safe
       end
@@ -107,6 +123,7 @@ module ModernTreasury
       def originating_account_number_safe=(_)
       end
 
+      # The type of the originating account number for the incoming payment detail.
       sig { returns(T.nilable(Symbol)) }
       def originating_account_number_type
       end
@@ -115,6 +132,7 @@ module ModernTreasury
       def originating_account_number_type=(_)
       end
 
+      # The routing number of the originating account for the incoming payment detail.
       sig { returns(T.nilable(String)) }
       def originating_routing_number
       end
@@ -123,6 +141,7 @@ module ModernTreasury
       def originating_routing_number=(_)
       end
 
+      # The type of the originating routing number for the incoming payment detail.
       sig { returns(T.nilable(Symbol)) }
       def originating_routing_number_type
       end
@@ -131,6 +150,8 @@ module ModernTreasury
       def originating_routing_number_type=(_)
       end
 
+      # The current status of the incoming payment order. One of `pending`, `completed`,
+      #   or `returned`.
       sig { returns(Symbol) }
       def status
       end
@@ -139,6 +160,7 @@ module ModernTreasury
       def status=(_)
       end
 
+      # The ID of the reconciled Transaction or `null`.
       sig { returns(T.nilable(String)) }
       def transaction_id
       end
@@ -147,6 +169,7 @@ module ModernTreasury
       def transaction_id=(_)
       end
 
+      # The ID of the reconciled Transaction Line Item or `null`.
       sig { returns(T.nilable(String)) }
       def transaction_line_item_id
       end
@@ -155,6 +178,8 @@ module ModernTreasury
       def transaction_line_item_id=(_)
       end
 
+      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   `wire`.
       sig { returns(Symbol) }
       def type
       end
@@ -171,6 +196,7 @@ module ModernTreasury
       def updated_at=(_)
       end
 
+      # The identifier of the vendor bank.
       sig { returns(T.nilable(String)) }
       def vendor_id
       end
@@ -179,6 +205,8 @@ module ModernTreasury
       def vendor_id=(_)
       end
 
+      # If the incoming payment detail is in a virtual account, the serialized virtual
+      #   account object.
       sig { returns(T.nilable(ModernTreasury::Models::VirtualAccount)) }
       def virtual_account
       end
@@ -190,6 +218,8 @@ module ModernTreasury
       def virtual_account=(_)
       end
 
+      # If the incoming payment detail is in a virtual account, the ID of the Virtual
+      #   Account.
       sig { returns(T.nilable(String)) }
       def virtual_account_id
       end
@@ -198,6 +228,7 @@ module ModernTreasury
       def virtual_account_id=(_)
       end
 
+      # The account number of the originating account for the incoming payment detail.
       sig { returns(T.nilable(String)) }
       def originating_account_number
       end
@@ -300,6 +331,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # The type of the originating account number for the incoming payment detail.
       class OriginatingAccountNumberType < ModernTreasury::Enum
         abstract!
 
@@ -321,6 +353,7 @@ module ModernTreasury
         end
       end
 
+      # The type of the originating routing number for the incoming payment detail.
       class OriginatingRoutingNumberType < ModernTreasury::Enum
         abstract!
 
@@ -353,6 +386,8 @@ module ModernTreasury
         end
       end
 
+      # The current status of the incoming payment order. One of `pending`, `completed`,
+      #   or `returned`.
       class Status < ModernTreasury::Enum
         abstract!
 
@@ -367,6 +402,8 @@ module ModernTreasury
         end
       end
 
+      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   `wire`.
       class Type < ModernTreasury::Enum
         abstract!
 

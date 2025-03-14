@@ -14,6 +14,8 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Filters incoming payment details with an as_of_date starting on or before the
+      #   specified date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       def as_of_date_end
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def as_of_date_end=(_)
       end
 
+      # Filters incoming payment details with an as_of_date starting on or after the
+      #   specified date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       def as_of_date_start
       end
@@ -30,6 +34,7 @@ module ModernTreasury
       def as_of_date_start=(_)
       end
 
+      # One of `credit` or `debit`.
       sig { returns(T.nilable(Symbol)) }
       def direction
       end
@@ -38,6 +43,9 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -54,6 +62,8 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # The current status of the incoming payment order. One of `pending`, `completed`,
+      #   or `returned`.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -62,6 +72,8 @@ module ModernTreasury
       def status=(_)
       end
 
+      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   `wire`.
       sig { returns(T.nilable(Symbol)) }
       def type
       end
@@ -70,6 +82,8 @@ module ModernTreasury
       def type=(_)
       end
 
+      # If the incoming payment detail is in a virtual account, the ID of the Virtual
+      #   Account.
       sig { returns(T.nilable(String)) }
       def virtual_account_id
       end
@@ -127,6 +141,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # The current status of the incoming payment order. One of `pending`, `completed`,
+      #   or `returned`.
       class Status < ModernTreasury::Enum
         abstract!
 
@@ -141,6 +157,8 @@ module ModernTreasury
         end
       end
 
+      # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
+      #   `wire`.
       class Type < ModernTreasury::Enum
         abstract!
 

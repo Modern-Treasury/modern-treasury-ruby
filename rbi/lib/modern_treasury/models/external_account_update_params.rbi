@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Can be `checking`, `savings` or `other`.
       sig { returns(T.nilable(Symbol)) }
       def account_type
       end
@@ -22,6 +23,8 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -30,6 +33,8 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # A nickname for the external account. This is only for internal usage and won't
+      #   affect any payments
       sig { returns(T.nilable(String)) }
       def name
       end
@@ -49,6 +54,7 @@ module ModernTreasury
       def party_address=(_)
       end
 
+      # If this value isn't provided, it will be inherited from the counterparty's name.
       sig { returns(T.nilable(String)) }
       def party_name
       end
@@ -57,6 +63,7 @@ module ModernTreasury
       def party_name=(_)
       end
 
+      # Either `individual` or `business`.
       sig { returns(T.nilable(Symbol)) }
       def party_type
       end
@@ -109,6 +116,7 @@ module ModernTreasury
       end
 
       class PartyAddress < ModernTreasury::BaseModel
+        # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         def country
         end
@@ -133,6 +141,7 @@ module ModernTreasury
         def line2=(_)
         end
 
+        # Locality or City.
         sig { returns(T.nilable(String)) }
         def locality
         end
@@ -141,6 +150,7 @@ module ModernTreasury
         def locality=(_)
         end
 
+        # The postal code of the address.
         sig { returns(T.nilable(String)) }
         def postal_code
         end
@@ -149,6 +159,7 @@ module ModernTreasury
         def postal_code=(_)
         end
 
+        # Region or State.
         sig { returns(T.nilable(String)) }
         def region
         end
@@ -188,6 +199,7 @@ module ModernTreasury
         end
       end
 
+      # Either `individual` or `business`.
       class PartyType < ModernTreasury::Enum
         abstract!
 

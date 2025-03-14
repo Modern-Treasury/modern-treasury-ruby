@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LedgerEntries
+      # Get details on a single ledger entry.
       sig do
         params(
           id: String,
@@ -14,6 +15,7 @@ module ModernTreasury
       def retrieve(id, show_balances: nil, request_options: {})
       end
 
+      # Update the details of a ledger entry.
       sig do
         params(
           id: String,
@@ -25,6 +27,7 @@ module ModernTreasury
       def update(id, metadata: nil, request_options: {})
       end
 
+      # Get a list of all ledger entries.
       sig do
         params(
           id: T::Array[String],

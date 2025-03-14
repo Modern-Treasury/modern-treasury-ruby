@@ -11,6 +11,8 @@ module ModernTreasury
       def id=(_)
       end
 
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000. Can be any integer up to 36 digits.
       sig { returns(T.nilable(Integer)) }
       def amount
       end
@@ -19,6 +21,8 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # The client token of the payment flow. This token can be used to embed a payment
+      #   workflow in your client-side application.
       sig { returns(T.nilable(String)) }
       def client_token
       end
@@ -27,6 +31,8 @@ module ModernTreasury
       def client_token=(_)
       end
 
+      # The ID of a counterparty associated with the payment. As part of the payment
+      #   workflow an external account will be associated with this counterparty.
       sig { returns(T.nilable(String)) }
       def counterparty_id
       end
@@ -43,6 +49,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The currency of the payment.
       sig { returns(T.nilable(String)) }
       def currency
       end
@@ -51,6 +58,8 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # Describes the direction money is flowing in the transaction. Can only be
+      #   `debit`. A `debit` pulls money from someone else's account to your own.
       sig { returns(T.nilable(Symbol)) }
       def direction
       end
@@ -59,6 +68,8 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # The due date for the flow. Can only be passed in when
+      #   `effective_date_selection_enabled` is `true`.
       sig { returns(T.nilable(Date)) }
       def due_date
       end
@@ -67,6 +78,8 @@ module ModernTreasury
       def due_date=(_)
       end
 
+      # When `true`, your end-user can schedule the payment `effective_date` while
+      #   completing the pre-built UI.
       sig { returns(T.nilable(T::Boolean)) }
       def effective_date_selection_enabled
       end
@@ -75,6 +88,9 @@ module ModernTreasury
       def effective_date_selection_enabled=(_)
       end
 
+      # When `verified` and `external_account_collection` is `enabled`, filters the list
+      #   of external accounts your end-user can select to those with a
+      #   `verification_status` of `verified`.
       sig { returns(T.nilable(Symbol)) }
       def existing_external_accounts_filter
       end
@@ -83,6 +99,9 @@ module ModernTreasury
       def existing_external_accounts_filter=(_)
       end
 
+      # When `enabled`, your end-user can select from an existing external account when
+      #   completing the flow. When `disabled`, your end-user must add new payment details
+      #   when completing the flow.
       sig { returns(T.nilable(Symbol)) }
       def external_account_collection
       end
@@ -91,6 +110,8 @@ module ModernTreasury
       def external_account_collection=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T.nilable(T::Boolean)) }
       def live_mode
       end
@@ -107,6 +128,7 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The ID of one of your organization's internal accounts.
       sig { returns(T.nilable(String)) }
       def originating_account_id
       end
@@ -115,6 +137,7 @@ module ModernTreasury
       def originating_account_id=(_)
       end
 
+      # If present, the ID of the payment order created using this flow.
       sig { returns(T.nilable(String)) }
       def payment_order_id
       end
@@ -123,6 +146,7 @@ module ModernTreasury
       def payment_order_id=(_)
       end
 
+      # If present, the ID of the external account created using this flow.
       sig { returns(T.nilable(String)) }
       def receiving_account_id
       end
@@ -131,6 +155,9 @@ module ModernTreasury
       def receiving_account_id=(_)
       end
 
+      # This field is set after your end-user selects a payment date while completing
+      #   the pre-built UI. This field is always `null` unless
+      #   `effective_date_selection_enabled` is `true`.
       sig { returns(T.nilable(Date)) }
       def selected_effective_date
       end
@@ -139,6 +166,8 @@ module ModernTreasury
       def selected_effective_date=(_)
       end
 
+      # The current status of the payment flow. One of `pending`, `completed`,
+      #   `expired`, or `cancelled`.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -231,6 +260,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # Describes the direction money is flowing in the transaction. Can only be
+      #   `debit`. A `debit` pulls money from someone else's account to your own.
       class Direction < ModernTreasury::Enum
         abstract!
 
@@ -244,6 +275,9 @@ module ModernTreasury
         end
       end
 
+      # When `verified` and `external_account_collection` is `enabled`, filters the list
+      #   of external accounts your end-user can select to those with a
+      #   `verification_status` of `verified`.
       class ExistingExternalAccountsFilter < ModernTreasury::Enum
         abstract!
 
@@ -256,6 +290,9 @@ module ModernTreasury
         end
       end
 
+      # When `enabled`, your end-user can select from an existing external account when
+      #   completing the flow. When `disabled`, your end-user must add new payment details
+      #   when completing the flow.
       class ExternalAccountCollection < ModernTreasury::Enum
         abstract!
 
@@ -269,6 +306,8 @@ module ModernTreasury
         end
       end
 
+      # The current status of the payment flow. One of `pending`, `completed`,
+      #   `expired`, or `cancelled`.
       class Status < ModernTreasury::Enum
         abstract!
 

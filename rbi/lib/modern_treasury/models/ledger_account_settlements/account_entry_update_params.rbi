@@ -7,6 +7,8 @@ module ModernTreasury
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
+        # The ids of the ledger entries that are to be added or removed from the ledger
+        #   account settlement.
         sig { returns(T.nilable(T::Array[String])) }
         def ledger_entry_ids
         end

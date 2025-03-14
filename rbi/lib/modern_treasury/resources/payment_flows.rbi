@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class PaymentFlows
+      # create payment_flow
       sig do
         params(
           amount: Integer,
@@ -26,6 +27,7 @@ module ModernTreasury
       )
       end
 
+      # get payment_flow
       sig do
         params(
           id: String,
@@ -36,6 +38,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # update payment_flow
       sig do
         params(
           id: String,
@@ -47,6 +50,7 @@ module ModernTreasury
       def update(id, status:, request_options: {})
       end
 
+      # list payment_flows
       sig do
         params(
           after_cursor: T.nilable(String),

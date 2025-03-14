@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LedgerableEvents
+      # Create a ledgerable event.
       sig do
         params(
           name: String,
@@ -16,6 +17,7 @@ module ModernTreasury
       def create(name:, custom_data: nil, description: nil, metadata: nil, request_options: {})
       end
 
+      # Get details on a single ledgerable event.
       sig do
         params(
           id: String,

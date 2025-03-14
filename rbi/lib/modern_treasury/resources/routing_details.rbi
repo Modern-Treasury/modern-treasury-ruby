@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class RoutingDetails
+      # Create a routing detail for a single external account.
       sig do
         params(
           account_id: String,
@@ -24,6 +25,7 @@ module ModernTreasury
       )
       end
 
+      # Get a single routing detail for a single internal or external account.
       sig do
         params(
           id: String,
@@ -36,6 +38,7 @@ module ModernTreasury
       def retrieve(id, accounts_type:, account_id:, request_options: {})
       end
 
+      # Get a list of routing details for a single internal or external account.
       sig do
         params(
           account_id: String,
@@ -49,6 +52,7 @@ module ModernTreasury
       def list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {})
       end
 
+      # Delete a routing detail for a single external account.
       sig do
         params(
           id: String,

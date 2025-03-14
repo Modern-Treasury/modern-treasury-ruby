@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # Three-letter ISO currency code.
     class Currency < ModernTreasury::Enum
       abstract!
 

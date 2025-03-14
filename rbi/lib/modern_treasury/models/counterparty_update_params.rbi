@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # A new email for the counterparty.
       sig { returns(T.nilable(String)) }
       def email
       end
@@ -14,6 +15,7 @@ module ModernTreasury
       def email=(_)
       end
 
+      # The id of the legal entity.
       sig { returns(T.nilable(String)) }
       def legal_entity_id
       end
@@ -22,6 +24,8 @@ module ModernTreasury
       def legal_entity_id=(_)
       end
 
+      # Additional data in the form of key-value pairs. Pairs can be removed by passing
+      #   an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -30,6 +34,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # A new name for the counterparty. Will only update if passed.
       sig { returns(T.nilable(String)) }
       def name
       end
@@ -38,6 +43,8 @@ module ModernTreasury
       def name=(_)
       end
 
+      # If this is `true`, Modern Treasury will send an email to the counterparty
+      #   whenever an associated payment order is sent to the bank.
       sig { returns(T.nilable(T::Boolean)) }
       def send_remittance_advice
       end
@@ -46,6 +53,7 @@ module ModernTreasury
       def send_remittance_advice=(_)
       end
 
+      # Either a valid SSN or EIN.
       sig { returns(T.nilable(String)) }
       def taxpayer_identifier
       end

@@ -11,6 +11,11 @@ module ModernTreasury
       def id=(_)
       end
 
+      # The pending, posted, and available balances for this ledger account category.
+      #   The posted balance is the sum of all posted entries on the account. The pending
+      #   balance is the sum of all pending and posted entries on the account. The
+      #   available balance is the posted incoming entries minus the sum of the pending
+      #   and posted outgoing amounts.
       sig { returns(ModernTreasury::Models::LedgerAccountCategory::Balances) }
       def balances
       end
@@ -30,6 +35,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The description of the ledger account category.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -46,6 +52,7 @@ module ModernTreasury
       def discarded_at=(_)
       end
 
+      # The id of the ledger that this account category belongs to.
       sig { returns(String) }
       def ledger_id
       end
@@ -54,6 +61,8 @@ module ModernTreasury
       def ledger_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -62,6 +71,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -70,6 +81,7 @@ module ModernTreasury
       def metadata=(_)
       end
 
+      # The name of the ledger account category.
       sig { returns(String) }
       def name
       end
@@ -78,6 +90,7 @@ module ModernTreasury
       def name=(_)
       end
 
+      # The normal balance of the ledger account category.
       sig { returns(Symbol) }
       def normal_balance
       end
@@ -158,6 +171,10 @@ module ModernTreasury
       end
 
       class Balances < ModernTreasury::BaseModel
+        # The available_balance is the sum of all posted inbound entries and pending
+        #   outbound entries. For credit normal, available_amount = posted_credits -
+        #   pending_debits; for debit normal, available_amount = posted_debits -
+        #   pending_credits.
         sig { returns(ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance) }
         def available_balance
         end
@@ -169,6 +186,7 @@ module ModernTreasury
         def available_balance=(_)
         end
 
+        # The pending_balance is the sum of all pending and posted entries.
         sig { returns(ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance) }
         def pending_balance
         end
@@ -180,6 +198,7 @@ module ModernTreasury
         def pending_balance=(_)
         end
 
+        # The posted_balance is the sum of all posted entries.
         sig { returns(ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance) }
         def posted_balance
         end
@@ -191,6 +210,11 @@ module ModernTreasury
         def posted_balance=(_)
         end
 
+        # The pending, posted, and available balances for this ledger account category.
+        #   The posted balance is the sum of all posted entries on the account. The pending
+        #   balance is the sum of all pending and posted entries on the account. The
+        #   available balance is the posted incoming entries minus the sum of the pending
+        #   and posted outgoing amounts.
         sig do
           params(
             available_balance: ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance,
@@ -232,6 +256,7 @@ module ModernTreasury
           def credits=(_)
           end
 
+          # The currency of the ledger account.
           sig { returns(String) }
           def currency
           end
@@ -240,6 +265,7 @@ module ModernTreasury
           def currency=(_)
           end
 
+          # The currency exponent of the ledger account.
           sig { returns(Integer) }
           def currency_exponent
           end
@@ -256,6 +282,10 @@ module ModernTreasury
           def debits=(_)
           end
 
+          # The available_balance is the sum of all posted inbound entries and pending
+          #   outbound entries. For credit normal, available_amount = posted_credits -
+          #   pending_debits; for debit normal, available_amount = posted_debits -
+          #   pending_credits.
           sig do
             params(
               amount: Integer,
@@ -302,6 +332,7 @@ module ModernTreasury
           def credits=(_)
           end
 
+          # The currency of the ledger account.
           sig { returns(String) }
           def currency
           end
@@ -310,6 +341,7 @@ module ModernTreasury
           def currency=(_)
           end
 
+          # The currency exponent of the ledger account.
           sig { returns(Integer) }
           def currency_exponent
           end
@@ -326,6 +358,7 @@ module ModernTreasury
           def debits=(_)
           end
 
+          # The pending_balance is the sum of all pending and posted entries.
           sig do
             params(
               amount: Integer,
@@ -372,6 +405,7 @@ module ModernTreasury
           def credits=(_)
           end
 
+          # The currency of the ledger account.
           sig { returns(String) }
           def currency
           end
@@ -380,6 +414,7 @@ module ModernTreasury
           def currency=(_)
           end
 
+          # The currency exponent of the ledger account.
           sig { returns(Integer) }
           def currency_exponent
           end
@@ -396,6 +431,7 @@ module ModernTreasury
           def debits=(_)
           end
 
+          # The posted_balance is the sum of all posted entries.
           sig do
             params(
               amount: Integer,

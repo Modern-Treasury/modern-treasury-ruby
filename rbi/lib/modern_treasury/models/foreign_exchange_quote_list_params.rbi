@@ -14,6 +14,7 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
+      # Currency to convert, often called the "sell" currency.
       sig { returns(T.nilable(String)) }
       def base_currency
       end
@@ -22,6 +23,7 @@ module ModernTreasury
       def base_currency=(_)
       end
 
+      # An inclusive upper bound for searching effective_at
       sig { returns(T.nilable(Date)) }
       def effective_at_end
       end
@@ -30,6 +32,7 @@ module ModernTreasury
       def effective_at_end=(_)
       end
 
+      # An inclusive lower bound for searching effective_at
       sig { returns(T.nilable(Date)) }
       def effective_at_start
       end
@@ -38,6 +41,7 @@ module ModernTreasury
       def effective_at_start=(_)
       end
 
+      # The timestamp until which the quote must be booked by.
       sig { returns(T.nilable(Time)) }
       def expires_at
       end
@@ -46,6 +50,7 @@ module ModernTreasury
       def expires_at=(_)
       end
 
+      # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(T.nilable(String)) }
       def internal_account_id
       end
@@ -54,6 +59,9 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # For example, if you want to query for records with metadata key `Type` and value
+      #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+      #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
       def metadata
       end
@@ -70,6 +78,7 @@ module ModernTreasury
       def per_page=(_)
       end
 
+      # Currency to convert the `base_currency` to, often called the "buy" currency.
       sig { returns(T.nilable(String)) }
       def target_currency
       end

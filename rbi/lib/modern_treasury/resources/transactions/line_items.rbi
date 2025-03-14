@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class Transactions
       class LineItems
+        # create transaction line items
         sig do
           params(
             amount: Integer,
@@ -16,6 +17,7 @@ module ModernTreasury
         def create(amount:, expected_payment_id:, transaction_id:, request_options: {})
         end
 
+        # get transaction line item
         sig do
           params(
             id: String,
@@ -26,6 +28,7 @@ module ModernTreasury
         def retrieve(id, request_options: {})
         end
 
+        # list transaction_line_items
         sig do
           params(
             id: T::Hash[Symbol, String],
@@ -47,6 +50,7 @@ module ModernTreasury
         )
         end
 
+        # delete transaction line item
         sig do
           params(
             id: String,

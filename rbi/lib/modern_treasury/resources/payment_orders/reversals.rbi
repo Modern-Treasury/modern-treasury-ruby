@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class PaymentOrders
       class Reversals
+        # Create a reversal for a payment order.
         sig do
           params(
             payment_order_id: String,
@@ -17,6 +18,7 @@ module ModernTreasury
         def create(payment_order_id, reason:, ledger_transaction: nil, metadata: nil, request_options: {})
         end
 
+        # Get details on a single reversal of a payment order.
         sig do
           params(
             reversal_id: String,
@@ -28,6 +30,7 @@ module ModernTreasury
         def retrieve(reversal_id, payment_order_id:, request_options: {})
         end
 
+        # Get a list of all reversals of a payment order.
         sig do
           params(
             payment_order_id: String,

@@ -4,6 +4,7 @@ module ModernTreasury
   module Resources
     class InternalAccounts
       class BalanceReports
+        # create balance reports
         sig do
           params(
             internal_account_id: String,
@@ -25,6 +26,7 @@ module ModernTreasury
         )
         end
 
+        # Get a single balance report for a given internal account.
         sig do
           params(
             id: String,
@@ -36,6 +38,7 @@ module ModernTreasury
         def retrieve(id, internal_account_id:, request_options: {})
         end
 
+        # Get all balance reports for a given internal account.
         sig do
           params(
             internal_account_id: String,
@@ -57,6 +60,7 @@ module ModernTreasury
         )
         end
 
+        # Deletes a given balance report.
         sig do
           params(
             id: String,

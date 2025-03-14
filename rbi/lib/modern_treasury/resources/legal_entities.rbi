@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LegalEntities
+      # create legal_entity
       sig do
         params(
           legal_entity_type: Symbol,
@@ -62,6 +63,7 @@ module ModernTreasury
       )
       end
 
+      # Get details on a single legal entity.
       sig do
         params(
           id: String,
@@ -72,6 +74,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update a legal entity.
       sig do
         params(
           id: String,
@@ -129,6 +132,7 @@ module ModernTreasury
       )
       end
 
+      # Get a list of all legal entities.
       sig do
         params(
           after_cursor: T.nilable(String),

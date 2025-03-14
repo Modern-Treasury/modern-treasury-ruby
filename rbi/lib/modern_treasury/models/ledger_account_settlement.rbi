@@ -11,6 +11,7 @@ module ModernTreasury
       def id=(_)
       end
 
+      # The amount of the ledger account settlement.
       sig { returns(T.nilable(Integer)) }
       def amount
       end
@@ -19,6 +20,8 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # The id of the contra ledger account that sends to or receives funds from the
+      #   settled ledger account.
       sig { returns(String) }
       def contra_ledger_account_id
       end
@@ -35,6 +38,7 @@ module ModernTreasury
       def created_at=(_)
       end
 
+      # The currency of the ledger account settlement.
       sig { returns(String) }
       def currency
       end
@@ -43,6 +47,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # The currency exponent of the ledger account settlement.
       sig { returns(T.nilable(Integer)) }
       def currency_exponent
       end
@@ -51,6 +56,7 @@ module ModernTreasury
       def currency_exponent=(_)
       end
 
+      # The description of the ledger account settlement.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -59,6 +65,9 @@ module ModernTreasury
       def description=(_)
       end
 
+      # The exclusive upper bound of the effective_at timestamp of the ledger entries to
+      #   be included in the ledger account settlement. The default value is the
+      #   created_at timestamp of the ledger account settlement.
       sig { returns(Time) }
       def effective_at_upper_bound
       end
@@ -67,6 +76,7 @@ module ModernTreasury
       def effective_at_upper_bound=(_)
       end
 
+      # The id of the ledger that this ledger account settlement belongs to.
       sig { returns(String) }
       def ledger_id
       end
@@ -75,6 +85,7 @@ module ModernTreasury
       def ledger_id=(_)
       end
 
+      # The id of the ledger transaction that this settlement is associated with.
       sig { returns(T.nilable(String)) }
       def ledger_transaction_id
       end
@@ -83,6 +94,8 @@ module ModernTreasury
       def ledger_transaction_id=(_)
       end
 
+      # This field will be true if this object exists in the live environment or false
+      #   if it exists in the test environment.
       sig { returns(T::Boolean) }
       def live_mode
       end
@@ -91,6 +104,8 @@ module ModernTreasury
       def live_mode=(_)
       end
 
+      # Additional data represented as key-value pairs. Both the key and value must be
+      #   strings.
       sig { returns(T::Hash[Symbol, String]) }
       def metadata
       end
@@ -107,6 +122,8 @@ module ModernTreasury
       def object=(_)
       end
 
+      # The id of the settled ledger account whose ledger entries are queried against,
+      #   and its balance is reduced as a result.
       sig { returns(String) }
       def settled_ledger_account_id
       end
@@ -115,6 +132,7 @@ module ModernTreasury
       def settled_ledger_account_id=(_)
       end
 
+      # The direction of the ledger entry with the settlement_ledger_account.
       sig { returns(T.nilable(String)) }
       def settlement_entry_direction
       end
@@ -123,6 +141,8 @@ module ModernTreasury
       def settlement_entry_direction=(_)
       end
 
+      # The status of the ledger account settlement. One of `processing`, `pending`,
+      #   `posted`, `archiving` or `archived`.
       sig { returns(Symbol) }
       def status
       end
@@ -209,6 +229,8 @@ module ModernTreasury
       def to_hash
       end
 
+      # The status of the ledger account settlement. One of `processing`, `pending`,
+      #   `posted`, `archiving` or `archived`.
       class Status < ModernTreasury::Enum
         abstract!
 

@@ -7,6 +7,7 @@ module ModernTreasury
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
+        # The date of the balance report in local time.
         sig { returns(Date) }
         def as_of_date
         end
@@ -15,6 +16,7 @@ module ModernTreasury
         def as_of_date=(_)
         end
 
+        # The time (24-hour clock) of the balance report in local time.
         sig { returns(String) }
         def as_of_time
         end
@@ -23,6 +25,8 @@ module ModernTreasury
         def as_of_time=(_)
         end
 
+        # The specific type of balance report. One of `intraday`, `previous_day`,
+        #   `real_time`, or `other`.
         sig { returns(Symbol) }
         def balance_report_type
         end
@@ -31,6 +35,7 @@ module ModernTreasury
         def balance_report_type=(_)
         end
 
+        # An array of `Balance` objects.
         sig { returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]) }
         def balances
         end
@@ -70,6 +75,8 @@ module ModernTreasury
         def to_hash
         end
 
+        # The specific type of balance report. One of `intraday`, `previous_day`,
+        #   `real_time`, or `other`.
         class BalanceReportType < ModernTreasury::Enum
           abstract!
 
@@ -86,6 +93,7 @@ module ModernTreasury
         end
 
         class Balance < ModernTreasury::BaseModel
+          # The balance amount.
           sig { returns(Integer) }
           def amount
           end
@@ -94,6 +102,10 @@ module ModernTreasury
           def amount=(_)
           end
 
+          # The specific type of balance reported. One of `opening_ledger`,
+          #   `closing_ledger`, `current_ledger`, `opening_available`,
+          #   `opening_available_next_business_day`, `closing_available`, `current_available`,
+          #   'previously_closed_book', or `other`.
           sig { returns(Symbol) }
           def balance_type
           end
@@ -102,6 +114,7 @@ module ModernTreasury
           def balance_type=(_)
           end
 
+          # The code used by the bank when reporting this specific balance.
           sig { returns(String) }
           def vendor_code
           end
@@ -110,6 +123,10 @@ module ModernTreasury
           def vendor_code=(_)
           end
 
+          # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
+          #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
+          #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
+          #   `swift`, or `us_bank`.
           sig { returns(T.nilable(String)) }
           def vendor_code_type
           end
@@ -142,6 +159,10 @@ module ModernTreasury
           def to_hash
           end
 
+          # The specific type of balance reported. One of `opening_ledger`,
+          #   `closing_ledger`, `current_ledger`, `opening_available`,
+          #   `opening_available_next_business_day`, `closing_available`, `current_available`,
+          #   'previously_closed_book', or `other`.
           class BalanceType < ModernTreasury::Enum
             abstract!
 

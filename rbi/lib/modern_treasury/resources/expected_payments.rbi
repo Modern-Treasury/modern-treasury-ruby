@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class ExpectedPayments
+      # create expected payment
       sig do
         params(
           amount_lower_bound: T.nilable(Integer),
@@ -52,6 +53,7 @@ module ModernTreasury
       )
       end
 
+      # get expected payment
       sig do
         params(
           id: String,
@@ -62,6 +64,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # update expected payment
       sig do
         params(
           id: String,
@@ -109,6 +112,7 @@ module ModernTreasury
       )
       end
 
+      # list expected_payments
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -140,6 +144,7 @@ module ModernTreasury
       )
       end
 
+      # delete expected payment
       sig do
         params(
           id: String,

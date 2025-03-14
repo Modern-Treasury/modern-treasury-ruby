@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class VirtualAccounts
+      # create virtual_account
       sig do
         params(
           internal_account_id: String,
@@ -34,6 +35,7 @@ module ModernTreasury
       )
       end
 
+      # get virtual_account
       sig do
         params(
           id: String,
@@ -44,6 +46,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # update virtual_account
       sig do
         params(
           id: String,
@@ -65,6 +68,7 @@ module ModernTreasury
       )
       end
 
+      # Get a list of virtual accounts.
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -86,6 +90,7 @@ module ModernTreasury
       )
       end
 
+      # delete virtual_account
       sig do
         params(
           id: String,

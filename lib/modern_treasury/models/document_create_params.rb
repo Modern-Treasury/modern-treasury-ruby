@@ -45,7 +45,6 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @abstract
-      #
       class DocumentableType < ModernTreasury::Enum
         CASES = :cases
         COUNTERPARTIES = :counterparties

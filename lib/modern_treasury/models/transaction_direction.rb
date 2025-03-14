@@ -3,7 +3,6 @@
 module ModernTreasury
   module Models
     # @abstract
-    #
     class TransactionDirection < ModernTreasury::Enum
       CREDIT = :credit
       DEBIT = :debit

@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class LedgerEventHandlers
+      # create ledger_event_handler
       sig do
         params(
           ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
@@ -28,6 +29,7 @@ module ModernTreasury
       )
       end
 
+      # Get details on a single ledger event handler.
       sig do
         params(
           id: String,
@@ -38,6 +40,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Get a list of ledger event handlers.
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -59,6 +62,7 @@ module ModernTreasury
       )
       end
 
+      # Archive a ledger event handler.
       sig do
         params(
           id: String,

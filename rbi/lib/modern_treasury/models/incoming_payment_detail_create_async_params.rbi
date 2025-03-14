@@ -6,6 +6,8 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # Value in specified currency's smallest unit. e.g. $10 would be represented
+      #   as 1000.
       sig { returns(T.nilable(Integer)) }
       def amount
       end
@@ -14,6 +16,7 @@ module ModernTreasury
       def amount=(_)
       end
 
+      # Defaults to today.
       sig { returns(T.nilable(Date)) }
       def as_of_date
       end
@@ -22,6 +25,7 @@ module ModernTreasury
       def as_of_date=(_)
       end
 
+      # Defaults to the currency of the originating account.
       sig { returns(T.nilable(Symbol)) }
       def currency
       end
@@ -30,6 +34,7 @@ module ModernTreasury
       def currency=(_)
       end
 
+      # Defaults to a random description.
       sig { returns(T.nilable(String)) }
       def description
       end
@@ -38,6 +43,7 @@ module ModernTreasury
       def description=(_)
       end
 
+      # One of `credit`, `debit`.
       sig { returns(T.nilable(Symbol)) }
       def direction
       end
@@ -46,6 +52,7 @@ module ModernTreasury
       def direction=(_)
       end
 
+      # The ID of one of your internal accounts.
       sig { returns(T.nilable(String)) }
       def internal_account_id
       end
@@ -54,6 +61,7 @@ module ModernTreasury
       def internal_account_id=(_)
       end
 
+      # One of `ach`, `wire`, `check`.
       sig { returns(T.nilable(Symbol)) }
       def type
       end
@@ -62,6 +70,8 @@ module ModernTreasury
       def type=(_)
       end
 
+      # An optional parameter to associate the incoming payment detail to a virtual
+      #   account.
       sig { returns(T.nilable(String)) }
       def virtual_account_id
       end
@@ -116,6 +126,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # One of `credit`, `debit`.
       class Direction < ModernTreasury::Enum
         abstract!
 
@@ -129,6 +140,7 @@ module ModernTreasury
         end
       end
 
+      # One of `ach`, `wire`, `check`.
       class Type < ModernTreasury::Enum
         abstract!
 

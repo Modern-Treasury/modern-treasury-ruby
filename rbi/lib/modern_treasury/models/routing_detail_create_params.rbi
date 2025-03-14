@@ -14,6 +14,7 @@ module ModernTreasury
       def accounts_type=(_)
       end
 
+      # The routing number of the bank.
       sig { returns(String) }
       def routing_number
       end
@@ -22,6 +23,9 @@ module ModernTreasury
       def routing_number=(_)
       end
 
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details.
       sig { returns(Symbol) }
       def routing_number_type
       end
@@ -30,6 +34,8 @@ module ModernTreasury
       def routing_number_type=(_)
       end
 
+      # If the routing detail is to be used for a specific payment type this field will
+      #   be populated, otherwise null.
       sig { returns(T.nilable(Symbol)) }
       def payment_type
       end
@@ -78,6 +84,9 @@ module ModernTreasury
         end
       end
 
+      # The type of routing number. See
+      #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
+      #   more details.
       class RoutingNumberType < ModernTreasury::Enum
         abstract!
 
@@ -110,6 +119,8 @@ module ModernTreasury
         end
       end
 
+      # If the routing detail is to be used for a specific payment type this field will
+      #   be populated, otherwise null.
       class PaymentType < ModernTreasury::Enum
         abstract!
 

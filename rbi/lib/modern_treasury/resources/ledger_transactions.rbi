@@ -7,6 +7,7 @@ module ModernTreasury
       def versions
       end
 
+      # Create a ledger transaction.
       sig do
         params(
           ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
@@ -36,6 +37,7 @@ module ModernTreasury
       )
       end
 
+      # Get details on a single ledger transaction.
       sig do
         params(
           id: String,
@@ -46,6 +48,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update the details of a ledger transaction.
       sig do
         params(
           id: String,
@@ -73,6 +76,7 @@ module ModernTreasury
       )
       end
 
+      # Get a list of ledger transactions.
       sig do
         params(
           id: T::Array[String],
@@ -122,6 +126,7 @@ module ModernTreasury
       )
       end
 
+      # Create a ledger transaction that partially posts another ledger transaction.
       sig do
         params(
           id: String,
@@ -143,6 +148,7 @@ module ModernTreasury
       )
       end
 
+      # Create a ledger transaction reversal.
       sig do
         params(
           id: String,

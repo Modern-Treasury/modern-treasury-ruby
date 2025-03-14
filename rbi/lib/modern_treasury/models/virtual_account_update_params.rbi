@@ -14,6 +14,7 @@ module ModernTreasury
       def counterparty_id=(_)
       end
 
+      # The ledger account that you'd like to link to the virtual account.
       sig { returns(T.nilable(String)) }
       def ledger_account_id
       end

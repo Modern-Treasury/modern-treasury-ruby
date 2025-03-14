@@ -39,7 +39,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerTransactionCreateParams.dump_request(params)
         @client.request(
@@ -60,7 +59,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -99,7 +97,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
-      #
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerTransactionUpdateParams.dump_request(params)
         @client.request(
@@ -169,7 +166,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerTransaction>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerTransactionListParams.dump_request(params)
         @client.request(
@@ -204,7 +200,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
-      #
       def create_partial_post(id, params)
         parsed, options = ModernTreasury::Models::LedgerTransactionCreatePartialPostParams.dump_request(params)
         @client.request(
@@ -246,7 +241,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerTransaction]
-      #
       def create_reversal(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerTransactionCreateReversalParams.dump_request(params)
         @client.request(
@@ -259,7 +253,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
         @versions = ModernTreasury::Resources::LedgerTransactions::Versions.new(client: client)

@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The status of the connection legal entity.
       sig { returns(T.nilable(Symbol)) }
       def status
       end
@@ -28,6 +29,7 @@ module ModernTreasury
       def to_hash
       end
 
+      # The status of the connection legal entity.
       class Status < ModernTreasury::Enum
         abstract!
 

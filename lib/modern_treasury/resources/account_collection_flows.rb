@@ -16,7 +16,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
-      #
       def create(params)
         parsed, options = ModernTreasury::Models::AccountCollectionFlowCreateParams.dump_request(params)
         @client.request(
@@ -37,7 +36,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
-      #
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -59,7 +57,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::AccountCollectionFlow]
-      #
       def update(id, params)
         parsed, options = ModernTreasury::Models::AccountCollectionFlowUpdateParams.dump_request(params)
         @client.request(
@@ -90,7 +87,6 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountCollectionFlow>]
-      #
       def list(params = {})
         parsed, options = ModernTreasury::Models::AccountCollectionFlowListParams.dump_request(params)
         @client.request(
@@ -104,7 +100,6 @@ module ModernTreasury
       end
 
       # @param client [ModernTreasury::Client]
-      #
       def initialize(client:)
         @client = client
       end

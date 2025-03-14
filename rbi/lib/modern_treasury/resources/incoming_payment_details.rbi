@@ -3,6 +3,7 @@
 module ModernTreasury
   module Resources
     class IncomingPaymentDetails
+      # Get an existing Incoming Payment Detail.
       sig do
         params(
           id: String,
@@ -13,6 +14,7 @@ module ModernTreasury
       def retrieve(id, request_options: {})
       end
 
+      # Update an existing Incoming Payment Detail.
       sig do
         params(
           id: String,
@@ -24,6 +26,7 @@ module ModernTreasury
       def update(id, metadata: nil, request_options: {})
       end
 
+      # Get a list of Incoming Payment Details.
       sig do
         params(
           after_cursor: T.nilable(String),
@@ -53,6 +56,7 @@ module ModernTreasury
       )
       end
 
+      # Simulate Incoming Payment Detail
       sig do
         params(
           amount: Integer,

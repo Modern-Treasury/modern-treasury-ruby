@@ -20,6 +20,7 @@ module ModernTreasury
         def created_at=(_)
         end
 
+        # The ID of the ledger transaction linked to the reversal.
         sig { returns(T.nilable(String)) }
         def ledger_transaction_id
         end
@@ -28,6 +29,8 @@ module ModernTreasury
         def ledger_transaction_id=(_)
         end
 
+        # This field will be true if this object exists in the live environment or false
+        #   if it exists in the test environment.
         sig { returns(T::Boolean) }
         def live_mode
         end
@@ -36,6 +39,8 @@ module ModernTreasury
         def live_mode=(_)
         end
 
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         sig { returns(T::Hash[Symbol, String]) }
         def metadata
         end
@@ -52,6 +57,7 @@ module ModernTreasury
         def object=(_)
         end
 
+        # The ID of the relevant Payment Order.
         sig { returns(T.nilable(String)) }
         def payment_order_id
         end
@@ -60,6 +66,7 @@ module ModernTreasury
         def payment_order_id=(_)
         end
 
+        # The reason for the reversal.
         sig { returns(Symbol) }
         def reason
         end
@@ -68,6 +75,7 @@ module ModernTreasury
         def reason=(_)
         end
 
+        # The current status of the reversal.
         sig { returns(Symbol) }
         def status
         end
@@ -144,6 +152,7 @@ module ModernTreasury
         def to_hash
         end
 
+        # The reason for the reversal.
         class Reason < ModernTreasury::Enum
           abstract!
 
@@ -160,6 +169,7 @@ module ModernTreasury
           end
         end
 
+        # The current status of the reversal.
         class Status < ModernTreasury::Enum
           abstract!
 

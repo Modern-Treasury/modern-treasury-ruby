@@ -6,6 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
+      # The unique identifier for the associated object.
       sig { returns(String) }
       def documentable_id
       end
@@ -30,6 +31,7 @@ module ModernTreasury
       def file=(_)
       end
 
+      # A category given to the document, can be `null`.
       sig { returns(T.nilable(String)) }
       def document_type
       end
