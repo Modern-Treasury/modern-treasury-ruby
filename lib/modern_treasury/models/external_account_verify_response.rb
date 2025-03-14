@@ -164,6 +164,12 @@ module ModernTreasury
           finalize!
         end
       end
+
+      # @!parse
+      #   class << self
+      #     # @return [Array(ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt)]
+      #     def variants; end
+      #   end
     end
   end
 end
