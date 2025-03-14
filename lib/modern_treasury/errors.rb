@@ -4,7 +4,7 @@ module ModernTreasury
   class Error < StandardError
     # @!parse
     #   # @return [StandardError, nil]
-    #   attr_reader :cause
+    #   attr_accessor :cause
   end
 
   class ConversionError < ModernTreasury::Error
@@ -12,13 +12,13 @@ module ModernTreasury
 
   class APIError < ModernTreasury::Error
     # @return [URI::Generic]
-    attr_reader :url
+    attr_accessor :url
 
     # @return [Integer, nil]
-    attr_reader :status
+    attr_accessor :status
 
     # @return [Object, nil]
-    attr_reader :body
+    attr_accessor :body
 
     # @api private
     #
@@ -41,11 +41,11 @@ module ModernTreasury
   class APIConnectionError < ModernTreasury::APIError
     # @!parse
     #   # @return [nil]
-    #   attr_reader :status
+    #   attr_accessor :status
 
     # @!parse
     #   # @return [nil]
-    #   attr_reader :body
+    #   attr_accessor :body
 
     # @api private
     #
@@ -126,7 +126,7 @@ module ModernTreasury
 
     # @!parse
     #   # @return [Integer]
-    #   attr_reader :status
+    #   attr_accessor :status
 
     # @api private
     #
