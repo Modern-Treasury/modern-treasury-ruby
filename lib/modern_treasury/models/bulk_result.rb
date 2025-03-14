@@ -214,6 +214,12 @@ module ModernTreasury
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
           end
         end
+
+        # @!parse
+        #   class << self
+        #     # @return [Array(ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError)]
+        #     def variants; end
+        #   end
       end
 
       # @abstract

@@ -338,14 +338,13 @@ module ModernTreasury
         end
 
         class << self
-          # @api private
           sig do
             override
               .returns(
-                [[NilClass, ModernTreasury::Models::PaymentOrder], [NilClass, ModernTreasury::Models::ExpectedPayment], [NilClass, ModernTreasury::Models::LedgerTransaction], [NilClass, ModernTreasury::Models::Transaction], [NilClass, ModernTreasury::Models::BulkResult::Entity::BulkError]]
+                [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
               )
           end
-          private def variants
+          def variants
           end
         end
       end

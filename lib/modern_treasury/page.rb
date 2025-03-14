@@ -48,7 +48,7 @@ module ModernTreasury
 
       case page_data
       in Array
-        replace(page_data&.map { model.coerce(_1) })
+        replace(page_data.map { model.coerce(_1) })
       else
       end
 

@@ -771,6 +771,12 @@ module ModernTreasury
         variant -> { ModernTreasury::Models::VirtualAccount }
 
         variant -> { ModernTreasury::Models::InternalAccount }
+
+        # @!parse
+        #   class << self
+        #     # @return [Array(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)]
+        #     def variants; end
+        #   end
       end
 
       # @abstract

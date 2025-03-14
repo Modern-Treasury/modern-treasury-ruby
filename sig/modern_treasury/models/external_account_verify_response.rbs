@@ -148,7 +148,7 @@ module ModernTreasury
         end
       end
 
-      private def self.variants: -> [[nil, ModernTreasury::Models::ExternalAccount], [nil, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]]
+      def self.variants: -> [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
     end
   end
 end
