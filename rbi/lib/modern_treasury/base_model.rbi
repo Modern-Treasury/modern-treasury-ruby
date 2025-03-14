@@ -80,9 +80,9 @@ module ModernTreasury
 
   # When we don't know what to expect for the value.
   class Unknown
-    abstract!
-
     extend ModernTreasury::Converter
+
+    abstract!
 
     sig { params(other: T.anything).returns(T::Boolean) }
     def self.===(other)
@@ -116,9 +116,9 @@ module ModernTreasury
 
   # Ruby has no Boolean class; this is something for models to refer to.
   class BooleanModel
-    abstract!
-
     extend ModernTreasury::Converter
+
+    abstract!
 
     sig { params(other: T.anything).returns(T::Boolean) }
     def self.===(other)
@@ -161,9 +161,9 @@ module ModernTreasury
   #   We can therefore convert string values to Symbols, but can't convert other
   #   values safely.
   class Enum
-    abstract!
-
     extend ModernTreasury::Converter
+
+    abstract!
 
     class << self
       # All of the valid Symbol values for this enum.
@@ -210,9 +210,9 @@ module ModernTreasury
   end
 
   class Union
-    abstract!
-
     extend ModernTreasury::Converter
+
+    abstract!
 
     class << self
       # @api private
@@ -295,9 +295,9 @@ module ModernTreasury
 
   # Array of items of a given type.
   class ArrayOf
-    abstract!
-
     include ModernTreasury::Converter
+
+    abstract!
 
     sig { params(other: T.anything).returns(T::Boolean) }
     def ===(other)
@@ -357,9 +357,9 @@ module ModernTreasury
 
   # Hash of items of a given type.
   class HashOf
-    abstract!
-
     include ModernTreasury::Converter
+
+    abstract!
 
     sig { params(other: T.anything).returns(T::Boolean) }
     def ===(other)
@@ -418,9 +418,9 @@ module ModernTreasury
   end
 
   class BaseModel
-    abstract!
-
     extend ModernTreasury::Converter
+
+    abstract!
 
     KnownFieldShape = T.type_alias { {mode: T.nilable(Symbol), required: T::Boolean} }
 
