@@ -1101,14 +1101,8 @@ module ModernTreasury
         abstract!
 
         class << self
-          # @api private
-          sig do
-            override
-              .returns(
-                [[NilClass, ModernTreasury::Models::VirtualAccount], [NilClass, ModernTreasury::Models::InternalAccount]]
-              )
-          end
-          private def variants
+          sig { override.returns([ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]) }
+          def variants
           end
         end
       end

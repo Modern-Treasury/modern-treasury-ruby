@@ -5372,14 +5372,13 @@ module ModernTreasury
         end
 
         class << self
-          # @api private
           sig do
             override
               .returns(
-                [[NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest], [NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest], [NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest], [NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest], [NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID], [NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID], [NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID], [NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID], [NilClass, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID]]
+                [ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest, ModernTreasury::Models::BulkRequestCreateParams::Resource::ID, ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID, ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID]
               )
           end
-          private def variants
+          def variants
           end
         end
       end

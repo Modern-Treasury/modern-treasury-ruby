@@ -220,14 +220,13 @@ module ModernTreasury
       end
 
       class << self
-        # @api private
         sig do
           override
             .returns(
-              [[NilClass, ModernTreasury::Models::ExternalAccount], [NilClass, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]]
+              [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
             )
         end
-        private def variants
+        def variants
         end
       end
     end
