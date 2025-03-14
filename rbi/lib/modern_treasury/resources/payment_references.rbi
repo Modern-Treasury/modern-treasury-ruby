@@ -11,7 +11,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::PaymentReference)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       # list payment_references
@@ -29,8 +33,13 @@ module ModernTreasury
       def list(
         after_cursor: nil,
         per_page: nil,
+        # The actual reference number assigned by the bank.
         reference_number: nil,
+        # The id of the referenceable to search for. Must be accompanied by the
+        #   referenceable_type or will return an error.
         referenceable_id: nil,
+        # One of the referenceable types. This must be accompanied by the id of the
+        #   referenceable or will return an error.
         referenceable_type: nil,
         request_options: {}
       )

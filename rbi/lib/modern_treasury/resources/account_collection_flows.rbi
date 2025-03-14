@@ -13,7 +13,13 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
-      def create(counterparty_id:, payment_types:, receiving_countries: nil, request_options: {})
+      def create(
+        # Required.
+        counterparty_id:,
+        payment_types:,
+        receiving_countries: nil,
+        request_options: {}
+      )
       end
 
       # get account_collection_flow
@@ -24,7 +30,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       # update account_collection_flow
@@ -36,7 +46,14 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::AccountCollectionFlow)
       end
-      def update(id, status:, request_options: {})
+      def update(
+        # id
+        id,
+        # Required. The updated status of the account collection flow. Can only be used to
+        #   mark a flow as `cancelled`.
+        status:,
+        request_options: {}
+      )
       end
 
       # list account_collection_flows

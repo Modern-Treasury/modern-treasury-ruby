@@ -14,7 +14,16 @@ module ModernTreasury
           )
             .returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
-        def create(amount:, expected_payment_id:, transaction_id:, request_options: {})
+        def create(
+          # If a matching object exists in Modern Treasury, `amount` will be populated.
+          #   Value in specified currency's smallest unit (taken from parent Transaction).
+          amount:,
+          # The ID of the reconciled Expected Payment, otherwise `null`.
+          expected_payment_id:,
+          # The ID of the parent transaction.
+          transaction_id:,
+          request_options: {}
+        )
         end
 
         # get transaction line item
@@ -25,7 +34,11 @@ module ModernTreasury
           )
             .returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
-        def retrieve(id, request_options: {})
+        def retrieve(
+          # id
+          id,
+          request_options: {}
+        )
         end
 
         # list transaction_line_items
@@ -58,7 +71,11 @@ module ModernTreasury
           )
             .void
         end
-        def delete(id, request_options: {})
+        def delete(
+          # id
+          id,
+          request_options: {}
+        )
         end
 
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }

@@ -16,10 +16,19 @@ module ModernTreasury
           .returns(ModernTreasury::Models::LedgerAccountStatementCreateResponse)
       end
       def create(
+        # The inclusive lower bound of the effective_at timestamp of the ledger entries to
+        #   be included in the ledger account statement.
         effective_at_lower_bound:,
+        # The exclusive upper bound of the effective_at timestamp of the ledger entries to
+        #   be included in the ledger account statement.
         effective_at_upper_bound:,
+        # The id of the ledger account whose ledger entries are queried against, and its
+        #   balances are computed as a result.
         ledger_account_id:,
+        # The description of the ledger account statement.
         description: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         metadata: nil,
         request_options: {}
       )
@@ -33,7 +42,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }

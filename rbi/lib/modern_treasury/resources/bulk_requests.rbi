@@ -26,7 +26,19 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::BulkRequest)
       end
-      def create(action_type:, resource_type:, resources:, metadata: nil, request_options: {})
+      def create(
+        # One of create, or update.
+        action_type:,
+        # One of payment_order, expected_payment, or ledger_transaction.
+        resource_type:,
+        # An array of objects where each object contains the input params for a single
+        #   `action_type` request on a `resource_type` resource
+        resources:,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
+        metadata: nil,
+        request_options: {}
+      )
       end
 
       # get bulk_request
@@ -37,7 +49,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::BulkRequest)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       # list bulk_requests
@@ -54,11 +70,17 @@ module ModernTreasury
           .returns(ModernTreasury::Page[ModernTreasury::Models::BulkRequest])
       end
       def list(
+        # One of create, or update.
         action_type: nil,
         after_cursor: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        #   parameters.
         metadata: nil,
         per_page: nil,
+        # One of payment_order, expected_payment, or ledger_transaction.
         resource_type: nil,
+        # One of pending, processing, or completed.
         status: nil,
         request_options: {}
       )

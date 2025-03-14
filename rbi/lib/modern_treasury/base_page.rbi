@@ -1,7 +1,6 @@
 # typed: strong
 
 module ModernTreasury
-  # @api private
   module BasePage
     abstract!
 

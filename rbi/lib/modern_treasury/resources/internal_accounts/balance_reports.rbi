@@ -18,9 +18,14 @@ module ModernTreasury
         end
         def create(
           internal_account_id,
+          # The date of the balance report in local time.
           as_of_date:,
+          # The time (24-hour clock) of the balance report in local time.
           as_of_time:,
+          # The specific type of balance report. One of `intraday`, `previous_day`,
+          #   `real_time`, or `other`.
           balance_report_type:,
+          # An array of `Balance` objects.
           balances:,
           request_options: {}
         )
@@ -35,7 +40,13 @@ module ModernTreasury
           )
             .returns(ModernTreasury::Models::InternalAccounts::BalanceReport)
         end
-        def retrieve(id, internal_account_id:, request_options: {})
+        def retrieve(
+          # Either the unique identifier of the balance report or latest for the latest
+          #   balance report.
+          id,
+          internal_account_id:,
+          request_options: {}
+        )
         end
 
         # Get all balance reports for a given internal account.
@@ -53,7 +64,10 @@ module ModernTreasury
         def list(
           internal_account_id,
           after_cursor: nil,
+          # The date of the balance report in local time.
           as_of_date: nil,
+          # The specific type of balance report. One of `intraday`, `previous_day`,
+          #   `real_time`, or `other`.
           balance_report_type: nil,
           per_page: nil,
           request_options: {}
@@ -69,7 +83,13 @@ module ModernTreasury
           )
             .void
         end
-        def delete(id, internal_account_id:, request_options: {})
+        def delete(
+          # Either the unique identifier of the balance report or latest for the latest
+          #   balance report.
+          id,
+          internal_account_id:,
+          request_options: {}
+        )
         end
 
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }

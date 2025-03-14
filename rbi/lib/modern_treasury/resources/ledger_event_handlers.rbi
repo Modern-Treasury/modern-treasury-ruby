@@ -19,10 +19,15 @@ module ModernTreasury
       end
       def create(
         ledger_transaction_template:,
+        # Name of the ledger event handler.
         name:,
         conditions: nil,
+        # An optional description.
         description: nil,
+        # The id of the ledger that this account belongs to.
         ledger_id: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         metadata: nil,
         variables: nil,
         request_options: {}
@@ -37,7 +42,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       # Get a list of ledger event handlers.
@@ -54,7 +63,13 @@ module ModernTreasury
       end
       def list(
         after_cursor: nil,
+        # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
+        #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
+        #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         created_at: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        #   parameters.
         metadata: nil,
         name: nil,
         per_page: nil,
@@ -70,7 +85,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)
       end
-      def delete(id, request_options: {})
+      def delete(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
