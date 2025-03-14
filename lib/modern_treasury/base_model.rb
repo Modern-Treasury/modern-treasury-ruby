@@ -304,7 +304,7 @@ module ModernTreasury
   # when ModernTreasury::Models::AccountsType::INTERNAL_ACCOUNTS
   #   # ...
   # else
-  #   # ...
+  #   puts(accounts_type)
   # end
   # ```
   #
@@ -316,7 +316,7 @@ module ModernTreasury
   # in :internal_accounts
   #   # ...
   # else
-  #   # ...
+  #   puts(accounts_type)
   # end
   # ```
   class Enum
@@ -403,11 +403,11 @@ module ModernTreasury
   # # `external_account_verify_response` is a `ModernTreasury::Models::ExternalAccountVerifyResponse`
   # case external_account_verify_response
   # when ModernTreasury::Models::ExternalAccount
-  #   # ...
+  #   puts(external_account_verify_response.id)
   # when ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-  #   # ...
+  #   puts(external_account_verify_response.created_at)
   # else
-  #   # ...
+  #   puts(external_account_verify_response)
   # end
   # ```
   class Union
