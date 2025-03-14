@@ -13,7 +13,15 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
-      def create(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {})
+      def create(
+        # The ID of the connection.
+        connection_id:,
+        # The legal entity.
+        legal_entity: nil,
+        # The ID of the legal entity.
+        legal_entity_id: nil,
+        request_options: {}
+      )
       end
 
       # Get details on a single connection legal entity.
@@ -24,7 +32,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # The id of an existing connection legal entity.
+        id,
+        request_options: {}
+      )
       end
 
       # Update a connection legal entity.
@@ -36,7 +48,13 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
       end
-      def update(id, status: nil, request_options: {})
+      def update(
+        # The id of an existing connection legal entity.
+        id,
+        # The status of the connection legal entity.
+        status: nil,
+        request_options: {}
+      )
       end
 
       # Get a list of all connection legal entities.

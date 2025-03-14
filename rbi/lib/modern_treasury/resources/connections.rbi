@@ -14,7 +14,15 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::Connection])
       end
-      def list(after_cursor: nil, entity: nil, per_page: nil, vendor_customer_id: nil, request_options: {})
+      def list(
+        after_cursor: nil,
+        # A string code representing the vendor (i.e. bank).
+        entity: nil,
+        per_page: nil,
+        # An identifier assigned by the vendor to your organization.
+        vendor_customer_id: nil,
+        request_options: {}
+      )
       end
 
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }

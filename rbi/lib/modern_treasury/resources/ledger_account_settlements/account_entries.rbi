@@ -13,7 +13,14 @@ module ModernTreasury
           )
             .void
         end
-        def update(id, ledger_entry_ids:, request_options: {})
+        def update(
+          # id
+          id,
+          # The ids of the ledger entries that are to be added or removed from the ledger
+          #   account settlement.
+          ledger_entry_ids:,
+          request_options: {}
+        )
         end
 
         # Remove ledger entries from a draft ledger account settlement.
@@ -25,7 +32,14 @@ module ModernTreasury
           )
             .void
         end
-        def delete(id, ledger_entry_ids:, request_options: {})
+        def delete(
+          # id
+          id,
+          # The ids of the ledger entries that are to be added or removed from the ledger
+          #   account settlement.
+          ledger_entry_ids:,
+          request_options: {}
+        )
         end
 
         sig { params(client: ModernTreasury::Client).returns(T.attached_class) }

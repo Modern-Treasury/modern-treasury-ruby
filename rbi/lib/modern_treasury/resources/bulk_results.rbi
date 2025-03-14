@@ -11,7 +11,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::BulkResult)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       # list bulk_results
@@ -30,11 +34,19 @@ module ModernTreasury
       end
       def list(
         after_cursor: nil,
+        # Unique identifier for the result entity object.
         entity_id: nil,
+        # The type of the request that created this result. bulk_request is the only
+        #   supported `request_type`
         entity_type: nil,
         per_page: nil,
+        # Unique identifier for the request that created this bulk result. This is the ID
+        #   of the bulk request when `request_type` is bulk_request
         request_id: nil,
+        # The type of the request that created this result. bulk_request is the only
+        #   supported `request_type`
         request_type: nil,
+        # One of successful or failed.
         status: nil,
         request_options: {}
       )

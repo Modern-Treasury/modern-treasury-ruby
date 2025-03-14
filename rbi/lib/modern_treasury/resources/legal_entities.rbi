@@ -35,29 +35,50 @@ module ModernTreasury
           .returns(ModernTreasury::Models::LegalEntity)
       end
       def create(
+        # The type of legal entity.
         legal_entity_type:,
+        # A list of addresses for the entity.
         addresses: nil,
         bank_settings: nil,
+        # The business's legal business name.
         business_name: nil,
+        # The country of citizenship for an individual.
         citizenship_country: nil,
+        # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
+        # An individual's date of birth (YYYY-MM-DD).
         date_of_birth: nil,
         doing_business_as_names: nil,
+        # The entity's primary email.
         email: nil,
+        # An individual's first name.
         first_name: nil,
+        # A list of identifications for the legal entity.
         identifications: nil,
+        # An individual's last name.
         last_name: nil,
+        # The legal entity associations and its child legal entities.
         legal_entity_associations: nil,
+        # The business's legal structure.
         legal_structure: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         metadata: nil,
+        # An individual's middle name.
         middle_name: nil,
         phone_numbers: nil,
+        # Whether the individual is a politically exposed person.
         politically_exposed_person: nil,
+        # An individual's preferred name.
         preferred_name: nil,
+        # An individual's prefix.
         prefix: nil,
+        # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
+        # An individual's suffix.
         suffix: nil,
         wealth_and_employment_details: nil,
+        # The entity's primary website URL.
         website: nil,
         request_options: {}
       )
@@ -71,7 +92,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       # Update a legal entity.
@@ -105,28 +130,48 @@ module ModernTreasury
           .returns(ModernTreasury::Models::LegalEntity)
       end
       def update(
+        # id
         id,
+        # A list of addresses for the entity.
         addresses: nil,
         bank_settings: nil,
+        # The business's legal business name.
         business_name: nil,
+        # The country of citizenship for an individual.
         citizenship_country: nil,
+        # A business's formation date (YYYY-MM-DD).
         date_formed: nil,
+        # An individual's date of birth (YYYY-MM-DD).
         date_of_birth: nil,
         doing_business_as_names: nil,
+        # The entity's primary email.
         email: nil,
+        # An individual's first name.
         first_name: nil,
+        # A list of identifications for the legal entity.
         identifications: nil,
+        # An individual's last name.
         last_name: nil,
+        # The business's legal structure.
         legal_structure: nil,
+        # Additional data represented as key-value pairs. Both the key and value must be
+        #   strings.
         metadata: nil,
+        # An individual's middle name.
         middle_name: nil,
         phone_numbers: nil,
+        # Whether the individual is a politically exposed person.
         politically_exposed_person: nil,
+        # An individual's preferred name.
         preferred_name: nil,
+        # An individual's prefix.
         prefix: nil,
+        # The risk rating of the legal entity. One of low, medium, high.
         risk_rating: nil,
+        # An individual's suffix.
         suffix: nil,
         wealth_and_employment_details: nil,
+        # The entity's primary website URL.
         website: nil,
         request_options: {}
       )
@@ -147,6 +192,9 @@ module ModernTreasury
       def list(
         after_cursor: nil,
         legal_entity_type: nil,
+        # For example, if you want to query for records with metadata key `Type` and value
+        #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
+        #   parameters.
         metadata: nil,
         per_page: nil,
         show_deleted: nil,

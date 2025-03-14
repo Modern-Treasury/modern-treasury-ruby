@@ -17,11 +17,17 @@ module ModernTreasury
           .returns(ModernTreasury::Models::LegalEntityAssociation)
       end
       def create(
+        # The ID of the parent legal entity. This must be a business or joint legal
+        #   entity.
         parent_legal_entity_id:,
         relationship_types:,
+        # The child legal entity.
         child_legal_entity: nil,
+        # The ID of the child legal entity.
         child_legal_entity_id: nil,
+        # The child entity's ownership percentage iff they are a beneficial owner.
         ownership_percentage: nil,
+        # The job title of the child entity at the parent entity.
         title: nil,
         request_options: {}
       )

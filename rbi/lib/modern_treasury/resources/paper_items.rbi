@@ -11,7 +11,11 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::PaperItem)
       end
-      def retrieve(id, request_options: {})
+      def retrieve(
+        # id
+        id,
+        request_options: {}
+      )
       end
 
       # Get a list of all paper items.
@@ -28,8 +32,12 @@ module ModernTreasury
       end
       def list(
         after_cursor: nil,
+        # Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
         deposit_date_end: nil,
+        # Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
         deposit_date_start: nil,
+        # Specify `lockbox_number` if you wish to see paper items that are associated with
+        #   a specific lockbox number.
         lockbox_number: nil,
         per_page: nil,
         request_options: {}

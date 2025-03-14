@@ -14,7 +14,18 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::AccountDetail)
       end
-      def create(account_id, accounts_type:, account_number:, account_number_type: nil, request_options: {})
+      def create(
+        # Path param: The ID of the account.
+        account_id,
+        # Path param:
+        accounts_type:,
+        # Body param: The account number for the bank account.
+        account_number:,
+        # Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
+        #   the bank account number is in a generic format.
+        account_number_type: nil,
+        request_options: {}
+      )
       end
 
       # Get a single account detail for a single internal or external account.
@@ -27,7 +38,14 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Models::AccountDetail)
       end
-      def retrieve(id, accounts_type:, account_id:, request_options: {})
+      def retrieve(
+        # The ID of the account detail.
+        id,
+        accounts_type:,
+        # The ID of the account.
+        account_id:,
+        request_options: {}
+      )
       end
 
       # Get a list of account details for a single internal or external account.
@@ -41,7 +59,17 @@ module ModernTreasury
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::AccountDetail])
       end
-      def list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {})
+      def list(
+        # Path param: The ID of the account.
+        account_id,
+        # Path param:
+        accounts_type:,
+        # Query param:
+        after_cursor: nil,
+        # Query param:
+        per_page: nil,
+        request_options: {}
+      )
       end
 
       # Delete a single account detail for an external account.
@@ -54,7 +82,14 @@ module ModernTreasury
         )
           .void
       end
-      def delete(id, accounts_type:, account_id:, request_options: {})
+      def delete(
+        # The ID of the account detail.
+        id,
+        accounts_type:,
+        # The ID of the account.
+        account_id:,
+        request_options: {}
+      )
       end
 
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
