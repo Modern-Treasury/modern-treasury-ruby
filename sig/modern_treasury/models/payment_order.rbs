@@ -549,7 +549,7 @@ module ModernTreasury
         | ModernTreasury::Models::InternalAccount
 
       class UltimateOriginatingAccount < ModernTreasury::Union
-        private def self.variants: -> [[nil, ModernTreasury::Models::VirtualAccount], [nil, ModernTreasury::Models::InternalAccount]]
+        def self.variants: -> [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]
       end
 
       type ultimate_originating_account_type =

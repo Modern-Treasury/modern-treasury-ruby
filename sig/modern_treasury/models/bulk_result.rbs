@@ -136,7 +136,7 @@ module ModernTreasury
           end
         end
 
-        private def self.variants: -> [[nil, ModernTreasury::Models::PaymentOrder], [nil, ModernTreasury::Models::ExpectedPayment], [nil, ModernTreasury::Models::LedgerTransaction], [nil, ModernTreasury::Models::Transaction], [nil, ModernTreasury::Models::BulkResult::Entity::BulkError]]
+        def self.variants: -> [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
       end
 
       type entity_type =
