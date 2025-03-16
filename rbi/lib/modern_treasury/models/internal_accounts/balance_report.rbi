@@ -149,16 +149,12 @@ module ModernTreasury
         class BalanceReportType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           INTRADAY = :intraday
           OTHER = :other
           PREVIOUS_DAY = :previous_day
           REAL_TIME = :real_time
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         class Balance < ModernTreasury::BaseModel
@@ -347,6 +343,8 @@ module ModernTreasury
           class BalanceType < ModernTreasury::Enum
             abstract!
 
+            Value = type_template(:out) { {fixed: Symbol} }
+
             CLOSING_AVAILABLE = :closing_available
             CLOSING_LEDGER = :closing_ledger
             CURRENT_AVAILABLE = :current_available
@@ -356,12 +354,6 @@ module ModernTreasury
             OPENING_LEDGER = :opening_ledger
             OTHER = :other
             PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
-
-            class << self
-              sig { override.returns(T::Array[Symbol]) }
-              def values
-              end
-            end
           end
         end
       end

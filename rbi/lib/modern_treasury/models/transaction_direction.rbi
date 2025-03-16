@@ -5,14 +5,10 @@ module ModernTreasury
     class TransactionDirection < ModernTreasury::Enum
       abstract!
 
+      Value = type_template(:out) { {fixed: Symbol} }
+
       CREDIT = :credit
       DEBIT = :debit
-
-      class << self
-        sig { override.returns(T::Array[Symbol]) }
-        def values
-        end
-      end
     end
   end
 end

@@ -351,14 +351,10 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         abstract!
 
-        CREDIT = T.let(:credit, T.nilable(Symbol))
-        DEBIT = T.let(:debit, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        CREDIT = :credit
+        DEBIT = :debit
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
@@ -367,30 +363,22 @@ module ModernTreasury
       class ReconciliationMethod < ModernTreasury::Enum
         abstract!
 
-        AUTOMATIC = T.let(:automatic, T.nilable(Symbol))
-        MANUAL = T.let(:manual, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        AUTOMATIC = :automatic
+        MANUAL = :manual
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ARCHIVED = :archived
         PARTIALLY_RECONCILED = :partially_reconciled
         RECONCILED = :reconciled
         UNRECONCILED = :unreconciled
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

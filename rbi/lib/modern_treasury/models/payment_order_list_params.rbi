@@ -235,18 +235,16 @@ module ModernTreasury
       class Priority < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         HIGH = :high
         NORMAL = :normal
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class Status < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         APPROVED = :approved
         CANCELLED = :cancelled
@@ -259,16 +257,12 @@ module ModernTreasury
         RETURNED = :returned
         REVERSED = :reversed
         SENT = :sent
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class Type < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         ACH = :ach
         AU_BECS = :au_becs
@@ -300,12 +294,6 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

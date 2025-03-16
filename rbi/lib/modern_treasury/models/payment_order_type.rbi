@@ -8,6 +8,8 @@ module ModernTreasury
     class PaymentOrderType < ModernTreasury::Enum
       abstract!
 
+      Value = type_template(:out) { {fixed: Symbol} }
+
       ACH = :ach
       AU_BECS = :au_becs
       BACS = :bacs
@@ -38,12 +40,6 @@ module ModernTreasury
       SKNBI = :sknbi
       WIRE = :wire
       ZENGIN = :zengin
-
-      class << self
-        sig { override.returns(T::Array[Symbol]) }
-        def values
-        end
-      end
     end
   end
 end

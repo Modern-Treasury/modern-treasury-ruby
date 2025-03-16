@@ -238,157 +238,133 @@ module ModernTreasury
       class EmploymentStatus < ModernTreasury::Enum
         abstract!
 
-        EMPLOYED = T.let(:employed, T.nilable(Symbol))
-        RETIRED = T.let(:retired, T.nilable(Symbol))
-        SELF_EMPLOYED = T.let(:self_employed, T.nilable(Symbol))
-        STUDENT = T.let(:student, T.nilable(Symbol))
-        UNEMPLOYED = T.let(:unemployed, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        EMPLOYED = :employed
+        RETIRED = :retired
+        SELF_EMPLOYED = :self_employed
+        STUDENT = :student
+        UNEMPLOYED = :unemployed
       end
 
       # The source of the individual's income.
       class IncomeSource < ModernTreasury::Enum
         abstract!
 
-        FAMILY_SUPPORT = T.let(:family_support, T.nilable(Symbol))
-        GOVERNMENT_BENEFITS = T.let(:government_benefits, T.nilable(Symbol))
-        INHERITANCE = T.let(:inheritance, T.nilable(Symbol))
-        INVESTMENTS = T.let(:investments, T.nilable(Symbol))
-        RENTAL_INCOME = T.let(:rental_income, T.nilable(Symbol))
-        RETIREMENT = T.let(:retirement, T.nilable(Symbol))
-        SALARY = T.let(:salary, T.nilable(Symbol))
-        SELF_EMPLOYED = T.let(:self_employed, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        FAMILY_SUPPORT = :family_support
+        GOVERNMENT_BENEFITS = :government_benefits
+        INHERITANCE = :inheritance
+        INVESTMENTS = :investments
+        RENTAL_INCOME = :rental_income
+        RETIREMENT = :retirement
+        SALARY = :salary
+        SELF_EMPLOYED = :self_employed
       end
 
       # The industry of the individual.
       class Industry < ModernTreasury::Enum
         abstract!
 
-        ACCOUNTING = T.let(:accounting, T.nilable(Symbol))
-        AGRICULTURE = T.let(:agriculture, T.nilable(Symbol))
-        AUTOMOTIVE = T.let(:automotive, T.nilable(Symbol))
-        CHEMICAL_MANUFACTURING = T.let(:chemical_manufacturing, T.nilable(Symbol))
-        CONSTRUCTION = T.let(:construction, T.nilable(Symbol))
-        EDUCATIONAL_MEDICAL = T.let(:educational_medical, T.nilable(Symbol))
-        FOOD_SERVICE = T.let(:food_service, T.nilable(Symbol))
-        FINANCE = T.let(:finance, T.nilable(Symbol))
-        GASOLINE = T.let(:gasoline, T.nilable(Symbol))
-        HEALTH_STORES = T.let(:health_stores, T.nilable(Symbol))
-        LAUNDRY = T.let(:laundry, T.nilable(Symbol))
-        MAINTENANCE = T.let(:maintenance, T.nilable(Symbol))
-        MANUFACTURING = T.let(:manufacturing, T.nilable(Symbol))
-        MERCHANT_WHOLESALE = T.let(:merchant_wholesale, T.nilable(Symbol))
-        MINING = T.let(:mining, T.nilable(Symbol))
-        PERFORMING_ARTS = T.let(:performing_arts, T.nilable(Symbol))
-        PROFESSIONAL_NON_LEGAL = T.let(:professional_non_legal, T.nilable(Symbol))
-        PUBLIC_ADMINISTRATION = T.let(:public_administration, T.nilable(Symbol))
-        PUBLISHING = T.let(:publishing, T.nilable(Symbol))
-        REAL_ESTATE = T.let(:real_estate, T.nilable(Symbol))
-        RECREATION_GAMBLING = T.let(:recreation_gambling, T.nilable(Symbol))
-        RELIGIOUS_CHARITY = T.let(:religious_charity, T.nilable(Symbol))
-        RENTAL_SERVICES = T.let(:rental_services, T.nilable(Symbol))
-        RETAIL_CLOTHING = T.let(:retail_clothing, T.nilable(Symbol))
-        RETAIL_ELECTRONICS = T.let(:retail_electronics, T.nilable(Symbol))
-        RETAIL_FOOD = T.let(:retail_food, T.nilable(Symbol))
-        RETAIL_FURNISHING = T.let(:retail_furnishing, T.nilable(Symbol))
-        RETAIL_HOME = T.let(:retail_home, T.nilable(Symbol))
-        RETAIL_NON_STORE = T.let(:retail_non_store, T.nilable(Symbol))
-        RETAIL_SPORTING = T.let(:retail_sporting, T.nilable(Symbol))
-        TRANSPORTATION = T.let(:transportation, T.nilable(Symbol))
-        TRAVEL = T.let(:travel, T.nilable(Symbol))
-        UTILITIES = T.let(:utilities, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        ACCOUNTING = :accounting
+        AGRICULTURE = :agriculture
+        AUTOMOTIVE = :automotive
+        CHEMICAL_MANUFACTURING = :chemical_manufacturing
+        CONSTRUCTION = :construction
+        EDUCATIONAL_MEDICAL = :educational_medical
+        FOOD_SERVICE = :food_service
+        FINANCE = :finance
+        GASOLINE = :gasoline
+        HEALTH_STORES = :health_stores
+        LAUNDRY = :laundry
+        MAINTENANCE = :maintenance
+        MANUFACTURING = :manufacturing
+        MERCHANT_WHOLESALE = :merchant_wholesale
+        MINING = :mining
+        PERFORMING_ARTS = :performing_arts
+        PROFESSIONAL_NON_LEGAL = :professional_non_legal
+        PUBLIC_ADMINISTRATION = :public_administration
+        PUBLISHING = :publishing
+        REAL_ESTATE = :real_estate
+        RECREATION_GAMBLING = :recreation_gambling
+        RELIGIOUS_CHARITY = :religious_charity
+        RENTAL_SERVICES = :rental_services
+        RETAIL_CLOTHING = :retail_clothing
+        RETAIL_ELECTRONICS = :retail_electronics
+        RETAIL_FOOD = :retail_food
+        RETAIL_FURNISHING = :retail_furnishing
+        RETAIL_HOME = :retail_home
+        RETAIL_NON_STORE = :retail_non_store
+        RETAIL_SPORTING = :retail_sporting
+        TRANSPORTATION = :transportation
+        TRAVEL = :travel
+        UTILITIES = :utilities
       end
 
       # The occupation of the individual.
       class Occupation < ModernTreasury::Enum
         abstract!
 
-        CONSULTING = T.let(:consulting, T.nilable(Symbol))
-        EXECUTIVE = T.let(:executive, T.nilable(Symbol))
-        FINANCE_ACCOUNTING = T.let(:finance_accounting, T.nilable(Symbol))
-        FOOD_SERVICES = T.let(:food_services, T.nilable(Symbol))
-        GOVERNMENT = T.let(:government, T.nilable(Symbol))
-        HEALTHCARE = T.let(:healthcare, T.nilable(Symbol))
-        LEGAL_SERVICES = T.let(:legal_services, T.nilable(Symbol))
-        MANUFACTURING = T.let(:manufacturing, T.nilable(Symbol))
-        OTHER = T.let(:other, T.nilable(Symbol))
-        SALES = T.let(:sales, T.nilable(Symbol))
-        SCIENCE_ENGINEERING = T.let(:science_engineering, T.nilable(Symbol))
-        TECHNOLOGY = T.let(:technology, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        CONSULTING = :consulting
+        EXECUTIVE = :executive
+        FINANCE_ACCOUNTING = :finance_accounting
+        FOOD_SERVICES = :food_services
+        GOVERNMENT = :government
+        HEALTHCARE = :healthcare
+        LEGAL_SERVICES = :legal_services
+        MANUFACTURING = :manufacturing
+        OTHER = :other
+        SALES = :sales
+        SCIENCE_ENGINEERING = :science_engineering
+        TECHNOLOGY = :technology
       end
 
       # The source of the individual's funds.
       class SourceOfFunds < ModernTreasury::Enum
         abstract!
 
-        ALIMONY = T.let(:alimony, T.nilable(Symbol))
-        ANNUITY = T.let(:annuity, T.nilable(Symbol))
-        BUSINESS_OWNER = T.let(:business_owner, T.nilable(Symbol))
-        GENERAL_EMPLOYEE = T.let(:general_employee, T.nilable(Symbol))
-        GOVERNMENT_BENEFITS = T.let(:government_benefits, T.nilable(Symbol))
-        HOMEMAKER = T.let(:homemaker, T.nilable(Symbol))
-        INHERITANCE_GIFT = T.let(:inheritance_gift, T.nilable(Symbol))
-        INVESTMENT = T.let(:investment, T.nilable(Symbol))
-        LEGAL_SETTLEMENT = T.let(:legal_settlement, T.nilable(Symbol))
-        LOTTERY = T.let(:lottery, T.nilable(Symbol))
-        REAL_ESTATE = T.let(:real_estate, T.nilable(Symbol))
-        RETIRED = T.let(:retired, T.nilable(Symbol))
-        RETIREMENT = T.let(:retirement, T.nilable(Symbol))
-        SALARY = T.let(:salary, T.nilable(Symbol))
-        SELF_EMPLOYED = T.let(:self_employed, T.nilable(Symbol))
-        SENIOR_EXECUTIVE = T.let(:senior_executive, T.nilable(Symbol))
-        TRUST_INCOME = T.let(:trust_income, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        ALIMONY = :alimony
+        ANNUITY = :annuity
+        BUSINESS_OWNER = :business_owner
+        GENERAL_EMPLOYEE = :general_employee
+        GOVERNMENT_BENEFITS = :government_benefits
+        HOMEMAKER = :homemaker
+        INHERITANCE_GIFT = :inheritance_gift
+        INVESTMENT = :investment
+        LEGAL_SETTLEMENT = :legal_settlement
+        LOTTERY = :lottery
+        REAL_ESTATE = :real_estate
+        RETIRED = :retired
+        RETIREMENT = :retirement
+        SALARY = :salary
+        SELF_EMPLOYED = :self_employed
+        SENIOR_EXECUTIVE = :senior_executive
+        TRUST_INCOME = :trust_income
       end
 
       # The source of the individual's wealth.
       class WealthSource < ModernTreasury::Enum
         abstract!
 
-        BUSINESS_SALE = T.let(:business_sale, T.nilable(Symbol))
-        FAMILY_SUPPORT = T.let(:family_support, T.nilable(Symbol))
-        GOVERNMENT_BENEFITS = T.let(:government_benefits, T.nilable(Symbol))
-        INHERITANCE = T.let(:inheritance, T.nilable(Symbol))
-        INVESTMENTS = T.let(:investments, T.nilable(Symbol))
-        OTHER = T.let(:other, T.nilable(Symbol))
-        RENTAL_INCOME = T.let(:rental_income, T.nilable(Symbol))
-        RETIREMENT = T.let(:retirement, T.nilable(Symbol))
-        SALARY = T.let(:salary, T.nilable(Symbol))
-        SELF_EMPLOYED = T.let(:self_employed, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        BUSINESS_SALE = :business_sale
+        FAMILY_SUPPORT = :family_support
+        GOVERNMENT_BENEFITS = :government_benefits
+        INHERITANCE = :inheritance
+        INVESTMENTS = :investments
+        OTHER = :other
+        RENTAL_INCOME = :rental_income
+        RETIREMENT = :retirement
+        SALARY = :salary
+        SELF_EMPLOYED = :self_employed
       end
     end
   end

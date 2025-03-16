@@ -447,6 +447,8 @@ module ModernTreasury
       class Type < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs
@@ -478,12 +480,6 @@ module ModernTreasury
         WIRE = :wire
         ZENGIN = :zengin
         OTHER = :other
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
@@ -493,35 +489,31 @@ module ModernTreasury
       class VendorCodeType < ModernTreasury::Enum
         abstract!
 
-        BAI2 = T.let(:bai2, T.nilable(Symbol))
-        BANKING_CIRCLE = T.let(:banking_circle, T.nilable(Symbol))
-        BANKPROV = T.let(:bankprov, T.nilable(Symbol))
-        BNK_DEV = T.let(:bnk_dev, T.nilable(Symbol))
-        CLEARTOUCH = T.let(:cleartouch, T.nilable(Symbol))
-        COLUMN = T.let(:column, T.nilable(Symbol))
-        CROSS_RIVER = T.let(:cross_river, T.nilable(Symbol))
-        CURRENCYCLOUD = T.let(:currencycloud, T.nilable(Symbol))
-        DC_BANK = T.let(:dc_bank, T.nilable(Symbol))
-        DWOLLA = T.let(:dwolla, T.nilable(Symbol))
-        EVOLVE = T.let(:evolve, T.nilable(Symbol))
-        GOLDMAN_SACHS = T.let(:goldman_sachs, T.nilable(Symbol))
-        ISO20022 = T.let(:iso20022, T.nilable(Symbol))
-        JPMC = T.let(:jpmc, T.nilable(Symbol))
-        MX = T.let(:mx, T.nilable(Symbol))
-        PLAID = T.let(:plaid, T.nilable(Symbol))
-        PNC = T.let(:pnc, T.nilable(Symbol))
-        RSPEC_VENDOR = T.let(:rspec_vendor, T.nilable(Symbol))
-        SIGNET = T.let(:signet, T.nilable(Symbol))
-        SILVERGATE = T.let(:silvergate, T.nilable(Symbol))
-        SWIFT = T.let(:swift, T.nilable(Symbol))
-        US_BANK = T.let(:us_bank, T.nilable(Symbol))
-        USER = T.let(:user, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        BAI2 = :bai2
+        BANKING_CIRCLE = :banking_circle
+        BANKPROV = :bankprov
+        BNK_DEV = :bnk_dev
+        CLEARTOUCH = :cleartouch
+        COLUMN = :column
+        CROSS_RIVER = :cross_river
+        CURRENCYCLOUD = :currencycloud
+        DC_BANK = :dc_bank
+        DWOLLA = :dwolla
+        EVOLVE = :evolve
+        GOLDMAN_SACHS = :goldman_sachs
+        ISO20022 = :iso20022
+        JPMC = :jpmc
+        MX = :mx
+        PLAID = :plaid
+        PNC = :pnc
+        RSPEC_VENDOR = :rspec_vendor
+        SIGNET = :signet
+        SILVERGATE = :silvergate
+        SWIFT = :swift
+        US_BANK = :us_bank
+        USER = :user
       end
     end
   end

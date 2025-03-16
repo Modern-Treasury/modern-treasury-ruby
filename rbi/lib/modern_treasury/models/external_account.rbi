@@ -368,15 +368,11 @@ module ModernTreasury
         class ContactIdentifierType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 
@@ -533,42 +529,30 @@ module ModernTreasury
       class PartyType < ModernTreasury::Enum
         abstract!
 
-        BUSINESS = T.let(:business, T.nilable(Symbol))
-        INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        BUSINESS = :business
+        INDIVIDUAL = :individual
       end
 
       class VerificationSource < ModernTreasury::Enum
         abstract!
 
-        ACH_PRENOTE = T.let(:ach_prenote, T.nilable(Symbol))
-        MICRODEPOSITS = T.let(:microdeposits, T.nilable(Symbol))
-        PLAID = T.let(:plaid, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        ACH_PRENOTE = :ach_prenote
+        MICRODEPOSITS = :microdeposits
+        PLAID = :plaid
       end
 
       class VerificationStatus < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         PENDING_VERIFICATION = :pending_verification
         UNVERIFIED = :unverified
         VERIFIED = :verified
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

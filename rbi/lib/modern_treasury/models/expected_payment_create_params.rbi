@@ -285,14 +285,10 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         abstract!
 
-        CREDIT = T.let(:credit, T.nilable(Symbol))
-        DEBIT = T.let(:debit, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        CREDIT = :credit
+        DEBIT = :debit
       end
 
       class LedgerTransaction < ModernTreasury::BaseModel
@@ -589,33 +585,25 @@ module ModernTreasury
         class LedgerableType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           EXPECTED_PAYMENT = :expected_payment
           INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
           PAPER_ITEM = :paper_item
           PAYMENT_ORDER = :payment_order
           RETURN = :return
           REVERSAL = :reversal
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         # To post a ledger transaction at creation, use `posted`.
         class Status < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           ARCHIVED = :archived
           PENDING = :pending
           POSTED = :posted
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 

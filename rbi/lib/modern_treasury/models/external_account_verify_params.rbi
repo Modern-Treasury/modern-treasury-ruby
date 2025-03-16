@@ -96,6 +96,8 @@ module ModernTreasury
       class PaymentType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs
@@ -126,12 +128,6 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # A payment type to fallback to if the original type is not valid for the
@@ -140,13 +136,9 @@ module ModernTreasury
       class FallbackType < ModernTreasury::Enum
         abstract!
 
-        ACH = :ach
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        ACH = :ach
       end
 
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
@@ -154,14 +146,10 @@ module ModernTreasury
       class Priority < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         HIGH = :high
         NORMAL = :normal
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

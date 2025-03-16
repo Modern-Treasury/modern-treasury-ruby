@@ -62,19 +62,17 @@ module ModernTreasury
       class AccountsType < ModernTreasury::Enum
         abstract!
 
-        EXTERNAL_ACCOUNTS = :external_accounts
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        EXTERNAL_ACCOUNTS = :external_accounts
       end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       class AccountNumberType < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         AU_NUMBER = :au_number
         CLABE = :clabe
@@ -86,12 +84,6 @@ module ModernTreasury
         PAN = :pan
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

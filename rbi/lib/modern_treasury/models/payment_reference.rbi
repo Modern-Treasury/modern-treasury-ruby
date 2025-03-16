@@ -133,6 +133,8 @@ module ModernTreasury
       class ReferenceNumberType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
         ACH_TRACE_NUMBER = :ach_trace_number
         BANKPROV_PAYMENT_ACTIVITY_DATE = :bankprov_payment_activity_date
@@ -204,12 +206,6 @@ module ModernTreasury
         WELLS_FARGO_PAYMENT_ID = :wells_fargo_payment_id
         WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
         WELLS_FARGO_UETR = :wells_fargo_uetr
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # One of the referenceable types. This must be accompanied by the id of the
@@ -217,15 +213,11 @@ module ModernTreasury
       class ReferenceableType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         PAYMENT_ORDER = :payment_order
         REVERSAL = :reversal
         RETURN = :return
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

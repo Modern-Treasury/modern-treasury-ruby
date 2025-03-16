@@ -820,15 +820,11 @@ module ModernTreasury
           class Status < ModernTreasury::Enum
             abstract!
 
+            Value = type_template(:out) { {fixed: Symbol} }
+
             ARCHIVED = :archived
             PENDING = :pending
             POSTED = :posted
-
-            class << self
-              sig { override.returns(T::Array[Symbol]) }
-              def values
-              end
-            end
           end
         end
 
@@ -838,33 +834,25 @@ module ModernTreasury
         class LedgerableType < ModernTreasury::Enum
           abstract!
 
-          EXPECTED_PAYMENT = T.let(:expected_payment, T.nilable(Symbol))
-          INCOMING_PAYMENT_DETAIL = T.let(:incoming_payment_detail, T.nilable(Symbol))
-          PAPER_ITEM = T.let(:paper_item, T.nilable(Symbol))
-          PAYMENT_ORDER = T.let(:payment_order, T.nilable(Symbol))
-          RETURN = T.let(:return, T.nilable(Symbol))
-          REVERSAL = T.let(:reversal, T.nilable(Symbol))
+          Value = type_template(:out) { {fixed: Symbol} }
 
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
+          EXPECTED_PAYMENT = :expected_payment
+          INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+          PAPER_ITEM = :paper_item
+          PAYMENT_ORDER = :payment_order
+          RETURN = :return
+          REVERSAL = :reversal
         end
 
         # One of `pending`, `posted`, or `archived`.
         class Status < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           ARCHIVED = :archived
           PENDING = :pending
           POSTED = :posted
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
     end

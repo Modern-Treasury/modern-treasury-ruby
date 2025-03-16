@@ -138,14 +138,10 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
-        PENDING = T.let(:pending, T.nilable(Symbol))
-        POSTED = T.let(:posted, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        PENDING = :pending
+        POSTED = :posted
       end
     end
   end

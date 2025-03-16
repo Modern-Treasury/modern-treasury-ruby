@@ -71,6 +71,8 @@ module ModernTreasury
       class DocumentableType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         CASES = :cases
         COUNTERPARTIES = :counterparties
         EXPECTED_PAYMENTS = :expected_payments
@@ -83,12 +85,6 @@ module ModernTreasury
         TRANSACTIONS = :transactions
         DECISIONS = :decisions
         CONNECTIONS = :connections
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end
