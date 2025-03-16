@@ -2,8 +2,6 @@
 
 module ModernTreasury
   # @api private
-  #
-  # @abstract
   module Extern
   end
 end

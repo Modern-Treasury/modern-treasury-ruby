@@ -1,6 +1,7 @@
 # typed: strong
 
 module ModernTreasury
+  # @api private
   class BaseClient
     abstract!
 
