@@ -229,6 +229,8 @@ module ModernTreasury
         class AccountNumberType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           AU_NUMBER = :au_number
           CLABE = :clabe
           HK_NUMBER = :hk_number
@@ -239,12 +241,6 @@ module ModernTreasury
           PAN = :pan
           SG_NUMBER = :sg_number
           WALLET_ADDRESS = :wallet_address
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 
@@ -276,15 +272,11 @@ module ModernTreasury
         class ContactIdentifierType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 
@@ -444,16 +436,12 @@ module ModernTreasury
         class LedgerableType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           COUNTERPARTY = :counterparty
           EXTERNAL_ACCOUNT = :external_account
           INTERNAL_ACCOUNT = :internal_account
           VIRTUAL_ACCOUNT = :virtual_account
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 
@@ -546,14 +534,10 @@ module ModernTreasury
       class PartyType < ModernTreasury::Enum
         abstract!
 
-        BUSINESS = T.let(:business, T.nilable(Symbol))
-        INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        BUSINESS = :business
+        INDIVIDUAL = :individual
       end
 
       class RoutingDetail < ModernTreasury::BaseModel
@@ -598,6 +582,8 @@ module ModernTreasury
         class RoutingNumberType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           ABA = :aba
           AU_BSB = :au_bsb
           BR_CODIGO = :br_codigo
@@ -619,16 +605,12 @@ module ModernTreasury
           SG_INTERBANK_CLEARING_CODE = :sg_interbank_clearing_code
           SWIFT = :swift
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         class PaymentType < ModernTreasury::Enum
           abstract!
+
+          Value = type_template(:out) { {fixed: Symbol} }
 
           ACH = :ach
           AU_BECS = :au_becs
@@ -660,12 +642,6 @@ module ModernTreasury
           SKNBI = :sknbi
           WIRE = :wire
           ZENGIN = :zengin
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
     end

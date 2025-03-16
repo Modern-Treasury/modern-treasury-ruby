@@ -262,20 +262,16 @@ module ModernTreasury
       class AccountType < ModernTreasury::Enum
         abstract!
 
-        CASH = T.let(:cash, T.nilable(Symbol))
-        CHECKING = T.let(:checking, T.nilable(Symbol))
-        GENERAL_LEDGER = T.let(:general_ledger, T.nilable(Symbol))
-        LOAN = T.let(:loan, T.nilable(Symbol))
-        NON_RESIDENT = T.let(:non_resident, T.nilable(Symbol))
-        OTHER = T.let(:other, T.nilable(Symbol))
-        OVERDRAFT = T.let(:overdraft, T.nilable(Symbol))
-        SAVINGS = T.let(:savings, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        CASH = :cash
+        CHECKING = :checking
+        GENERAL_LEDGER = :general_ledger
+        LOAN = :loan
+        NON_RESIDENT = :non_resident
+        OTHER = :other
+        OVERDRAFT = :overdraft
+        SAVINGS = :savings
       end
 
       class PartyAddress < ModernTreasury::BaseModel
@@ -431,14 +427,10 @@ module ModernTreasury
       class PartyType < ModernTreasury::Enum
         abstract!
 
-        BUSINESS = T.let(:business, T.nilable(Symbol))
-        INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        BUSINESS = :business
+        INDIVIDUAL = :individual
       end
     end
   end

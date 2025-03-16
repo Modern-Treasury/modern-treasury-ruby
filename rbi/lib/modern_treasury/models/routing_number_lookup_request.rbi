@@ -195,6 +195,8 @@ module ModernTreasury
       class RoutingNumberType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ABA = :aba
         AU_BSB = :au_bsb
         CA_CPA = :ca_cpa
@@ -203,16 +205,12 @@ module ModernTreasury
         NZ_NATIONAL_CLEARING_CODE = :nz_national_clearing_code
         SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
         SWIFT = :swift
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class SupportedPaymentType < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         ACH = :ach
         AU_BECS = :au_becs
@@ -244,12 +242,6 @@ module ModernTreasury
         SKNBI = :sknbi
         WIRE = :wire
         ZENGIN = :zengin
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

@@ -251,14 +251,10 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         abstract!
 
-        CREDIT = T.let(:credit, T.nilable(Symbol))
-        DEBIT = T.let(:debit, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        CREDIT = :credit
+        DEBIT = :debit
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to
@@ -266,13 +262,9 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
-        RECONCILED = T.let(:reconciled, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        RECONCILED = :reconciled
       end
     end
   end

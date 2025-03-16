@@ -158,18 +158,14 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         DRAFT = :draft
         PAID = :paid
         PARTIALLY_PAID = :partially_paid
         PAYMENT_PENDING = :payment_pending
         UNPAID = :unpaid
         VOIDED = :voided
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

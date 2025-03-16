@@ -84,6 +84,8 @@ module ModernTreasury
       class Field < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         NAME = :name
         NAME_ON_ACCOUNT = :nameOnAccount
         TAXPAYER_IDENTIFIER = :taxpayerIdentifier
@@ -113,12 +115,6 @@ module ModernTreasury
         DK_INTERBANK_CLEARING_CODE = :dkInterbankClearingCode
         ID_SKNBI_CODE = :idSknbiCode
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

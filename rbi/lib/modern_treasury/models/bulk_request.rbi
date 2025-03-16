@@ -170,46 +170,34 @@ module ModernTreasury
       class ActionType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         CREATE = :create
         UPDATE = :update
         DELETE = :delete
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
       class ResourceType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         PAYMENT_ORDER = :payment_order
         LEDGER_TRANSACTION = :ledger_transaction
         TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # One of pending, processing, or completed.
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         PENDING = :pending
         PROCESSING = :processing
         COMPLETED = :completed
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

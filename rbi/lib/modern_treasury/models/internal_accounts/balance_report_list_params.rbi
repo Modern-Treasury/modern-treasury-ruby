@@ -75,16 +75,12 @@ module ModernTreasury
         class BalanceReportType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           INTRADAY = :intraday
           OTHER = :other
           PREVIOUS_DAY = :previous_day
           REAL_TIME = :real_time
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
     end

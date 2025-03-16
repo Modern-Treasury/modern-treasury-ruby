@@ -6,6 +6,8 @@ module ModernTreasury
     class Currency < ModernTreasury::Enum
       abstract!
 
+      Value = type_template(:out) { {fixed: Symbol} }
+
       AED = :AED
       AFN = :AFN
       ALL = :ALL
@@ -195,12 +197,6 @@ module ModernTreasury
       ZWL = :ZWL
       ZWN = :ZWN
       ZWR = :ZWR
-
-      class << self
-        sig { override.returns(T::Array[Symbol]) }
-        def values
-        end
-      end
     end
   end
 end

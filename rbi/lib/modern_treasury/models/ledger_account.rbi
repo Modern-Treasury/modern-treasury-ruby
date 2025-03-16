@@ -537,16 +537,12 @@ module ModernTreasury
       class LedgerableType < ModernTreasury::Enum
         abstract!
 
-        COUNTERPARTY = T.let(:counterparty, T.nilable(Symbol))
-        EXTERNAL_ACCOUNT = T.let(:external_account, T.nilable(Symbol))
-        INTERNAL_ACCOUNT = T.let(:internal_account, T.nilable(Symbol))
-        VIRTUAL_ACCOUNT = T.let(:virtual_account, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        COUNTERPARTY = :counterparty
+        EXTERNAL_ACCOUNT = :external_account
+        INTERNAL_ACCOUNT = :internal_account
+        VIRTUAL_ACCOUNT = :virtual_account
       end
     end
   end

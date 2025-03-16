@@ -6,6 +6,8 @@ module ModernTreasury
     class ExternalAccountType < ModernTreasury::Enum
       abstract!
 
+      Value = type_template(:out) { {fixed: Symbol} }
+
       CASH = :cash
       CHECKING = :checking
       GENERAL_LEDGER = :general_ledger
@@ -14,12 +16,6 @@ module ModernTreasury
       OTHER = :other
       OVERDRAFT = :overdraft
       SAVINGS = :savings
-
-      class << self
-        sig { override.returns(T::Array[Symbol]) }
-        def values
-        end
-      end
     end
   end
 end

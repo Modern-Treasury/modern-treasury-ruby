@@ -58,6 +58,8 @@ module ModernTreasury
       class RoutingNumberType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ABA = :aba
         AU_BSB = :au_bsb
         BR_CODIGO = :br_codigo
@@ -79,12 +81,6 @@ module ModernTreasury
         SG_INTERBANK_CLEARING_CODE = :sg_interbank_clearing_code
         SWIFT = :swift
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

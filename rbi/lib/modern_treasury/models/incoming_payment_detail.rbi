@@ -335,55 +335,47 @@ module ModernTreasury
       class OriginatingAccountNumberType < ModernTreasury::Enum
         abstract!
 
-        AU_NUMBER = T.let(:au_number, T.nilable(Symbol))
-        CLABE = T.let(:clabe, T.nilable(Symbol))
-        HK_NUMBER = T.let(:hk_number, T.nilable(Symbol))
-        IBAN = T.let(:iban, T.nilable(Symbol))
-        ID_NUMBER = T.let(:id_number, T.nilable(Symbol))
-        NZ_NUMBER = T.let(:nz_number, T.nilable(Symbol))
-        OTHER = T.let(:other, T.nilable(Symbol))
-        PAN = T.let(:pan, T.nilable(Symbol))
-        SG_NUMBER = T.let(:sg_number, T.nilable(Symbol))
-        WALLET_ADDRESS = T.let(:wallet_address, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        AU_NUMBER = :au_number
+        CLABE = :clabe
+        HK_NUMBER = :hk_number
+        IBAN = :iban
+        ID_NUMBER = :id_number
+        NZ_NUMBER = :nz_number
+        OTHER = :other
+        PAN = :pan
+        SG_NUMBER = :sg_number
+        WALLET_ADDRESS = :wallet_address
       end
 
       # The type of the originating routing number for the incoming payment detail.
       class OriginatingRoutingNumberType < ModernTreasury::Enum
         abstract!
 
-        ABA = T.let(:aba, T.nilable(Symbol))
-        AU_BSB = T.let(:au_bsb, T.nilable(Symbol))
-        BR_CODIGO = T.let(:br_codigo, T.nilable(Symbol))
-        CA_CPA = T.let(:ca_cpa, T.nilable(Symbol))
-        CHIPS = T.let(:chips, T.nilable(Symbol))
-        CNAPS = T.let(:cnaps, T.nilable(Symbol))
-        DK_INTERBANK_CLEARING_CODE = T.let(:dk_interbank_clearing_code, T.nilable(Symbol))
-        GB_SORT_CODE = T.let(:gb_sort_code, T.nilable(Symbol))
-        HK_INTERBANK_CLEARING_CODE = T.let(:hk_interbank_clearing_code, T.nilable(Symbol))
-        HU_INTERBANK_CLEARING_CODE = T.let(:hu_interbank_clearing_code, T.nilable(Symbol))
-        ID_SKNBI_CODE = T.let(:id_sknbi_code, T.nilable(Symbol))
-        IN_IFSC = T.let(:in_ifsc, T.nilable(Symbol))
-        JP_ZENGIN_CODE = T.let(:jp_zengin_code, T.nilable(Symbol))
-        MX_BANK_IDENTIFIER = T.let(:mx_bank_identifier, T.nilable(Symbol))
-        MY_BRANCH_CODE = T.let(:my_branch_code, T.nilable(Symbol))
-        NZ_NATIONAL_CLEARING_CODE = T.let(:nz_national_clearing_code, T.nilable(Symbol))
-        PL_NATIONAL_CLEARING_CODE = T.let(:pl_national_clearing_code, T.nilable(Symbol))
-        SE_BANKGIRO_CLEARING_CODE = T.let(:se_bankgiro_clearing_code, T.nilable(Symbol))
-        SG_INTERBANK_CLEARING_CODE = T.let(:sg_interbank_clearing_code, T.nilable(Symbol))
-        SWIFT = T.let(:swift, T.nilable(Symbol))
-        ZA_NATIONAL_CLEARING_CODE = T.let(:za_national_clearing_code, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        ABA = :aba
+        AU_BSB = :au_bsb
+        BR_CODIGO = :br_codigo
+        CA_CPA = :ca_cpa
+        CHIPS = :chips
+        CNAPS = :cnaps
+        DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
+        GB_SORT_CODE = :gb_sort_code
+        HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
+        HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
+        ID_SKNBI_CODE = :id_sknbi_code
+        IN_IFSC = :in_ifsc
+        JP_ZENGIN_CODE = :jp_zengin_code
+        MX_BANK_IDENTIFIER = :mx_bank_identifier
+        MY_BRANCH_CODE = :my_branch_code
+        NZ_NATIONAL_CLEARING_CODE = :nz_national_clearing_code
+        PL_NATIONAL_CLEARING_CODE = :pl_national_clearing_code
+        SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
+        SG_INTERBANK_CLEARING_CODE = :sg_interbank_clearing_code
+        SWIFT = :swift
+        ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
@@ -391,21 +383,19 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         COMPLETED = :completed
         PENDING = :pending
         RETURNED = :returned
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       class Type < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         ACH = :ach
         BOOK = :book
@@ -416,12 +406,6 @@ module ModernTreasury
         SEPA = :sepa
         SIGNET = :signet
         WIRE = :wire
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

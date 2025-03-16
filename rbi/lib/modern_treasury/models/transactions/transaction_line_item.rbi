@@ -215,18 +215,14 @@ module ModernTreasury
         class TransactableType < ModernTreasury::Enum
           abstract!
 
-          INCOMING_PAYMENT_DETAIL = T.let(:incoming_payment_detail, T.nilable(Symbol))
-          PAPER_ITEM = T.let(:paper_item, T.nilable(Symbol))
-          PAYMENT_ORDER = T.let(:payment_order, T.nilable(Symbol))
-          PAYMENT_ORDER_ATTEMPT = T.let(:payment_order_attempt, T.nilable(Symbol))
-          RETURN = T.let(:return, T.nilable(Symbol))
-          REVERSAL = T.let(:reversal, T.nilable(Symbol))
+          Value = type_template(:out) { {fixed: Symbol} }
 
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
+          INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+          PAPER_ITEM = :paper_item
+          PAYMENT_ORDER = :payment_order
+          PAYMENT_ORDER_ATTEMPT = :payment_order_attempt
+          RETURN = :return
+          REVERSAL = :reversal
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
@@ -234,14 +230,10 @@ module ModernTreasury
         class Type < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           ORIGINATING = :originating
           RECEIVING = :receiving
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
     end

@@ -234,18 +234,14 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ARCHIVED = :archived
         ARCHIVING = :archiving
         DRAFTING = :drafting
         PENDING = :pending
         POSTED = :posted
         PROCESSING = :processing
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

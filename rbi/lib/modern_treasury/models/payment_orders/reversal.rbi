@@ -156,22 +156,20 @@ module ModernTreasury
         class Reason < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           DUPLICATE = :duplicate
           INCORRECT_AMOUNT = :incorrect_amount
           INCORRECT_RECEIVING_ACCOUNT = :incorrect_receiving_account
           DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         # The current status of the reversal.
         class Status < ModernTreasury::Enum
           abstract!
+
+          Value = type_template(:out) { {fixed: Symbol} }
 
           COMPLETED = :completed
           FAILED = :failed
@@ -179,12 +177,6 @@ module ModernTreasury
           PROCESSING = :processing
           RETURNED = :returned
           SENT = :sent
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
     end
