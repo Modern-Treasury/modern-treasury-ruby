@@ -47,13 +47,9 @@ module ModernTreasury
       class AccountsType < ModernTreasury::Enum
         abstract!
 
-        EXTERNAL_ACCOUNTS = :external_accounts
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        EXTERNAL_ACCOUNTS = :external_accounts
       end
     end
   end

@@ -130,19 +130,17 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         CREDIT = :credit
         DEBIT = :debit
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # One of `ach`, `wire`, `check`.
       class Type < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         ACH = :ach
         BOOK = :book
@@ -153,12 +151,6 @@ module ModernTreasury
         SEPA = :sepa
         SIGNET = :signet
         WIRE = :wire
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

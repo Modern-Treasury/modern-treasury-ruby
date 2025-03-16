@@ -265,14 +265,10 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         CREDIT = :credit
         DEBIT = :debit
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
@@ -281,13 +277,9 @@ module ModernTreasury
       class ExistingExternalAccountsFilter < ModernTreasury::Enum
         abstract!
 
-        VERIFIED = T.let(:verified, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        VERIFIED = :verified
       end
 
       # When `enabled`, your end-user can select from an existing external account when
@@ -296,14 +288,10 @@ module ModernTreasury
       class ExternalAccountCollection < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         DISABLED = :disabled
         ENABLED = :enabled
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # The current status of the payment flow. One of `pending`, `completed`,
@@ -311,16 +299,12 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         CANCELLED = :cancelled
         COMPLETED = :completed
         EXPIRED = :expired
         PENDING = :pending
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

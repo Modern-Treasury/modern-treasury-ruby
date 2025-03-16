@@ -5,6 +5,15 @@ module ModernTreasury
     class ExternalAccountVerifyResponse < ModernTreasury::Union
       abstract!
 
+      Variants = type_template(:out) do
+        {
+          fixed: T.any(
+            ModernTreasury::Models::ExternalAccount,
+            ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+          )
+        }
+      end
+
       class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
         sig { returns(String) }
         def id
@@ -149,6 +158,8 @@ module ModernTreasury
         class PaymentType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           ACH = :ach
           AU_BECS = :au_becs
           BACS = :bacs
@@ -179,26 +190,16 @@ module ModernTreasury
           SKNBI = :sknbi
           WIRE = :wire
           ZENGIN = :zengin
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         # The priority of the payment. Can be `normal` or `high`.
         class Priority < ModernTreasury::Enum
           abstract!
 
-          HIGH = T.let(:high, T.nilable(Symbol))
-          NORMAL = T.let(:normal, T.nilable(Symbol))
+          Value = type_template(:out) { {fixed: Symbol} }
 
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
+          HIGH = :high
+          NORMAL = :normal
         end
 
         # The status of the verification attempt. Can be `pending_verification`,
@@ -206,27 +207,12 @@ module ModernTreasury
         class Status < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           CANCELLED = :cancelled
           FAILED = :failed
           PENDING_VERIFICATION = :pending_verification
           VERIFIED = :verified
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
-        end
-      end
-
-      class << self
-        sig do
-          override
-            .returns(
-              [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
-            )
-        end
-        def variants
         end
       end
     end

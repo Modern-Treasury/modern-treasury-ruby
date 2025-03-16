@@ -609,15 +609,11 @@ module ModernTreasury
         class ContactIdentifierType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 
@@ -881,34 +877,28 @@ module ModernTreasury
       class PaymentMethod < ModernTreasury::Enum
         abstract!
 
-        UI = T.let(:ui, T.nilable(Symbol))
-        MANUAL = T.let(:manual, T.nilable(Symbol))
-        AUTOMATIC = T.let(:automatic, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        UI = :ui
+        MANUAL = :manual
+        AUTOMATIC = :automatic
       end
 
       # One of `ach` or `eft`.
       class PaymentType < ModernTreasury::Enum
         abstract!
 
-        EFT = T.let(:eft, T.nilable(Symbol))
-        ACH = T.let(:ach, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        EFT = :eft
+        ACH = :ach
       end
 
       # The status of the invoice.
       class Status < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         DRAFT = :draft
         PAID = :paid
@@ -916,12 +906,6 @@ module ModernTreasury
         PAYMENT_PENDING = :payment_pending
         UNPAID = :unpaid
         VOIDED = :voided
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

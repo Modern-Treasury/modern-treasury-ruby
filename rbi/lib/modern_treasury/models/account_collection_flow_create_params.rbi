@@ -61,6 +61,8 @@ module ModernTreasury
       class ReceivingCountry < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         USA = :USA
         AUS = :AUS
         BEL = :BEL
@@ -79,12 +81,6 @@ module ModernTreasury
         PER = :PER
         ESP = :ESP
         GBR = :GBR
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

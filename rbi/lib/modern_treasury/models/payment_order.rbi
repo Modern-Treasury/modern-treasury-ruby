@@ -720,15 +720,11 @@ module ModernTreasury
       class ChargeBearer < ModernTreasury::Enum
         abstract!
 
-        SHARED = T.let(:shared, T.nilable(Symbol))
-        SENDER = T.let(:sender, T.nilable(Symbol))
-        RECEIVER = T.let(:receiver, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        SHARED = :shared
+        SENDER = :sender
+        RECEIVER = :receiver
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -738,14 +734,10 @@ module ModernTreasury
       class Direction < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         CREDIT = :credit
         DEBIT = :debit
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -754,14 +746,10 @@ module ModernTreasury
       class ForeignExchangeIndicator < ModernTreasury::Enum
         abstract!
 
-        FIXED_TO_VARIABLE = T.let(:fixed_to_variable, T.nilable(Symbol))
-        VARIABLE_TO_FIXED = T.let(:variable_to_fixed, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        FIXED_TO_VARIABLE = :fixed_to_variable
+        VARIABLE_TO_FIXED = :variable_to_fixed
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
@@ -872,27 +860,19 @@ module ModernTreasury
       class Priority < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         HIGH = :high
         NORMAL = :normal
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class ReceivingAccountType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -992,6 +972,8 @@ module ModernTreasury
         class ReferenceNumberType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
           ACH_TRACE_NUMBER = :ach_trace_number
           BANKPROV_PAYMENT_ACTIVITY_DATE = :bankprov_payment_activity_date
@@ -1063,18 +1045,14 @@ module ModernTreasury
           WELLS_FARGO_PAYMENT_ID = :wells_fargo_payment_id
           WELLS_FARGO_TRACE_NUMBER = :wells_fargo_trace_number
           WELLS_FARGO_UETR = :wells_fargo_uetr
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 
       # The current status of the payment order.
       class Status < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         APPROVED = :approved
         CANCELLED = :cancelled
@@ -1087,12 +1065,6 @@ module ModernTreasury
         RETURNED = :returned
         REVERSED = :reversed
         SENT = :sent
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # The account to which the originating of this payment should be attributed to.
@@ -1100,24 +1072,16 @@ module ModernTreasury
       class UltimateOriginatingAccount < ModernTreasury::Union
         abstract!
 
-        class << self
-          sig { override.returns([ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]) }
-          def variants
-          end
-        end
+        Variants = type_template(:out) { {fixed: T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)} }
       end
 
       class UltimateOriginatingAccountType < ModernTreasury::Enum
         abstract!
 
-        INTERNAL_ACCOUNT = T.let(:internal_account, T.nilable(Symbol))
-        VIRTUAL_ACCOUNT = T.let(:virtual_account, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        INTERNAL_ACCOUNT = :internal_account
+        VIRTUAL_ACCOUNT = :virtual_account
       end
     end
   end

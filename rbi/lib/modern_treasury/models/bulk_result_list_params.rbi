@@ -118,17 +118,13 @@ module ModernTreasury
       class EntityType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         PAYMENT_ORDER = :payment_order
         LEDGER_TRANSACTION = :ledger_transaction
         TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
         BULK_ERROR = :bulk_error
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # The type of the request that created this result. bulk_request is the only
@@ -136,28 +132,20 @@ module ModernTreasury
       class RequestType < ModernTreasury::Enum
         abstract!
 
-        BULK_REQUEST = :bulk_request
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        BULK_REQUEST = :bulk_request
       end
 
       # One of successful or failed.
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         PENDING = :pending
         SUCCESSFUL = :successful
         FAILED = :failed
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

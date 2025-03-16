@@ -146,14 +146,10 @@ module ModernTreasury
       class Currency < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         USD = :USD
         CAD = :CAD
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       class PartyAddress < ModernTreasury::BaseModel

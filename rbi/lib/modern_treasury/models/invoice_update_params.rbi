@@ -479,15 +479,11 @@ module ModernTreasury
         class ContactIdentifierType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
       end
 
@@ -867,15 +863,11 @@ module ModernTreasury
       class PaymentMethod < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         UI = :ui
         MANUAL = :manual
         AUTOMATIC = :automatic
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

@@ -203,14 +203,10 @@ module ModernTreasury
       class PartyType < ModernTreasury::Enum
         abstract!
 
-        BUSINESS = T.let(:business, T.nilable(Symbol))
-        INDIVIDUAL = T.let(:individual, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        BUSINESS = :business
+        INDIVIDUAL = :individual
       end
     end
   end

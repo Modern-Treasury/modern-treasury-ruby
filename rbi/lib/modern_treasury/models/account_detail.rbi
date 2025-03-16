@@ -132,6 +132,8 @@ module ModernTreasury
       class AccountNumberType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         AU_NUMBER = :au_number
         CLABE = :clabe
         HK_NUMBER = :hk_number
@@ -142,12 +144,6 @@ module ModernTreasury
         PAN = :pan
         SG_NUMBER = :sg_number
         WALLET_ADDRESS = :wallet_address
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end
