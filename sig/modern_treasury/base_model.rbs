@@ -85,7 +85,7 @@ module ModernTreasury
   class Union
     extend ModernTreasury::Converter
 
-    private def self.known_variants: -> ::Array[[Symbol?, Proc]]
+    private def self.known_variants: -> ::Array[[Symbol?, (^-> ModernTreasury::Converter::input)]]
 
     def self.derefed_variants: -> ::Array[[Symbol?, top]]
 
