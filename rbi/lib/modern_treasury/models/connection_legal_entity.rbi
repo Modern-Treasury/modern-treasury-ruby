@@ -142,16 +142,12 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         COMPLETED = :completed
         DENIED = :denied
         FAILED = :failed
         PROCESSING = :processing
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

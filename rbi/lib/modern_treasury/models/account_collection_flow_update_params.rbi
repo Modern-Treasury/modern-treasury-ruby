@@ -35,13 +35,9 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
-        CANCELLED = :cancelled
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        CANCELLED = :cancelled
       end
     end
   end

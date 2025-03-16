@@ -156,20 +156,18 @@ module ModernTreasury
       class PaymentType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         ACH = :ach
         WIRE = :wire
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # An account created with this flow will support wires from the US to these
       #   countries.
       class ReceivingCountry < ModernTreasury::Enum
         abstract!
+
+        Value = type_template(:out) { {fixed: Symbol} }
 
         USA = :USA
         AUS = :AUS
@@ -189,12 +187,6 @@ module ModernTreasury
         PER = :PER
         ESP = :ESP
         GBR = :GBR
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
 
       # The current status of the account collection flow. One of `pending`,
@@ -202,16 +194,12 @@ module ModernTreasury
       class Status < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         CANCELLED = :cancelled
         COMPLETED = :completed
         EXPIRED = :expired
         PENDING = :pending
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

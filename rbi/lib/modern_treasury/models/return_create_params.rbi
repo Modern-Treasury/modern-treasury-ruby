@@ -109,78 +109,70 @@ module ModernTreasury
       class ReturnableType < ModernTreasury::Enum
         abstract!
 
-        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
       end
 
       # The return code. For ACH returns, this is the required ACH return code.
       class Code < ModernTreasury::Enum
         abstract!
 
-        NUMBER_901 = T.let(:"901", T.nilable(Symbol))
-        NUMBER_902 = T.let(:"902", T.nilable(Symbol))
-        NUMBER_903 = T.let(:"903", T.nilable(Symbol))
-        NUMBER_904 = T.let(:"904", T.nilable(Symbol))
-        NUMBER_905 = T.let(:"905", T.nilable(Symbol))
-        NUMBER_907 = T.let(:"907", T.nilable(Symbol))
-        NUMBER_908 = T.let(:"908", T.nilable(Symbol))
-        NUMBER_909 = T.let(:"909", T.nilable(Symbol))
-        NUMBER_910 = T.let(:"910", T.nilable(Symbol))
-        NUMBER_911 = T.let(:"911", T.nilable(Symbol))
-        NUMBER_912 = T.let(:"912", T.nilable(Symbol))
-        NUMBER_914 = T.let(:"914", T.nilable(Symbol))
-        C01 = T.let(:C01, T.nilable(Symbol))
-        C02 = T.let(:C02, T.nilable(Symbol))
-        C03 = T.let(:C03, T.nilable(Symbol))
-        C05 = T.let(:C05, T.nilable(Symbol))
-        C06 = T.let(:C06, T.nilable(Symbol))
-        C07 = T.let(:C07, T.nilable(Symbol))
-        C08 = T.let(:C08, T.nilable(Symbol))
-        C09 = T.let(:C09, T.nilable(Symbol))
-        C13 = T.let(:C13, T.nilable(Symbol))
-        C14 = T.let(:C14, T.nilable(Symbol))
-        R01 = T.let(:R01, T.nilable(Symbol))
-        R02 = T.let(:R02, T.nilable(Symbol))
-        R03 = T.let(:R03, T.nilable(Symbol))
-        R04 = T.let(:R04, T.nilable(Symbol))
-        R05 = T.let(:R05, T.nilable(Symbol))
-        R06 = T.let(:R06, T.nilable(Symbol))
-        R07 = T.let(:R07, T.nilable(Symbol))
-        R08 = T.let(:R08, T.nilable(Symbol))
-        R09 = T.let(:R09, T.nilable(Symbol))
-        R10 = T.let(:R10, T.nilable(Symbol))
-        R11 = T.let(:R11, T.nilable(Symbol))
-        R12 = T.let(:R12, T.nilable(Symbol))
-        R14 = T.let(:R14, T.nilable(Symbol))
-        R15 = T.let(:R15, T.nilable(Symbol))
-        R16 = T.let(:R16, T.nilable(Symbol))
-        R17 = T.let(:R17, T.nilable(Symbol))
-        R20 = T.let(:R20, T.nilable(Symbol))
-        R21 = T.let(:R21, T.nilable(Symbol))
-        R22 = T.let(:R22, T.nilable(Symbol))
-        R23 = T.let(:R23, T.nilable(Symbol))
-        R24 = T.let(:R24, T.nilable(Symbol))
-        R29 = T.let(:R29, T.nilable(Symbol))
-        R31 = T.let(:R31, T.nilable(Symbol))
-        R33 = T.let(:R33, T.nilable(Symbol))
-        R37 = T.let(:R37, T.nilable(Symbol))
-        R38 = T.let(:R38, T.nilable(Symbol))
-        R39 = T.let(:R39, T.nilable(Symbol))
-        R51 = T.let(:R51, T.nilable(Symbol))
-        R52 = T.let(:R52, T.nilable(Symbol))
-        R53 = T.let(:R53, T.nilable(Symbol))
-        CURRENCYCLOUD = T.let(:currencycloud, T.nilable(Symbol))
+        Value = type_template(:out) { {fixed: Symbol} }
 
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
+        NUMBER_901 = :"901"
+        NUMBER_902 = :"902"
+        NUMBER_903 = :"903"
+        NUMBER_904 = :"904"
+        NUMBER_905 = :"905"
+        NUMBER_907 = :"907"
+        NUMBER_908 = :"908"
+        NUMBER_909 = :"909"
+        NUMBER_910 = :"910"
+        NUMBER_911 = :"911"
+        NUMBER_912 = :"912"
+        NUMBER_914 = :"914"
+        C01 = :C01
+        C02 = :C02
+        C03 = :C03
+        C05 = :C05
+        C06 = :C06
+        C07 = :C07
+        C08 = :C08
+        C09 = :C09
+        C13 = :C13
+        C14 = :C14
+        R01 = :R01
+        R02 = :R02
+        R03 = :R03
+        R04 = :R04
+        R05 = :R05
+        R06 = :R06
+        R07 = :R07
+        R08 = :R08
+        R09 = :R09
+        R10 = :R10
+        R11 = :R11
+        R12 = :R12
+        R14 = :R14
+        R15 = :R15
+        R16 = :R16
+        R17 = :R17
+        R20 = :R20
+        R21 = :R21
+        R22 = :R22
+        R23 = :R23
+        R24 = :R24
+        R29 = :R29
+        R31 = :R31
+        R33 = :R33
+        R37 = :R37
+        R38 = :R38
+        R39 = :R39
+        R51 = :R51
+        R52 = :R52
+        R53 = :R53
+        CURRENCYCLOUD = :currencycloud
       end
     end
   end

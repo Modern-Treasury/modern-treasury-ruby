@@ -80,14 +80,10 @@ module ModernTreasury
         class Type < ModernTreasury::Enum
           abstract!
 
-          ORIGINATING = T.let(:originating, T.nilable(Symbol))
-          RECEIVING = T.let(:receiving, T.nilable(Symbol))
+          Value = type_template(:out) { {fixed: Symbol} }
 
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
+          ORIGINATING = :originating
+          RECEIVING = :receiving
         end
       end
     end

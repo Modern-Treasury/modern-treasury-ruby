@@ -106,17 +106,13 @@ module ModernTreasury
       class ReturnableType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         PAPER_ITEM = :paper_item
         PAYMENT_ORDER = :payment_order
         RETURN = :return
         REVERSAL = :reversal
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

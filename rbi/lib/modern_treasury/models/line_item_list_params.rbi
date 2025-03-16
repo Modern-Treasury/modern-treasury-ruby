@@ -59,14 +59,10 @@ module ModernTreasury
       class ItemizableType < ModernTreasury::Enum
         abstract!
 
+        Value = type_template(:out) { {fixed: Symbol} }
+
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders
-
-        class << self
-          sig { override.returns(T::Array[Symbol]) }
-          def values
-          end
-        end
       end
     end
   end

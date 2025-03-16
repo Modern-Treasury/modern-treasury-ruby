@@ -517,17 +517,13 @@ module ModernTreasury
           class AddressType < ModernTreasury::Enum
             abstract!
 
+            Value = type_template(:out) { {fixed: Symbol} }
+
             BUSINESS = :business
             MAILING = :mailing
             OTHER = :other
             PO_BOX = :po_box
             RESIDENTIAL = :residential
-
-            class << self
-              sig { override.returns(T::Array[Symbol]) }
-              def values
-              end
-            end
           end
         end
 
@@ -578,6 +574,8 @@ module ModernTreasury
           class IDType < ModernTreasury::Enum
             abstract!
 
+            Value = type_template(:out) { {fixed: Symbol} }
+
             AR_CUIL = :ar_cuil
             AR_CUIT = :ar_cuit
             BR_CNPJ = :br_cnpj
@@ -599,12 +597,6 @@ module ModernTreasury
             US_ITIN = :us_itin
             US_SSN = :us_ssn
             VN_TIN = :vn_tin
-
-            class << self
-              sig { override.returns(T::Array[Symbol]) }
-              def values
-              end
-            end
           end
         end
 
@@ -704,14 +696,10 @@ module ModernTreasury
           class RelationshipType < ModernTreasury::Enum
             abstract!
 
+            Value = type_template(:out) { {fixed: Symbol} }
+
             BENEFICIAL_OWNER = :beneficial_owner
             CONTROL_PERSON = :control_person
-
-            class << self
-              sig { override.returns(T::Array[Symbol]) }
-              def values
-              end
-            end
           end
 
           class ChildLegalEntity < ModernTreasury::BaseModel
@@ -1180,17 +1168,13 @@ module ModernTreasury
               class AddressType < ModernTreasury::Enum
                 abstract!
 
+                Value = type_template(:out) { {fixed: Symbol} }
+
                 BUSINESS = :business
                 MAILING = :mailing
                 OTHER = :other
                 PO_BOX = :po_box
                 RESIDENTIAL = :residential
-
-                class << self
-                  sig { override.returns(T::Array[Symbol]) }
-                  def values
-                  end
-                end
               end
             end
 
@@ -1243,6 +1227,8 @@ module ModernTreasury
               class IDType < ModernTreasury::Enum
                 abstract!
 
+                Value = type_template(:out) { {fixed: Symbol} }
+
                 AR_CUIL = :ar_cuil
                 AR_CUIT = :ar_cuit
                 BR_CNPJ = :br_cnpj
@@ -1264,12 +1250,6 @@ module ModernTreasury
                 US_ITIN = :us_itin
                 US_SSN = :us_ssn
                 VN_TIN = :vn_tin
-
-                class << self
-                  sig { override.returns(T::Array[Symbol]) }
-                  def values
-                  end
-                end
               end
             end
 
@@ -1277,32 +1257,24 @@ module ModernTreasury
             class LegalEntityType < ModernTreasury::Enum
               abstract!
 
+              Value = type_template(:out) { {fixed: Symbol} }
+
               BUSINESS = :business
               INDIVIDUAL = :individual
-
-              class << self
-                sig { override.returns(T::Array[Symbol]) }
-                def values
-                end
-              end
             end
 
             # The business's legal structure.
             class LegalStructure < ModernTreasury::Enum
               abstract!
 
-              CORPORATION = T.let(:corporation, T.nilable(Symbol))
-              LLC = T.let(:llc, T.nilable(Symbol))
-              NON_PROFIT = T.let(:non_profit, T.nilable(Symbol))
-              PARTNERSHIP = T.let(:partnership, T.nilable(Symbol))
-              SOLE_PROPRIETORSHIP = T.let(:sole_proprietorship, T.nilable(Symbol))
-              TRUST = T.let(:trust, T.nilable(Symbol))
+              Value = type_template(:out) { {fixed: Symbol} }
 
-              class << self
-                sig { override.returns(T::Array[Symbol]) }
-                def values
-                end
-              end
+              CORPORATION = :corporation
+              LLC = :llc
+              NON_PROFIT = :non_profit
+              PARTNERSHIP = :partnership
+              SOLE_PROPRIETORSHIP = :sole_proprietorship
+              TRUST = :trust
             end
 
             class PhoneNumber < ModernTreasury::BaseModel
@@ -1328,15 +1300,11 @@ module ModernTreasury
             class RiskRating < ModernTreasury::Enum
               abstract!
 
-              LOW = T.let(:low, T.nilable(Symbol))
-              MEDIUM = T.let(:medium, T.nilable(Symbol))
-              HIGH = T.let(:high, T.nilable(Symbol))
+              Value = type_template(:out) { {fixed: Symbol} }
 
-              class << self
-                sig { override.returns(T::Array[Symbol]) }
-                def values
-                end
-              end
+              LOW = :low
+              MEDIUM = :medium
+              HIGH = :high
             end
           end
         end
@@ -1345,32 +1313,24 @@ module ModernTreasury
         class LegalEntityType < ModernTreasury::Enum
           abstract!
 
+          Value = type_template(:out) { {fixed: Symbol} }
+
           BUSINESS = :business
           INDIVIDUAL = :individual
-
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
         end
 
         # The business's legal structure.
         class LegalStructure < ModernTreasury::Enum
           abstract!
 
-          CORPORATION = T.let(:corporation, T.nilable(Symbol))
-          LLC = T.let(:llc, T.nilable(Symbol))
-          NON_PROFIT = T.let(:non_profit, T.nilable(Symbol))
-          PARTNERSHIP = T.let(:partnership, T.nilable(Symbol))
-          SOLE_PROPRIETORSHIP = T.let(:sole_proprietorship, T.nilable(Symbol))
-          TRUST = T.let(:trust, T.nilable(Symbol))
+          Value = type_template(:out) { {fixed: Symbol} }
 
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
+          CORPORATION = :corporation
+          LLC = :llc
+          NON_PROFIT = :non_profit
+          PARTNERSHIP = :partnership
+          SOLE_PROPRIETORSHIP = :sole_proprietorship
+          TRUST = :trust
         end
 
         class PhoneNumber < ModernTreasury::BaseModel
@@ -1396,15 +1356,11 @@ module ModernTreasury
         class RiskRating < ModernTreasury::Enum
           abstract!
 
-          LOW = T.let(:low, T.nilable(Symbol))
-          MEDIUM = T.let(:medium, T.nilable(Symbol))
-          HIGH = T.let(:high, T.nilable(Symbol))
+          Value = type_template(:out) { {fixed: Symbol} }
 
-          class << self
-            sig { override.returns(T::Array[Symbol]) }
-            def values
-            end
-          end
+          LOW = :low
+          MEDIUM = :medium
+          HIGH = :high
         end
       end
     end
