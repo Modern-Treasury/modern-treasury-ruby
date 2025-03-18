@@ -178,6 +178,8 @@ module ModernTreasury
     def self.known_fields: -> ::Hash[Symbol, (ModernTreasury::BaseModel::known_field
     & { type_fn: (^-> ModernTreasury::Converter::input) })]
 
+    def self.reverse_map: -> ::Hash[Symbol, Symbol]
+
     def self.fields: -> ::Hash[Symbol, (ModernTreasury::BaseModel::known_field
     & { type: ModernTreasury::Converter::input })]
 
