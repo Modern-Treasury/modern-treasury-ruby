@@ -89,7 +89,9 @@ module ModernTreasury
 
     # @return [String]
     def inspect
+      # rubocop:disable Layout/LineLength
       "#<#{self.class}:0x#{object_id.to_s(16)} per_page=#{per_page.inspect} after_cursor=#{after_cursor.inspect}>"
+      # rubocop:enable Layout/LineLength
     end
   end
 end
