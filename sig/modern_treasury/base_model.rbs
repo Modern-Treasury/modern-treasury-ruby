@@ -123,6 +123,13 @@ module ModernTreasury
   class ArrayOf[Elem]
     include ModernTreasury::Converter
 
+    def self.[]: (
+      ::Hash[Symbol, top]
+      | ^-> ModernTreasury::Converter::input
+      | ModernTreasury::Converter::input type_info,
+      ?::Hash[Symbol, top] spec
+    ) -> instance
+
     def ===: (top other) -> bool
 
     def ==: (top other) -> bool
@@ -147,6 +154,13 @@ module ModernTreasury
 
   class HashOf[Elem]
     include ModernTreasury::Converter
+
+    def self.[]: (
+      ::Hash[Symbol, top]
+      | ^-> ModernTreasury::Converter::input
+      | ModernTreasury::Converter::input type_info,
+      ?::Hash[Symbol, top] spec
+    ) -> instance
 
     def ===: (top other) -> bool
 

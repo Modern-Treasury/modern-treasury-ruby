@@ -33,5 +33,9 @@ module ModernTreasury
     sig { override.params(blk: T.proc.params(arg0: Elem).void).void }
     def auto_paging_each(&blk)
     end
+
+    sig { returns(String) }
+    def inspect
+    end
   end
 end
