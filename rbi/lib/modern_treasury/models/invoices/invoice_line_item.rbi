@@ -2,8 +2,6 @@
 
 module ModernTreasury
   module Models
-    InvoiceLineItem = T.type_alias { Invoices::InvoiceLineItem }
-
     module Invoices
       class InvoiceLineItem < ModernTreasury::BaseModel
         sig { returns(String) }
@@ -187,5 +185,7 @@ module ModernTreasury
         end
       end
     end
+
+    InvoiceLineItem = Invoices::InvoiceLineItem
   end
 end
