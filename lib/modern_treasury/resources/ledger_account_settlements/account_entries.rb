@@ -17,7 +17,8 @@ module ModernTreasury
         #
         # @return [nil]
         def update(id, params)
-          parsed, options = ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams.dump_request(params)
+          parsed, options =
+            ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams.dump_request(params)
           @client.request(
             method: :patch,
             path: ["api/ledger_account_settlements/%0s/ledger_entries", id],
@@ -40,7 +41,8 @@ module ModernTreasury
         #
         # @return [nil]
         def delete(id, params)
-          parsed, options = ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams.dump_request(params)
+          parsed, options =
+            ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams.dump_request(params)
           @client.request(
             method: :delete,
             path: ["api/ledger_account_settlements/%0s/ledger_entries", id],

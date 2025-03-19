@@ -218,17 +218,18 @@ module ModernTreasury
       class Entity < ModernTreasury::Union
         abstract!
 
-        Variants = type_template(:out) do
-          {
-            fixed: T.any(
-              ModernTreasury::Models::PaymentOrder,
-              ModernTreasury::Models::ExpectedPayment,
-              ModernTreasury::Models::LedgerTransaction,
-              ModernTreasury::Models::Transaction,
-              ModernTreasury::Models::BulkResult::Entity::BulkError
-            )
-          }
-        end
+        Variants =
+          type_template(:out) do
+            {
+              fixed: T.any(
+                ModernTreasury::Models::PaymentOrder,
+                ModernTreasury::Models::ExpectedPayment,
+                ModernTreasury::Models::LedgerTransaction,
+                ModernTreasury::Models::Transaction,
+                ModernTreasury::Models::BulkResult::Entity::BulkError
+              )
+            }
+          end
 
         class BulkError < ModernTreasury::BaseModel
           sig { returns(String) }

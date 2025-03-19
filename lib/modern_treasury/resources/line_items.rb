@@ -18,12 +18,14 @@ module ModernTreasury
       # @return [ModernTreasury::Models::LineItem]
       def retrieve(id, params)
         parsed, options = ModernTreasury::Models::LineItemRetrieveParams.dump_request(params)
-        itemizable_type = parsed.delete(:itemizable_type) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
-        itemizable_id = parsed.delete(:itemizable_id) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
+        itemizable_type =
+          parsed.delete(:itemizable_type) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        itemizable_id =
+          parsed.delete(:itemizable_id) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
         @client.request(
           method: :get,
           path: ["api/%0s/%1s/line_items/%2s", itemizable_type, itemizable_id, id],
@@ -50,12 +52,14 @@ module ModernTreasury
       # @return [ModernTreasury::Models::LineItem]
       def update(id, params)
         parsed, options = ModernTreasury::Models::LineItemUpdateParams.dump_request(params)
-        itemizable_type = parsed.delete(:itemizable_type) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
-        itemizable_id = parsed.delete(:itemizable_id) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
+        itemizable_type =
+          parsed.delete(:itemizable_type) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        itemizable_id =
+          parsed.delete(:itemizable_id) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
         @client.request(
           method: :patch,
           path: ["api/%0s/%1s/line_items/%2s", itemizable_type, itemizable_id, id],
@@ -82,9 +86,10 @@ module ModernTreasury
       # @return [ModernTreasury::Page<ModernTreasury::Models::LineItem>]
       def list(itemizable_id, params)
         parsed, options = ModernTreasury::Models::LineItemListParams.dump_request(params)
-        itemizable_type = parsed.delete(:itemizable_type) do
-          raise ArgumentError.new("missing required path argument #{_1}")
-        end
+        itemizable_type =
+          parsed.delete(:itemizable_type) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
         @client.request(
           method: :get,
           path: ["api/%0s/%1s/line_items", itemizable_type, itemizable_id],

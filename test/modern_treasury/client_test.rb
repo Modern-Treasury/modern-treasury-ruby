@@ -51,11 +51,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_default_request_default_retry_attempts
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -67,12 +68,13 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_given_request_default_retry_attempts
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID",
-      max_retries: 3
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID",
+        max_retries: 3
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -84,11 +86,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_default_request_given_retry_attempts
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -100,12 +103,13 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_given_request_given_retry_attempts
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID",
-      max_retries: 3
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID",
+        max_retries: 3
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -117,12 +121,13 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_retry_after_seconds
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID",
-      max_retries: 1
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID",
+        max_retries: 1
+      )
     requester = MockRequester.new(500, {"retry-after" => "1.3"}, {})
     modern_treasury.requester = requester
 
@@ -135,12 +140,13 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_retry_after_date
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID",
-      max_retries: 1
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID",
+        max_retries: 1
+      )
     requester = MockRequester.new(500, {"retry-after" => (Time.now + 10).httpdate}, {})
     modern_treasury.requester = requester
 
@@ -155,12 +161,13 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_retry_after_ms
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID",
-      max_retries: 1
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID",
+        max_retries: 1
+      )
     requester = MockRequester.new(500, {"retry-after-ms" => "1300"}, {})
     modern_treasury.requester = requester
 
@@ -173,11 +180,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_retry_count_header
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -190,11 +198,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_omit_retry_count_header
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -210,11 +219,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_overwrite_retry_count_header
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -230,11 +240,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_redirect_307
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(307, {"location" => "/redirected"}, {})
     modern_treasury.requester = requester
 
@@ -252,11 +263,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_redirect_303
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(303, {"location" => "/redirected"}, {})
     modern_treasury.requester = requester
 
@@ -271,11 +283,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_redirect_auth_keep_same_origin
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(307, {"location" => "/redirected"}, {})
     modern_treasury.requester = requester
 
@@ -293,11 +306,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_redirect_auth_strip_cross_origin
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(307, {"location" => "https://example.com/redirected"}, {})
     modern_treasury.requester = requester
 
@@ -312,11 +326,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_client_default_idempotency_key_on_writes
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -332,11 +347,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_request_option_idempotency_key_on_writes
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
@@ -351,11 +367,12 @@ class ModernTreasuryTest < Minitest::Test
   end
 
   def test_default_headers
-    modern_treasury = ModernTreasury::Client.new(
-      base_url: "http://localhost:4010",
-      api_key: "My API Key",
-      organization_id: "my-organization-ID"
-    )
+    modern_treasury =
+      ModernTreasury::Client.new(
+        base_url: "http://localhost:4010",
+        api_key: "My API Key",
+        organization_id: "my-organization-ID"
+      )
     requester = MockRequester.new(200, {}, {})
     modern_treasury.requester = requester
     modern_treasury.counterparties.create(name: "name")

@@ -28,10 +28,8 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
   end
 
   def test_retrieve_required_params
-    response = @modern_treasury.payment_orders.reversals.retrieve(
-      "reversal_id",
-      payment_order_id: "payment_order_id"
-    )
+    response =
+      @modern_treasury.payment_orders.reversals.retrieve("reversal_id", payment_order_id: "payment_order_id")
 
     assert_pattern do
       response => ModernTreasury::Models::PaymentOrders::Reversal

@@ -223,7 +223,8 @@ module ModernTreasury
       @ledgerable_events = ModernTreasury::Resources::LedgerableEvents.new(client: self)
       @ledger_account_categories = ModernTreasury::Resources::LedgerAccountCategories.new(client: self)
       @ledger_accounts = ModernTreasury::Resources::LedgerAccounts.new(client: self)
-      @ledger_account_balance_monitors = ModernTreasury::Resources::LedgerAccountBalanceMonitors.new(client: self)
+      @ledger_account_balance_monitors =
+        ModernTreasury::Resources::LedgerAccountBalanceMonitors.new(client: self)
       @ledger_account_statements = ModernTreasury::Resources::LedgerAccountStatements.new(client: self)
       @ledger_entries = ModernTreasury::Resources::LedgerEntries.new(client: self)
       @ledger_event_handlers = ModernTreasury::Resources::LedgerEventHandlers.new(client: self)

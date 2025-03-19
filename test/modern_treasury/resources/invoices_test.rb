@@ -4,11 +4,12 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::InvoicesTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.invoices.create(
-      counterparty_id: "counterparty_id",
-      due_date: "2019-12-27T18:11:19.117Z",
-      originating_account_id: "originating_account_id"
-    )
+    response =
+      @modern_treasury.invoices.create(
+        counterparty_id: "counterparty_id",
+        due_date: "2019-12-27T18:11:19.117Z",
+        originating_account_id: "originating_account_id"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::Invoice

@@ -58,9 +58,10 @@ module ModernTreasury
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def retrieve(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump_request(params)
-          invoice_id = parsed.delete(:invoice_id) do
-            raise ArgumentError.new("missing required path argument #{_1}")
-          end
+          invoice_id =
+            parsed.delete(:invoice_id) do
+              raise ArgumentError.new("missing required path argument #{_1}")
+            end
           @client.request(
             method: :get,
             path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
@@ -103,9 +104,10 @@ module ModernTreasury
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def update(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump_request(params)
-          invoice_id = parsed.delete(:invoice_id) do
-            raise ArgumentError.new("missing required path argument #{_1}")
-          end
+          invoice_id =
+            parsed.delete(:invoice_id) do
+              raise ArgumentError.new("missing required path argument #{_1}")
+            end
           @client.request(
             method: :patch,
             path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
@@ -153,9 +155,10 @@ module ModernTreasury
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
         def delete(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump_request(params)
-          invoice_id = parsed.delete(:invoice_id) do
-            raise ArgumentError.new("missing required path argument #{_1}")
-          end
+          invoice_id =
+            parsed.delete(:invoice_id) do
+              raise ArgumentError.new("missing required path argument #{_1}")
+            end
           @client.request(
             method: :delete,
             path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
