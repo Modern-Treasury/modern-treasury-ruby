@@ -4,15 +4,22 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::LedgerEventHandlersTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.ledger_event_handlers.create(
-      ledger_transaction_template: {
-        description: "My Ledger Transaction Template Description",
-        effective_at: "{{ledgerable_event.custom_data.effective_at}}",
-        ledger_entries: [{amount: "amount", direction: "direction", ledger_account_id: "ledger_account_id"}],
-        status: "posted"
-      },
-      name: "name"
-    )
+    response =
+      @modern_treasury.ledger_event_handlers.create(
+        ledger_transaction_template: {
+          description: "My Ledger Transaction Template Description",
+          effective_at: "{{ledgerable_event.custom_data.effective_at}}",
+          ledger_entries: [
+            {
+              amount: "amount",
+              direction: "direction",
+              ledger_account_id: "ledger_account_id"
+            }
+          ],
+          status: "posted"
+        },
+        name: "name"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerEventHandler

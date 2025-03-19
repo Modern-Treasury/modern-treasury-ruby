@@ -17,7 +17,8 @@ module ModernTreasury
   #
   # @example
   # ```ruby
-  # clients = page
+  # clients =
+  #   page
   #   .to_enum
   #   .lazy
   #   .select { _1.object_id.even? }

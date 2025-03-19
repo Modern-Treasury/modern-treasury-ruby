@@ -4,7 +4,8 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::ExternalAccountsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.external_accounts.create(counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
+    response =
+      @modern_treasury.external_accounts.create(counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e")
 
     assert_pattern do
       response => ModernTreasury::Models::ExternalAccount
@@ -177,11 +178,12 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < ModernTreasury::Te
   end
 
   def test_verify_required_params
-    response = @modern_treasury.external_accounts.verify(
-      "id",
-      originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      payment_type: :ach
-    )
+    response =
+      @modern_treasury.external_accounts.verify(
+        "id",
+        originating_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        payment_type: :ach
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::ExternalAccountVerifyResponse

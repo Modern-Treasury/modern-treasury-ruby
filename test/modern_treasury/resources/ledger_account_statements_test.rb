@@ -6,11 +6,12 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
   def test_create_required_params
     skip("Prism is broken in this case")
 
-    response = @modern_treasury.ledger_account_statements.create(
-      effective_at_lower_bound: "2019-12-27T18:11:19.117Z",
-      effective_at_upper_bound: "2019-12-27T18:11:19.117Z",
-      ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-    )
+    response =
+      @modern_treasury.ledger_account_statements.create(
+        effective_at_lower_bound: "2019-12-27T18:11:19.117Z",
+        effective_at_upper_bound: "2019-12-27T18:11:19.117Z",
+        ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountStatementCreateResponse

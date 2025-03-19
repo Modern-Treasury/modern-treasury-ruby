@@ -4,11 +4,12 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::ResourceTest
   def test_retrieve_required_params
-    response = @modern_treasury.line_items.retrieve(
-      "id",
-      itemizable_type: :expected_payments,
-      itemizable_id: "itemizable_id"
-    )
+    response =
+      @modern_treasury.line_items.retrieve(
+        "id",
+        itemizable_type: :expected_payments,
+        itemizable_id: "itemizable_id"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::LineItem
@@ -34,11 +35,12 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
   end
 
   def test_update_required_params
-    response = @modern_treasury.line_items.update(
-      "id",
-      itemizable_type: :expected_payments,
-      itemizable_id: "itemizable_id"
-    )
+    response =
+      @modern_treasury.line_items.update(
+        "id",
+        itemizable_type: :expected_payments,
+        itemizable_id: "itemizable_id"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::LineItem

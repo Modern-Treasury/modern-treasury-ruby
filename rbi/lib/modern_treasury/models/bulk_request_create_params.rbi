@@ -169,21 +169,22 @@ module ModernTreasury
       class Resource < ModernTreasury::Union
         abstract!
 
-        Variants = type_template(:out) do
-          {
-            fixed: T.any(
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::ID,
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
-            )
-          }
-        end
+        Variants =
+          type_template(:out) do
+            {
+              fixed: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::ID,
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID,
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID,
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionUpdateRequestWithID,
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID
+              )
+            }
+          end
 
         class PaymentOrderAsyncCreateRequest < ModernTreasury::BaseModel
           # Value in specified currency's smallest unit. e.g. $10 would be represented as

@@ -4,10 +4,11 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.returns.create(
-      returnable_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      returnable_type: :incoming_payment_detail
-    )
+    response =
+      @modern_treasury.returns.create(
+        returnable_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        returnable_type: :incoming_payment_detail
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::ReturnObject

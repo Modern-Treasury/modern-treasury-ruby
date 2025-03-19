@@ -4,12 +4,13 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::LedgerAccountsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.ledger_accounts.create(
-      currency: "currency",
-      ledger_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      name: "name",
-      normal_balance: :credit
-    )
+    response =
+      @modern_treasury.ledger_accounts.create(
+        currency: "currency",
+        ledger_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        name: "name",
+        normal_balance: :credit
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccount

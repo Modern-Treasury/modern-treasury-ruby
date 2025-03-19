@@ -6,11 +6,12 @@ class ModernTreasury::Test::Resources::DocumentsTest < ModernTreasury::Test::Res
   def test_create_required_params
     skip("multipart/form-data not yet supported")
 
-    response = @modern_treasury.documents.create(
-      documentable_id: "documentable_id",
-      documentable_type: :cases,
-      file: StringIO.new("some file contents")
-    )
+    response =
+      @modern_treasury.documents.create(
+        documentable_id: "documentable_id",
+        documentable_type: :cases,
+        file: StringIO.new("some file contents")
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::Document
