@@ -9,11 +9,11 @@ module ModernTreasury
         | (
           parent_legal_entity_id: String,
           relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
-          child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
-          child_legal_entity_id: String,
-          ownership_percentage: Integer?,
-          title: String?,
-          request_options: ModernTreasury::request_opts
+          ?child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
+          ?child_legal_entity_id: String,
+          ?ownership_percentage: Integer?,
+          ?title: String?,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LegalEntityAssociation
 
       def initialize: (client: ModernTreasury::Client) -> void

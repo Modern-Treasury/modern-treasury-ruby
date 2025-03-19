@@ -37,11 +37,11 @@ module ModernTreasury
         (
           parent_legal_entity_id: String,
           relationship_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::relationship_type],
-          child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
-          child_legal_entity_id: String,
-          ownership_percentage: Integer?,
-          title: String?,
-          request_options: ModernTreasury::request_opts
+          ?child_legal_entity: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
+          ?child_legal_entity_id: String,
+          ?ownership_percentage: Integer?,
+          ?title: String?,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::legal_entity_association_create_params
@@ -155,29 +155,29 @@ module ModernTreasury
 
         def initialize:
           (
-            addresses: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address],
-            bank_settings: ModernTreasury::Models::BankSettings?,
-            business_name: String?,
-            citizenship_country: String?,
-            date_formed: Date?,
-            date_of_birth: Date?,
-            doing_business_as_names: ::Array[String],
-            email: String?,
-            first_name: String?,
-            identifications: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification],
-            last_name: String?,
-            legal_entity_type: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_entity_type,
-            legal_structure: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_structure?,
-            metadata: ::Hash[Symbol, String],
-            middle_name: String?,
-            phone_numbers: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber],
-            politically_exposed_person: bool?,
-            preferred_name: String?,
-            prefix: String?,
-            risk_rating: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::risk_rating?,
-            suffix: String?,
-            wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
-            website: String?
+            ?addresses: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address],
+            ?bank_settings: ModernTreasury::Models::BankSettings?,
+            ?business_name: String?,
+            ?citizenship_country: String?,
+            ?date_formed: Date?,
+            ?date_of_birth: Date?,
+            ?doing_business_as_names: ::Array[String],
+            ?email: String?,
+            ?first_name: String?,
+            ?identifications: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification],
+            ?last_name: String?,
+            ?legal_entity_type: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_entity_type,
+            ?legal_structure: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::legal_structure?,
+            ?metadata: ::Hash[Symbol, String],
+            ?middle_name: String?,
+            ?phone_numbers: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber],
+            ?politically_exposed_person: bool?,
+            ?preferred_name: String?,
+            ?prefix: String?,
+            ?risk_rating: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::risk_rating?,
+            ?suffix: String?,
+            ?wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+            ?website: String?
           ) -> void
           | (
             ?ModernTreasury::Models::LegalEntityAssociationCreateParams::child_legal_entity
@@ -223,8 +223,8 @@ module ModernTreasury
               locality: String?,
               postal_code: String?,
               region: String?,
-              address_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type],
-              line2: String?
+              ?address_types: ::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::address_type],
+              ?line2: String?
             ) -> void
             | (
               ?ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::address
@@ -265,7 +265,7 @@ module ModernTreasury
             (
               id_number: String,
               id_type: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::id_type,
-              issuing_country: String?
+              ?issuing_country: String?
             ) -> void
             | (
               ?ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::identification
@@ -360,7 +360,7 @@ module ModernTreasury
           def phone_number=: (String) -> String
 
           def initialize:
-            (phone_number: String) -> void
+            (?phone_number: String) -> void
             | (
               ?ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::phone_number
               | ModernTreasury::BaseModel data

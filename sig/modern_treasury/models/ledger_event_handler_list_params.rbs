@@ -34,12 +34,12 @@ module ModernTreasury
 
       def initialize:
         (
-          after_cursor: String?,
-          created_at: ::Hash[Symbol, Time],
-          metadata: ::Hash[Symbol, String],
-          name: String,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?created_at: ::Hash[Symbol, Time],
+          ?metadata: ::Hash[Symbol, String],
+          ?name: String,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_event_handler_list_params

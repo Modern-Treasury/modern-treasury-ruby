@@ -41,11 +41,11 @@ module ModernTreasury
         (
           internal_account_id: String,
           target_currency: ModernTreasury::Models::currency,
-          base_amount: Integer,
-          base_currency: ModernTreasury::Models::currency,
-          effective_at: Time,
-          target_amount: Integer,
-          request_options: ModernTreasury::request_opts
+          ?base_amount: Integer,
+          ?base_currency: ModernTreasury::Models::currency,
+          ?effective_at: Time,
+          ?target_amount: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::foreign_exchange_quote_create_params

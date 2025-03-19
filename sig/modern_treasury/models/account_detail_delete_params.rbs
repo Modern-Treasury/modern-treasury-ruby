@@ -19,7 +19,7 @@ module ModernTreasury
         (
           accounts_type: ModernTreasury::Models::AccountDetailDeleteParams::accounts_type,
           account_id: String,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::account_detail_delete_params

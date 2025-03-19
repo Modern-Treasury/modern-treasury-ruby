@@ -9,7 +9,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::Event
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Event
 
       def list:
@@ -17,14 +17,14 @@ module ModernTreasury
           ?ModernTreasury::Models::EventListParams | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Event]
         | (
-          after_cursor: String?,
-          entity_id: String,
-          event_name: String,
-          event_time_end: Time,
-          event_time_start: Time,
-          per_page: Integer,
-          resource: String,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?entity_id: String,
+          ?event_name: String,
+          ?event_time_end: Time,
+          ?event_time_start: Time,
+          ?per_page: Integer,
+          ?resource: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::Event]
 
       def initialize: (client: ModernTreasury::Client) -> void

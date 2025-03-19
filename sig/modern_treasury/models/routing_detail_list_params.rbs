@@ -23,9 +23,9 @@ module ModernTreasury
       def initialize:
         (
           accounts_type: ModernTreasury::Models::accounts_type,
-          after_cursor: String?,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::routing_detail_list_params

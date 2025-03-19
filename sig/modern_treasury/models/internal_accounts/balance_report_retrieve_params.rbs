@@ -13,7 +13,7 @@ module ModernTreasury
         def initialize:
           (
             internal_account_id: String,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> void
           | (
             ?ModernTreasury::Models::InternalAccounts::balance_report_retrieve_params

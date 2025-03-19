@@ -9,7 +9,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::PaymentReference
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::PaymentReference
 
       def list:
@@ -18,12 +18,12 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentReference]
         | (
-          after_cursor: String?,
-          per_page: Integer,
-          reference_number: String,
-          referenceable_id: String,
-          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?per_page: Integer,
+          ?reference_number: String,
+          ?referenceable_id: String,
+          ?referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentReference]
 
       alias retireve retrieve

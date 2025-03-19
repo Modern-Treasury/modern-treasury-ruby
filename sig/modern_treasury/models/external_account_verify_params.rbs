@@ -40,10 +40,10 @@ module ModernTreasury
         (
           originating_account_id: String,
           payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
-          currency: ModernTreasury::Models::currency,
-          fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type,
-          priority: ModernTreasury::Models::ExternalAccountVerifyParams::priority,
-          request_options: ModernTreasury::request_opts
+          ?currency: ModernTreasury::Models::currency,
+          ?fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type,
+          ?priority: ModernTreasury::Models::ExternalAccountVerifyParams::priority,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::external_account_verify_params

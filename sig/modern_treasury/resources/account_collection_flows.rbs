@@ -9,8 +9,8 @@ module ModernTreasury
         | (
           counterparty_id: String,
           payment_types: ::Array[String],
-          receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
-          request_options: ModernTreasury::request_opts
+          ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::AccountCollectionFlow
 
       def retrieve:
@@ -21,7 +21,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::AccountCollectionFlow
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::AccountCollectionFlow
 
       def update:
@@ -33,7 +33,7 @@ module ModernTreasury
         | (
           String id,
           status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::AccountCollectionFlow
 
       def list:
@@ -42,13 +42,13 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow]
         | (
-          after_cursor: String?,
-          client_token: String,
-          counterparty_id: String,
-          external_account_id: String,
-          per_page: Integer,
-          status: String,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?client_token: String,
+          ?counterparty_id: String,
+          ?external_account_id: String,
+          ?per_page: Integer,
+          ?status: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow]
 
       def initialize: (client: ModernTreasury::Client) -> void

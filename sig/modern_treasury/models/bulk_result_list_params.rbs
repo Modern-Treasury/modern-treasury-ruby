@@ -50,14 +50,14 @@ module ModernTreasury
 
       def initialize:
         (
-          after_cursor: String?,
-          entity_id: String,
-          entity_type: ModernTreasury::Models::BulkResultListParams::entity_type,
-          per_page: Integer,
-          request_id: String,
-          request_type: ModernTreasury::Models::BulkResultListParams::request_type,
-          status: ModernTreasury::Models::BulkResultListParams::status,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?entity_id: String,
+          ?entity_type: ModernTreasury::Models::BulkResultListParams::entity_type,
+          ?per_page: Integer,
+          ?request_id: String,
+          ?request_type: ModernTreasury::Models::BulkResultListParams::request_type,
+          ?status: ModernTreasury::Models::BulkResultListParams::status,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::bulk_result_list_params

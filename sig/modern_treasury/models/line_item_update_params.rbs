@@ -24,8 +24,8 @@ module ModernTreasury
         (
           itemizable_type: ModernTreasury::Models::LineItemUpdateParams::itemizable_type,
           itemizable_id: String,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::line_item_update_params

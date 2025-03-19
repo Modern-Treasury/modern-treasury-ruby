@@ -31,11 +31,11 @@ module ModernTreasury
         (
           returnable_id: String?,
           returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
-          additional_information: String?,
-          code: ModernTreasury::Models::ReturnCreateParams::code?,
-          date_of_death: Date?,
-          reason: String?,
-          request_options: ModernTreasury::request_opts
+          ?additional_information: String?,
+          ?code: ModernTreasury::Models::ReturnCreateParams::code?,
+          ?date_of_death: Date?,
+          ?reason: String?,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::return_create_params

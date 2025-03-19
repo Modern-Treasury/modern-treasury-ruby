@@ -11,8 +11,8 @@ module ModernTreasury
           String account_id,
           accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
           account_number: String,
-          account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
-          request_options: ModernTreasury::request_opts
+          ?account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::AccountDetail
 
       def retrieve:
@@ -25,7 +25,7 @@ module ModernTreasury
           String id,
           accounts_type: ModernTreasury::Models::accounts_type,
           account_id: String,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::AccountDetail
 
       def list:
@@ -37,9 +37,9 @@ module ModernTreasury
         | (
           String account_id,
           accounts_type: ModernTreasury::Models::accounts_type,
-          after_cursor: String?,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::AccountDetail]
 
       def delete:
@@ -52,7 +52,7 @@ module ModernTreasury
           String id,
           accounts_type: ModernTreasury::Models::AccountDetailDeleteParams::accounts_type,
           account_id: String,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> nil
 
       def initialize: (client: ModernTreasury::Client) -> void

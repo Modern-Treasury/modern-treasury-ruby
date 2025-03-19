@@ -11,9 +11,9 @@ module ModernTreasury
           | (
             String payment_order_id,
             reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason,
-            ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-            metadata: ::Hash[Symbol, String],
-            request_options: ModernTreasury::request_opts
+            ?ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+            ?metadata: ::Hash[Symbol, String],
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Models::PaymentOrders::Reversal
 
         def retrieve:
@@ -25,7 +25,7 @@ module ModernTreasury
           | (
             String reversal_id,
             payment_order_id: String,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Models::PaymentOrders::Reversal
 
         def list:
@@ -36,9 +36,9 @@ module ModernTreasury
           ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal]
           | (
             String payment_order_id,
-            after_cursor: String?,
-            per_page: Integer,
-            request_options: ModernTreasury::request_opts
+            ?after_cursor: String?,
+            ?per_page: Integer,
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal]
 
         def initialize: (client: ModernTreasury::Client) -> void

@@ -349,7 +349,7 @@ module ModernTreasury
         def phone_number=: (String) -> String
 
         def initialize:
-          (phone_number: String) -> void
+          (?phone_number: String) -> void
           | (
             ?ModernTreasury::Models::LegalEntity::phone_number
             | ModernTreasury::BaseModel data

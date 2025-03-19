@@ -19,7 +19,7 @@ module ModernTreasury
         (
           routing_number: String,
           routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::routing_number_type,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::validation_validate_routing_number_params

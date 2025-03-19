@@ -26,10 +26,10 @@ module ModernTreasury
       def initialize:
         (
           name: String,
-          custom_data: top?,
-          description: String?,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?custom_data: top?,
+          ?description: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledgerable_event_create_params

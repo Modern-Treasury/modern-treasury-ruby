@@ -34,12 +34,12 @@ module ModernTreasury
 
       def initialize:
         (
-          after_cursor: String?,
-          deposit_date_end: Date,
-          deposit_date_start: Date,
-          lockbox_number: String,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?deposit_date_end: Date,
+          ?deposit_date_start: Date,
+          ?lockbox_number: String,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::paper_item_list_params

@@ -161,24 +161,24 @@ module ModernTreasury
 
         def initialize:
           (
-            id: String,
-            account_details: ::Array[ModernTreasury::Models::AccountDetail],
-            account_type: ModernTreasury::Models::external_account_type,
-            contact_details: ::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail],
-            created_at: Time,
-            discarded_at: Time?,
-            ledger_account_id: String?,
-            live_mode: bool,
-            metadata: ::Hash[Symbol, String],
-            name: String?,
-            object: String,
-            party_address: ModernTreasury::Models::Counterparty::Account::PartyAddress?,
-            party_name: String,
-            party_type: ModernTreasury::Models::Counterparty::Account::party_type?,
-            routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
-            updated_at: Time,
-            verification_source: ModernTreasury::Models::Counterparty::Account::verification_source?,
-            verification_status: ModernTreasury::Models::Counterparty::Account::verification_status
+            ?id: String,
+            ?account_details: ::Array[ModernTreasury::Models::AccountDetail],
+            ?account_type: ModernTreasury::Models::external_account_type,
+            ?contact_details: ::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail],
+            ?created_at: Time,
+            ?discarded_at: Time?,
+            ?ledger_account_id: String?,
+            ?live_mode: bool,
+            ?metadata: ::Hash[Symbol, String],
+            ?name: String?,
+            ?object: String,
+            ?party_address: ModernTreasury::Models::Counterparty::Account::PartyAddress?,
+            ?party_name: String,
+            ?party_type: ModernTreasury::Models::Counterparty::Account::party_type?,
+            ?routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
+            ?updated_at: Time,
+            ?verification_source: ModernTreasury::Models::Counterparty::Account::verification_source?,
+            ?verification_status: ModernTreasury::Models::Counterparty::Account::verification_status
           ) -> void
           | (
             ?ModernTreasury::Models::Counterparty::account

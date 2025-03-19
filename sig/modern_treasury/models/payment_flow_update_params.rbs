@@ -13,7 +13,7 @@ module ModernTreasury
       def initialize:
         (
           status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::payment_flow_update_params
