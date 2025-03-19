@@ -157,7 +157,7 @@ module ModernTreasury
         def size=: (Integer) -> Integer
 
         def initialize:
-          (content_type: String, filename: String, size: Integer) -> void
+          (?content_type: String, ?filename: String, ?size: Integer) -> void
           | (
             ?ModernTreasury::Models::Document::file
             | ModernTreasury::BaseModel data

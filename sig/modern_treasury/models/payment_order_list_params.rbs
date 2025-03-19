@@ -102,24 +102,24 @@ module ModernTreasury
 
       def initialize:
         (
-          after_cursor: String?,
-          counterparty_id: String,
-          created_at_end: Date,
-          created_at_start: Date,
-          direction: ModernTreasury::Models::transaction_direction,
-          effective_date_end: Date,
-          effective_date_start: Date,
-          metadata: ::Hash[Symbol, String],
-          originating_account_id: String,
-          per_page: Integer,
-          priority: ModernTreasury::Models::PaymentOrderListParams::priority,
-          process_after_end: Time,
-          process_after_start: Time,
-          reference_number: String,
-          status: ModernTreasury::Models::PaymentOrderListParams::status,
-          transaction_id: String,
-          type: ModernTreasury::Models::PaymentOrderListParams::type_,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?counterparty_id: String,
+          ?created_at_end: Date,
+          ?created_at_start: Date,
+          ?direction: ModernTreasury::Models::transaction_direction,
+          ?effective_date_end: Date,
+          ?effective_date_start: Date,
+          ?metadata: ::Hash[Symbol, String],
+          ?originating_account_id: String,
+          ?per_page: Integer,
+          ?priority: ModernTreasury::Models::PaymentOrderListParams::priority,
+          ?process_after_end: Time,
+          ?process_after_start: Time,
+          ?reference_number: String,
+          ?status: ModernTreasury::Models::PaymentOrderListParams::status,
+          ?transaction_id: String,
+          ?type: ModernTreasury::Models::PaymentOrderListParams::type_,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::payment_order_list_params

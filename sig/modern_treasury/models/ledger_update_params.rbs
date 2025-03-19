@@ -20,10 +20,10 @@ module ModernTreasury
 
       def initialize:
         (
-          description: String?,
-          metadata: ::Hash[Symbol, String],
-          name: String,
-          request_options: ModernTreasury::request_opts
+          ?description: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?name: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_update_params

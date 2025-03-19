@@ -44,7 +44,7 @@ module ModernTreasury
           live_mode: bool,
           object: String,
           updated_at: Time,
-          account_number: String
+          ?account_number: String
         ) -> void
         | (
           ?ModernTreasury::Models::account_detail

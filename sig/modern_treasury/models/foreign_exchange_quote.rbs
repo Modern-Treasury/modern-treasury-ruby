@@ -56,7 +56,7 @@ module ModernTreasury
           metadata: ::Hash[Symbol, String],
           object: String,
           updated_at: Time,
-          vendor_id: String
+          ?vendor_id: String
         ) -> void
         | (
           ?ModernTreasury::Models::foreign_exchange_quote

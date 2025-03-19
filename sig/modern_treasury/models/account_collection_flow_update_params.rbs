@@ -15,7 +15,7 @@ module ModernTreasury
       def initialize:
         (
           status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::account_collection_flow_update_params

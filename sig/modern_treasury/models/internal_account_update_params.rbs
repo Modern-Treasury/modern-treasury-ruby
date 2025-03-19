@@ -36,12 +36,12 @@ module ModernTreasury
 
       def initialize:
         (
-          counterparty_id: String,
-          ledger_account_id: String,
-          metadata: ::Hash[Symbol, String],
-          name: String,
-          parent_account_id: String,
-          request_options: ModernTreasury::request_opts
+          ?counterparty_id: String,
+          ?ledger_account_id: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?name: String,
+          ?parent_account_id: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::internal_account_update_params

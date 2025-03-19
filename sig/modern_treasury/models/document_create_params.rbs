@@ -28,8 +28,8 @@ module ModernTreasury
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
           file: IO | StringIO,
-          document_type: String,
-          request_options: ModernTreasury::request_opts
+          ?document_type: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::document_create_params

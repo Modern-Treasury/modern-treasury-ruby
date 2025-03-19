@@ -23,9 +23,9 @@ module ModernTreasury
       def initialize:
         (
           itemizable_type: ModernTreasury::Models::LineItemListParams::itemizable_type,
-          after_cursor: String?,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::line_item_list_params

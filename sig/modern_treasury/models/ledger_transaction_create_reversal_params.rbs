@@ -48,14 +48,14 @@ module ModernTreasury
 
       def initialize:
         (
-          description: String,
-          effective_at: Time?,
-          external_id: String,
-          ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type,
-          metadata: ::Hash[Symbol, String],
-          status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status,
-          request_options: ModernTreasury::request_opts
+          ?description: String,
+          ?effective_at: Time?,
+          ?external_id: String,
+          ?ledgerable_id: String,
+          ?ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type,
+          ?metadata: ::Hash[Symbol, String],
+          ?status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_transaction_create_reversal_params

@@ -34,12 +34,12 @@ module ModernTreasury
 
       def initialize:
         (
-          id: ::Array[String],
-          after_cursor: String?,
-          ledger_account_id: String,
-          metadata: ::Hash[Symbol, String],
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?id: ::Array[String],
+          ?after_cursor: String?,
+          ?ledger_account_id: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_balance_monitor_list_params

@@ -55,13 +55,13 @@ module ModernTreasury
           ledger_id: String,
           name: String,
           normal_balance: ModernTreasury::Models::transaction_direction,
-          currency_exponent: Integer?,
-          description: String?,
-          ledger_account_category_ids: ::Array[String],
-          ledgerable_id: String,
-          ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?currency_exponent: Integer?,
+          ?description: String?,
+          ?ledger_account_category_ids: ::Array[String],
+          ?ledgerable_id: String,
+          ?ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type,
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_create_params

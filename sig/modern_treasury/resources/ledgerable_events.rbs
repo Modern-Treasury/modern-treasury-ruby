@@ -8,10 +8,10 @@ module ModernTreasury
         ) -> ModernTreasury::Models::LedgerableEvent
         | (
           name: String,
-          custom_data: top?,
-          description: String?,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?custom_data: top?,
+          ?description: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LedgerableEvent
 
       def retrieve:
@@ -22,7 +22,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::LedgerableEvent
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::LedgerableEvent
 
       def initialize: (client: ModernTreasury::Client) -> void

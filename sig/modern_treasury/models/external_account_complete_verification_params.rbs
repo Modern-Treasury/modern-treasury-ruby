@@ -13,8 +13,8 @@ module ModernTreasury
 
       def initialize:
         (
-          amounts: ::Array[Integer],
-          request_options: ModernTreasury::request_opts
+          ?amounts: ::Array[Integer],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::external_account_complete_verification_params

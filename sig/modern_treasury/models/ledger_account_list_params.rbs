@@ -87,21 +87,21 @@ module ModernTreasury
 
       def initialize:
         (
-          id: ::Array[String],
-          after_cursor: String?,
-          available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-          balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
-          created_at: ::Hash[Symbol, Time],
-          currency: String,
-          ledger_account_category_id: String,
-          ledger_id: String,
-          metadata: ::Hash[Symbol, String],
-          name: ::Array[String],
-          pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-          per_page: Integer,
-          posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-          updated_at: ::Hash[Symbol, Time],
-          request_options: ModernTreasury::request_opts
+          ?id: ::Array[String],
+          ?after_cursor: String?,
+          ?available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
+          ?balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
+          ?created_at: ::Hash[Symbol, Time],
+          ?currency: String,
+          ?ledger_account_category_id: String,
+          ?ledger_id: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?name: ::Array[String],
+          ?pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+          ?per_page: Integer,
+          ?posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
+          ?updated_at: ::Hash[Symbol, Time],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_list_params
@@ -147,12 +147,12 @@ module ModernTreasury
 
         def initialize:
           (
-            eq: Integer,
-            gt: Integer,
-            gte: Integer,
-            lt: Integer,
-            lte: Integer,
-            not_eq: Integer
+            ?eq: Integer,
+            ?gt: Integer,
+            ?gte: Integer,
+            ?lt: Integer,
+            ?lte: Integer,
+            ?not_eq: Integer
           ) -> void
           | (
             ?ModernTreasury::Models::LedgerAccountListParams::available_balance_amount
@@ -189,10 +189,10 @@ module ModernTreasury
 
         def initialize:
           (
-            as_of_date: Date,
-            effective_at: Time,
-            effective_at_lower_bound: Time,
-            effective_at_upper_bound: Time
+            ?as_of_date: Date,
+            ?effective_at: Time,
+            ?effective_at_lower_bound: Time,
+            ?effective_at_upper_bound: Time
           ) -> void
           | (
             ?ModernTreasury::Models::LedgerAccountListParams::balances
@@ -239,12 +239,12 @@ module ModernTreasury
 
         def initialize:
           (
-            eq: Integer,
-            gt: Integer,
-            gte: Integer,
-            lt: Integer,
-            lte: Integer,
-            not_eq: Integer
+            ?eq: Integer,
+            ?gt: Integer,
+            ?gte: Integer,
+            ?lt: Integer,
+            ?lte: Integer,
+            ?not_eq: Integer
           ) -> void
           | (
             ?ModernTreasury::Models::LedgerAccountListParams::pending_balance_amount
@@ -291,12 +291,12 @@ module ModernTreasury
 
         def initialize:
           (
-            eq: Integer,
-            gt: Integer,
-            gte: Integer,
-            lt: Integer,
-            lte: Integer,
-            not_eq: Integer
+            ?eq: Integer,
+            ?gt: Integer,
+            ?gte: Integer,
+            ?lt: Integer,
+            ?lte: Integer,
+            ?not_eq: Integer
           ) -> void
           | (
             ?ModernTreasury::Models::LedgerAccountListParams::posted_balance_amount

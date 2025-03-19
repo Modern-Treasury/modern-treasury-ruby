@@ -26,8 +26,8 @@ module ModernTreasury
           accounts_type: ModernTreasury::Models::RoutingDetailCreateParams::accounts_type,
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingDetailCreateParams::routing_number_type,
-          payment_type: ModernTreasury::Models::RoutingDetailCreateParams::payment_type?,
-          request_options: ModernTreasury::request_opts
+          ?payment_type: ModernTreasury::Models::RoutingDetailCreateParams::payment_type?,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::routing_detail_create_params

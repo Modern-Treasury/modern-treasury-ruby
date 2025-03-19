@@ -98,7 +98,7 @@ module ModernTreasury
           transaction_line_item_id: String?,
           type: ModernTreasury::Models::ReturnObject::type_,
           updated_at: Time,
-          additional_information: String?
+          ?additional_information: String?
         ) -> void
         | (
           ?ModernTreasury::Models::return_object

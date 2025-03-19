@@ -43,12 +43,12 @@ module ModernTreasury
 
       def initialize:
         (
-          bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
-          bank_name: String,
-          routing_number: String,
-          routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type,
-          sanctions: ::Hash[Symbol, top],
-          supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
+          ?bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
+          ?bank_name: String,
+          ?routing_number: String,
+          ?routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type,
+          ?sanctions: ::Hash[Symbol, top],
+          ?supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
         ) -> void
         | (
           ?ModernTreasury::Models::routing_number_lookup_request
@@ -82,12 +82,12 @@ module ModernTreasury
 
         def initialize:
           (
-            country: String?,
-            line1: String?,
-            line2: String?,
-            locality: String?,
-            postal_code: String?,
-            region: String?
+            ?country: String?,
+            ?line1: String?,
+            ?line2: String?,
+            ?locality: String?,
+            ?postal_code: String?,
+            ?region: String?
           ) -> void
           | (
             ?ModernTreasury::Models::RoutingNumberLookupRequest::bank_address

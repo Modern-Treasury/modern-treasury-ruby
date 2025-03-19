@@ -18,8 +18,8 @@ module ModernTreasury
 
       def initialize:
         (
-          balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
-          request_options: ModernTreasury::request_opts
+          ?balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_retrieve_params
@@ -60,11 +60,11 @@ module ModernTreasury
 
         def initialize:
           (
-            as_of_date: Date,
-            as_of_lock_version: Integer,
-            effective_at: Time,
-            effective_at_lower_bound: Time,
-            effective_at_upper_bound: Time
+            ?as_of_date: Date,
+            ?as_of_lock_version: Integer,
+            ?effective_at: Time,
+            ?effective_at_lower_bound: Time,
+            ?effective_at_upper_bound: Time
           ) -> void
           | (
             ?ModernTreasury::Models::LedgerAccountRetrieveParams::balances

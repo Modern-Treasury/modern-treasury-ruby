@@ -39,13 +39,13 @@ module ModernTreasury
         (
           contra_ledger_account_id: String,
           settled_ledger_account_id: String,
-          allow_either_direction: bool?,
-          description: String?,
-          effective_at_upper_bound: Time?,
-          metadata: ::Hash[Symbol, String],
-          skip_settlement_ledger_transaction: bool?,
-          status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?,
-          request_options: ModernTreasury::request_opts
+          ?allow_either_direction: bool?,
+          ?description: String?,
+          ?effective_at_upper_bound: Time?,
+          ?metadata: ::Hash[Symbol, String],
+          ?skip_settlement_ledger_transaction: bool?,
+          ?status: ModernTreasury::Models::LedgerAccountSettlementCreateParams::status?,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_settlement_create_params

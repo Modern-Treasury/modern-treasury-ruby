@@ -9,7 +9,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::PaperItem
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::PaperItem
 
       def list:
@@ -18,12 +18,12 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaperItem]
         | (
-          after_cursor: String?,
-          deposit_date_end: Date,
-          deposit_date_start: Date,
-          lockbox_number: String,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?deposit_date_end: Date,
+          ?deposit_date_start: Date,
+          ?lockbox_number: String,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaperItem]
 
       def initialize: (client: ModernTreasury::Client) -> void

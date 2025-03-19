@@ -32,10 +32,10 @@ module ModernTreasury
       def initialize:
         (
           direction: ModernTreasury::Models::transaction_direction,
-          custom_redirect: String,
-          fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
-          send_email: bool,
-          request_options: ModernTreasury::request_opts
+          ?custom_redirect: String,
+          ?fields: ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field],
+          ?send_email: bool,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::counterparty_collect_account_params

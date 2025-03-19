@@ -49,15 +49,15 @@ module ModernTreasury
 
       def initialize:
         (
-          after_cursor: String?,
-          created_at_lower_bound: Time,
-          created_at_upper_bound: Time,
-          email: String,
-          legal_entity_id: String,
-          metadata: ::Hash[Symbol, String],
-          name: String,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?created_at_lower_bound: Time,
+          ?created_at_upper_bound: Time,
+          ?email: String,
+          ?legal_entity_id: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?name: String,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::counterparty_list_params
