@@ -4,10 +4,11 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.ledger_account_balance_monitors.create(
-      alert_condition: {field: "field", operator: "operator", value: 0},
-      ledger_account_id: "ledger_account_id"
-    )
+    response =
+      @modern_treasury.ledger_account_balance_monitors.create(
+        alert_condition: {field: "field", operator: "operator", value: 0},
+        ledger_account_id: "ledger_account_id"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountBalanceMonitor

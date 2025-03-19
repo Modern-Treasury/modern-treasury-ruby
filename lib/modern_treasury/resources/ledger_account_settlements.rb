@@ -144,7 +144,8 @@ module ModernTreasury
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client
-        @account_entries = ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries.new(client: client)
+        @account_entries =
+          ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries.new(client: client)
       end
     end
   end

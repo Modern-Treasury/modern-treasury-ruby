@@ -4,10 +4,11 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::LedgerAccountSettlementsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.ledger_account_settlements.create(
-      contra_ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      settled_ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-    )
+    response =
+      @modern_treasury.ledger_account_settlements.create(
+        contra_ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        settled_ledger_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::LedgerAccountSettlement

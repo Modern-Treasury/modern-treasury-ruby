@@ -48,9 +48,10 @@ module ModernTreasury
         # @return [ModernTreasury::Models::PaymentOrders::Reversal]
         def retrieve(reversal_id, params)
           parsed, options = ModernTreasury::Models::PaymentOrders::ReversalRetrieveParams.dump_request(params)
-          payment_order_id = parsed.delete(:payment_order_id) do
-            raise ArgumentError.new("missing required path argument #{_1}")
-          end
+          payment_order_id =
+            parsed.delete(:payment_order_id) do
+              raise ArgumentError.new("missing required path argument #{_1}")
+            end
           @client.request(
             method: :get,
             path: ["api/payment_orders/%0s/reversals/%1s", payment_order_id, reversal_id],

@@ -9,14 +9,15 @@ module ModernTreasury
     MAX_REDIRECTS = 20
 
     # rubocop:disable Style/MutableConstant
-    PLATFORM_HEADERS = {
-      "x-stainless-arch" => ModernTreasury::Util.arch,
-      "x-stainless-lang" => "ruby",
-      "x-stainless-os" => ModernTreasury::Util.os,
-      "x-stainless-package-version" => ModernTreasury::VERSION,
-      "x-stainless-runtime" => ::RUBY_ENGINE,
-      "x-stainless-runtime-version" => ::RUBY_ENGINE_VERSION
-    }
+    PLATFORM_HEADERS =
+      {
+        "x-stainless-arch" => ModernTreasury::Util.arch,
+        "x-stainless-lang" => "ruby",
+        "x-stainless-os" => ModernTreasury::Util.os,
+        "x-stainless-package-version" => ModernTreasury::VERSION,
+        "x-stainless-runtime" => ::RUBY_ENGINE,
+        "x-stainless-runtime-version" => ::RUBY_ENGINE_VERSION
+      }
     # rubocop:enable Style/MutableConstant
 
     class << self

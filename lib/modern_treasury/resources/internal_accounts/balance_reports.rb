@@ -23,7 +23,8 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         def create(internal_account_id, params)
-          parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump_request(params)
+          parsed, options =
+            ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump_request(params)
           @client.request(
             method: :post,
             path: ["api/internal_accounts/%0s/balance_reports", internal_account_id],
@@ -46,10 +47,12 @@ module ModernTreasury
         #
         # @return [ModernTreasury::Models::InternalAccounts::BalanceReport]
         def retrieve(id, params)
-          parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump_request(params)
-          internal_account_id = parsed.delete(:internal_account_id) do
-            raise ArgumentError.new("missing required path argument #{_1}")
-          end
+          parsed, options =
+            ModernTreasury::Models::InternalAccounts::BalanceReportRetrieveParams.dump_request(params)
+          internal_account_id =
+            parsed.delete(:internal_account_id) do
+              raise ArgumentError.new("missing required path argument #{_1}")
+            end
           @client.request(
             method: :get,
             path: ["api/internal_accounts/%0s/balance_reports/%1s", internal_account_id, id],
@@ -101,10 +104,12 @@ module ModernTreasury
         #
         # @return [nil]
         def delete(id, params)
-          parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump_request(params)
-          internal_account_id = parsed.delete(:internal_account_id) do
-            raise ArgumentError.new("missing required path argument #{_1}")
-          end
+          parsed, options =
+            ModernTreasury::Models::InternalAccounts::BalanceReportDeleteParams.dump_request(params)
+          internal_account_id =
+            parsed.delete(:internal_account_id) do
+              raise ArgumentError.new("missing required path argument #{_1}")
+            end
           @client.request(
             method: :delete,
             path: ["api/internal_accounts/%0s/balance_reports/%1s", internal_account_id, id],
