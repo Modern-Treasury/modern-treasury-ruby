@@ -23,18 +23,13 @@ module ModernTreasury
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-      def initialize:
-        (
-          action_type: ModernTreasury::Models::BulkRequestCreateParams::action_type,
-          resource_type: ModernTreasury::Models::BulkRequestCreateParams::resource_type,
-          resources: ::Array[ModernTreasury::Models::BulkRequestCreateParams::resource],
-          ?metadata: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::bulk_request_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        action_type: ModernTreasury::Models::BulkRequestCreateParams::action_type,
+        resource_type: ModernTreasury::Models::BulkRequestCreateParams::resource_type,
+        resources: ::Array[ModernTreasury::Models::BulkRequestCreateParams::resource],
+        ?metadata: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::bulk_request_create_params
 
@@ -222,48 +217,43 @@ module ModernTreasury
 
           attr_accessor ultimate_receiving_party_name: String?
 
-          def initialize:
-            (
-              amount: Integer,
-              direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::direction,
-              originating_account_id: String,
-              type: ModernTreasury::Models::payment_order_type,
-              ?accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
-              ?accounting_category_id: String?,
-              ?accounting_ledger_class_id: String?,
-              ?charge_bearer: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::charge_bearer?,
-              ?currency: ModernTreasury::Models::currency,
-              ?description: String?,
-              ?effective_date: Date,
-              ?expires_at: Time?,
-              ?fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type,
-              ?foreign_exchange_contract: String?,
-              ?foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::foreign_exchange_indicator?,
-              ?ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
-              ?ledger_transaction_id: String,
-              ?line_items: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem],
-              ?metadata: ::Hash[Symbol, String],
-              ?nsf_protected: bool,
-              ?originating_party_name: String?,
-              ?priority: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::priority,
-              ?process_after: Time?,
-              ?purpose: String?,
-              ?receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
-              ?receiving_account_id: String,
-              ?remittance_information: String?,
-              ?send_remittance_advice: bool?,
-              ?statement_descriptor: String?,
-              ?subtype: ModernTreasury::Models::payment_order_subtype?,
-              ?transaction_monitoring_enabled: bool,
-              ?ultimate_originating_party_identifier: String?,
-              ?ultimate_originating_party_name: String?,
-              ?ultimate_receiving_party_identifier: String?,
-              ?ultimate_receiving_party_name: String?
-            ) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::payment_order_async_create_request
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::direction,
+            originating_account_id: String,
+            type: ModernTreasury::Models::payment_order_type,
+            ?accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
+            ?accounting_category_id: String?,
+            ?accounting_ledger_class_id: String?,
+            ?charge_bearer: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::charge_bearer?,
+            ?currency: ModernTreasury::Models::currency,
+            ?description: String?,
+            ?effective_date: Date,
+            ?expires_at: Time?,
+            ?fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::fallback_type,
+            ?foreign_exchange_contract: String?,
+            ?foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::foreign_exchange_indicator?,
+            ?ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
+            ?ledger_transaction_id: String,
+            ?line_items: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem],
+            ?metadata: ::Hash[Symbol, String],
+            ?nsf_protected: bool,
+            ?originating_party_name: String?,
+            ?priority: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::priority,
+            ?process_after: Time?,
+            ?purpose: String?,
+            ?receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
+            ?receiving_account_id: String,
+            ?remittance_information: String?,
+            ?send_remittance_advice: bool?,
+            ?statement_descriptor: String?,
+            ?subtype: ModernTreasury::Models::payment_order_subtype?,
+            ?transaction_monitoring_enabled: bool,
+            ?ultimate_originating_party_identifier: String?,
+            ?ultimate_originating_party_name: String?,
+            ?ultimate_receiving_party_identifier: String?,
+            ?ultimate_receiving_party_name: String?
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::payment_order_async_create_request
 
@@ -283,12 +273,7 @@ module ModernTreasury
 
             attr_accessor class_id: String?
 
-            def initialize:
-              (?account_id: String?, ?class_id: String?) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::accounting
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (?account_id: String?, ?class_id: String?) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::accounting
           end
@@ -371,22 +356,17 @@ module ModernTreasury
               ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::status
             ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::status
 
-            def initialize:
-              (
-                ledger_entries: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry],
-                ?description: String?,
-                ?effective_at: Time,
-                ?effective_date: Date,
-                ?external_id: String,
-                ?ledgerable_id: String,
-                ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::ledgerable_type,
-                ?metadata: ::Hash[Symbol, String],
-                ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::status
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ledger_transaction
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              ledger_entries: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry],
+              ?description: String?,
+              ?effective_at: Time,
+              ?effective_date: Date,
+              ?external_id: String,
+              ?ledgerable_id: String,
+              ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::ledgerable_type,
+              ?metadata: ::Hash[Symbol, String],
+              ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::status
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ledger_transaction
 
@@ -424,22 +404,17 @@ module ModernTreasury
 
               attr_accessor show_resulting_ledger_account_balances: bool?
 
-              def initialize:
-                (
-                  amount: Integer,
-                  direction: ModernTreasury::Models::transaction_direction,
-                  ledger_account_id: String,
-                  ?available_balance_amount: ::Hash[Symbol, Integer]?,
-                  ?lock_version: Integer?,
-                  ?metadata: ::Hash[Symbol, String],
-                  ?pending_balance_amount: ::Hash[Symbol, Integer]?,
-                  ?posted_balance_amount: ::Hash[Symbol, Integer]?,
-                  ?show_resulting_ledger_account_balances: bool?
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::ledger_entry
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                amount: Integer,
+                direction: ModernTreasury::Models::transaction_direction,
+                ledger_account_id: String,
+                ?available_balance_amount: ::Hash[Symbol, Integer]?,
+                ?lock_version: Integer?,
+                ?metadata: ::Hash[Symbol, String],
+                ?pending_balance_amount: ::Hash[Symbol, Integer]?,
+                ?posted_balance_amount: ::Hash[Symbol, Integer]?,
+                ?show_resulting_ledger_account_balances: bool?
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::ledger_entry
             end
@@ -493,17 +468,12 @@ module ModernTreasury
 
             def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-            def initialize:
-              (
-                amount: Integer,
-                ?accounting_category_id: String?,
-                ?description: String?,
-                ?metadata: ::Hash[Symbol, String]
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::line_item
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              amount: Integer,
+              ?accounting_category_id: String?,
+              ?description: String?,
+              ?metadata: ::Hash[Symbol, String]
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::line_item
           end
@@ -590,25 +560,20 @@ module ModernTreasury
               ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]
             ) -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]
 
-            def initialize:
-              (
-                ?account_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail],
-                ?account_type: ModernTreasury::Models::external_account_type,
-                ?contact_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail],
-                ?ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
-                ?metadata: ::Hash[Symbol, String],
-                ?name: String?,
-                ?party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
-                ?party_identifier: String,
-                ?party_name: String,
-                ?party_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::party_type?,
-                ?plaid_processor_token: String,
-                ?routing_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::receiving_account
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              ?account_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail],
+              ?account_type: ModernTreasury::Models::external_account_type,
+              ?contact_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail],
+              ?ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
+              ?metadata: ::Hash[Symbol, String],
+              ?name: String?,
+              ?party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
+              ?party_identifier: String,
+              ?party_name: String,
+              ?party_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::party_type?,
+              ?plaid_processor_token: String,
+              ?routing_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail]
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::receiving_account
 
@@ -627,15 +592,10 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::account_number_type
               ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::account_number_type
 
-              def initialize:
-                (
-                  account_number: String,
-                  ?account_number_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::account_number_type
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::account_detail
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                account_number: String,
+                ?account_number_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::account_number_type
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::account_detail
 
@@ -684,15 +644,10 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::contact_identifier_type
               ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::contact_identifier_type
 
-              def initialize:
-                (
-                  ?contact_identifier: String,
-                  ?contact_identifier_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::contact_identifier_type
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::contact_detail
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                ?contact_identifier: String,
+                ?contact_identifier_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::contact_identifier_type
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::contact_detail
 
@@ -754,23 +709,18 @@ module ModernTreasury
 
               def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-              def initialize:
-                (
-                  currency: String,
-                  ledger_id: String,
-                  name: String,
-                  normal_balance: ModernTreasury::Models::transaction_direction,
-                  ?currency_exponent: Integer?,
-                  ?description: String?,
-                  ?ledger_account_category_ids: ::Array[String],
-                  ?ledgerable_id: String,
-                  ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::ledgerable_type,
-                  ?metadata: ::Hash[Symbol, String]
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ledger_account
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                currency: String,
+                ledger_id: String,
+                name: String,
+                normal_balance: ModernTreasury::Models::transaction_direction,
+                ?currency_exponent: Integer?,
+                ?description: String?,
+                ?ledger_account_category_ids: ::Array[String],
+                ?ledgerable_id: String,
+                ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::ledgerable_type,
+                ?metadata: ::Hash[Symbol, String]
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ledger_account
 
@@ -813,19 +763,14 @@ module ModernTreasury
 
               attr_accessor region: String?
 
-              def initialize:
-                (
-                  ?country: String?,
-                  ?line1: String?,
-                  ?line2: String?,
-                  ?locality: String?,
-                  ?postal_code: String?,
-                  ?region: String?
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::party_address
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                ?country: String?,
+                ?line1: String?,
+                ?line2: String?,
+                ?locality: String?,
+                ?postal_code: String?,
+                ?region: String?
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::party_address
             end
@@ -857,16 +802,11 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::payment_type
               ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::payment_type
 
-              def initialize:
-                (
-                  routing_number: String,
-                  routing_number_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::routing_number_type,
-                  ?payment_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::payment_type
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::routing_detail
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                routing_number: String,
+                routing_number_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::routing_number_type,
+                ?payment_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::payment_type
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::routing_detail
 
@@ -1063,32 +1003,27 @@ module ModernTreasury
 
           attr_accessor type: ModernTreasury::Models::expected_payment_type?
 
-          def initialize:
-            (
-              ?amount_lower_bound: Integer?,
-              ?amount_upper_bound: Integer?,
-              ?counterparty_id: String?,
-              ?currency: ModernTreasury::Models::currency?,
-              ?date_lower_bound: Date?,
-              ?date_upper_bound: Date?,
-              ?description: String?,
-              ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::direction?,
-              ?internal_account_id: String?,
-              ?ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
-              ?ledger_transaction_id: String,
-              ?line_items: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem],
-              ?metadata: ::Hash[Symbol, String],
-              ?reconciliation_filters: top?,
-              ?reconciliation_groups: top?,
-              ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
-              ?remittance_information: String?,
-              ?statement_descriptor: String?,
-              ?type: ModernTreasury::Models::expected_payment_type?
-            ) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::expected_payment_create_request
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            ?amount_lower_bound: Integer?,
+            ?amount_upper_bound: Integer?,
+            ?counterparty_id: String?,
+            ?currency: ModernTreasury::Models::currency?,
+            ?date_lower_bound: Date?,
+            ?date_upper_bound: Date?,
+            ?description: String?,
+            ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::direction?,
+            ?internal_account_id: String?,
+            ?ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
+            ?ledger_transaction_id: String,
+            ?line_items: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem],
+            ?metadata: ::Hash[Symbol, String],
+            ?reconciliation_filters: top?,
+            ?reconciliation_groups: top?,
+            ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+            ?remittance_information: String?,
+            ?statement_descriptor: String?,
+            ?type: ModernTreasury::Models::expected_payment_type?
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::expected_payment_create_request
 
@@ -1151,22 +1086,17 @@ module ModernTreasury
               ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::status
             ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::status
 
-            def initialize:
-              (
-                ledger_entries: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry],
-                ?description: String?,
-                ?effective_at: Time,
-                ?effective_date: Date,
-                ?external_id: String,
-                ?ledgerable_id: String,
-                ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::ledgerable_type,
-                ?metadata: ::Hash[Symbol, String],
-                ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::status
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::ledger_transaction
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              ledger_entries: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry],
+              ?description: String?,
+              ?effective_at: Time,
+              ?effective_date: Date,
+              ?external_id: String,
+              ?ledgerable_id: String,
+              ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::ledgerable_type,
+              ?metadata: ::Hash[Symbol, String],
+              ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::status
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::ledger_transaction
 
@@ -1204,22 +1134,17 @@ module ModernTreasury
 
               attr_accessor show_resulting_ledger_account_balances: bool?
 
-              def initialize:
-                (
-                  amount: Integer,
-                  direction: ModernTreasury::Models::transaction_direction,
-                  ledger_account_id: String,
-                  ?available_balance_amount: ::Hash[Symbol, Integer]?,
-                  ?lock_version: Integer?,
-                  ?metadata: ::Hash[Symbol, String],
-                  ?pending_balance_amount: ::Hash[Symbol, Integer]?,
-                  ?posted_balance_amount: ::Hash[Symbol, Integer]?,
-                  ?show_resulting_ledger_account_balances: bool?
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::ledger_entry
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                amount: Integer,
+                direction: ModernTreasury::Models::transaction_direction,
+                ledger_account_id: String,
+                ?available_balance_amount: ::Hash[Symbol, Integer]?,
+                ?lock_version: Integer?,
+                ?metadata: ::Hash[Symbol, String],
+                ?pending_balance_amount: ::Hash[Symbol, Integer]?,
+                ?posted_balance_amount: ::Hash[Symbol, Integer]?,
+                ?show_resulting_ledger_account_balances: bool?
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::ledger_entry
             end
@@ -1273,17 +1198,12 @@ module ModernTreasury
 
             def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-            def initialize:
-              (
-                amount: Integer,
-                ?accounting_category_id: String?,
-                ?description: String?,
-                ?metadata: ::Hash[Symbol, String]
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::line_item
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              amount: Integer,
+              ?accounting_category_id: String?,
+              ?description: String?,
+              ?metadata: ::Hash[Symbol, String]
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::line_item
           end
@@ -1339,22 +1259,17 @@ module ModernTreasury
             ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::status
           ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::status
 
-          def initialize:
-            (
-              ledger_entries: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry],
-              ?description: String?,
-              ?effective_at: Time,
-              ?effective_date: Date,
-              ?external_id: String,
-              ?ledgerable_id: String,
-              ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::ledgerable_type,
-              ?metadata: ::Hash[Symbol, String],
-              ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::status
-            ) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::ledger_transaction_create_request
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            ledger_entries: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry],
+            ?description: String?,
+            ?effective_at: Time,
+            ?effective_date: Date,
+            ?external_id: String,
+            ?ledgerable_id: String,
+            ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::ledgerable_type,
+            ?metadata: ::Hash[Symbol, String],
+            ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::status
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ledger_transaction_create_request
 
@@ -1392,22 +1307,17 @@ module ModernTreasury
 
             attr_accessor show_resulting_ledger_account_balances: bool?
 
-            def initialize:
-              (
-                amount: Integer,
-                direction: ModernTreasury::Models::transaction_direction,
-                ledger_account_id: String,
-                ?available_balance_amount: ::Hash[Symbol, Integer]?,
-                ?lock_version: Integer?,
-                ?metadata: ::Hash[Symbol, String],
-                ?pending_balance_amount: ::Hash[Symbol, Integer]?,
-                ?posted_balance_amount: ::Hash[Symbol, Integer]?,
-                ?show_resulting_ledger_account_balances: bool?
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::ledger_entry
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              amount: Integer,
+              direction: ModernTreasury::Models::transaction_direction,
+              ledger_account_id: String,
+              ?available_balance_amount: ::Hash[Symbol, Integer]?,
+              ?lock_version: Integer?,
+              ?metadata: ::Hash[Symbol, String],
+              ?pending_balance_amount: ::Hash[Symbol, Integer]?,
+              ?posted_balance_amount: ::Hash[Symbol, Integer]?,
+              ?show_resulting_ledger_account_balances: bool?
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::ledger_entry
           end
@@ -1481,23 +1391,18 @@ module ModernTreasury
 
           attr_accessor vendor_description: String?
 
-          def initialize:
-            (
-              amount: Integer,
-              as_of_date: Date?,
-              direction: String,
-              internal_account_id: String,
-              vendor_code: String?,
-              vendor_code_type: String?,
-              ?metadata: ::Hash[Symbol, String],
-              ?posted: bool,
-              ?type: ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::type_?,
-              ?vendor_description: String?
-            ) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::transaction_create_request
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            as_of_date: Date?,
+            direction: String,
+            internal_account_id: String,
+            vendor_code: String?,
+            vendor_code_type: String?,
+            ?metadata: ::Hash[Symbol, String],
+            ?posted: bool,
+            ?type: ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::type_?,
+            ?vendor_description: String?
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::transaction_create_request
 
@@ -1578,12 +1483,7 @@ module ModernTreasury
 
           def id=: (String) -> String
 
-          def initialize:
-            (?id: String) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::id
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (?id: String) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::id
         end
@@ -1748,48 +1648,43 @@ module ModernTreasury
 
           attr_accessor ultimate_receiving_party_name: String?
 
-          def initialize:
-            (
-              ?id: String,
-              ?accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
-              ?accounting_category_id: String?,
-              ?accounting_ledger_class_id: String?,
-              ?amount: Integer,
-              ?charge_bearer: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::charge_bearer?,
-              ?counterparty_id: String?,
-              ?currency: ModernTreasury::Models::currency,
-              ?description: String?,
-              ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::direction,
-              ?effective_date: Date,
-              ?expires_at: Time?,
-              ?fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type,
-              ?foreign_exchange_contract: String?,
-              ?foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::foreign_exchange_indicator?,
-              ?line_items: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem],
-              ?metadata: ::Hash[Symbol, String],
-              ?nsf_protected: bool,
-              ?originating_account_id: String,
-              ?originating_party_name: String?,
-              ?priority: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::priority,
-              ?process_after: Time?,
-              ?purpose: String?,
-              ?receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
-              ?receiving_account_id: String,
-              ?remittance_information: String?,
-              ?send_remittance_advice: bool?,
-              ?statement_descriptor: String?,
-              ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::status,
-              ?subtype: ModernTreasury::Models::payment_order_subtype?,
-              ?type: ModernTreasury::Models::payment_order_type,
-              ?ultimate_originating_party_identifier: String?,
-              ?ultimate_originating_party_name: String?,
-              ?ultimate_receiving_party_identifier: String?,
-              ?ultimate_receiving_party_name: String?
-            ) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::payment_order_update_request_with_id
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            ?id: String,
+            ?accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
+            ?accounting_category_id: String?,
+            ?accounting_ledger_class_id: String?,
+            ?amount: Integer,
+            ?charge_bearer: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::charge_bearer?,
+            ?counterparty_id: String?,
+            ?currency: ModernTreasury::Models::currency,
+            ?description: String?,
+            ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::direction,
+            ?effective_date: Date,
+            ?expires_at: Time?,
+            ?fallback_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::fallback_type,
+            ?foreign_exchange_contract: String?,
+            ?foreign_exchange_indicator: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::foreign_exchange_indicator?,
+            ?line_items: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem],
+            ?metadata: ::Hash[Symbol, String],
+            ?nsf_protected: bool,
+            ?originating_account_id: String,
+            ?originating_party_name: String?,
+            ?priority: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::priority,
+            ?process_after: Time?,
+            ?purpose: String?,
+            ?receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
+            ?receiving_account_id: String,
+            ?remittance_information: String?,
+            ?send_remittance_advice: bool?,
+            ?statement_descriptor: String?,
+            ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::status,
+            ?subtype: ModernTreasury::Models::payment_order_subtype?,
+            ?type: ModernTreasury::Models::payment_order_type,
+            ?ultimate_originating_party_identifier: String?,
+            ?ultimate_originating_party_name: String?,
+            ?ultimate_receiving_party_identifier: String?,
+            ?ultimate_receiving_party_name: String?
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::payment_order_update_request_with_id
 
@@ -1800,12 +1695,7 @@ module ModernTreasury
 
             attr_accessor class_id: String?
 
-            def initialize:
-              (?account_id: String?, ?class_id: String?) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::accounting
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (?account_id: String?, ?class_id: String?) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::accounting
           end
@@ -1866,17 +1756,12 @@ module ModernTreasury
 
             def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-            def initialize:
-              (
-                amount: Integer,
-                ?accounting_category_id: String?,
-                ?description: String?,
-                ?metadata: ::Hash[Symbol, String]
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::line_item
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              amount: Integer,
+              ?accounting_category_id: String?,
+              ?description: String?,
+              ?metadata: ::Hash[Symbol, String]
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::line_item
           end
@@ -1963,25 +1848,20 @@ module ModernTreasury
               ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]
             ) -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]
 
-            def initialize:
-              (
-                ?account_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail],
-                ?account_type: ModernTreasury::Models::external_account_type,
-                ?contact_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail],
-                ?ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
-                ?metadata: ::Hash[Symbol, String],
-                ?name: String?,
-                ?party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
-                ?party_identifier: String,
-                ?party_name: String,
-                ?party_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::party_type?,
-                ?plaid_processor_token: String,
-                ?routing_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::receiving_account
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              ?account_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail],
+              ?account_type: ModernTreasury::Models::external_account_type,
+              ?contact_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail],
+              ?ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
+              ?metadata: ::Hash[Symbol, String],
+              ?name: String?,
+              ?party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
+              ?party_identifier: String,
+              ?party_name: String,
+              ?party_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::party_type?,
+              ?plaid_processor_token: String,
+              ?routing_details: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail]
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::receiving_account
 
@@ -2000,15 +1880,10 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::account_number_type
               ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::account_number_type
 
-              def initialize:
-                (
-                  account_number: String,
-                  ?account_number_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::account_number_type
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::account_detail
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                account_number: String,
+                ?account_number_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::account_number_type
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::account_detail
 
@@ -2057,15 +1932,10 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::contact_identifier_type
               ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::contact_identifier_type
 
-              def initialize:
-                (
-                  ?contact_identifier: String,
-                  ?contact_identifier_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::contact_identifier_type
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::contact_detail
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                ?contact_identifier: String,
+                ?contact_identifier_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::contact_identifier_type
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::contact_detail
 
@@ -2127,23 +1997,18 @@ module ModernTreasury
 
               def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-              def initialize:
-                (
-                  currency: String,
-                  ledger_id: String,
-                  name: String,
-                  normal_balance: ModernTreasury::Models::transaction_direction,
-                  ?currency_exponent: Integer?,
-                  ?description: String?,
-                  ?ledger_account_category_ids: ::Array[String],
-                  ?ledgerable_id: String,
-                  ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::ledgerable_type,
-                  ?metadata: ::Hash[Symbol, String]
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ledger_account
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                currency: String,
+                ledger_id: String,
+                name: String,
+                normal_balance: ModernTreasury::Models::transaction_direction,
+                ?currency_exponent: Integer?,
+                ?description: String?,
+                ?ledger_account_category_ids: ::Array[String],
+                ?ledgerable_id: String,
+                ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::ledgerable_type,
+                ?metadata: ::Hash[Symbol, String]
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ledger_account
 
@@ -2186,19 +2051,14 @@ module ModernTreasury
 
               attr_accessor region: String?
 
-              def initialize:
-                (
-                  ?country: String?,
-                  ?line1: String?,
-                  ?line2: String?,
-                  ?locality: String?,
-                  ?postal_code: String?,
-                  ?region: String?
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::party_address
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                ?country: String?,
+                ?line1: String?,
+                ?line2: String?,
+                ?locality: String?,
+                ?postal_code: String?,
+                ?region: String?
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::party_address
             end
@@ -2230,16 +2090,11 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::payment_type
               ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::payment_type
 
-              def initialize:
-                (
-                  routing_number: String,
-                  routing_number_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::routing_number_type,
-                  ?payment_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::payment_type
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::routing_detail
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                routing_number: String,
+                routing_number_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::routing_number_type,
+                ?payment_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::payment_type
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::routing_detail
 
@@ -2454,31 +2309,26 @@ module ModernTreasury
 
           attr_accessor type: ModernTreasury::Models::expected_payment_type?
 
-          def initialize:
-            (
-              ?id: String,
-              ?amount_lower_bound: Integer?,
-              ?amount_upper_bound: Integer?,
-              ?counterparty_id: String?,
-              ?currency: ModernTreasury::Models::currency?,
-              ?date_lower_bound: Date?,
-              ?date_upper_bound: Date?,
-              ?description: String?,
-              ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::direction?,
-              ?internal_account_id: String?,
-              ?metadata: ::Hash[Symbol, String],
-              ?reconciliation_filters: top?,
-              ?reconciliation_groups: top?,
-              ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
-              ?remittance_information: String?,
-              ?statement_descriptor: String?,
-              ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::status?,
-              ?type: ModernTreasury::Models::expected_payment_type?
-            ) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::expected_payment_update_request_with_id
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            ?id: String,
+            ?amount_lower_bound: Integer?,
+            ?amount_upper_bound: Integer?,
+            ?counterparty_id: String?,
+            ?currency: ModernTreasury::Models::currency?,
+            ?date_lower_bound: Date?,
+            ?date_upper_bound: Date?,
+            ?description: String?,
+            ?direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::direction?,
+            ?internal_account_id: String?,
+            ?metadata: ::Hash[Symbol, String],
+            ?reconciliation_filters: top?,
+            ?reconciliation_groups: top?,
+            ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+            ?remittance_information: String?,
+            ?statement_descriptor: String?,
+            ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::status?,
+            ?type: ModernTreasury::Models::expected_payment_type?
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::expected_payment_update_request_with_id
 
@@ -2512,12 +2362,10 @@ module ModernTreasury
 
           def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-          def initialize:
-            (?id: String, ?metadata: ::Hash[Symbol, String]) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::transaction_update_request_with_id
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            ?id: String,
+            ?metadata: ::Hash[Symbol, String]
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::transaction_update_request_with_id
         end
@@ -2571,21 +2419,16 @@ module ModernTreasury
             ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::status
           ) -> ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::status
 
-          def initialize:
-            (
-              ?id: String,
-              ?description: String?,
-              ?effective_at: Time,
-              ?ledger_entries: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry],
-              ?ledgerable_id: String,
-              ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledgerable_type,
-              ?metadata: ::Hash[Symbol, String],
-              ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::status
-            ) -> void
-            | (
-              ?ModernTreasury::Models::BulkRequestCreateParams::Resource::ledger_transaction_update_request_with_id
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            ?id: String,
+            ?description: String?,
+            ?effective_at: Time,
+            ?ledger_entries: ::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry],
+            ?ledgerable_id: String,
+            ?ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledgerable_type,
+            ?metadata: ::Hash[Symbol, String],
+            ?status: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::status
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::ledger_transaction_update_request_with_id
 
@@ -2623,22 +2466,17 @@ module ModernTreasury
 
             attr_accessor show_resulting_ledger_account_balances: bool?
 
-            def initialize:
-              (
-                amount: Integer,
-                direction: ModernTreasury::Models::transaction_direction,
-                ledger_account_id: String,
-                ?available_balance_amount: ::Hash[Symbol, Integer]?,
-                ?lock_version: Integer?,
-                ?metadata: ::Hash[Symbol, String],
-                ?pending_balance_amount: ::Hash[Symbol, Integer]?,
-                ?posted_balance_amount: ::Hash[Symbol, Integer]?,
-                ?show_resulting_ledger_account_balances: bool?
-              ) -> void
-              | (
-                ?ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledger_entry
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              amount: Integer,
+              direction: ModernTreasury::Models::transaction_direction,
+              ledger_account_id: String,
+              ?available_balance_amount: ::Hash[Symbol, Integer]?,
+              ?lock_version: Integer?,
+              ?metadata: ::Hash[Symbol, String],
+              ?pending_balance_amount: ::Hash[Symbol, Integer]?,
+              ?posted_balance_amount: ::Hash[Symbol, Integer]?,
+              ?show_resulting_ledger_account_balances: bool?
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::ledger_entry
           end

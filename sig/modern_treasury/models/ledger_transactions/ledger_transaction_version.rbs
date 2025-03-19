@@ -69,33 +69,28 @@ module ModernTreasury
 
         attr_accessor version: Integer
 
-        def initialize:
-          (
-            id: String,
-            created_at: Time,
-            description: String?,
-            effective_at: Time,
-            effective_date: Date,
-            external_id: String?,
-            ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry],
-            ledger_id: String,
-            ledger_transaction_id: String,
-            ledgerable_id: String?,
-            ledgerable_type: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledgerable_type?,
-            live_mode: bool,
-            metadata: ::Hash[Symbol, String],
-            object: String,
-            partially_posts_ledger_transaction_id: String?,
-            posted_at: Time?,
-            reversed_by_ledger_transaction_id: String?,
-            reverses_ledger_transaction_id: String?,
-            status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::status,
-            version: Integer
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LedgerTransactions::ledger_transaction_version
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          created_at: Time,
+          description: String?,
+          effective_at: Time,
+          effective_date: Date,
+          external_id: String?,
+          ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry],
+          ledger_id: String,
+          ledger_transaction_id: String,
+          ledgerable_id: String?,
+          ledgerable_type: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledgerable_type?,
+          live_mode: bool,
+          metadata: ::Hash[Symbol, String],
+          object: String,
+          partially_posts_ledger_transaction_id: String?,
+          posted_at: Time?,
+          reversed_by_ledger_transaction_id: String?,
+          reverses_ledger_transaction_id: String?,
+          status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::status,
+          version: Integer
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerTransactions::ledger_transaction_version
 
@@ -146,27 +141,22 @@ module ModernTreasury
 
           attr_accessor status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
 
-          def initialize:
-            (
-              id: String,
-              amount: Integer,
-              created_at: Time,
-              direction: ModernTreasury::Models::transaction_direction,
-              ledger_account_currency: String,
-              ledger_account_currency_exponent: Integer,
-              ledger_account_id: String,
-              ledger_account_lock_version: Integer?,
-              ledger_transaction_id: String,
-              live_mode: bool,
-              metadata: ::Hash[Symbol, String],
-              object: String,
-              resulting_ledger_account_balances: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances?,
-              status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledger_entry
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            id: String,
+            amount: Integer,
+            created_at: Time,
+            direction: ModernTreasury::Models::transaction_direction,
+            ledger_account_currency: String,
+            ledger_account_currency_exponent: Integer,
+            ledger_account_id: String,
+            ledger_account_lock_version: Integer?,
+            ledger_transaction_id: String,
+            live_mode: bool,
+            metadata: ::Hash[Symbol, String],
+            object: String,
+            resulting_ledger_account_balances: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances?,
+            status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledger_entry
 
@@ -184,16 +174,11 @@ module ModernTreasury
 
             attr_accessor posted_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
 
-            def initialize:
-              (
-                available_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
-                pending_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
-                posted_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
-              ) -> void
-              | (
-                ?ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              available_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+              pending_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+              posted_balance: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::resulting_ledger_account_balances
 
@@ -217,18 +202,13 @@ module ModernTreasury
 
               attr_accessor debits: Integer
 
-              def initialize:
-                (
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::available_balance
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::available_balance
             end
@@ -253,18 +233,13 @@ module ModernTreasury
 
               attr_accessor debits: Integer
 
-              def initialize:
-                (
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::pending_balance
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::pending_balance
             end
@@ -289,18 +264,13 @@ module ModernTreasury
 
               attr_accessor debits: Integer
 
-              def initialize:
-                (
-                  amount: Integer,
-                  credits: Integer,
-                  currency: String,
-                  currency_exponent: Integer,
-                  debits: Integer
-                ) -> void
-                | (
-                  ?ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::posted_balance
-                  | ModernTreasury::BaseModel data
-                ) -> void
+              def initialize: (
+                amount: Integer,
+                credits: Integer,
+                currency: String,
+                currency_exponent: Integer,
+                debits: Integer
+              ) -> void
 
               def to_hash: -> ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::posted_balance
             end

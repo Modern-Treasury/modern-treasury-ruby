@@ -80,27 +80,22 @@ module ModernTreasury
         ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
       ) -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail]
 
-      def initialize:
-        (
-          counterparty_id: String?,
-          ?account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
-          ?account_type: ModernTreasury::Models::external_account_type,
-          ?contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
-          ?ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String?,
-          ?party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
-          ?party_identifier: String,
-          ?party_name: String,
-          ?party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
-          ?plaid_processor_token: String,
-          ?routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::external_account_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        counterparty_id: String?,
+        ?account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+        ?account_type: ModernTreasury::Models::external_account_type,
+        ?contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
+        ?ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String?,
+        ?party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+        ?party_identifier: String,
+        ?party_name: String,
+        ?party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
+        ?plaid_processor_token: String,
+        ?routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::external_account_create_params
 
@@ -119,15 +114,10 @@ module ModernTreasury
           ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type
         ) -> ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type
 
-        def initialize:
-          (
-            account_number: String,
-            ?account_number_type: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccountCreateParams::account_detail
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          account_number: String,
+          ?account_number_type: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::account_detail
 
@@ -176,15 +166,10 @@ module ModernTreasury
           ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
         ) -> ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
 
-        def initialize:
-          (
-            ?contact_identifier: String,
-            ?contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccountCreateParams::contact_detail
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          ?contact_identifier: String,
+          ?contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::contact_detail
 
@@ -244,23 +229,18 @@ module ModernTreasury
 
         def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-        def initialize:
-          (
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: ModernTreasury::Models::transaction_direction,
-            ?currency_exponent: Integer?,
-            ?description: String?,
-            ?ledger_account_category_ids: ::Array[String],
-            ?ledgerable_id: String,
-            ?ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type,
-            ?metadata: ::Hash[Symbol, String]
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccountCreateParams::ledger_account
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          currency: String,
+          ledger_id: String,
+          name: String,
+          normal_balance: ModernTreasury::Models::transaction_direction,
+          ?currency_exponent: Integer?,
+          ?description: String?,
+          ?ledger_account_category_ids: ::Array[String],
+          ?ledgerable_id: String,
+          ?ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type,
+          ?metadata: ::Hash[Symbol, String]
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::ledger_account
 
@@ -303,19 +283,14 @@ module ModernTreasury
 
         attr_accessor region: String?
 
-        def initialize:
-          (
-            ?country: String?,
-            ?line1: String?,
-            ?line2: String?,
-            ?locality: String?,
-            ?postal_code: String?,
-            ?region: String?
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccountCreateParams::party_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          ?country: String?,
+          ?line1: String?,
+          ?line2: String?,
+          ?locality: String?,
+          ?postal_code: String?,
+          ?region: String?
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::party_address
       end
@@ -347,16 +322,11 @@ module ModernTreasury
           ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::payment_type
         ) -> ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::payment_type
 
-        def initialize:
-          (
-            routing_number: String,
-            routing_number_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::routing_number_type,
-            ?payment_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::payment_type
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccountCreateParams::routing_detail
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          routing_number: String,
+          routing_number_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::routing_number_type,
+          ?payment_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::payment_type
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccountCreateParams::routing_detail
 

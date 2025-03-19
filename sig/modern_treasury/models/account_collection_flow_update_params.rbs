@@ -12,15 +12,10 @@ module ModernTreasury
 
       attr_accessor status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status
 
-      def initialize:
-        (
-          status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::account_collection_flow_update_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::account_collection_flow_update_params
 

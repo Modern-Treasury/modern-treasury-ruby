@@ -1,66 +1,39 @@
 module ModernTreasury
   module Resources
     class Ledgers
-      def create:
-        (
-          ModernTreasury::Models::LedgerCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Ledger
-        | (
-          name: String,
-          ?description: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Ledger
+      def create: (
+        name: String,
+        ?description: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Ledger
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Ledger
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Ledger
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Ledger
 
-      def update:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Ledger
-        | (
-          String id,
-          ?description: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Ledger
+      def update: (
+        String id,
+        ?description: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Ledger
 
-      def list:
-        (
-          ?ModernTreasury::Models::LedgerListParams | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::Ledger]
-        | (
-          ?id: ::Array[String],
-          ?after_cursor: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?per_page: Integer,
-          ?updated_at: ::Hash[Symbol, Time],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::Ledger]
+      def list: (
+        ?id: ::Array[String],
+        ?after_cursor: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?updated_at: ::Hash[Symbol, Time],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::Ledger]
 
-      def delete:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerDeleteParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Ledger
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Ledger
+      def delete: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Ledger
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

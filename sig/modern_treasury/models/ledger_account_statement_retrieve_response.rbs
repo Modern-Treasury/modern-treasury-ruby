@@ -50,28 +50,23 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          created_at: Time,
-          description: String?,
-          effective_at_lower_bound: Time,
-          effective_at_upper_bound: Time,
-          ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
-          ledger_account_id: String,
-          ledger_account_lock_version: Integer,
-          ledger_account_normal_balance: ModernTreasury::Models::transaction_direction,
-          ledger_id: String,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          object: String,
-          starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_account_statement_retrieve_response
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        created_at: Time,
+        description: String?,
+        effective_at_lower_bound: Time,
+        effective_at_upper_bound: Time,
+        ending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+        ledger_account_id: String,
+        ledger_account_lock_version: Integer,
+        ledger_account_normal_balance: ModernTreasury::Models::transaction_direction,
+        ledger_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_account_statement_retrieve_response
 
@@ -89,16 +84,11 @@ module ModernTreasury
 
         attr_accessor posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
 
-        def initialize:
-          (
-            available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
-            pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
-            posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::ending_balance
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
+          pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
+          posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::ending_balance
 
@@ -122,18 +112,13 @@ module ModernTreasury
 
           attr_accessor debits: Integer
 
-          def initialize:
-            (
-              amount: Integer,
-              credits: Integer,
-              currency: String,
-              currency_exponent: Integer,
-              debits: Integer
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::available_balance
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::available_balance
         end
@@ -158,18 +143,13 @@ module ModernTreasury
 
           attr_accessor debits: Integer
 
-          def initialize:
-            (
-              amount: Integer,
-              credits: Integer,
-              currency: String,
-              currency_exponent: Integer,
-              debits: Integer
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::pending_balance
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::pending_balance
         end
@@ -194,18 +174,13 @@ module ModernTreasury
 
           attr_accessor debits: Integer
 
-          def initialize:
-            (
-              amount: Integer,
-              credits: Integer,
-              currency: String,
-              currency_exponent: Integer,
-              debits: Integer
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::posted_balance
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::posted_balance
         end
@@ -225,16 +200,11 @@ module ModernTreasury
 
         attr_accessor posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
 
-        def initialize:
-          (
-            available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
-            pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
-            posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::starting_balance
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          available_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
+          pending_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
+          posted_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::starting_balance
 
@@ -258,18 +228,13 @@ module ModernTreasury
 
           attr_accessor debits: Integer
 
-          def initialize:
-            (
-              amount: Integer,
-              credits: Integer,
-              currency: String,
-              currency_exponent: Integer,
-              debits: Integer
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::available_balance
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::available_balance
         end
@@ -294,18 +259,13 @@ module ModernTreasury
 
           attr_accessor debits: Integer
 
-          def initialize:
-            (
-              amount: Integer,
-              credits: Integer,
-              currency: String,
-              currency_exponent: Integer,
-              debits: Integer
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::pending_balance
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::pending_balance
         end
@@ -330,18 +290,13 @@ module ModernTreasury
 
           attr_accessor debits: Integer
 
-          def initialize:
-            (
-              amount: Integer,
-              credits: Integer,
-              currency: String,
-              currency_exponent: Integer,
-              debits: Integer
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::posted_balance
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            credits: Integer,
+            currency: String,
+            currency_exponent: Integer,
+            debits: Integer
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::posted_balance
         end

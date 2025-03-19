@@ -29,20 +29,15 @@ module ModernTreasury
 
       def due_date=: (Date) -> Date
 
-      def initialize:
-        (
-          amount: Integer,
-          counterparty_id: String,
-          currency: String,
-          direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
-          originating_account_id: String,
-          ?due_date: Date,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::payment_flow_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        amount: Integer,
+        counterparty_id: String,
+        currency: String,
+        direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
+        originating_account_id: String,
+        ?due_date: Date,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::payment_flow_create_params
 

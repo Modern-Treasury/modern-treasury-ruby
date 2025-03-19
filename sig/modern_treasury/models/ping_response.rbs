@@ -5,12 +5,7 @@ module ModernTreasury
     class PingResponse < ModernTreasury::BaseModel
       attr_accessor ping: String
 
-      def initialize:
-        (ping: String) -> void
-        | (
-          ?ModernTreasury::Models::ping_response
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (ping: String) -> void
 
       def to_hash: -> ModernTreasury::Models::ping_response
     end

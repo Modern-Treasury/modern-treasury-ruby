@@ -39,24 +39,19 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            created_at: Time,
-            ledger_transaction_id: String?,
-            live_mode: bool,
-            metadata: ::Hash[Symbol, String],
-            object: String,
-            payment_order_id: String?,
-            reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
-            status: ModernTreasury::Models::PaymentOrders::Reversal::status,
-            transaction_ids: ::Array[top?],
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::PaymentOrders::reversal
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          created_at: Time,
+          ledger_transaction_id: String?,
+          live_mode: bool,
+          metadata: ::Hash[Symbol, String],
+          object: String,
+          payment_order_id: String?,
+          reason: ModernTreasury::Models::PaymentOrders::Reversal::reason,
+          status: ModernTreasury::Models::PaymentOrders::Reversal::status,
+          transaction_ids: ::Array[top?],
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::PaymentOrders::reversal
 

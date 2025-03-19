@@ -155,63 +155,58 @@ module ModernTreasury
 
       attr_accessor vendor_failure_reason: String?
 
-      def initialize:
-        (
-          id: String,
-          accounting: ModernTreasury::Models::PaymentOrder::Accounting,
-          accounting_category_id: String?,
-          accounting_ledger_class_id: String?,
-          amount: Integer,
-          charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
-          compliance_rule_metadata: ::Hash[Symbol, top]?,
-          counterparty_id: String?,
-          created_at: Time,
-          currency: ModernTreasury::Models::currency,
-          current_return: ModernTreasury::Models::ReturnObject?,
-          decision_id: String?,
-          description: String?,
-          direction: ModernTreasury::Models::PaymentOrder::direction,
-          effective_date: Date,
-          expires_at: Time?,
-          foreign_exchange_contract: String?,
-          foreign_exchange_indicator: ModernTreasury::Models::PaymentOrder::foreign_exchange_indicator?,
-          foreign_exchange_rate: ModernTreasury::Models::PaymentOrder::ForeignExchangeRate?,
-          ledger_transaction_id: String?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          nsf_protected: bool,
-          object: String,
-          originating_account_id: String,
-          originating_party_name: String?,
-          priority: ModernTreasury::Models::PaymentOrder::priority,
-          process_after: Time?,
-          purpose: String?,
-          receiving_account_id: String,
-          receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
-          reference_numbers: ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
-          remittance_information: String?,
-          send_remittance_advice: bool?,
-          statement_descriptor: String?,
-          status: ModernTreasury::Models::PaymentOrder::status,
-          subtype: ModernTreasury::Models::payment_order_subtype?,
-          transaction_ids: ::Array[String],
-          transaction_monitoring_enabled: bool,
-          type: ModernTreasury::Models::payment_order_type,
-          ultimate_originating_account: ModernTreasury::Models::PaymentOrder::ultimate_originating_account?,
-          ultimate_originating_account_id: String?,
-          ultimate_originating_account_type: ModernTreasury::Models::PaymentOrder::ultimate_originating_account_type?,
-          ultimate_originating_party_identifier: String?,
-          ultimate_originating_party_name: String?,
-          ultimate_receiving_party_identifier: String?,
-          ultimate_receiving_party_name: String?,
-          updated_at: Time,
-          vendor_attributes: top?,
-          vendor_failure_reason: String?
-        ) -> void
-        | (
-          ?ModernTreasury::Models::payment_order
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        accounting: ModernTreasury::Models::PaymentOrder::Accounting,
+        accounting_category_id: String?,
+        accounting_ledger_class_id: String?,
+        amount: Integer,
+        charge_bearer: ModernTreasury::Models::PaymentOrder::charge_bearer?,
+        compliance_rule_metadata: ::Hash[Symbol, top]?,
+        counterparty_id: String?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        current_return: ModernTreasury::Models::ReturnObject?,
+        decision_id: String?,
+        description: String?,
+        direction: ModernTreasury::Models::PaymentOrder::direction,
+        effective_date: Date,
+        expires_at: Time?,
+        foreign_exchange_contract: String?,
+        foreign_exchange_indicator: ModernTreasury::Models::PaymentOrder::foreign_exchange_indicator?,
+        foreign_exchange_rate: ModernTreasury::Models::PaymentOrder::ForeignExchangeRate?,
+        ledger_transaction_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        nsf_protected: bool,
+        object: String,
+        originating_account_id: String,
+        originating_party_name: String?,
+        priority: ModernTreasury::Models::PaymentOrder::priority,
+        process_after: Time?,
+        purpose: String?,
+        receiving_account_id: String,
+        receiving_account_type: ModernTreasury::Models::PaymentOrder::receiving_account_type,
+        reference_numbers: ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber],
+        remittance_information: String?,
+        send_remittance_advice: bool?,
+        statement_descriptor: String?,
+        status: ModernTreasury::Models::PaymentOrder::status,
+        subtype: ModernTreasury::Models::payment_order_subtype?,
+        transaction_ids: ::Array[String],
+        transaction_monitoring_enabled: bool,
+        type: ModernTreasury::Models::payment_order_type,
+        ultimate_originating_account: ModernTreasury::Models::PaymentOrder::ultimate_originating_account?,
+        ultimate_originating_account_id: String?,
+        ultimate_originating_account_type: ModernTreasury::Models::PaymentOrder::ultimate_originating_account_type?,
+        ultimate_originating_party_identifier: String?,
+        ultimate_originating_party_name: String?,
+        ultimate_receiving_party_identifier: String?,
+        ultimate_receiving_party_name: String?,
+        updated_at: Time,
+        vendor_attributes: top?,
+        vendor_failure_reason: String?
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::payment_order
 
@@ -222,12 +217,7 @@ module ModernTreasury
 
         attr_accessor class_id: String?
 
-        def initialize:
-          (?account_id: String?, ?class_id: String?) -> void
-          | (
-            ?ModernTreasury::Models::PaymentOrder::accounting
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (?account_id: String?, ?class_id: String?) -> void
 
         def to_hash: -> ModernTreasury::Models::PaymentOrder::accounting
       end
@@ -286,20 +276,15 @@ module ModernTreasury
 
         attr_accessor value: Integer
 
-        def initialize:
-          (
-            base_amount: Integer,
-            base_currency: ModernTreasury::Models::currency,
-            exponent: Integer,
-            rate_string: String,
-            target_amount: Integer,
-            target_currency: ModernTreasury::Models::currency,
-            value: Integer
-          ) -> void
-          | (
-            ?ModernTreasury::Models::PaymentOrder::foreign_exchange_rate
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          base_amount: Integer,
+          base_currency: ModernTreasury::Models::currency,
+          exponent: Integer,
+          rate_string: String,
+          target_amount: Integer,
+          target_currency: ModernTreasury::Models::currency,
+          value: Integer
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::PaymentOrder::foreign_exchange_rate
       end
@@ -348,20 +333,15 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            created_at: Time,
-            live_mode: bool,
-            object: String,
-            reference_number: String,
-            reference_number_type: ModernTreasury::Models::PaymentOrder::ReferenceNumber::reference_number_type,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::PaymentOrder::reference_number
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          created_at: Time,
+          live_mode: bool,
+          object: String,
+          reference_number: String,
+          reference_number_type: ModernTreasury::Models::PaymentOrder::ReferenceNumber::reference_number_type,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::PaymentOrder::reference_number
 

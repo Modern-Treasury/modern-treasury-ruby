@@ -30,18 +30,13 @@ module ModernTreasury
 
         def per_page=: (Integer) -> Integer
 
-        def initialize:
-          (
-            ?after_cursor: String?,
-            ?as_of_date: Date,
-            ?balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
-            ?per_page: Integer,
-            ?request_options: ModernTreasury::request_opts
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InternalAccounts::balance_report_list_params
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          ?after_cursor: String?,
+          ?as_of_date: Date,
+          ?balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report_list_params
 

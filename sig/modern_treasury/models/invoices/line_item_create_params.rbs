@@ -41,21 +41,16 @@ module ModernTreasury
 
         def unit_amount_decimal=: (String) -> String
 
-        def initialize:
-          (
-            name: String,
-            unit_amount: Integer,
-            ?description: String,
-            ?direction: String,
-            ?metadata: ::Hash[Symbol, String],
-            ?quantity: Integer,
-            ?unit_amount_decimal: String,
-            ?request_options: ModernTreasury::request_opts
-          ) -> void
-          | (
-            ?ModernTreasury::Models::Invoices::line_item_create_params
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          name: String,
+          unit_amount: Integer,
+          ?description: String,
+          ?direction: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?quantity: Integer,
+          ?unit_amount_decimal: String,
+          ?request_options: ModernTreasury::request_opts
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::Invoices::line_item_create_params
       end

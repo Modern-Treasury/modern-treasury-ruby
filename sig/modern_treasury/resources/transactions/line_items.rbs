@@ -2,50 +2,31 @@ module ModernTreasury
   module Resources
     class Transactions
       class LineItems
-        def create:
-          (
-            ModernTreasury::Models::Transactions::LineItemCreateParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Models::Transactions::TransactionLineItem
-          | (
-            amount: Integer,
-            expected_payment_id: String,
-            transaction_id: String,
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Models::Transactions::TransactionLineItem
+        def create: (
+          amount: Integer,
+          expected_payment_id: String,
+          transaction_id: String,
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::Transactions::TransactionLineItem
 
-        def retrieve:
-          (
-            String id,
-            ?ModernTreasury::Models::Transactions::LineItemRetrieveParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Models::Transactions::TransactionLineItem
-          | (
-            String id,
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Models::Transactions::TransactionLineItem
+        def retrieve: (
+          String id,
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::Transactions::TransactionLineItem
 
-        def list:
-          (
-            ?ModernTreasury::Models::Transactions::LineItemListParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem]
-          | (
-            ?id: ::Hash[Symbol, String],
-            ?after_cursor: String?,
-            ?per_page: Integer,
-            ?transaction_id: String,
-            ?type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem]
+        def list: (
+          ?id: ::Hash[Symbol, String],
+          ?after_cursor: String?,
+          ?per_page: Integer,
+          ?transaction_id: String,
+          ?type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem]
 
-        def delete:
-          (
-            String id,
-            ?ModernTreasury::Models::Transactions::LineItemDeleteParams
-            | ::Hash[Symbol, top] params
-          ) -> nil
-          | (String id, ?request_options: ModernTreasury::request_opts) -> nil
+        def delete: (
+          String id,
+          ?request_options: ModernTreasury::request_opts
+        ) -> nil
 
         def initialize: (client: ModernTreasury::Client) -> void
       end

@@ -1,42 +1,26 @@
 module ModernTreasury
   module Resources
     class Documents
-      def create:
-        (
-          ModernTreasury::Models::DocumentCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Document
-        | (
-          documentable_id: String,
-          documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
-          file: IO | StringIO,
-          ?document_type: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Document
+      def create: (
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+        file: IO | StringIO,
+        ?document_type: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Document
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::DocumentRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Document
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Document
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Document
 
-      def list:
-        (
-          ?ModernTreasury::Models::DocumentListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::Document]
-        | (
-          ?after_cursor: String?,
-          ?documentable_id: String,
-          ?documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
-          ?per_page: Integer,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::Document]
+      def list: (
+        ?after_cursor: String?,
+        ?documentable_id: String,
+        ?documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::Document]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

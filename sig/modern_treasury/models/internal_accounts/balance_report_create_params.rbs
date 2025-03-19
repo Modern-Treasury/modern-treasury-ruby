@@ -22,18 +22,13 @@ module ModernTreasury
 
         attr_accessor balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]
 
-        def initialize:
-          (
-            as_of_date: Date,
-            as_of_time: String,
-            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
-            balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
-            ?request_options: ModernTreasury::request_opts
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InternalAccounts::balance_report_create_params
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          as_of_date: Date,
+          as_of_time: String,
+          balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
+          balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
+          ?request_options: ModernTreasury::request_opts
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report_create_params
 
@@ -66,17 +61,12 @@ module ModernTreasury
 
           attr_accessor vendor_code_type: String?
 
-          def initialize:
-            (
-              amount: Integer,
-              balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
-              vendor_code: String,
-              vendor_code_type: String?
-            ) -> void
-            | (
-              ?ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: Integer,
+            balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type,
+            vendor_code: String,
+            vendor_code_type: String?
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance
 

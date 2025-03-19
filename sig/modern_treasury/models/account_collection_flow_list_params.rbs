@@ -37,20 +37,15 @@ module ModernTreasury
 
       def status=: (String) -> String
 
-      def initialize:
-        (
-          ?after_cursor: String?,
-          ?client_token: String,
-          ?counterparty_id: String,
-          ?external_account_id: String,
-          ?per_page: Integer,
-          ?status: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::account_collection_flow_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after_cursor: String?,
+        ?client_token: String,
+        ?counterparty_id: String,
+        ?external_account_id: String,
+        ?per_page: Integer,
+        ?status: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::account_collection_flow_list_params
     end

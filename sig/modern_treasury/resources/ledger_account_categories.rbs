@@ -1,126 +1,74 @@
 module ModernTreasury
   module Resources
     class LedgerAccountCategories
-      def create:
-        (
-          ModernTreasury::Models::LedgerAccountCategoryCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerAccountCategory
-        | (
-          currency: String,
-          ledger_id: String,
-          name: String,
-          normal_balance: ModernTreasury::Models::transaction_direction,
-          ?currency_exponent: Integer?,
-          ?description: String?,
-          ?ledger_account_category_ids: ::Array[String],
-          ?metadata: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerAccountCategory
+      def create: (
+        currency: String,
+        ledger_id: String,
+        name: String,
+        normal_balance: ModernTreasury::Models::transaction_direction,
+        ?currency_exponent: Integer?,
+        ?description: String?,
+        ?ledger_account_category_ids: ::Array[String],
+        ?metadata: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerAccountCategory
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerAccountCategoryRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerAccountCategory
-        | (
-          String id,
-          ?balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerAccountCategory
+      def retrieve: (
+        String id,
+        ?balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerAccountCategory
 
-      def update:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerAccountCategoryUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerAccountCategory
-        | (
-          String id,
-          ?description: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerAccountCategory
+      def update: (
+        String id,
+        ?description: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerAccountCategory
 
-      def list:
-        (
-          ?ModernTreasury::Models::LedgerAccountCategoryListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory]
-        | (
-          ?id: ::Array[String],
-          ?after_cursor: String?,
-          ?balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
-          ?currency: String,
-          ?ledger_account_id: String,
-          ?ledger_id: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String,
-          ?parent_ledger_account_category_id: String,
-          ?per_page: Integer,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory]
+      def list: (
+        ?id: ::Array[String],
+        ?after_cursor: String?,
+        ?balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
+        ?currency: String,
+        ?ledger_account_id: String,
+        ?ledger_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String,
+        ?parent_ledger_account_category_id: String,
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountCategory]
 
-      def delete:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerAccountCategoryDeleteParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerAccountCategory
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerAccountCategory
+      def delete: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerAccountCategory
 
-      def add_ledger_account:
-        (
-          String ledger_account_id,
-          ModernTreasury::Models::LedgerAccountCategoryAddLedgerAccountParams
-          | ::Hash[Symbol, top] params
-        ) -> nil
-        | (
-          String ledger_account_id,
-          id: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> nil
+      def add_ledger_account: (
+        String ledger_account_id,
+        id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
 
-      def add_nested_category:
-        (
-          String sub_category_id,
-          ModernTreasury::Models::LedgerAccountCategoryAddNestedCategoryParams
-          | ::Hash[Symbol, top] params
-        ) -> nil
-        | (
-          String sub_category_id,
-          id: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> nil
+      def add_nested_category: (
+        String sub_category_id,
+        id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
 
-      def remove_ledger_account:
-        (
-          String ledger_account_id,
-          ModernTreasury::Models::LedgerAccountCategoryRemoveLedgerAccountParams
-          | ::Hash[Symbol, top] params
-        ) -> nil
-        | (
-          String ledger_account_id,
-          id: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> nil
+      def remove_ledger_account: (
+        String ledger_account_id,
+        id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
 
-      def remove_nested_category:
-        (
-          String sub_category_id,
-          ModernTreasury::Models::LedgerAccountCategoryRemoveNestedCategoryParams
-          | ::Hash[Symbol, top] params
-        ) -> nil
-        | (
-          String sub_category_id,
-          id: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> nil
+      def remove_nested_category: (
+        String sub_category_id,
+        id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

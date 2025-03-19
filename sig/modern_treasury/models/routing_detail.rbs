@@ -38,24 +38,19 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          bank_address: ModernTreasury::Models::RoutingDetail::BankAddress?,
-          bank_name: String,
-          created_at: Time,
-          discarded_at: Time?,
-          live_mode: bool,
-          object: String,
-          payment_type: ModernTreasury::Models::RoutingDetail::payment_type?,
-          routing_number: String,
-          routing_number_type: ModernTreasury::Models::RoutingDetail::routing_number_type,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::routing_detail
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        bank_address: ModernTreasury::Models::RoutingDetail::BankAddress?,
+        bank_name: String,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        payment_type: ModernTreasury::Models::RoutingDetail::payment_type?,
+        routing_number: String,
+        routing_number_type: ModernTreasury::Models::RoutingDetail::routing_number_type,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::routing_detail
 
@@ -97,24 +92,19 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            country: String?,
-            created_at: Time,
-            line1: String?,
-            line2: String?,
-            live_mode: bool,
-            locality: String?,
-            object: String,
-            postal_code: String?,
-            region: String?,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::RoutingDetail::bank_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          country: String?,
+          created_at: Time,
+          line1: String?,
+          line2: String?,
+          live_mode: bool,
+          locality: String?,
+          object: String,
+          postal_code: String?,
+          region: String?,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::RoutingDetail::bank_address
       end

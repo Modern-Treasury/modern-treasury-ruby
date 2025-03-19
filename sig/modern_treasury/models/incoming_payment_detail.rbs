@@ -80,38 +80,33 @@ module ModernTreasury
 
       attr_accessor originating_account_number: String?
 
-      def initialize:
-        (
-          id: String,
-          amount: Integer,
-          as_of_date: Date,
-          created_at: Time,
-          currency: ModernTreasury::Models::currency,
-          data: ::Hash[Symbol, top],
-          direction: ModernTreasury::Models::transaction_direction,
-          internal_account_id: String,
-          ledger_transaction_id: String?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          object: String,
-          originating_account_number_safe: String?,
-          originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?,
-          originating_routing_number: String?,
-          originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?,
-          status: ModernTreasury::Models::IncomingPaymentDetail::status,
-          transaction_id: String?,
-          transaction_line_item_id: String?,
-          type: ModernTreasury::Models::IncomingPaymentDetail::type_,
-          updated_at: Time,
-          vendor_id: String?,
-          virtual_account: ModernTreasury::Models::VirtualAccount?,
-          virtual_account_id: String?,
-          ?originating_account_number: String?
-        ) -> void
-        | (
-          ?ModernTreasury::Models::incoming_payment_detail
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        amount: Integer,
+        as_of_date: Date,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        data: ::Hash[Symbol, top],
+        direction: ModernTreasury::Models::transaction_direction,
+        internal_account_id: String,
+        ledger_transaction_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        originating_account_number_safe: String?,
+        originating_account_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_account_number_type?,
+        originating_routing_number: String?,
+        originating_routing_number_type: ModernTreasury::Models::IncomingPaymentDetail::originating_routing_number_type?,
+        status: ModernTreasury::Models::IncomingPaymentDetail::status,
+        transaction_id: String?,
+        transaction_line_item_id: String?,
+        type: ModernTreasury::Models::IncomingPaymentDetail::type_,
+        updated_at: Time,
+        vendor_id: String?,
+        virtual_account: ModernTreasury::Models::VirtualAccount?,
+        virtual_account_id: String?,
+        ?originating_account_number: String?
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::incoming_payment_detail
 

@@ -2,20 +2,15 @@ module ModernTreasury
   module Resources
     class LedgerTransactions
       class Versions
-        def list:
-          (
-            ?ModernTreasury::Models::LedgerTransactions::VersionListParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion]
-          | (
-            ?after_cursor: String?,
-            ?created_at: ::Hash[Symbol, Time],
-            ?ledger_account_statement_id: String,
-            ?ledger_transaction_id: String,
-            ?per_page: Integer,
-            ?version: ::Hash[Symbol, Integer],
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion]
+        def list: (
+          ?after_cursor: String?,
+          ?created_at: ::Hash[Symbol, Time],
+          ?ledger_account_statement_id: String,
+          ?ledger_transaction_id: String,
+          ?per_page: Integer,
+          ?version: ::Hash[Symbol, Integer],
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion]
 
         def initialize: (client: ModernTreasury::Client) -> void
       end

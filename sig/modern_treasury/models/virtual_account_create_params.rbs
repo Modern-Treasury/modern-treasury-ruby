@@ -61,24 +61,19 @@ module ModernTreasury
         ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
       ) -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail]
 
-      def initialize:
-        (
-          internal_account_id: String,
-          name: String,
-          ?account_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
-          ?counterparty_id: String,
-          ?credit_ledger_account_id: String,
-          ?debit_ledger_account_id: String,
-          ?description: String,
-          ?ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
-          ?metadata: ::Hash[Symbol, String],
-          ?routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::virtual_account_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        internal_account_id: String,
+        name: String,
+        ?account_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+        ?counterparty_id: String,
+        ?credit_ledger_account_id: String,
+        ?debit_ledger_account_id: String,
+        ?description: String,
+        ?ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+        ?metadata: ::Hash[Symbol, String],
+        ?routing_details: ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::virtual_account_create_params
 
@@ -97,15 +92,10 @@ module ModernTreasury
           ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
         ) -> ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
 
-        def initialize:
-          (
-            account_number: String,
-            ?account_number_type: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
-          ) -> void
-          | (
-            ?ModernTreasury::Models::VirtualAccountCreateParams::account_detail
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          account_number: String,
+          ?account_number_type: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::account_detail
 
@@ -182,23 +172,18 @@ module ModernTreasury
 
         def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-        def initialize:
-          (
-            currency: String,
-            ledger_id: String,
-            name: String,
-            normal_balance: ModernTreasury::Models::transaction_direction,
-            ?currency_exponent: Integer?,
-            ?description: String?,
-            ?ledger_account_category_ids: ::Array[String],
-            ?ledgerable_id: String,
-            ?ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type,
-            ?metadata: ::Hash[Symbol, String]
-          ) -> void
-          | (
-            ?ModernTreasury::Models::VirtualAccountCreateParams::ledger_account
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          currency: String,
+          ledger_id: String,
+          name: String,
+          normal_balance: ModernTreasury::Models::transaction_direction,
+          ?currency_exponent: Integer?,
+          ?description: String?,
+          ?ledger_account_category_ids: ::Array[String],
+          ?ledgerable_id: String,
+          ?ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type,
+          ?metadata: ::Hash[Symbol, String]
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::ledger_account
 
@@ -232,16 +217,11 @@ module ModernTreasury
 
         attr_accessor payment_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type?
 
-        def initialize:
-          (
-            routing_number: String,
-            routing_number_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type,
-            ?payment_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type?
-          ) -> void
-          | (
-            ?ModernTreasury::Models::VirtualAccountCreateParams::routing_detail
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          routing_number: String,
+          routing_number_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type,
+          ?payment_type: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type?
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::VirtualAccountCreateParams::routing_detail
 

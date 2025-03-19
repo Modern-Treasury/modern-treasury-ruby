@@ -37,20 +37,15 @@ module ModernTreasury
 
       def taxpayer_identifier=: (String) -> String
 
-      def initialize:
-        (
-          ?email: String,
-          ?legal_entity_id: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String,
-          ?send_remittance_advice: bool,
-          ?taxpayer_identifier: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::counterparty_update_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?email: String,
+        ?legal_entity_id: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String,
+        ?send_remittance_advice: bool,
+        ?taxpayer_identifier: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::counterparty_update_params
     end

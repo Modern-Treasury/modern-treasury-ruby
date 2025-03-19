@@ -1,32 +1,21 @@
 module ModernTreasury
   module Resources
     class BulkResults
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::BulkResultRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::BulkResult
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::BulkResult
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::BulkResult
 
-      def list:
-        (
-          ?ModernTreasury::Models::BulkResultListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::BulkResult]
-        | (
-          ?after_cursor: String?,
-          ?entity_id: String,
-          ?entity_type: ModernTreasury::Models::BulkResultListParams::entity_type,
-          ?per_page: Integer,
-          ?request_id: String,
-          ?request_type: ModernTreasury::Models::BulkResultListParams::request_type,
-          ?status: ModernTreasury::Models::BulkResultListParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::BulkResult]
+      def list: (
+        ?after_cursor: String?,
+        ?entity_id: String,
+        ?entity_type: ModernTreasury::Models::BulkResultListParams::entity_type,
+        ?per_page: Integer,
+        ?request_id: String,
+        ?request_type: ModernTreasury::Models::BulkResultListParams::request_type,
+        ?status: ModernTreasury::Models::BulkResultListParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::BulkResult]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

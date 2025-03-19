@@ -1,55 +1,33 @@
 module ModernTreasury
   module Resources
     class AccountCollectionFlows
-      def create:
-        (
-          ModernTreasury::Models::AccountCollectionFlowCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::AccountCollectionFlow
-        | (
-          counterparty_id: String,
-          payment_types: ::Array[String],
-          ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::AccountCollectionFlow
+      def create: (
+        counterparty_id: String,
+        payment_types: ::Array[String],
+        ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::AccountCollectionFlow
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::AccountCollectionFlowRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::AccountCollectionFlow
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::AccountCollectionFlow
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::AccountCollectionFlow
 
-      def update:
-        (
-          String id,
-          ModernTreasury::Models::AccountCollectionFlowUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::AccountCollectionFlow
-        | (
-          String id,
-          status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::AccountCollectionFlow
+      def update: (
+        String id,
+        status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::AccountCollectionFlow
 
-      def list:
-        (
-          ?ModernTreasury::Models::AccountCollectionFlowListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow]
-        | (
-          ?after_cursor: String?,
-          ?client_token: String,
-          ?counterparty_id: String,
-          ?external_account_id: String,
-          ?per_page: Integer,
-          ?status: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow]
+      def list: (
+        ?after_cursor: String?,
+        ?client_token: String,
+        ?counterparty_id: String,
+        ?external_account_id: String,
+        ?per_page: Integer,
+        ?status: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::AccountCollectionFlow]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

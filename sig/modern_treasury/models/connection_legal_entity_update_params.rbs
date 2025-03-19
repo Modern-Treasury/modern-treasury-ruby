@@ -16,15 +16,10 @@ module ModernTreasury
         ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
       ) -> ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status
 
-      def initialize:
-        (
-          ?status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::connection_legal_entity_update_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::connection_legal_entity_update_params
 

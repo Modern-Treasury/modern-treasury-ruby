@@ -34,22 +34,17 @@ module ModernTreasury
 
       def account_number=: (String) -> String
 
-      def initialize:
-        (
-          id: String,
-          account_number_safe: String,
-          account_number_type: ModernTreasury::Models::AccountDetail::account_number_type,
-          created_at: Time,
-          discarded_at: Time?,
-          live_mode: bool,
-          object: String,
-          updated_at: Time,
-          ?account_number: String
-        ) -> void
-        | (
-          ?ModernTreasury::Models::account_detail
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        account_number_safe: String,
+        account_number_type: ModernTreasury::Models::AccountDetail::account_number_type,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time,
+        ?account_number: String
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::account_detail
 

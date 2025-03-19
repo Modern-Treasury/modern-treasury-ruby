@@ -16,15 +16,10 @@ module ModernTreasury
         ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
       ) -> ModernTreasury::Models::LedgerAccountRetrieveParams::Balances
 
-      def initialize:
-        (
-          ?balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_account_retrieve_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_account_retrieve_params
 
@@ -58,18 +53,13 @@ module ModernTreasury
 
         def effective_at_upper_bound=: (Time) -> Time
 
-        def initialize:
-          (
-            ?as_of_date: Date,
-            ?as_of_lock_version: Integer,
-            ?effective_at: Time,
-            ?effective_at_lower_bound: Time,
-            ?effective_at_upper_bound: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LedgerAccountRetrieveParams::balances
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          ?as_of_date: Date,
+          ?as_of_lock_version: Integer,
+          ?effective_at: Time,
+          ?effective_at_lower_bound: Time,
+          ?effective_at_upper_bound: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerAccountRetrieveParams::balances
       end

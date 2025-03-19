@@ -108,39 +108,34 @@ module ModernTreasury
 
       attr_accessor virtual_account_id: String?
 
-      def initialize:
-        (
-          counterparty_id: String,
-          due_date: Time,
-          originating_account_id: String,
-          ?auto_advance: bool?,
-          ?contact_details: ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
-          ?counterparty_billing_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress?,
-          ?counterparty_shipping_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress?,
-          ?currency: ModernTreasury::Models::currency,
-          ?description: String,
-          ?fallback_payment_method: String?,
-          ?ingest_ledger_entries: bool?,
-          ?invoice_line_items: ::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?,
-          ?invoicer_address: ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress?,
-          ?ledger_account_settlement_id: String?,
-          ?metadata: ::Hash[Symbol, String]?,
-          ?notification_email_addresses: ::Array[String]?,
-          ?notifications_enabled: bool,
-          ?payment_effective_date: Date,
-          ?payment_method: ModernTreasury::Models::InvoiceCreateParams::payment_method,
-          ?payment_type: ModernTreasury::Models::payment_order_type,
-          ?receiving_account_id: String,
-          ?recipient_email: String?,
-          ?recipient_name: String?,
-          ?remind_after_overdue_days: ::Array[Integer]?,
-          ?virtual_account_id: String?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::invoice_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        counterparty_id: String,
+        due_date: Time,
+        originating_account_id: String,
+        ?auto_advance: bool?,
+        ?contact_details: ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
+        ?counterparty_billing_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress?,
+        ?counterparty_shipping_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress?,
+        ?currency: ModernTreasury::Models::currency,
+        ?description: String,
+        ?fallback_payment_method: String?,
+        ?ingest_ledger_entries: bool?,
+        ?invoice_line_items: ::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?,
+        ?invoicer_address: ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress?,
+        ?ledger_account_settlement_id: String?,
+        ?metadata: ::Hash[Symbol, String]?,
+        ?notification_email_addresses: ::Array[String]?,
+        ?notifications_enabled: bool,
+        ?payment_effective_date: Date,
+        ?payment_method: ModernTreasury::Models::InvoiceCreateParams::payment_method,
+        ?payment_type: ModernTreasury::Models::payment_order_type,
+        ?receiving_account_id: String,
+        ?recipient_email: String?,
+        ?recipient_name: String?,
+        ?remind_after_overdue_days: ::Array[Integer]?,
+        ?virtual_account_id: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::invoice_create_params
 
@@ -173,21 +168,16 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type,
-            created_at: Time,
-            discarded_at: Time?,
-            live_mode: bool,
-            object: String,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InvoiceCreateParams::contact_detail
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          contact_identifier: String,
+          contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type,
+          created_at: Time,
+          discarded_at: Time?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InvoiceCreateParams::contact_detail
 
@@ -227,19 +217,14 @@ module ModernTreasury
 
         def line2=: (String) -> String
 
-        def initialize:
-          (
-            country: String,
-            line1: String,
-            locality: String,
-            postal_code: String,
-            region: String,
-            ?line2: String
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InvoiceCreateParams::counterparty_billing_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          country: String,
+          line1: String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          ?line2: String
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InvoiceCreateParams::counterparty_billing_address
       end
@@ -269,19 +254,14 @@ module ModernTreasury
 
         def line2=: (String) -> String
 
-        def initialize:
-          (
-            country: String,
-            line1: String,
-            locality: String,
-            postal_code: String,
-            region: String,
-            ?line2: String
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InvoiceCreateParams::counterparty_shipping_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          country: String,
+          line1: String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          ?line2: String
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InvoiceCreateParams::counterparty_shipping_address
       end
@@ -322,20 +302,15 @@ module ModernTreasury
 
         def unit_amount_decimal=: (String) -> String
 
-        def initialize:
-          (
-            name: String,
-            unit_amount: Integer,
-            ?description: String,
-            ?direction: String,
-            ?metadata: ::Hash[Symbol, String],
-            ?quantity: Integer,
-            ?unit_amount_decimal: String
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InvoiceCreateParams::invoice_line_item
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          name: String,
+          unit_amount: Integer,
+          ?description: String,
+          ?direction: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?quantity: Integer,
+          ?unit_amount_decimal: String
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InvoiceCreateParams::invoice_line_item
       end
@@ -365,19 +340,14 @@ module ModernTreasury
 
         def line2=: (String) -> String
 
-        def initialize:
-          (
-            country: String,
-            line1: String,
-            locality: String,
-            postal_code: String,
-            region: String,
-            ?line2: String
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InvoiceCreateParams::invoicer_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          country: String,
+          line1: String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          ?line2: String
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InvoiceCreateParams::invoicer_address
       end

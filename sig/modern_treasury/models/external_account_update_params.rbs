@@ -42,21 +42,16 @@ module ModernTreasury
 
       attr_accessor party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?
 
-      def initialize:
-        (
-          ?account_type: ModernTreasury::Models::external_account_type,
-          ?counterparty_id: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String?,
-          ?party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-          ?party_name: String,
-          ?party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::external_account_update_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?account_type: ModernTreasury::Models::external_account_type,
+        ?counterparty_id: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String?,
+        ?party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+        ?party_name: String,
+        ?party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::external_account_update_params
 
@@ -83,19 +78,14 @@ module ModernTreasury
 
         attr_accessor region: String?
 
-        def initialize:
-          (
-            ?country: String?,
-            ?line1: String?,
-            ?line2: String?,
-            ?locality: String?,
-            ?postal_code: String?,
-            ?region: String?
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccountUpdateParams::party_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          ?country: String?,
+          ?line1: String?,
+          ?line2: String?,
+          ?locality: String?,
+          ?postal_code: String?,
+          ?region: String?
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccountUpdateParams::party_address
       end

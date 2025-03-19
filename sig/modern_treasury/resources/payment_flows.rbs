@@ -1,60 +1,38 @@
 module ModernTreasury
   module Resources
     class PaymentFlows
-      def create:
-        (
-          ModernTreasury::Models::PaymentFlowCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::PaymentFlow
-        | (
-          amount: Integer,
-          counterparty_id: String,
-          currency: String,
-          direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
-          originating_account_id: String,
-          ?due_date: Date,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::PaymentFlow
+      def create: (
+        amount: Integer,
+        counterparty_id: String,
+        currency: String,
+        direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
+        originating_account_id: String,
+        ?due_date: Date,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::PaymentFlow
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::PaymentFlowRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::PaymentFlow
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::PaymentFlow
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::PaymentFlow
 
-      def update:
-        (
-          String id,
-          ModernTreasury::Models::PaymentFlowUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::PaymentFlow
-        | (
-          String id,
-          status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::PaymentFlow
+      def update: (
+        String id,
+        status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::PaymentFlow
 
-      def list:
-        (
-          ?ModernTreasury::Models::PaymentFlowListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentFlow]
-        | (
-          ?after_cursor: String?,
-          ?client_token: String,
-          ?counterparty_id: String,
-          ?originating_account_id: String,
-          ?payment_order_id: String,
-          ?per_page: Integer,
-          ?receiving_account_id: String,
-          ?status: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentFlow]
+      def list: (
+        ?after_cursor: String?,
+        ?client_token: String,
+        ?counterparty_id: String,
+        ?originating_account_id: String,
+        ?payment_order_id: String,
+        ?per_page: Integer,
+        ?receiving_account_id: String,
+        ?status: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentFlow]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

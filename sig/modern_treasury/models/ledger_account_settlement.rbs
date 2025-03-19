@@ -56,30 +56,25 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          amount: Integer?,
-          contra_ledger_account_id: String,
-          created_at: Time,
-          currency: String,
-          currency_exponent: Integer?,
-          description: String?,
-          effective_at_upper_bound: Time,
-          ledger_id: String,
-          ledger_transaction_id: String?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          object: String,
-          settled_ledger_account_id: String,
-          settlement_entry_direction: String?,
-          status: ModernTreasury::Models::LedgerAccountSettlement::status,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_account_settlement
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        amount: Integer?,
+        contra_ledger_account_id: String,
+        created_at: Time,
+        currency: String,
+        currency_exponent: Integer?,
+        description: String?,
+        effective_at_upper_bound: Time,
+        ledger_id: String,
+        ledger_transaction_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        settled_ledger_account_id: String,
+        settlement_entry_direction: String?,
+        status: ModernTreasury::Models::LedgerAccountSettlement::status,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_account_settlement
 

@@ -59,31 +59,26 @@ module ModernTreasury
 
       attr_accessor wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
 
-      def initialize:
-        (
-          id: String,
-          annual_income: Integer?,
-          created_at: Time,
-          discarded_at: Time?,
-          employer_country: String?,
-          employer_name: String?,
-          employer_state: String?,
-          employment_status: ModernTreasury::Models::WealthAndEmploymentDetails::employment_status?,
-          income_country: String?,
-          income_source: ModernTreasury::Models::WealthAndEmploymentDetails::income_source?,
-          income_state: String?,
-          industry: ModernTreasury::Models::WealthAndEmploymentDetails::industry?,
-          live_mode: bool,
-          object: String,
-          occupation: ModernTreasury::Models::WealthAndEmploymentDetails::occupation?,
-          source_of_funds: ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds?,
-          updated_at: Time,
-          wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
-        ) -> void
-        | (
-          ?ModernTreasury::Models::wealth_and_employment_details
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        annual_income: Integer?,
+        created_at: Time,
+        discarded_at: Time?,
+        employer_country: String?,
+        employer_name: String?,
+        employer_state: String?,
+        employment_status: ModernTreasury::Models::WealthAndEmploymentDetails::employment_status?,
+        income_country: String?,
+        income_source: ModernTreasury::Models::WealthAndEmploymentDetails::income_source?,
+        income_state: String?,
+        industry: ModernTreasury::Models::WealthAndEmploymentDetails::industry?,
+        live_mode: bool,
+        object: String,
+        occupation: ModernTreasury::Models::WealthAndEmploymentDetails::occupation?,
+        source_of_funds: ModernTreasury::Models::WealthAndEmploymentDetails::source_of_funds?,
+        updated_at: Time,
+        wealth_source: ModernTreasury::Models::WealthAndEmploymentDetails::wealth_source?
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::wealth_and_employment_details
 

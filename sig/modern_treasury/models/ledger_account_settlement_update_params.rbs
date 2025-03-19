@@ -24,17 +24,12 @@ module ModernTreasury
         ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
       ) -> ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status
 
-      def initialize:
-        (
-          ?description: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_account_settlement_update_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?description: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_account_settlement_update_params
 
