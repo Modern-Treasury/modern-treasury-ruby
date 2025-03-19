@@ -52,23 +52,18 @@ module ModernTreasury
 
       def target_currency=: (String) -> String
 
-      def initialize:
-        (
-          ?after_cursor: String?,
-          ?base_currency: String,
-          ?effective_at_end: Date,
-          ?effective_at_start: Date,
-          ?expires_at: Time,
-          ?internal_account_id: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?per_page: Integer,
-          ?target_currency: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::foreign_exchange_quote_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after_cursor: String?,
+        ?base_currency: String,
+        ?effective_at_end: Date,
+        ?effective_at_start: Date,
+        ?expires_at: Time,
+        ?internal_account_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?target_currency: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::foreign_exchange_quote_list_params
     end

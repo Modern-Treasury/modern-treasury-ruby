@@ -34,19 +34,14 @@ module ModernTreasury
 
       def show_deleted=: (String) -> String
 
-      def initialize:
-        (
-          ?after_cursor: String?,
-          ?legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
-          ?metadata: ::Hash[Symbol, String],
-          ?per_page: Integer,
-          ?show_deleted: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::legal_entity_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after_cursor: String?,
+        ?legal_entity_type: ModernTreasury::Models::LegalEntityListParams::legal_entity_type,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?show_deleted: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::legal_entity_list_params
 

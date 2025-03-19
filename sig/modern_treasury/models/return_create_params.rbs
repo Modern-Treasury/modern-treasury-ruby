@@ -27,20 +27,15 @@ module ModernTreasury
 
       attr_accessor reason: String?
 
-      def initialize:
-        (
-          returnable_id: String?,
-          returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
-          ?additional_information: String?,
-          ?code: ModernTreasury::Models::ReturnCreateParams::code?,
-          ?date_of_death: Date?,
-          ?reason: String?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::return_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        returnable_id: String?,
+        returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
+        ?additional_information: String?,
+        ?code: ModernTreasury::Models::ReturnCreateParams::code?,
+        ?date_of_death: Date?,
+        ?reason: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::return_create_params
 

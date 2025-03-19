@@ -83,39 +83,34 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          amount_lower_bound: Integer?,
-          amount_upper_bound: Integer?,
-          counterparty_id: String?,
-          created_at: Time,
-          currency: ModernTreasury::Models::currency?,
-          date_lower_bound: Date?,
-          date_upper_bound: Date?,
-          description: String?,
-          direction: ModernTreasury::Models::ExpectedPayment::direction?,
-          internal_account_id: String?,
-          ledger_transaction_id: String?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          object: String,
-          reconciliation_filters: top?,
-          reconciliation_groups: top?,
-          reconciliation_method: ModernTreasury::Models::ExpectedPayment::reconciliation_method?,
-          reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
-          remittance_information: String?,
-          statement_descriptor: String?,
-          status: ModernTreasury::Models::ExpectedPayment::status,
-          transaction_id: String?,
-          transaction_line_item_id: String?,
-          type: ModernTreasury::Models::expected_payment_type?,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::expected_payment
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        amount_lower_bound: Integer?,
+        amount_upper_bound: Integer?,
+        counterparty_id: String?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency?,
+        date_lower_bound: Date?,
+        date_upper_bound: Date?,
+        description: String?,
+        direction: ModernTreasury::Models::ExpectedPayment::direction?,
+        internal_account_id: String?,
+        ledger_transaction_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        reconciliation_filters: top?,
+        reconciliation_groups: top?,
+        reconciliation_method: ModernTreasury::Models::ExpectedPayment::reconciliation_method?,
+        reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        remittance_information: String?,
+        statement_descriptor: String?,
+        status: ModernTreasury::Models::ExpectedPayment::status,
+        transaction_id: String?,
+        transaction_line_item_id: String?,
+        type: ModernTreasury::Models::expected_payment_type?,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::expected_payment
 

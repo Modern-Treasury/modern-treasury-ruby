@@ -32,21 +32,17 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          created_at: Time,
-          description: String?,
-          discarded_at: Time?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          name: String,
-          object: String,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        created_at: Time,
+        description: String?,
+        discarded_at: Time?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        name: String,
+        object: String,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger
     end

@@ -22,17 +22,12 @@ module ModernTreasury
         ModernTreasury::Models::AccountDetailCreateParams::account_number_type
       ) -> ModernTreasury::Models::AccountDetailCreateParams::account_number_type
 
-      def initialize:
-        (
-          accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
-          account_number: String,
-          ?account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::account_detail_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        accounts_type: ModernTreasury::Models::AccountDetailCreateParams::accounts_type,
+        account_number: String,
+        ?account_number_type: ModernTreasury::Models::AccountDetailCreateParams::account_number_type,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::account_detail_create_params
 

@@ -37,20 +37,15 @@ module ModernTreasury
 
       def target_amount=: (Integer) -> Integer
 
-      def initialize:
-        (
-          internal_account_id: String,
-          target_currency: ModernTreasury::Models::currency,
-          ?base_amount: Integer,
-          ?base_currency: ModernTreasury::Models::currency,
-          ?effective_at: Time,
-          ?target_amount: Integer,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::foreign_exchange_quote_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        internal_account_id: String,
+        target_currency: ModernTreasury::Models::currency,
+        ?base_amount: Integer,
+        ?base_currency: ModernTreasury::Models::currency,
+        ?effective_at: Time,
+        ?target_amount: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::foreign_exchange_quote_create_params
     end

@@ -48,26 +48,21 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            amount: Integer,
-            created_at: Time,
-            description: String,
-            direction: String,
-            live_mode: bool,
-            metadata: ::Hash[Symbol, String],
-            name: String,
-            object: String,
-            quantity: Integer,
-            unit_amount: Integer,
-            unit_amount_decimal: String,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::Invoices::invoice_line_item
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          amount: Integer,
+          created_at: Time,
+          description: String,
+          direction: String,
+          live_mode: bool,
+          metadata: ::Hash[Symbol, String],
+          name: String,
+          object: String,
+          quantity: Integer,
+          unit_amount: Integer,
+          unit_amount_decimal: String,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::Invoices::invoice_line_item
       end

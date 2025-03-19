@@ -11,15 +11,10 @@ module ModernTreasury
 
       attr_accessor type: String
 
-      def initialize:
-        (
-          query: ModernTreasury::Models::LedgerEventHandlerVariable::Query,
-          type: String
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_event_handler_variable
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        query: ModernTreasury::Models::LedgerEventHandlerVariable::Query,
+        type: String
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_event_handler_variable
 
@@ -32,12 +27,7 @@ module ModernTreasury
 
         attr_accessor value: String
 
-        def initialize:
-          (field: String, operator: String, value: String) -> void
-          | (
-            ?ModernTreasury::Models::LedgerEventHandlerVariable::query
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (field: String, operator: String, value: String) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerEventHandlerVariable::query
       end

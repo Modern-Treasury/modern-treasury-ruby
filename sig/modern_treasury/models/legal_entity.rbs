@@ -95,42 +95,38 @@ module ModernTreasury
 
       attr_accessor website: String?
 
-      def initialize:
-        (
-          id: String,
-          addresses: ::Array[ModernTreasury::Models::LegalEntity::Address],
-          bank_settings: ModernTreasury::Models::BankSettings?,
-          business_name: String?,
-          citizenship_country: String?,
-          created_at: Time,
-          date_formed: Date?,
-          date_of_birth: Date?,
-          discarded_at: Time?,
-          doing_business_as_names: ::Array[String],
-          email: String?,
-          first_name: String?,
-          identifications: ::Array[ModernTreasury::Models::LegalEntity::Identification],
-          last_name: String?,
-          legal_entity_associations: ::Array[ModernTreasury::Models::LegalEntityAssociation]?,
-          legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
-          legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          middle_name: String?,
-          object: String,
-          phone_numbers: ::Array[ModernTreasury::Models::LegalEntity::PhoneNumber],
-          politically_exposed_person: bool?,
-          preferred_name: String?,
-          prefix: String?,
-          risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
-          suffix: String?,
-          updated_at: Time,
-          wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
-          website: String?
-        ) -> void
-        | (
-          ?ModernTreasury::Models::legal_entity | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        addresses: ::Array[ModernTreasury::Models::LegalEntity::Address],
+        bank_settings: ModernTreasury::Models::BankSettings?,
+        business_name: String?,
+        citizenship_country: String?,
+        created_at: Time,
+        date_formed: Date?,
+        date_of_birth: Date?,
+        discarded_at: Time?,
+        doing_business_as_names: ::Array[String],
+        email: String?,
+        first_name: String?,
+        identifications: ::Array[ModernTreasury::Models::LegalEntity::Identification],
+        last_name: String?,
+        legal_entity_associations: ::Array[ModernTreasury::Models::LegalEntityAssociation]?,
+        legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
+        legal_structure: ModernTreasury::Models::LegalEntity::legal_structure?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        middle_name: String?,
+        object: String,
+        phone_numbers: ::Array[ModernTreasury::Models::LegalEntity::PhoneNumber],
+        politically_exposed_person: bool?,
+        preferred_name: String?,
+        prefix: String?,
+        risk_rating: ModernTreasury::Models::LegalEntity::risk_rating?,
+        suffix: String?,
+        updated_at: Time,
+        wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
+        website: String?
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::legal_entity
 
@@ -178,26 +174,21 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            address_types: ::Array[ModernTreasury::Models::LegalEntity::Address::address_type],
-            country: String?,
-            created_at: Time,
-            discarded_at: Time?,
-            line1: String?,
-            line2: String?,
-            live_mode: bool,
-            locality: String?,
-            object: String,
-            postal_code: String?,
-            region: String?,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LegalEntity::address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          address_types: ::Array[ModernTreasury::Models::LegalEntity::Address::address_type],
+          country: String?,
+          created_at: Time,
+          discarded_at: Time?,
+          line1: String?,
+          line2: String?,
+          live_mode: bool,
+          locality: String?,
+          object: String,
+          postal_code: String?,
+          region: String?,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LegalEntity::address
 
@@ -244,21 +235,16 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            created_at: Time,
-            discarded_at: Time?,
-            id_type: ModernTreasury::Models::LegalEntity::Identification::id_type,
-            issuing_country: String?,
-            live_mode: bool,
-            object: String,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LegalEntity::identification
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          id_type: ModernTreasury::Models::LegalEntity::Identification::id_type,
+          issuing_country: String?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LegalEntity::identification
 
@@ -348,12 +334,7 @@ module ModernTreasury
 
         def phone_number=: (String) -> String
 
-        def initialize:
-          (?phone_number: String) -> void
-          | (
-            ?ModernTreasury::Models::LegalEntity::phone_number
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (?phone_number: String) -> void
 
         def to_hash: -> ModernTreasury::Models::LegalEntity::phone_number
       end

@@ -34,19 +34,14 @@ module ModernTreasury
         ModernTreasury::Models::PaymentReferenceListParams::referenceable_type
       ) -> ModernTreasury::Models::PaymentReferenceListParams::referenceable_type
 
-      def initialize:
-        (
-          ?after_cursor: String?,
-          ?per_page: Integer,
-          ?reference_number: String,
-          ?referenceable_id: String,
-          ?referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::payment_reference_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after_cursor: String?,
+        ?per_page: Integer,
+        ?reference_number: String,
+        ?referenceable_id: String,
+        ?referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::payment_reference_list_params
 

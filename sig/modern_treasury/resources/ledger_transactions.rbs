@@ -3,113 +3,79 @@ module ModernTreasury
     class LedgerTransactions
       attr_reader versions: ModernTreasury::Resources::LedgerTransactions::Versions
 
-      def create:
-        (
-          ModernTreasury::Models::LedgerTransactionCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerTransaction
-        | (
-          ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
-          ?description: String?,
-          ?effective_at: Time,
-          ?effective_date: Date,
-          ?external_id: String,
-          ?ledgerable_id: String,
-          ?ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type,
-          ?metadata: ::Hash[Symbol, String],
-          ?status: ModernTreasury::Models::LedgerTransactionCreateParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerTransaction
+      def create: (
+        ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
+        ?description: String?,
+        ?effective_at: Time,
+        ?effective_date: Date,
+        ?external_id: String,
+        ?ledgerable_id: String,
+        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::ledgerable_type,
+        ?metadata: ::Hash[Symbol, String],
+        ?status: ModernTreasury::Models::LedgerTransactionCreateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerTransaction
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerTransactionRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerTransaction
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerTransaction
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerTransaction
 
-      def update:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerTransactionUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerTransaction
-        | (
-          String id,
-          ?description: String?,
-          ?effective_at: Time,
-          ?ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry],
-          ?ledgerable_id: String,
-          ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
-          ?metadata: ::Hash[Symbol, String],
-          ?status: ModernTreasury::Models::LedgerTransactionUpdateParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerTransaction
+      def update: (
+        String id,
+        ?description: String?,
+        ?effective_at: Time,
+        ?ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry],
+        ?ledgerable_id: String,
+        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::ledgerable_type,
+        ?metadata: ::Hash[Symbol, String],
+        ?status: ModernTreasury::Models::LedgerTransactionUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerTransaction
 
-      def list:
-        (
-          ?ModernTreasury::Models::LedgerTransactionListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerTransaction]
-        | (
-          ?id: ::Array[String],
-          ?after_cursor: String?,
-          ?effective_at: ::Hash[Symbol, Time],
-          ?effective_date: ::Hash[Symbol, Time],
-          ?external_id: String,
-          ?ledger_account_category_id: String,
-          ?ledger_account_id: String,
-          ?ledger_account_settlement_id: String,
-          ?ledger_id: String,
-          ?ledgerable_id: String,
-          ?ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type,
-          ?metadata: ::Hash[Symbol, String],
-          ?order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
-          ?partially_posts_ledger_transaction_id: String,
-          ?per_page: Integer,
-          ?posted_at: ::Hash[Symbol, Time],
-          ?reverses_ledger_transaction_id: String,
-          ?status: ModernTreasury::Models::LedgerTransactionListParams::status,
-          ?updated_at: ::Hash[Symbol, Time],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerTransaction]
+      def list: (
+        ?id: ::Array[String],
+        ?after_cursor: String?,
+        ?effective_at: ::Hash[Symbol, Time],
+        ?effective_date: ::Hash[Symbol, Time],
+        ?external_id: String,
+        ?ledger_account_category_id: String,
+        ?ledger_account_id: String,
+        ?ledger_account_settlement_id: String,
+        ?ledger_id: String,
+        ?ledgerable_id: String,
+        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type,
+        ?metadata: ::Hash[Symbol, String],
+        ?order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
+        ?partially_posts_ledger_transaction_id: String,
+        ?per_page: Integer,
+        ?posted_at: ::Hash[Symbol, Time],
+        ?reverses_ledger_transaction_id: String,
+        ?status: ModernTreasury::Models::LedgerTransactionListParams::status,
+        ?updated_at: ::Hash[Symbol, Time],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerTransaction]
 
-      def create_partial_post:
-        (
-          String id,
-          ModernTreasury::Models::LedgerTransactionCreatePartialPostParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerTransaction
-        | (
-          String id,
-          posted_ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
-          ?description: String,
-          ?effective_at: Time,
-          ?metadata: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerTransaction
+      def create_partial_post: (
+        String id,
+        posted_ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
+        ?description: String,
+        ?effective_at: Time,
+        ?metadata: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerTransaction
 
-      def create_reversal:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerTransactionCreateReversalParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerTransaction
-        | (
-          String id,
-          ?description: String,
-          ?effective_at: Time?,
-          ?external_id: String,
-          ?ledgerable_id: String,
-          ?ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type,
-          ?metadata: ::Hash[Symbol, String],
-          ?status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerTransaction
+      def create_reversal: (
+        String id,
+        ?description: String,
+        ?effective_at: Time?,
+        ?external_id: String,
+        ?ledgerable_id: String,
+        ?ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type,
+        ?metadata: ::Hash[Symbol, String],
+        ?status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerTransaction
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

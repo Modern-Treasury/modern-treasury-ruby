@@ -36,23 +36,18 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            as_of_date: Date,
-            as_of_time: Time?,
-            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
-            balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
-            created_at: Time,
-            internal_account_id: String,
-            live_mode: bool,
-            object: String,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InternalAccounts::balance_report
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          as_of_date: Date,
+          as_of_time: Time?,
+          balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReport::balance_report_type,
+          balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance],
+          created_at: Time,
+          internal_account_id: String,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report
 
@@ -112,26 +107,21 @@ module ModernTreasury
 
           attr_accessor vendor_code_type: String?
 
-          def initialize:
-            (
-              id: String,
-              amount: Integer,
-              as_of_date: Date?,
-              as_of_time: Time?,
-              balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
-              created_at: Time,
-              currency: ModernTreasury::Models::currency,
-              live_mode: bool,
-              object: String,
-              updated_at: Time,
-              value_date: Date?,
-              vendor_code: String,
-              vendor_code_type: String?
-            ) -> void
-            | (
-              ?ModernTreasury::Models::InternalAccounts::BalanceReport::balance
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            id: String,
+            amount: Integer,
+            as_of_date: Date?,
+            as_of_time: Time?,
+            balance_type: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::balance_type,
+            created_at: Time,
+            currency: ModernTreasury::Models::currency,
+            live_mode: bool,
+            object: String,
+            updated_at: Time,
+            value_date: Date?,
+            vendor_code: String,
+            vendor_code_type: String?
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::InternalAccounts::BalanceReport::balance
 

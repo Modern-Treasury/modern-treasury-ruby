@@ -15,16 +15,11 @@ module ModernTreasury
 
       attr_accessor account_id: String
 
-      def initialize:
-        (
-          accounts_type: ModernTreasury::Models::accounts_type,
-          account_id: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::routing_detail_retrieve_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        accounts_type: ModernTreasury::Models::accounts_type,
+        account_id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::routing_detail_retrieve_params
     end

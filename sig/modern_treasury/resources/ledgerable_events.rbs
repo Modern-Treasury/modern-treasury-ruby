@@ -1,29 +1,18 @@
 module ModernTreasury
   module Resources
     class LedgerableEvents
-      def create:
-        (
-          ModernTreasury::Models::LedgerableEventCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerableEvent
-        | (
-          name: String,
-          ?custom_data: top?,
-          ?description: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerableEvent
+      def create: (
+        name: String,
+        ?custom_data: top?,
+        ?description: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerableEvent
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerableEventRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerableEvent
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerableEvent
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerableEvent
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

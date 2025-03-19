@@ -58,24 +58,19 @@ module ModernTreasury
 
       def updated_at=: (Time) -> Time
 
-      def initialize:
-        (
-          counterparty_id: String,
-          payment_types: ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type],
-          ?id: String,
-          ?client_token: String,
-          ?created_at: Time,
-          ?external_account_id: String?,
-          ?live_mode: bool,
-          ?object: String,
-          ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country],
-          ?status: ModernTreasury::Models::AccountCollectionFlow::status,
-          ?updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::account_collection_flow
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        counterparty_id: String,
+        payment_types: ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type],
+        ?id: String,
+        ?client_token: String,
+        ?created_at: Time,
+        ?external_account_id: String?,
+        ?live_mode: bool,
+        ?object: String,
+        ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country],
+        ?status: ModernTreasury::Models::AccountCollectionFlow::status,
+        ?updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::account_collection_flow
 

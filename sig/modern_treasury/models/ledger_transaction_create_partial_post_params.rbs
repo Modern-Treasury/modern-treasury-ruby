@@ -27,18 +27,13 @@ module ModernTreasury
 
       def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-      def initialize:
-        (
-          posted_ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
-          ?description: String,
-          ?effective_at: Time,
-          ?metadata: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_transaction_create_partial_post_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        posted_ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
+        ?description: String,
+        ?effective_at: Time,
+        ?metadata: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_transaction_create_partial_post_params
 
@@ -61,17 +56,12 @@ module ModernTreasury
 
         def metadata=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-        def initialize:
-          (
-            amount: Integer,
-            direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
-            ledger_account_id: String,
-            ?metadata: ::Hash[Symbol, String]
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::posted_ledger_entry
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          amount: Integer,
+          direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction,
+          ledger_account_id: String,
+          ?metadata: ::Hash[Symbol, String]
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::posted_ledger_entry
 

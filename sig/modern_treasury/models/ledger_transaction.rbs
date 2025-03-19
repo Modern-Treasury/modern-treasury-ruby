@@ -62,32 +62,27 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          created_at: Time,
-          description: String?,
-          effective_at: Time,
-          effective_date: Date,
-          external_id: String?,
-          ledger_entries: ::Array[ModernTreasury::Models::LedgerEntry],
-          ledger_id: String,
-          ledgerable_id: String?,
-          ledgerable_type: ModernTreasury::Models::LedgerTransaction::ledgerable_type?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          object: String,
-          partially_posts_ledger_transaction_id: String?,
-          posted_at: Time?,
-          reversed_by_ledger_transaction_id: String?,
-          reverses_ledger_transaction_id: String?,
-          status: ModernTreasury::Models::LedgerTransaction::status,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_transaction
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        created_at: Time,
+        description: String?,
+        effective_at: Time,
+        effective_date: Date,
+        external_id: String?,
+        ledger_entries: ::Array[ModernTreasury::Models::LedgerEntry],
+        ledger_id: String,
+        ledgerable_id: String?,
+        ledgerable_type: ModernTreasury::Models::LedgerTransaction::ledgerable_type?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        partially_posts_ledger_transaction_id: String?,
+        posted_at: Time?,
+        reversed_by_ledger_transaction_id: String?,
+        reverses_ledger_transaction_id: String?,
+        status: ModernTreasury::Models::LedgerTransaction::status,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_transaction
 

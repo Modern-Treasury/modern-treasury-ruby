@@ -1,67 +1,39 @@
 module ModernTreasury
   module Resources
     class LedgerAccountBalanceMonitors
-      def create:
-        (
-          ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
-        | (
-          alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-          ledger_account_id: String,
-          ?description: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
+      def create: (
+        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+        ledger_account_id: String,
+        ?description: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerAccountBalanceMonitorRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
 
-      def update:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
-        | (
-          String id,
-          ?description: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
+      def update: (
+        String id,
+        ?description: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
 
-      def list:
-        (
-          ?ModernTreasury::Models::LedgerAccountBalanceMonitorListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor]
-        | (
-          ?id: ::Array[String],
-          ?after_cursor: String?,
-          ?ledger_account_id: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?per_page: Integer,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      def list: (
+        ?id: ::Array[String],
+        ?after_cursor: String?,
+        ?ledger_account_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::LedgerAccountBalanceMonitor]
 
-      def delete:
-        (
-          String id,
-          ?ModernTreasury::Models::LedgerAccountBalanceMonitorDeleteParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
+      def delete: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::LedgerAccountBalanceMonitor
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

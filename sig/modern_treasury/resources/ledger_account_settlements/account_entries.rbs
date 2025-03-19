@@ -2,29 +2,17 @@ module ModernTreasury
   module Resources
     class LedgerAccountSettlements
       class AccountEntries
-        def update:
-          (
-            String id,
-            ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams
-            | ::Hash[Symbol, top] params
-          ) -> nil
-          | (
-            String id,
-            ledger_entry_ids: ::Array[String]?,
-            ?request_options: ModernTreasury::request_opts
-          ) -> nil
+        def update: (
+          String id,
+          ledger_entry_ids: ::Array[String]?,
+          ?request_options: ModernTreasury::request_opts
+        ) -> nil
 
-        def delete:
-          (
-            String id,
-            ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams
-            | ::Hash[Symbol, top] params
-          ) -> nil
-          | (
-            String id,
-            ledger_entry_ids: ::Array[top]?,
-            ?request_options: ModernTreasury::request_opts
-          ) -> nil
+        def delete: (
+          String id,
+          ledger_entry_ids: ::Array[top]?,
+          ?request_options: ModernTreasury::request_opts
+        ) -> nil
 
         def initialize: (client: ModernTreasury::Client) -> void
       end
