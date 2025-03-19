@@ -26,8 +26,8 @@ module ModernTreasury
         (
           counterparty_id: String,
           payment_types: ::Array[String],
-          receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
-          request_options: ModernTreasury::request_opts
+          ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::account_collection_flow_create_params

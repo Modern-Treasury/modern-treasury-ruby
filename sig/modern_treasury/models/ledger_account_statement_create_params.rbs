@@ -31,9 +31,9 @@ module ModernTreasury
           effective_at_lower_bound: Time,
           effective_at_upper_bound: Time,
           ledger_account_id: String,
-          description: String?,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?description: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_statement_create_params

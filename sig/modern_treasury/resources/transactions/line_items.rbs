@@ -11,7 +11,7 @@ module ModernTreasury
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Models::Transactions::TransactionLineItem
 
         def retrieve:
@@ -22,7 +22,7 @@ module ModernTreasury
           ) -> ModernTreasury::Models::Transactions::TransactionLineItem
           | (
             String id,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Models::Transactions::TransactionLineItem
 
         def list:
@@ -31,12 +31,12 @@ module ModernTreasury
             | ::Hash[Symbol, top] params
           ) -> ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem]
           | (
-            id: ::Hash[Symbol, String],
-            after_cursor: String?,
-            per_page: Integer,
-            transaction_id: String,
-            type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
-            request_options: ModernTreasury::request_opts
+            ?id: ::Hash[Symbol, String],
+            ?after_cursor: String?,
+            ?per_page: Integer,
+            ?transaction_id: String,
+            ?type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem]
 
         def delete:
@@ -45,7 +45,7 @@ module ModernTreasury
             ?ModernTreasury::Models::Transactions::LineItemDeleteParams
             | ::Hash[Symbol, top] params
           ) -> nil
-          | (String id, request_options: ModernTreasury::request_opts) -> nil
+          | (String id, ?request_options: ModernTreasury::request_opts) -> nil
 
         def initialize: (client: ModernTreasury::Client) -> void
       end

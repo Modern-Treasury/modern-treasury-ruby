@@ -29,11 +29,11 @@ module ModernTreasury
 
       def initialize:
         (
-          after_cursor: String?,
-          entity: String,
-          per_page: Integer,
-          vendor_customer_id: String,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?entity: String,
+          ?per_page: Integer,
+          ?vendor_customer_id: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::connection_list_params

@@ -26,10 +26,10 @@ module ModernTreasury
 
       def initialize:
         (
-          description: String?,
-          metadata: ::Hash[Symbol, String],
-          status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
-          request_options: ModernTreasury::request_opts
+          ?description: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_settlement_update_params

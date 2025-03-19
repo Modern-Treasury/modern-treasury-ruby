@@ -12,8 +12,8 @@ module ModernTreasury
           currency: String,
           direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
           originating_account_id: String,
-          due_date: Date,
-          request_options: ModernTreasury::request_opts
+          ?due_date: Date,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::PaymentFlow
 
       def retrieve:
@@ -24,7 +24,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::PaymentFlow
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::PaymentFlow
 
       def update:
@@ -36,7 +36,7 @@ module ModernTreasury
         | (
           String id,
           status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::PaymentFlow
 
       def list:
@@ -45,15 +45,15 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentFlow]
         | (
-          after_cursor: String?,
-          client_token: String,
-          counterparty_id: String,
-          originating_account_id: String,
-          payment_order_id: String,
-          per_page: Integer,
-          receiving_account_id: String,
-          status: String,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?client_token: String,
+          ?counterparty_id: String,
+          ?originating_account_id: String,
+          ?payment_order_id: String,
+          ?per_page: Integer,
+          ?receiving_account_id: String,
+          ?status: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::PaymentFlow]
 
       def initialize: (client: ModernTreasury::Client) -> void

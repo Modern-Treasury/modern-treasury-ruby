@@ -9,11 +9,11 @@ module ModernTreasury
         | (
           internal_account_id: String,
           target_currency: ModernTreasury::Models::currency,
-          base_amount: Integer,
-          base_currency: ModernTreasury::Models::currency,
-          effective_at: Time,
-          target_amount: Integer,
-          request_options: ModernTreasury::request_opts
+          ?base_amount: Integer,
+          ?base_currency: ModernTreasury::Models::currency,
+          ?effective_at: Time,
+          ?target_amount: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::ForeignExchangeQuote
 
       def retrieve:
@@ -24,7 +24,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::ForeignExchangeQuote
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::ForeignExchangeQuote
 
       def list:
@@ -33,16 +33,16 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::ForeignExchangeQuote]
         | (
-          after_cursor: String?,
-          base_currency: String,
-          effective_at_end: Date,
-          effective_at_start: Date,
-          expires_at: Time,
-          internal_account_id: String,
-          metadata: ::Hash[Symbol, String],
-          per_page: Integer,
-          target_currency: String,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?base_currency: String,
+          ?effective_at_end: Date,
+          ?effective_at_start: Date,
+          ?expires_at: Time,
+          ?internal_account_id: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?per_page: Integer,
+          ?target_currency: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::ForeignExchangeQuote]
 
       def initialize: (client: ModernTreasury::Client) -> void

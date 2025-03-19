@@ -13,7 +13,7 @@ module ModernTreasury
         def initialize:
           (
             ledger_entry_ids: ::Array[top]?,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> void
           | (
             ?ModernTreasury::Models::LedgerAccountSettlements::account_entry_delete_params

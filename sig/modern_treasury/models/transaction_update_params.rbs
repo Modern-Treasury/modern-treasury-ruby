@@ -13,8 +13,8 @@ module ModernTreasury
 
       def initialize:
         (
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::transaction_update_params

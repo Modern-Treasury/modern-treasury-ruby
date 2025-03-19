@@ -17,9 +17,9 @@ module ModernTreasury
 
         def initialize:
           (
-            after_cursor: String?,
-            per_page: Integer,
-            request_options: ModernTreasury::request_opts
+            ?after_cursor: String?,
+            ?per_page: Integer,
+            ?request_options: ModernTreasury::request_opts
           ) -> void
           | (
             ?ModernTreasury::Models::Invoices::line_item_list_params

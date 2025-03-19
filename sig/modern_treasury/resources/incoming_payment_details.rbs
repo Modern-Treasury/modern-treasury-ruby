@@ -9,7 +9,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::IncomingPaymentDetail
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::IncomingPaymentDetail
 
       def update:
@@ -20,8 +20,8 @@ module ModernTreasury
         ) -> ModernTreasury::Models::IncomingPaymentDetail
         | (
           String id,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::IncomingPaymentDetail
 
       def list:
@@ -30,16 +30,16 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::IncomingPaymentDetail]
         | (
-          after_cursor: String?,
-          as_of_date_end: Date,
-          as_of_date_start: Date,
-          direction: ModernTreasury::Models::transaction_direction,
-          metadata: ::Hash[Symbol, String],
-          per_page: Integer,
-          status: ModernTreasury::Models::IncomingPaymentDetailListParams::status,
-          type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
-          virtual_account_id: String,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?as_of_date_end: Date,
+          ?as_of_date_start: Date,
+          ?direction: ModernTreasury::Models::transaction_direction,
+          ?metadata: ::Hash[Symbol, String],
+          ?per_page: Integer,
+          ?status: ModernTreasury::Models::IncomingPaymentDetailListParams::status,
+          ?type: ModernTreasury::Models::IncomingPaymentDetailListParams::type_,
+          ?virtual_account_id: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::IncomingPaymentDetail]
 
       def create_async:
@@ -48,15 +48,15 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Models::AsyncResponse
         | (
-          amount: Integer,
-          as_of_date: Date?,
-          currency: ModernTreasury::Models::currency?,
-          description: String?,
-          direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
-          internal_account_id: String,
-          type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
-          virtual_account_id: String?,
-          request_options: ModernTreasury::request_opts
+          ?amount: Integer,
+          ?as_of_date: Date?,
+          ?currency: ModernTreasury::Models::currency?,
+          ?description: String?,
+          ?direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+          ?internal_account_id: String,
+          ?type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
+          ?virtual_account_id: String?,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::AsyncResponse
 
       def initialize: (client: ModernTreasury::Client) -> void

@@ -18,9 +18,9 @@ module ModernTreasury
 
       def initialize:
         (
-          description: String,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?description: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_balance_monitor_update_params

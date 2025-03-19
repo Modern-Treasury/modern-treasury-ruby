@@ -39,13 +39,13 @@ module ModernTreasury
 
       def initialize:
         (
-          after_cursor: String?,
-          client_token: String,
-          counterparty_id: String,
-          external_account_id: String,
-          per_page: Integer,
-          status: String,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?client_token: String,
+          ?counterparty_id: String,
+          ?external_account_id: String,
+          ?per_page: Integer,
+          ?status: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::account_collection_flow_list_params

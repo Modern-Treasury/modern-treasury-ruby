@@ -10,8 +10,8 @@ module ModernTreasury
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
           file: IO | StringIO,
-          document_type: String,
-          request_options: ModernTreasury::request_opts
+          ?document_type: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Document
 
       def retrieve:
@@ -22,7 +22,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::Document
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Document
 
       def list:
@@ -31,11 +31,11 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Document]
         | (
-          after_cursor: String?,
-          documentable_id: String,
-          documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?documentable_id: String,
+          ?documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::Document]
 
       def initialize: (client: ModernTreasury::Client) -> void

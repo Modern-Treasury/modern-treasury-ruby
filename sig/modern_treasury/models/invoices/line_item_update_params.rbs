@@ -51,14 +51,14 @@ module ModernTreasury
         def initialize:
           (
             invoice_id: String,
-            description: String,
-            direction: String,
-            metadata: ::Hash[Symbol, String],
-            name: String,
-            quantity: Integer,
-            unit_amount: Integer,
-            unit_amount_decimal: String,
-            request_options: ModernTreasury::request_opts
+            ?description: String,
+            ?direction: String,
+            ?metadata: ::Hash[Symbol, String],
+            ?name: String,
+            ?quantity: Integer,
+            ?unit_amount: Integer,
+            ?unit_amount_decimal: String,
+            ?request_options: ModernTreasury::request_opts
           ) -> void
           | (
             ?ModernTreasury::Models::Invoices::line_item_update_params
