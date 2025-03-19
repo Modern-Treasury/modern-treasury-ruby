@@ -36,12 +36,12 @@ module ModernTreasury
 
       def initialize:
         (
-          after_cursor: String?,
-          per_page: Integer,
-          reference_number: String,
-          referenceable_id: String,
-          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?per_page: Integer,
+          ?reference_number: String,
+          ?referenceable_id: String,
+          ?referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::referenceable_type,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::payment_reference_list_params

@@ -94,25 +94,25 @@ module ModernTreasury
 
       def initialize:
         (
-          id: String,
-          amount: Integer,
-          client_token: String,
-          counterparty_id: String?,
-          created_at: Time,
-          currency: String,
-          direction: ModernTreasury::Models::PaymentFlow::direction,
-          due_date: Date?,
-          effective_date_selection_enabled: bool,
-          existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::existing_external_accounts_filter?,
-          external_account_collection: ModernTreasury::Models::PaymentFlow::external_account_collection,
-          live_mode: bool,
-          object: String,
-          originating_account_id: String?,
-          payment_order_id: String?,
-          receiving_account_id: String?,
-          selected_effective_date: Date?,
-          status: ModernTreasury::Models::PaymentFlow::status,
-          updated_at: Time
+          ?id: String,
+          ?amount: Integer,
+          ?client_token: String,
+          ?counterparty_id: String?,
+          ?created_at: Time,
+          ?currency: String,
+          ?direction: ModernTreasury::Models::PaymentFlow::direction,
+          ?due_date: Date?,
+          ?effective_date_selection_enabled: bool,
+          ?existing_external_accounts_filter: ModernTreasury::Models::PaymentFlow::existing_external_accounts_filter?,
+          ?external_account_collection: ModernTreasury::Models::PaymentFlow::external_account_collection,
+          ?live_mode: bool,
+          ?object: String,
+          ?originating_account_id: String?,
+          ?payment_order_id: String?,
+          ?receiving_account_id: String?,
+          ?selected_effective_date: Date?,
+          ?status: ModernTreasury::Models::PaymentFlow::status,
+          ?updated_at: Time
         ) -> void
         | (
           ?ModernTreasury::Models::payment_flow | ModernTreasury::BaseModel data

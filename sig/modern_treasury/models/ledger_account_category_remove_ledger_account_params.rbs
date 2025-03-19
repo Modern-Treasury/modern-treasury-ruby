@@ -10,7 +10,7 @@ module ModernTreasury
       attr_accessor id: String
 
       def initialize:
-        (id: String, request_options: ModernTreasury::request_opts) -> void
+        (id: String, ?request_options: ModernTreasury::request_opts) -> void
         | (
           ?ModernTreasury::Models::ledger_account_category_remove_ledger_account_params
           | ModernTreasury::BaseModel data

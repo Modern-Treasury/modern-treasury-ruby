@@ -61,17 +61,17 @@ module ModernTreasury
 
       def initialize:
         (
-          id: ::Array[String],
-          after_cursor: String?,
-          balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
-          currency: String,
-          ledger_account_id: String,
-          ledger_id: String,
-          metadata: ::Hash[Symbol, String],
-          name: String,
-          parent_ledger_account_category_id: String,
-          per_page: Integer,
-          request_options: ModernTreasury::request_opts
+          ?id: ::Array[String],
+          ?after_cursor: String?,
+          ?balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
+          ?currency: String,
+          ?ledger_account_id: String,
+          ?ledger_id: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?name: String,
+          ?parent_ledger_account_category_id: String,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_category_list_params
@@ -88,7 +88,7 @@ module ModernTreasury
         def effective_at=: (Time) -> Time
 
         def initialize:
-          (effective_at: Time) -> void
+          (?effective_at: Time) -> void
           | (
             ?ModernTreasury::Models::LedgerAccountCategoryListParams::balances
             | ModernTreasury::BaseModel data

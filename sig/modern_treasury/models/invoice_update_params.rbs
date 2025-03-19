@@ -118,32 +118,32 @@ module ModernTreasury
 
       def initialize:
         (
-          contact_details: ::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail],
-          counterparty_billing_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress?,
-          counterparty_id: String,
-          counterparty_shipping_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress?,
-          currency: ModernTreasury::Models::currency,
-          description: String,
-          due_date: Time,
-          fallback_payment_method: String?,
-          ingest_ledger_entries: bool?,
-          invoice_line_items: ::Array[ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem]?,
-          invoicer_address: ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress?,
-          ledger_account_settlement_id: String?,
-          metadata: ::Hash[Symbol, String]?,
-          notification_email_addresses: ::Array[String]?,
-          notifications_enabled: bool,
-          originating_account_id: String,
-          payment_effective_date: Date,
-          payment_method: ModernTreasury::Models::InvoiceUpdateParams::payment_method,
-          payment_type: ModernTreasury::Models::payment_order_type,
-          receiving_account_id: String,
-          recipient_email: String?,
-          recipient_name: String?,
-          remind_after_overdue_days: ::Array[Integer]?,
-          status: String,
-          virtual_account_id: String?,
-          request_options: ModernTreasury::request_opts
+          ?contact_details: ::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail],
+          ?counterparty_billing_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress?,
+          ?counterparty_id: String,
+          ?counterparty_shipping_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress?,
+          ?currency: ModernTreasury::Models::currency,
+          ?description: String,
+          ?due_date: Time,
+          ?fallback_payment_method: String?,
+          ?ingest_ledger_entries: bool?,
+          ?invoice_line_items: ::Array[ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem]?,
+          ?invoicer_address: ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress?,
+          ?ledger_account_settlement_id: String?,
+          ?metadata: ::Hash[Symbol, String]?,
+          ?notification_email_addresses: ::Array[String]?,
+          ?notifications_enabled: bool,
+          ?originating_account_id: String,
+          ?payment_effective_date: Date,
+          ?payment_method: ModernTreasury::Models::InvoiceUpdateParams::payment_method,
+          ?payment_type: ModernTreasury::Models::payment_order_type,
+          ?receiving_account_id: String,
+          ?recipient_email: String?,
+          ?recipient_name: String?,
+          ?remind_after_overdue_days: ::Array[Integer]?,
+          ?status: String,
+          ?virtual_account_id: String?,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::invoice_update_params
@@ -242,7 +242,7 @@ module ModernTreasury
             locality: String,
             postal_code: String,
             region: String,
-            line2: String
+            ?line2: String
           ) -> void
           | (
             ?ModernTreasury::Models::InvoiceUpdateParams::counterparty_billing_address
@@ -284,7 +284,7 @@ module ModernTreasury
             locality: String,
             postal_code: String,
             region: String,
-            line2: String
+            ?line2: String
           ) -> void
           | (
             ?ModernTreasury::Models::InvoiceUpdateParams::counterparty_shipping_address
@@ -334,11 +334,11 @@ module ModernTreasury
           (
             name: String,
             unit_amount: Integer,
-            description: String,
-            direction: String,
-            metadata: ::Hash[Symbol, String],
-            quantity: Integer,
-            unit_amount_decimal: String
+            ?description: String,
+            ?direction: String,
+            ?metadata: ::Hash[Symbol, String],
+            ?quantity: Integer,
+            ?unit_amount_decimal: String
           ) -> void
           | (
             ?ModernTreasury::Models::InvoiceUpdateParams::invoice_line_item
@@ -380,7 +380,7 @@ module ModernTreasury
             locality: String,
             postal_code: String,
             region: String,
-            line2: String
+            ?line2: String
           ) -> void
           | (
             ?ModernTreasury::Models::InvoiceUpdateParams::invoicer_address

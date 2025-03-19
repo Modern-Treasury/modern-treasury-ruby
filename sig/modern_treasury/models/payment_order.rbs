@@ -223,7 +223,7 @@ module ModernTreasury
         attr_accessor class_id: String?
 
         def initialize:
-          (account_id: String?, class_id: String?) -> void
+          (?account_id: String?, ?class_id: String?) -> void
           | (
             ?ModernTreasury::Models::PaymentOrder::accounting
             | ModernTreasury::BaseModel data

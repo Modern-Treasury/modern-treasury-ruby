@@ -18,8 +18,8 @@ module ModernTreasury
 
       def initialize:
         (
-          balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-          request_options: ModernTreasury::request_opts
+          ?balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_account_category_retrieve_params
@@ -40,7 +40,7 @@ module ModernTreasury
         def effective_at=: (Time) -> Time
 
         def initialize:
-          (as_of_date: Date, effective_at: Time) -> void
+          (?as_of_date: Date, ?effective_at: Time) -> void
           | (
             ?ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::balances
             | ModernTreasury::BaseModel data

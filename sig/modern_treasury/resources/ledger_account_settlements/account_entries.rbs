@@ -11,7 +11,7 @@ module ModernTreasury
           | (
             String id,
             ledger_entry_ids: ::Array[String]?,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> nil
 
         def delete:
@@ -23,7 +23,7 @@ module ModernTreasury
           | (
             String id,
             ledger_entry_ids: ::Array[top]?,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> nil
 
         def initialize: (client: ModernTreasury::Client) -> void

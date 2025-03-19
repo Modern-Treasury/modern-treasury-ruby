@@ -15,11 +15,11 @@ module ModernTreasury
           internal_account_id: String,
           vendor_code: String?,
           vendor_code_type: String?,
-          metadata: ::Hash[Symbol, String],
-          posted: bool,
-          type: ModernTreasury::Models::TransactionCreateParams::type_?,
-          vendor_description: String?,
-          request_options: ModernTreasury::request_opts
+          ?metadata: ::Hash[Symbol, String],
+          ?posted: bool,
+          ?type: ModernTreasury::Models::TransactionCreateParams::type_?,
+          ?vendor_description: String?,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Transaction
 
       def retrieve:
@@ -30,7 +30,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::Transaction
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Transaction
 
       def update:
@@ -41,8 +41,8 @@ module ModernTreasury
         ) -> ModernTreasury::Models::Transaction
         | (
           String id,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Transaction
 
       def list:
@@ -51,21 +51,21 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Transaction]
         | (
-          after_cursor: String?,
-          as_of_date_end: Date,
-          as_of_date_start: Date,
-          counterparty_id: String,
-          description: String,
-          direction: String,
-          internal_account_id: String,
-          metadata: ::Hash[Symbol, String],
-          payment_type: String,
-          per_page: Integer,
-          posted: bool,
-          transactable_type: String,
-          vendor_id: String,
-          virtual_account_id: String,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?as_of_date_end: Date,
+          ?as_of_date_start: Date,
+          ?counterparty_id: String,
+          ?description: String,
+          ?direction: String,
+          ?internal_account_id: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?payment_type: String,
+          ?per_page: Integer,
+          ?posted: bool,
+          ?transactable_type: String,
+          ?vendor_id: String,
+          ?virtual_account_id: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::Transaction]
 
       def delete:
@@ -74,7 +74,7 @@ module ModernTreasury
           ?ModernTreasury::Models::TransactionDeleteParams
           | ::Hash[Symbol, top] params
         ) -> nil
-        | (String id, request_options: ModernTreasury::request_opts) -> nil
+        | (String id, ?request_options: ModernTreasury::request_opts) -> nil
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

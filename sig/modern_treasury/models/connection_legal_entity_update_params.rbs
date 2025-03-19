@@ -18,8 +18,8 @@ module ModernTreasury
 
       def initialize:
         (
-          status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
-          request_options: ModernTreasury::request_opts
+          ?status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::connection_legal_entity_update_params

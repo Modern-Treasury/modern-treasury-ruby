@@ -33,12 +33,12 @@ module ModernTreasury
 
         def initialize:
           (
-            id: ::Hash[Symbol, String],
-            after_cursor: String?,
-            per_page: Integer,
-            transaction_id: String,
-            type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
-            request_options: ModernTreasury::request_opts
+            ?id: ::Hash[Symbol, String],
+            ?after_cursor: String?,
+            ?per_page: Integer,
+            ?transaction_id: String,
+            ?type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
+            ?request_options: ModernTreasury::request_opts
           ) -> void
           | (
             ?ModernTreasury::Models::Transactions::line_item_list_params

@@ -36,8 +36,8 @@ module ModernTreasury
           currency: String,
           direction: ModernTreasury::Models::PaymentFlowCreateParams::direction,
           originating_account_id: String,
-          due_date: Date,
-          request_options: ModernTreasury::request_opts
+          ?due_date: Date,
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::payment_flow_create_params

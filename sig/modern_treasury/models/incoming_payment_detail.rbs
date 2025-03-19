@@ -106,7 +106,7 @@ module ModernTreasury
           vendor_id: String?,
           virtual_account: ModernTreasury::Models::VirtualAccount?,
           virtual_account_id: String?,
-          originating_account_number: String?
+          ?originating_account_number: String?
         ) -> void
         | (
           ?ModernTreasury::Models::incoming_payment_detail

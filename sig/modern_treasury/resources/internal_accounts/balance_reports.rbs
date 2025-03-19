@@ -14,7 +14,7 @@ module ModernTreasury
             as_of_time: String,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
             balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
 
         def retrieve:
@@ -26,7 +26,7 @@ module ModernTreasury
           | (
             String id,
             internal_account_id: String,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Models::InternalAccounts::BalanceReport
 
         def list:
@@ -37,11 +37,11 @@ module ModernTreasury
           ) -> ModernTreasury::Page[ModernTreasury::Models::InternalAccounts::BalanceReport]
           | (
             String internal_account_id,
-            after_cursor: String?,
-            as_of_date: Date,
-            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
-            per_page: Integer,
-            request_options: ModernTreasury::request_opts
+            ?after_cursor: String?,
+            ?as_of_date: Date,
+            ?balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type,
+            ?per_page: Integer,
+            ?request_options: ModernTreasury::request_opts
           ) -> ModernTreasury::Page[ModernTreasury::Models::InternalAccounts::BalanceReport]
 
         def delete:
@@ -53,7 +53,7 @@ module ModernTreasury
           | (
             String id,
             internal_account_id: String,
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> nil
 
         def initialize: (client: ModernTreasury::Client) -> void

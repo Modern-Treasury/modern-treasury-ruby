@@ -8,9 +8,9 @@ module ModernTreasury
         ) -> ModernTreasury::Models::ConnectionLegalEntity
         | (
           connection_id: String,
-          legal_entity: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity,
-          legal_entity_id: String,
-          request_options: ModernTreasury::request_opts
+          ?legal_entity: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity,
+          ?legal_entity_id: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::ConnectionLegalEntity
 
       def retrieve:
@@ -21,7 +21,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::ConnectionLegalEntity
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::ConnectionLegalEntity
 
       def update:
@@ -32,8 +32,8 @@ module ModernTreasury
         ) -> ModernTreasury::Models::ConnectionLegalEntity
         | (
           String id,
-          status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
-          request_options: ModernTreasury::request_opts
+          ?status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::status,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::ConnectionLegalEntity
 
       def list:
@@ -42,12 +42,12 @@ module ModernTreasury
           | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::ConnectionLegalEntity]
         | (
-          after_cursor: String?,
-          connection_id: String,
-          legal_entity_id: String,
-          per_page: Integer,
-          status: ModernTreasury::Models::ConnectionLegalEntityListParams::status,
-          request_options: ModernTreasury::request_opts
+          ?after_cursor: String?,
+          ?connection_id: String,
+          ?legal_entity_id: String,
+          ?per_page: Integer,
+          ?status: ModernTreasury::Models::ConnectionLegalEntityListParams::status,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::ConnectionLegalEntity]
 
       def initialize: (client: ModernTreasury::Client) -> void

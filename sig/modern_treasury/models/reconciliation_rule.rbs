@@ -45,12 +45,12 @@ module ModernTreasury
           amount_upper_bound: Integer,
           direction: ModernTreasury::Models::ReconciliationRule::direction,
           internal_account_id: String,
-          counterparty_id: String?,
-          currency: ModernTreasury::Models::currency,
-          custom_identifiers: ::Hash[Symbol, String]?,
-          date_lower_bound: Date?,
-          date_upper_bound: Date?,
-          type: ModernTreasury::Models::ReconciliationRule::type_?
+          ?counterparty_id: String?,
+          ?currency: ModernTreasury::Models::currency,
+          ?custom_identifiers: ::Hash[Symbol, String]?,
+          ?date_lower_bound: Date?,
+          ?date_upper_bound: Date?,
+          ?type: ModernTreasury::Models::ReconciliationRule::type_?
         ) -> void
         | (
           ?ModernTreasury::Models::reconciliation_rule

@@ -8,9 +8,9 @@ module ModernTreasury
         ) -> ModernTreasury::Models::Ledger
         | (
           name: String,
-          description: String?,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?description: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Ledger
 
       def retrieve:
@@ -21,7 +21,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::Ledger
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Ledger
 
       def update:
@@ -32,10 +32,10 @@ module ModernTreasury
         ) -> ModernTreasury::Models::Ledger
         | (
           String id,
-          description: String?,
-          metadata: ::Hash[Symbol, String],
-          name: String,
-          request_options: ModernTreasury::request_opts
+          ?description: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?name: String,
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Ledger
 
       def list:
@@ -43,12 +43,12 @@ module ModernTreasury
           ?ModernTreasury::Models::LedgerListParams | ::Hash[Symbol, top] params
         ) -> ModernTreasury::Page[ModernTreasury::Models::Ledger]
         | (
-          id: ::Array[String],
-          after_cursor: String?,
-          metadata: ::Hash[Symbol, String],
-          per_page: Integer,
-          updated_at: ::Hash[Symbol, Time],
-          request_options: ModernTreasury::request_opts
+          ?id: ::Array[String],
+          ?after_cursor: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?per_page: Integer,
+          ?updated_at: ::Hash[Symbol, Time],
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Page[ModernTreasury::Models::Ledger]
 
       def delete:
@@ -59,7 +59,7 @@ module ModernTreasury
         ) -> ModernTreasury::Models::Ledger
         | (
           String id,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::Ledger
 
       def initialize: (client: ModernTreasury::Client) -> void

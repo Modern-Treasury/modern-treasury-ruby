@@ -19,9 +19,9 @@ module ModernTreasury
       def initialize:
         (
           name: String,
-          description: String?,
-          metadata: ::Hash[Symbol, String],
-          request_options: ModernTreasury::request_opts
+          ?description: String?,
+          ?metadata: ::Hash[Symbol, String],
+          ?request_options: ModernTreasury::request_opts
         ) -> void
         | (
           ?ModernTreasury::Models::ledger_create_params

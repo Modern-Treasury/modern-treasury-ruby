@@ -8,7 +8,7 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       def initialize:
-        (request_options: ModernTreasury::request_opts) -> void
+        (?request_options: ModernTreasury::request_opts) -> void
         | (
           ?ModernTreasury::Models::external_account_delete_params
           | ModernTreasury::BaseModel data

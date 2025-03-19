@@ -28,7 +28,7 @@ module ModernTreasury
             as_of_time: String,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type,
             balances: ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
-            request_options: ModernTreasury::request_opts
+            ?request_options: ModernTreasury::request_opts
           ) -> void
           | (
             ?ModernTreasury::Models::InternalAccounts::balance_report_create_params

@@ -252,7 +252,7 @@ module ModernTreasury
             locality: String,
             postal_code: String,
             region: String,
-            line2: String
+            ?line2: String
           ) -> void
           | (
             ?ModernTreasury::Models::Invoice::counterparty_billing_address
@@ -294,7 +294,7 @@ module ModernTreasury
             locality: String,
             postal_code: String,
             region: String,
-            line2: String
+            ?line2: String
           ) -> void
           | (
             ?ModernTreasury::Models::Invoice::counterparty_shipping_address
@@ -336,7 +336,7 @@ module ModernTreasury
             locality: String,
             postal_code: String,
             region: String,
-            line2: String
+            ?line2: String
           ) -> void
           | (
             ?ModernTreasury::Models::Invoice::invoicer_address

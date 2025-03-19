@@ -9,7 +9,7 @@ module ModernTreasury
         | (
           routing_number: String,
           routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::routing_number_type,
-          request_options: ModernTreasury::request_opts
+          ?request_options: ModernTreasury::request_opts
         ) -> ModernTreasury::Models::RoutingNumberLookupRequest
 
       def initialize: (client: ModernTreasury::Client) -> void
