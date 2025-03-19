@@ -62,32 +62,27 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          account_details: ::Array[ModernTreasury::Models::AccountDetail],
-          account_type: ModernTreasury::Models::InternalAccount::account_type?,
-          connection: ModernTreasury::Models::Connection,
-          counterparty_id: String?,
-          created_at: Time,
-          currency: ModernTreasury::Models::currency,
-          ledger_account_id: String?,
-          legal_entity_id: String?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          name: String?,
-          object: String,
-          parent_account_id: String?,
-          party_address: ModernTreasury::Models::InternalAccount::PartyAddress?,
-          party_name: String,
-          party_type: ModernTreasury::Models::InternalAccount::party_type?,
-          routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::internal_account
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        account_details: ::Array[ModernTreasury::Models::AccountDetail],
+        account_type: ModernTreasury::Models::InternalAccount::account_type?,
+        connection: ModernTreasury::Models::Connection,
+        counterparty_id: String?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        ledger_account_id: String?,
+        legal_entity_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        name: String?,
+        object: String,
+        parent_account_id: String?,
+        party_address: ModernTreasury::Models::InternalAccount::PartyAddress?,
+        party_name: String,
+        party_type: ModernTreasury::Models::InternalAccount::party_type?,
+        routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::internal_account
 
@@ -152,24 +147,19 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            country: String?,
-            created_at: Time,
-            line1: String?,
-            line2: String?,
-            live_mode: bool,
-            locality: String?,
-            object: String,
-            postal_code: String?,
-            region: String?,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InternalAccount::party_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          country: String?,
+          created_at: Time,
+          line1: String?,
+          line2: String?,
+          live_mode: bool,
+          locality: String?,
+          object: String,
+          postal_code: String?,
+          region: String?,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InternalAccount::party_address
       end

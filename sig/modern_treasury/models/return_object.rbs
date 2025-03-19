@@ -74,36 +74,31 @@ module ModernTreasury
 
       attr_accessor additional_information: String?
 
-      def initialize:
-        (
-          id: String,
-          amount: Integer,
-          code: ModernTreasury::Models::ReturnObject::code?,
-          created_at: Time,
-          currency: ModernTreasury::Models::currency,
-          current_return: ModernTreasury::Models::ReturnObject?,
-          date_of_death: Date?,
-          failure_reason: String?,
-          internal_account_id: String?,
-          ledger_transaction_id: String?,
-          live_mode: bool,
-          object: String,
-          reason: String?,
-          reference_numbers: ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
-          returnable_id: String?,
-          returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
-          role: ModernTreasury::Models::ReturnObject::role,
-          status: ModernTreasury::Models::ReturnObject::status,
-          transaction_id: String?,
-          transaction_line_item_id: String?,
-          type: ModernTreasury::Models::ReturnObject::type_,
-          updated_at: Time,
-          ?additional_information: String?
-        ) -> void
-        | (
-          ?ModernTreasury::Models::return_object
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        amount: Integer,
+        code: ModernTreasury::Models::ReturnObject::code?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        current_return: ModernTreasury::Models::ReturnObject?,
+        date_of_death: Date?,
+        failure_reason: String?,
+        internal_account_id: String?,
+        ledger_transaction_id: String?,
+        live_mode: bool,
+        object: String,
+        reason: String?,
+        reference_numbers: ::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
+        returnable_id: String?,
+        returnable_type: ModernTreasury::Models::ReturnObject::returnable_type?,
+        role: ModernTreasury::Models::ReturnObject::role,
+        status: ModernTreasury::Models::ReturnObject::status,
+        transaction_id: String?,
+        transaction_line_item_id: String?,
+        type: ModernTreasury::Models::ReturnObject::type_,
+        updated_at: Time,
+        ?additional_information: String?
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::return_object
 
@@ -246,20 +241,15 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            created_at: Time,
-            live_mode: bool,
-            object: String,
-            reference_number: String,
-            reference_number_type: ModernTreasury::Models::ReturnObject::ReferenceNumber::reference_number_type,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ReturnObject::reference_number
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          created_at: Time,
+          live_mode: bool,
+          object: String,
+          reference_number: String,
+          reference_number_type: ModernTreasury::Models::ReturnObject::ReferenceNumber::reference_number_type,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ReturnObject::reference_number
 

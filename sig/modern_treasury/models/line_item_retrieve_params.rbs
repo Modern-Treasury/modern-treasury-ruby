@@ -15,16 +15,11 @@ module ModernTreasury
 
       attr_accessor itemizable_id: String
 
-      def initialize:
-        (
-          itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::itemizable_type,
-          itemizable_id: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::line_item_retrieve_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::itemizable_type,
+        itemizable_id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::line_item_retrieve_params
 

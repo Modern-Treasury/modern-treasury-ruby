@@ -41,24 +41,20 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          created_at: Time,
-          entity: ModernTreasury::Models::BulkResult::entity,
-          entity_id: String,
-          entity_type: ModernTreasury::Models::BulkResult::entity_type,
-          live_mode: bool,
-          object: String,
-          request_id: String,
-          request_params: ::Hash[Symbol, String]?,
-          request_type: ModernTreasury::Models::BulkResult::request_type,
-          status: ModernTreasury::Models::BulkResult::status,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::bulk_result | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        created_at: Time,
+        entity: ModernTreasury::Models::BulkResult::entity,
+        entity_id: String,
+        entity_type: ModernTreasury::Models::BulkResult::entity_type,
+        live_mode: bool,
+        object: String,
+        request_id: String,
+        request_params: ::Hash[Symbol, String]?,
+        request_type: ModernTreasury::Models::BulkResult::request_type,
+        status: ModernTreasury::Models::BulkResult::status,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::bulk_result
 
@@ -93,19 +89,14 @@ module ModernTreasury
 
           attr_accessor updated_at: Time
 
-          def initialize:
-            (
-              id: String,
-              created_at: Time,
-              live_mode: bool,
-              object: String,
-              request_errors: ::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
-              updated_at: Time
-            ) -> void
-            | (
-              ?ModernTreasury::Models::BulkResult::Entity::bulk_error
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            id: String,
+            created_at: Time,
+            live_mode: bool,
+            object: String,
+            request_errors: ::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
+            updated_at: Time
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::BulkResult::Entity::bulk_error
 
@@ -125,12 +116,11 @@ module ModernTreasury
 
             def parameter=: (String) -> String
 
-            def initialize:
-              (?code: String, ?message: String, ?parameter: String) -> void
-              | (
-                ?ModernTreasury::Models::BulkResult::Entity::BulkError::request_error
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              ?code: String,
+              ?message: String,
+              ?parameter: String
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::BulkResult::Entity::BulkError::request_error
           end

@@ -40,23 +40,18 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            created_at: Time,
-            external_account_id: String,
-            live_mode: bool,
-            object: String,
-            originating_account_id: String,
-            payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type,
-            priority: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority?,
-            status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccountVerifyResponse::external_account_verification_attempt
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          created_at: Time,
+          external_account_id: String,
+          live_mode: bool,
+          object: String,
+          originating_account_id: String,
+          payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::payment_type,
+          priority: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::priority?,
+          status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::status,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccountVerifyResponse::external_account_verification_attempt
 

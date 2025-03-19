@@ -62,32 +62,27 @@ module ModernTreasury
 
       attr_accessor verification_status: ModernTreasury::Models::ExternalAccount::verification_status
 
-      def initialize:
-        (
-          id: String,
-          account_details: ::Array[ModernTreasury::Models::AccountDetail],
-          account_type: ModernTreasury::Models::external_account_type,
-          contact_details: ::Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
-          counterparty_id: String?,
-          created_at: Time,
-          discarded_at: Time?,
-          ledger_account_id: String?,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          name: String?,
-          object: String,
-          party_address: ModernTreasury::Models::ExternalAccount::PartyAddress?,
-          party_name: String,
-          party_type: ModernTreasury::Models::ExternalAccount::party_type?,
-          routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
-          updated_at: Time,
-          verification_source: ModernTreasury::Models::ExternalAccount::verification_source?,
-          verification_status: ModernTreasury::Models::ExternalAccount::verification_status
-        ) -> void
-        | (
-          ?ModernTreasury::Models::external_account
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        account_details: ::Array[ModernTreasury::Models::AccountDetail],
+        account_type: ModernTreasury::Models::external_account_type,
+        contact_details: ::Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
+        counterparty_id: String?,
+        created_at: Time,
+        discarded_at: Time?,
+        ledger_account_id: String?,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        name: String?,
+        object: String,
+        party_address: ModernTreasury::Models::ExternalAccount::PartyAddress?,
+        party_name: String,
+        party_type: ModernTreasury::Models::ExternalAccount::party_type?,
+        routing_details: ::Array[ModernTreasury::Models::RoutingDetail],
+        updated_at: Time,
+        verification_source: ModernTreasury::Models::ExternalAccount::verification_source?,
+        verification_status: ModernTreasury::Models::ExternalAccount::verification_status
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::external_account
 
@@ -120,21 +115,16 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::contact_identifier_type,
-            created_at: Time,
-            discarded_at: Time?,
-            live_mode: bool,
-            object: String,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccount::contact_detail
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          contact_identifier: String,
+          contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::contact_identifier_type,
+          created_at: Time,
+          discarded_at: Time?,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccount::contact_detail
 
@@ -187,24 +177,19 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            country: String?,
-            created_at: Time,
-            line1: String?,
-            line2: String?,
-            live_mode: bool,
-            locality: String?,
-            object: String,
-            postal_code: String?,
-            region: String?,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::ExternalAccount::party_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          country: String?,
+          created_at: Time,
+          line1: String?,
+          line2: String?,
+          live_mode: bool,
+          locality: String?,
+          object: String,
+          postal_code: String?,
+          region: String?,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::ExternalAccount::party_address
       end

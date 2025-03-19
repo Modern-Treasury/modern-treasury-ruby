@@ -47,22 +47,17 @@ module ModernTreasury
 
       def per_page=: (Integer) -> Integer
 
-      def initialize:
-        (
-          ?after_cursor: String?,
-          ?created_at_lower_bound: Time,
-          ?created_at_upper_bound: Time,
-          ?email: String,
-          ?legal_entity_id: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String,
-          ?per_page: Integer,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::counterparty_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after_cursor: String?,
+        ?created_at_lower_bound: Time,
+        ?created_at_upper_bound: Time,
+        ?email: String,
+        ?legal_entity_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String,
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::counterparty_list_params
     end

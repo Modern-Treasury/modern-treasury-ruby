@@ -10,12 +10,7 @@ module ModernTreasury
 
       attr_accessor is_resend: bool
 
-      def initialize:
-        (id: String, form_link: String, is_resend: bool) -> void
-        | (
-          ?ModernTreasury::Models::counterparty_collect_account_response
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (id: String, form_link: String, is_resend: bool) -> void
 
       def to_hash: -> ModernTreasury::Models::counterparty_collect_account_response
     end

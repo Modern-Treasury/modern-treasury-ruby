@@ -23,18 +23,13 @@ module ModernTreasury
 
       def document_type=: (String) -> String
 
-      def initialize:
-        (
-          documentable_id: String,
-          documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
-          file: IO | StringIO,
-          ?document_type: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::document_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::DocumentCreateParams::documentable_type,
+        file: IO | StringIO,
+        ?document_type: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::document_create_params
 

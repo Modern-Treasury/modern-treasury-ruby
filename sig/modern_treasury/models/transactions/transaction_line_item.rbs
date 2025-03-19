@@ -54,28 +54,23 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            amount: Integer,
-            counterparty_id: String?,
-            created_at: Time,
-            description: String,
-            discarded_at: Time?,
-            expected_payment_id: String?,
-            live_mode: bool,
-            object: String,
-            reconcilable: bool,
-            transactable_id: String?,
-            transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
-            transaction_id: String,
-            type: ModernTreasury::Models::Transactions::TransactionLineItem::type_,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::Transactions::transaction_line_item
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          amount: Integer,
+          counterparty_id: String?,
+          created_at: Time,
+          description: String,
+          discarded_at: Time?,
+          expected_payment_id: String?,
+          live_mode: bool,
+          object: String,
+          reconcilable: bool,
+          transactable_id: String?,
+          transactable_type: ModernTreasury::Models::Transactions::TransactionLineItem::transactable_type?,
+          transaction_id: String,
+          type: ModernTreasury::Models::Transactions::TransactionLineItem::type_,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::Transactions::transaction_line_item
 

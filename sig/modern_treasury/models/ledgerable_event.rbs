@@ -35,23 +35,18 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          created_at: Time,
-          custom_data: top?,
-          description: String?,
-          ledger_event_handler_id: String,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String]?,
-          name: String,
-          object: String,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledgerable_event
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        created_at: Time,
+        custom_data: top?,
+        description: String?,
+        ledger_event_handler_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String]?,
+        name: String,
+        object: String,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledgerable_event
     end

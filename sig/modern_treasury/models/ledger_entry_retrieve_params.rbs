@@ -11,15 +11,10 @@ module ModernTreasury
 
       def show_balances=: (bool) -> bool
 
-      def initialize:
-        (
-          ?show_balances: bool,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_entry_retrieve_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?show_balances: bool,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_entry_retrieve_params
     end

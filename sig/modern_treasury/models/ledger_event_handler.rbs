@@ -44,26 +44,21 @@ module ModernTreasury
 
       attr_accessor variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
 
-      def initialize:
-        (
-          id: String,
-          conditions: ModernTreasury::Models::LedgerEventHandler::Conditions?,
-          created_at: Time,
-          description: String?,
-          discarded_at: Time?,
-          ledger_id: String?,
-          ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String]?,
-          name: String,
-          object: String,
-          updated_at: Time,
-          variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_event_handler
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        conditions: ModernTreasury::Models::LedgerEventHandler::Conditions?,
+        created_at: Time,
+        description: String?,
+        discarded_at: Time?,
+        ledger_id: String?,
+        ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String]?,
+        name: String,
+        object: String,
+        updated_at: Time,
+        variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_event_handler
 
@@ -76,12 +71,7 @@ module ModernTreasury
 
         attr_accessor value: String
 
-        def initialize:
-          (field: String, operator: String, value: String) -> void
-          | (
-            ?ModernTreasury::Models::LedgerEventHandler::conditions
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (field: String, operator: String, value: String) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerEventHandler::conditions
       end
@@ -103,17 +93,12 @@ module ModernTreasury
 
         attr_accessor status: String?
 
-        def initialize:
-          (
-            description: String?,
-            effective_at: String?,
-            ledger_entries: ::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry],
-            status: String?
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LedgerEventHandler::ledger_transaction_template
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          description: String?,
+          effective_at: String?,
+          ledger_entries: ::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry],
+          status: String?
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerEventHandler::ledger_transaction_template
 
@@ -127,16 +112,11 @@ module ModernTreasury
 
           attr_accessor ledger_account_id: String
 
-          def initialize:
-            (
-              amount: String,
-              direction: String,
-              ledger_account_id: String
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::ledger_entry
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            amount: String,
+            direction: String,
+            ledger_account_id: String
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::ledger_entry
         end

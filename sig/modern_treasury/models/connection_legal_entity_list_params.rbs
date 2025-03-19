@@ -34,19 +34,14 @@ module ModernTreasury
         ModernTreasury::Models::ConnectionLegalEntityListParams::status
       ) -> ModernTreasury::Models::ConnectionLegalEntityListParams::status
 
-      def initialize:
-        (
-          ?after_cursor: String?,
-          ?connection_id: String,
-          ?legal_entity_id: String,
-          ?per_page: Integer,
-          ?status: ModernTreasury::Models::ConnectionLegalEntityListParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::connection_legal_entity_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after_cursor: String?,
+        ?connection_id: String,
+        ?legal_entity_id: String,
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::ConnectionLegalEntityListParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::connection_legal_entity_list_params
 

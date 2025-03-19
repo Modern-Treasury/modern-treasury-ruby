@@ -29,18 +29,13 @@ module ModernTreasury
 
       def per_page=: (Integer) -> Integer
 
-      def initialize:
-        (
-          ?after_cursor: String?,
-          ?documentable_id: String,
-          ?documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
-          ?per_page: Integer,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::document_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after_cursor: String?,
+        ?documentable_id: String,
+        ?documentable_type: ModernTreasury::Models::DocumentListParams::documentable_type,
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::document_list_params
 

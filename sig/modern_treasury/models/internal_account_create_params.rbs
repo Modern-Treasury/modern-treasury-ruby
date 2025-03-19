@@ -48,23 +48,18 @@ module ModernTreasury
 
       def vendor_attributes=: (::Hash[Symbol, String]) -> ::Hash[Symbol, String]
 
-      def initialize:
-        (
-          connection_id: String,
-          currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
-          name: String,
-          party_name: String,
-          ?counterparty_id: String,
-          ?legal_entity_id: String,
-          ?parent_account_id: String,
-          ?party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
-          ?vendor_attributes: ::Hash[Symbol, String],
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::internal_account_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        connection_id: String,
+        currency: ModernTreasury::Models::InternalAccountCreateParams::currency,
+        name: String,
+        party_name: String,
+        ?counterparty_id: String,
+        ?legal_entity_id: String,
+        ?parent_account_id: String,
+        ?party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+        ?vendor_attributes: ::Hash[Symbol, String],
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::internal_account_create_params
 
@@ -102,19 +97,14 @@ module ModernTreasury
 
         def line2=: (String) -> String
 
-        def initialize:
-          (
-            country: String,
-            line1: String,
-            locality: String,
-            postal_code: String,
-            region: String,
-            ?line2: String
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InternalAccountCreateParams::party_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          country: String,
+          line1: String,
+          locality: String,
+          postal_code: String,
+          region: String,
+          ?line2: String
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InternalAccountCreateParams::party_address
       end

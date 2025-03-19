@@ -41,19 +41,14 @@ module ModernTreasury
         ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
       ) -> ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
 
-      def initialize:
-        (
-          ?bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
-          ?bank_name: String,
-          ?routing_number: String,
-          ?routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type,
-          ?sanctions: ::Hash[Symbol, top],
-          ?supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
-        ) -> void
-        | (
-          ?ModernTreasury::Models::routing_number_lookup_request
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
+        ?bank_name: String,
+        ?routing_number: String,
+        ?routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type,
+        ?sanctions: ::Hash[Symbol, top],
+        ?supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::routing_number_lookup_request
 
@@ -80,19 +75,14 @@ module ModernTreasury
 
         attr_accessor region: String?
 
-        def initialize:
-          (
-            ?country: String?,
-            ?line1: String?,
-            ?line2: String?,
-            ?locality: String?,
-            ?postal_code: String?,
-            ?region: String?
-          ) -> void
-          | (
-            ?ModernTreasury::Models::RoutingNumberLookupRequest::bank_address
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          ?country: String?,
+          ?line1: String?,
+          ?line2: String?,
+          ?locality: String?,
+          ?postal_code: String?,
+          ?region: String?
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::RoutingNumberLookupRequest::bank_address
       end

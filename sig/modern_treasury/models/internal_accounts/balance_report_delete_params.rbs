@@ -10,15 +10,10 @@ module ModernTreasury
 
         attr_accessor internal_account_id: String
 
-        def initialize:
-          (
-            internal_account_id: String,
-            ?request_options: ModernTreasury::request_opts
-          ) -> void
-          | (
-            ?ModernTreasury::Models::InternalAccounts::balance_report_delete_params
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          internal_account_id: String,
+          ?request_options: ModernTreasury::request_opts
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::InternalAccounts::balance_report_delete_params
       end

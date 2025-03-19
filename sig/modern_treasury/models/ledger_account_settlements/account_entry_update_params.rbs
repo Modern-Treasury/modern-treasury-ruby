@@ -11,15 +11,10 @@ module ModernTreasury
 
         attr_accessor ledger_entry_ids: ::Array[String]?
 
-        def initialize:
-          (
-            ledger_entry_ids: ::Array[String]?,
-            ?request_options: ModernTreasury::request_opts
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LedgerAccountSettlements::account_entry_update_params
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          ledger_entry_ids: ::Array[String]?,
+          ?request_options: ModernTreasury::request_opts
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerAccountSettlements::account_entry_update_params
       end
