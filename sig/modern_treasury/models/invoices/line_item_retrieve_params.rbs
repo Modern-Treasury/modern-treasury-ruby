@@ -10,15 +10,10 @@ module ModernTreasury
 
         attr_accessor invoice_id: String
 
-        def initialize:
-          (
-            invoice_id: String,
-            ?request_options: ModernTreasury::request_opts
-          ) -> void
-          | (
-            ?ModernTreasury::Models::Invoices::line_item_retrieve_params
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          invoice_id: String,
+          ?request_options: ModernTreasury::request_opts
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::Invoices::line_item_retrieve_params
       end

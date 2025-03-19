@@ -22,17 +22,12 @@ module ModernTreasury
         ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
       ) -> ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
 
-      def initialize:
-        (
-          counterparty_id: String,
-          payment_types: ::Array[String],
-          ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::account_collection_flow_create_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        counterparty_id: String,
+        payment_types: ::Array[String],
+        ?receiving_countries: ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country],
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::account_collection_flow_create_params
 

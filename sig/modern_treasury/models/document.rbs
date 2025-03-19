@@ -41,24 +41,20 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          created_at: Time,
-          discarded_at: Time?,
-          document_details: ::Array[ModernTreasury::Models::Document::DocumentDetail],
-          document_type: String?,
-          documentable_id: String,
-          documentable_type: ModernTreasury::Models::Document::documentable_type,
-          file: ModernTreasury::Models::Document::File,
-          live_mode: bool,
-          object: String,
-          source: String,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::document | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        document_details: ::Array[ModernTreasury::Models::Document::DocumentDetail],
+        document_type: String?,
+        documentable_id: String,
+        documentable_type: ModernTreasury::Models::Document::documentable_type,
+        file: ModernTreasury::Models::Document::File,
+        live_mode: bool,
+        object: String,
+        source: String,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::document
 
@@ -91,21 +87,16 @@ module ModernTreasury
 
         attr_accessor updated_at: Time
 
-        def initialize:
-          (
-            id: String,
-            created_at: Time,
-            discarded_at: Time?,
-            document_identifier: String,
-            document_identifier_type: String,
-            live_mode: bool,
-            object: String,
-            updated_at: Time
-          ) -> void
-          | (
-            ?ModernTreasury::Models::Document::document_detail
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          id: String,
+          created_at: Time,
+          discarded_at: Time?,
+          document_identifier: String,
+          document_identifier_type: String,
+          live_mode: bool,
+          object: String,
+          updated_at: Time
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::Document::document_detail
       end
@@ -156,12 +147,11 @@ module ModernTreasury
 
         def size=: (Integer) -> Integer
 
-        def initialize:
-          (?content_type: String, ?filename: String, ?size: Integer) -> void
-          | (
-            ?ModernTreasury::Models::Document::file
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          ?content_type: String,
+          ?filename: String,
+          ?size: Integer
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::Document::file
       end

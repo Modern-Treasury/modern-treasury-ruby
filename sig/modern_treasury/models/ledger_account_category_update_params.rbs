@@ -18,17 +18,12 @@ module ModernTreasury
 
       def name=: (String) -> String
 
-      def initialize:
-        (
-          ?description: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_account_category_update_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?description: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_account_category_update_params
     end

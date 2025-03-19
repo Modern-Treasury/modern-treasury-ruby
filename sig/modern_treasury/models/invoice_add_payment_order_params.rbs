@@ -9,12 +9,10 @@ module ModernTreasury
 
       attr_accessor id: String
 
-      def initialize:
-        (id: String, ?request_options: ModernTreasury::request_opts) -> void
-        | (
-          ?ModernTreasury::Models::invoice_add_payment_order_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::invoice_add_payment_order_params
     end

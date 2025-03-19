@@ -1,106 +1,69 @@
 module ModernTreasury
   module Resources
     class ExternalAccounts
-      def create:
-        (
-          ModernTreasury::Models::ExternalAccountCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::ExternalAccount
-        | (
-          counterparty_id: String?,
-          ?account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
-          ?account_type: ModernTreasury::Models::external_account_type,
-          ?contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
-          ?ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String?,
-          ?party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
-          ?party_identifier: String,
-          ?party_name: String,
-          ?party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
-          ?plaid_processor_token: String,
-          ?routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::ExternalAccount
+      def create: (
+        counterparty_id: String?,
+        ?account_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+        ?account_type: ModernTreasury::Models::external_account_type,
+        ?contact_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
+        ?ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String?,
+        ?party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+        ?party_identifier: String,
+        ?party_name: String,
+        ?party_type: ModernTreasury::Models::ExternalAccountCreateParams::party_type?,
+        ?plaid_processor_token: String,
+        ?routing_details: ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::ExternalAccount
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::ExternalAccountRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::ExternalAccount
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::ExternalAccount
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::ExternalAccount
 
-      def update:
-        (
-          String id,
-          ?ModernTreasury::Models::ExternalAccountUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::ExternalAccount
-        | (
-          String id,
-          ?account_type: ModernTreasury::Models::external_account_type,
-          ?counterparty_id: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?name: String?,
-          ?party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
-          ?party_name: String,
-          ?party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::ExternalAccount
+      def update: (
+        String id,
+        ?account_type: ModernTreasury::Models::external_account_type,
+        ?counterparty_id: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?name: String?,
+        ?party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+        ?party_name: String,
+        ?party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::ExternalAccount
 
-      def list:
-        (
-          ?ModernTreasury::Models::ExternalAccountListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::ExternalAccount]
-        | (
-          ?after_cursor: String?,
-          ?counterparty_id: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?party_name: String,
-          ?per_page: Integer,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::ExternalAccount]
+      def list: (
+        ?after_cursor: String?,
+        ?counterparty_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?party_name: String,
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::ExternalAccount]
 
-      def delete:
-        (
-          String id,
-          ?ModernTreasury::Models::ExternalAccountDeleteParams
-          | ::Hash[Symbol, top] params
-        ) -> nil
-        | (String id, ?request_options: ModernTreasury::request_opts) -> nil
+      def delete: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
 
-      def complete_verification:
-        (
-          String id,
-          ?ModernTreasury::Models::ExternalAccountCompleteVerificationParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::ExternalAccount
-        | (
-          String id,
-          ?amounts: ::Array[Integer],
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::ExternalAccount
+      def complete_verification: (
+        String id,
+        ?amounts: ::Array[Integer],
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::ExternalAccount
 
-      def verify:
-        (
-          String id,
-          ModernTreasury::Models::ExternalAccountVerifyParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::external_account_verify_response
-        | (
-          String id,
-          originating_account_id: String,
-          payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
-          ?currency: ModernTreasury::Models::currency,
-          ?fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type,
-          ?priority: ModernTreasury::Models::ExternalAccountVerifyParams::priority,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::external_account_verify_response
+      def verify: (
+        String id,
+        originating_account_id: String,
+        payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::payment_type,
+        ?currency: ModernTreasury::Models::currency,
+        ?fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type,
+        ?priority: ModernTreasury::Models::ExternalAccountVerifyParams::priority,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::external_account_verify_response
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

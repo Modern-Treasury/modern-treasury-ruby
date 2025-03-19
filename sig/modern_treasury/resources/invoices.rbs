@@ -3,118 +3,90 @@ module ModernTreasury
     class Invoices
       attr_reader line_items: ModernTreasury::Resources::Invoices::LineItems
 
-      def create:
-        (
-          ModernTreasury::Models::InvoiceCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Invoice
-        | (
-          counterparty_id: String,
-          due_date: Time,
-          originating_account_id: String,
-          ?auto_advance: bool?,
-          ?contact_details: ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
-          ?counterparty_billing_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress?,
-          ?counterparty_shipping_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress?,
-          ?currency: ModernTreasury::Models::currency,
-          ?description: String,
-          ?fallback_payment_method: String?,
-          ?ingest_ledger_entries: bool?,
-          ?invoice_line_items: ::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?,
-          ?invoicer_address: ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress?,
-          ?ledger_account_settlement_id: String?,
-          ?metadata: ::Hash[Symbol, String]?,
-          ?notification_email_addresses: ::Array[String]?,
-          ?notifications_enabled: bool,
-          ?payment_effective_date: Date,
-          ?payment_method: ModernTreasury::Models::InvoiceCreateParams::payment_method,
-          ?payment_type: ModernTreasury::Models::payment_order_type,
-          ?receiving_account_id: String,
-          ?recipient_email: String?,
-          ?recipient_name: String?,
-          ?remind_after_overdue_days: ::Array[Integer]?,
-          ?virtual_account_id: String?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Invoice
+      def create: (
+        counterparty_id: String,
+        due_date: Time,
+        originating_account_id: String,
+        ?auto_advance: bool?,
+        ?contact_details: ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
+        ?counterparty_billing_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress?,
+        ?counterparty_shipping_address: ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress?,
+        ?currency: ModernTreasury::Models::currency,
+        ?description: String,
+        ?fallback_payment_method: String?,
+        ?ingest_ledger_entries: bool?,
+        ?invoice_line_items: ::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]?,
+        ?invoicer_address: ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress?,
+        ?ledger_account_settlement_id: String?,
+        ?metadata: ::Hash[Symbol, String]?,
+        ?notification_email_addresses: ::Array[String]?,
+        ?notifications_enabled: bool,
+        ?payment_effective_date: Date,
+        ?payment_method: ModernTreasury::Models::InvoiceCreateParams::payment_method,
+        ?payment_type: ModernTreasury::Models::payment_order_type,
+        ?receiving_account_id: String,
+        ?recipient_email: String?,
+        ?recipient_name: String?,
+        ?remind_after_overdue_days: ::Array[Integer]?,
+        ?virtual_account_id: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Invoice
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::InvoiceRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Invoice
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Invoice
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Invoice
 
-      def update:
-        (
-          String id,
-          ?ModernTreasury::Models::InvoiceUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::Invoice
-        | (
-          String id,
-          ?contact_details: ::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail],
-          ?counterparty_billing_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress?,
-          ?counterparty_id: String,
-          ?counterparty_shipping_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress?,
-          ?currency: ModernTreasury::Models::currency,
-          ?description: String,
-          ?due_date: Time,
-          ?fallback_payment_method: String?,
-          ?ingest_ledger_entries: bool?,
-          ?invoice_line_items: ::Array[ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem]?,
-          ?invoicer_address: ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress?,
-          ?ledger_account_settlement_id: String?,
-          ?metadata: ::Hash[Symbol, String]?,
-          ?notification_email_addresses: ::Array[String]?,
-          ?notifications_enabled: bool,
-          ?originating_account_id: String,
-          ?payment_effective_date: Date,
-          ?payment_method: ModernTreasury::Models::InvoiceUpdateParams::payment_method,
-          ?payment_type: ModernTreasury::Models::payment_order_type,
-          ?receiving_account_id: String,
-          ?recipient_email: String?,
-          ?recipient_name: String?,
-          ?remind_after_overdue_days: ::Array[Integer]?,
-          ?status: String,
-          ?virtual_account_id: String?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::Invoice
+      def update: (
+        String id,
+        ?contact_details: ::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail],
+        ?counterparty_billing_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress?,
+        ?counterparty_id: String,
+        ?counterparty_shipping_address: ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress?,
+        ?currency: ModernTreasury::Models::currency,
+        ?description: String,
+        ?due_date: Time,
+        ?fallback_payment_method: String?,
+        ?ingest_ledger_entries: bool?,
+        ?invoice_line_items: ::Array[ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem]?,
+        ?invoicer_address: ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress?,
+        ?ledger_account_settlement_id: String?,
+        ?metadata: ::Hash[Symbol, String]?,
+        ?notification_email_addresses: ::Array[String]?,
+        ?notifications_enabled: bool,
+        ?originating_account_id: String,
+        ?payment_effective_date: Date,
+        ?payment_method: ModernTreasury::Models::InvoiceUpdateParams::payment_method,
+        ?payment_type: ModernTreasury::Models::payment_order_type,
+        ?receiving_account_id: String,
+        ?recipient_email: String?,
+        ?recipient_name: String?,
+        ?remind_after_overdue_days: ::Array[Integer]?,
+        ?status: String,
+        ?virtual_account_id: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::Invoice
 
-      def list:
-        (
-          ?ModernTreasury::Models::InvoiceListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::Invoice]
-        | (
-          ?after_cursor: String?,
-          ?counterparty_id: String,
-          ?due_date_end: Date,
-          ?due_date_start: Date,
-          ?expected_payment_id: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?number: String,
-          ?originating_account_id: String,
-          ?payment_order_id: String,
-          ?per_page: Integer,
-          ?status: ModernTreasury::Models::InvoiceListParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::Invoice]
+      def list: (
+        ?after_cursor: String?,
+        ?counterparty_id: String,
+        ?due_date_end: Date,
+        ?due_date_start: Date,
+        ?expected_payment_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?number: String,
+        ?originating_account_id: String,
+        ?payment_order_id: String,
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::InvoiceListParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::Invoice]
 
-      def add_payment_order:
-        (
-          String payment_order_id,
-          ModernTreasury::Models::InvoiceAddPaymentOrderParams
-          | ::Hash[Symbol, top] params
-        ) -> nil
-        | (
-          String payment_order_id,
-          id: String,
-          ?request_options: ModernTreasury::request_opts
-        ) -> nil
+      def add_payment_order: (
+        String payment_order_id,
+        id: String,
+        ?request_options: ModernTreasury::request_opts
+      ) -> nil
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

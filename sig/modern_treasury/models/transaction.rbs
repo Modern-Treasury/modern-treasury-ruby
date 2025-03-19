@@ -82,37 +82,33 @@ module ModernTreasury
 
       attr_accessor vendor_description: String?
 
-      def initialize:
-        (
-          id: String,
-          amount: Integer,
-          as_of_date: Date?,
-          as_of_time: Time?,
-          as_of_timezone: String?,
-          created_at: Time,
-          currency: ModernTreasury::Models::currency,
-          custom_identifiers: ::Hash[Symbol, String],
-          direction: String,
-          discarded_at: Time?,
-          foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate?,
-          internal_account_id: String,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          object: String,
-          posted: bool,
-          reconciled: bool,
-          type: ModernTreasury::Models::Transaction::type_,
-          updated_at: Time,
-          vendor_code: String?,
-          vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?,
-          vendor_customer_id: String?,
-          vendor_id: String?,
-          ?details: ::Hash[Symbol, String],
-          ?vendor_description: String?
-        ) -> void
-        | (
-          ?ModernTreasury::Models::transaction | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        amount: Integer,
+        as_of_date: Date?,
+        as_of_time: Time?,
+        as_of_timezone: String?,
+        created_at: Time,
+        currency: ModernTreasury::Models::currency,
+        custom_identifiers: ::Hash[Symbol, String],
+        direction: String,
+        discarded_at: Time?,
+        foreign_exchange_rate: ModernTreasury::Models::Transaction::ForeignExchangeRate?,
+        internal_account_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        posted: bool,
+        reconciled: bool,
+        type: ModernTreasury::Models::Transaction::type_,
+        updated_at: Time,
+        vendor_code: String?,
+        vendor_code_type: ModernTreasury::Models::Transaction::vendor_code_type?,
+        vendor_customer_id: String?,
+        vendor_id: String?,
+        ?details: ::Hash[Symbol, String],
+        ?vendor_description: String?
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::transaction
 
@@ -142,20 +138,15 @@ module ModernTreasury
 
         attr_accessor value: Integer
 
-        def initialize:
-          (
-            base_amount: Integer,
-            base_currency: ModernTreasury::Models::currency,
-            exponent: Integer,
-            rate_string: String,
-            target_amount: Integer,
-            target_currency: ModernTreasury::Models::currency,
-            value: Integer
-          ) -> void
-          | (
-            ?ModernTreasury::Models::Transaction::foreign_exchange_rate
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          base_amount: Integer,
+          base_currency: ModernTreasury::Models::currency,
+          exponent: Integer,
+          rate_string: String,
+          target_amount: Integer,
+          target_currency: ModernTreasury::Models::currency,
+          value: Integer
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::Transaction::foreign_exchange_rate
       end

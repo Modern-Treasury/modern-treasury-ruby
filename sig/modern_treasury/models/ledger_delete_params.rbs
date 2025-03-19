@@ -6,12 +6,7 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      def initialize:
-        (?request_options: ModernTreasury::request_opts) -> void
-        | (
-          ?ModernTreasury::Models::ledger_delete_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (?request_options: ModernTreasury::request_opts) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_delete_params
     end

@@ -45,22 +45,17 @@ module ModernTreasury
 
       attr_accessor virtual_account_id: String?
 
-      def initialize:
-        (
-          ?amount: Integer,
-          ?as_of_date: Date?,
-          ?currency: ModernTreasury::Models::currency?,
-          ?description: String?,
-          ?direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
-          ?internal_account_id: String,
-          ?type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
-          ?virtual_account_id: String?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::incoming_payment_detail_create_async_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?amount: Integer,
+        ?as_of_date: Date?,
+        ?currency: ModernTreasury::Models::currency?,
+        ?description: String?,
+        ?direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
+        ?internal_account_id: String,
+        ?type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::type_,
+        ?virtual_account_id: String?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::incoming_payment_detail_create_async_params
 

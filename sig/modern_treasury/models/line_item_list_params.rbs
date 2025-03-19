@@ -20,17 +20,12 @@ module ModernTreasury
 
       def per_page=: (Integer) -> Integer
 
-      def initialize:
-        (
-          itemizable_type: ModernTreasury::Models::LineItemListParams::itemizable_type,
-          ?after_cursor: String?,
-          ?per_page: Integer,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::line_item_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        itemizable_type: ModernTreasury::Models::LineItemListParams::itemizable_type,
+        ?after_cursor: String?,
+        ?per_page: Integer,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::line_item_list_params
 

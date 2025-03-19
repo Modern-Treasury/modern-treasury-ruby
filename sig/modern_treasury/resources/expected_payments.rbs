@@ -1,102 +1,74 @@
 module ModernTreasury
   module Resources
     class ExpectedPayments
-      def create:
-        (
-          ?ModernTreasury::Models::ExpectedPaymentCreateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::ExpectedPayment
-        | (
-          ?amount_lower_bound: Integer?,
-          ?amount_upper_bound: Integer?,
-          ?counterparty_id: String?,
-          ?currency: ModernTreasury::Models::currency?,
-          ?date_lower_bound: Date?,
-          ?date_upper_bound: Date?,
-          ?description: String?,
-          ?direction: ModernTreasury::Models::ExpectedPaymentCreateParams::direction?,
-          ?internal_account_id: String?,
-          ?ledger_transaction: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
-          ?ledger_transaction_id: String,
-          ?line_items: ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem],
-          ?metadata: ::Hash[Symbol, String],
-          ?reconciliation_filters: top?,
-          ?reconciliation_groups: top?,
-          ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
-          ?remittance_information: String?,
-          ?statement_descriptor: String?,
-          ?type: ModernTreasury::Models::expected_payment_type?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::ExpectedPayment
+      def create: (
+        ?amount_lower_bound: Integer?,
+        ?amount_upper_bound: Integer?,
+        ?counterparty_id: String?,
+        ?currency: ModernTreasury::Models::currency?,
+        ?date_lower_bound: Date?,
+        ?date_upper_bound: Date?,
+        ?description: String?,
+        ?direction: ModernTreasury::Models::ExpectedPaymentCreateParams::direction?,
+        ?internal_account_id: String?,
+        ?ledger_transaction: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
+        ?ledger_transaction_id: String,
+        ?line_items: ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem],
+        ?metadata: ::Hash[Symbol, String],
+        ?reconciliation_filters: top?,
+        ?reconciliation_groups: top?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        ?remittance_information: String?,
+        ?statement_descriptor: String?,
+        ?type: ModernTreasury::Models::expected_payment_type?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::ExpectedPayment
 
-      def retrieve:
-        (
-          String id,
-          ?ModernTreasury::Models::ExpectedPaymentRetrieveParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::ExpectedPayment
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::ExpectedPayment
+      def retrieve: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::ExpectedPayment
 
-      def update:
-        (
-          String id,
-          ?ModernTreasury::Models::ExpectedPaymentUpdateParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::ExpectedPayment
-        | (
-          String id,
-          ?amount_lower_bound: Integer?,
-          ?amount_upper_bound: Integer?,
-          ?counterparty_id: String?,
-          ?currency: ModernTreasury::Models::currency?,
-          ?date_lower_bound: Date?,
-          ?date_upper_bound: Date?,
-          ?description: String?,
-          ?direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
-          ?internal_account_id: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?reconciliation_filters: top?,
-          ?reconciliation_groups: top?,
-          ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
-          ?remittance_information: String?,
-          ?statement_descriptor: String?,
-          ?status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
-          ?type: ModernTreasury::Models::expected_payment_type?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::ExpectedPayment
+      def update: (
+        String id,
+        ?amount_lower_bound: Integer?,
+        ?amount_upper_bound: Integer?,
+        ?counterparty_id: String?,
+        ?currency: ModernTreasury::Models::currency?,
+        ?date_lower_bound: Date?,
+        ?date_upper_bound: Date?,
+        ?description: String?,
+        ?direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        ?internal_account_id: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?reconciliation_filters: top?,
+        ?reconciliation_groups: top?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        ?remittance_information: String?,
+        ?statement_descriptor: String?,
+        ?status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
+        ?type: ModernTreasury::Models::expected_payment_type?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::ExpectedPayment
 
-      def list:
-        (
-          ?ModernTreasury::Models::ExpectedPaymentListParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Page[ModernTreasury::Models::ExpectedPayment]
-        | (
-          ?after_cursor: String?,
-          ?counterparty_id: String,
-          ?created_at_lower_bound: Time,
-          ?created_at_upper_bound: Time,
-          ?direction: ModernTreasury::Models::transaction_direction,
-          ?internal_account_id: String,
-          ?metadata: ::Hash[Symbol, String],
-          ?per_page: Integer,
-          ?status: ModernTreasury::Models::ExpectedPaymentListParams::status,
-          ?type: ModernTreasury::Models::ExpectedPaymentListParams::type_,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::ExpectedPayment]
+      def list: (
+        ?after_cursor: String?,
+        ?counterparty_id: String,
+        ?created_at_lower_bound: Time,
+        ?created_at_upper_bound: Time,
+        ?direction: ModernTreasury::Models::transaction_direction,
+        ?internal_account_id: String,
+        ?metadata: ::Hash[Symbol, String],
+        ?per_page: Integer,
+        ?status: ModernTreasury::Models::ExpectedPaymentListParams::status,
+        ?type: ModernTreasury::Models::ExpectedPaymentListParams::type_,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Page[ModernTreasury::Models::ExpectedPayment]
 
-      def delete:
-        (
-          String id,
-          ?ModernTreasury::Models::ExpectedPaymentDeleteParams
-          | ::Hash[Symbol, top] params
-        ) -> ModernTreasury::Models::ExpectedPayment
-        | (
-          String id,
-          ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Models::ExpectedPayment
+      def delete: (
+        String id,
+        ?request_options: ModernTreasury::request_opts
+      ) -> ModernTreasury::Models::ExpectedPayment
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

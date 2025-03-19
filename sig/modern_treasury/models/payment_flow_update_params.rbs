@@ -10,15 +10,10 @@ module ModernTreasury
 
       attr_accessor status: ModernTreasury::Models::PaymentFlowUpdateParams::status
 
-      def initialize:
-        (
-          status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::payment_flow_update_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        status: ModernTreasury::Models::PaymentFlowUpdateParams::status,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::payment_flow_update_params
 

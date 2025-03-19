@@ -2,79 +2,49 @@ module ModernTreasury
   module Resources
     class Invoices
       class LineItems
-        def create:
-          (
-            String invoice_id,
-            ModernTreasury::Models::Invoices::LineItemCreateParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
-          | (
-            String invoice_id,
-            name: String,
-            unit_amount: Integer,
-            ?description: String,
-            ?direction: String,
-            ?metadata: ::Hash[Symbol, String],
-            ?quantity: Integer,
-            ?unit_amount_decimal: String,
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
+        def create: (
+          String invoice_id,
+          name: String,
+          unit_amount: Integer,
+          ?description: String,
+          ?direction: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?quantity: Integer,
+          ?unit_amount_decimal: String,
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
 
-        def retrieve:
-          (
-            String id,
-            ModernTreasury::Models::Invoices::LineItemRetrieveParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
-          | (
-            String id,
-            invoice_id: String,
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
+        def retrieve: (
+          String id,
+          invoice_id: String,
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
 
-        def update:
-          (
-            String id,
-            ModernTreasury::Models::Invoices::LineItemUpdateParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
-          | (
-            String id,
-            invoice_id: String,
-            ?description: String,
-            ?direction: String,
-            ?metadata: ::Hash[Symbol, String],
-            ?name: String,
-            ?quantity: Integer,
-            ?unit_amount: Integer,
-            ?unit_amount_decimal: String,
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
+        def update: (
+          String id,
+          invoice_id: String,
+          ?description: String,
+          ?direction: String,
+          ?metadata: ::Hash[Symbol, String],
+          ?name: String,
+          ?quantity: Integer,
+          ?unit_amount: Integer,
+          ?unit_amount_decimal: String,
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
 
-        def list:
-          (
-            String invoice_id,
-            ?ModernTreasury::Models::Invoices::LineItemListParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem]
-          | (
-            String invoice_id,
-            ?after_cursor: String?,
-            ?per_page: Integer,
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem]
+        def list: (
+          String invoice_id,
+          ?after_cursor: String?,
+          ?per_page: Integer,
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem]
 
-        def delete:
-          (
-            String id,
-            ModernTreasury::Models::Invoices::LineItemDeleteParams
-            | ::Hash[Symbol, top] params
-          ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
-          | (
-            String id,
-            invoice_id: String,
-            ?request_options: ModernTreasury::request_opts
-          ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
+        def delete: (
+          String id,
+          invoice_id: String,
+          ?request_options: ModernTreasury::request_opts
+        ) -> ModernTreasury::Models::Invoices::InvoiceLineItem
 
         def initialize: (client: ModernTreasury::Client) -> void
       end

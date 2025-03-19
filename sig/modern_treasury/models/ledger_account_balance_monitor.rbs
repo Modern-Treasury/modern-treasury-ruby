@@ -38,24 +38,19 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
-          created_at: Time,
-          current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
-          description: String?,
-          discarded_at: Time?,
-          ledger_account_id: String,
-          live_mode: bool,
-          metadata: ::Hash[Symbol, String],
-          object: String,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::ledger_account_balance_monitor
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+        created_at: Time,
+        current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+        description: String?,
+        discarded_at: Time?,
+        ledger_account_id: String,
+        live_mode: bool,
+        metadata: ::Hash[Symbol, String],
+        object: String,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::ledger_account_balance_monitor
 
@@ -68,12 +63,11 @@ module ModernTreasury
 
         attr_accessor value: Integer
 
-        def initialize:
-          (field: String, operator: String, value: Integer) -> void
-          | (
-            ?ModernTreasury::Models::LedgerAccountBalanceMonitor::alert_condition
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          field: String,
+          operator: String,
+          value: Integer
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::alert_condition
       end
@@ -92,16 +86,11 @@ module ModernTreasury
 
         attr_accessor triggered: bool
 
-        def initialize:
-          (
-            balances: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
-            ledger_account_lock_version: Integer,
-            triggered: bool
-          ) -> void
-          | (
-            ?ModernTreasury::Models::LedgerAccountBalanceMonitor::current_ledger_account_balance_state
-            | ModernTreasury::BaseModel data
-          ) -> void
+        def initialize: (
+          balances: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
+          ledger_account_lock_version: Integer,
+          triggered: bool
+        ) -> void
 
         def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::current_ledger_account_balance_state
 
@@ -119,16 +108,11 @@ module ModernTreasury
 
           attr_accessor posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
 
-          def initialize:
-            (
-              available_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
-              pending_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
-              posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
-            ) -> void
-            | (
-              ?ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::balances
-              | ModernTreasury::BaseModel data
-            ) -> void
+          def initialize: (
+            available_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
+            pending_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
+            posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+          ) -> void
 
           def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::balances
 
@@ -152,18 +136,13 @@ module ModernTreasury
 
             attr_accessor debits: Integer
 
-            def initialize:
-              (
-                amount: Integer,
-                credits: Integer,
-                currency: String,
-                currency_exponent: Integer,
-                debits: Integer
-              ) -> void
-              | (
-                ?ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::available_balance
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::available_balance
           end
@@ -188,18 +167,13 @@ module ModernTreasury
 
             attr_accessor debits: Integer
 
-            def initialize:
-              (
-                amount: Integer,
-                credits: Integer,
-                currency: String,
-                currency_exponent: Integer,
-                debits: Integer
-              ) -> void
-              | (
-                ?ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::pending_balance
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::pending_balance
           end
@@ -224,18 +198,13 @@ module ModernTreasury
 
             attr_accessor debits: Integer
 
-            def initialize:
-              (
-                amount: Integer,
-                credits: Integer,
-                currency: String,
-                currency_exponent: Integer,
-                debits: Integer
-              ) -> void
-              | (
-                ?ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::posted_balance
-                | ModernTreasury::BaseModel data
-              ) -> void
+            def initialize: (
+              amount: Integer,
+              credits: Integer,
+              currency: String,
+              currency_exponent: Integer,
+              debits: Integer
+            ) -> void
 
             def to_hash: -> ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::posted_balance
           end

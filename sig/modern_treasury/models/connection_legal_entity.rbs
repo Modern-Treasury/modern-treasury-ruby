@@ -35,23 +35,18 @@ module ModernTreasury
 
       attr_accessor vendor_id: String
 
-      def initialize:
-        (
-          id: String,
-          connection_id: String,
-          created_at: Time,
-          discarded_at: Time?,
-          legal_entity_id: String,
-          live_mode: bool,
-          object: String,
-          status: ModernTreasury::Models::ConnectionLegalEntity::status,
-          updated_at: Time,
-          vendor_id: String
-        ) -> void
-        | (
-          ?ModernTreasury::Models::connection_legal_entity
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        connection_id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        legal_entity_id: String,
+        live_mode: bool,
+        object: String,
+        status: ModernTreasury::Models::ConnectionLegalEntity::status,
+        updated_at: Time,
+        vendor_id: String
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::connection_legal_entity
 

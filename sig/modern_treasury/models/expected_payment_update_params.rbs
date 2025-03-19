@@ -62,31 +62,26 @@ module ModernTreasury
 
       attr_accessor type: ModernTreasury::Models::expected_payment_type?
 
-      def initialize:
-        (
-          ?amount_lower_bound: Integer?,
-          ?amount_upper_bound: Integer?,
-          ?counterparty_id: String?,
-          ?currency: ModernTreasury::Models::currency?,
-          ?date_lower_bound: Date?,
-          ?date_upper_bound: Date?,
-          ?description: String?,
-          ?direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
-          ?internal_account_id: String?,
-          ?metadata: ::Hash[Symbol, String],
-          ?reconciliation_filters: top?,
-          ?reconciliation_groups: top?,
-          ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
-          ?remittance_information: String?,
-          ?statement_descriptor: String?,
-          ?status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
-          ?type: ModernTreasury::Models::expected_payment_type?,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::expected_payment_update_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?amount_lower_bound: Integer?,
+        ?amount_upper_bound: Integer?,
+        ?counterparty_id: String?,
+        ?currency: ModernTreasury::Models::currency?,
+        ?date_lower_bound: Date?,
+        ?date_upper_bound: Date?,
+        ?description: String?,
+        ?direction: ModernTreasury::Models::ExpectedPaymentUpdateParams::direction?,
+        ?internal_account_id: String?,
+        ?metadata: ::Hash[Symbol, String],
+        ?reconciliation_filters: top?,
+        ?reconciliation_groups: top?,
+        ?reconciliation_rule_variables: ::Array[ModernTreasury::Models::ReconciliationRule]?,
+        ?remittance_information: String?,
+        ?statement_descriptor: String?,
+        ?status: ModernTreasury::Models::ExpectedPaymentUpdateParams::status?,
+        ?type: ModernTreasury::Models::expected_payment_type?,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::expected_payment_update_params
 

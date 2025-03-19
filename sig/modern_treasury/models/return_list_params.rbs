@@ -39,20 +39,15 @@ module ModernTreasury
         ModernTreasury::Models::ReturnListParams::returnable_type
       ) -> ModernTreasury::Models::ReturnListParams::returnable_type
 
-      def initialize:
-        (
-          ?after_cursor: String?,
-          ?counterparty_id: String,
-          ?internal_account_id: String,
-          ?per_page: Integer,
-          ?returnable_id: String,
-          ?returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::return_list_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?after_cursor: String?,
+        ?counterparty_id: String,
+        ?internal_account_id: String,
+        ?per_page: Integer,
+        ?returnable_id: String,
+        ?returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::return_list_params
 

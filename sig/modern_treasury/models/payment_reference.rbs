@@ -32,22 +32,17 @@ module ModernTreasury
 
       attr_accessor updated_at: Time
 
-      def initialize:
-        (
-          id: String,
-          created_at: Time,
-          live_mode: bool,
-          object: String,
-          reference_number: String,
-          reference_number_type: ModernTreasury::Models::PaymentReference::reference_number_type,
-          referenceable_id: String,
-          referenceable_type: ModernTreasury::Models::PaymentReference::referenceable_type,
-          updated_at: Time
-        ) -> void
-        | (
-          ?ModernTreasury::Models::payment_reference
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        id: String,
+        created_at: Time,
+        live_mode: bool,
+        object: String,
+        reference_number: String,
+        reference_number_type: ModernTreasury::Models::PaymentReference::reference_number_type,
+        referenceable_id: String,
+        referenceable_type: ModernTreasury::Models::PaymentReference::referenceable_type,
+        updated_at: Time
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::payment_reference
 

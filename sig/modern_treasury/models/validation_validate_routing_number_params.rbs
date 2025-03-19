@@ -15,16 +15,11 @@ module ModernTreasury
 
       attr_accessor routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::routing_number_type
 
-      def initialize:
-        (
-          routing_number: String,
-          routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::routing_number_type,
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::validation_validate_routing_number_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        routing_number: String,
+        routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::routing_number_type,
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::validation_validate_routing_number_params
 

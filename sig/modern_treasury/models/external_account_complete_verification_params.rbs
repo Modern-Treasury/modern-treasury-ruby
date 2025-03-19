@@ -11,15 +11,10 @@ module ModernTreasury
 
       def amounts=: (::Array[Integer]) -> ::Array[Integer]
 
-      def initialize:
-        (
-          ?amounts: ::Array[Integer],
-          ?request_options: ModernTreasury::request_opts
-        ) -> void
-        | (
-          ?ModernTreasury::Models::external_account_complete_verification_params
-          | ModernTreasury::BaseModel data
-        ) -> void
+      def initialize: (
+        ?amounts: ::Array[Integer],
+        ?request_options: ModernTreasury::request_opts
+      ) -> void
 
       def to_hash: -> ModernTreasury::Models::external_account_complete_verification_params
     end
