@@ -4,11 +4,12 @@ require_relative "../../test_helper"
 
 class ModernTreasury::Test::Resources::Transactions::LineItemsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.transactions.line_items.create(
-      amount: 0,
-      expected_payment_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      transaction_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
-    )
+    response =
+      @modern_treasury.transactions.line_items.create(
+        amount: 0,
+        expected_payment_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        transaction_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::Transactions::TransactionLineItem

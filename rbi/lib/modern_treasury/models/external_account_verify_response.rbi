@@ -5,14 +5,15 @@ module ModernTreasury
     class ExternalAccountVerifyResponse < ModernTreasury::Union
       abstract!
 
-      Variants = type_template(:out) do
-        {
-          fixed: T.any(
-            ModernTreasury::Models::ExternalAccount,
-            ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-          )
-        }
-      end
+      Variants =
+        type_template(:out) do
+          {
+            fixed: T.any(
+              ModernTreasury::Models::ExternalAccount,
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+            )
+          }
+        end
 
       class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
         sig { returns(String) }

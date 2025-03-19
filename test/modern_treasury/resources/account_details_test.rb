@@ -4,11 +4,12 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.account_details.create(
-      "account_id",
-      accounts_type: :external_accounts,
-      account_number: "account_number"
-    )
+    response =
+      @modern_treasury.account_details.create(
+        "account_id",
+        accounts_type: :external_accounts,
+        account_number: "account_number"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::AccountDetail
@@ -30,11 +31,12 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
   end
 
   def test_retrieve_required_params
-    response = @modern_treasury.account_details.retrieve(
-      "id",
-      accounts_type: :external_accounts,
-      account_id: "account_id"
-    )
+    response =
+      @modern_treasury.account_details.retrieve(
+        "id",
+        accounts_type: :external_accounts,
+        account_id: "account_id"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::AccountDetail
@@ -83,11 +85,12 @@ class ModernTreasury::Test::Resources::AccountDetailsTest < ModernTreasury::Test
   end
 
   def test_delete_required_params
-    response = @modern_treasury.account_details.delete(
-      "id",
-      accounts_type: :external_accounts,
-      account_id: "account_id"
-    )
+    response =
+      @modern_treasury.account_details.delete(
+        "id",
+        accounts_type: :external_accounts,
+        account_id: "account_id"
+      )
 
     assert_pattern do
       response => nil

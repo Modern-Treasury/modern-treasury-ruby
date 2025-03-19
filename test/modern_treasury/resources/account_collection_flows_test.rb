@@ -4,10 +4,11 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::AccountCollectionFlowsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.account_collection_flows.create(
-      counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      payment_types: ["string"]
-    )
+    response =
+      @modern_treasury.account_collection_flows.create(
+        counterparty_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        payment_types: ["string"]
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::AccountCollectionFlow

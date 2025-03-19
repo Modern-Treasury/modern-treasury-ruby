@@ -4,14 +4,15 @@ require_relative "../test_helper"
 
 class ModernTreasury::Test::Resources::TransactionsTest < ModernTreasury::Test::ResourceTest
   def test_create_required_params
-    response = @modern_treasury.transactions.create(
-      amount: 0,
-      as_of_date: "2019-12-27",
-      direction: "direction",
-      internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
-      vendor_code: "vendor_code",
-      vendor_code_type: "vendor_code_type"
-    )
+    response =
+      @modern_treasury.transactions.create(
+        amount: 0,
+        as_of_date: "2019-12-27",
+        direction: "direction",
+        internal_account_id: "182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e",
+        vendor_code: "vendor_code",
+        vendor_code_type: "vendor_code_type"
+      )
 
     assert_pattern do
       response => ModernTreasury::Models::Transaction
