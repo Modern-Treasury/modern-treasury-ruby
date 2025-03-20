@@ -352,6 +352,12 @@ module ModernTreasury
         SKNBI = T.let(:sknbi, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The type of routing number. See
@@ -398,6 +404,12 @@ module ModernTreasury
         SWIFT = T.let(:swift, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
         ZA_NATIONAL_CLEARING_CODE =
           T.let(:za_national_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

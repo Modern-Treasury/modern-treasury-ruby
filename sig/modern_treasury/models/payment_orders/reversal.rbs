@@ -71,7 +71,7 @@ module ModernTreasury
           DATE_EARLIER_THAN_INTENDED: :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED: :date_later_than_intended
 
-          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrders::Reversal::reason]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::Reversal::reason]
         end
 
         type status =
@@ -87,7 +87,7 @@ module ModernTreasury
           RETURNED: :returned
           SENT: :sent
 
-          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrders::Reversal::status]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::Reversal::status]
         end
       end
     end

@@ -52,7 +52,15 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol) }
 
         CANCELLED =
-          T.let(:cancelled, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol)
+          T.let(:cancelled, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol)
+
+        class << self
+          sig do
+            override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
     end
   end

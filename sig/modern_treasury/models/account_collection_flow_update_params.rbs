@@ -26,7 +26,7 @@ module ModernTreasury
 
         CANCELLED: :cancelled
 
-        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlowUpdateParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlowUpdateParams::status]
       end
     end
   end

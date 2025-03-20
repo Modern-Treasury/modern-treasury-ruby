@@ -412,6 +412,17 @@ module ModernTreasury
             :wallet_address,
             ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
+
+        class << self
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol]
+              )
+          end
+          def values
+          end
+        end
       end
 
       # The type of the originating routing number for the incoming payment detail.
@@ -507,6 +518,17 @@ module ModernTreasury
             :za_national_clearing_code,
             ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
+
+        class << self
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol]
+              )
+          end
+          def values
+          end
+        end
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
@@ -521,6 +543,12 @@ module ModernTreasury
         COMPLETED = T.let(:completed, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
         RETURNED = T.let(:returned, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
@@ -541,6 +569,12 @@ module ModernTreasury
         SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
         SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

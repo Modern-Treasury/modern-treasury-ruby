@@ -141,6 +141,12 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # An account created with this flow will support wires from the US to these
@@ -168,6 +174,12 @@ module ModernTreasury
         GBR = :GBR
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The current status of the account collection flow. One of `pending`,
@@ -181,6 +193,12 @@ module ModernTreasury
         PENDING = :pending
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

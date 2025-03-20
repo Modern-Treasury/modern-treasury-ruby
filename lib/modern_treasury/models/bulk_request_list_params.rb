@@ -96,6 +96,12 @@ module ModernTreasury
         DELETE = :delete
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -108,6 +114,12 @@ module ModernTreasury
         EXPECTED_PAYMENT = :expected_payment
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of pending, processing, or completed.
@@ -119,6 +131,12 @@ module ModernTreasury
         COMPLETED = :completed
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

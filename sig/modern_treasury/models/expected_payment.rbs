@@ -122,7 +122,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::direction]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::direction]
       end
 
       type reconciliation_method = :automatic | :manual
@@ -133,7 +133,7 @@ module ModernTreasury
         AUTOMATIC: :automatic
         MANUAL: :manual
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::reconciliation_method]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::reconciliation_method]
       end
 
       type status =
@@ -147,7 +147,7 @@ module ModernTreasury
         RECONCILED: :reconciled
         UNRECONCILED: :unreconciled
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPayment::status]
       end
     end
   end

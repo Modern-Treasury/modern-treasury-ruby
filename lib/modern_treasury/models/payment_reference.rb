@@ -163,6 +163,12 @@ module ModernTreasury
         WELLS_FARGO_UETR = :wells_fargo_uetr
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of the referenceable types. This must be accompanied by the id of the
@@ -175,6 +181,12 @@ module ModernTreasury
         RETURN = :return
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

@@ -91,7 +91,7 @@ module ModernTreasury
         POSTED: :posted
         PROCESSING: :processing
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlement::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlement::status]
       end
     end
   end

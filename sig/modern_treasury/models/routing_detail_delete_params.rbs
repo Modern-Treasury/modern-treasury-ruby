@@ -30,7 +30,7 @@ module ModernTreasury
 
         EXTERNAL_ACCOUNTS: :external_accounts
 
-        def self.values: -> ::Array[ModernTreasury::Models::RoutingDetailDeleteParams::accounts_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::RoutingDetailDeleteParams::accounts_type]
       end
     end
   end

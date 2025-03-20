@@ -77,7 +77,7 @@ module ModernTreasury
         RETURN: :return
         REVERSAL: :reversal
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::ledgerable_type]
       end
 
       type status = :archived | :pending | :posted
@@ -89,7 +89,7 @@ module ModernTreasury
         PENDING: :pending
         POSTED: :posted
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::status]
       end
     end
   end

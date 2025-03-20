@@ -279,19 +279,32 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol) }
 
         EXPECTED_PAYMENT =
-          T.let(:expected_payment, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol)
+          T.let(
+            :expected_payment,
+            ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol
+          )
         INCOMING_PAYMENT_DETAIL =
           T.let(
             :incoming_payment_detail,
-            ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol
+            ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol
           )
         PAPER_ITEM =
-          T.let(:paper_item, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol)
+          T.let(:paper_item, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol)
         PAYMENT_ORDER =
-          T.let(:payment_order, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol)
-        RETURN = T.let(:return, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol)
+          T.let(:payment_order, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol)
+        RETURN =
+          T.let(:return, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol)
         REVERSAL =
-          T.let(:reversal, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol)
+          T.let(:reversal, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
 
       class OrderBy < ModernTreasury::BaseModel
@@ -350,8 +363,18 @@ module ModernTreasury
           OrSymbol =
             T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol) }
 
-          ASC = T.let(:asc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::OrSymbol)
-          DESC = T.let(:desc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::OrSymbol)
+          ASC = T.let(:asc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol)
+          DESC =
+            T.let(:desc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol)
+
+          class << self
+            sig do
+              override
+                .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol])
+            end
+            def values
+            end
+          end
         end
 
         module EffectiveAt
@@ -362,8 +385,19 @@ module ModernTreasury
           OrSymbol =
             T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol) }
 
-          ASC = T.let(:asc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::OrSymbol)
-          DESC = T.let(:desc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::OrSymbol)
+          ASC =
+            T.let(:asc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol)
+          DESC =
+            T.let(:desc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol)
+
+          class << self
+            sig do
+              override
+                .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol])
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -375,9 +409,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol) }
 
-        PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransactionListParams::Status::OrSymbol)
-        POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionListParams::Status::OrSymbol)
-        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransactionListParams::Status::OrSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol)
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

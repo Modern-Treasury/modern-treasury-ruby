@@ -111,6 +111,12 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # A payment type to fallback to if the original type is not valid for the
@@ -122,6 +128,12 @@ module ModernTreasury
         ACH = :ach
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
@@ -133,6 +145,12 @@ module ModernTreasury
         NORMAL = :normal
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

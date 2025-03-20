@@ -175,7 +175,7 @@ module ModernTreasury
           ASC: :asc
           DESC: :desc
 
-          def self.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at]
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at]
         end
 
         type effective_at = :asc | :desc
@@ -186,7 +186,7 @@ module ModernTreasury
           ASC: :asc
           DESC: :desc
 
-          def self.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at]
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at]
         end
       end
 
@@ -199,7 +199,7 @@ module ModernTreasury
         POSTED: :posted
         ARCHIVED: :archived
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerEntryListParams::status]
       end
     end
   end

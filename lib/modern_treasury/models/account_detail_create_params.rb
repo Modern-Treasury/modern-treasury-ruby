@@ -46,6 +46,12 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS = :external_accounts
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
@@ -65,6 +71,12 @@ module ModernTreasury
         WALLET_ADDRESS = :wallet_address
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

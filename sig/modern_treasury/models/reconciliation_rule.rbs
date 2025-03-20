@@ -62,7 +62,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> ::Array[ModernTreasury::Models::ReconciliationRule::direction]
+        def self?.values: -> ::Array[ModernTreasury::Models::ReconciliationRule::direction]
       end
 
       type type_ =
@@ -131,7 +131,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> ::Array[ModernTreasury::Models::ReconciliationRule::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::ReconciliationRule::type_]
       end
     end
   end

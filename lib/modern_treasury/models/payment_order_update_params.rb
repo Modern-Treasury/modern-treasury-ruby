@@ -446,6 +446,12 @@ module ModernTreasury
         RECEIVER = :receiver
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -459,6 +465,12 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # A payment type to fallback to if the original type is not valid for the
@@ -470,6 +482,12 @@ module ModernTreasury
         ACH = :ach
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -482,6 +500,12 @@ module ModernTreasury
         VARIABLE_TO_FIXED = :variable_to_fixed
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       class LineItem < ModernTreasury::BaseModel
@@ -537,6 +561,12 @@ module ModernTreasury
         NORMAL = :normal
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       class ReceivingAccount < ModernTreasury::BaseModel
@@ -739,6 +769,12 @@ module ModernTreasury
             WALLET_ADDRESS = :wallet_address
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -778,6 +814,12 @@ module ModernTreasury
             WEBSITE = :website
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -912,6 +954,12 @@ module ModernTreasury
             VIRTUAL_ACCOUNT = :virtual_account
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -973,6 +1021,12 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         class RoutingDetail < ModernTreasury::BaseModel
@@ -1032,6 +1086,12 @@ module ModernTreasury
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           module PaymentType
@@ -1069,6 +1129,12 @@ module ModernTreasury
             ZENGIN = :zengin
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
       end
@@ -1092,6 +1158,12 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

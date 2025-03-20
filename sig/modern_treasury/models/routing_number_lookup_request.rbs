@@ -109,7 +109,7 @@ module ModernTreasury
         SE_BANKGIRO_CLEARING_CODE: :se_bankgiro_clearing_code
         SWIFT: :swift
 
-        def self.values: -> ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::routing_number_type]
       end
 
       type supported_payment_type =
@@ -178,7 +178,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
       end
     end
   end

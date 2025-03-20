@@ -353,9 +353,16 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType::TaggedSymbol) }
 
-        BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType::OrSymbol)
+        BUSINESS =
+          T.let(:business, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType::TaggedSymbol)
         INDIVIDUAL =
-          T.let(:individual, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType::OrSymbol)
+          T.let(:individual, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class Address < ModernTreasury::BaseModel
@@ -468,13 +475,24 @@ module ModernTreasury
             T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::TaggedSymbol) }
 
           BUSINESS =
-            T.let(:business, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::OrSymbol)
+            T.let(:business, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::TaggedSymbol)
           MAILING =
-            T.let(:mailing, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::OrSymbol)
-          OTHER = T.let(:other, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::OrSymbol)
-          PO_BOX = T.let(:po_box, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::OrSymbol)
+            T.let(:mailing, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::TaggedSymbol)
+          OTHER =
+            T.let(:other, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::TaggedSymbol)
+          PO_BOX =
+            T.let(:po_box, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::TaggedSymbol)
           RESIDENTIAL =
-            T.let(:residential, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::OrSymbol)
+            T.let(:residential, ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::TaggedSymbol)
+
+          class << self
+            sig do
+              override
+                .returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::Address::AddressType::TaggedSymbol])
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -544,46 +562,56 @@ module ModernTreasury
             T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol) }
 
           AR_CUIL =
-            T.let(:ar_cuil, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:ar_cuil, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           AR_CUIT =
-            T.let(:ar_cuit, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:ar_cuit, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           BR_CNPJ =
-            T.let(:br_cnpj, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:br_cnpj, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           BR_CPF =
-            T.let(:br_cpf, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:br_cpf, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           CL_RUN =
-            T.let(:cl_run, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:cl_run, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           CL_RUT =
-            T.let(:cl_rut, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:cl_rut, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           CO_CEDULAS =
-            T.let(:co_cedulas, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:co_cedulas, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           CO_NIT =
-            T.let(:co_nit, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
-          HN_ID = T.let(:hn_id, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:co_nit, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
+          HN_ID =
+            T.let(:hn_id, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           HN_RTN =
-            T.let(:hn_rtn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:hn_rtn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           IN_LEI =
-            T.let(:in_lei, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:in_lei, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           KR_BRN =
-            T.let(:kr_brn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:kr_brn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           KR_CRN =
-            T.let(:kr_crn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:kr_crn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           KR_RRN =
-            T.let(:kr_rrn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:kr_rrn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           PASSPORT =
-            T.let(:passport, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:passport, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           SA_TIN =
-            T.let(:sa_tin, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:sa_tin, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           SA_VAT =
-            T.let(:sa_vat, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:sa_vat, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           US_EIN =
-            T.let(:us_ein, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:us_ein, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           US_ITIN =
-            T.let(:us_itin, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:us_itin, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           US_SSN =
-            T.let(:us_ssn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:us_ssn, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
           VN_TIN =
-            T.let(:vn_tin, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::OrSymbol)
+            T.let(:vn_tin, ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol)
+
+          class << self
+            sig do
+              override
+                .returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification::IDType::TaggedSymbol])
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -711,13 +739,24 @@ module ModernTreasury
           BENEFICIAL_OWNER =
             T.let(
               :beneficial_owner,
-              ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType::OrSymbol
+              ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType::TaggedSymbol
             )
           CONTROL_PERSON =
             T.let(
               :control_person,
-              ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType::OrSymbol
+              ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::RelationshipType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
 
         class ChildLegalEntity < ModernTreasury::BaseModel
@@ -1253,28 +1292,41 @@ module ModernTreasury
               BUSINESS =
                 T.let(
                   :business,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                 )
               MAILING =
                 T.let(
                   :mailing,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                 )
               OTHER =
                 T.let(
                   :other,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                 )
               PO_BOX =
                 T.let(
                   :po_box,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                 )
               RESIDENTIAL =
                 T.let(
                   :residential,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                 )
+
+              class << self
+                sig do
+                  override
+                    .returns(
+                      T::Array[
+                      ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                      ]
+                    )
+                end
+                def values
+                end
+              end
             end
           end
 
@@ -1361,108 +1413,121 @@ module ModernTreasury
               AR_CUIL =
                 T.let(
                   :ar_cuil,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               AR_CUIT =
                 T.let(
                   :ar_cuit,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               BR_CNPJ =
                 T.let(
                   :br_cnpj,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               BR_CPF =
                 T.let(
                   :br_cpf,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               CL_RUN =
                 T.let(
                   :cl_run,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               CL_RUT =
                 T.let(
                   :cl_rut,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               CO_CEDULAS =
                 T.let(
                   :co_cedulas,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               CO_NIT =
                 T.let(
                   :co_nit,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               HN_ID =
                 T.let(
                   :hn_id,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               HN_RTN =
                 T.let(
                   :hn_rtn,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               IN_LEI =
                 T.let(
                   :in_lei,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               KR_BRN =
                 T.let(
                   :kr_brn,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               KR_CRN =
                 T.let(
                   :kr_crn,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               KR_RRN =
                 T.let(
                   :kr_rrn,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               PASSPORT =
                 T.let(
                   :passport,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               SA_TIN =
                 T.let(
                   :sa_tin,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               SA_VAT =
                 T.let(
                   :sa_vat,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               US_EIN =
                 T.let(
                   :us_ein,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               US_ITIN =
                 T.let(
                   :us_itin,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               US_SSN =
                 T.let(
                   :us_ssn,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               VN_TIN =
                 T.let(
                   :vn_tin,
-                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
+                  ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
+
+              class << self
+                sig do
+                  override
+                    .returns(
+                      T::Array[
+                      ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                      ]
+                    )
+                end
+                def values
+                end
+              end
             end
           end
 
@@ -1485,13 +1550,26 @@ module ModernTreasury
             BUSINESS =
               T.let(
                 :business,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
               )
             INDIVIDUAL =
               T.let(
                 :individual,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
 
           # The business's legal structure.
@@ -1513,33 +1591,46 @@ module ModernTreasury
             CORPORATION =
               T.let(
                 :corporation,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
               )
             LLC =
               T.let(
                 :llc,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
               )
             NON_PROFIT =
               T.let(
                 :non_profit,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
               )
             PARTNERSHIP =
               T.let(
                 :partnership,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
               )
             SOLE_PROPRIETORSHIP =
               T.let(
                 :sole_proprietorship,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
               )
             TRUST =
               T.let(
                 :trust,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
 
           class PhoneNumber < ModernTreasury::BaseModel
@@ -1580,18 +1671,31 @@ module ModernTreasury
             LOW =
               T.let(
                 :low,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
               )
             MEDIUM =
               T.let(
                 :medium,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
               )
             HIGH =
               T.let(
                 :high,
-                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
         end
       end
@@ -1606,15 +1710,21 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::TaggedSymbol) }
 
         CORPORATION =
-          T.let(:corporation, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol)
-        LLC = T.let(:llc, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol)
+          T.let(:corporation, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::TaggedSymbol)
+        LLC = T.let(:llc, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::TaggedSymbol)
         NON_PROFIT =
-          T.let(:non_profit, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol)
+          T.let(:non_profit, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::TaggedSymbol)
         PARTNERSHIP =
-          T.let(:partnership, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol)
+          T.let(:partnership, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::TaggedSymbol)
         SOLE_PROPRIETORSHIP =
-          T.let(:sole_proprietorship, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol)
-        TRUST = T.let(:trust, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol)
+          T.let(:sole_proprietorship, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::TaggedSymbol)
+        TRUST = T.let(:trust, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class PhoneNumber < ModernTreasury::BaseModel
@@ -1645,9 +1755,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating::TaggedSymbol) }
 
-        LOW = T.let(:low, ModernTreasury::Models::LegalEntityCreateParams::RiskRating::OrSymbol)
-        MEDIUM = T.let(:medium, ModernTreasury::Models::LegalEntityCreateParams::RiskRating::OrSymbol)
-        HIGH = T.let(:high, ModernTreasury::Models::LegalEntityCreateParams::RiskRating::OrSymbol)
+        LOW = T.let(:low, ModernTreasury::Models::LegalEntityCreateParams::RiskRating::TaggedSymbol)
+        MEDIUM = T.let(:medium, ModernTreasury::Models::LegalEntityCreateParams::RiskRating::TaggedSymbol)
+        HIGH = T.let(:high, ModernTreasury::Models::LegalEntityCreateParams::RiskRating::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityCreateParams::RiskRating::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

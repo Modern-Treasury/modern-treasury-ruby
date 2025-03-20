@@ -262,13 +262,24 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol) }
 
         EMPLOYED =
-          T.let(:employed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::OrSymbol)
-        RETIRED = T.let(:retired, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::OrSymbol)
+          T.let(:employed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol)
+        RETIRED =
+          T.let(:retired, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol)
         SELF_EMPLOYED =
-          T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::OrSymbol)
-        STUDENT = T.let(:student, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::OrSymbol)
+          T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol)
+        STUDENT =
+          T.let(:student, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol)
         UNEMPLOYED =
-          T.let(:unemployed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::OrSymbol)
+          T.let(:unemployed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
 
       # The source of the individual's income.
@@ -281,20 +292,29 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol) }
 
         FAMILY_SUPPORT =
-          T.let(:family_support, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)
+          T.let(:family_support, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
         GOVERNMENT_BENEFITS =
-          T.let(:government_benefits, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)
+          T.let(
+            :government_benefits,
+            ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol
+          )
         INHERITANCE =
-          T.let(:inheritance, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)
+          T.let(:inheritance, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
         INVESTMENTS =
-          T.let(:investments, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)
+          T.let(:investments, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
         RENTAL_INCOME =
-          T.let(:rental_income, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)
+          T.let(:rental_income, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
         RETIREMENT =
-          T.let(:retirement, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)
-        SALARY = T.let(:salary, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)
+          T.let(:retirement, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
+        SALARY = T.let(:salary, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
         SELF_EMPLOYED =
-          T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)
+          T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The industry of the individual.
@@ -306,58 +326,72 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol) }
 
-        ACCOUNTING = T.let(:accounting, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        AGRICULTURE = T.let(:agriculture, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        AUTOMOTIVE = T.let(:automotive, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+        ACCOUNTING =
+          T.let(:accounting, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        AGRICULTURE =
+          T.let(:agriculture, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        AUTOMOTIVE =
+          T.let(:automotive, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         CHEMICAL_MANUFACTURING =
-          T.let(:chemical_manufacturing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:chemical_manufacturing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         CONSTRUCTION =
-          T.let(:construction, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:construction, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         EDUCATIONAL_MEDICAL =
-          T.let(:educational_medical, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:educational_medical, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         FOOD_SERVICE =
-          T.let(:food_service, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        FINANCE = T.let(:finance, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        GASOLINE = T.let(:gasoline, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:food_service, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        FINANCE = T.let(:finance, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        GASOLINE = T.let(:gasoline, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         HEALTH_STORES =
-          T.let(:health_stores, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        LAUNDRY = T.let(:laundry, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        MAINTENANCE = T.let(:maintenance, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:health_stores, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        LAUNDRY = T.let(:laundry, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        MAINTENANCE =
+          T.let(:maintenance, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         MANUFACTURING =
-          T.let(:manufacturing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:manufacturing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         MERCHANT_WHOLESALE =
-          T.let(:merchant_wholesale, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        MINING = T.let(:mining, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:merchant_wholesale, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        MINING = T.let(:mining, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         PERFORMING_ARTS =
-          T.let(:performing_arts, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:performing_arts, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         PROFESSIONAL_NON_LEGAL =
-          T.let(:professional_non_legal, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:professional_non_legal, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         PUBLIC_ADMINISTRATION =
-          T.let(:public_administration, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        PUBLISHING = T.let(:publishing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        REAL_ESTATE = T.let(:real_estate, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:public_administration, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        PUBLISHING =
+          T.let(:publishing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        REAL_ESTATE =
+          T.let(:real_estate, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         RECREATION_GAMBLING =
-          T.let(:recreation_gambling, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:recreation_gambling, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         RELIGIOUS_CHARITY =
-          T.let(:religious_charity, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:religious_charity, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         RENTAL_SERVICES =
-          T.let(:rental_services, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:rental_services, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         RETAIL_CLOTHING =
-          T.let(:retail_clothing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:retail_clothing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         RETAIL_ELECTRONICS =
-          T.let(:retail_electronics, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        RETAIL_FOOD = T.let(:retail_food, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:retail_electronics, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        RETAIL_FOOD =
+          T.let(:retail_food, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         RETAIL_FURNISHING =
-          T.let(:retail_furnishing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        RETAIL_HOME = T.let(:retail_home, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:retail_furnishing, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        RETAIL_HOME =
+          T.let(:retail_home, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         RETAIL_NON_STORE =
-          T.let(:retail_non_store, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:retail_non_store, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         RETAIL_SPORTING =
-          T.let(:retail_sporting, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:retail_sporting, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         TRANSPORTATION =
-          T.let(:transportation, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        TRAVEL = T.let(:travel, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
-        UTILITIES = T.let(:utilities, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)
+          T.let(:transportation, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        TRAVEL = T.let(:travel, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+        UTILITIES = T.let(:utilities, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The occupation of the individual.
@@ -369,23 +403,34 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol) }
 
-        CONSULTING = T.let(:consulting, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
-        EXECUTIVE = T.let(:executive, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
+        CONSULTING =
+          T.let(:consulting, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
+        EXECUTIVE =
+          T.let(:executive, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
         FINANCE_ACCOUNTING =
-          T.let(:finance_accounting, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
+          T.let(:finance_accounting, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
         FOOD_SERVICES =
-          T.let(:food_services, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
-        GOVERNMENT = T.let(:government, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
-        HEALTHCARE = T.let(:healthcare, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
+          T.let(:food_services, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
+        GOVERNMENT =
+          T.let(:government, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
+        HEALTHCARE =
+          T.let(:healthcare, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
         LEGAL_SERVICES =
-          T.let(:legal_services, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
+          T.let(:legal_services, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
         MANUFACTURING =
-          T.let(:manufacturing, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
-        OTHER = T.let(:other, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
-        SALES = T.let(:sales, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
+          T.let(:manufacturing, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
+        OTHER = T.let(:other, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
+        SALES = T.let(:sales, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
         SCIENCE_ENGINEERING =
-          T.let(:science_engineering, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
-        TECHNOLOGY = T.let(:technology, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)
+          T.let(:science_engineering, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
+        TECHNOLOGY =
+          T.let(:technology, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The source of the individual's funds.
@@ -397,35 +442,50 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol) }
 
-        ALIMONY = T.let(:alimony, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
-        ANNUITY = T.let(:annuity, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+        ALIMONY =
+          T.let(:alimony, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
+        ANNUITY =
+          T.let(:annuity, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         BUSINESS_OWNER =
-          T.let(:business_owner, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:business_owner, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         GENERAL_EMPLOYEE =
-          T.let(:general_employee, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:general_employee, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         GOVERNMENT_BENEFITS =
-          T.let(:government_benefits, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(
+            :government_benefits,
+            ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol
+          )
         HOMEMAKER =
-          T.let(:homemaker, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:homemaker, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         INHERITANCE_GIFT =
-          T.let(:inheritance_gift, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:inheritance_gift, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         INVESTMENT =
-          T.let(:investment, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:investment, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         LEGAL_SETTLEMENT =
-          T.let(:legal_settlement, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
-        LOTTERY = T.let(:lottery, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:legal_settlement, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
+        LOTTERY =
+          T.let(:lottery, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         REAL_ESTATE =
-          T.let(:real_estate, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
-        RETIRED = T.let(:retired, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:real_estate, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
+        RETIRED =
+          T.let(:retired, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         RETIREMENT =
-          T.let(:retirement, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
-        SALARY = T.let(:salary, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:retirement, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
+        SALARY = T.let(:salary, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         SELF_EMPLOYED =
-          T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         SENIOR_EXECUTIVE =
-          T.let(:senior_executive, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:senior_executive, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
         TRUST_INCOME =
-          T.let(:trust_income, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)
+          T.let(:trust_income, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
+
+        class << self
+          sig do
+            override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
 
       # The source of the individual's wealth.
@@ -438,23 +498,32 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol) }
 
         BUSINESS_SALE =
-          T.let(:business_sale, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
+          T.let(:business_sale, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
         FAMILY_SUPPORT =
-          T.let(:family_support, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
+          T.let(:family_support, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
         GOVERNMENT_BENEFITS =
-          T.let(:government_benefits, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
+          T.let(
+            :government_benefits,
+            ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol
+          )
         INHERITANCE =
-          T.let(:inheritance, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
+          T.let(:inheritance, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
         INVESTMENTS =
-          T.let(:investments, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
-        OTHER = T.let(:other, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
+          T.let(:investments, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
+        OTHER = T.let(:other, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
         RENTAL_INCOME =
-          T.let(:rental_income, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
+          T.let(:rental_income, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
         RETIREMENT =
-          T.let(:retirement, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
-        SALARY = T.let(:salary, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
+          T.let(:retirement, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
+        SALARY = T.let(:salary, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
         SELF_EMPLOYED =
-          T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)
+          T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

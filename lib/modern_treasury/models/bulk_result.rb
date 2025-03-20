@@ -235,6 +235,12 @@ module ModernTreasury
         BULK_ERROR = :bulk_error
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The type of the request that created this result. bulk_request is the only
@@ -245,6 +251,12 @@ module ModernTreasury
         BULK_REQUEST = :bulk_request
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of successful or failed.
@@ -256,6 +268,12 @@ module ModernTreasury
         FAILED = :failed
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

@@ -209,7 +209,7 @@ module ModernTreasury
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
 
-          def self.values: -> ::Array[ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::Invoice::ContactDetail::contact_identifier_type]
         end
       end
 
@@ -333,7 +333,7 @@ module ModernTreasury
         MANUAL: :manual
         AUTOMATIC: :automatic
 
-        def self.values: -> ::Array[ModernTreasury::Models::Invoice::payment_method]
+        def self?.values: -> ::Array[ModernTreasury::Models::Invoice::payment_method]
       end
 
       type payment_type = :eft | :ach
@@ -344,7 +344,7 @@ module ModernTreasury
         EFT: :eft
         ACH: :ach
 
-        def self.values: -> ::Array[ModernTreasury::Models::Invoice::payment_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::Invoice::payment_type]
       end
 
       type status =
@@ -360,7 +360,7 @@ module ModernTreasury
         UNPAID: :unpaid
         VOIDED: :voided
 
-        def self.values: -> ::Array[ModernTreasury::Models::Invoice::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::Invoice::status]
       end
     end
   end

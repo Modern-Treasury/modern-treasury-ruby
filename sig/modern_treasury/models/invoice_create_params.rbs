@@ -190,7 +190,7 @@ module ModernTreasury
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
 
-          def self.values: -> ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail::contact_identifier_type]
         end
       end
 
@@ -363,7 +363,7 @@ module ModernTreasury
         MANUAL: :manual
         AUTOMATIC: :automatic
 
-        def self.values: -> ::Array[ModernTreasury::Models::InvoiceCreateParams::payment_method]
+        def self?.values: -> ::Array[ModernTreasury::Models::InvoiceCreateParams::payment_method]
       end
     end
   end

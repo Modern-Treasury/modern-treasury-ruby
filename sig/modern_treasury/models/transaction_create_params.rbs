@@ -127,7 +127,7 @@ module ModernTreasury
         ZENGIN: :zengin
         OTHER: :other
 
-        def self.values: -> ::Array[ModernTreasury::Models::TransactionCreateParams::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::TransactionCreateParams::type_]
       end
     end
   end

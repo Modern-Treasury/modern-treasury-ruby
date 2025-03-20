@@ -93,7 +93,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::direction]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::direction]
       end
 
       type status = :reconciled
@@ -103,7 +103,7 @@ module ModernTreasury
 
         RECONCILED: :reconciled
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::status]
       end
     end
   end

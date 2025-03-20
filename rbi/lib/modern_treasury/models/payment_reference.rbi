@@ -392,6 +392,12 @@ module ModernTreasury
           )
         WELLS_FARGO_UETR =
           T.let(:wells_fargo_uetr, ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of the referenceable types. This must be accompanied by the id of the
@@ -408,6 +414,12 @@ module ModernTreasury
           T.let(:payment_order, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol)
         REVERSAL = T.let(:reversal, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol)
         RETURN = T.let(:return, ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

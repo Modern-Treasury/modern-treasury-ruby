@@ -131,7 +131,7 @@ module ModernTreasury
         DECISION: :decision
         CONNECTION: :connection
 
-        def self.values: -> ::Array[ModernTreasury::Models::Document::documentable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::Document::documentable_type]
       end
 
       type file = { content_type: String, filename: String, size: Integer }

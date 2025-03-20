@@ -358,6 +358,17 @@ module ModernTreasury
             end
           end
         end
+
+        class << self
+          sig do
+            override
+              .returns(
+                [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
+              )
+          end
+          def variants
+          end
+        end
       end
 
       # The type of the result entity object. For a successful bulk result, this is the
@@ -375,6 +386,12 @@ module ModernTreasury
         TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
         EXPECTED_PAYMENT = T.let(:expected_payment, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
         BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The type of the request that created this result. bulk_request is the only
@@ -386,6 +403,12 @@ module ModernTreasury
         OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol) }
 
         BULK_REQUEST = T.let(:bulk_request, ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of successful or failed.
@@ -398,6 +421,12 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
         SUCCESSFUL = T.let(:successful, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
         FAILED = T.let(:failed, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

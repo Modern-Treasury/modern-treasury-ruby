@@ -403,6 +403,12 @@ module ModernTreasury
           WEBSITE = :website
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -578,6 +584,12 @@ module ModernTreasury
         AUTOMATIC = :automatic
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of `ach` or `eft`.
@@ -588,6 +600,12 @@ module ModernTreasury
         ACH = :ach
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The status of the invoice.
@@ -602,6 +620,12 @@ module ModernTreasury
         VOIDED = :voided
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

@@ -372,6 +372,12 @@ module ModernTreasury
 
         CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
@@ -388,6 +394,12 @@ module ModernTreasury
         AUTOMATIC =
           T.let(:automatic, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
         MANUAL = T.let(:manual, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
@@ -402,6 +414,12 @@ module ModernTreasury
           T.let(:partially_reconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
         RECONCILED = T.let(:reconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
         UNRECONCILED = T.let(:unreconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

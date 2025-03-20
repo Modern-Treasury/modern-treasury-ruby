@@ -89,8 +89,15 @@ module ModernTreasury
             T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol) }
 
           ORIGINATING =
-            T.let(:originating, ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol)
-          RECEIVING = T.let(:receiving, ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol)
+            T.let(:originating, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol)
+          RECEIVING =
+            T.let(:receiving, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol)
+
+          class << self
+            sig { override.returns(T::Array[ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol]) }
+            def values
+            end
+          end
         end
       end
     end

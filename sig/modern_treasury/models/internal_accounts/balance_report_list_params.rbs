@@ -51,7 +51,7 @@ module ModernTreasury
           PREVIOUS_DAY: :previous_day
           REAL_TIME: :real_time
 
-          def self.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportListParams::balance_report_type]
         end
       end
     end

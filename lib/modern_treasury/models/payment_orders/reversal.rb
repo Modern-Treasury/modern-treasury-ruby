@@ -110,6 +110,12 @@ module ModernTreasury
           DATE_LATER_THAN_INTENDED = :date_later_than_intended
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         # The current status of the reversal.
@@ -124,6 +130,12 @@ module ModernTreasury
           SENT = :sent
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
     end

@@ -256,6 +256,12 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       class OrderBy < ModernTreasury::BaseModel
@@ -297,6 +303,12 @@ module ModernTreasury
           DESC = :desc
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         module EffectiveAt
@@ -306,6 +318,12 @@ module ModernTreasury
           DESC = :desc
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -317,6 +335,12 @@ module ModernTreasury
         ARCHIVED = :archived
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

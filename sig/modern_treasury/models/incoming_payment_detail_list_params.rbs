@@ -82,7 +82,7 @@ module ModernTreasury
         PENDING: :pending
         RETURNED: :returned
 
-        def self.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::status]
       end
 
       type type_ =
@@ -101,7 +101,7 @@ module ModernTreasury
         SIGNET: :signet
         WIRE: :wire
 
-        def self.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::type_]
       end
     end
   end

@@ -308,6 +308,12 @@ module ModernTreasury
         TRANSACTION = T.let(:transaction, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
         DECISION = T.let(:decision, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
         CONNECTION = T.let(:connection, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::Document::DocumentableType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class File < ModernTreasury::BaseModel

@@ -108,7 +108,7 @@ module ModernTreasury
         OVERDRAFT: :overdraft
         SAVINGS: :savings
 
-        def self.values: -> ::Array[ModernTreasury::Models::InternalAccount::account_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccount::account_type]
       end
 
       type party_address =
@@ -174,7 +174,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> ::Array[ModernTreasury::Models::InternalAccount::party_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccount::party_type]
       end
     end
   end

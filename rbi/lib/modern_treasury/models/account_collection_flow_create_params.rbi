@@ -73,24 +73,53 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol) }
 
-        USA = T.let(:USA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        AUS = T.let(:AUS, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        BEL = T.let(:BEL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        CAN = T.let(:CAN, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        CHL = T.let(:CHL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        CHN = T.let(:CHN, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        COL = T.let(:COL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        FRA = T.let(:FRA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        DEU = T.let(:DEU, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        HKG = T.let(:HKG, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        IND = T.let(:IND, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        IRL = T.let(:IRL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        ITA = T.let(:ITA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        MEX = T.let(:MEX, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        NLD = T.let(:NLD, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        PER = T.let(:PER, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        ESP = T.let(:ESP, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
-        GBR = T.let(:GBR, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        USA =
+          T.let(:USA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        AUS =
+          T.let(:AUS, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        BEL =
+          T.let(:BEL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        CAN =
+          T.let(:CAN, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        CHL =
+          T.let(:CHL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        CHN =
+          T.let(:CHN, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        COL =
+          T.let(:COL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        FRA =
+          T.let(:FRA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        DEU =
+          T.let(:DEU, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        HKG =
+          T.let(:HKG, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        IND =
+          T.let(:IND, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        IRL =
+          T.let(:IRL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        ITA =
+          T.let(:ITA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        MEX =
+          T.let(:MEX, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        NLD =
+          T.let(:NLD, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        PER =
+          T.let(:PER, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        ESP =
+          T.let(:ESP, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+        GBR =
+          T.let(:GBR, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol]
+              )
+          end
+          def values
+          end
+        end
       end
     end
   end

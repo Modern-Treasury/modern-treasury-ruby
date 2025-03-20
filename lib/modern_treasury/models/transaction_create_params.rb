@@ -153,6 +153,12 @@ module ModernTreasury
         OTHER = :other
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

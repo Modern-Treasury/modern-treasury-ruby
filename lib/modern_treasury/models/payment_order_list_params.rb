@@ -226,6 +226,12 @@ module ModernTreasury
         NORMAL = :normal
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       module Status
@@ -244,6 +250,12 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       module Type
@@ -281,6 +293,12 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

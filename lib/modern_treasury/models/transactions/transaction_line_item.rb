@@ -154,6 +154,12 @@ module ModernTreasury
           REVERSAL = :reversal
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
@@ -165,6 +171,12 @@ module ModernTreasury
           RECEIVING = :receiving
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
     end

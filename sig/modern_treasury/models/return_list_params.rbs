@@ -67,7 +67,7 @@ module ModernTreasury
         RETURN: :return
         REVERSAL: :reversal
 
-        def self.values: -> ::Array[ModernTreasury::Models::ReturnListParams::returnable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::ReturnListParams::returnable_type]
       end
     end
   end

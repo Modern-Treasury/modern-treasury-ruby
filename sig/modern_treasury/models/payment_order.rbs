@@ -231,7 +231,7 @@ module ModernTreasury
         SENDER: :sender
         RECEIVER: :receiver
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::charge_bearer]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::charge_bearer]
       end
 
       type direction = :credit | :debit
@@ -242,7 +242,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::direction]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::direction]
       end
 
       type foreign_exchange_indicator = :fixed_to_variable | :variable_to_fixed
@@ -253,7 +253,7 @@ module ModernTreasury
         FIXED_TO_VARIABLE: :fixed_to_variable
         VARIABLE_TO_FIXED: :variable_to_fixed
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::foreign_exchange_indicator]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::foreign_exchange_indicator]
       end
 
       type foreign_exchange_rate =
@@ -303,7 +303,7 @@ module ModernTreasury
         HIGH: :high
         NORMAL: :normal
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::priority]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::priority]
       end
 
       type receiving_account_type = :internal_account | :external_account
@@ -314,7 +314,7 @@ module ModernTreasury
         INTERNAL_ACCOUNT: :internal_account
         EXTERNAL_ACCOUNT: :external_account
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::receiving_account_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::receiving_account_type]
       end
 
       type reference_number =
@@ -503,7 +503,7 @@ module ModernTreasury
           WELLS_FARGO_TRACE_NUMBER: :wells_fargo_trace_number
           WELLS_FARGO_UETR: :wells_fargo_uetr
 
-          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber::reference_number_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber::reference_number_type]
         end
       end
 
@@ -535,7 +535,7 @@ module ModernTreasury
         REVERSED: :reversed
         SENT: :sent
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::status]
       end
 
       type ultimate_originating_account =
@@ -545,7 +545,7 @@ module ModernTreasury
       module UltimateOriginatingAccount
         extend ModernTreasury::Union
 
-        def self.variants: -> [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]
+        def self?.variants: -> [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]
       end
 
       type ultimate_originating_account_type =
@@ -557,7 +557,7 @@ module ModernTreasury
         INTERNAL_ACCOUNT: :internal_account
         VIRTUAL_ACCOUNT: :virtual_account
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrder::ultimate_originating_account_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrder::ultimate_originating_account_type]
       end
     end
   end
