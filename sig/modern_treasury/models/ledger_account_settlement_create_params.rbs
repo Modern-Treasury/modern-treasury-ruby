@@ -57,7 +57,7 @@ module ModernTreasury
         PENDING: :pending
         POSTED: :posted
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::status]
       end
     end
   end

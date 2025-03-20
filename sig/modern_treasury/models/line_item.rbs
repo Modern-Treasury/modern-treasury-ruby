@@ -82,7 +82,7 @@ module ModernTreasury
         EXPECTED_PAYMENT: :ExpectedPayment
         PAYMENT_ORDER: :PaymentOrder
 
-        def self.values: -> ::Array[ModernTreasury::Models::LineItem::itemizable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LineItem::itemizable_type]
       end
     end
   end

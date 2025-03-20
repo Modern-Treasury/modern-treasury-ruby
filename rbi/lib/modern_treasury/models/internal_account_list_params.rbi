@@ -139,39 +139,46 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        AU_BECS = T.let(:au_becs, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        BACS = T.let(:bacs, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        BOOK = T.let(:book, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        CARD = T.let(:card, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        CHATS = T.let(:chats, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        CHECK = T.let(:check, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
+        ACH = T.let(:ach, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        CARD = T.let(:card, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        CHATS = T.let(:chats, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
         CROSS_BORDER =
-          T.let(:cross_border, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        EFT = T.let(:eft, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        INTERAC = T.let(:interac, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        MASAV = T.let(:masav, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        NEFT = T.let(:neft, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        NICS = T.let(:nics, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
+          T.let(:cross_border, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        MASAV = T.let(:masav, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        NICS = T.let(:nics, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        PL_ELIXIR =
+          T.let(:pl_elixir, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
         PROVXCHANGE =
-          T.let(:provxchange, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        RTP = T.let(:rtp, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
+          T.let(:provxchange, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
         SE_BANKGIROT =
-          T.let(:se_bankgirot, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        SEN = T.let(:sen, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        SEPA = T.let(:sepa, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        SIC = T.let(:sic, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        SIGNET = T.let(:signet, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        SKNBI = T.let(:sknbi, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        WIRE = T.let(:wire, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
-        ZENGIN = T.let(:zengin, ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol)
+          T.let(:se_bankgirot, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        SEN = T.let(:sen, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        SIC = T.let(:sic, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        SKNBI = T.let(:sknbi, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+        ZENGIN = T.let(:zengin, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

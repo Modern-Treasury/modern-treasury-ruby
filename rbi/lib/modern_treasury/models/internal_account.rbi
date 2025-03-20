@@ -291,6 +291,12 @@ module ModernTreasury
         OTHER = T.let(:other, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol)
         OVERDRAFT = T.let(:overdraft, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol)
         SAVINGS = T.let(:savings, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class PartyAddress < ModernTreasury::BaseModel
@@ -452,6 +458,12 @@ module ModernTreasury
 
         BUSINESS = T.let(:business, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol)
         INDIVIDUAL = T.let(:individual, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

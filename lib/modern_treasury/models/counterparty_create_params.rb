@@ -170,6 +170,12 @@ module ModernTreasury
           VENDOR = :vendor
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -367,6 +373,12 @@ module ModernTreasury
             WALLET_ADDRESS = :wallet_address
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -406,6 +418,12 @@ module ModernTreasury
             WEBSITE = :website
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -540,6 +558,12 @@ module ModernTreasury
             VIRTUAL_ACCOUNT = :virtual_account
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -601,6 +625,12 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         class RoutingDetail < ModernTreasury::BaseModel
@@ -660,6 +690,12 @@ module ModernTreasury
             ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           module PaymentType
@@ -697,6 +733,12 @@ module ModernTreasury
             ZENGIN = :zengin
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
       end
@@ -712,6 +754,12 @@ module ModernTreasury
         VENDOR = :vendor
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       class LegalEntity < ModernTreasury::BaseModel
@@ -954,6 +1002,12 @@ module ModernTreasury
           INDIVIDUAL = :individual
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         class Address < ModernTreasury::BaseModel
@@ -1025,6 +1079,12 @@ module ModernTreasury
             RESIDENTIAL = :residential
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -1085,6 +1145,12 @@ module ModernTreasury
             VN_TIN = :vn_tin
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -1160,6 +1226,12 @@ module ModernTreasury
             CONTROL_PERSON = :control_person
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           class ChildLegalEntity < ModernTreasury::BaseModel
@@ -1475,6 +1547,12 @@ module ModernTreasury
                 RESIDENTIAL = :residential
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
 
@@ -1535,6 +1613,12 @@ module ModernTreasury
                 VN_TIN = :vn_tin
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
 
@@ -1546,6 +1630,12 @@ module ModernTreasury
               INDIVIDUAL = :individual
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
 
             # The business's legal structure.
@@ -1560,6 +1650,12 @@ module ModernTreasury
               TRUST = :trust
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
 
             class PhoneNumber < ModernTreasury::BaseModel
@@ -1591,6 +1687,12 @@ module ModernTreasury
               HIGH = :high
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
           end
         end
@@ -1607,6 +1709,12 @@ module ModernTreasury
           TRUST = :trust
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         class PhoneNumber < ModernTreasury::BaseModel
@@ -1638,6 +1746,12 @@ module ModernTreasury
           HIGH = :high
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -1651,6 +1765,12 @@ module ModernTreasury
         VERIFIED = :verified
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

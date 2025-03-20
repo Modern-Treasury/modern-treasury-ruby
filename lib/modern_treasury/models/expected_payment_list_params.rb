@@ -146,6 +146,12 @@ module ModernTreasury
         UNRECONCILED = :unreconciled
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
@@ -185,6 +191,12 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

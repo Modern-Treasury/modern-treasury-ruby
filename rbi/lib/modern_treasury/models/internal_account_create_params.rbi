@@ -158,8 +158,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol) }
 
-        USD = T.let(:USD, ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol)
-        CAD = T.let(:CAD, ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol)
+        USD = T.let(:USD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)
+        CAD = T.let(:CAD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class PartyAddress < ModernTreasury::BaseModel

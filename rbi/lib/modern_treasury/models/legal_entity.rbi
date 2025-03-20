@@ -592,6 +592,12 @@ module ModernTreasury
           PO_BOX = T.let(:po_box, ModernTreasury::Models::LegalEntity::Address::AddressType::TaggedSymbol)
           RESIDENTIAL =
             T.let(:residential, ModernTreasury::Models::LegalEntity::Address::AddressType::TaggedSymbol)
+
+          class << self
+            sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::Address::AddressType::TaggedSymbol]) }
+            def values
+            end
+          end
         end
       end
 
@@ -733,6 +739,12 @@ module ModernTreasury
           US_ITIN = T.let(:us_itin, ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol)
           US_SSN = T.let(:us_ssn, ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol)
           VN_TIN = T.let(:vn_tin, ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol)
+
+          class << self
+            sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::Identification::IDType::TaggedSymbol]) }
+            def values
+            end
+          end
         end
       end
 
@@ -747,6 +759,12 @@ module ModernTreasury
         BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol)
         INDIVIDUAL = T.let(:individual, ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol)
         JOINT = T.let(:joint, ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::LegalEntityType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The business's legal structure.
@@ -764,6 +782,12 @@ module ModernTreasury
         SOLE_PROPRIETORSHIP =
           T.let(:sole_proprietorship, ModernTreasury::Models::LegalEntity::LegalStructure::TaggedSymbol)
         TRUST = T.let(:trust, ModernTreasury::Models::LegalEntity::LegalStructure::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::LegalStructure::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class PhoneNumber < ModernTreasury::BaseModel
@@ -795,6 +819,12 @@ module ModernTreasury
         LOW = T.let(:low, ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol)
         MEDIUM = T.let(:medium, ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol)
         HIGH = T.let(:high, ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntity::RiskRating::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

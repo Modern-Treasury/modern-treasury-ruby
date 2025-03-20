@@ -573,9 +573,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol) }
 
-        SHARED = T.let(:shared, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::OrSymbol)
-        SENDER = T.let(:sender, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::OrSymbol)
-        RECEIVER = T.let(:receiver, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::OrSymbol)
+        SHARED = T.let(:shared, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol)
+        SENDER = T.let(:sender, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol)
+        RECEIVER = T.let(:receiver, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -590,8 +596,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol) }
 
-        CREDIT = T.let(:credit, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::OrSymbol)
-        DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::OrSymbol)
+        CREDIT = T.let(:credit, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # A payment type to fallback to if the original type is not valid for the
@@ -605,7 +617,13 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::TaggedSymbol) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::OrSymbol)
+        ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -622,13 +640,24 @@ module ModernTreasury
         FIXED_TO_VARIABLE =
           T.let(
             :fixed_to_variable,
-            ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator::OrSymbol
+            ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator::TaggedSymbol
           )
         VARIABLE_TO_FIXED =
           T.let(
             :variable_to_fixed,
-            ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator::OrSymbol
+            ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator::TaggedSymbol
           )
+
+        class << self
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator::TaggedSymbol]
+              )
+          end
+          def values
+          end
+        end
       end
 
       class LineItem < ModernTreasury::BaseModel
@@ -708,8 +737,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol) }
 
-        HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::OrSymbol)
-        NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::OrSymbol)
+        HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol)
+        NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class ReceivingAccount < ModernTreasury::BaseModel
@@ -1013,53 +1048,66 @@ module ModernTreasury
             AU_NUMBER =
               T.let(
                 :au_number,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             CLABE =
               T.let(
                 :clabe,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             HK_NUMBER =
               T.let(
                 :hk_number,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             IBAN =
               T.let(
                 :iban,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             ID_NUMBER =
               T.let(
                 :id_number,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             NZ_NUMBER =
               T.let(
                 :nz_number,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             OTHER =
               T.let(
                 :other,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             PAN =
               T.let(
                 :pan,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             SG_NUMBER =
               T.let(
                 :sg_number,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
             WALLET_ADDRESS =
               T.let(
                 :wallet_address,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
         end
 
@@ -1133,18 +1181,31 @@ module ModernTreasury
             EMAIL =
               T.let(
                 :email,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
             PHONE_NUMBER =
               T.let(
                 :phone_number,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
             WEBSITE =
               T.let(
                 :website,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
         end
 
@@ -1335,23 +1396,36 @@ module ModernTreasury
             COUNTERPARTY =
               T.let(
                 :counterparty,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
             EXTERNAL_ACCOUNT =
               T.let(
                 :external_account,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
             INTERNAL_ACCOUNT =
               T.let(
                 :internal_account,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
             VIRTUAL_ACCOUNT =
               T.let(
                 :virtual_account,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
         end
 
@@ -1450,12 +1524,26 @@ module ModernTreasury
             T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::TaggedSymbol) }
 
           BUSINESS =
-            T.let(:business, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::OrSymbol)
+            T.let(
+              :business,
+              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::TaggedSymbol
+            )
           INDIVIDUAL =
             T.let(
               :individual,
-              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::OrSymbol
+              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
 
         class RoutingDetail < ModernTreasury::BaseModel
@@ -1549,108 +1637,121 @@ module ModernTreasury
             ABA =
               T.let(
                 :aba,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             AU_BSB =
               T.let(
                 :au_bsb,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             BR_CODIGO =
               T.let(
                 :br_codigo,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             CA_CPA =
               T.let(
                 :ca_cpa,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             CHIPS =
               T.let(
                 :chips,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             CNAPS =
               T.let(
                 :cnaps,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             DK_INTERBANK_CLEARING_CODE =
               T.let(
                 :dk_interbank_clearing_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             GB_SORT_CODE =
               T.let(
                 :gb_sort_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             HK_INTERBANK_CLEARING_CODE =
               T.let(
                 :hk_interbank_clearing_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             HU_INTERBANK_CLEARING_CODE =
               T.let(
                 :hu_interbank_clearing_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             ID_SKNBI_CODE =
               T.let(
                 :id_sknbi_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             IN_IFSC =
               T.let(
                 :in_ifsc,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             JP_ZENGIN_CODE =
               T.let(
                 :jp_zengin_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             MY_BRANCH_CODE =
               T.let(
                 :my_branch_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             MX_BANK_IDENTIFIER =
               T.let(
                 :mx_bank_identifier,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             NZ_NATIONAL_CLEARING_CODE =
               T.let(
                 :nz_national_clearing_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             PL_NATIONAL_CLEARING_CODE =
               T.let(
                 :pl_national_clearing_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             SE_BANKGIRO_CLEARING_CODE =
               T.let(
                 :se_bankgiro_clearing_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             SG_INTERBANK_CLEARING_CODE =
               T.let(
                 :sg_interbank_clearing_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             SWIFT =
               T.let(
                 :swift,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             ZA_NATIONAL_CLEARING_CODE =
               T.let(
                 :za_national_clearing_code,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
 
           module PaymentType
@@ -1671,153 +1772,166 @@ module ModernTreasury
             ACH =
               T.let(
                 :ach,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             AU_BECS =
               T.let(
                 :au_becs,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             BACS =
               T.let(
                 :bacs,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             BOOK =
               T.let(
                 :book,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             CARD =
               T.let(
                 :card,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             CHATS =
               T.let(
                 :chats,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             CHECK =
               T.let(
                 :check,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             CROSS_BORDER =
               T.let(
                 :cross_border,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             DK_NETS =
               T.let(
                 :dk_nets,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             EFT =
               T.let(
                 :eft,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             HU_ICS =
               T.let(
                 :hu_ics,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             INTERAC =
               T.let(
                 :interac,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             MASAV =
               T.let(
                 :masav,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             MX_CCEN =
               T.let(
                 :mx_ccen,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             NEFT =
               T.let(
                 :neft,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             NICS =
               T.let(
                 :nics,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             NZ_BECS =
               T.let(
                 :nz_becs,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             PL_ELIXIR =
               T.let(
                 :pl_elixir,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             PROVXCHANGE =
               T.let(
                 :provxchange,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             RO_SENT =
               T.let(
                 :ro_sent,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             RTP =
               T.let(
                 :rtp,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SE_BANKGIROT =
               T.let(
                 :se_bankgirot,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SEN =
               T.let(
                 :sen,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SEPA =
               T.let(
                 :sepa,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SG_GIRO =
               T.let(
                 :sg_giro,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SIC =
               T.let(
                 :sic,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SIGNET =
               T.let(
                 :signet,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             SKNBI =
               T.let(
                 :sknbi,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             WIRE =
               T.let(
                 :wire,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
             ZENGIN =
               T.let(
                 :zengin,
-                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::OrSymbol
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
         end
       end
@@ -1832,18 +1946,24 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol) }
 
-        APPROVED = T.let(:approved, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        DENIED = T.let(:denied, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
+        APPROVED = T.let(:approved, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        DENIED = T.let(:denied, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
         NEEDS_APPROVAL =
-          T.let(:needs_approval, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        PENDING = T.let(:pending, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        PROCESSING = T.let(:processing, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        RETURNED = T.let(:returned, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        REVERSED = T.let(:reversed, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
-        SENT = T.let(:sent, ModernTreasury::Models::PaymentOrderUpdateParams::Status::OrSymbol)
+          T.let(:needs_approval, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        PROCESSING = T.let(:processing, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        RETURNED = T.let(:returned, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        REVERSED = T.let(:reversed, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+        SENT = T.let(:sent, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

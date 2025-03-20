@@ -90,7 +90,7 @@ module ModernTreasury
         RECONCILED: :reconciled
         UNRECONCILED: :unreconciled
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentListParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentListParams::status]
       end
 
       type type_ =
@@ -159,7 +159,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentListParams::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentListParams::type_]
       end
     end
   end

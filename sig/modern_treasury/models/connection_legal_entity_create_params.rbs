@@ -213,7 +213,7 @@ module ModernTreasury
             PO_BOX: :po_box
             RESIDENTIAL: :residential
 
-            def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::address_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::address_type]
           end
         end
 
@@ -287,7 +287,7 @@ module ModernTreasury
             US_SSN: :us_ssn
             VN_TIN: :vn_tin
 
-            def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::id_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::id_type]
           end
         end
 
@@ -335,7 +335,7 @@ module ModernTreasury
             BENEFICIAL_OWNER: :beneficial_owner
             CONTROL_PERSON: :control_person
 
-            def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::relationship_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::relationship_type]
           end
 
           type child_legal_entity =
@@ -514,7 +514,7 @@ module ModernTreasury
                 PO_BOX: :po_box
                 RESIDENTIAL: :residential
 
-                def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]
+                def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]
               end
             end
 
@@ -588,7 +588,7 @@ module ModernTreasury
                 US_SSN: :us_ssn
                 VN_TIN: :vn_tin
 
-                def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type]
+                def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type]
               end
             end
 
@@ -600,7 +600,7 @@ module ModernTreasury
               BUSINESS: :business
               INDIVIDUAL: :individual
 
-              def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type]
+              def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type]
             end
 
             type legal_structure =
@@ -621,7 +621,7 @@ module ModernTreasury
               SOLE_PROPRIETORSHIP: :sole_proprietorship
               TRUST: :trust
 
-              def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure]
+              def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure]
             end
 
             type phone_number = { phone_number: String }
@@ -645,7 +645,7 @@ module ModernTreasury
               MEDIUM: :medium
               HIGH: :high
 
-              def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating]
+              def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating]
             end
           end
         end
@@ -658,7 +658,7 @@ module ModernTreasury
           BUSINESS: :business
           INDIVIDUAL: :individual
 
-          def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_type]
         end
 
         type legal_structure =
@@ -679,7 +679,7 @@ module ModernTreasury
           SOLE_PROPRIETORSHIP: :sole_proprietorship
           TRUST: :trust
 
-          def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_structure]
+          def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_structure]
         end
 
         type phone_number = { phone_number: String }
@@ -703,7 +703,7 @@ module ModernTreasury
           MEDIUM: :medium
           HIGH: :high
 
-          def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating]
+          def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::risk_rating]
         end
       end
     end

@@ -102,10 +102,20 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol) }
 
         PAYMENT_ORDER =
-          T.let(:payment_order, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
-        RETURN = T.let(:return, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
+          T.let(:payment_order, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol)
+        RETURN =
+          T.let(:return, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol)
         REVERSAL =
-          T.let(:reversal, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
+          T.let(:reversal, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
     end
   end

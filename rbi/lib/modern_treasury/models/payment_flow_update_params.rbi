@@ -50,7 +50,13 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status::TaggedSymbol) }
 
-        CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentFlowUpdateParams::Status::OrSymbol)
+        CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentFlowUpdateParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlowUpdateParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

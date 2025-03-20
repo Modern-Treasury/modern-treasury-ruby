@@ -50,7 +50,7 @@ module ModernTreasury
           DATE_EARLIER_THAN_INTENDED: :date_earlier_than_intended
           DATE_LATER_THAN_INTENDED: :date_later_than_intended
 
-          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::reason]
         end
 
         type ledger_transaction =
@@ -184,7 +184,7 @@ module ModernTreasury
             RETURN: :return
             REVERSAL: :reversal
 
-            def self.values: -> ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::ledgerable_type]
           end
 
           type status = :archived | :pending | :posted
@@ -196,7 +196,7 @@ module ModernTreasury
             PENDING: :pending
             POSTED: :posted
 
-            def self.values: -> ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::status]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::status]
           end
         end
       end

@@ -218,8 +218,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol) }
 
-        BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol)
-        INDIVIDUAL = T.let(:individual, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol)
+        BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol)
+        INDIVIDUAL =
+          T.let(:individual, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

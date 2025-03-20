@@ -117,9 +117,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol) }
 
-        CREATE = T.let(:create, ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
-        UPDATE = T.let(:update, ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
-        DELETE = T.let(:delete, ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
+        CREATE = T.let(:create, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
+        UPDATE = T.let(:update, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
+        DELETE = T.let(:delete, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -132,12 +138,19 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol) }
 
         PAYMENT_ORDER =
-          T.let(:payment_order, ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
+          T.let(:payment_order, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
         LEDGER_TRANSACTION =
-          T.let(:ledger_transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
-        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
+          T.let(:ledger_transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+        TRANSACTION =
+          T.let(:transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
         EXPECTED_PAYMENT =
-          T.let(:expected_payment, ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
+          T.let(:expected_payment, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of pending, processing, or completed.
@@ -148,9 +161,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol) }
 
-        PENDING = T.let(:pending, ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
-        PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
-        COMPLETED = T.let(:completed, ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)
+        PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)
+        COMPLETED = T.let(:completed, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

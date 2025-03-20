@@ -73,7 +73,7 @@ module ModernTreasury
         ESP: :ESP
         GBR: :GBR
 
-        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
+        def self?.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::receiving_country]
       end
     end
   end

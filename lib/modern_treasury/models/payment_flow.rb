@@ -235,6 +235,12 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
@@ -246,6 +252,12 @@ module ModernTreasury
         VERIFIED = :verified
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # When `enabled`, your end-user can select from an existing external account when
@@ -258,6 +270,12 @@ module ModernTreasury
         ENABLED = :enabled
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The current status of the payment flow. One of `pending`, `completed`,
@@ -271,6 +289,12 @@ module ModernTreasury
         PENDING = :pending
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

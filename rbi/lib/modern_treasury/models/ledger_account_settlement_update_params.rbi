@@ -74,9 +74,19 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol) }
 
-        POSTED = T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)
+        POSTED =
+          T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol)
         ARCHIVED =
-          T.let(:archived, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)
+          T.let(:archived, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
     end
   end

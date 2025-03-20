@@ -285,6 +285,12 @@ module ModernTreasury
           T.let(:payment_order, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
         RETURN = T.let(:return, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
         REVERSAL = T.let(:reversal, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # To post a ledger transaction at creation, use `posted`.
@@ -298,6 +304,12 @@ module ModernTreasury
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

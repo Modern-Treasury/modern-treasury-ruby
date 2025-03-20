@@ -500,6 +500,12 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
         OTHER = T.let(:other, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::Transaction::Type::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
@@ -537,6 +543,12 @@ module ModernTreasury
         SWIFT = T.let(:swift, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         US_BANK = T.let(:us_bank, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         USER = T.let(:user, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

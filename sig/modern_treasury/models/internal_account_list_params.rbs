@@ -133,7 +133,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> ::Array[ModernTreasury::Models::InternalAccountListParams::payment_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountListParams::payment_type]
       end
     end
   end

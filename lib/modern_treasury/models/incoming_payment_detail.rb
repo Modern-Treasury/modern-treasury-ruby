@@ -239,6 +239,12 @@ module ModernTreasury
         WALLET_ADDRESS = :wallet_address
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The type of the originating routing number for the incoming payment detail.
@@ -268,6 +274,12 @@ module ModernTreasury
         ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
@@ -280,6 +292,12 @@ module ModernTreasury
         RETURNED = :returned
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
@@ -298,6 +316,12 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

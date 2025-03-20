@@ -117,8 +117,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol) }
 
-        CREDIT = T.let(:credit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol)
-        DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol)
+        CREDIT = T.let(:credit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

@@ -111,7 +111,7 @@ module ModernTreasury
           CUSTOMER: :customer
           VENDOR: :vendor
 
-          def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_]
+          def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Accounting::type_]
         end
       end
 
@@ -253,7 +253,7 @@ module ModernTreasury
             SG_NUMBER: :sg_number
             WALLET_ADDRESS: :wallet_address
 
-            def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::account_number_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::account_number_type]
           end
         end
 
@@ -290,7 +290,7 @@ module ModernTreasury
             PHONE_NUMBER: :phone_number
             WEBSITE: :website
 
-            def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::contact_identifier_type]
           end
         end
 
@@ -368,7 +368,7 @@ module ModernTreasury
             INTERNAL_ACCOUNT: :internal_account
             VIRTUAL_ACCOUNT: :virtual_account
 
-            def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::ledgerable_type]
           end
         end
 
@@ -415,7 +415,7 @@ module ModernTreasury
           BUSINESS: :business
           INDIVIDUAL: :individual
 
-          def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::party_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::party_type]
         end
 
         type routing_detail =
@@ -492,7 +492,7 @@ module ModernTreasury
             SWIFT: :swift
             ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-            def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::routing_number_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::routing_number_type]
           end
 
           type payment_type =
@@ -561,7 +561,7 @@ module ModernTreasury
             WIRE: :wire
             ZENGIN: :zengin
 
-            def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::payment_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::payment_type]
           end
         end
       end
@@ -574,7 +574,7 @@ module ModernTreasury
         CUSTOMER: :customer
         VENDOR: :vendor
 
-        def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::ledger_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::ledger_type]
       end
 
       type legal_entity =
@@ -707,7 +707,7 @@ module ModernTreasury
           BUSINESS: :business
           INDIVIDUAL: :individual
 
-          def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_entity_type]
         end
 
         type address =
@@ -764,7 +764,7 @@ module ModernTreasury
             PO_BOX: :po_box
             RESIDENTIAL: :residential
 
-            def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::address_type]
           end
         end
 
@@ -838,7 +838,7 @@ module ModernTreasury
             US_SSN: :us_ssn
             VN_TIN: :vn_tin
 
-            def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::id_type]
           end
         end
 
@@ -886,7 +886,7 @@ module ModernTreasury
             BENEFICIAL_OWNER: :beneficial_owner
             CONTROL_PERSON: :control_person
 
-            def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::relationship_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::relationship_type]
           end
 
           type child_legal_entity =
@@ -1065,7 +1065,7 @@ module ModernTreasury
                 PO_BOX: :po_box
                 RESIDENTIAL: :residential
 
-                def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]
+                def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::address_type]
               end
             end
 
@@ -1139,7 +1139,7 @@ module ModernTreasury
                 US_SSN: :us_ssn
                 VN_TIN: :vn_tin
 
-                def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type]
+                def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::id_type]
               end
             end
 
@@ -1151,7 +1151,7 @@ module ModernTreasury
               BUSINESS: :business
               INDIVIDUAL: :individual
 
-              def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type]
+              def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type]
             end
 
             type legal_structure =
@@ -1172,7 +1172,7 @@ module ModernTreasury
               SOLE_PROPRIETORSHIP: :sole_proprietorship
               TRUST: :trust
 
-              def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure]
+              def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure]
             end
 
             type phone_number = { phone_number: String }
@@ -1196,7 +1196,7 @@ module ModernTreasury
               MEDIUM: :medium
               HIGH: :high
 
-              def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating]
+              def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::risk_rating]
             end
           end
         end
@@ -1219,7 +1219,7 @@ module ModernTreasury
           SOLE_PROPRIETORSHIP: :sole_proprietorship
           TRUST: :trust
 
-          def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure]
+          def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::legal_structure]
         end
 
         type phone_number = { phone_number: String }
@@ -1243,7 +1243,7 @@ module ModernTreasury
           MEDIUM: :medium
           HIGH: :high
 
-          def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating]
+          def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::risk_rating]
         end
       end
 
@@ -1258,7 +1258,7 @@ module ModernTreasury
         UNVERIFIED: :unverified
         VERIFIED: :verified
 
-        def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::verification_status]
+        def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCreateParams::verification_status]
       end
     end
   end

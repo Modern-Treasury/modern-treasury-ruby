@@ -58,6 +58,12 @@ module ModernTreasury
         DELETE = :delete
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -70,6 +76,12 @@ module ModernTreasury
         EXPECTED_PAYMENT = :expected_payment
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       module Resource
@@ -509,6 +521,12 @@ module ModernTreasury
             DEBIT = :debit
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           class Accounting < ModernTreasury::BaseModel
@@ -547,6 +565,12 @@ module ModernTreasury
             RECEIVER = :receiver
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           # A payment type to fallback to if the original type is not valid for the
@@ -558,6 +582,12 @@ module ModernTreasury
             ACH = :ach
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           # Indicates the type of FX transfer to initiate, can be either
@@ -570,6 +600,12 @@ module ModernTreasury
             VARIABLE_TO_FIXED = :variable_to_fixed
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           class LedgerTransaction < ModernTreasury::BaseModel
@@ -821,6 +857,12 @@ module ModernTreasury
               REVERSAL = :reversal
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
 
             # To post a ledger transaction at creation, use `posted`.
@@ -832,6 +874,12 @@ module ModernTreasury
               POSTED = :posted
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
           end
 
@@ -888,6 +936,12 @@ module ModernTreasury
             NORMAL = :normal
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           class ReceivingAccount < ModernTreasury::BaseModel
@@ -1102,6 +1156,12 @@ module ModernTreasury
                 WALLET_ADDRESS = :wallet_address
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
 
@@ -1141,6 +1201,12 @@ module ModernTreasury
                 WEBSITE = :website
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
 
@@ -1275,6 +1341,12 @@ module ModernTreasury
                 VIRTUAL_ACCOUNT = :virtual_account
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
 
@@ -1336,6 +1408,12 @@ module ModernTreasury
               INDIVIDUAL = :individual
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
 
             class RoutingDetail < ModernTreasury::BaseModel
@@ -1395,6 +1473,12 @@ module ModernTreasury
                 ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
 
               module PaymentType
@@ -1432,6 +1516,12 @@ module ModernTreasury
                 ZENGIN = :zengin
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
           end
@@ -1646,6 +1736,12 @@ module ModernTreasury
             DEBIT = :debit
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           class LedgerTransaction < ModernTreasury::BaseModel
@@ -1897,6 +1993,12 @@ module ModernTreasury
               REVERSAL = :reversal
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
 
             # To post a ledger transaction at creation, use `posted`.
@@ -1908,6 +2010,12 @@ module ModernTreasury
               POSTED = :posted
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
           end
 
@@ -2195,6 +2303,12 @@ module ModernTreasury
             REVERSAL = :reversal
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           # To post a ledger transaction at creation, use `posted`.
@@ -2206,6 +2320,12 @@ module ModernTreasury
             POSTED = :posted
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -2356,6 +2476,12 @@ module ModernTreasury
             OTHER = :other
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -2832,6 +2958,12 @@ module ModernTreasury
             RECEIVER = :receiver
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -2845,6 +2977,12 @@ module ModernTreasury
             DEBIT = :debit
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           # A payment type to fallback to if the original type is not valid for the
@@ -2856,6 +2994,12 @@ module ModernTreasury
             ACH = :ach
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           # Indicates the type of FX transfer to initiate, can be either
@@ -2868,6 +3012,12 @@ module ModernTreasury
             VARIABLE_TO_FIXED = :variable_to_fixed
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           class LineItem < ModernTreasury::BaseModel
@@ -2923,6 +3073,12 @@ module ModernTreasury
             NORMAL = :normal
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           class ReceivingAccount < ModernTreasury::BaseModel
@@ -3137,6 +3293,12 @@ module ModernTreasury
                 WALLET_ADDRESS = :wallet_address
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
 
@@ -3176,6 +3338,12 @@ module ModernTreasury
                 WEBSITE = :website
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
 
@@ -3310,6 +3478,12 @@ module ModernTreasury
                 VIRTUAL_ACCOUNT = :virtual_account
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
 
@@ -3371,6 +3545,12 @@ module ModernTreasury
               INDIVIDUAL = :individual
 
               finalize!
+
+              class << self
+                # @!parse
+                #   # @return [Array<Symbol>]
+                #   def values; end
+              end
             end
 
             class RoutingDetail < ModernTreasury::BaseModel
@@ -3430,6 +3610,12 @@ module ModernTreasury
                 ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
 
               module PaymentType
@@ -3467,6 +3653,12 @@ module ModernTreasury
                 ZENGIN = :zengin
 
                 finalize!
+
+                class << self
+                  # @!parse
+                  #   # @return [Array<Symbol>]
+                  #   def values; end
+                end
               end
             end
           end
@@ -3490,6 +3682,12 @@ module ModernTreasury
             SENT = :sent
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -3681,6 +3879,12 @@ module ModernTreasury
             DEBIT = :debit
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           # The Expected Payment's status can be updated from partially_reconciled to
@@ -3691,6 +3895,12 @@ module ModernTreasury
             RECONCILED = :reconciled
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 
@@ -3957,6 +4167,12 @@ module ModernTreasury
             REVERSAL = :reversal
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
 
           # To post a ledger transaction at creation, use `posted`.
@@ -3968,6 +4184,12 @@ module ModernTreasury
             POSTED = :posted
 
             finalize!
+
+            class << self
+              # @!parse
+              #   # @return [Array<Symbol>]
+              #   def values; end
+            end
           end
         end
 

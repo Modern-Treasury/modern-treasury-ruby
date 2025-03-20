@@ -82,7 +82,7 @@ module ModernTreasury
         ACH: :ach
         WIRE: :wire
 
-        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::payment_type]
       end
 
       type receiving_country =
@@ -127,7 +127,7 @@ module ModernTreasury
         ESP: :ESP
         GBR: :GBR
 
-        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
+        def self?.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::receiving_country]
       end
 
       type status = :cancelled | :completed | :expired | :pending
@@ -140,7 +140,7 @@ module ModernTreasury
         EXPIRED: :expired
         PENDING: :pending
 
-        def self.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::AccountCollectionFlow::status]
       end
     end
   end
