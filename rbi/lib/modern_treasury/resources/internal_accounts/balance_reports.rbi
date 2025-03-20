@@ -10,7 +10,7 @@ module ModernTreasury
             internal_account_id: String,
             as_of_date: Date,
             as_of_time: String,
-            balance_report_type: Symbol,
+            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
             balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           )
@@ -55,7 +55,7 @@ module ModernTreasury
             internal_account_id: String,
             after_cursor: T.nilable(String),
             as_of_date: Date,
-            balance_report_type: Symbol,
+            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
             per_page: Integer,
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           )

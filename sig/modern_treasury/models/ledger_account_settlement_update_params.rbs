@@ -35,7 +35,9 @@ module ModernTreasury
 
       type status = :posted | :archived
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         POSTED: :posted
         ARCHIVED: :archived
 

@@ -45,11 +45,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         POSTED = :posted
         ARCHIVED = :archived
 

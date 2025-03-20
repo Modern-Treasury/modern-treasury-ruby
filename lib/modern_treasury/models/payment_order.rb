@@ -489,12 +489,12 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # The party that will pay the fees for the payment order. Only applies to wire
       #   payment orders. Can be one of shared, sender, or receiver, which correspond
       #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
-      class ChargeBearer < ModernTreasury::Enum
+      module ChargeBearer
+        extend ModernTreasury::Enum
+
         SHARED = :shared
         SENDER = :sender
         RECEIVER = :receiver
@@ -502,25 +502,25 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # One of `credit`, `debit`. Describes the direction money is flowing in the
       #   transaction. A `credit` moves money from your account to someone else's. A
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT = :credit
         DEBIT = :debit
 
         finalize!
       end
 
-      # @abstract
-      #
       # Indicates the type of FX transfer to initiate, can be either
       #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   currency matches the originating account currency.
-      class ForeignExchangeIndicator < ModernTreasury::Enum
+      module ForeignExchangeIndicator
+        extend ModernTreasury::Enum
+
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
 
@@ -590,20 +590,21 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
-      class Priority < ModernTreasury::Enum
+      module Priority
+        extend ModernTreasury::Enum
+
         HIGH = :high
         NORMAL = :normal
 
         finalize!
       end
 
-      # @abstract
-      class ReceivingAccountType < ModernTreasury::Enum
+      module ReceivingAccountType
+        extend ModernTreasury::Enum
+
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
 
@@ -664,10 +665,10 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # The type of the reference number. Referring to the vendor payment id.
-        class ReferenceNumberType < ModernTreasury::Enum
+        module ReferenceNumberType
+          extend ModernTreasury::Enum
+
           ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
           ACH_TRACE_NUMBER = :ach_trace_number
           BANKPROV_PAYMENT_ACTIVITY_DATE = :bankprov_payment_activity_date
@@ -745,10 +746,10 @@ module ModernTreasury
         end
       end
 
-      # @abstract
-      #
       # The current status of the payment order.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         APPROVED = :approved
         CANCELLED = :cancelled
         COMPLETED = :completed
@@ -764,11 +765,11 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The account to which the originating of this payment should be attributed to.
       #   Can be a `virtual_account` or `internal_account`.
-      class UltimateOriginatingAccount < ModernTreasury::Union
+      module UltimateOriginatingAccount
+        extend ModernTreasury::Union
+
         variant -> { ModernTreasury::Models::VirtualAccount }
 
         variant -> { ModernTreasury::Models::InternalAccount }
@@ -780,8 +781,9 @@ module ModernTreasury
         #   end
       end
 
-      # @abstract
-      class UltimateOriginatingAccountType < ModernTreasury::Enum
+      module UltimateOriginatingAccountType
+        extend ModernTreasury::Enum
+
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account
 

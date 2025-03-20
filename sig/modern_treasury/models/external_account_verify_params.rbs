@@ -79,7 +79,9 @@ module ModernTreasury
         | :wire
         | :zengin
 
-      class PaymentType < ModernTreasury::Enum
+      module PaymentType
+        extend ModernTreasury::Enum
+
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs
@@ -116,7 +118,9 @@ module ModernTreasury
 
       type fallback_type = :ach
 
-      class FallbackType < ModernTreasury::Enum
+      module FallbackType
+        extend ModernTreasury::Enum
+
         ACH: :ach
 
         def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type]
@@ -124,7 +128,9 @@ module ModernTreasury
 
       type priority = :high | :normal
 
-      class Priority < ModernTreasury::Enum
+      module Priority
+        extend ModernTreasury::Enum
+
         HIGH: :high
         NORMAL: :normal
 

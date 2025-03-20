@@ -6,11 +6,14 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol) }
       def itemizable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol)
+          .returns(ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol)
+      end
       def itemizable_type=(_)
       end
 
@@ -24,7 +27,7 @@ module ModernTreasury
 
       sig do
         params(
-          itemizable_type: Symbol,
+          itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol,
           itemizable_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
@@ -35,22 +38,29 @@ module ModernTreasury
 
       sig do
         override
-          .returns({
-                     itemizable_type: Symbol,
-                     itemizable_id: String,
-                     request_options: ModernTreasury::RequestOptions
-                   })
+          .returns(
+            {
+              itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol,
+              itemizable_id: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
 
-      class ItemizableType < ModernTreasury::Enum
-        abstract!
+      module ItemizableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::TaggedSymbol) }
 
-        EXPECTED_PAYMENTS = :expected_payments
-        PAYMENT_ORDERS = :payment_orders
+        EXPECTED_PAYMENTS =
+          T.let(:expected_payments, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol)
+        PAYMENT_ORDERS =
+          T.let(:payment_orders, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol)
       end
     end
   end

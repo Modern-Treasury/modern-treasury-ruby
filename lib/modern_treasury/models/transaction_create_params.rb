@@ -115,11 +115,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs

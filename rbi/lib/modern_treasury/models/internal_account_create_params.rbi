@@ -17,11 +17,14 @@ module ModernTreasury
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol) }
       def currency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol)
+          .returns(ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol)
+      end
       def currency=(_)
       end
 
@@ -95,7 +98,7 @@ module ModernTreasury
       sig do
         params(
           connection_id: String,
-          currency: Symbol,
+          currency: ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           party_name: String,
           counterparty_id: String,
@@ -126,7 +129,7 @@ module ModernTreasury
           .returns(
             {
               connection_id: String,
-              currency: Symbol,
+              currency: ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol,
               name: String,
               party_name: String,
               counterparty_id: String,
@@ -143,13 +146,16 @@ module ModernTreasury
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
-      class Currency < ModernTreasury::Enum
-        abstract!
+      module Currency
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol) }
 
-        USD = :USD
-        CAD = :CAD
+        USD = T.let(:USD, ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol)
+        CAD = T.let(:CAD, ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol)
       end
 
       class PartyAddress < ModernTreasury::BaseModel

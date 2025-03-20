@@ -37,11 +37,14 @@ module ModernTreasury
       # If true, response will include ledger entries that were deleted. When you update
       #   a ledger transaction to specify a new set of entries, the previous entries are
       #   deleted.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::TransactionDirection::OrSymbol)) }
       def direction
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
+          .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
+      end
       def direction=(_)
       end
 
@@ -184,11 +187,14 @@ module ModernTreasury
 
       # Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
@@ -208,7 +214,7 @@ module ModernTreasury
           id: T::Array[String],
           after_cursor: T.nilable(String),
           as_of_lock_version: Integer,
-          direction: Symbol,
+          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           effective_at: T::Hash[Symbol, Time],
           effective_date: T::Hash[Symbol, Date],
           ledger_account_category_id: String,
@@ -223,7 +229,7 @@ module ModernTreasury
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
-          status: Symbol,
+          status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
@@ -261,7 +267,7 @@ module ModernTreasury
               id: T::Array[String],
               after_cursor: T.nilable(String),
               as_of_lock_version: Integer,
-              direction: Symbol,
+              direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
               effective_at: T::Hash[Symbol, Time],
               effective_date: T::Hash[Symbol, Date],
               ledger_account_category_id: String,
@@ -276,7 +282,7 @@ module ModernTreasury
               per_page: Integer,
               show_balances: T::Boolean,
               show_deleted: T::Boolean,
-              status: Symbol,
+              status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
               updated_at: T::Hash[Symbol, Time],
               request_options: ModernTreasury::RequestOptions
             }
@@ -286,62 +292,90 @@ module ModernTreasury
       end
 
       class OrderBy < ModernTreasury::BaseModel
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)) }
         def created_at
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)
+            .returns(ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)
+        end
         def created_at=(_)
         end
 
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol)) }
         def effective_at
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol)
+            .returns(ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol)
+        end
         def effective_at=(_)
         end
 
         # Order by `created_at` or `effective_at` in `asc` or `desc` order. For example,
         #   to order by `effective_at asc`, use `order_by%5Beffective_at%5D=asc`. Ordering
         #   by only one field at a time is supported.
-        sig { params(created_at: Symbol, effective_at: Symbol).returns(T.attached_class) }
+        sig do
+          params(
+            created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol,
+            effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol
+          )
+            .returns(T.attached_class)
+        end
         def self.new(created_at: nil, effective_at: nil)
         end
 
-        sig { override.returns({created_at: Symbol, effective_at: Symbol}) }
+        sig do
+          override
+            .returns(
+              {
+                created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol,
+                effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol
+              }
+            )
+        end
         def to_hash
         end
 
-        class CreatedAt < ModernTreasury::Enum
-          abstract!
+        module CreatedAt
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol) }
 
-          ASC = :asc
-          DESC = :desc
+          ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)
+          DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)
         end
 
-        class EffectiveAt < ModernTreasury::Enum
-          abstract!
+        module EffectiveAt
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol) }
 
-          ASC = :asc
-          DESC = :desc
+          ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol)
+          DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol)
         end
       end
 
       # Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol) }
 
-        PENDING = :pending
-        POSTED = :posted
-        ARCHIVED = :archived
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)
       end
     end
   end

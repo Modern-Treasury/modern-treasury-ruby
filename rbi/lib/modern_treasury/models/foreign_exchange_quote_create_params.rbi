@@ -16,11 +16,11 @@ module ModernTreasury
       end
 
       # Currency to convert the `base_currency` to, often called the "buy" currency.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::Currency::OrSymbol) }
       def target_currency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig { params(_: ModernTreasury::Models::Currency::OrSymbol).returns(ModernTreasury::Models::Currency::OrSymbol) }
       def target_currency=(_)
       end
 
@@ -35,11 +35,11 @@ module ModernTreasury
       end
 
       # Currency to convert, often called the "sell" currency.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
       def base_currency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig { params(_: ModernTreasury::Models::Currency::OrSymbol).returns(ModernTreasury::Models::Currency::OrSymbol) }
       def base_currency=(_)
       end
 
@@ -65,9 +65,9 @@ module ModernTreasury
       sig do
         params(
           internal_account_id: String,
-          target_currency: Symbol,
+          target_currency: ModernTreasury::Models::Currency::OrSymbol,
           base_amount: Integer,
-          base_currency: Symbol,
+          base_currency: ModernTreasury::Models::Currency::OrSymbol,
           effective_at: Time,
           target_amount: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
@@ -90,9 +90,9 @@ module ModernTreasury
           .returns(
             {
               internal_account_id: String,
-              target_currency: Symbol,
+              target_currency: ModernTreasury::Models::Currency::OrSymbol,
               base_amount: Integer,
-              base_currency: Symbol,
+              base_currency: ModernTreasury::Models::Currency::OrSymbol,
               effective_at: Time,
               target_amount: Integer,
               request_options: ModernTreasury::RequestOptions

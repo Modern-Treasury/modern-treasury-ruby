@@ -2,13 +2,14 @@
 
 module ModernTreasury
   module Models
-    class AccountsType < ModernTreasury::Enum
-      abstract!
+    module AccountsType
+      extend ModernTreasury::Enum
 
-      Value = type_template(:out) { {fixed: Symbol} }
+      TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountsType) }
+      OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountsType::TaggedSymbol) }
 
-      EXTERNAL_ACCOUNTS = :external_accounts
-      INTERNAL_ACCOUNTS = :internal_accounts
+      EXTERNAL_ACCOUNTS = T.let(:external_accounts, ModernTreasury::Models::AccountsType::OrSymbol)
+      INTERNAL_ACCOUNTS = T.let(:internal_accounts, ModernTreasury::Models::AccountsType::OrSymbol)
     end
   end
 end

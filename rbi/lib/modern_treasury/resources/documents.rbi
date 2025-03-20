@@ -7,7 +7,7 @@ module ModernTreasury
       sig do
         params(
           documentable_id: String,
-          documentable_type: Symbol,
+          documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
           file: T.any(IO, StringIO),
           document_type: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
@@ -45,7 +45,7 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           documentable_id: String,
-          documentable_type: Symbol,
+          documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )

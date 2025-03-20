@@ -19,18 +19,21 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol) }
       def routing_number_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
+          .returns(ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
+      end
       def routing_number_type=(_)
       end
 
       sig do
         params(
           routing_number: String,
-          routing_number_type: Symbol,
+          routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -43,7 +46,7 @@ module ModernTreasury
           .returns(
             {
               routing_number: String,
-              routing_number_type: Symbol,
+              routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -55,32 +58,106 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
-      class RoutingNumberType < ModernTreasury::Enum
-        abstract!
+      module RoutingNumberType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType) }
+        OrSymbol =
+          T.type_alias do
+            T.any(
+              Symbol,
+              ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol
+            )
+          end
 
-        ABA = :aba
-        AU_BSB = :au_bsb
-        BR_CODIGO = :br_codigo
-        CA_CPA = :ca_cpa
-        CHIPS = :chips
-        CNAPS = :cnaps
-        DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
-        GB_SORT_CODE = :gb_sort_code
-        HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
-        HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
-        ID_SKNBI_CODE = :id_sknbi_code
-        IN_IFSC = :in_ifsc
-        JP_ZENGIN_CODE = :jp_zengin_code
-        MX_BANK_IDENTIFIER = :mx_bank_identifier
-        MY_BRANCH_CODE = :my_branch_code
-        NZ_NATIONAL_CLEARING_CODE = :nz_national_clearing_code
-        PL_NATIONAL_CLEARING_CODE = :pl_national_clearing_code
-        SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
-        SG_INTERBANK_CLEARING_CODE = :sg_interbank_clearing_code
-        SWIFT = :swift
-        ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+        ABA =
+          T.let(:aba, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
+        AU_BSB =
+          T.let(:au_bsb, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
+        BR_CODIGO =
+          T.let(
+            :br_codigo,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        CA_CPA =
+          T.let(:ca_cpa, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
+        CHIPS =
+          T.let(:chips, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
+        CNAPS =
+          T.let(:cnaps, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
+        DK_INTERBANK_CLEARING_CODE =
+          T.let(
+            :dk_interbank_clearing_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        GB_SORT_CODE =
+          T.let(
+            :gb_sort_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        HK_INTERBANK_CLEARING_CODE =
+          T.let(
+            :hk_interbank_clearing_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        HU_INTERBANK_CLEARING_CODE =
+          T.let(
+            :hu_interbank_clearing_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        ID_SKNBI_CODE =
+          T.let(
+            :id_sknbi_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        IN_IFSC =
+          T.let(
+            :in_ifsc,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        JP_ZENGIN_CODE =
+          T.let(
+            :jp_zengin_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        MX_BANK_IDENTIFIER =
+          T.let(
+            :mx_bank_identifier,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        MY_BRANCH_CODE =
+          T.let(
+            :my_branch_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        NZ_NATIONAL_CLEARING_CODE =
+          T.let(
+            :nz_national_clearing_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        PL_NATIONAL_CLEARING_CODE =
+          T.let(
+            :pl_national_clearing_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        SE_BANKGIRO_CLEARING_CODE =
+          T.let(
+            :se_bankgiro_clearing_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        SG_INTERBANK_CLEARING_CODE =
+          T.let(
+            :sg_interbank_clearing_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
+        SWIFT =
+          T.let(:swift, ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
+        ZA_NATIONAL_CLEARING_CODE =
+          T.let(
+            :za_national_clearing_code,
+            ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol
+          )
       end
     end
   end

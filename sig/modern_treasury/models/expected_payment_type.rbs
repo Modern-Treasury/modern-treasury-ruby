@@ -32,7 +32,9 @@ module ModernTreasury
       | :wire
       | :zengin
 
-    class ExpectedPaymentType < ModernTreasury::Enum
+    module ExpectedPaymentType
+      extend ModernTreasury::Enum
+
       ACH: :ach
       AU_BECS: :au_becs
       BACS: :bacs

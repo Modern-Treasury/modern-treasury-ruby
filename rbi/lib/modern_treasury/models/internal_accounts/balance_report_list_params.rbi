@@ -26,11 +26,18 @@ module ModernTreasury
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
-        sig { returns(T.nilable(Symbol)) }
+        sig do
+          returns(
+            T.nilable(ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol)
+          )
+        end
         def balance_report_type
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol)
+            .returns(ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol)
+        end
         def balance_report_type=(_)
         end
 
@@ -46,7 +53,7 @@ module ModernTreasury
           params(
             after_cursor: T.nilable(String),
             as_of_date: Date,
-            balance_report_type: Symbol,
+            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
             per_page: Integer,
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
@@ -61,7 +68,7 @@ module ModernTreasury
               {
                 after_cursor: T.nilable(String),
                 as_of_date: Date,
-                balance_report_type: Symbol,
+                balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
                 per_page: Integer,
                 request_options: ModernTreasury::RequestOptions
               }
@@ -72,15 +79,39 @@ module ModernTreasury
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
-        class BalanceReportType < ModernTreasury::Enum
-          abstract!
+        module BalanceReportType
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType) }
+          OrSymbol =
+            T.type_alias do
+              T.any(
+                Symbol,
+                ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol
+              )
+            end
 
-          INTRADAY = :intraday
-          OTHER = :other
-          PREVIOUS_DAY = :previous_day
-          REAL_TIME = :real_time
+          INTRADAY =
+            T.let(
+              :intraday,
+              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+            )
+          OTHER =
+            T.let(
+              :other,
+              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+            )
+          PREVIOUS_DAY =
+            T.let(
+              :previous_day,
+              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+            )
+          REAL_TIME =
+            T.let(
+              :real_time,
+              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+            )
         end
       end
     end

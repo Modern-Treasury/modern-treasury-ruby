@@ -53,11 +53,14 @@ module ModernTreasury
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)) }
       def returnable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
+          .returns(ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
+      end
       def returnable_type=(_)
       end
 
@@ -68,7 +71,7 @@ module ModernTreasury
           internal_account_id: String,
           per_page: Integer,
           returnable_id: String,
-          returnable_type: Symbol,
+          returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -93,7 +96,7 @@ module ModernTreasury
               internal_account_id: String,
               per_page: Integer,
               returnable_id: String,
-              returnable_type: Symbol,
+              returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -103,16 +106,19 @@ module ModernTreasury
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
-      class ReturnableType < ModernTreasury::Enum
-        abstract!
+      module ReturnableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol) }
 
-        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-        PAPER_ITEM = :paper_item
-        PAYMENT_ORDER = :payment_order
-        RETURN = :return
-        REVERSAL = :reversal
+        INCOMING_PAYMENT_DETAIL =
+          T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
+        PAPER_ITEM = T.let(:paper_item, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
+        PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
+        RETURN = T.let(:return, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
+        REVERSAL = T.let(:reversal, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
       end
     end
   end

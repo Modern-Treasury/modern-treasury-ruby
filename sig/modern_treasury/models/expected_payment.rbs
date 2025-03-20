@@ -116,7 +116,9 @@ module ModernTreasury
 
       type direction = :credit | :debit
 
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT: :credit
         DEBIT: :debit
 
@@ -125,7 +127,9 @@ module ModernTreasury
 
       type reconciliation_method = :automatic | :manual
 
-      class ReconciliationMethod < ModernTreasury::Enum
+      module ReconciliationMethod
+        extend ModernTreasury::Enum
+
         AUTOMATIC: :automatic
         MANUAL: :manual
 
@@ -135,7 +139,9 @@ module ModernTreasury
       type status =
         :archived | :partially_reconciled | :reconciled | :unreconciled
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         ARCHIVED: :archived
         PARTIALLY_RECONCILED: :partially_reconciled
         RECONCILED: :reconciled

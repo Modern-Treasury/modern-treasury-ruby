@@ -113,11 +113,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
-      class Currency < ModernTreasury::Enum
+      module Currency
+        extend ModernTreasury::Enum
+
         USD = :USD
         CAD = :CAD
 

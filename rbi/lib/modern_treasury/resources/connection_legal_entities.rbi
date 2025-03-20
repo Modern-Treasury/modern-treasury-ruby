@@ -43,7 +43,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          status: Symbol,
+          status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::ConnectionLegalEntity)
@@ -64,7 +64,7 @@ module ModernTreasury
           connection_id: String,
           legal_entity_id: String,
           per_page: Integer,
-          status: Symbol,
+          status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::ConnectionLegalEntity])

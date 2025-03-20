@@ -10,13 +10,13 @@ module ModernTreasury
           accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
           accounts: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
           email: T.nilable(String),
-          ledger_type: Symbol,
+          ledger_type: ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol,
           legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
           legal_entity_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
-          verification_status: Symbol,
+          verification_status: ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::Counterparty)
@@ -156,9 +156,9 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          direction: Symbol,
+          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           custom_redirect: String,
-          fields: T::Array[Symbol],
+          fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
           send_email: T::Boolean,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )

@@ -2,11 +2,11 @@
 
 module ModernTreasury
   module Models
-    # @abstract
-    #
     # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
     #   sepa, signet, wire.
-    class ExpectedPaymentType < ModernTreasury::Enum
+    module ExpectedPaymentType
+      extend ModernTreasury::Enum
+
       ACH = :ach
       AU_BECS = :au_becs
       BACS = :bacs

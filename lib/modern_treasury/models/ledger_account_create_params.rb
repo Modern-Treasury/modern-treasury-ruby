@@ -120,12 +120,12 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # If the ledger account links to another object in Modern Treasury, the type will
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
-      class LedgerableType < ModernTreasury::Enum
+      module LedgerableType
+        extend ModernTreasury::Enum
+
         COUNTERPARTY = :counterparty
         EXTERNAL_ACCOUNT = :external_account
         INTERNAL_ACCOUNT = :internal_account

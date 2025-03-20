@@ -109,10 +109,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # One of create, or update.
-      class ActionType < ModernTreasury::Enum
+      module ActionType
+        extend ModernTreasury::Enum
+
         CREATE = :create
         UPDATE = :update
         DELETE = :delete
@@ -120,10 +120,10 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # One of payment_order, expected_payment, or ledger_transaction.
-      class ResourceType < ModernTreasury::Enum
+      module ResourceType
+        extend ModernTreasury::Enum
+
         PAYMENT_ORDER = :payment_order
         LEDGER_TRANSACTION = :ledger_transaction
         TRANSACTION = :transaction
@@ -132,10 +132,10 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # One of pending, processing, or completed.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         PENDING = :pending
         PROCESSING = :processing
         COMPLETED = :completed

@@ -96,7 +96,9 @@ module ModernTreasury
         | :overdraft
         | :savings
 
-      class AccountType < ModernTreasury::Enum
+      module AccountType
+        extend ModernTreasury::Enum
+
         CASH: :cash
         CHECKING: :checking
         GENERAL_LEDGER: :general_ledger
@@ -166,7 +168,9 @@ module ModernTreasury
 
       type party_type = :business | :individual
 
-      class PartyType < ModernTreasury::Enum
+      module PartyType
+        extend ModernTreasury::Enum
+
         BUSINESS: :business
         INDIVIDUAL: :individual
 

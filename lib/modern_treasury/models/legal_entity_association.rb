@@ -456,8 +456,9 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-          # @abstract
-          class AddressType < ModernTreasury::Enum
+          module AddressType
+            extend ModernTreasury::Enum
+
             BUSINESS = :business
             MAILING = :mailing
             OTHER = :other
@@ -529,10 +530,10 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-          # @abstract
-          #
           # The type of ID number.
-          class IDType < ModernTreasury::Enum
+          module IDType
+            extend ModernTreasury::Enum
+
             AR_CUIL = :ar_cuil
             AR_CUIT = :ar_cuit
             BR_CNPJ = :br_cnpj
@@ -559,10 +560,10 @@ module ModernTreasury
           end
         end
 
-        # @abstract
-        #
         # The type of legal entity.
-        class LegalEntityType < ModernTreasury::Enum
+        module LegalEntityType
+          extend ModernTreasury::Enum
+
           BUSINESS = :business
           INDIVIDUAL = :individual
           JOINT = :joint
@@ -570,10 +571,10 @@ module ModernTreasury
           finalize!
         end
 
-        # @abstract
-        #
         # The business's legal structure.
-        class LegalStructure < ModernTreasury::Enum
+        module LegalStructure
+          extend ModernTreasury::Enum
+
           CORPORATION = :corporation
           LLC = :llc
           NON_PROFIT = :non_profit
@@ -604,10 +605,10 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
-        # @abstract
-        #
         # The risk rating of the legal entity. One of low, medium, high.
-        class RiskRating < ModernTreasury::Enum
+        module RiskRating
+          extend ModernTreasury::Enum
+
           LOW = :low
           MEDIUM = :medium
           HIGH = :high
@@ -616,10 +617,10 @@ module ModernTreasury
         end
       end
 
-      # @abstract
-      #
       # A list of relationship types for how the child entity relates to parent entity.
-      class RelationshipType < ModernTreasury::Enum
+      module RelationshipType
+        extend ModernTreasury::Enum
+
         BENEFICIAL_OWNER = :beneficial_owner
         CONTROL_PERSON = :control_person
 

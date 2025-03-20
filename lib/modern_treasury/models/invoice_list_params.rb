@@ -142,8 +142,9 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         DRAFT = :draft
         PAID = :paid
         PARTIALLY_PAID = :partially_paid

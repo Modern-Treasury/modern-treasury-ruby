@@ -297,11 +297,11 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs
@@ -337,13 +337,13 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
-      class VendorCodeType < ModernTreasury::Enum
+      module VendorCodeType
+        extend ModernTreasury::Enum
+
         BAI2 = :bai2
         BANKING_CIRCLE = :banking_circle
         BANKPROV = :bankprov

@@ -59,11 +59,14 @@ module ModernTreasury
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::Document::DocumentableType::TaggedSymbol) }
       def documentable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+          .returns(ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+      end
       def documentable_type=(_)
       end
 
@@ -118,7 +121,7 @@ module ModernTreasury
           document_details: T::Array[ModernTreasury::Models::Document::DocumentDetail],
           document_type: T.nilable(String),
           documentable_id: String,
-          documentable_type: Symbol,
+          documentable_type: ModernTreasury::Models::Document::DocumentableType::TaggedSymbol,
           file: ModernTreasury::Models::Document::File,
           live_mode: T::Boolean,
           object: String,
@@ -153,7 +156,7 @@ module ModernTreasury
               document_details: T::Array[ModernTreasury::Models::Document::DocumentDetail],
               document_type: T.nilable(String),
               documentable_id: String,
-              documentable_type: Symbol,
+              documentable_type: ModernTreasury::Models::Document::DocumentableType::TaggedSymbol,
               file: ModernTreasury::Models::Document::File,
               live_mode: T::Boolean,
               object: String,
@@ -279,23 +282,29 @@ module ModernTreasury
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
-      class DocumentableType < ModernTreasury::Enum
-        abstract!
+      module DocumentableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Document::DocumentableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol) }
 
-        CASE = :case
-        COUNTERPARTY = :counterparty
-        EXPECTED_PAYMENT = :expected_payment
-        EXTERNAL_ACCOUNT = :external_account
-        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-        INTERNAL_ACCOUNT = :internal_account
-        ORGANIZATION = :organization
-        PAPER_ITEM = :paper_item
-        PAYMENT_ORDER = :payment_order
-        TRANSACTION = :transaction
-        DECISION = :decision
-        CONNECTION = :connection
+        CASE = T.let(:case, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        COUNTERPARTY = T.let(:counterparty, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        EXPECTED_PAYMENT =
+          T.let(:expected_payment, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        EXTERNAL_ACCOUNT =
+          T.let(:external_account, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        INCOMING_PAYMENT_DETAIL =
+          T.let(:incoming_payment_detail, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        INTERNAL_ACCOUNT =
+          T.let(:internal_account, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        ORGANIZATION = T.let(:organization, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        PAPER_ITEM = T.let(:paper_item, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        TRANSACTION = T.let(:transaction, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        DECISION = T.let(:decision, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
+        CONNECTION = T.let(:connection, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
       end
 
       class File < ModernTreasury::BaseModel

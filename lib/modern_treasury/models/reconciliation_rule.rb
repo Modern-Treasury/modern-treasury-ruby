@@ -101,22 +101,22 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT = :credit
         DEBIT = :debit
 
         finalize!
       end
 
-      # @abstract
-      #
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet wire
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs

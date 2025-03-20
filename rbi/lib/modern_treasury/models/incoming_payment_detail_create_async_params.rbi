@@ -26,11 +26,14 @@ module ModernTreasury
       end
 
       # Defaults to the currency of the originating account.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
       def currency
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Currency::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol))
+      end
       def currency=(_)
       end
 
@@ -44,11 +47,14 @@ module ModernTreasury
       end
 
       # One of `credit`, `debit`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)) }
       def direction
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)
+          .returns(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)
+      end
       def direction=(_)
       end
 
@@ -62,11 +68,14 @@ module ModernTreasury
       end
 
       # One of `ach`, `wire`, `check`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)) }
       def type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+          .returns(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+      end
       def type=(_)
       end
 
@@ -84,11 +93,11 @@ module ModernTreasury
         params(
           amount: Integer,
           as_of_date: T.nilable(Date),
-          currency: T.nilable(Symbol),
+          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
           description: T.nilable(String),
-          direction: Symbol,
+          direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
           internal_account_id: String,
-          type: Symbol,
+          type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
@@ -113,11 +122,11 @@ module ModernTreasury
             {
               amount: Integer,
               as_of_date: T.nilable(Date),
-              currency: T.nilable(Symbol),
+              currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
               description: T.nilable(String),
-              direction: Symbol,
+              direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
               internal_account_id: String,
-              type: Symbol,
+              type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
               virtual_account_id: T.nilable(String),
               request_options: ModernTreasury::RequestOptions
             }
@@ -127,30 +136,38 @@ module ModernTreasury
       end
 
       # One of `credit`, `debit`.
-      class Direction < ModernTreasury::Enum
-        abstract!
+      module Direction
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::TaggedSymbol) }
 
-        CREDIT = :credit
-        DEBIT = :debit
+        CREDIT =
+          T.let(:credit, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)
+        DEBIT =
+          T.let(:debit, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)
       end
 
       # One of `ach`, `wire`, `check`.
-      class Type < ModernTreasury::Enum
-        abstract!
+      module Type
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol) }
 
-        ACH = :ach
-        BOOK = :book
-        CHECK = :check
-        EFT = :eft
-        INTERAC = :interac
-        RTP = :rtp
-        SEPA = :sepa
-        SIGNET = :signet
-        WIRE = :wire
+        ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
       end
     end
   end

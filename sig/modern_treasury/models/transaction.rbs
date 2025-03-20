@@ -184,7 +184,9 @@ module ModernTreasury
         | :zengin
         | :other
 
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs
@@ -245,7 +247,9 @@ module ModernTreasury
         | :us_bank
         | :user
 
-      class VendorCodeType < ModernTreasury::Enum
+      module VendorCodeType
+        extend ModernTreasury::Enum
+
         BAI2: :bai2
         BANKING_CIRCLE: :banking_circle
         BANKPROV: :bankprov

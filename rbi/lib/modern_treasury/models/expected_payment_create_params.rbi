@@ -36,11 +36,14 @@ module ModernTreasury
       end
 
       # Must conform to ISO 4217. Defaults to the currency of the internal account.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
       def currency
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Currency::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol))
+      end
       def currency=(_)
       end
 
@@ -73,11 +76,14 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol)) }
       def direction
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol))
+      end
       def direction=(_)
       end
 
@@ -193,11 +199,14 @@ module ModernTreasury
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet, wire.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol)) }
       def type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol))
+      end
       def type=(_)
       end
 
@@ -206,11 +215,11 @@ module ModernTreasury
           amount_lower_bound: T.nilable(Integer),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
-          currency: T.nilable(Symbol),
+          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
-          direction: T.nilable(Symbol),
+          direction: T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol),
           internal_account_id: T.nilable(String),
           ledger_transaction: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
           ledger_transaction_id: String,
@@ -221,7 +230,7 @@ module ModernTreasury
           reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
-          type: T.nilable(Symbol),
+          type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -257,11 +266,11 @@ module ModernTreasury
               amount_lower_bound: T.nilable(Integer),
               amount_upper_bound: T.nilable(Integer),
               counterparty_id: T.nilable(String),
-              currency: T.nilable(Symbol),
+              currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
               date_lower_bound: T.nilable(Date),
               date_upper_bound: T.nilable(Date),
               description: T.nilable(String),
-              direction: T.nilable(Symbol),
+              direction: T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol),
               internal_account_id: T.nilable(String),
               ledger_transaction: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
               ledger_transaction_id: String,
@@ -272,7 +281,7 @@ module ModernTreasury
               reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
-              type: T.nilable(Symbol),
+              type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -282,13 +291,16 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      class Direction < ModernTreasury::Enum
-        abstract!
+      module Direction
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol) }
 
-        CREDIT = :credit
-        DEBIT = :debit
+        CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol)
       end
 
       class LedgerTransaction < ModernTreasury::BaseModel
@@ -357,11 +369,22 @@ module ModernTreasury
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   reversal.
-        sig { returns(T.nilable(Symbol)) }
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+            )
+          )
+        end
         def ledgerable_type
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(
+            _: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+          )
+            .returns(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol)
+        end
         def ledgerable_type=(_)
         end
 
@@ -376,11 +399,18 @@ module ModernTreasury
         end
 
         # To post a ledger transaction at creation, use `posted`.
-        sig { returns(T.nilable(Symbol)) }
+        sig do
+          returns(
+            T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+          )
+        end
         def status
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+            .returns(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+        end
         def status=(_)
         end
 
@@ -396,9 +426,9 @@ module ModernTreasury
             effective_date: Date,
             external_id: String,
             ledgerable_id: String,
-            ledgerable_type: Symbol,
+            ledgerable_type: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol,
             metadata: T::Hash[Symbol, String],
-            status: Symbol
+            status: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol
           )
             .returns(T.attached_class)
         end
@@ -425,9 +455,9 @@ module ModernTreasury
                 effective_date: Date,
                 external_id: String,
                 ledgerable_id: String,
-                ledgerable_type: Symbol,
+                ledgerable_type: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol,
                 metadata: T::Hash[Symbol, String],
-                status: Symbol
+                status: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol
               }
             )
         end
@@ -449,11 +479,14 @@ module ModernTreasury
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
-          sig { returns(Symbol) }
+          sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
           def direction
           end
 
-          sig { params(_: Symbol).returns(Symbol) }
+          sig do
+            params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
+              .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
+          end
           def direction=(_)
           end
 
@@ -534,7 +567,7 @@ module ModernTreasury
           sig do
             params(
               amount: Integer,
-              direction: Symbol,
+              direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
               ledger_account_id: String,
               available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
               lock_version: T.nilable(Integer),
@@ -563,7 +596,7 @@ module ModernTreasury
               .returns(
                 {
                   amount: Integer,
-                  direction: Symbol,
+                  direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
                   ledger_account_id: String,
                   available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                   lock_version: T.nilable(Integer),
@@ -582,28 +615,71 @@ module ModernTreasury
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   reversal.
-        class LedgerableType < ModernTreasury::Enum
-          abstract!
+        module LedgerableType
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType) }
+          OrSymbol =
+            T.type_alias do
+              T.any(
+                Symbol,
+                ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
+              )
+            end
 
-          EXPECTED_PAYMENT = :expected_payment
-          INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-          PAPER_ITEM = :paper_item
-          PAYMENT_ORDER = :payment_order
-          RETURN = :return
-          REVERSAL = :reversal
+          EXPECTED_PAYMENT =
+            T.let(
+              :expected_payment,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+            )
+          INCOMING_PAYMENT_DETAIL =
+            T.let(
+              :incoming_payment_detail,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+            )
+          PAPER_ITEM =
+            T.let(
+              :paper_item,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+            )
+          PAYMENT_ORDER =
+            T.let(
+              :payment_order,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+            )
+          RETURN =
+            T.let(
+              :return,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+            )
+          REVERSAL =
+            T.let(
+              :reversal,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+            )
         end
 
         # To post a ledger transaction at creation, use `posted`.
-        class Status < ModernTreasury::Enum
-          abstract!
+        module Status
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status) }
+          OrSymbol =
+            T.type_alias do
+              T.any(
+                Symbol,
+                ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol
+              )
+            end
 
-          ARCHIVED = :archived
-          PENDING = :pending
-          POSTED = :posted
+          ARCHIVED =
+            T.let(:archived, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+          PENDING =
+            T.let(:pending, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+          POSTED =
+            T.let(:posted, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
         end
       end
 

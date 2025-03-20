@@ -76,7 +76,9 @@ module ModernTreasury
 
       type payment_type = :ach | :wire
 
-      class PaymentType < ModernTreasury::Enum
+      module PaymentType
+        extend ModernTreasury::Enum
+
         ACH: :ach
         WIRE: :wire
 
@@ -103,7 +105,9 @@ module ModernTreasury
         | :ESP
         | :GBR
 
-      class ReceivingCountry < ModernTreasury::Enum
+      module ReceivingCountry
+        extend ModernTreasury::Enum
+
         USA: :USA
         AUS: :AUS
         BEL: :BEL
@@ -128,7 +132,9 @@ module ModernTreasury
 
       type status = :cancelled | :completed | :expired | :pending
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         CANCELLED: :cancelled
         COMPLETED: :completed
         EXPIRED: :expired

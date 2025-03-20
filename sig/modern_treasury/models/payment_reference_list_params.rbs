@@ -47,7 +47,9 @@ module ModernTreasury
 
       type referenceable_type = :payment_order | :return | :reversal
 
-      class ReferenceableType < ModernTreasury::Enum
+      module ReferenceableType
+        extend ModernTreasury::Enum
+
         PAYMENT_ORDER: :payment_order
         RETURN: :return
         REVERSAL: :reversal

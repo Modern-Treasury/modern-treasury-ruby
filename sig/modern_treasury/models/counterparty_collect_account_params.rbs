@@ -70,7 +70,9 @@ module ModernTreasury
         | :idSknbiCode
         | :za_national_clearing_code
 
-      class Field < ModernTreasury::Enum
+      module Field
+        extend ModernTreasury::Enum
+
         NAME: :name
         NAME_ON_ACCOUNT: :nameOnAccount
         TAXPAYER_IDENTIFIER: :taxpayerIdentifier

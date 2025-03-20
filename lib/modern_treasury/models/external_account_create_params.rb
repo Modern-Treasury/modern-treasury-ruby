@@ -194,8 +194,9 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        class AccountNumberType < ModernTreasury::Enum
+        module AccountNumberType
+          extend ModernTreasury::Enum
+
           AU_NUMBER = :au_number
           CLABE = :clabe
           HK_NUMBER = :hk_number
@@ -239,8 +240,9 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        class ContactIdentifierType < ModernTreasury::Enum
+        module ContactIdentifierType
+          extend ModernTreasury::Enum
+
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
@@ -368,12 +370,12 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
-        class LedgerableType < ModernTreasury::Enum
+        module LedgerableType
+          extend ModernTreasury::Enum
+
           COUNTERPARTY = :counterparty
           EXTERNAL_ACCOUNT = :external_account
           INTERNAL_ACCOUNT = :internal_account
@@ -433,10 +435,10 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # Either `individual` or `business`.
-      class PartyType < ModernTreasury::Enum
+      module PartyType
+        extend ModernTreasury::Enum
+
         BUSINESS = :business
         INDIVIDUAL = :individual
 
@@ -474,8 +476,9 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        class RoutingNumberType < ModernTreasury::Enum
+        module RoutingNumberType
+          extend ModernTreasury::Enum
+
           ABA = :aba
           AU_BSB = :au_bsb
           BR_CODIGO = :br_codigo
@@ -501,8 +504,9 @@ module ModernTreasury
           finalize!
         end
 
-        # @abstract
-        class PaymentType < ModernTreasury::Enum
+        module PaymentType
+          extend ModernTreasury::Enum
+
           ACH = :ach
           AU_BECS = :au_becs
           BACS = :bacs

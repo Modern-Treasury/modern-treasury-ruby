@@ -22,11 +22,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # Required. The updated status of the payment flow. Can only be used to mark a
       #   flow as `cancelled`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         CANCELLED = :cancelled
 
         finalize!

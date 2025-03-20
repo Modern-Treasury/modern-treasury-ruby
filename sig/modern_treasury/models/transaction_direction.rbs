@@ -2,7 +2,9 @@ module ModernTreasury
   module Models
     type transaction_direction = :credit | :debit
 
-    class TransactionDirection < ModernTreasury::Enum
+    module TransactionDirection
+      extend ModernTreasury::Enum
+
       CREDIT: :credit
       DEBIT: :debit
 

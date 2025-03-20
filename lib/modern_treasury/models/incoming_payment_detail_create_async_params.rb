@@ -102,20 +102,20 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # One of `credit`, `debit`.
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT = :credit
         DEBIT = :debit
 
         finalize!
       end
 
-      # @abstract
-      #
       # One of `ach`, `wire`, `check`.
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH = :ach
         BOOK = :book
         CHECK = :check

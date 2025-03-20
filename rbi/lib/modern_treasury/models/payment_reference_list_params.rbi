@@ -43,11 +43,14 @@ module ModernTreasury
 
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)) }
       def referenceable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
+          .returns(ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
+      end
       def referenceable_type=(_)
       end
 
@@ -57,7 +60,7 @@ module ModernTreasury
           per_page: Integer,
           reference_number: String,
           referenceable_id: String,
-          referenceable_type: Symbol,
+          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -80,7 +83,7 @@ module ModernTreasury
               per_page: Integer,
               reference_number: String,
               referenceable_id: String,
-              referenceable_type: Symbol,
+              referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -90,14 +93,19 @@ module ModernTreasury
 
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
-      class ReferenceableType < ModernTreasury::Enum
-        abstract!
+      module ReferenceableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol) }
 
-        PAYMENT_ORDER = :payment_order
-        RETURN = :return
-        REVERSAL = :reversal
+        PAYMENT_ORDER =
+          T.let(:payment_order, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
+        RETURN = T.let(:return, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
+        REVERSAL =
+          T.let(:reversal, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
       end
     end
   end

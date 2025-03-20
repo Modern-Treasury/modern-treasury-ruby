@@ -88,11 +88,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
-      class ReturnableType < ModernTreasury::Enum
+      module ReturnableType
+        extend ModernTreasury::Enum
+
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         PAPER_ITEM = :paper_item
         PAYMENT_ORDER = :payment_order

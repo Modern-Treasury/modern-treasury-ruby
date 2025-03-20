@@ -326,11 +326,11 @@ module ModernTreasury
         end
       end
 
-      # @abstract
-      #
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         ARCHIVED = :archived
         PENDING = :pending
         POSTED = :posted

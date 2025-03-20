@@ -8,7 +8,7 @@ module ModernTreasury
         params(
           counterparty_id: String,
           payment_types: T::Array[String],
-          receiving_countries: T::Array[Symbol],
+          receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::AccountCollectionFlow)
@@ -41,7 +41,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          status: Symbol,
+          status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::AccountCollectionFlow)

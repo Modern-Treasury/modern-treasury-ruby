@@ -133,7 +133,9 @@ module ModernTreasury
           | :sg_number
           | :wallet_address
 
-        class AccountNumberType < ModernTreasury::Enum
+        module AccountNumberType
+          extend ModernTreasury::Enum
+
           AU_NUMBER: :au_number
           CLABE: :clabe
           HK_NUMBER: :hk_number
@@ -175,7 +177,9 @@ module ModernTreasury
 
         type contact_identifier_type = :email | :phone_number | :website
 
-        class ContactIdentifierType < ModernTreasury::Enum
+        module ContactIdentifierType
+          extend ModernTreasury::Enum
+
           EMAIL: :email
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
@@ -250,7 +254,9 @@ module ModernTreasury
           | :internal_account
           | :virtual_account
 
-        class LedgerableType < ModernTreasury::Enum
+        module LedgerableType
+          extend ModernTreasury::Enum
+
           COUNTERPARTY: :counterparty
           EXTERNAL_ACCOUNT: :external_account
           INTERNAL_ACCOUNT: :internal_account
@@ -297,7 +303,9 @@ module ModernTreasury
 
       type party_type = :business | :individual
 
-      class PartyType < ModernTreasury::Enum
+      module PartyType
+        extend ModernTreasury::Enum
+
         BUSINESS: :business
         INDIVIDUAL: :individual
 
@@ -353,7 +361,9 @@ module ModernTreasury
           | :swift
           | :za_national_clearing_code
 
-        class RoutingNumberType < ModernTreasury::Enum
+        module RoutingNumberType
+          extend ModernTreasury::Enum
+
           ABA: :aba
           AU_BSB: :au_bsb
           BR_CODIGO: :br_codigo
@@ -411,7 +421,9 @@ module ModernTreasury
           | :wire
           | :zengin
 
-        class PaymentType < ModernTreasury::Enum
+        module PaymentType
+          extend ModernTreasury::Enum
+
           ACH: :ach
           AU_BECS: :au_becs
           BACS: :bacs

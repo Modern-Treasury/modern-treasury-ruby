@@ -100,11 +100,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
-      class EntityType < ModernTreasury::Enum
+      module EntityType
+        extend ModernTreasury::Enum
+
         PAYMENT_ORDER = :payment_order
         LEDGER_TRANSACTION = :ledger_transaction
         TRANSACTION = :transaction
@@ -114,20 +114,20 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
-      class RequestType < ModernTreasury::Enum
+      module RequestType
+        extend ModernTreasury::Enum
+
         BULK_REQUEST = :bulk_request
 
         finalize!
       end
 
-      # @abstract
-      #
       # One of successful or failed.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         PENDING = :pending
         SUCCESSFUL = :successful
         FAILED = :failed

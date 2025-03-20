@@ -75,10 +75,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # Can be `ach`, `eft`, or `rtp`.
-      class PaymentType < ModernTreasury::Enum
+      module PaymentType
+        extend ModernTreasury::Enum
+
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs
@@ -113,22 +113,22 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # A payment type to fallback to if the original type is not valid for the
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (payment_type=rtp and fallback_type=ach)
-      class FallbackType < ModernTreasury::Enum
+      module FallbackType
+        extend ModernTreasury::Enum
+
         ACH = :ach
 
         finalize!
       end
 
-      # @abstract
-      #
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #   transfer. This will apply to both `payment_type` and `fallback_type`.
-      class Priority < ModernTreasury::Enum
+      module Priority
+        extend ModernTreasury::Enum
+
         HIGH = :high
         NORMAL = :normal
 
