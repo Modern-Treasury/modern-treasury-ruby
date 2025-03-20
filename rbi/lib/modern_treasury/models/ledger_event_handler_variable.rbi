@@ -8,8 +8,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerEventHandlerVariable::Query)
-          .returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query)
+        params(_: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Util::AnyHash))
+          .returns(T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Util::AnyHash))
       end
       def query=(_)
       end

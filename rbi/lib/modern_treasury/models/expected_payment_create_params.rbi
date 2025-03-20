@@ -105,8 +105,18 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction)
-          .returns(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction)
+        params(
+          _: T.any(
+            ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
+            ModernTreasury::Util::AnyHash
+          )
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
+              ModernTreasury::Util::AnyHash
+            )
+          )
       end
       def ledger_transaction=(_)
       end

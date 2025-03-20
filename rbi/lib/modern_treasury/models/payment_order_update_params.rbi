@@ -11,8 +11,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrderUpdateParams::Accounting)
-          .returns(ModernTreasury::Models::PaymentOrderUpdateParams::Accounting)
+        params(
+          _: T.any(ModernTreasury::Models::PaymentOrderUpdateParams::Accounting, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::PaymentOrderUpdateParams::Accounting, ModernTreasury::Util::AnyHash)
+          )
       end
       def accounting=(_)
       end
@@ -260,8 +264,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount)
-          .returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount)
+        params(
+          _: T.any(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount, ModernTreasury::Util::AnyHash)
+          )
       end
       def receiving_account=(_)
       end
@@ -757,8 +765,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount)
-            .returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount)
+          params(
+            _: T.any(
+              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def ledger_account=(_)
         end
@@ -789,8 +807,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress)
-            .returns(ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress)
+          params(
+            _: T.any(
+              ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyAddress,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def party_address=(_)
         end

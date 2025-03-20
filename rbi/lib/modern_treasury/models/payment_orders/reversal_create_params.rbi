@@ -29,8 +29,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction)
-            .returns(ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction)
+          params(
+            _: T.any(
+              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def ledger_transaction=(_)
         end

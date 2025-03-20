@@ -35,8 +35,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::BankSettings))
-          .returns(T.nilable(ModernTreasury::Models::BankSettings))
+        params(_: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
+          .returns(T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
       end
       def bank_settings=(_)
       end
@@ -231,8 +231,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
-          .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+        params(
+          _: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+        )
+          .returns(
+            T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+          )
       end
       def wealth_and_employment_details=(_)
       end
@@ -613,8 +617,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity)
-            .returns(ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity)
+          params(
+            _: T.any(
+              ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def child_legal_entity=(_)
         end
@@ -734,8 +748,8 @@ module ModernTreasury
           end
 
           sig do
-            params(_: T.nilable(ModernTreasury::Models::BankSettings))
-              .returns(T.nilable(ModernTreasury::Models::BankSettings))
+            params(_: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
+              .returns(T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
           end
           def bank_settings=(_)
           end
@@ -988,8 +1002,12 @@ module ModernTreasury
           end
 
           sig do
-            params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
-              .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+            params(
+              _: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+            )
+              .returns(
+                T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+              )
           end
           def wealth_and_employment_details=(_)
           end

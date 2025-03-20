@@ -103,8 +103,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate))
-          .returns(T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate))
+        params(
+          _: T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+        )
+          .returns(
+            T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+          )
       end
       def foreign_exchange_rate=(_)
       end

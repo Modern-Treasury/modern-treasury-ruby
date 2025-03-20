@@ -271,10 +271,16 @@ module ModernTreasury
 
           sig do
             params(
-              _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting
+              _: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
+                ModernTreasury::Util::AnyHash
+              )
             )
               .returns(
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
+                  ModernTreasury::Util::AnyHash
+                )
               )
           end
           def accounting=(_)
@@ -444,10 +450,16 @@ module ModernTreasury
 
           sig do
             params(
-              _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction
+              _: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
+                ModernTreasury::Util::AnyHash
+              )
             )
               .returns(
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
+                  ModernTreasury::Util::AnyHash
+                )
               )
           end
           def ledger_transaction=(_)
@@ -582,10 +594,16 @@ module ModernTreasury
 
           sig do
             params(
-              _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount
+              _: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
+                ModernTreasury::Util::AnyHash
+              )
             )
               .returns(
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
+                  ModernTreasury::Util::AnyHash
+                )
               )
           end
           def receiving_account=(_)
@@ -1590,10 +1608,16 @@ module ModernTreasury
 
             sig do
               params(
-                _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount
+                _: T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
+                  ModernTreasury::Util::AnyHash
+                )
               )
                 .returns(
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
+                    ModernTreasury::Util::AnyHash
+                  )
                 )
             end
             def ledger_account=(_)
@@ -1632,10 +1656,16 @@ module ModernTreasury
 
             sig do
               params(
-                _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress
+                _: T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
+                  ModernTreasury::Util::AnyHash
+                )
               )
                 .returns(
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
+                    ModernTreasury::Util::AnyHash
+                  )
                 )
             end
             def party_address=(_)
@@ -2806,10 +2836,16 @@ module ModernTreasury
 
           sig do
             params(
-              _: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction
+              _: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
+                ModernTreasury::Util::AnyHash
+              )
             )
               .returns(
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
+                  ModernTreasury::Util::AnyHash
+                )
               )
           end
           def ledger_transaction=(_)
@@ -4318,10 +4354,16 @@ module ModernTreasury
 
           sig do
             params(
-              _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting
+              _: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
+                ModernTreasury::Util::AnyHash
+              )
             )
               .returns(
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
+                  ModernTreasury::Util::AnyHash
+                )
               )
           end
           def accounting=(_)
@@ -4645,10 +4687,16 @@ module ModernTreasury
 
           sig do
             params(
-              _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount
+              _: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
+                ModernTreasury::Util::AnyHash
+              )
             )
               .returns(
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
+                  ModernTreasury::Util::AnyHash
+                )
               )
           end
           def receiving_account=(_)
@@ -5264,10 +5312,16 @@ module ModernTreasury
 
             sig do
               params(
-                _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount
+                _: T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
+                  ModernTreasury::Util::AnyHash
+                )
               )
                 .returns(
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
+                    ModernTreasury::Util::AnyHash
+                  )
                 )
             end
             def ledger_account=(_)
@@ -5306,10 +5360,16 @@ module ModernTreasury
 
             sig do
               params(
-                _: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress
+                _: T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
+                  ModernTreasury::Util::AnyHash
+                )
               )
                 .returns(
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
+                    ModernTreasury::Util::AnyHash
+                  )
                 )
             end
             def party_address=(_)

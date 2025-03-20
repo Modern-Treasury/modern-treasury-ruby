@@ -31,8 +31,18 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)
-          .returns(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)
+        params(
+          _: T.any(
+            ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
+            ModernTreasury::Util::AnyHash
+          )
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
+              ModernTreasury::Util::AnyHash
+            )
+          )
       end
       def available_balance_amount=(_)
       end
@@ -47,8 +57,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountListParams::Balances)
-          .returns(ModernTreasury::Models::LedgerAccountListParams::Balances)
+        params(_: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Util::AnyHash))
+          .returns(T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Util::AnyHash))
       end
       def balances=(_)
       end
@@ -116,8 +126,18 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)
-          .returns(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)
+        params(
+          _: T.any(
+            ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+            ModernTreasury::Util::AnyHash
+          )
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+              ModernTreasury::Util::AnyHash
+            )
+          )
       end
       def pending_balance_amount=(_)
       end
@@ -137,8 +157,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)
-          .returns(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)
+        params(
+          _: T.any(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, ModernTreasury::Util::AnyHash)
+          )
       end
       def posted_balance_amount=(_)
       end
