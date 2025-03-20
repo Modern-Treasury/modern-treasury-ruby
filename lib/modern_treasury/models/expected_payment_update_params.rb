@@ -183,6 +183,12 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to
@@ -193,6 +199,12 @@ module ModernTreasury
         RECONCILED = :reconciled
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

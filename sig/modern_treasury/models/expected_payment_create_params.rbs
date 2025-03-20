@@ -111,7 +111,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::direction]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::direction]
       end
 
       type ledger_transaction =
@@ -245,7 +245,7 @@ module ModernTreasury
           RETURN: :return
           REVERSAL: :reversal
 
-          def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::ledgerable_type]
         end
 
         type status = :archived | :pending | :posted
@@ -257,7 +257,7 @@ module ModernTreasury
           PENDING: :pending
           POSTED: :posted
 
-          def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::status]
         end
       end
 

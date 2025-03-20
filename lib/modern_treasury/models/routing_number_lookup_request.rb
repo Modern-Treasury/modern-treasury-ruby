@@ -160,6 +160,12 @@ module ModernTreasury
         SWIFT = :swift
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       module SupportedPaymentType
@@ -197,6 +203,12 @@ module ModernTreasury
         ZENGIN = :zengin
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

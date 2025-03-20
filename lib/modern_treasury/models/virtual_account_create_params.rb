@@ -184,6 +184,12 @@ module ModernTreasury
           WALLET_ADDRESS = :wallet_address
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -316,6 +322,12 @@ module ModernTreasury
           VIRTUAL_ACCOUNT = :virtual_account
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -382,6 +394,12 @@ module ModernTreasury
           ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         # If the routing detail is to be used for a specific payment type this field will
@@ -421,6 +439,12 @@ module ModernTreasury
           ZENGIN = :zengin
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
     end

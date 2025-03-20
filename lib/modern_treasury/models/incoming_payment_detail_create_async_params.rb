@@ -110,6 +110,12 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of `ach`, `wire`, `check`.
@@ -127,6 +133,12 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

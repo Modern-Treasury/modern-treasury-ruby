@@ -261,6 +261,12 @@ module ModernTreasury
         CURRENCYCLOUD = :currencycloud
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -395,6 +401,12 @@ module ModernTreasury
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -409,6 +421,12 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The role of the return, can be `originating` or `receiving`.
@@ -419,6 +437,12 @@ module ModernTreasury
         RECEIVING = :receiving
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The current status of the return.
@@ -433,6 +457,12 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
@@ -455,6 +485,12 @@ module ModernTreasury
         WIRE = :wire
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

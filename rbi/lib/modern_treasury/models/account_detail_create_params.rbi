@@ -74,7 +74,13 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol) }
 
         EXTERNAL_ACCOUNTS =
-          T.let(:external_accounts, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol)
+          T.let(:external_accounts, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
@@ -88,21 +94,30 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol) }
 
         AU_NUMBER =
-          T.let(:au_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
-        CLABE = T.let(:clabe, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+          T.let(:au_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
+        CLABE = T.let(:clabe, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
         HK_NUMBER =
-          T.let(:hk_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
-        IBAN = T.let(:iban, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+          T.let(:hk_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
+        IBAN = T.let(:iban, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
         ID_NUMBER =
-          T.let(:id_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+          T.let(:id_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
         NZ_NUMBER =
-          T.let(:nz_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
-        OTHER = T.let(:other, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
-        PAN = T.let(:pan, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+          T.let(:nz_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
+        OTHER = T.let(:other, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
+        PAN = T.let(:pan, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
         SG_NUMBER =
-          T.let(:sg_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+          T.let(:sg_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
         WALLET_ADDRESS =
-          T.let(:wallet_address, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+          T.let(:wallet_address, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
     end
   end

@@ -341,6 +341,12 @@ module ModernTreasury
         VIRTUAL_ACCOUNT = :virtual_account
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

@@ -361,6 +361,12 @@ module ModernTreasury
           WEBSITE = :website
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -635,6 +641,12 @@ module ModernTreasury
         AUTOMATIC = :automatic
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

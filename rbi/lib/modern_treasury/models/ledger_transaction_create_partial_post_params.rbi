@@ -179,13 +179,26 @@ module ModernTreasury
           CREDIT =
             T.let(
               :credit,
-              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
+              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
             )
           DEBIT =
             T.let(
               :debit,
-              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
+              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
+                  ]
+                )
+            end
+            def values
+            end
+          end
         end
       end
     end

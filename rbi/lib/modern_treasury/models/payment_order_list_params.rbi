@@ -251,8 +251,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol) }
 
-        HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderListParams::Priority::OrSymbol)
-        NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderListParams::Priority::OrSymbol)
+        HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol)
+        NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       module Status
@@ -262,17 +268,24 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol) }
 
-        APPROVED = T.let(:approved, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        DENIED = T.let(:denied, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        NEEDS_APPROVAL = T.let(:needs_approval, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        PENDING = T.let(:pending, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        PROCESSING = T.let(:processing, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        RETURNED = T.let(:returned, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        REVERSED = T.let(:reversed, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-        SENT = T.let(:sent, ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
+        APPROVED = T.let(:approved, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        DENIED = T.let(:denied, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        NEEDS_APPROVAL =
+          T.let(:needs_approval, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        PROCESSING = T.let(:processing, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        RETURNED = T.let(:returned, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        REVERSED = T.let(:reversed, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+        SENT = T.let(:sent, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       module Type
@@ -282,36 +295,42 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        AU_BECS = T.let(:au_becs, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        BACS = T.let(:bacs, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        BOOK = T.let(:book, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        CARD = T.let(:card, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        CHATS = T.let(:chats, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        CHECK = T.let(:check, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        CROSS_BORDER = T.let(:cross_border, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        EFT = T.let(:eft, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        INTERAC = T.let(:interac, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        MASAV = T.let(:masav, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        NEFT = T.let(:neft, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        NICS = T.let(:nics, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        PROVXCHANGE = T.let(:provxchange, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        RTP = T.let(:rtp, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        SE_BANKGIROT = T.let(:se_bankgirot, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        SEN = T.let(:sen, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        SEPA = T.let(:sepa, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        SIC = T.let(:sic, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        SIGNET = T.let(:signet, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        SKNBI = T.let(:sknbi, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        WIRE = T.let(:wire, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-        ZENGIN = T.let(:zengin, ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
+        ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        CARD = T.let(:card, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        CHATS = T.let(:chats, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        CROSS_BORDER = T.let(:cross_border, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        MASAV = T.let(:masav, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        NICS = T.let(:nics, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        PROVXCHANGE = T.let(:provxchange, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        SE_BANKGIROT = T.let(:se_bankgirot, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        SEN = T.let(:sen, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        SIC = T.let(:sic, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        SKNBI = T.let(:sknbi, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+        ZENGIN = T.let(:zengin, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

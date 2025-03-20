@@ -235,53 +235,64 @@ module ModernTreasury
           AU_NUMBER =
             T.let(
               :au_number,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           CLABE =
             T.let(
               :clabe,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           HK_NUMBER =
             T.let(
               :hk_number,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           IBAN =
             T.let(
               :iban,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           ID_NUMBER =
             T.let(
               :id_number,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           NZ_NUMBER =
             T.let(
               :nz_number,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           OTHER =
             T.let(
               :other,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           PAN =
             T.let(
               :pan,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           SG_NUMBER =
             T.let(
               :sg_number,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
           WALLET_ADDRESS =
             T.let(
               :wallet_address,
-              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -462,23 +473,34 @@ module ModernTreasury
           COUNTERPARTY =
             T.let(
               :counterparty,
-              ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
             )
           EXTERNAL_ACCOUNT =
             T.let(
               :external_account,
-              ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
             )
           INTERNAL_ACCOUNT =
             T.let(
               :internal_account,
-              ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
             )
           VIRTUAL_ACCOUNT =
             T.let(
               :virtual_account,
-              ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -570,108 +592,119 @@ module ModernTreasury
           ABA =
             T.let(
               :aba,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           AU_BSB =
             T.let(
               :au_bsb,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           BR_CODIGO =
             T.let(
               :br_codigo,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           CA_CPA =
             T.let(
               :ca_cpa,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           CHIPS =
             T.let(
               :chips,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           CNAPS =
             T.let(
               :cnaps,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           DK_INTERBANK_CLEARING_CODE =
             T.let(
               :dk_interbank_clearing_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           GB_SORT_CODE =
             T.let(
               :gb_sort_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           HK_INTERBANK_CLEARING_CODE =
             T.let(
               :hk_interbank_clearing_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           HU_INTERBANK_CLEARING_CODE =
             T.let(
               :hu_interbank_clearing_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           ID_SKNBI_CODE =
             T.let(
               :id_sknbi_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           IN_IFSC =
             T.let(
               :in_ifsc,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           JP_ZENGIN_CODE =
             T.let(
               :jp_zengin_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           MX_BANK_IDENTIFIER =
             T.let(
               :mx_bank_identifier,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           MY_BRANCH_CODE =
             T.let(
               :my_branch_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           NZ_NATIONAL_CLEARING_CODE =
             T.let(
               :nz_national_clearing_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           PL_NATIONAL_CLEARING_CODE =
             T.let(
               :pl_national_clearing_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           SE_BANKGIRO_CLEARING_CODE =
             T.let(
               :se_bankgiro_clearing_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           SG_INTERBANK_CLEARING_CODE =
             T.let(
               :sg_interbank_clearing_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           SWIFT =
             T.let(
               :swift,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
           ZA_NATIONAL_CLEARING_CODE =
             T.let(
               :za_national_clearing_code,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
 
         # If the routing detail is to be used for a specific payment type this field will
@@ -690,77 +723,130 @@ module ModernTreasury
             end
 
           ACH =
-            T.let(:ach, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:ach, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           AU_BECS =
-            T.let(:au_becs, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :au_becs,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           BACS =
-            T.let(:bacs, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:bacs, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           BOOK =
-            T.let(:book, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:book, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           CARD =
-            T.let(:card, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:card, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           CHATS =
-            T.let(:chats, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :chats,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           CHECK =
-            T.let(:check, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :check,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           CROSS_BORDER =
             T.let(
               :cross_border,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           DK_NETS =
-            T.let(:dk_nets, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :dk_nets,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           EFT =
-            T.let(:eft, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:eft, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           HU_ICS =
-            T.let(:hu_ics, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :hu_ics,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           INTERAC =
-            T.let(:interac, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :interac,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           MASAV =
-            T.let(:masav, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :masav,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           MX_CCEN =
-            T.let(:mx_ccen, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :mx_ccen,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           NEFT =
-            T.let(:neft, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:neft, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           NICS =
-            T.let(:nics, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:nics, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           NZ_BECS =
-            T.let(:nz_becs, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :nz_becs,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           PL_ELIXIR =
             T.let(
               :pl_elixir,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           PROVXCHANGE =
             T.let(
               :provxchange,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           RO_SENT =
-            T.let(:ro_sent, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :ro_sent,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           RTP =
-            T.let(:rtp, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:rtp, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           SE_BANKGIROT =
             T.let(
               :se_bankgirot,
-              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
           SEN =
-            T.let(:sen, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:sen, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           SEPA =
-            T.let(:sepa, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:sepa, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           SG_GIRO =
-            T.let(:sg_giro, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :sg_giro,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           SIC =
-            T.let(:sic, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:sic, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           SIGNET =
-            T.let(:signet, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :signet,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           SKNBI =
-            T.let(:sknbi, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :sknbi,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
           WIRE =
-            T.let(:wire, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(:wire, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol)
           ZENGIN =
-            T.let(:zengin, ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+            T.let(
+              :zengin,
+              ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
+            )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
       end
     end

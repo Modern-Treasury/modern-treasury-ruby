@@ -147,7 +147,7 @@ module ModernTreasury
           SG_NUMBER: :sg_number
           WALLET_ADDRESS: :wallet_address
 
-          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::account_number_type]
         end
       end
 
@@ -184,7 +184,7 @@ module ModernTreasury
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
 
-          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::contact_identifier_type]
         end
       end
 
@@ -262,7 +262,7 @@ module ModernTreasury
           INTERNAL_ACCOUNT: :internal_account
           VIRTUAL_ACCOUNT: :virtual_account
 
-          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::ledgerable_type]
         end
       end
 
@@ -309,7 +309,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::party_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::party_type]
       end
 
       type routing_detail =
@@ -386,7 +386,7 @@ module ModernTreasury
           SWIFT: :swift
           ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::routing_number_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::routing_number_type]
         end
 
         type payment_type =
@@ -455,7 +455,7 @@ module ModernTreasury
           WIRE: :wire
           ZENGIN: :zengin
 
-          def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::payment_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::payment_type]
         end
       end
     end

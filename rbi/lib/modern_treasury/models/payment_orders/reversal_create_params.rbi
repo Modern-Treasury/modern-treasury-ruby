@@ -93,24 +93,36 @@ module ModernTreasury
             T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol) }
 
           DUPLICATE =
-            T.let(:duplicate, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol)
+            T.let(:duplicate, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol)
           INCORRECT_AMOUNT =
-            T.let(:incorrect_amount, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol)
+            T.let(
+              :incorrect_amount,
+              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol
+            )
           INCORRECT_RECEIVING_ACCOUNT =
             T.let(
               :incorrect_receiving_account,
-              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol
+              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol
             )
           DATE_EARLIER_THAN_INTENDED =
             T.let(
               :date_earlier_than_intended,
-              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol
+              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol
             )
           DATE_LATER_THAN_INTENDED =
             T.let(
               :date_later_than_intended,
-              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol
+              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol])
+            end
+            def values
+            end
+          end
         end
 
         class LedgerTransaction < ModernTreasury::BaseModel
@@ -462,33 +474,46 @@ module ModernTreasury
             EXPECTED_PAYMENT =
               T.let(
                 :expected_payment,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
               )
             INCOMING_PAYMENT_DETAIL =
               T.let(
                 :incoming_payment_detail,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
               )
             PAPER_ITEM =
               T.let(
                 :paper_item,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
               )
             PAYMENT_ORDER =
               T.let(
                 :payment_order,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
               )
             RETURN =
               T.let(
                 :return,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
               )
             REVERSAL =
               T.let(
                 :reversal,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
+                    ]
+                  )
+              end
+              def values
+              end
+            end
           end
 
           # To post a ledger transaction at creation, use `posted`.
@@ -508,18 +533,29 @@ module ModernTreasury
             ARCHIVED =
               T.let(
                 :archived,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol
               )
             PENDING =
               T.let(
                 :pending,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol
               )
             POSTED =
               T.let(
                 :posted,
-                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::OrSymbol
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol]
+                  )
+              end
+              def values
+              end
+            end
           end
         end
       end

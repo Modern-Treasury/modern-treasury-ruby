@@ -309,8 +309,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol) }
 
-        CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol)
-        DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol)
+        CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class LedgerTransaction < ModernTreasury::BaseModel
@@ -641,33 +647,44 @@ module ModernTreasury
           EXPECTED_PAYMENT =
             T.let(
               :expected_payment,
-              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           INCOMING_PAYMENT_DETAIL =
             T.let(
               :incoming_payment_detail,
-              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           PAPER_ITEM =
             T.let(
               :paper_item,
-              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           PAYMENT_ORDER =
             T.let(
               :payment_order,
-              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           RETURN =
             T.let(
               :return,
-              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
           REVERSAL =
             T.let(
               :reversal,
-              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
 
         # To post a ledger transaction at creation, use `posted`.
@@ -685,11 +702,31 @@ module ModernTreasury
             end
 
           ARCHIVED =
-            T.let(:archived, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+            T.let(
+              :archived,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol
+            )
           PENDING =
-            T.let(:pending, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+            T.let(
+              :pending,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol
+            )
           POSTED =
-            T.let(:posted, ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+            T.let(
+              :posted,
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol
+            )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
       end
 

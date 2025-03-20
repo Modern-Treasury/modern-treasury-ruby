@@ -905,6 +905,17 @@ module ModernTreasury
                 :posted,
                 ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol]
+                  )
+              end
+              def values
+              end
+            end
           end
         end
 
@@ -954,6 +965,17 @@ module ModernTreasury
               :reversal,
               ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
 
         # One of `pending`, `posted`, or `archived`.
@@ -977,6 +999,17 @@ module ModernTreasury
             )
           POSTED =
             T.let(:posted, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol)
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
       end
     end

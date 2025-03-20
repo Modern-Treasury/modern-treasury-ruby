@@ -151,7 +151,7 @@ module ModernTreasury
         RETURN: :return
         REVERSAL: :reversal
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::ledgerable_type]
       end
 
       type order_by =
@@ -188,7 +188,7 @@ module ModernTreasury
           ASC: :asc
           DESC: :desc
 
-          def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at]
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::created_at]
         end
 
         type effective_at = :asc | :desc
@@ -199,7 +199,7 @@ module ModernTreasury
           ASC: :asc
           DESC: :desc
 
-          def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at]
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::effective_at]
         end
       end
 
@@ -212,7 +212,7 @@ module ModernTreasury
         POSTED: :posted
         ARCHIVED: :archived
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionListParams::status]
       end
     end
   end

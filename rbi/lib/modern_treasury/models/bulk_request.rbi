@@ -185,6 +185,12 @@ module ModernTreasury
         CREATE = T.let(:create, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
         UPDATE = T.let(:update, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
         DELETE = T.let(:delete, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
@@ -201,6 +207,12 @@ module ModernTreasury
         TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of pending, processing, or completed.
@@ -213,6 +225,12 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
         PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
         COMPLETED = T.let(:completed, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

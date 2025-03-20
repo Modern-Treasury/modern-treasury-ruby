@@ -131,7 +131,7 @@ module ModernTreasury
         HIGH: :high
         NORMAL: :normal
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderListParams::priority]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderListParams::priority]
       end
 
       type status =
@@ -162,7 +162,7 @@ module ModernTreasury
         REVERSED: :reversed
         SENT: :sent
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderListParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderListParams::status]
       end
 
       type type_ =
@@ -231,7 +231,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderListParams::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderListParams::type_]
       end
     end
   end

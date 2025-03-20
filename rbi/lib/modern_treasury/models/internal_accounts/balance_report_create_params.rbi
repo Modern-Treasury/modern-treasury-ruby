@@ -98,23 +98,34 @@ module ModernTreasury
           INTRADAY =
             T.let(
               :intraday,
-              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::TaggedSymbol
             )
           OTHER =
             T.let(
               :other,
-              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::TaggedSymbol
             )
           PREVIOUS_DAY =
             T.let(
               :previous_day,
-              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::TaggedSymbol
             )
           REAL_TIME =
             T.let(
               :real_time,
-              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
 
         class Balance < ModernTreasury::BaseModel
@@ -217,48 +228,59 @@ module ModernTreasury
             CLOSING_AVAILABLE =
               T.let(
                 :closing_available,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             CLOSING_LEDGER =
               T.let(
                 :closing_ledger,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             CURRENT_AVAILABLE =
               T.let(
                 :current_available,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             CURRENT_LEDGER =
               T.let(
                 :current_ledger,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             OPENING_AVAILABLE =
               T.let(
                 :opening_available,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             OPENING_AVAILABLE_NEXT_BUSINESS_DAY =
               T.let(
                 :opening_available_next_business_day,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             OPENING_LEDGER =
               T.let(
                 :opening_ledger,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             OTHER =
               T.let(
                 :other,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
             PREVIOUSLY_CLOSED_BOOK =
               T.let(
                 :previously_closed_book,
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
               )
+
+            class << self
+              sig do
+                override
+                  .returns(
+                    T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol]
+                  )
+              end
+              def values
+              end
+            end
           end
         end
       end

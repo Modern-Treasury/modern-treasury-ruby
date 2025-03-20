@@ -79,6 +79,12 @@ module ModernTreasury
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The return code. For ACH returns, this is the required ACH return code.
@@ -140,6 +146,12 @@ module ModernTreasury
         CURRENCYCLOUD = :currencycloud
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

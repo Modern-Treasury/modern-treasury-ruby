@@ -287,19 +287,32 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol) }
 
         EXPECTED_PAYMENT =
-          T.let(:expected_payment, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)
+          T.let(
+            :expected_payment,
+            ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol
+          )
         INCOMING_PAYMENT_DETAIL =
           T.let(
             :incoming_payment_detail,
-            ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol
+            ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol
           )
         PAPER_ITEM =
-          T.let(:paper_item, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)
+          T.let(:paper_item, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol)
         PAYMENT_ORDER =
-          T.let(:payment_order, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)
-        RETURN = T.let(:return, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)
+          T.let(:payment_order, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol)
+        RETURN =
+          T.let(:return, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol)
         REVERSAL =
-          T.let(:reversal, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)
+          T.let(:reversal, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
 
       # To post a ledger transaction at creation, use `posted`.
@@ -311,9 +324,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol) }
 
-        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol)
-        PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol)
-        POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol)
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

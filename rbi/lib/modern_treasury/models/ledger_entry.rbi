@@ -577,6 +577,12 @@ module ModernTreasury
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

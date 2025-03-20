@@ -171,13 +171,21 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol) }
 
         COUNTERPARTY =
-          T.let(:counterparty, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)
+          T.let(:counterparty, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
         EXTERNAL_ACCOUNT =
-          T.let(:external_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)
+          T.let(:external_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
         INTERNAL_ACCOUNT =
-          T.let(:internal_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)
+          T.let(:internal_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
         VIRTUAL_ACCOUNT =
-          T.let(:virtual_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)
+          T.let(:virtual_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
+
+        class << self
+          sig do
+            override.returns(T::Array[ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
     end
   end

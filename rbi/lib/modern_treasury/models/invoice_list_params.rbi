@@ -165,12 +165,19 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol) }
 
-        DRAFT = T.let(:draft, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
-        PAID = T.let(:paid, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
-        PARTIALLY_PAID = T.let(:partially_paid, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
-        PAYMENT_PENDING = T.let(:payment_pending, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
-        UNPAID = T.let(:unpaid, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
-        VOIDED = T.let(:voided, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
+        DRAFT = T.let(:draft, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
+        PAID = T.let(:paid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
+        PARTIALLY_PAID = T.let(:partially_paid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
+        PAYMENT_PENDING =
+          T.let(:payment_pending, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
+        UNPAID = T.let(:unpaid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
+        VOIDED = T.let(:voided, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

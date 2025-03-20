@@ -98,7 +98,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountUpdateParams::party_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountUpdateParams::party_type]
       end
     end
   end

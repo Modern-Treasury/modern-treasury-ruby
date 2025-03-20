@@ -71,7 +71,7 @@ module ModernTreasury
         USD: :USD
         CAD: :CAD
 
-        def self.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::currency]
+        def self?.values: -> ::Array[ModernTreasury::Models::InternalAccountCreateParams::currency]
       end
 
       type party_address =

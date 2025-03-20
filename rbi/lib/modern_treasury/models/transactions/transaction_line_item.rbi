@@ -259,6 +259,17 @@ module ModernTreasury
               :reversal,
               ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
@@ -275,6 +286,12 @@ module ModernTreasury
             T.let(:originating, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
           RECEIVING =
             T.let(:receiving, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
+
+          class << self
+            sig { override.returns(T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol]) }
+            def values
+            end
+          end
         end
       end
     end

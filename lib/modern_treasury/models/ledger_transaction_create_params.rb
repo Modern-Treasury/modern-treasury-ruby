@@ -247,6 +247,12 @@ module ModernTreasury
         REVERSAL = :reversal
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # To post a ledger transaction at creation, use `posted`.
@@ -258,6 +264,12 @@ module ModernTreasury
         POSTED = :posted
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

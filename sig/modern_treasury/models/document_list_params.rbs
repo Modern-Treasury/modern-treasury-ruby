@@ -69,7 +69,7 @@ module ModernTreasury
         DECISIONS: :decisions
         CONNECTIONS: :connections
 
-        def self.values: -> ::Array[ModernTreasury::Models::DocumentListParams::documentable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::DocumentListParams::documentable_type]
       end
     end
   end

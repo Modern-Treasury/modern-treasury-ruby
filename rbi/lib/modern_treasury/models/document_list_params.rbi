@@ -84,26 +84,37 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol) }
 
-        CASES = T.let(:cases, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        CASES = T.let(:cases, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         COUNTERPARTIES =
-          T.let(:counterparties, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          T.let(:counterparties, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         EXPECTED_PAYMENTS =
-          T.let(:expected_payments, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          T.let(:expected_payments, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         EXTERNAL_ACCOUNTS =
-          T.let(:external_accounts, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          T.let(:external_accounts, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         INCOMING_PAYMENT_DETAILS =
-          T.let(:incoming_payment_details, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          T.let(
+            :incoming_payment_details,
+            ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol
+          )
         INTERNAL_ACCOUNTS =
-          T.let(:internal_accounts, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          T.let(:internal_accounts, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         ORGANIZATIONS =
-          T.let(:organizations, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
-        PAPER_ITEMS = T.let(:paper_items, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          T.let(:organizations, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
+        PAPER_ITEMS =
+          T.let(:paper_items, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         PAYMENT_ORDERS =
-          T.let(:payment_orders, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          T.let(:payment_orders, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         TRANSACTIONS =
-          T.let(:transactions, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
-        DECISIONS = T.let(:decisions, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
-        CONNECTIONS = T.let(:connections, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          T.let(:transactions, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
+        DECISIONS = T.let(:decisions, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
+        CONNECTIONS =
+          T.let(:connections, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

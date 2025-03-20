@@ -535,17 +535,31 @@ module ModernTreasury
             end
 
           EMAIL =
-            T.let(:email, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol)
+            T.let(
+              :email,
+              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
+            )
           PHONE_NUMBER =
             T.let(
               :phone_number,
-              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol
+              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
           WEBSITE =
             T.let(
               :website,
-              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol
+              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -929,9 +943,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol) }
 
-        UI = T.let(:ui, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)
-        MANUAL = T.let(:manual, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)
-        AUTOMATIC = T.let(:automatic, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)
+        UI = T.let(:ui, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol)
+        MANUAL = T.let(:manual, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol)
+        AUTOMATIC = T.let(:automatic, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

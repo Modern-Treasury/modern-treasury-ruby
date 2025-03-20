@@ -229,7 +229,7 @@ module ModernTreasury
             PHONE_NUMBER: :phone_number
             WEBSITE: :website
 
-            def self.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail::contact_identifier_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail::contact_identifier_type]
           end
         end
 
@@ -296,7 +296,7 @@ module ModernTreasury
           BUSINESS: :business
           INDIVIDUAL: :individual
 
-          def self.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::party_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::party_type]
         end
 
         type verification_source = :ach_prenote | :microdeposits | :plaid
@@ -308,7 +308,7 @@ module ModernTreasury
           MICRODEPOSITS: :microdeposits
           PLAID: :plaid
 
-          def self.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::verification_source]
+          def self?.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::verification_source]
         end
 
         type verification_status =
@@ -321,7 +321,7 @@ module ModernTreasury
           UNVERIFIED: :unverified
           VERIFIED: :verified
 
-          def self.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::verification_status]
+          def self?.values: -> ::Array[ModernTreasury::Models::Counterparty::Account::verification_status]
         end
       end
 
@@ -336,7 +336,7 @@ module ModernTreasury
         UNVERIFIED: :unverified
         VERIFIED: :verified
 
-        def self.values: -> ::Array[ModernTreasury::Models::Counterparty::verification_status]
+        def self?.values: -> ::Array[ModernTreasury::Models::Counterparty::verification_status]
       end
     end
   end

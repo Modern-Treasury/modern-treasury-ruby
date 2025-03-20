@@ -41,7 +41,7 @@ module ModernTreasury
         POSTED: :posted
         ARCHIVED: :archived
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::status]
       end
     end
   end

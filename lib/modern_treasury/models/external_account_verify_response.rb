@@ -140,6 +140,12 @@ module ModernTreasury
           ZENGIN = :zengin
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         # The priority of the payment. Can be `normal` or `high`.
@@ -150,6 +156,12 @@ module ModernTreasury
           NORMAL = :normal
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
 
         # The status of the verification attempt. Can be `pending_verification`,
@@ -163,6 +175,12 @@ module ModernTreasury
           VERIFIED = :verified
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
