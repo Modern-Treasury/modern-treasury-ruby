@@ -45,9 +45,6 @@ module ModernTreasury
       )
       end
 
-      # get payment_reference
-      alias_method :retireve, :retrieve
-
       sig { params(client: ModernTreasury::Client).returns(T.attached_class) }
       def self.new(client:)
       end
