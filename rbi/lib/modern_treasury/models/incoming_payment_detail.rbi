@@ -246,8 +246,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::VirtualAccount))
-          .returns(T.nilable(ModernTreasury::Models::VirtualAccount))
+        params(_: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Util::AnyHash)))
+          .returns(T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Util::AnyHash)))
       end
       def virtual_account=(_)
       end

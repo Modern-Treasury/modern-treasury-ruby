@@ -58,8 +58,18 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance)
-          .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance)
+        params(
+          _: T.any(
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+            ModernTreasury::Util::AnyHash
+          )
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance,
+              ModernTreasury::Util::AnyHash
+            )
+          )
       end
       def ending_balance=(_)
       end
@@ -142,8 +152,18 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance)
-          .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance)
+        params(
+          _: T.any(
+            ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+            ModernTreasury::Util::AnyHash
+          )
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
+              ModernTreasury::Util::AnyHash
+            )
+          )
       end
       def starting_balance=(_)
       end
@@ -230,8 +250,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance)
-            .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance)
+          params(
+            _: T.any(
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::AvailableBalance,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def available_balance=(_)
         end
@@ -242,8 +272,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance)
-            .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance)
+          params(
+            _: T.any(
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PendingBalance,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def pending_balance=(_)
         end
@@ -254,8 +294,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance)
-            .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance)
+          params(
+            _: T.any(
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance::PostedBalance,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def posted_balance=(_)
         end
@@ -523,9 +573,17 @@ module ModernTreasury
 
         sig do
           params(
-            _: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance
+            _: T.any(
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
+              ModernTreasury::Util::AnyHash
+            )
           )
-            .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance)
+            .returns(
+              T.any(
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::AvailableBalance,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def available_balance=(_)
         end
@@ -536,8 +594,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance)
-            .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance)
+          params(
+            _: T.any(
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PendingBalance,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def pending_balance=(_)
         end
@@ -548,8 +616,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance)
-            .returns(ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance)
+          params(
+            _: T.any(
+              ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance::PostedBalance,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def posted_balance=(_)
         end

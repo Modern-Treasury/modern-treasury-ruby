@@ -295,8 +295,16 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T.nilable(ModernTreasury::Models::Counterparty::Account::PartyAddress))
-            .returns(T.nilable(ModernTreasury::Models::Counterparty::Account::PartyAddress))
+          params(
+            _: T.nilable(
+              T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Util::AnyHash)
+            )
+          )
+            .returns(
+              T.nilable(
+                T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Util::AnyHash)
+              )
+            )
         end
         def party_address=(_)
         end

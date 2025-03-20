@@ -62,8 +62,22 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress))
-          .returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress))
+        params(
+          _: T.nilable(
+            T.any(
+              ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+        )
+          .returns(
+            T.nilable(
+              T.any(
+                ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress,
+                ModernTreasury::Util::AnyHash
+              )
+            )
+          )
       end
       def counterparty_billing_address=(_)
       end
@@ -74,8 +88,22 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress))
-          .returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress))
+        params(
+          _: T.nilable(
+            T.any(
+              ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+        )
+          .returns(
+            T.nilable(
+              T.any(
+                ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress,
+                ModernTreasury::Util::AnyHash
+              )
+            )
+          )
       end
       def counterparty_shipping_address=(_)
       end
@@ -139,8 +167,16 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress))
-          .returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress))
+        params(
+          _: T.nilable(
+            T.any(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, ModernTreasury::Util::AnyHash)
+          )
+        )
+          .returns(
+            T.nilable(
+              T.any(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, ModernTreasury::Util::AnyHash)
+            )
+          )
       end
       def invoicer_address=(_)
       end

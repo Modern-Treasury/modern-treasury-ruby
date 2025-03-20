@@ -84,8 +84,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)
-          .returns(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)
+        params(
+          _: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+          )
       end
       def ledger_account=(_)
       end

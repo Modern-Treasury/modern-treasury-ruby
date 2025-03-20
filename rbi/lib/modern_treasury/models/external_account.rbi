@@ -123,8 +123,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress))
-          .returns(T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress))
+        params(
+          _: T.nilable(T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Util::AnyHash))
+        )
+          .returns(
+            T.nilable(T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Util::AnyHash))
+          )
       end
       def party_address=(_)
       end

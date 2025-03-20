@@ -11,8 +11,18 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate)
-          .returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate)
+        params(
+          _: T.any(
+            ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+            ModernTreasury::Util::AnyHash
+          )
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+              ModernTreasury::Util::AnyHash
+            )
+          )
       end
       def ledger_transaction_template=(_)
       end
@@ -31,8 +41,16 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions))
-          .returns(T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions))
+        params(
+          _: T.nilable(
+            T.any(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, ModernTreasury::Util::AnyHash)
+          )
+        )
+          .returns(
+            T.nilable(
+              T.any(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, ModernTreasury::Util::AnyHash)
+            )
+          )
       end
       def conditions=(_)
       end
