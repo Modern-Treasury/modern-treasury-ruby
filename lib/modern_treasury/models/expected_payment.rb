@@ -243,6 +243,12 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
@@ -255,6 +261,12 @@ module ModernTreasury
         MANUAL = :manual
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
@@ -267,6 +279,12 @@ module ModernTreasury
         UNRECONCILED = :unreconciled
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

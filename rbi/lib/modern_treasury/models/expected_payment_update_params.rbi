@@ -268,8 +268,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol) }
 
-        CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol)
-        DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol)
+        CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to
@@ -282,7 +288,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol) }
 
-        RECONCILED = T.let(:reconciled, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol)
+        RECONCILED =
+          T.let(:reconciled, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

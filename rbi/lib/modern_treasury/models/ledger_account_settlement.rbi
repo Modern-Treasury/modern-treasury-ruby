@@ -247,6 +247,12 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
         PROCESSING = T.let(:processing, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

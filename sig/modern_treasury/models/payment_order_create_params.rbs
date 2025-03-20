@@ -211,7 +211,7 @@ module ModernTreasury
         CREDIT: :credit
         DEBIT: :debit
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::direction]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::direction]
       end
 
       type accounting = { account_id: String?, class_id: String? }
@@ -235,7 +235,7 @@ module ModernTreasury
         SENDER: :sender
         RECEIVER: :receiver
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::charge_bearer]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::charge_bearer]
       end
 
       type document =
@@ -296,7 +296,7 @@ module ModernTreasury
           DECISIONS: :decisions
           CONNECTIONS: :connections
 
-          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document::documentable_type]
         end
       end
 
@@ -307,7 +307,7 @@ module ModernTreasury
 
         ACH: :ach
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::fallback_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::fallback_type]
       end
 
       type foreign_exchange_indicator = :fixed_to_variable | :variable_to_fixed
@@ -318,7 +318,7 @@ module ModernTreasury
         FIXED_TO_VARIABLE: :fixed_to_variable
         VARIABLE_TO_FIXED: :variable_to_fixed
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::foreign_exchange_indicator]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::foreign_exchange_indicator]
       end
 
       type ledger_transaction =
@@ -452,7 +452,7 @@ module ModernTreasury
           RETURN: :return
           REVERSAL: :reversal
 
-          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::ledgerable_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::ledgerable_type]
         end
 
         type status = :archived | :pending | :posted
@@ -464,7 +464,7 @@ module ModernTreasury
           PENDING: :pending
           POSTED: :posted
 
-          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::status]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::status]
         end
       end
 
@@ -505,7 +505,7 @@ module ModernTreasury
         HIGH: :high
         NORMAL: :normal
 
-        def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::priority]
+        def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::priority]
       end
 
       type receiving_account =
@@ -646,7 +646,7 @@ module ModernTreasury
             SG_NUMBER: :sg_number
             WALLET_ADDRESS: :wallet_address
 
-            def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::account_number_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::account_number_type]
           end
         end
 
@@ -683,7 +683,7 @@ module ModernTreasury
             PHONE_NUMBER: :phone_number
             WEBSITE: :website
 
-            def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::contact_identifier_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::contact_identifier_type]
           end
         end
 
@@ -761,7 +761,7 @@ module ModernTreasury
             INTERNAL_ACCOUNT: :internal_account
             VIRTUAL_ACCOUNT: :virtual_account
 
-            def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::ledgerable_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::ledgerable_type]
           end
         end
 
@@ -808,7 +808,7 @@ module ModernTreasury
           BUSINESS: :business
           INDIVIDUAL: :individual
 
-          def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::party_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::party_type]
         end
 
         type routing_detail =
@@ -885,7 +885,7 @@ module ModernTreasury
             SWIFT: :swift
             ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-            def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::routing_number_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::routing_number_type]
           end
 
           type payment_type =
@@ -954,7 +954,7 @@ module ModernTreasury
             WIRE: :wire
             ZENGIN: :zengin
 
-            def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::payment_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::payment_type]
           end
         end
       end

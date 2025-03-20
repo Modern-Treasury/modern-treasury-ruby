@@ -653,6 +653,15 @@ module ModernTreasury
             T.let(:phone_number, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
           WEBSITE =
             T.let(:website, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
+
+          class << self
+            sig do
+              override
+                .returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol])
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -922,6 +931,12 @@ module ModernTreasury
         UI = T.let(:ui, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
         MANUAL = T.let(:manual, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
         AUTOMATIC = T.let(:automatic, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of `ach` or `eft`.
@@ -933,6 +948,12 @@ module ModernTreasury
 
         EFT = T.let(:eft, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
         ACH = T.let(:ach, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The status of the invoice.
@@ -948,6 +969,12 @@ module ModernTreasury
         PAYMENT_PENDING = T.let(:payment_pending, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
         UNPAID = T.let(:unpaid, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
         VOIDED = T.let(:voided, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::Invoice::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

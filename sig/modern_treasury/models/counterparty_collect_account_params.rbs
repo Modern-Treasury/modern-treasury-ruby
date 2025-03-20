@@ -103,7 +103,7 @@ module ModernTreasury
         ID_SKNBI_CODE: :idSknbiCode
         ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-        def self.values: -> ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
+        def self?.values: -> ::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::field]
       end
     end
   end

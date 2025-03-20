@@ -175,6 +175,12 @@ module ModernTreasury
 
         ACH = T.let(:ach, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # An account created with this flow will support wires from the US to these
@@ -205,6 +211,12 @@ module ModernTreasury
         PER = T.let(:PER, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
         ESP = T.let(:ESP, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
         GBR = T.let(:GBR, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The current status of the account collection flow. One of `pending`,
@@ -220,6 +232,12 @@ module ModernTreasury
         COMPLETED = T.let(:completed, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
         EXPIRED = T.let(:expired, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

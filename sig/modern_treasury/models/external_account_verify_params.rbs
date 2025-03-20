@@ -113,7 +113,7 @@ module ModernTreasury
         WIRE: :wire
         ZENGIN: :zengin
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyParams::payment_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyParams::payment_type]
       end
 
       type fallback_type = :ach
@@ -123,7 +123,7 @@ module ModernTreasury
 
         ACH: :ach
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyParams::fallback_type]
       end
 
       type priority = :high | :normal
@@ -134,7 +134,7 @@ module ModernTreasury
         HIGH: :high
         NORMAL: :normal
 
-        def self.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyParams::priority]
+        def self?.values: -> ::Array[ModernTreasury::Models::ExternalAccountVerifyParams::priority]
       end
     end
   end

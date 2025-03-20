@@ -50,7 +50,7 @@ module ModernTreasury
           ORIGINATING: :originating
           RECEIVING: :receiving
 
-          def self.values: -> ::Array[ModernTreasury::Models::Transactions::LineItemListParams::type_]
+          def self?.values: -> ::Array[ModernTreasury::Models::Transactions::LineItemListParams::type_]
         end
       end
     end

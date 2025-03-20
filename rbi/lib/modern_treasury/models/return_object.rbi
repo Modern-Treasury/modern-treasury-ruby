@@ -386,6 +386,12 @@ module ModernTreasury
         R52 = T.let(:R52, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
         R53 = T.let(:R53, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
         CURRENCYCLOUD = T.let(:currencycloud, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Code::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -842,6 +848,17 @@ module ModernTreasury
               :wells_fargo_uetr,
               ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -859,6 +876,12 @@ module ModernTreasury
         PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol)
         RETURN = T.let(:return, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol)
         REVERSAL = T.let(:reversal, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The role of the return, can be `originating` or `receiving`.
@@ -870,6 +893,12 @@ module ModernTreasury
 
         ORIGINATING = T.let(:originating, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
         RECEIVING = T.let(:receiving, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Role::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The current status of the return.
@@ -885,6 +914,12 @@ module ModernTreasury
         PROCESSING = T.let(:processing, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
         RETURNED = T.let(:returned, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
         SENT = T.let(:sent, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
@@ -908,6 +943,12 @@ module ModernTreasury
         PAPER_ITEM = T.let(:paper_item, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Type::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

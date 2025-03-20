@@ -95,23 +95,34 @@ module ModernTreasury
           INTRADAY =
             T.let(
               :intraday,
-              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol
             )
           OTHER =
             T.let(
               :other,
-              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol
             )
           PREVIOUS_DAY =
             T.let(
               :previous_day,
-              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol
             )
           REAL_TIME =
             T.let(
               :real_time,
-              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+              ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol]
+                )
+            end
+            def values
+            end
+          end
         end
       end
     end

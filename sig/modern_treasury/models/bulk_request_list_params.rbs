@@ -64,7 +64,7 @@ module ModernTreasury
         UPDATE: :update
         DELETE: :delete
 
-        def self.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::action_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::action_type]
       end
 
       type resource_type =
@@ -78,7 +78,7 @@ module ModernTreasury
         TRANSACTION: :transaction
         EXPECTED_PAYMENT: :expected_payment
 
-        def self.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::resource_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::resource_type]
       end
 
       type status = :pending | :processing | :completed
@@ -90,7 +90,7 @@ module ModernTreasury
         PROCESSING: :processing
         COMPLETED: :completed
 
-        def self.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestListParams::status]
       end
     end
   end

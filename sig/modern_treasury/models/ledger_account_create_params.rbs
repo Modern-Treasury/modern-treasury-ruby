@@ -76,7 +76,7 @@ module ModernTreasury
         INTERNAL_ACCOUNT: :internal_account
         VIRTUAL_ACCOUNT: :virtual_account
 
-        def self.values: -> ::Array[ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LedgerAccountCreateParams::ledgerable_type]
       end
     end
   end

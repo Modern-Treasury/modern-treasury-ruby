@@ -94,7 +94,7 @@ module ModernTreasury
         UNPAID: :unpaid
         VOIDED: :voided
 
-        def self.values: -> ::Array[ModernTreasury::Models::InvoiceListParams::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::InvoiceListParams::status]
       end
     end
   end

@@ -43,6 +43,12 @@ module ModernTreasury
         PAYMENT_ORDERS = :payment_orders
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

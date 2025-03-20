@@ -73,7 +73,7 @@ module ModernTreasury
           CREDIT: :credit
           DEBIT: :debit
 
-          def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction]
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::direction]
         end
       end
     end

@@ -50,7 +50,15 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::TaggedSymbol) }
 
         PROCESSING =
-          T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol)
+          T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::TaggedSymbol)
+
+        class << self
+          sig do
+            override.returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
     end
   end

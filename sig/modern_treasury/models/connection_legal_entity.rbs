@@ -60,7 +60,7 @@ module ModernTreasury
         FAILED: :failed
         PROCESSING: :processing
 
-        def self.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntity::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::ConnectionLegalEntity::status]
       end
     end
   end

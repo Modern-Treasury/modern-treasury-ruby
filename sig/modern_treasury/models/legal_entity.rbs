@@ -204,7 +204,7 @@ module ModernTreasury
           PO_BOX: :po_box
           RESIDENTIAL: :residential
 
-          def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::Address::address_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntity::Address::address_type]
         end
       end
 
@@ -298,7 +298,7 @@ module ModernTreasury
           US_SSN: :us_ssn
           VN_TIN: :vn_tin
 
-          def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::Identification::id_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::LegalEntity::Identification::id_type]
         end
       end
 
@@ -311,7 +311,7 @@ module ModernTreasury
         INDIVIDUAL: :individual
         JOINT: :joint
 
-        def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::legal_entity_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntity::legal_entity_type]
       end
 
       type legal_structure =
@@ -332,7 +332,7 @@ module ModernTreasury
         SOLE_PROPRIETORSHIP: :sole_proprietorship
         TRUST: :trust
 
-        def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::legal_structure]
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntity::legal_structure]
       end
 
       type phone_number = { phone_number: String }
@@ -356,7 +356,7 @@ module ModernTreasury
         MEDIUM: :medium
         HIGH: :high
 
-        def self.values: -> ::Array[ModernTreasury::Models::LegalEntity::risk_rating]
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntity::risk_rating]
       end
     end
   end

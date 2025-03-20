@@ -347,8 +347,16 @@ module ModernTreasury
           OrSymbol =
             T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol) }
 
-          ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)
-          DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::OrSymbol)
+          ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol)
+          DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol)
+
+          class << self
+            sig do
+              override.returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol])
+            end
+            def values
+            end
+          end
         end
 
         module EffectiveAt
@@ -359,8 +367,17 @@ module ModernTreasury
           OrSymbol =
             T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol) }
 
-          ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol)
-          DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::OrSymbol)
+          ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol)
+          DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol)
+
+          class << self
+            sig do
+              override
+                .returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol])
+            end
+            def values
+            end
+          end
         end
       end
 
@@ -373,9 +390,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol) }
 
-        PENDING = T.let(:pending, ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)
-        POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)
-        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

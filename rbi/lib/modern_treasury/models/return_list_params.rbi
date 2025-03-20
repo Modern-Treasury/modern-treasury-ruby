@@ -114,11 +114,18 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol) }
 
         INCOMING_PAYMENT_DETAIL =
-          T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
-        PAPER_ITEM = T.let(:paper_item, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
-        PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
-        RETURN = T.let(:return, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
-        REVERSAL = T.let(:reversal, ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
+          T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
+        PAPER_ITEM = T.let(:paper_item, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
+        PAYMENT_ORDER =
+          T.let(:payment_order, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
+        RETURN = T.let(:return, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
+        REVERSAL = T.let(:reversal, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

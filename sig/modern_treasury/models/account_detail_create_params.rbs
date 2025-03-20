@@ -38,7 +38,7 @@ module ModernTreasury
 
         EXTERNAL_ACCOUNTS: :external_accounts
 
-        def self.values: -> ::Array[ModernTreasury::Models::AccountDetailCreateParams::accounts_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::AccountDetailCreateParams::accounts_type]
       end
 
       type account_number_type =
@@ -67,7 +67,7 @@ module ModernTreasury
         SG_NUMBER: :sg_number
         WALLET_ADDRESS: :wallet_address
 
-        def self.values: -> ::Array[ModernTreasury::Models::AccountDetailCreateParams::account_number_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::AccountDetailCreateParams::account_number_type]
       end
     end
   end

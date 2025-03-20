@@ -500,6 +500,12 @@ module ModernTreasury
         RECEIVER = :receiver
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -513,6 +519,12 @@ module ModernTreasury
         DEBIT = :debit
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -525,6 +537,12 @@ module ModernTreasury
         VARIABLE_TO_FIXED = :variable_to_fixed
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
@@ -600,6 +618,12 @@ module ModernTreasury
         NORMAL = :normal
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       module ReceivingAccountType
@@ -609,6 +633,12 @@ module ModernTreasury
         EXTERNAL_ACCOUNT = :external_account
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -743,6 +773,12 @@ module ModernTreasury
           WELLS_FARGO_UETR = :wells_fargo_uetr
 
           finalize!
+
+          class << self
+            # @!parse
+            #   # @return [Array<Symbol>]
+            #   def values; end
+          end
         end
       end
 
@@ -763,6 +799,12 @@ module ModernTreasury
         SENT = :sent
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
 
       # The account to which the originating of this payment should be attributed to.
@@ -788,6 +830,12 @@ module ModernTreasury
         VIRTUAL_ACCOUNT = :virtual_account
 
         finalize!
+
+        class << self
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def values; end
+        end
       end
     end
   end

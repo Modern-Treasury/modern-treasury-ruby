@@ -219,7 +219,7 @@ module ModernTreasury
         ZENGIN: :zengin
         OTHER: :other
 
-        def self.values: -> ::Array[ModernTreasury::Models::Transaction::type_]
+        def self?.values: -> ::Array[ModernTreasury::Models::Transaction::type_]
       end
 
       type vendor_code_type =
@@ -274,7 +274,7 @@ module ModernTreasury
         US_BANK: :us_bank
         USER: :user
 
-        def self.values: -> ::Array[ModernTreasury::Models::Transaction::vendor_code_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::Transaction::vendor_code_type]
       end
     end
   end

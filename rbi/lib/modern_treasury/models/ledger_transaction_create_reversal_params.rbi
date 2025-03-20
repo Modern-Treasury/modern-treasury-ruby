@@ -142,27 +142,44 @@ module ModernTreasury
         EXPECTED_PAYMENT =
           T.let(
             :expected_payment,
-            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol
+            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol
           )
         INCOMING_PAYMENT_DETAIL =
           T.let(
             :incoming_payment_detail,
-            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol
+            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol
           )
         PAPER_ITEM =
           T.let(
             :paper_item,
-            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol
+            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol
           )
         PAYMENT_ORDER =
           T.let(
             :payment_order,
-            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol
+            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol
           )
         RETURN =
-          T.let(:return, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol)
+          T.let(
+            :return,
+            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol
+          )
         REVERSAL =
-          T.let(:reversal, ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol)
+          T.let(
+            :reversal,
+            ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol
+          )
+
+        class << self
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::TaggedSymbol]
+              )
+          end
+          def values
+          end
+        end
       end
 
       # Status of the reversal ledger transaction. It defaults to `posted` if not
@@ -176,10 +193,20 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol) }
 
         ARCHIVED =
-          T.let(:archived, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol)
+          T.let(:archived, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol)
         PENDING =
-          T.let(:pending, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol)
-        POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol)
+          T.let(:pending, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol)
+        POSTED =
+          T.let(:posted, ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
     end
   end

@@ -284,7 +284,7 @@ module ModernTreasury
             PENDING: :pending
             POSTED: :posted
 
-            def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status]
+            def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::status]
           end
         end
 
@@ -306,7 +306,7 @@ module ModernTreasury
           RETURN: :return
           REVERSAL: :reversal
 
-          def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledgerable_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::ledgerable_type]
         end
 
         type status = :archived | :pending | :posted
@@ -318,7 +318,7 @@ module ModernTreasury
           PENDING: :pending
           POSTED: :posted
 
-          def self.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::status]
+          def self?.values: -> ::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::status]
         end
       end
     end

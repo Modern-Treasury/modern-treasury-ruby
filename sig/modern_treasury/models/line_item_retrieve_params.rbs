@@ -31,7 +31,7 @@ module ModernTreasury
         EXPECTED_PAYMENTS: :expected_payments
         PAYMENT_ORDERS: :payment_orders
 
-        def self.values: -> ::Array[ModernTreasury::Models::LineItemRetrieveParams::itemizable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LineItemRetrieveParams::itemizable_type]
       end
     end
   end

@@ -94,11 +94,18 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol) }
 
-        COMPLETED = T.let(:completed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
-        DENIED = T.let(:denied, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
-        FAILED = T.let(:failed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
+        COMPLETED =
+          T.let(:completed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
+        DENIED = T.let(:denied, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
+        FAILED = T.let(:failed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
         PROCESSING =
-          T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
+          T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

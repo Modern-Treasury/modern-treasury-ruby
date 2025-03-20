@@ -160,9 +160,17 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol) }
 
-        COMPLETED = T.let(:completed, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
-        PENDING = T.let(:pending, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
-        RETURNED = T.let(:returned, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
+        COMPLETED =
+          T.let(:completed, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol)
+        RETURNED =
+          T.let(:returned, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
@@ -175,15 +183,21 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-        BOOK = T.let(:book, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-        CHECK = T.let(:check, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-        EFT = T.let(:eft, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-        INTERAC = T.let(:interac, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-        RTP = T.let(:rtp, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-        SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-        SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-        WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

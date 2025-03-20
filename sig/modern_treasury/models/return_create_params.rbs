@@ -46,7 +46,7 @@ module ModernTreasury
 
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
 
-        def self.values: -> ::Array[ModernTreasury::Models::ReturnCreateParams::returnable_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::ReturnCreateParams::returnable_type]
       end
 
       type code =
@@ -161,7 +161,7 @@ module ModernTreasury
         R53: :R53
         CURRENCYCLOUD: :currencycloud
 
-        def self.values: -> ::Array[ModernTreasury::Models::ReturnCreateParams::code]
+        def self?.values: -> ::Array[ModernTreasury::Models::ReturnCreateParams::code]
       end
     end
   end

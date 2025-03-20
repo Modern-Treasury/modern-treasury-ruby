@@ -43,7 +43,7 @@ module ModernTreasury
           PREVIOUS_DAY: :previous_day
           REAL_TIME: :real_time
 
-          def self.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::balance_report_type]
         end
 
         type balance =
@@ -96,7 +96,7 @@ module ModernTreasury
             OTHER: :other
             PREVIOUSLY_CLOSED_BOOK: :previously_closed_book
 
-            def self.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type]
+            def self?.values: -> ::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type]
           end
         end
       end

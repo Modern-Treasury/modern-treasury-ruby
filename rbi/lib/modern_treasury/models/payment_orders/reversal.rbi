@@ -175,6 +175,12 @@ module ModernTreasury
             T.let(:date_earlier_than_intended, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
           DATE_LATER_THAN_INTENDED =
             T.let(:date_later_than_intended, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
+
+          class << self
+            sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol]) }
+            def values
+            end
+          end
         end
 
         # The current status of the reversal.
@@ -191,6 +197,12 @@ module ModernTreasury
           PROCESSING = T.let(:processing, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
           RETURNED = T.let(:returned, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
           SENT = T.let(:sent, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
+
+          class << self
+            sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol]) }
+            def values
+            end
+          end
         end
       end
     end

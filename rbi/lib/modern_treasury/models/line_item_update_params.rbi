@@ -70,9 +70,15 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType::TaggedSymbol) }
 
         EXPECTED_PAYMENTS =
-          T.let(:expected_payments, ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol)
+          T.let(:expected_payments, ModernTreasury::Models::LineItemUpdateParams::ItemizableType::TaggedSymbol)
         PAYMENT_ORDERS =
-          T.let(:payment_orders, ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol)
+          T.let(:payment_orders, ModernTreasury::Models::LineItemUpdateParams::ItemizableType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LineItemUpdateParams::ItemizableType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

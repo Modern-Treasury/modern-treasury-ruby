@@ -110,39 +110,46 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        AU_BECS = T.let(:au_becs, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        BACS = T.let(:bacs, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        BOOK = T.let(:book, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        CARD = T.let(:card, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        CHATS = T.let(:chats, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        CHECK = T.let(:check, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
+        ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        CARD = T.let(:card, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        CHATS = T.let(:chats, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
         CROSS_BORDER =
-          T.let(:cross_border, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        EFT = T.let(:eft, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        INTERAC = T.let(:interac, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        MASAV = T.let(:masav, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        NEFT = T.let(:neft, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        NICS = T.let(:nics, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
+          T.let(:cross_border, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        MASAV = T.let(:masav, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        NICS = T.let(:nics, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        PL_ELIXIR =
+          T.let(:pl_elixir, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
         PROVXCHANGE =
-          T.let(:provxchange, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        RTP = T.let(:rtp, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
+          T.let(:provxchange, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
         SE_BANKGIROT =
-          T.let(:se_bankgirot, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        SEN = T.let(:sen, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        SEPA = T.let(:sepa, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        SIC = T.let(:sic, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        SIGNET = T.let(:signet, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        SKNBI = T.let(:sknbi, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        WIRE = T.let(:wire, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-        ZENGIN = T.let(:zengin, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
+          T.let(:se_bankgirot, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        SEN = T.let(:sen, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        SIC = T.let(:sic, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        SKNBI = T.let(:sknbi, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+        ZENGIN = T.let(:zengin, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
 
       # A payment type to fallback to if the original type is not valid for the
@@ -156,7 +163,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol) }
 
-        ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol)
+        ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol)
+
+        class << self
+          sig do
+            override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
 
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
@@ -169,8 +184,14 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol) }
 
-        HIGH = T.let(:high, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol)
-        NORMAL = T.let(:normal, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol)
+        HIGH = T.let(:high, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol)
+        NORMAL = T.let(:normal, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

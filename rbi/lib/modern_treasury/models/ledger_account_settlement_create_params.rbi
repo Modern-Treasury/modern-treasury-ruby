@@ -146,8 +146,19 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol) }
 
-        PENDING = T.let(:pending, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol)
-        POSTED = T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol)
+        PENDING =
+          T.let(:pending, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol)
+        POSTED =
+          T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol)
+
+        class << self
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol])
+          end
+          def values
+          end
+        end
       end
     end
   end

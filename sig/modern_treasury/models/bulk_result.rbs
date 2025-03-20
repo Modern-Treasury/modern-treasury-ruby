@@ -128,7 +128,7 @@ module ModernTreasury
           end
         end
 
-        def self.variants: -> [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
+        def self?.variants: -> [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
       end
 
       type entity_type =
@@ -147,7 +147,7 @@ module ModernTreasury
         EXPECTED_PAYMENT: :expected_payment
         BULK_ERROR: :bulk_error
 
-        def self.values: -> ::Array[ModernTreasury::Models::BulkResult::entity_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkResult::entity_type]
       end
 
       type request_type = :bulk_request
@@ -157,7 +157,7 @@ module ModernTreasury
 
         BULK_REQUEST: :bulk_request
 
-        def self.values: -> ::Array[ModernTreasury::Models::BulkResult::request_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkResult::request_type]
       end
 
       type status = :pending | :successful | :failed
@@ -169,7 +169,7 @@ module ModernTreasury
         SUCCESSFUL: :successful
         FAILED: :failed
 
-        def self.values: -> ::Array[ModernTreasury::Models::BulkResult::status]
+        def self?.values: -> ::Array[ModernTreasury::Models::BulkResult::status]
       end
     end
   end

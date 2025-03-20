@@ -125,7 +125,7 @@ module ModernTreasury
           SG_NUMBER: :sg_number
           WALLET_ADDRESS: :wallet_address
 
-          def self.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::account_number_type]
         end
       end
 
@@ -203,7 +203,7 @@ module ModernTreasury
           INTERNAL_ACCOUNT: :internal_account
           VIRTUAL_ACCOUNT: :virtual_account
 
-          def self.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::ledgerable_type]
         end
       end
 
@@ -277,7 +277,7 @@ module ModernTreasury
           SWIFT: :swift
           ZA_NATIONAL_CLEARING_CODE: :za_national_clearing_code
 
-          def self.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::routing_number_type]
         end
 
         type payment_type =
@@ -346,7 +346,7 @@ module ModernTreasury
           WIRE: :wire
           ZENGIN: :zengin
 
-          def self.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type]
+          def self?.values: -> ::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::payment_type]
         end
       end
     end

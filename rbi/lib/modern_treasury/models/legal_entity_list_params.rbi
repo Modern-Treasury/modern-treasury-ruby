@@ -97,8 +97,15 @@ module ModernTreasury
         OrSymbol =
           T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol) }
 
-        BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)
-        INDIVIDUAL = T.let(:individual, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)
+        BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol)
+        INDIVIDUAL =
+          T.let(:individual, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

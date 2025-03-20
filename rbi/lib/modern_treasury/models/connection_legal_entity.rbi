@@ -153,6 +153,12 @@ module ModernTreasury
         DENIED = T.let(:denied, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
         FAILED = T.let(:failed, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
         PROCESSING = T.let(:processing, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
+
+        class << self
+          sig { override.returns(T::Array[ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol]) }
+          def values
+          end
+        end
       end
     end
   end

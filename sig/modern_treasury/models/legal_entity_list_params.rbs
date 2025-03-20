@@ -53,7 +53,7 @@ module ModernTreasury
         BUSINESS: :business
         INDIVIDUAL: :individual
 
-        def self.values: -> ::Array[ModernTreasury::Models::LegalEntityListParams::legal_entity_type]
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityListParams::legal_entity_type]
       end
     end
   end

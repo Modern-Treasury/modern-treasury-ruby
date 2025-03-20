@@ -364,6 +364,19 @@ module ModernTreasury
               :zengin,
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+                  ]
+                )
+            end
+            def values
+            end
+          end
         end
 
         # The priority of the payment. Can be `normal` or `high`.
@@ -392,6 +405,19 @@ module ModernTreasury
               :normal,
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
+                  ]
+                )
+            end
+            def values
+            end
+          end
         end
 
         # The status of the verification attempt. Can be `pending_verification`,
@@ -431,6 +457,30 @@ module ModernTreasury
               :verified,
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
             )
+
+          class << self
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
+                  ]
+                )
+            end
+            def values
+            end
+          end
+        end
+      end
+
+      class << self
+        sig do
+          override
+            .returns(
+              [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
+            )
+        end
+        def variants
         end
       end
     end
