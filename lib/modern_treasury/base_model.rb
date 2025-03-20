@@ -288,29 +288,25 @@ module ModernTreasury
   #   values safely.
   #
   # @example
-  # ```ruby
-  # # `accounts_type` is a `ModernTreasury::Models::AccountsType`
-  # case accounts_type
-  # when ModernTreasury::Models::AccountsType::EXTERNAL_ACCOUNTS
-  #   # ...
-  # when ModernTreasury::Models::AccountsType::INTERNAL_ACCOUNTS
-  #   # ...
-  # else
-  #   puts(accounts_type)
-  # end
-  # ```
+  #   # `accounts_type` is a `ModernTreasury::Models::AccountsType`
+  #   case accounts_type
+  #   when ModernTreasury::Models::AccountsType::EXTERNAL_ACCOUNTS
+  #     # ...
+  #   when ModernTreasury::Models::AccountsType::INTERNAL_ACCOUNTS
+  #     # ...
+  #   else
+  #     puts(accounts_type)
+  #   end
   #
   # @example
-  # ```ruby
-  # case accounts_type
-  # in :external_accounts
-  #   # ...
-  # in :internal_accounts
-  #   # ...
-  # else
-  #   puts(accounts_type)
-  # end
-  # ```
+  #   case accounts_type
+  #   in :external_accounts
+  #     # ...
+  #   in :internal_accounts
+  #     # ...
+  #   else
+  #     puts(accounts_type)
+  #   end
   module Enum
     include ModernTreasury::Converter
 
@@ -383,17 +379,15 @@ module ModernTreasury
   # @api private
   #
   # @example
-  # ```ruby
-  # # `external_account_verify_response` is a `ModernTreasury::Models::ExternalAccountVerifyResponse`
-  # case external_account_verify_response
-  # when ModernTreasury::Models::ExternalAccount
-  #   puts(external_account_verify_response.id)
-  # when ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-  #   puts(external_account_verify_response.created_at)
-  # else
-  #   puts(external_account_verify_response)
-  # end
-  # ```
+  #   # `external_account_verify_response` is a `ModernTreasury::Models::ExternalAccountVerifyResponse`
+  #   case external_account_verify_response
+  #   when ModernTreasury::Models::ExternalAccount
+  #     puts(external_account_verify_response.id)
+  #   when ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
+  #     puts(external_account_verify_response.created_at)
+  #   else
+  #     puts(external_account_verify_response)
+  #   end
   module Union
     include ModernTreasury::Converter
 
@@ -858,13 +852,11 @@ module ModernTreasury
   # @abstract
   #
   # @example
-  # ```ruby
-  # # `async_response` is a `ModernTreasury::Models::AsyncResponse`
-  # async_response => {
-  #   id: id,
-  #   object: object
-  # }
-  # ```
+  #   # `async_response` is a `ModernTreasury::Models::AsyncResponse`
+  #   async_response => {
+  #     id: id,
+  #     object: object
+  #   }
   class BaseModel
     extend ModernTreasury::Converter
 
