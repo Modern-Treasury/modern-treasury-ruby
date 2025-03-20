@@ -60,8 +60,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::ReturnObject))
-          .returns(T.nilable(ModernTreasury::Models::ReturnObject))
+        params(_: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)))
+          .returns(T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)))
       end
       def current_return=(_)
       end

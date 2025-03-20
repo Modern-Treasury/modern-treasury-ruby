@@ -54,8 +54,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate)
-          .returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate)
+        params(
+          _: T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash)
+          )
       end
       def foreign_exchange_rate=(_)
       end

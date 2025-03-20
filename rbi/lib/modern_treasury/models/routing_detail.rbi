@@ -16,8 +16,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress))
-          .returns(T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress))
+        params(
+          _: T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Util::AnyHash))
+        )
+          .returns(
+            T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Util::AnyHash))
+          )
       end
       def bank_address=(_)
       end

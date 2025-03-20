@@ -16,8 +16,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LineItem::Accounting)
-          .returns(ModernTreasury::Models::LineItem::Accounting)
+        params(_: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Util::AnyHash))
+          .returns(T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Util::AnyHash))
       end
       def accounting=(_)
       end

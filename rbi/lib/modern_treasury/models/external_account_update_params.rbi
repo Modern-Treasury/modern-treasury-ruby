@@ -51,8 +51,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)
-          .returns(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)
+        params(
+          _: T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          )
       end
       def party_address=(_)
       end

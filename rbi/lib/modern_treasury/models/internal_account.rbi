@@ -40,7 +40,10 @@ module ModernTreasury
       def connection
       end
 
-      sig { params(_: ModernTreasury::Models::Connection).returns(ModernTreasury::Models::Connection) }
+      sig do
+        params(_: T.any(ModernTreasury::Models::Connection, ModernTreasury::Util::AnyHash))
+          .returns(T.any(ModernTreasury::Models::Connection, ModernTreasury::Util::AnyHash))
+      end
       def connection=(_)
       end
 
@@ -144,8 +147,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::InternalAccount::PartyAddress))
-          .returns(T.nilable(ModernTreasury::Models::InternalAccount::PartyAddress))
+        params(
+          _: T.nilable(T.any(ModernTreasury::Models::InternalAccount::PartyAddress, ModernTreasury::Util::AnyHash))
+        )
+          .returns(
+            T.nilable(T.any(ModernTreasury::Models::InternalAccount::PartyAddress, ModernTreasury::Util::AnyHash))
+          )
       end
       def party_address=(_)
       end

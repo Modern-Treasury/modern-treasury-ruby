@@ -79,8 +79,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)
-          .returns(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)
+        params(
+          _: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          )
       end
       def party_address=(_)
       end

@@ -14,8 +14,18 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances)
-          .returns(ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances)
+        params(
+          _: T.any(
+            ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+            ModernTreasury::Util::AnyHash
+          )
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+              ModernTreasury::Util::AnyHash
+            )
+          )
       end
       def balances=(_)
       end

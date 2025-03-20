@@ -74,7 +74,10 @@ module ModernTreasury
       def file
       end
 
-      sig { params(_: ModernTreasury::Models::Document::File).returns(ModernTreasury::Models::Document::File) }
+      sig do
+        params(_: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Util::AnyHash))
+          .returns(T.any(ModernTreasury::Models::Document::File, ModernTreasury::Util::AnyHash))
+      end
       def file=(_)
       end
 

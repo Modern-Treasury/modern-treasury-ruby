@@ -20,8 +20,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::CounterpartyCreateParams::Accounting)
-          .returns(ModernTreasury::Models::CounterpartyCreateParams::Accounting)
+        params(
+          _: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Util::AnyHash)
+          )
       end
       def accounting=(_)
       end
@@ -65,8 +69,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity)
-          .returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity)
+        params(
+          _: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Util::AnyHash)
+          )
       end
       def legal_entity=(_)
       end
@@ -261,8 +269,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount)
-            .returns(ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount)
+          params(
+            _: T.any(
+              ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def ledger_account=(_)
         end
@@ -293,8 +311,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress)
-            .returns(ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress)
+          params(
+            _: T.any(
+              ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def party_address=(_)
         end
@@ -1310,8 +1338,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T.nilable(ModernTreasury::Models::BankSettings))
-            .returns(T.nilable(ModernTreasury::Models::BankSettings))
+          params(_: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
+            .returns(T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
         end
         def bank_settings=(_)
         end
@@ -1526,8 +1554,12 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
-            .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+          params(
+            _: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+          )
+            .returns(
+              T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+            )
         end
         def wealth_and_employment_details=(_)
         end
@@ -2020,10 +2052,16 @@ module ModernTreasury
 
           sig do
             params(
-              _: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity
+              _: T.any(
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+                ModernTreasury::Util::AnyHash
+              )
             )
               .returns(
-                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity
+                T.any(
+                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+                  ModernTreasury::Util::AnyHash
+                )
               )
           end
           def child_legal_entity=(_)
@@ -2156,8 +2194,8 @@ module ModernTreasury
             end
 
             sig do
-              params(_: T.nilable(ModernTreasury::Models::BankSettings))
-                .returns(T.nilable(ModernTreasury::Models::BankSettings))
+              params(_: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
+                .returns(T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
             end
             def bank_settings=(_)
             end
@@ -2422,8 +2460,12 @@ module ModernTreasury
             end
 
             sig do
-              params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
-                .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails))
+              params(
+                _: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+              )
+                .returns(
+                  T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+                )
             end
             def wealth_and_employment_details=(_)
             end

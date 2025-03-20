@@ -9,8 +9,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)
-          .returns(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)
+        params(
+          _: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash)
+          )
       end
       def bank_address=(_)
       end

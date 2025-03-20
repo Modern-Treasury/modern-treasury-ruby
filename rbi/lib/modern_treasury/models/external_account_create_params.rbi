@@ -58,8 +58,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount)
-          .returns(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount)
+        params(
+          _: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+          )
       end
       def ledger_account=(_)
       end
@@ -90,8 +94,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress)
-          .returns(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress)
+        params(
+          _: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          )
       end
       def party_address=(_)
       end

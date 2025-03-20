@@ -59,8 +59,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrderCreateParams::Accounting)
-          .returns(ModernTreasury::Models::PaymentOrderCreateParams::Accounting)
+        params(
+          _: T.any(ModernTreasury::Models::PaymentOrderCreateParams::Accounting, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::PaymentOrderCreateParams::Accounting, ModernTreasury::Util::AnyHash)
+          )
       end
       def accounting=(_)
       end
@@ -197,8 +201,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction)
-          .returns(ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction)
+        params(
+          _: T.any(ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction, ModernTreasury::Util::AnyHash)
+          )
       end
       def ledger_transaction=(_)
       end
@@ -305,8 +313,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount)
-          .returns(ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount)
+        params(
+          _: T.any(ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount, ModernTreasury::Util::AnyHash)
+        )
+          .returns(
+            T.any(ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount, ModernTreasury::Util::AnyHash)
+          )
       end
       def receiving_account=(_)
       end
@@ -1278,8 +1290,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount)
-            .returns(ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount)
+          params(
+            _: T.any(
+              ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def ledger_account=(_)
         end
@@ -1310,8 +1332,18 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyAddress)
-            .returns(ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyAddress)
+          params(
+            _: T.any(
+              ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          )
+            .returns(
+              T.any(
+                ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyAddress,
+                ModernTreasury::Util::AnyHash
+              )
+            )
         end
         def party_address=(_)
         end

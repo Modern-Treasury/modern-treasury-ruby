@@ -150,8 +150,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerEntryListParams::OrderBy)
-          .returns(ModernTreasury::Models::LedgerEntryListParams::OrderBy)
+        params(_: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Util::AnyHash))
+          .returns(T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Util::AnyHash))
       end
       def order_by=(_)
       end
