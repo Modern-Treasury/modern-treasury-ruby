@@ -157,7 +157,9 @@ module ModernTreasury
         | :R53
         | :currencycloud
 
-      class Code < ModernTreasury::Enum
+      module Code
+        extend ModernTreasury::Enum
+
         NUMBER_901: :"901"
         NUMBER_902: :"902"
         NUMBER_903: :"903"
@@ -326,7 +328,9 @@ module ModernTreasury
           | :wells_fargo_trace_number
           | :wells_fargo_uetr
 
-        class ReferenceNumberType < ModernTreasury::Enum
+        module ReferenceNumberType
+          extend ModernTreasury::Enum
+
           ACH_ORIGINAL_TRACE_NUMBER: :ach_original_trace_number
           ACH_TRACE_NUMBER: :ach_trace_number
           BANKPROV_PAYMENT_ACTIVITY_DATE: :bankprov_payment_activity_date
@@ -410,7 +414,9 @@ module ModernTreasury
         | :return
         | :reversal
 
-      class ReturnableType < ModernTreasury::Enum
+      module ReturnableType
+        extend ModernTreasury::Enum
+
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
         PAPER_ITEM: :paper_item
         PAYMENT_ORDER: :payment_order
@@ -422,7 +428,9 @@ module ModernTreasury
 
       type role = :originating | :receiving
 
-      class Role < ModernTreasury::Enum
+      module Role
+        extend ModernTreasury::Enum
+
         ORIGINATING: :originating
         RECEIVING: :receiving
 
@@ -432,7 +440,9 @@ module ModernTreasury
       type status =
         :completed | :failed | :pending | :processing | :returned | :sent
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED: :completed
         FAILED: :failed
         PENDING: :pending
@@ -458,7 +468,9 @@ module ModernTreasury
         | :sepa
         | :wire
 
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH: :ach
         ACH_NOC: :ach_noc
         AU_BECS: :au_becs

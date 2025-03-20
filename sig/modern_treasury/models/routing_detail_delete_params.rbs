@@ -25,7 +25,9 @@ module ModernTreasury
 
       type accounts_type = :external_accounts
 
-      class AccountsType < ModernTreasury::Enum
+      module AccountsType
+        extend ModernTreasury::Enum
+
         EXTERNAL_ACCOUNTS: :external_accounts
 
         def self.values: -> ::Array[ModernTreasury::Models::RoutingDetailDeleteParams::accounts_type]

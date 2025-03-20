@@ -163,10 +163,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The employment status of the individual.
-      class EmploymentStatus < ModernTreasury::Enum
+      module EmploymentStatus
+        extend ModernTreasury::Enum
+
         EMPLOYED = :employed
         RETIRED = :retired
         SELF_EMPLOYED = :self_employed
@@ -176,10 +176,10 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The source of the individual's income.
-      class IncomeSource < ModernTreasury::Enum
+      module IncomeSource
+        extend ModernTreasury::Enum
+
         FAMILY_SUPPORT = :family_support
         GOVERNMENT_BENEFITS = :government_benefits
         INHERITANCE = :inheritance
@@ -192,10 +192,10 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The industry of the individual.
-      class Industry < ModernTreasury::Enum
+      module Industry
+        extend ModernTreasury::Enum
+
         ACCOUNTING = :accounting
         AGRICULTURE = :agriculture
         AUTOMOTIVE = :automotive
@@ -233,10 +233,10 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The occupation of the individual.
-      class Occupation < ModernTreasury::Enum
+      module Occupation
+        extend ModernTreasury::Enum
+
         CONSULTING = :consulting
         EXECUTIVE = :executive
         FINANCE_ACCOUNTING = :finance_accounting
@@ -253,10 +253,10 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The source of the individual's funds.
-      class SourceOfFunds < ModernTreasury::Enum
+      module SourceOfFunds
+        extend ModernTreasury::Enum
+
         ALIMONY = :alimony
         ANNUITY = :annuity
         BUSINESS_OWNER = :business_owner
@@ -278,10 +278,10 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The source of the individual's wealth.
-      class WealthSource < ModernTreasury::Enum
+      module WealthSource
+        extend ModernTreasury::Enum
+
         BUSINESS_SALE = :business_sale
         FAMILY_SUPPORT = :family_support
         GOVERNMENT_BENEFITS = :government_benefits

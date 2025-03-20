@@ -6,11 +6,14 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::AccountsType::OrSymbol) }
       def accounts_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::AccountsType::OrSymbol)
+          .returns(ModernTreasury::Models::AccountsType::OrSymbol)
+      end
       def accounts_type=(_)
       end
 
@@ -32,7 +35,7 @@ module ModernTreasury
 
       sig do
         params(
-          accounts_type: Symbol,
+          accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
@@ -46,7 +49,7 @@ module ModernTreasury
         override
           .returns(
             {
-              accounts_type: Symbol,
+              accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
               after_cursor: T.nilable(String),
               per_page: Integer,
               request_options: ModernTreasury::RequestOptions

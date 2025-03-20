@@ -41,7 +41,9 @@ module ModernTreasury
 
       type returnable_type = :incoming_payment_detail
 
-      class ReturnableType < ModernTreasury::Enum
+      module ReturnableType
+        extend ModernTreasury::Enum
+
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
 
         def self.values: -> ::Array[ModernTreasury::Models::ReturnCreateParams::returnable_type]
@@ -102,7 +104,9 @@ module ModernTreasury
         | :R53
         | :currencycloud
 
-      class Code < ModernTreasury::Enum
+      module Code
+        extend ModernTreasury::Enum
+
         NUMBER_901: :"901"
         NUMBER_902: :"902"
         NUMBER_903: :"903"

@@ -15,11 +15,14 @@ module ModernTreasury
       def documentable_id=(_)
       end
 
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol) }
       def documentable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+          .returns(ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+      end
       def documentable_type=(_)
       end
 
@@ -43,7 +46,7 @@ module ModernTreasury
       sig do
         params(
           documentable_id: String,
-          documentable_type: Symbol,
+          documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
           file: T.any(IO, StringIO),
           document_type: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
@@ -58,7 +61,7 @@ module ModernTreasury
           .returns(
             {
               documentable_id: String,
-              documentable_type: Symbol,
+              documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
               file: T.any(IO, StringIO),
               document_type: String,
               request_options: ModernTreasury::RequestOptions
@@ -68,23 +71,36 @@ module ModernTreasury
       def to_hash
       end
 
-      class DocumentableType < ModernTreasury::Enum
-        abstract!
+      module DocumentableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType::TaggedSymbol) }
 
-        CASES = :cases
-        COUNTERPARTIES = :counterparties
-        EXPECTED_PAYMENTS = :expected_payments
-        EXTERNAL_ACCOUNTS = :external_accounts
-        INCOMING_PAYMENT_DETAILS = :incoming_payment_details
-        INTERNAL_ACCOUNTS = :internal_accounts
-        ORGANIZATIONS = :organizations
-        PAPER_ITEMS = :paper_items
-        PAYMENT_ORDERS = :payment_orders
-        TRANSACTIONS = :transactions
-        DECISIONS = :decisions
-        CONNECTIONS = :connections
+        CASES = T.let(:cases, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        COUNTERPARTIES =
+          T.let(:counterparties, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        EXPECTED_PAYMENTS =
+          T.let(:expected_payments, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        EXTERNAL_ACCOUNTS =
+          T.let(:external_accounts, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        INCOMING_PAYMENT_DETAILS =
+          T.let(:incoming_payment_details, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        INTERNAL_ACCOUNTS =
+          T.let(:internal_accounts, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        ORGANIZATIONS =
+          T.let(:organizations, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        PAPER_ITEMS =
+          T.let(:paper_items, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        PAYMENT_ORDERS =
+          T.let(:payment_orders, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        TRANSACTIONS =
+          T.let(:transactions, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        DECISIONS = T.let(:decisions, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
+        CONNECTIONS =
+          T.let(:connections, ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
       end
     end
   end

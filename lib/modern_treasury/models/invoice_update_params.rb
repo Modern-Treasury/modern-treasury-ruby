@@ -369,8 +369,9 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        class ContactIdentifierType < ModernTreasury::Enum
+        module ContactIdentifierType
+          extend ModernTreasury::Enum
+
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
@@ -636,15 +637,15 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # The method by which the invoice can be paid. `ui` will show the embedded payment
       #   collection flow. `automatic` will automatically initiate payment based upon the
       #   account details of the receiving_account id.\nIf the invoice amount is positive,
       #   the automatically initiated payment order's direction will be debit. If the
       #   invoice amount is negative, the automatically initiated payment order's
       #   direction will be credit. One of `manual`, `ui`, or `automatic`.
-      class PaymentMethod < ModernTreasury::Enum
+      module PaymentMethod
+        extend ModernTreasury::Enum
+
         UI = :ui
         MANUAL = :manual
         AUTOMATIC = :automatic

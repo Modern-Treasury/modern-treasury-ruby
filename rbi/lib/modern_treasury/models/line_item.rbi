@@ -80,11 +80,14 @@ module ModernTreasury
       end
 
       # One of `payment_orders` or `expected_payments`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol) }
       def itemizable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
+          .returns(ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
+      end
       def itemizable_type=(_)
       end
 
@@ -134,7 +137,7 @@ module ModernTreasury
           created_at: Time,
           description: T.nilable(String),
           itemizable_id: String,
-          itemizable_type: Symbol,
+          itemizable_type: ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
@@ -171,7 +174,7 @@ module ModernTreasury
               created_at: Time,
               description: T.nilable(String),
               itemizable_id: String,
-              itemizable_type: Symbol,
+              itemizable_type: ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol,
               live_mode: T::Boolean,
               metadata: T::Hash[Symbol, String],
               object: String,
@@ -214,13 +217,15 @@ module ModernTreasury
       end
 
       # One of `payment_orders` or `expected_payments`.
-      class ItemizableType < ModernTreasury::Enum
-        abstract!
+      module ItemizableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LineItem::ItemizableType) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol) }
 
-        EXPECTED_PAYMENT = :ExpectedPayment
-        PAYMENT_ORDER = :PaymentOrder
+        EXPECTED_PAYMENT =
+          T.let(:ExpectedPayment, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
+        PAYMENT_ORDER = T.let(:PaymentOrder, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
       end
     end
   end

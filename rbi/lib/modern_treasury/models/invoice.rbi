@@ -85,11 +85,14 @@ module ModernTreasury
       end
 
       # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
       def currency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
+          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
+      end
       def currency=(_)
       end
 
@@ -243,11 +246,14 @@ module ModernTreasury
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)) }
       def payment_method
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol))
+      end
       def payment_method=(_)
       end
 
@@ -265,11 +271,14 @@ module ModernTreasury
       end
 
       # One of `ach` or `eft`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)) }
       def payment_type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol))
+      end
       def payment_type=(_)
       end
 
@@ -322,11 +331,14 @@ module ModernTreasury
       end
 
       # The status of the invoice.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::Invoice::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::Invoice::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::Invoice::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -376,7 +388,7 @@ module ModernTreasury
           counterparty_id: String,
           counterparty_shipping_address: T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress),
           created_at: Time,
-          currency: Symbol,
+          currency: ModernTreasury::Models::Currency::TaggedSymbol,
           description: String,
           due_date: Time,
           expected_payments: T::Array[ModernTreasury::Models::ExpectedPayment],
@@ -392,15 +404,15 @@ module ModernTreasury
           object: String,
           originating_account_id: String,
           payment_effective_date: T.nilable(Date),
-          payment_method: T.nilable(Symbol),
+          payment_method: T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol),
           payment_orders: T::Array[ModernTreasury::Models::PaymentOrder],
-          payment_type: T.nilable(Symbol),
+          payment_type: T.nilable(ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol),
           pdf_url: T.nilable(String),
           receiving_account_id: T.nilable(String),
           recipient_email: T.nilable(String),
           recipient_name: T.nilable(String),
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
-          status: Symbol,
+          status: ModernTreasury::Models::Invoice::Status::TaggedSymbol,
           total_amount: Integer,
           transaction_line_item_ids: T::Array[String],
           updated_at: Time,
@@ -461,7 +473,7 @@ module ModernTreasury
               counterparty_id: String,
               counterparty_shipping_address: T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress),
               created_at: Time,
-              currency: Symbol,
+              currency: ModernTreasury::Models::Currency::TaggedSymbol,
               description: String,
               due_date: Time,
               expected_payments: T::Array[ModernTreasury::Models::ExpectedPayment],
@@ -477,15 +489,15 @@ module ModernTreasury
               object: String,
               originating_account_id: String,
               payment_effective_date: T.nilable(Date),
-              payment_method: T.nilable(Symbol),
+              payment_method: T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol),
               payment_orders: T::Array[ModernTreasury::Models::PaymentOrder],
-              payment_type: T.nilable(Symbol),
+              payment_type: T.nilable(ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol),
               pdf_url: T.nilable(String),
               receiving_account_id: T.nilable(String),
               recipient_email: T.nilable(String),
               recipient_name: T.nilable(String),
               remind_after_overdue_days: T.nilable(T::Array[Integer]),
-              status: Symbol,
+              status: ModernTreasury::Models::Invoice::Status::TaggedSymbol,
               total_amount: Integer,
               transaction_line_item_ids: T::Array[String],
               updated_at: Time,
@@ -513,11 +525,14 @@ module ModernTreasury
         def contact_identifier=(_)
         end
 
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol) }
         def contact_identifier_type
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
+            .returns(ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
+        end
         def contact_identifier_type=(_)
         end
 
@@ -567,7 +582,7 @@ module ModernTreasury
           params(
             id: String,
             contact_identifier: String,
-            contact_identifier_type: Symbol,
+            contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol,
             created_at: Time,
             discarded_at: T.nilable(Time),
             live_mode: T::Boolean,
@@ -594,7 +609,7 @@ module ModernTreasury
               {
                 id: String,
                 contact_identifier: String,
-                contact_identifier_type: Symbol,
+                contact_identifier_type: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol,
                 created_at: Time,
                 discarded_at: T.nilable(Time),
                 live_mode: T::Boolean,
@@ -606,14 +621,20 @@ module ModernTreasury
         def to_hash
         end
 
-        class ContactIdentifierType < ModernTreasury::Enum
-          abstract!
+        module ContactIdentifierType
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol) }
 
-          EMAIL = :email
-          PHONE_NUMBER = :phone_number
-          WEBSITE = :website
+          EMAIL =
+            T.let(:email, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
+          PHONE_NUMBER =
+            T.let(:phone_number, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
+          WEBSITE =
+            T.let(:website, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
         end
       end
 
@@ -874,38 +895,41 @@ module ModernTreasury
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
-      class PaymentMethod < ModernTreasury::Enum
-        abstract!
+      module PaymentMethod
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::PaymentMethod) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol) }
 
-        UI = :ui
-        MANUAL = :manual
-        AUTOMATIC = :automatic
+        UI = T.let(:ui, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
+        MANUAL = T.let(:manual, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
+        AUTOMATIC = T.let(:automatic, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
       end
 
       # One of `ach` or `eft`.
-      class PaymentType < ModernTreasury::Enum
-        abstract!
+      module PaymentType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::PaymentType) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol) }
 
-        EFT = :eft
-        ACH = :ach
+        EFT = T.let(:eft, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
+        ACH = T.let(:ach, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
       end
 
       # The status of the invoice.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Invoice::Status) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::Invoice::Status::TaggedSymbol) }
 
-        DRAFT = :draft
-        PAID = :paid
-        PARTIALLY_PAID = :partially_paid
-        PAYMENT_PENDING = :payment_pending
-        UNPAID = :unpaid
-        VOIDED = :voided
+        DRAFT = T.let(:draft, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
+        PAID = T.let(:paid, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
+        PARTIALLY_PAID = T.let(:partially_paid, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
+        PAYMENT_PENDING = T.let(:payment_pending, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
+        UNPAID = T.let(:unpaid, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
+        VOIDED = T.let(:voided, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
       end
     end
   end

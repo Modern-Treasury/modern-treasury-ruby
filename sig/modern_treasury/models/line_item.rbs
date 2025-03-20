@@ -76,7 +76,9 @@ module ModernTreasury
 
       type itemizable_type = :ExpectedPayment | :PaymentOrder
 
-      class ItemizableType < ModernTreasury::Enum
+      module ItemizableType
+        extend ModernTreasury::Enum
+
         EXPECTED_PAYMENT: :ExpectedPayment
         PAYMENT_ORDER: :PaymentOrder
 

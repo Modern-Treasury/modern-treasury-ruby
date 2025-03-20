@@ -76,11 +76,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT = :credit
         DEBIT = :debit
 

@@ -51,7 +51,9 @@ module ModernTreasury
 
       type status = :pending | :posted
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         PENDING: :pending
         POSTED: :posted
 

@@ -2,8 +2,9 @@
 
 module ModernTreasury
   module Models
-    # @abstract
-    class ExternalAccountVerifyResponse < ModernTreasury::Union
+    module ExternalAccountVerifyResponse
+      extend ModernTreasury::Union
+
       variant -> { ModernTreasury::Models::ExternalAccount }
 
       variant -> { ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt }
@@ -102,11 +103,11 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         #   `rtp`.
-        class PaymentType < ModernTreasury::Enum
+        module PaymentType
+          extend ModernTreasury::Enum
+
           ACH = :ach
           AU_BECS = :au_becs
           BACS = :bacs
@@ -141,21 +142,21 @@ module ModernTreasury
           finalize!
         end
 
-        # @abstract
-        #
         # The priority of the payment. Can be `normal` or `high`.
-        class Priority < ModernTreasury::Enum
+        module Priority
+          extend ModernTreasury::Enum
+
           HIGH = :high
           NORMAL = :normal
 
           finalize!
         end
 
-        # @abstract
-        #
         # The status of the verification attempt. Can be `pending_verification`,
         #   `verified`, `failed`, or `cancelled`.
-        class Status < ModernTreasury::Enum
+        module Status
+          extend ModernTreasury::Enum
+
           CANCELLED = :cancelled
           FAILED = :failed
           PENDING_VERIFICATION = :pending_verification

@@ -51,7 +51,9 @@ module ModernTreasury
         | :ESP
         | :GBR
 
-      class ReceivingCountry < ModernTreasury::Enum
+      module ReceivingCountry
+        extend ModernTreasury::Enum
+
         USA: :USA
         AUS: :AUS
         BEL: :BEL

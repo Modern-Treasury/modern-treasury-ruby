@@ -6,8 +6,8 @@ module ModernTreasury
       # create bulk_request
       sig do
         params(
-          action_type: Symbol,
-          resource_type: Symbol,
+          action_type: ModernTreasury::Models::BulkRequestCreateParams::ActionType::OrSymbol,
+          resource_type: ModernTreasury::Models::BulkRequestCreateParams::ResourceType::OrSymbol,
           resources: T::Array[
           T.any(
             ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
@@ -59,12 +59,12 @@ module ModernTreasury
       # list bulk_requests
       sig do
         params(
-          action_type: Symbol,
+          action_type: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol,
           after_cursor: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          resource_type: Symbol,
-          status: Symbol,
+          resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
+          status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::BulkRequest])

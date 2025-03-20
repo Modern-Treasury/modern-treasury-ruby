@@ -36,11 +36,14 @@ module ModernTreasury
       end
 
       # Must conform to ISO 4217. Defaults to the currency of the internal account.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
       def currency
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Currency::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol))
+      end
       def currency=(_)
       end
 
@@ -73,11 +76,14 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol)) }
       def direction
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol))
+      end
       def direction=(_)
       end
 
@@ -155,21 +161,27 @@ module ModernTreasury
 
       # The Expected Payment's status can be updated from partially_reconciled to
       #   reconciled.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol))
+      end
       def status=(_)
       end
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet, wire.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol)) }
       def type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol))
+      end
       def type=(_)
       end
 
@@ -178,11 +190,11 @@ module ModernTreasury
           amount_lower_bound: T.nilable(Integer),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
-          currency: T.nilable(Symbol),
+          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
-          direction: T.nilable(Symbol),
+          direction: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol),
           internal_account_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
@@ -190,8 +202,8 @@ module ModernTreasury
           reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
-          status: T.nilable(Symbol),
-          type: T.nilable(Symbol),
+          status: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol),
+          type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -225,11 +237,11 @@ module ModernTreasury
               amount_lower_bound: T.nilable(Integer),
               amount_upper_bound: T.nilable(Integer),
               counterparty_id: T.nilable(String),
-              currency: T.nilable(Symbol),
+              currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
               date_lower_bound: T.nilable(Date),
               date_upper_bound: T.nilable(Date),
               description: T.nilable(String),
-              direction: T.nilable(Symbol),
+              direction: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol),
               internal_account_id: T.nilable(String),
               metadata: T::Hash[Symbol, String],
               reconciliation_filters: T.nilable(T.anything),
@@ -237,8 +249,8 @@ module ModernTreasury
               reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
-              status: T.nilable(Symbol),
-              type: T.nilable(Symbol),
+              status: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol),
+              type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -248,23 +260,29 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      class Direction < ModernTreasury::Enum
-        abstract!
+      module Direction
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol) }
 
-        CREDIT = :credit
-        DEBIT = :debit
+        CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol)
       end
 
       # The Expected Payment's status can be updated from partially_reconciled to
       #   reconciled.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol) }
 
-        RECONCILED = :reconciled
+        RECONCILED = T.let(:reconciled, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol)
       end
     end
   end

@@ -56,7 +56,9 @@ module ModernTreasury
 
       type direction = :credit | :debit
 
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT: :credit
         DEBIT: :debit
 
@@ -95,7 +97,9 @@ module ModernTreasury
         | :wire
         | :zengin
 
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs

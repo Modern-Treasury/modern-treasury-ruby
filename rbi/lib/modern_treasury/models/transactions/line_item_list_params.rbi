@@ -39,11 +39,14 @@ module ModernTreasury
         def transaction_id=(_)
         end
 
-        sig { returns(T.nilable(Symbol)) }
+        sig { returns(T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol)) }
         def type
         end
 
-        sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+        sig do
+          params(_: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol))
+            .returns(T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol))
+        end
         def type=(_)
         end
 
@@ -53,7 +56,7 @@ module ModernTreasury
             after_cursor: T.nilable(String),
             per_page: Integer,
             transaction_id: String,
-            type: T.nilable(Symbol),
+            type: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol),
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
             .returns(T.attached_class)
@@ -69,7 +72,7 @@ module ModernTreasury
                 after_cursor: T.nilable(String),
                 per_page: Integer,
                 transaction_id: String,
-                type: T.nilable(Symbol),
+                type: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol),
                 request_options: ModernTreasury::RequestOptions
               }
             )
@@ -77,13 +80,17 @@ module ModernTreasury
         def to_hash
         end
 
-        class Type < ModernTreasury::Enum
-          abstract!
+        module Type
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type::TaggedSymbol) }
 
-          ORIGINATING = :originating
-          RECEIVING = :receiving
+          ORIGINATING =
+            T.let(:originating, ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol)
+          RECEIVING = T.let(:receiving, ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol)
         end
       end
     end

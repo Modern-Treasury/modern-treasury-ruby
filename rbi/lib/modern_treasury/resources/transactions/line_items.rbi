@@ -48,7 +48,7 @@ module ModernTreasury
             after_cursor: T.nilable(String),
             per_page: Integer,
             transaction_id: String,
-            type: T.nilable(Symbol),
+            type: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol),
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
           )
             .returns(ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem])

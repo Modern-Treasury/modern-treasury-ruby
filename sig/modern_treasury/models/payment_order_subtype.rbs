@@ -31,7 +31,9 @@ module ModernTreasury
       | :sknbi
       | :zengin
 
-    class PaymentOrderSubtype < ModernTreasury::Enum
+    module PaymentOrderSubtype
+      extend ModernTreasury::Enum
+
       BACS_NEW_INSTRUCTION: :"0C"
       BACS_CANCELLATION_INSTRUCTION: :"0N"
       BACS_CONVERSION_INSTRUCTION: :"0S"

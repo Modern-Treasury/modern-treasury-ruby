@@ -17,11 +17,14 @@ module ModernTreasury
 
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol) }
       def returnable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol)
+          .returns(ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol)
+      end
       def returnable_type=(_)
       end
 
@@ -36,11 +39,14 @@ module ModernTreasury
       end
 
       # The return code. For ACH returns, this is the required ACH return code.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)) }
       def code
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol))
+      end
       def code=(_)
       end
 
@@ -67,9 +73,9 @@ module ModernTreasury
       sig do
         params(
           returnable_id: T.nilable(String),
-          returnable_type: Symbol,
+          returnable_type: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol,
           additional_information: T.nilable(String),
-          code: T.nilable(Symbol),
+          code: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
@@ -92,9 +98,9 @@ module ModernTreasury
           .returns(
             {
               returnable_id: T.nilable(String),
-              returnable_type: Symbol,
+              returnable_type: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol,
               additional_information: T.nilable(String),
-              code: T.nilable(Symbol),
+              code: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol),
               date_of_death: T.nilable(Date),
               reason: T.nilable(String),
               request_options: ModernTreasury::RequestOptions
@@ -106,73 +112,77 @@ module ModernTreasury
 
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
-      class ReturnableType < ModernTreasury::Enum
-        abstract!
+      module ReturnableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol) }
 
-        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
+        INCOMING_PAYMENT_DETAIL =
+          T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol)
       end
 
       # The return code. For ACH returns, this is the required ACH return code.
-      class Code < ModernTreasury::Enum
-        abstract!
+      module Code
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnCreateParams::Code) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol) }
 
-        NUMBER_901 = :"901"
-        NUMBER_902 = :"902"
-        NUMBER_903 = :"903"
-        NUMBER_904 = :"904"
-        NUMBER_905 = :"905"
-        NUMBER_907 = :"907"
-        NUMBER_908 = :"908"
-        NUMBER_909 = :"909"
-        NUMBER_910 = :"910"
-        NUMBER_911 = :"911"
-        NUMBER_912 = :"912"
-        NUMBER_914 = :"914"
-        C01 = :C01
-        C02 = :C02
-        C03 = :C03
-        C05 = :C05
-        C06 = :C06
-        C07 = :C07
-        C08 = :C08
-        C09 = :C09
-        C13 = :C13
-        C14 = :C14
-        R01 = :R01
-        R02 = :R02
-        R03 = :R03
-        R04 = :R04
-        R05 = :R05
-        R06 = :R06
-        R07 = :R07
-        R08 = :R08
-        R09 = :R09
-        R10 = :R10
-        R11 = :R11
-        R12 = :R12
-        R14 = :R14
-        R15 = :R15
-        R16 = :R16
-        R17 = :R17
-        R20 = :R20
-        R21 = :R21
-        R22 = :R22
-        R23 = :R23
-        R24 = :R24
-        R29 = :R29
-        R31 = :R31
-        R33 = :R33
-        R37 = :R37
-        R38 = :R38
-        R39 = :R39
-        R51 = :R51
-        R52 = :R52
-        R53 = :R53
-        CURRENCYCLOUD = :currencycloud
+        NUMBER_901 = T.let(:"901", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_902 = T.let(:"902", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_903 = T.let(:"903", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_904 = T.let(:"904", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_905 = T.let(:"905", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_907 = T.let(:"907", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_908 = T.let(:"908", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_909 = T.let(:"909", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_910 = T.let(:"910", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_911 = T.let(:"911", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_912 = T.let(:"912", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        NUMBER_914 = T.let(:"914", ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C01 = T.let(:C01, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C02 = T.let(:C02, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C03 = T.let(:C03, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C05 = T.let(:C05, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C06 = T.let(:C06, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C07 = T.let(:C07, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C08 = T.let(:C08, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C09 = T.let(:C09, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C13 = T.let(:C13, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        C14 = T.let(:C14, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R01 = T.let(:R01, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R02 = T.let(:R02, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R03 = T.let(:R03, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R04 = T.let(:R04, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R05 = T.let(:R05, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R06 = T.let(:R06, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R07 = T.let(:R07, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R08 = T.let(:R08, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R09 = T.let(:R09, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R10 = T.let(:R10, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R11 = T.let(:R11, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R12 = T.let(:R12, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R14 = T.let(:R14, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R15 = T.let(:R15, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R16 = T.let(:R16, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R17 = T.let(:R17, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R20 = T.let(:R20, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R21 = T.let(:R21, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R22 = T.let(:R22, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R23 = T.let(:R23, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R24 = T.let(:R24, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R29 = T.let(:R29, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R31 = T.let(:R31, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R33 = T.let(:R33, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R37 = T.let(:R37, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R38 = T.let(:R38, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R39 = T.let(:R39, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R51 = T.let(:R51, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R52 = T.let(:R52, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        R53 = T.let(:R53, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
+        CURRENCYCLOUD = T.let(:currencycloud, ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)
       end
     end
   end

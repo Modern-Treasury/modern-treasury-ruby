@@ -43,7 +43,9 @@ module ModernTreasury
 
       type direction = :credit | :debit
 
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT: :credit
         DEBIT: :debit
 

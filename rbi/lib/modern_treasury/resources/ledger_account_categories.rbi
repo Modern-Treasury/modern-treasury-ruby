@@ -9,7 +9,7 @@ module ModernTreasury
           currency: String,
           ledger_id: String,
           name: String,
-          normal_balance: Symbol,
+          normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
           currency_exponent: T.nilable(Integer),
           description: T.nilable(String),
           ledger_account_category_ids: T::Array[String],

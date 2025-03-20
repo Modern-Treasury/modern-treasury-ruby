@@ -4,7 +4,9 @@ module ModernTreasury
       ModernTreasury::Models::ExternalAccount
       | ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
 
-    class ExternalAccountVerifyResponse < ModernTreasury::Union
+    module ExternalAccountVerifyResponse
+      extend ModernTreasury::Union
+
       type external_account_verification_attempt =
         {
           id: String,
@@ -87,7 +89,9 @@ module ModernTreasury
           | :wire
           | :zengin
 
-        class PaymentType < ModernTreasury::Enum
+        module PaymentType
+          extend ModernTreasury::Enum
+
           ACH: :ach
           AU_BECS: :au_becs
           BACS: :bacs
@@ -124,7 +128,9 @@ module ModernTreasury
 
         type priority = :high | :normal
 
-        class Priority < ModernTreasury::Enum
+        module Priority
+          extend ModernTreasury::Enum
+
           HIGH: :high
           NORMAL: :normal
 
@@ -133,7 +139,9 @@ module ModernTreasury
 
         type status = :cancelled | :failed | :pending_verification | :verified
 
-        class Status < ModernTreasury::Enum
+        module Status
+          extend ModernTreasury::Enum
+
           CANCELLED: :cancelled
           FAILED: :failed
           PENDING_VERIFICATION: :pending_verification

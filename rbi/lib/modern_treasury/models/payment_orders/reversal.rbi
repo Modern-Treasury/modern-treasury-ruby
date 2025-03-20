@@ -67,20 +67,26 @@ module ModernTreasury
         end
 
         # The reason for the reversal.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol) }
         def reason
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
+            .returns(ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
+        end
         def reason=(_)
         end
 
         # The current status of the reversal.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol) }
         def status
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
+            .returns(ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
+        end
         def status=(_)
         end
 
@@ -109,8 +115,8 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             object: String,
             payment_order_id: T.nilable(String),
-            reason: Symbol,
-            status: Symbol,
+            reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol,
+            status: ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol,
             transaction_ids: T::Array[T.nilable(T.anything)],
             updated_at: Time
           )
@@ -142,8 +148,8 @@ module ModernTreasury
                 metadata: T::Hash[Symbol, String],
                 object: String,
                 payment_order_id: T.nilable(String),
-                reason: Symbol,
-                status: Symbol,
+                reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol,
+                status: ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol,
                 transaction_ids: T::Array[T.nilable(T.anything)],
                 updated_at: Time
               }
@@ -153,30 +159,38 @@ module ModernTreasury
         end
 
         # The reason for the reversal.
-        class Reason < ModernTreasury::Enum
-          abstract!
+        module Reason
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol) }
 
-          DUPLICATE = :duplicate
-          INCORRECT_AMOUNT = :incorrect_amount
-          INCORRECT_RECEIVING_ACCOUNT = :incorrect_receiving_account
-          DATE_EARLIER_THAN_INTENDED = :date_earlier_than_intended
-          DATE_LATER_THAN_INTENDED = :date_later_than_intended
+          DUPLICATE = T.let(:duplicate, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
+          INCORRECT_AMOUNT =
+            T.let(:incorrect_amount, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
+          INCORRECT_RECEIVING_ACCOUNT =
+            T.let(:incorrect_receiving_account, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
+          DATE_EARLIER_THAN_INTENDED =
+            T.let(:date_earlier_than_intended, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
+          DATE_LATER_THAN_INTENDED =
+            T.let(:date_later_than_intended, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
         end
 
         # The current status of the reversal.
-        class Status < ModernTreasury::Enum
-          abstract!
+        module Status
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol) }
 
-          COMPLETED = :completed
-          FAILED = :failed
-          PENDING = :pending
-          PROCESSING = :processing
-          RETURNED = :returned
-          SENT = :sent
+          COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
+          FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
+          PENDING = T.let(:pending, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
+          PROCESSING = T.let(:processing, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
+          RETURNED = T.let(:returned, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
+          SENT = T.let(:sent, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
         end
       end
     end

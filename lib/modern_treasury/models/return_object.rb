@@ -202,10 +202,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The return code. For ACH returns, this is the required ACH return code.
-      class Code < ModernTreasury::Enum
+      module Code
+        extend ModernTreasury::Enum
+
         NUMBER_901 = :"901"
         NUMBER_902 = :"902"
         NUMBER_903 = :"903"
@@ -317,10 +317,10 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # The type of the reference number. Referring to the vendor payment id.
-        class ReferenceNumberType < ModernTreasury::Enum
+        module ReferenceNumberType
+          extend ModernTreasury::Enum
+
           ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
           ACH_TRACE_NUMBER = :ach_trace_number
           BANKPROV_PAYMENT_ACTIVITY_DATE = :bankprov_payment_activity_date
@@ -398,10 +398,10 @@ module ModernTreasury
         end
       end
 
-      # @abstract
-      #
       # The type of object being returned or `null`.
-      class ReturnableType < ModernTreasury::Enum
+      module ReturnableType
+        extend ModernTreasury::Enum
+
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         PAPER_ITEM = :paper_item
         PAYMENT_ORDER = :payment_order
@@ -411,20 +411,20 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The role of the return, can be `originating` or `receiving`.
-      class Role < ModernTreasury::Enum
+      module Role
+        extend ModernTreasury::Enum
+
         ORIGINATING = :originating
         RECEIVING = :receiving
 
         finalize!
       end
 
-      # @abstract
-      #
       # The current status of the return.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED = :completed
         FAILED = :failed
         PENDING = :pending
@@ -435,11 +435,11 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       #   `interac`, `manual`, `paper_item`, `wire`.
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH = :ach
         ACH_NOC = :ach_noc
         AU_BECS = :au_becs

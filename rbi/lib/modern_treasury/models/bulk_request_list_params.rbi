@@ -7,11 +7,14 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       # One of create, or update.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)) }
       def action_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
+          .returns(ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
+      end
       def action_type=(_)
       end
 
@@ -43,31 +46,37 @@ module ModernTreasury
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)) }
       def resource_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
+          .returns(ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
+      end
       def resource_type=(_)
       end
 
       # One of pending, processing, or completed.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
       sig do
         params(
-          action_type: Symbol,
+          action_type: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol,
           after_cursor: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          resource_type: Symbol,
-          status: Symbol,
+          resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
+          status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -87,12 +96,12 @@ module ModernTreasury
         override
           .returns(
             {
-              action_type: Symbol,
+              action_type: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol,
               after_cursor: T.nilable(String),
               metadata: T::Hash[Symbol, String],
               per_page: Integer,
-              resource_type: Symbol,
-              status: Symbol,
+              resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
+              status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -101,37 +110,47 @@ module ModernTreasury
       end
 
       # One of create, or update.
-      class ActionType < ModernTreasury::Enum
-        abstract!
+      module ActionType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::ActionType::TaggedSymbol) }
 
-        CREATE = :create
-        UPDATE = :update
-        DELETE = :delete
+        CREATE = T.let(:create, ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
+        UPDATE = T.let(:update, ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
+        DELETE = T.let(:delete, ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
-      class ResourceType < ModernTreasury::Enum
-        abstract!
+      module ResourceType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::ResourceType::TaggedSymbol) }
 
-        PAYMENT_ORDER = :payment_order
-        LEDGER_TRANSACTION = :ledger_transaction
-        TRANSACTION = :transaction
-        EXPECTED_PAYMENT = :expected_payment
+        PAYMENT_ORDER =
+          T.let(:payment_order, ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
+        LEDGER_TRANSACTION =
+          T.let(:ledger_transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
+        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
+        EXPECTED_PAYMENT =
+          T.let(:expected_payment, ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
       end
 
       # One of pending, processing, or completed.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestListParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestListParams::Status::TaggedSymbol) }
 
-        PENDING = :pending
-        PROCESSING = :processing
-        COMPLETED = :completed
+        PENDING = T.let(:pending, ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
+        PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
+        COMPLETED = T.let(:completed, ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
       end
     end
   end

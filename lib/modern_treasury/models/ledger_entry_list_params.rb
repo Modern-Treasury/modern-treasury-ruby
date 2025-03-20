@@ -300,16 +300,18 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        class CreatedAt < ModernTreasury::Enum
+        module CreatedAt
+          extend ModernTreasury::Enum
+
           ASC = :asc
           DESC = :desc
 
           finalize!
         end
 
-        # @abstract
-        class EffectiveAt < ModernTreasury::Enum
+        module EffectiveAt
+          extend ModernTreasury::Enum
+
           ASC = :asc
           DESC = :desc
 
@@ -317,11 +319,11 @@ module ModernTreasury
         end
       end
 
-      # @abstract
-      #
       # Get all ledger entries that match the status specified. One of `pending`,
       #   `posted`, or `archived`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         PENDING = :pending
         POSTED = :posted
         ARCHIVED = :archived

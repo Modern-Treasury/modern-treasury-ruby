@@ -7,11 +7,14 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       # Can be `checking`, `savings` or `other`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::OrSymbol)) }
       def account_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ExternalAccountType::OrSymbol)
+          .returns(ModernTreasury::Models::ExternalAccountType::OrSymbol)
+      end
       def account_type=(_)
       end
 
@@ -64,23 +67,26 @@ module ModernTreasury
       end
 
       # Either `individual` or `business`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol)) }
       def party_type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol))
+      end
       def party_type=(_)
       end
 
       sig do
         params(
-          account_type: Symbol,
+          account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
           party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
           party_name: String,
-          party_type: T.nilable(Symbol),
+          party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -101,13 +107,13 @@ module ModernTreasury
         override
           .returns(
             {
-              account_type: Symbol,
+              account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
               counterparty_id: T.nilable(String),
               metadata: T::Hash[Symbol, String],
               name: T.nilable(String),
               party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
               party_name: String,
-              party_type: T.nilable(Symbol),
+              party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -200,13 +206,16 @@ module ModernTreasury
       end
 
       # Either `individual` or `business`.
-      class PartyType < ModernTreasury::Enum
-        abstract!
+      module PartyType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol) }
 
-        BUSINESS = :business
-        INDIVIDUAL = :individual
+        BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol)
+        INDIVIDUAL = T.let(:individual, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol)
       end
     end
   end

@@ -60,7 +60,9 @@ module ModernTreasury
 
       type action_type = :create | :update | :delete
 
-      class ActionType < ModernTreasury::Enum
+      module ActionType
+        extend ModernTreasury::Enum
+
         CREATE: :create
         UPDATE: :update
         DELETE: :delete
@@ -71,7 +73,9 @@ module ModernTreasury
       type resource_type =
         :payment_order | :ledger_transaction | :transaction | :expected_payment
 
-      class ResourceType < ModernTreasury::Enum
+      module ResourceType
+        extend ModernTreasury::Enum
+
         PAYMENT_ORDER: :payment_order
         LEDGER_TRANSACTION: :ledger_transaction
         TRANSACTION: :transaction
@@ -82,7 +86,9 @@ module ModernTreasury
 
       type status = :pending | :processing | :completed
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         PENDING: :pending
         PROCESSING: :processing
         COMPLETED: :completed

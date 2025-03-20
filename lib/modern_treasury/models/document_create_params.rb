@@ -44,8 +44,9 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      class DocumentableType < ModernTreasury::Enum
+      module DocumentableType
+        extend ModernTreasury::Enum
+
         CASES = :cases
         COUNTERPARTIES = :counterparties
         EXPECTED_PAYMENTS = :expected_payments

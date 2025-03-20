@@ -9,7 +9,7 @@ module ModernTreasury
           amount: Integer,
           counterparty_id: String,
           currency: String,
-          direction: Symbol,
+          direction: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           due_date: Date,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
@@ -57,7 +57,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          status: Symbol,
+          status: ModernTreasury::Models::PaymentFlowUpdateParams::Status::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::PaymentFlow)

@@ -99,7 +99,9 @@ module ModernTreasury
         | :wire
         | :zengin
 
-      class PaymentType < ModernTreasury::Enum
+      module PaymentType
+        extend ModernTreasury::Enum
+
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs

@@ -14,11 +14,14 @@ module ModernTreasury
       def after_cursor=(_)
       end
 
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)) }
       def legal_entity_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)
+          .returns(ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)
+      end
       def legal_entity_type=(_)
       end
 
@@ -52,7 +55,7 @@ module ModernTreasury
       sig do
         params(
           after_cursor: T.nilable(String),
-          legal_entity_type: Symbol,
+          legal_entity_type: ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           show_deleted: String,
@@ -75,7 +78,7 @@ module ModernTreasury
           .returns(
             {
               after_cursor: T.nilable(String),
-              legal_entity_type: Symbol,
+              legal_entity_type: ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol,
               metadata: T::Hash[Symbol, String],
               per_page: Integer,
               show_deleted: String,
@@ -86,13 +89,16 @@ module ModernTreasury
       def to_hash
       end
 
-      class LegalEntityType < ModernTreasury::Enum
-        abstract!
+      module LegalEntityType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol) }
 
-        BUSINESS = :business
-        INDIVIDUAL = :individual
+        BUSINESS = T.let(:business, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)
+        INDIVIDUAL = T.let(:individual, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)
       end
     end
   end

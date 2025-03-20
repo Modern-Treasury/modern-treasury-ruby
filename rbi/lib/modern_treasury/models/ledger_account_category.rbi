@@ -91,11 +91,14 @@ module ModernTreasury
       end
 
       # The normal balance of the ledger account category.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
       def normal_balance
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+          .returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+      end
       def normal_balance=(_)
       end
 
@@ -126,7 +129,7 @@ module ModernTreasury
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           name: String,
-          normal_balance: Symbol,
+          normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
           object: String,
           updated_at: Time
         )
@@ -161,7 +164,7 @@ module ModernTreasury
               live_mode: T::Boolean,
               metadata: T::Hash[Symbol, String],
               name: String,
-              normal_balance: Symbol,
+              normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
               object: String,
               updated_at: Time
             }

@@ -7,17 +7,20 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       # The status of the connection legal entity.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
       sig do
         params(
-          status: Symbol,
+          status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -25,17 +28,29 @@ module ModernTreasury
       def self.new(status: nil, request_options: {})
       end
 
-      sig { override.returns({status: Symbol, request_options: ModernTreasury::RequestOptions}) }
+      sig do
+        override
+          .returns(
+            {
+              status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
+      end
       def to_hash
       end
 
       # The status of the connection legal entity.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::TaggedSymbol) }
 
-        PROCESSING = :processing
+        PROCESSING =
+          T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol)
       end
     end
   end

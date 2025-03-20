@@ -7,9 +7,9 @@ module ModernTreasury
       sig do
         params(
           internal_account_id: String,
-          target_currency: Symbol,
+          target_currency: ModernTreasury::Models::Currency::OrSymbol,
           base_amount: Integer,
-          base_currency: Symbol,
+          base_currency: ModernTreasury::Models::Currency::OrSymbol,
           effective_at: Time,
           target_amount: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))

@@ -59,11 +59,14 @@ module ModernTreasury
       end
 
       # Currency that this transaction is denominated in.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
       def currency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
+          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
+      end
       def currency=(_)
       end
 
@@ -165,11 +168,14 @@ module ModernTreasury
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::Transaction::Type::TaggedSymbol) }
       def type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+          .returns(ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+      end
       def type=(_)
       end
 
@@ -195,11 +201,14 @@ module ModernTreasury
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)) }
       def vendor_code_type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol))
+      end
       def vendor_code_type=(_)
       end
 
@@ -254,7 +263,7 @@ module ModernTreasury
           as_of_time: T.nilable(Time),
           as_of_timezone: T.nilable(String),
           created_at: Time,
-          currency: Symbol,
+          currency: ModernTreasury::Models::Currency::TaggedSymbol,
           custom_identifiers: T::Hash[Symbol, String],
           direction: String,
           discarded_at: T.nilable(Time),
@@ -265,10 +274,10 @@ module ModernTreasury
           object: String,
           posted: T::Boolean,
           reconciled: T::Boolean,
-          type: Symbol,
+          type: ModernTreasury::Models::Transaction::Type::TaggedSymbol,
           updated_at: Time,
           vendor_code: T.nilable(String),
-          vendor_code_type: T.nilable(Symbol),
+          vendor_code_type: T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol),
           vendor_customer_id: T.nilable(String),
           vendor_id: T.nilable(String),
           details: T::Hash[Symbol, String],
@@ -315,7 +324,7 @@ module ModernTreasury
               as_of_time: T.nilable(Time),
               as_of_timezone: T.nilable(String),
               created_at: Time,
-              currency: Symbol,
+              currency: ModernTreasury::Models::Currency::TaggedSymbol,
               custom_identifiers: T::Hash[Symbol, String],
               direction: String,
               discarded_at: T.nilable(Time),
@@ -326,10 +335,10 @@ module ModernTreasury
               object: String,
               posted: T::Boolean,
               reconciled: T::Boolean,
-              type: Symbol,
+              type: ModernTreasury::Models::Transaction::Type::TaggedSymbol,
               updated_at: Time,
               vendor_code: T.nilable(String),
-              vendor_code_type: T.nilable(Symbol),
+              vendor_code_type: T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol),
               vendor_customer_id: T.nilable(String),
               vendor_id: T.nilable(String),
               details: T::Hash[Symbol, String],
@@ -352,11 +361,14 @@ module ModernTreasury
         end
 
         # Currency to convert, often called the "sell" currency.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
         def base_currency
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
+            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
+        end
         def base_currency=(_)
         end
 
@@ -390,11 +402,14 @@ module ModernTreasury
         end
 
         # Currency to convert the `base_currency` to, often called the "buy" currency.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
         def target_currency
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
+            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
+        end
         def target_currency=(_)
         end
 
@@ -412,11 +427,11 @@ module ModernTreasury
         sig do
           params(
             base_amount: Integer,
-            base_currency: Symbol,
+            base_currency: ModernTreasury::Models::Currency::TaggedSymbol,
             exponent: Integer,
             rate_string: String,
             target_amount: Integer,
-            target_currency: Symbol,
+            target_currency: ModernTreasury::Models::Currency::TaggedSymbol,
             value: Integer
           )
             .returns(T.attached_class)
@@ -429,11 +444,11 @@ module ModernTreasury
             .returns(
               {
                 base_amount: Integer,
-                base_currency: Symbol,
+                base_currency: ModernTreasury::Models::Currency::TaggedSymbol,
                 exponent: Integer,
                 rate_string: String,
                 target_amount: Integer,
-                target_currency: Symbol,
+                target_currency: ModernTreasury::Models::Currency::TaggedSymbol,
                 value: Integer
               }
             )
@@ -444,76 +459,80 @@ module ModernTreasury
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      class Type < ModernTreasury::Enum
-        abstract!
+      module Type
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Transaction::Type) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::Transaction::Type::TaggedSymbol) }
 
-        ACH = :ach
-        AU_BECS = :au_becs
-        BACS = :bacs
-        BOOK = :book
-        CARD = :card
-        CHATS = :chats
-        CHECK = :check
-        CROSS_BORDER = :cross_border
-        DK_NETS = :dk_nets
-        EFT = :eft
-        HU_ICS = :hu_ics
-        INTERAC = :interac
-        MASAV = :masav
-        MX_CCEN = :mx_ccen
-        NEFT = :neft
-        NICS = :nics
-        NZ_BECS = :nz_becs
-        PL_ELIXIR = :pl_elixir
-        PROVXCHANGE = :provxchange
-        RO_SENT = :ro_sent
-        RTP = :rtp
-        SE_BANKGIROT = :se_bankgirot
-        SEN = :sen
-        SEPA = :sepa
-        SG_GIRO = :sg_giro
-        SIC = :sic
-        SIGNET = :signet
-        SKNBI = :sknbi
-        WIRE = :wire
-        ZENGIN = :zengin
-        OTHER = :other
+        ACH = T.let(:ach, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        CARD = T.let(:card, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        CHATS = T.let(:chats, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        CROSS_BORDER = T.let(:cross_border, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        MASAV = T.let(:masav, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        NICS = T.let(:nics, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        PROVXCHANGE = T.let(:provxchange, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        SE_BANKGIROT = T.let(:se_bankgirot, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        SEN = T.let(:sen, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        SIC = T.let(:sic, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        SKNBI = T.let(:sknbi, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        ZENGIN = T.let(:zengin, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
+        OTHER = T.let(:other, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
       end
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
-      class VendorCodeType < ModernTreasury::Enum
-        abstract!
+      module VendorCodeType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Transaction::VendorCodeType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol) }
 
-        BAI2 = :bai2
-        BANKING_CIRCLE = :banking_circle
-        BANKPROV = :bankprov
-        BNK_DEV = :bnk_dev
-        CLEARTOUCH = :cleartouch
-        COLUMN = :column
-        CROSS_RIVER = :cross_river
-        CURRENCYCLOUD = :currencycloud
-        DC_BANK = :dc_bank
-        DWOLLA = :dwolla
-        EVOLVE = :evolve
-        GOLDMAN_SACHS = :goldman_sachs
-        ISO20022 = :iso20022
-        JPMC = :jpmc
-        MX = :mx
-        PLAID = :plaid
-        PNC = :pnc
-        RSPEC_VENDOR = :rspec_vendor
-        SIGNET = :signet
-        SILVERGATE = :silvergate
-        SWIFT = :swift
-        US_BANK = :us_bank
-        USER = :user
+        BAI2 = T.let(:bai2, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        BANKING_CIRCLE =
+          T.let(:banking_circle, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        BANKPROV = T.let(:bankprov, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        BNK_DEV = T.let(:bnk_dev, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        CLEARTOUCH = T.let(:cleartouch, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        COLUMN = T.let(:column, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        CROSS_RIVER = T.let(:cross_river, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        CURRENCYCLOUD = T.let(:currencycloud, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        DC_BANK = T.let(:dc_bank, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        DWOLLA = T.let(:dwolla, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        EVOLVE = T.let(:evolve, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        GOLDMAN_SACHS = T.let(:goldman_sachs, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        ISO20022 = T.let(:iso20022, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        JPMC = T.let(:jpmc, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        MX = T.let(:mx, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        PLAID = T.let(:plaid, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        PNC = T.let(:pnc, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        RSPEC_VENDOR = T.let(:rspec_vendor, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        SILVERGATE = T.let(:silvergate, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        SWIFT = T.let(:swift, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        US_BANK = T.let(:us_bank, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        USER = T.let(:user, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
       end
     end
   end

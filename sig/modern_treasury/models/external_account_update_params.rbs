@@ -92,7 +92,9 @@ module ModernTreasury
 
       type party_type = :business | :individual
 
-      class PartyType < ModernTreasury::Enum
+      module PartyType
+        extend ModernTreasury::Enum
+
         BUSINESS: :business
         INDIVIDUAL: :individual
 

@@ -141,10 +141,10 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # Either `individual` or `business`.
-      class PartyType < ModernTreasury::Enum
+      module PartyType
+        extend ModernTreasury::Enum
+
         BUSINESS = :business
         INDIVIDUAL = :individual
 

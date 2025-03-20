@@ -205,7 +205,9 @@ module ModernTreasury
 
       type direction = :credit | :debit
 
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT: :credit
         DEBIT: :debit
 
@@ -226,7 +228,9 @@ module ModernTreasury
 
       type charge_bearer = :shared | :sender | :receiver
 
-      class ChargeBearer < ModernTreasury::Enum
+      module ChargeBearer
+        extend ModernTreasury::Enum
+
         SHARED: :shared
         SENDER: :sender
         RECEIVER: :receiver
@@ -276,7 +280,9 @@ module ModernTreasury
           | :decisions
           | :connections
 
-        class DocumentableType < ModernTreasury::Enum
+        module DocumentableType
+          extend ModernTreasury::Enum
+
           CASES: :cases
           COUNTERPARTIES: :counterparties
           EXPECTED_PAYMENTS: :expected_payments
@@ -296,7 +302,9 @@ module ModernTreasury
 
       type fallback_type = :ach
 
-      class FallbackType < ModernTreasury::Enum
+      module FallbackType
+        extend ModernTreasury::Enum
+
         ACH: :ach
 
         def self.values: -> ::Array[ModernTreasury::Models::PaymentOrderCreateParams::fallback_type]
@@ -304,7 +312,9 @@ module ModernTreasury
 
       type foreign_exchange_indicator = :fixed_to_variable | :variable_to_fixed
 
-      class ForeignExchangeIndicator < ModernTreasury::Enum
+      module ForeignExchangeIndicator
+        extend ModernTreasury::Enum
+
         FIXED_TO_VARIABLE: :fixed_to_variable
         VARIABLE_TO_FIXED: :variable_to_fixed
 
@@ -432,7 +442,9 @@ module ModernTreasury
           | :return
           | :reversal
 
-        class LedgerableType < ModernTreasury::Enum
+        module LedgerableType
+          extend ModernTreasury::Enum
+
           EXPECTED_PAYMENT: :expected_payment
           INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
           PAPER_ITEM: :paper_item
@@ -445,7 +457,9 @@ module ModernTreasury
 
         type status = :archived | :pending | :posted
 
-        class Status < ModernTreasury::Enum
+        module Status
+          extend ModernTreasury::Enum
+
           ARCHIVED: :archived
           PENDING: :pending
           POSTED: :posted
@@ -485,7 +499,9 @@ module ModernTreasury
 
       type priority = :high | :normal
 
-      class Priority < ModernTreasury::Enum
+      module Priority
+        extend ModernTreasury::Enum
+
         HIGH: :high
         NORMAL: :normal
 
@@ -616,7 +632,9 @@ module ModernTreasury
             | :sg_number
             | :wallet_address
 
-          class AccountNumberType < ModernTreasury::Enum
+          module AccountNumberType
+            extend ModernTreasury::Enum
+
             AU_NUMBER: :au_number
             CLABE: :clabe
             HK_NUMBER: :hk_number
@@ -658,7 +676,9 @@ module ModernTreasury
 
           type contact_identifier_type = :email | :phone_number | :website
 
-          class ContactIdentifierType < ModernTreasury::Enum
+          module ContactIdentifierType
+            extend ModernTreasury::Enum
+
             EMAIL: :email
             PHONE_NUMBER: :phone_number
             WEBSITE: :website
@@ -733,7 +753,9 @@ module ModernTreasury
             | :internal_account
             | :virtual_account
 
-          class LedgerableType < ModernTreasury::Enum
+          module LedgerableType
+            extend ModernTreasury::Enum
+
             COUNTERPARTY: :counterparty
             EXTERNAL_ACCOUNT: :external_account
             INTERNAL_ACCOUNT: :internal_account
@@ -780,7 +802,9 @@ module ModernTreasury
 
         type party_type = :business | :individual
 
-        class PartyType < ModernTreasury::Enum
+        module PartyType
+          extend ModernTreasury::Enum
+
           BUSINESS: :business
           INDIVIDUAL: :individual
 
@@ -836,7 +860,9 @@ module ModernTreasury
             | :swift
             | :za_national_clearing_code
 
-          class RoutingNumberType < ModernTreasury::Enum
+          module RoutingNumberType
+            extend ModernTreasury::Enum
+
             ABA: :aba
             AU_BSB: :au_bsb
             BR_CODIGO: :br_codigo
@@ -894,7 +920,9 @@ module ModernTreasury
             | :wire
             | :zengin
 
-          class PaymentType < ModernTreasury::Enum
+          module PaymentType
+            extend ModernTreasury::Enum
+
             ACH: :ach
             AU_BECS: :au_becs
             BACS: :bacs

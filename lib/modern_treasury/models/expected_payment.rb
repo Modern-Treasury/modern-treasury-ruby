@@ -234,33 +234,33 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT = :credit
         DEBIT = :debit
 
         finalize!
       end
 
-      # @abstract
-      #
       # One of manual if this expected payment was manually reconciled in the dashboard,
       #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   is unreconciled.
-      class ReconciliationMethod < ModernTreasury::Enum
+      module ReconciliationMethod
+        extend ModernTreasury::Enum
+
         AUTOMATIC = :automatic
         MANUAL = :manual
 
         finalize!
       end
 
-      # @abstract
-      #
       # One of unreconciled, partially_reconciled, reconciled, or archived.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         ARCHIVED = :archived
         PARTIALLY_RECONCILED = :partially_reconciled
         RECONCILED = :reconciled

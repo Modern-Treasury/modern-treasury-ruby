@@ -8,7 +8,7 @@ module ModernTreasury
         params(
           counterparty_id: T.nilable(String),
           account_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
-          account_type: Symbol,
+          account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
           contact_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
           ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
           metadata: T::Hash[Symbol, String],
@@ -16,7 +16,7 @@ module ModernTreasury
           party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
           party_identifier: String,
           party_name: String,
-          party_type: T.nilable(Symbol),
+          party_type: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol),
           plaid_processor_token: String,
           routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
@@ -75,13 +75,13 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          account_type: Symbol,
+          account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
           party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
           party_name: String,
-          party_type: T.nilable(Symbol),
+          party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::ExternalAccount)
@@ -170,10 +170,10 @@ module ModernTreasury
         params(
           id: String,
           originating_account_id: String,
-          payment_type: Symbol,
-          currency: Symbol,
-          fallback_type: Symbol,
-          priority: Symbol,
+          payment_type: ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol,
+          currency: ModernTreasury::Models::Currency::OrSymbol,
+          fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol,
+          priority: ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(

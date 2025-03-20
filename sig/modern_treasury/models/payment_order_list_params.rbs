@@ -125,7 +125,9 @@ module ModernTreasury
 
       type priority = :high | :normal
 
-      class Priority < ModernTreasury::Enum
+      module Priority
+        extend ModernTreasury::Enum
+
         HIGH: :high
         NORMAL: :normal
 
@@ -145,7 +147,9 @@ module ModernTreasury
         | :reversed
         | :sent
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         APPROVED: :approved
         CANCELLED: :cancelled
         COMPLETED: :completed
@@ -193,7 +197,9 @@ module ModernTreasury
         | :wire
         | :zengin
 
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs

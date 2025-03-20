@@ -25,7 +25,7 @@ module ModernTreasury
           per_page: Integer,
           reference_number: String,
           referenceable_id: String,
-          referenceable_type: Symbol,
+          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::PaymentReference])

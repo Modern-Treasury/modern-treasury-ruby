@@ -84,7 +84,9 @@ module ModernTreasury
       type status =
         :draft | :paid | :partially_paid | :payment_pending | :unpaid | :voided
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         DRAFT: :draft
         PAID: :paid
         PARTIALLY_PAID: :partially_paid

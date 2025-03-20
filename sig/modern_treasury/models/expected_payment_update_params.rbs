@@ -87,7 +87,9 @@ module ModernTreasury
 
       type direction = :credit | :debit
 
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT: :credit
         DEBIT: :debit
 
@@ -96,7 +98,9 @@ module ModernTreasury
 
       type status = :reconciled
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         RECONCILED: :reconciled
 
         def self.values: -> ::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::status]
