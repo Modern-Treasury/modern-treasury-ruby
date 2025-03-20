@@ -8,7 +8,7 @@ module ModernTreasury
         sig do
           params(
             payment_order_id: String,
-            reason: Symbol,
+            reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
             ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
             metadata: T::Hash[Symbol, String],
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))

@@ -152,11 +152,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The status of the ledger account settlement. One of `processing`, `pending`,
       #   `posted`, `archiving` or `archived`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         ARCHIVED = :archived
         ARCHIVING = :archiving
         DRAFTING = :drafting

@@ -9,11 +9,11 @@ module ModernTreasury
           amount_lower_bound: T.nilable(Integer),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
-          currency: T.nilable(Symbol),
+          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
-          direction: T.nilable(Symbol),
+          direction: T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol),
           internal_account_id: T.nilable(String),
           ledger_transaction: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
           ledger_transaction_id: String,
@@ -24,7 +24,7 @@ module ModernTreasury
           reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
-          type: T.nilable(Symbol),
+          type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::ExpectedPayment)
@@ -109,11 +109,11 @@ module ModernTreasury
           amount_lower_bound: T.nilable(Integer),
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
-          currency: T.nilable(Symbol),
+          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
-          direction: T.nilable(Symbol),
+          direction: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol),
           internal_account_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
@@ -121,8 +121,8 @@ module ModernTreasury
           reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
-          status: T.nilable(Symbol),
-          type: T.nilable(Symbol),
+          status: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol),
+          type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::ExpectedPayment)
@@ -186,12 +186,12 @@ module ModernTreasury
           counterparty_id: String,
           created_at_lower_bound: Time,
           created_at_upper_bound: Time,
-          direction: Symbol,
+          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          status: Symbol,
-          type: Symbol,
+          status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol,
+          type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::ExpectedPayment])

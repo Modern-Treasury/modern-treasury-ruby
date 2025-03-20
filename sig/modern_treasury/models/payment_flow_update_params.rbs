@@ -19,7 +19,9 @@ module ModernTreasury
 
       type status = :cancelled
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         CANCELLED: :cancelled
 
         def self.values: -> ::Array[ModernTreasury::Models::PaymentFlowUpdateParams::status]

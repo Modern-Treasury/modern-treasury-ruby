@@ -118,7 +118,9 @@ module ModernTreasury
 
       type direction = :credit | :debit
 
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT: :credit
         DEBIT: :debit
 
@@ -127,7 +129,9 @@ module ModernTreasury
 
       type existing_external_accounts_filter = :verified
 
-      class ExistingExternalAccountsFilter < ModernTreasury::Enum
+      module ExistingExternalAccountsFilter
+        extend ModernTreasury::Enum
+
         VERIFIED: :verified
 
         def self.values: -> ::Array[ModernTreasury::Models::PaymentFlow::existing_external_accounts_filter]
@@ -135,7 +139,9 @@ module ModernTreasury
 
       type external_account_collection = :disabled | :enabled
 
-      class ExternalAccountCollection < ModernTreasury::Enum
+      module ExternalAccountCollection
+        extend ModernTreasury::Enum
+
         DISABLED: :disabled
         ENABLED: :enabled
 
@@ -144,7 +150,9 @@ module ModernTreasury
 
       type status = :cancelled | :completed | :expired | :pending
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         CANCELLED: :cancelled
         COMPLETED: :completed
         EXPIRED: :expired

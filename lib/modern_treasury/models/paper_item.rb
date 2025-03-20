@@ -155,11 +155,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED = :completed
         PENDING = :pending
         RETURNED = :returned

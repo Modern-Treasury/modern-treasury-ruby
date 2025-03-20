@@ -143,11 +143,14 @@ module ModernTreasury
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       #   `posted`, `archiving` or `archived`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -176,7 +179,7 @@ module ModernTreasury
           object: String,
           settled_ledger_account_id: String,
           settlement_entry_direction: T.nilable(String),
-          status: Symbol,
+          status: ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -221,7 +224,7 @@ module ModernTreasury
               object: String,
               settled_ledger_account_id: String,
               settlement_entry_direction: T.nilable(String),
-              status: Symbol,
+              status: ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol,
               updated_at: Time
             }
           )
@@ -231,17 +234,19 @@ module ModernTreasury
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       #   `posted`, `archiving` or `archived`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol) }
 
-        ARCHIVED = :archived
-        ARCHIVING = :archiving
-        DRAFTING = :drafting
-        PENDING = :pending
-        POSTED = :posted
-        PROCESSING = :processing
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+        ARCHIVING = T.let(:archiving, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+        DRAFTING = T.let(:drafting, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
+        PROCESSING = T.let(:processing, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
       end
     end
   end

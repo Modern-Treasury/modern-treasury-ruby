@@ -115,7 +115,9 @@ module ModernTreasury
         | :decision
         | :connection
 
-      class DocumentableType < ModernTreasury::Enum
+      module DocumentableType
+        extend ModernTreasury::Enum
+
         CASE: :case
         COUNTERPARTY: :counterparty
         EXPECTED_PAYMENT: :expected_payment

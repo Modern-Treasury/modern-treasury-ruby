@@ -223,10 +223,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The type of the originating account number for the incoming payment detail.
-      class OriginatingAccountNumberType < ModernTreasury::Enum
+      module OriginatingAccountNumberType
+        extend ModernTreasury::Enum
+
         AU_NUMBER = :au_number
         CLABE = :clabe
         HK_NUMBER = :hk_number
@@ -241,10 +241,10 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The type of the originating routing number for the incoming payment detail.
-      class OriginatingRoutingNumberType < ModernTreasury::Enum
+      module OriginatingRoutingNumberType
+        extend ModernTreasury::Enum
+
         ABA = :aba
         AU_BSB = :au_bsb
         BR_CODIGO = :br_codigo
@@ -270,11 +270,11 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED = :completed
         PENDING = :pending
         RETURNED = :returned
@@ -282,11 +282,11 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH = :ach
         BOOK = :book
         CHECK = :check

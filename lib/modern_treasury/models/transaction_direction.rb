@@ -2,8 +2,9 @@
 
 module ModernTreasury
   module Models
-    # @abstract
-    class TransactionDirection < ModernTreasury::Enum
+    module TransactionDirection
+      extend ModernTreasury::Enum
+
       CREDIT = :credit
       DEBIT = :debit
 

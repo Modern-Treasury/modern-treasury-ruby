@@ -93,11 +93,22 @@ module ModernTreasury
         #   transaction. A `credit` moves money from your account to someone else's. A
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
-        sig { returns(Symbol) }
+        sig do
+          returns(
+            ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
+          )
+        end
         def direction
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(
+            _: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
+          )
+            .returns(
+              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
+            )
+        end
         def direction=(_)
         end
 
@@ -123,7 +134,7 @@ module ModernTreasury
         sig do
           params(
             amount: Integer,
-            direction: Symbol,
+            direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol,
             ledger_account_id: String,
             metadata: T::Hash[Symbol, String]
           )
@@ -137,7 +148,7 @@ module ModernTreasury
             .returns(
               {
                 amount: Integer,
-                direction: Symbol,
+                direction: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol,
                 ledger_account_id: String,
                 metadata: T::Hash[Symbol, String]
               }
@@ -150,13 +161,31 @@ module ModernTreasury
         #   transaction. A `credit` moves money from your account to someone else's. A
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
-        class Direction < ModernTreasury::Enum
-          abstract!
+        module Direction
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction)
+            end
+          OrSymbol =
+            T.type_alias do
+              T.any(
+                Symbol,
+                ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
+              )
+            end
 
-          CREDIT = :credit
-          DEBIT = :debit
+          CREDIT =
+            T.let(
+              :credit,
+              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
+            )
+          DEBIT =
+            T.let(
+              :debit,
+              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
+            )
         end
       end
     end

@@ -26,8 +26,9 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      class AccountsType < ModernTreasury::Enum
+      module AccountsType
+        extend ModernTreasury::Enum
+
         EXTERNAL_ACCOUNTS = :external_accounts
 
         finalize!

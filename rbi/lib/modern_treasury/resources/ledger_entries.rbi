@@ -47,7 +47,7 @@ module ModernTreasury
           id: T::Array[String],
           after_cursor: T.nilable(String),
           as_of_lock_version: Integer,
-          direction: Symbol,
+          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           effective_at: T::Hash[Symbol, Time],
           effective_date: T::Hash[Symbol, Date],
           ledger_account_category_id: String,
@@ -62,7 +62,7 @@ module ModernTreasury
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,
-          status: Symbol,
+          status: ModernTreasury::Models::LedgerEntryListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )

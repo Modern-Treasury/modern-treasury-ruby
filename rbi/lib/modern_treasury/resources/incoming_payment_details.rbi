@@ -43,11 +43,11 @@ module ModernTreasury
           after_cursor: T.nilable(String),
           as_of_date_end: Date,
           as_of_date_start: Date,
-          direction: Symbol,
+          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          status: Symbol,
-          type: Symbol,
+          status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol,
+          type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol,
           virtual_account_id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
@@ -86,11 +86,11 @@ module ModernTreasury
         params(
           amount: Integer,
           as_of_date: T.nilable(Date),
-          currency: T.nilable(Symbol),
+          currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
           description: T.nilable(String),
-          direction: Symbol,
+          direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
           internal_account_id: String,
-          type: Symbol,
+          type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )

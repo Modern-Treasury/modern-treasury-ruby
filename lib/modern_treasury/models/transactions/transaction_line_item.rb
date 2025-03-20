@@ -141,11 +141,11 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
-        class TransactableType < ModernTreasury::Enum
+        module TransactableType
+          extend ModernTreasury::Enum
+
           INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
           PAPER_ITEM = :paper_item
           PAYMENT_ORDER = :payment_order
@@ -156,11 +156,11 @@ module ModernTreasury
           finalize!
         end
 
-        # @abstract
-        #
         # Indicates whether the line item is `originating` or `receiving` (see
         #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
-        class Type < ModernTreasury::Enum
+        module Type
+          extend ModernTreasury::Enum
+
           ORIGINATING = :originating
           RECEIVING = :receiving
 

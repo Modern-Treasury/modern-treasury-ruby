@@ -56,11 +56,14 @@ module ModernTreasury
       end
 
       # The currency of the paper item.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
       def currency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
+          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
+      end
       def currency=(_)
       end
 
@@ -129,11 +132,14 @@ module ModernTreasury
 
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::PaperItem::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -171,7 +177,7 @@ module ModernTreasury
           amount: Integer,
           check_number: T.nilable(String),
           created_at: Time,
-          currency: Symbol,
+          currency: ModernTreasury::Models::Currency::TaggedSymbol,
           deposit_date: Date,
           live_mode: T::Boolean,
           lockbox_number: String,
@@ -179,7 +185,7 @@ module ModernTreasury
           object: String,
           remitter_name: T.nilable(String),
           routing_number: T.nilable(String),
-          status: Symbol,
+          status: ModernTreasury::Models::PaperItem::Status::TaggedSymbol,
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
           updated_at: Time
@@ -218,7 +224,7 @@ module ModernTreasury
               amount: Integer,
               check_number: T.nilable(String),
               created_at: Time,
-              currency: Symbol,
+              currency: ModernTreasury::Models::Currency::TaggedSymbol,
               deposit_date: Date,
               live_mode: T::Boolean,
               lockbox_number: String,
@@ -226,7 +232,7 @@ module ModernTreasury
               object: String,
               remitter_name: T.nilable(String),
               routing_number: T.nilable(String),
-              status: Symbol,
+              status: ModernTreasury::Models::PaperItem::Status::TaggedSymbol,
               transaction_id: T.nilable(String),
               transaction_line_item_id: T.nilable(String),
               updated_at: Time
@@ -238,14 +244,15 @@ module ModernTreasury
 
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaperItem::Status) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaperItem::Status::TaggedSymbol) }
 
-        COMPLETED = :completed
-        PENDING = :pending
-        RETURNED = :returned
+        COMPLETED = T.let(:completed, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
+        RETURNED = T.let(:returned, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
       end
     end
   end

@@ -164,10 +164,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # Can be checking, savings or other.
-      class AccountType < ModernTreasury::Enum
+      module AccountType
+        extend ModernTreasury::Enum
+
         CASH = :cash
         CHECKING = :checking
         GENERAL_LEDGER = :general_ledger
@@ -277,10 +277,10 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # Either individual or business.
-      class PartyType < ModernTreasury::Enum
+      module PartyType
+        extend ModernTreasury::Enum
+
         BUSINESS = :business
         INDIVIDUAL = :individual
 

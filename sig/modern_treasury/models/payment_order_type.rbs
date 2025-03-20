@@ -32,7 +32,9 @@ module ModernTreasury
       | :wire
       | :zengin
 
-    class PaymentOrderType < ModernTreasury::Enum
+    module PaymentOrderType
+      extend ModernTreasury::Enum
+
       ACH: :ach
       AU_BECS: :au_becs
       BACS: :bacs

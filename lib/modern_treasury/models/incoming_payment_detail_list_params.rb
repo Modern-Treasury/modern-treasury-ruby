@@ -128,11 +128,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED = :completed
         PENDING = :pending
         RETURNED = :returned
@@ -140,11 +140,11 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH = :ach
         BOOK = :book
         CHECK = :check

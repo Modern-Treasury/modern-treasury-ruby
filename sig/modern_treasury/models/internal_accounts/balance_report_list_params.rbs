@@ -43,7 +43,9 @@ module ModernTreasury
         type balance_report_type =
           :intraday | :other | :previous_day | :real_time
 
-        class BalanceReportType < ModernTreasury::Enum
+        module BalanceReportType
+          extend ModernTreasury::Enum
+
           INTRADAY: :intraday
           OTHER: :other
           PREVIOUS_DAY: :previous_day

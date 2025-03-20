@@ -64,11 +64,14 @@ module ModernTreasury
       end
 
       # The status of the connection legal entity.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -98,7 +101,7 @@ module ModernTreasury
           legal_entity_id: String,
           live_mode: T::Boolean,
           object: String,
-          status: Symbol,
+          status: ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol,
           updated_at: Time,
           vendor_id: String
         )
@@ -129,7 +132,7 @@ module ModernTreasury
               legal_entity_id: String,
               live_mode: T::Boolean,
               object: String,
-              status: Symbol,
+              status: ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol,
               updated_at: Time,
               vendor_id: String
             }
@@ -139,15 +142,17 @@ module ModernTreasury
       end
 
       # The status of the connection legal entity.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol) }
 
-        COMPLETED = :completed
-        DENIED = :denied
-        FAILED = :failed
-        PROCESSING = :processing
+        COMPLETED = T.let(:completed, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
+        DENIED = T.let(:denied, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
+        FAILED = T.let(:failed, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
+        PROCESSING = T.let(:processing, ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
       end
     end
   end

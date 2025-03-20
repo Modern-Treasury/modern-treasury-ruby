@@ -133,21 +133,21 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # An account created with this flow will support payments of one of these types.
-      class PaymentType < ModernTreasury::Enum
+      module PaymentType
+        extend ModernTreasury::Enum
+
         ACH = :ach
         WIRE = :wire
 
         finalize!
       end
 
-      # @abstract
-      #
       # An account created with this flow will support wires from the US to these
       #   countries.
-      class ReceivingCountry < ModernTreasury::Enum
+      module ReceivingCountry
+        extend ModernTreasury::Enum
+
         USA = :USA
         AUS = :AUS
         BEL = :BEL
@@ -170,11 +170,11 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         CANCELLED = :cancelled
         COMPLETED = :completed
         EXPIRED = :expired

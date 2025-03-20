@@ -46,7 +46,9 @@ module ModernTreasury
         | :swift
         | :za_national_clearing_code
 
-      class RoutingNumberType < ModernTreasury::Enum
+      module RoutingNumberType
+        extend ModernTreasury::Enum
+
         ABA: :aba
         AU_BSB: :au_bsb
         BR_CODIGO: :br_codigo

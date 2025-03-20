@@ -55,11 +55,11 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
-        class BalanceReportType < ModernTreasury::Enum
+        module BalanceReportType
+          extend ModernTreasury::Enum
+
           INTRADAY = :intraday
           OTHER = :other
           PREVIOUS_DAY = :previous_day

@@ -17,7 +17,7 @@ module ModernTreasury
           effective_at_upper_bound: T.nilable(Time),
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
-          status: T.nilable(Symbol),
+          status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::LedgerAccountSettlement)
@@ -73,7 +73,7 @@ module ModernTreasury
           id: String,
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          status: Symbol,
+          status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::LedgerAccountSettlement)

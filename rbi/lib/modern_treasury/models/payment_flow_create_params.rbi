@@ -37,11 +37,14 @@ module ModernTreasury
 
       # Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol) }
       def direction
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol)
+          .returns(ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol)
+      end
       def direction=(_)
       end
 
@@ -70,7 +73,7 @@ module ModernTreasury
           amount: Integer,
           counterparty_id: String,
           currency: String,
-          direction: Symbol,
+          direction: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           due_date: Date,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
@@ -95,7 +98,7 @@ module ModernTreasury
               amount: Integer,
               counterparty_id: String,
               currency: String,
-              direction: Symbol,
+              direction: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol,
               originating_account_id: String,
               due_date: Date,
               request_options: ModernTreasury::RequestOptions
@@ -107,13 +110,15 @@ module ModernTreasury
 
       # Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
-      class Direction < ModernTreasury::Enum
-        abstract!
+      module Direction
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction::TaggedSymbol) }
 
-        CREDIT = :credit
-        DEBIT = :debit
+        CREDIT = T.let(:credit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol)
       end
     end
   end

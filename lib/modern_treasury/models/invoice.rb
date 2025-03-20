@@ -395,8 +395,9 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        class ContactIdentifierType < ModernTreasury::Enum
+        module ContactIdentifierType
+          extend ModernTreasury::Enum
+
           EMAIL = :email
           PHONE_NUMBER = :phone_number
           WEBSITE = :website
@@ -567,11 +568,11 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
-      # @abstract
-      #
       # When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
-      class PaymentMethod < ModernTreasury::Enum
+      module PaymentMethod
+        extend ModernTreasury::Enum
+
         UI = :ui
         MANUAL = :manual
         AUTOMATIC = :automatic
@@ -579,20 +580,20 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # One of `ach` or `eft`.
-      class PaymentType < ModernTreasury::Enum
+      module PaymentType
+        extend ModernTreasury::Enum
+
         EFT = :eft
         ACH = :ach
 
         finalize!
       end
 
-      # @abstract
-      #
       # The status of the invoice.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         DRAFT = :draft
         PAID = :paid
         PARTIALLY_PAID = :partially_paid

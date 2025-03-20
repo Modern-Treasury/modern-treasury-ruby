@@ -85,10 +85,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The type of reference number.
-      class ReferenceNumberType < ModernTreasury::Enum
+      module ReferenceNumberType
+        extend ModernTreasury::Enum
+
         ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
         ACH_TRACE_NUMBER = :ach_trace_number
         BANKPROV_PAYMENT_ACTIVITY_DATE = :bankprov_payment_activity_date
@@ -165,11 +165,11 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
-      class ReferenceableType < ModernTreasury::Enum
+      module ReferenceableType
+        extend ModernTreasury::Enum
+
         PAYMENT_ORDER = :payment_order
         REVERSAL = :reversal
         RETURN = :return

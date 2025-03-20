@@ -49,11 +49,14 @@ module ModernTreasury
       end
 
       # Must conform to ISO 4217. Defaults to the currency of the internal account.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Currency::TaggedSymbol)) }
       def currency
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::Currency::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::Currency::TaggedSymbol))
+      end
       def currency=(_)
       end
 
@@ -86,11 +89,14 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)) }
       def direction
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol))
+      end
       def direction=(_)
       end
 
@@ -161,11 +167,14 @@ module ModernTreasury
       # One of manual if this expected payment was manually reconciled in the dashboard,
       #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   is unreconciled.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)) }
       def reconciliation_method
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol))
+      end
       def reconciliation_method=(_)
       end
 
@@ -205,11 +214,14 @@ module ModernTreasury
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -233,11 +245,14 @@ module ModernTreasury
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet, wire.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol)) }
       def type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol))
+      end
       def type=(_)
       end
 
@@ -256,11 +271,11 @@ module ModernTreasury
           amount_upper_bound: T.nilable(Integer),
           counterparty_id: T.nilable(String),
           created_at: Time,
-          currency: T.nilable(Symbol),
+          currency: T.nilable(ModernTreasury::Models::Currency::TaggedSymbol),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
           description: T.nilable(String),
-          direction: T.nilable(Symbol),
+          direction: T.nilable(ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol),
           internal_account_id: T.nilable(String),
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
@@ -268,14 +283,14 @@ module ModernTreasury
           object: String,
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
-          reconciliation_method: T.nilable(Symbol),
+          reconciliation_method: T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol),
           reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
-          status: Symbol,
+          status: ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol,
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
-          type: T.nilable(Symbol),
+          type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol),
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -319,11 +334,11 @@ module ModernTreasury
               amount_upper_bound: T.nilable(Integer),
               counterparty_id: T.nilable(String),
               created_at: Time,
-              currency: T.nilable(Symbol),
+              currency: T.nilable(ModernTreasury::Models::Currency::TaggedSymbol),
               date_lower_bound: T.nilable(Date),
               date_upper_bound: T.nilable(Date),
               description: T.nilable(String),
-              direction: T.nilable(Symbol),
+              direction: T.nilable(ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol),
               internal_account_id: T.nilable(String),
               ledger_transaction_id: T.nilable(String),
               live_mode: T::Boolean,
@@ -331,14 +346,14 @@ module ModernTreasury
               object: String,
               reconciliation_filters: T.nilable(T.anything),
               reconciliation_groups: T.nilable(T.anything),
-              reconciliation_method: T.nilable(Symbol),
+              reconciliation_method: T.nilable(ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol),
               reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
-              status: Symbol,
+              status: ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol,
               transaction_id: T.nilable(String),
               transaction_line_item_id: T.nilable(String),
-              type: T.nilable(Symbol),
+              type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol),
               updated_at: Time
             }
           )
@@ -348,37 +363,45 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      class Direction < ModernTreasury::Enum
-        abstract!
+      module Direction
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::Direction) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol) }
 
-        CREDIT = :credit
-        DEBIT = :debit
+        CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
       end
 
       # One of manual if this expected payment was manually reconciled in the dashboard,
       #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   is unreconciled.
-      class ReconciliationMethod < ModernTreasury::Enum
-        abstract!
+      module ReconciliationMethod
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol) }
 
-        AUTOMATIC = :automatic
-        MANUAL = :manual
+        AUTOMATIC =
+          T.let(:automatic, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
+        MANUAL = T.let(:manual, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::Status) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol) }
 
-        ARCHIVED = :archived
-        PARTIALLY_RECONCILED = :partially_reconciled
-        RECONCILED = :reconciled
-        UNRECONCILED = :unreconciled
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
+        PARTIALLY_RECONCILED =
+          T.let(:partially_reconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
+        RECONCILED = T.let(:reconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
+        UNRECONCILED = T.let(:unreconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
       end
     end
   end

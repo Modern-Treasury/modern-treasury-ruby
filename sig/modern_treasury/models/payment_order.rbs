@@ -224,7 +224,9 @@ module ModernTreasury
 
       type charge_bearer = :shared | :sender | :receiver
 
-      class ChargeBearer < ModernTreasury::Enum
+      module ChargeBearer
+        extend ModernTreasury::Enum
+
         SHARED: :shared
         SENDER: :sender
         RECEIVER: :receiver
@@ -234,7 +236,9 @@ module ModernTreasury
 
       type direction = :credit | :debit
 
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT: :credit
         DEBIT: :debit
 
@@ -243,7 +247,9 @@ module ModernTreasury
 
       type foreign_exchange_indicator = :fixed_to_variable | :variable_to_fixed
 
-      class ForeignExchangeIndicator < ModernTreasury::Enum
+      module ForeignExchangeIndicator
+        extend ModernTreasury::Enum
+
         FIXED_TO_VARIABLE: :fixed_to_variable
         VARIABLE_TO_FIXED: :variable_to_fixed
 
@@ -291,7 +297,9 @@ module ModernTreasury
 
       type priority = :high | :normal
 
-      class Priority < ModernTreasury::Enum
+      module Priority
+        extend ModernTreasury::Enum
+
         HIGH: :high
         NORMAL: :normal
 
@@ -300,7 +308,9 @@ module ModernTreasury
 
       type receiving_account_type = :internal_account | :external_account
 
-      class ReceivingAccountType < ModernTreasury::Enum
+      module ReceivingAccountType
+        extend ModernTreasury::Enum
+
         INTERNAL_ACCOUNT: :internal_account
         EXTERNAL_ACCOUNT: :external_account
 
@@ -418,7 +428,9 @@ module ModernTreasury
           | :wells_fargo_trace_number
           | :wells_fargo_uetr
 
-        class ReferenceNumberType < ModernTreasury::Enum
+        module ReferenceNumberType
+          extend ModernTreasury::Enum
+
           ACH_ORIGINAL_TRACE_NUMBER: :ach_original_trace_number
           ACH_TRACE_NUMBER: :ach_trace_number
           BANKPROV_PAYMENT_ACTIVITY_DATE: :bankprov_payment_activity_date
@@ -508,7 +520,9 @@ module ModernTreasury
         | :reversed
         | :sent
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         APPROVED: :approved
         CANCELLED: :cancelled
         COMPLETED: :completed
@@ -528,14 +542,18 @@ module ModernTreasury
         ModernTreasury::Models::VirtualAccount
         | ModernTreasury::Models::InternalAccount
 
-      class UltimateOriginatingAccount < ModernTreasury::Union
+      module UltimateOriginatingAccount
+        extend ModernTreasury::Union
+
         def self.variants: -> [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]
       end
 
       type ultimate_originating_account_type =
         :internal_account | :virtual_account
 
-      class UltimateOriginatingAccountType < ModernTreasury::Enum
+      module UltimateOriginatingAccountType
+        extend ModernTreasury::Enum
+
         INTERNAL_ACCOUNT: :internal_account
         VIRTUAL_ACCOUNT: :virtual_account
 

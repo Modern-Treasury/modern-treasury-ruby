@@ -35,7 +35,9 @@ module ModernTreasury
         type balance_report_type =
           :intraday | :other | :previous_day | :real_time
 
-        class BalanceReportType < ModernTreasury::Enum
+        module BalanceReportType
+          extend ModernTreasury::Enum
+
           INTRADAY: :intraday
           OTHER: :other
           PREVIOUS_DAY: :previous_day
@@ -81,7 +83,9 @@ module ModernTreasury
             | :other
             | :previously_closed_book
 
-          class BalanceType < ModernTreasury::Enum
+          module BalanceType
+            extend ModernTreasury::Enum
+
             CLOSING_AVAILABLE: :closing_available
             CLOSING_LEDGER: :closing_ledger
             CURRENT_AVAILABLE: :current_available

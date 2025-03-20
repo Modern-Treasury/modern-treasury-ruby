@@ -44,7 +44,9 @@ module ModernTreasury
 
         type type_ = :originating | :receiving
 
-        class Type < ModernTreasury::Enum
+        module Type
+          extend ModernTreasury::Enum
+
           ORIGINATING: :originating
           RECEIVING: :receiving
 

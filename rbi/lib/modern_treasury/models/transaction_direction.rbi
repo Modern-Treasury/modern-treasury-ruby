@@ -2,13 +2,14 @@
 
 module ModernTreasury
   module Models
-    class TransactionDirection < ModernTreasury::Enum
-      abstract!
+    module TransactionDirection
+      extend ModernTreasury::Enum
 
-      Value = type_template(:out) { {fixed: Symbol} }
+      TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::TransactionDirection) }
+      OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
 
-      CREDIT = :credit
-      DEBIT = :debit
+      CREDIT = T.let(:credit, ModernTreasury::Models::TransactionDirection::OrSymbol)
+      DEBIT = T.let(:debit, ModernTreasury::Models::TransactionDirection::OrSymbol)
     end
   end
 end

@@ -23,11 +23,18 @@ module ModernTreasury
       def payment_types=(_)
       end
 
-      sig { returns(T.nilable(T::Array[Symbol])) }
+      sig do
+        returns(
+          T.nilable(T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol])
+        )
+      end
       def receiving_countries
       end
 
-      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      sig do
+        params(_: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol])
+          .returns(T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol])
+      end
       def receiving_countries=(_)
       end
 
@@ -35,7 +42,7 @@ module ModernTreasury
         params(
           counterparty_id: String,
           payment_types: T::Array[String],
-          receiving_countries: T::Array[Symbol],
+          receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol],
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -49,7 +56,7 @@ module ModernTreasury
             {
               counterparty_id: String,
               payment_types: T::Array[String],
-              receiving_countries: T::Array[Symbol],
+              receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol],
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -58,29 +65,32 @@ module ModernTreasury
       end
 
       # Optional. Array of 3-digit ISO country codes.
-      class ReceivingCountry < ModernTreasury::Enum
-        abstract!
+      module ReceivingCountry
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol) }
 
-        USA = :USA
-        AUS = :AUS
-        BEL = :BEL
-        CAN = :CAN
-        CHL = :CHL
-        CHN = :CHN
-        COL = :COL
-        FRA = :FRA
-        DEU = :DEU
-        HKG = :HKG
-        IND = :IND
-        IRL = :IRL
-        ITA = :ITA
-        MEX = :MEX
-        NLD = :NLD
-        PER = :PER
-        ESP = :ESP
-        GBR = :GBR
+        USA = T.let(:USA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        AUS = T.let(:AUS, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        BEL = T.let(:BEL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        CAN = T.let(:CAN, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        CHL = T.let(:CHL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        CHN = T.let(:CHN, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        COL = T.let(:COL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        FRA = T.let(:FRA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        DEU = T.let(:DEU, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        HKG = T.let(:HKG, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        IND = T.let(:IND, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        IRL = T.let(:IRL, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        ITA = T.let(:ITA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        MEX = T.let(:MEX, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        NLD = T.let(:NLD, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        PER = T.let(:PER, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        ESP = T.let(:ESP, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
+        GBR = T.let(:GBR, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol)
       end
     end
   end

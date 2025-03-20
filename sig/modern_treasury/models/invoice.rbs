@@ -202,7 +202,9 @@ module ModernTreasury
 
         type contact_identifier_type = :email | :phone_number | :website
 
-        class ContactIdentifierType < ModernTreasury::Enum
+        module ContactIdentifierType
+          extend ModernTreasury::Enum
+
           EMAIL: :email
           PHONE_NUMBER: :phone_number
           WEBSITE: :website
@@ -324,7 +326,9 @@ module ModernTreasury
 
       type payment_method = :ui | :manual | :automatic
 
-      class PaymentMethod < ModernTreasury::Enum
+      module PaymentMethod
+        extend ModernTreasury::Enum
+
         UI: :ui
         MANUAL: :manual
         AUTOMATIC: :automatic
@@ -334,7 +338,9 @@ module ModernTreasury
 
       type payment_type = :eft | :ach
 
-      class PaymentType < ModernTreasury::Enum
+      module PaymentType
+        extend ModernTreasury::Enum
+
         EFT: :eft
         ACH: :ach
 
@@ -344,7 +350,9 @@ module ModernTreasury
       type status =
         :draft | :paid | :partially_paid | :payment_pending | :unpaid | :voided
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         DRAFT: :draft
         PAID: :paid
         PARTIALLY_PAID: :partially_paid

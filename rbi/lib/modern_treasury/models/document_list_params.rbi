@@ -26,11 +26,14 @@ module ModernTreasury
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)) }
       def documentable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+          .returns(ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+      end
       def documentable_type=(_)
       end
 
@@ -46,7 +49,7 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           documentable_id: String,
-          documentable_type: Symbol,
+          documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
           per_page: Integer,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
@@ -61,7 +64,7 @@ module ModernTreasury
             {
               after_cursor: T.nilable(String),
               documentable_id: String,
-              documentable_type: Symbol,
+              documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
               per_page: Integer,
               request_options: ModernTreasury::RequestOptions
             }
@@ -73,23 +76,34 @@ module ModernTreasury
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
-      class DocumentableType < ModernTreasury::Enum
-        abstract!
+      module DocumentableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol) }
 
-        CASES = :cases
-        COUNTERPARTIES = :counterparties
-        EXPECTED_PAYMENTS = :expected_payments
-        EXTERNAL_ACCOUNTS = :external_accounts
-        INCOMING_PAYMENT_DETAILS = :incoming_payment_details
-        INTERNAL_ACCOUNTS = :internal_accounts
-        ORGANIZATIONS = :organizations
-        PAPER_ITEMS = :paper_items
-        PAYMENT_ORDERS = :payment_orders
-        TRANSACTIONS = :transactions
-        DECISIONS = :decisions
-        CONNECTIONS = :connections
+        CASES = T.let(:cases, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        COUNTERPARTIES =
+          T.let(:counterparties, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        EXPECTED_PAYMENTS =
+          T.let(:expected_payments, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        EXTERNAL_ACCOUNTS =
+          T.let(:external_accounts, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        INCOMING_PAYMENT_DETAILS =
+          T.let(:incoming_payment_details, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        INTERNAL_ACCOUNTS =
+          T.let(:internal_accounts, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        ORGANIZATIONS =
+          T.let(:organizations, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        PAPER_ITEMS = T.let(:paper_items, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        PAYMENT_ORDERS =
+          T.let(:payment_orders, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        TRANSACTIONS =
+          T.let(:transactions, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        DECISIONS = T.let(:decisions, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
+        CONNECTIONS = T.let(:connections, ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol)
       end
     end
   end

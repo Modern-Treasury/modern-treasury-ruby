@@ -25,11 +25,14 @@ module ModernTreasury
 
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)) }
       def entity_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
+          .returns(ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
+      end
       def entity_type=(_)
       end
 
@@ -53,20 +56,26 @@ module ModernTreasury
 
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol)) }
       def request_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol)
+          .returns(ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol)
+      end
       def request_type=(_)
       end
 
       # One of successful or failed.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
@@ -74,11 +83,11 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           entity_id: String,
-          entity_type: Symbol,
+          entity_type: ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol,
           per_page: Integer,
           request_id: String,
-          request_type: Symbol,
-          status: Symbol,
+          request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
+          status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -101,11 +110,11 @@ module ModernTreasury
             {
               after_cursor: T.nilable(String),
               entity_id: String,
-              entity_type: Symbol,
+              entity_type: ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol,
               per_page: Integer,
               request_id: String,
-              request_type: Symbol,
-              status: Symbol,
+              request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
+              status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -115,37 +124,45 @@ module ModernTreasury
 
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
-      class EntityType < ModernTreasury::Enum
-        abstract!
+      module EntityType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::EntityType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol) }
 
-        PAYMENT_ORDER = :payment_order
-        LEDGER_TRANSACTION = :ledger_transaction
-        TRANSACTION = :transaction
-        EXPECTED_PAYMENT = :expected_payment
-        BULK_ERROR = :bulk_error
+        PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
+        LEDGER_TRANSACTION =
+          T.let(:ledger_transaction, ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
+        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
+        EXPECTED_PAYMENT =
+          T.let(:expected_payment, ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
+        BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
       end
 
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
-      class RequestType < ModernTreasury::Enum
-        abstract!
+      module RequestType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::RequestType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol) }
 
-        BULK_REQUEST = :bulk_request
+        BULK_REQUEST = T.let(:bulk_request, ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol)
       end
 
       # One of successful or failed.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol) }
 
-        PENDING = :pending
-        SUCCESSFUL = :successful
-        FAILED = :failed
+        PENDING = T.let(:pending, ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)
+        SUCCESSFUL = T.let(:successful, ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)
+        FAILED = T.let(:failed, ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)
       end
     end
   end

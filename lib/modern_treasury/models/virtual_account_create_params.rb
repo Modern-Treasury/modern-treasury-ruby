@@ -167,11 +167,11 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   account number is in a generic format.
-        class AccountNumberType < ModernTreasury::Enum
+        module AccountNumberType
+          extend ModernTreasury::Enum
+
           AU_NUMBER = :au_number
           CLABE = :clabe
           HK_NUMBER = :hk_number
@@ -304,12 +304,12 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
-        class LedgerableType < ModernTreasury::Enum
+        module LedgerableType
+          extend ModernTreasury::Enum
+
           COUNTERPARTY = :counterparty
           EXTERNAL_ACCOUNT = :external_account
           INTERNAL_ACCOUNT = :internal_account
@@ -353,12 +353,12 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # The type of routing number. See
         #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
         #   more details.
-        class RoutingNumberType < ModernTreasury::Enum
+        module RoutingNumberType
+          extend ModernTreasury::Enum
+
           ABA = :aba
           AU_BSB = :au_bsb
           BR_CODIGO = :br_codigo
@@ -384,11 +384,11 @@ module ModernTreasury
           finalize!
         end
 
-        # @abstract
-        #
         # If the routing detail is to be used for a specific payment type this field will
         #   be populated, otherwise null.
-        class PaymentType < ModernTreasury::Enum
+        module PaymentType
+          extend ModernTreasury::Enum
+
           ACH = :ach
           AU_BECS = :au_becs
           BACS = :bacs

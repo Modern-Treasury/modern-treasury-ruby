@@ -74,11 +74,14 @@ module ModernTreasury
       # If the ledger account links to another object in Modern Treasury, the type will
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol)) }
       def ledgerable_type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol))
+      end
       def ledgerable_type=(_)
       end
 
@@ -121,11 +124,14 @@ module ModernTreasury
       end
 
       # The normal balance of the ledger account.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
       def normal_balance
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+          .returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+      end
       def normal_balance=(_)
       end
 
@@ -154,12 +160,12 @@ module ModernTreasury
           discarded_at: T.nilable(Time),
           ledger_id: String,
           ledgerable_id: T.nilable(String),
-          ledgerable_type: T.nilable(Symbol),
+          ledgerable_type: T.nilable(ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol),
           live_mode: T::Boolean,
           lock_version: Integer,
           metadata: T::Hash[Symbol, String],
           name: String,
-          normal_balance: Symbol,
+          normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
           object: String,
           updated_at: Time
         )
@@ -195,12 +201,12 @@ module ModernTreasury
               discarded_at: T.nilable(Time),
               ledger_id: String,
               ledgerable_id: T.nilable(String),
-              ledgerable_type: T.nilable(Symbol),
+              ledgerable_type: T.nilable(ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol),
               live_mode: T::Boolean,
               lock_version: Integer,
               metadata: T::Hash[Symbol, String],
               name: String,
-              normal_balance: Symbol,
+              normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
               object: String,
               updated_at: Time
             }
@@ -534,15 +540,20 @@ module ModernTreasury
       # If the ledger account links to another object in Modern Treasury, the type will
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
-      class LedgerableType < ModernTreasury::Enum
-        abstract!
+      module LedgerableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol) }
 
-        COUNTERPARTY = :counterparty
-        EXTERNAL_ACCOUNT = :external_account
-        INTERNAL_ACCOUNT = :internal_account
-        VIRTUAL_ACCOUNT = :virtual_account
+        COUNTERPARTY = T.let(:counterparty, ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol)
+        EXTERNAL_ACCOUNT =
+          T.let(:external_account, ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol)
+        INTERNAL_ACCOUNT =
+          T.let(:internal_account, ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol)
+        VIRTUAL_ACCOUNT =
+          T.let(:virtual_account, ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol)
       end
     end
   end

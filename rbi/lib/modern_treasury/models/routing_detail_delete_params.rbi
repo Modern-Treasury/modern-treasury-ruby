@@ -6,11 +6,14 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol) }
       def accounts_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol)
+          .returns(ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol)
+      end
       def accounts_type=(_)
       end
 
@@ -24,7 +27,7 @@ module ModernTreasury
 
       sig do
         params(
-          accounts_type: Symbol,
+          accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol,
           account_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
@@ -35,21 +38,27 @@ module ModernTreasury
 
       sig do
         override
-          .returns({
-                     accounts_type: Symbol,
-                     account_id: String,
-                     request_options: ModernTreasury::RequestOptions
-                   })
+          .returns(
+            {
+              accounts_type: ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol,
+              account_id: String,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
       end
       def to_hash
       end
 
-      class AccountsType < ModernTreasury::Enum
-        abstract!
+      module AccountsType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol) }
 
-        EXTERNAL_ACCOUNTS = :external_accounts
+        EXTERNAL_ACCOUNTS =
+          T.let(:external_accounts, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol)
       end
     end
   end

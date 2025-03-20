@@ -62,7 +62,9 @@ module ModernTreasury
           | :date_earlier_than_intended
           | :date_later_than_intended
 
-        class Reason < ModernTreasury::Enum
+        module Reason
+          extend ModernTreasury::Enum
+
           DUPLICATE: :duplicate
           INCORRECT_AMOUNT: :incorrect_amount
           INCORRECT_RECEIVING_ACCOUNT: :incorrect_receiving_account
@@ -75,7 +77,9 @@ module ModernTreasury
         type status =
           :completed | :failed | :pending | :processing | :returned | :sent
 
-        class Status < ModernTreasury::Enum
+        module Status
+          extend ModernTreasury::Enum
+
           COMPLETED: :completed
           FAILED: :failed
           PENDING: :pending

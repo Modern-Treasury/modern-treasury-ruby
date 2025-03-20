@@ -9,12 +9,12 @@ module ModernTreasury
           currency: String,
           ledger_id: String,
           name: String,
-          normal_balance: Symbol,
+          normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
           currency_exponent: T.nilable(Integer),
           description: T.nilable(String),
           ledger_account_category_ids: T::Array[String],
           ledgerable_id: String,
-          ledgerable_type: Symbol,
+          ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )

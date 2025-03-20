@@ -58,7 +58,9 @@ module ModernTreasury
         | :return
         | :reversal
 
-      class ReturnableType < ModernTreasury::Enum
+      module ReturnableType
+        extend ModernTreasury::Enum
+
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
         PAPER_ITEM: :paper_item
         PAYMENT_ORDER: :payment_order

@@ -27,11 +27,14 @@ module ModernTreasury
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
@@ -39,7 +42,7 @@ module ModernTreasury
         params(
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          status: Symbol,
+          status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -53,7 +56,7 @@ module ModernTreasury
             {
               description: T.nilable(String),
               metadata: T::Hash[Symbol, String],
-              status: Symbol,
+              status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -63,13 +66,17 @@ module ModernTreasury
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol) }
 
-        POSTED = :posted
-        ARCHIVED = :archived
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)
+        ARCHIVED =
+          T.let(:archived, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)
       end
     end
   end

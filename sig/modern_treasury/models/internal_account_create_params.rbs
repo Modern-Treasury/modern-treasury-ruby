@@ -65,7 +65,9 @@ module ModernTreasury
 
       type currency = :USD | :CAD
 
-      class Currency < ModernTreasury::Enum
+      module Currency
+        extend ModernTreasury::Enum
+
         USD: :USD
         CAD: :CAD
 

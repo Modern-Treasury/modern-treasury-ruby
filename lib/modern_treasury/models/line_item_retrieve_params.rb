@@ -26,8 +26,9 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      class ItemizableType < ModernTreasury::Enum
+      module ItemizableType
+        extend ModernTreasury::Enum
+
         EXPECTED_PAYMENTS = :expected_payments
         PAYMENT_ORDERS = :payment_orders
 

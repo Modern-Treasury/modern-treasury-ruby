@@ -66,8 +66,9 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      class Field < ModernTreasury::Enum
+      module Field
+        extend ModernTreasury::Enum
+
         NAME = :name
         NAME_ON_ACCOUNT = :nameOnAccount
         TAXPAYER_IDENTIFIER = :taxpayerIdentifier

@@ -8,17 +8,20 @@ module ModernTreasury
 
       # Required. The updated status of the account collection flow. Can only be used to
       #   mark a flow as `cancelled`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
       sig do
         params(
-          status: Symbol,
+          status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -26,18 +29,30 @@ module ModernTreasury
       def self.new(status:, request_options: {})
       end
 
-      sig { override.returns({status: Symbol, request_options: ModernTreasury::RequestOptions}) }
+      sig do
+        override
+          .returns(
+            {
+              status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol,
+              request_options: ModernTreasury::RequestOptions
+            }
+          )
+      end
       def to_hash
       end
 
       # Required. The updated status of the account collection flow. Can only be used to
       #   mark a flow as `cancelled`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol) }
 
-        CANCELLED = :cancelled
+        CANCELLED =
+          T.let(:cancelled, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol)
       end
     end
   end

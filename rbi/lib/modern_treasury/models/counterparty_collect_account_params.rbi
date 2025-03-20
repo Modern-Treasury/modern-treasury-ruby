@@ -9,11 +9,14 @@ module ModernTreasury
       # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.
       #   Use `debit` when you need to charge a counterparty. This field helps us send a
       #   more tailored email to your counterparties."
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
       def direction
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
+          .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
+      end
       def direction=(_)
       end
 
@@ -33,11 +36,14 @@ module ModernTreasury
       #   \"routingNumber\", \"address\"]. The full list of options is [\"name\",
       #   \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\",
       #   \"routingNumber\", \"address\", \"ibanNumber\", \"swiftCode\"].
-      sig { returns(T.nilable(T::Array[Symbol])) }
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol])) }
       def fields
       end
 
-      sig { params(_: T::Array[Symbol]).returns(T::Array[Symbol]) }
+      sig do
+        params(_: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol])
+          .returns(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol])
+      end
       def fields=(_)
       end
 
@@ -55,9 +61,9 @@ module ModernTreasury
 
       sig do
         params(
-          direction: Symbol,
+          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           custom_redirect: String,
-          fields: T::Array[Symbol],
+          fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
           send_email: T::Boolean,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
@@ -70,9 +76,9 @@ module ModernTreasury
         override
           .returns(
             {
-              direction: Symbol,
+              direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
               custom_redirect: String,
-              fields: T::Array[Symbol],
+              fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
               send_email: T::Boolean,
               request_options: ModernTreasury::RequestOptions
             }
@@ -81,40 +87,66 @@ module ModernTreasury
       def to_hash
       end
 
-      class Field < ModernTreasury::Enum
-        abstract!
+      module Field
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol) }
 
-        NAME = :name
-        NAME_ON_ACCOUNT = :nameOnAccount
-        TAXPAYER_IDENTIFIER = :taxpayerIdentifier
-        ACCOUNT_TYPE = :accountType
-        ACCOUNT_NUMBER = :accountNumber
-        IBAN_NUMBER = :ibanNumber
-        CLABE_NUMBER = :clabeNumber
-        WALLET_ADDRESS = :walletAddress
-        PAN_NUMBER = :panNumber
-        ROUTING_NUMBER = :routingNumber
-        ABA_WIRE_ROUTING_NUMBER = :abaWireRoutingNumber
-        SWIFT_CODE = :swiftCode
-        AU_BSB = :auBsb
-        CA_CPA = :caCpa
-        CNAPS = :cnaps
-        GB_SORT_CODE = :gbSortCode
-        IN_IFSC = :inIfsc
-        MY_BRANCH_CODE = :myBranchCode
-        BR_CODIGO = :brCodigo
-        ROUTING_NUMBER_TYPE = :routingNumberType
-        ADDRESS = :address
-        JP_ZENGIN_CODE = :jpZenginCode
-        SE_BANKGIRO_CLEARING_CODE = :seBankgiroClearingCode
-        NZ_NATIONAL_CLEARING_CODE = :nzNationalClearingCode
-        HK_INTERBANK_CLEARING_CODE = :hkInterbankClearingCode
-        HU_INTERBANK_CLEARING_CODE = :huInterbankClearingCode
-        DK_INTERBANK_CLEARING_CODE = :dkInterbankClearingCode
-        ID_SKNBI_CODE = :idSknbiCode
-        ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+        NAME = T.let(:name, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        NAME_ON_ACCOUNT =
+          T.let(:nameOnAccount, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        TAXPAYER_IDENTIFIER =
+          T.let(:taxpayerIdentifier, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        ACCOUNT_TYPE =
+          T.let(:accountType, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        ACCOUNT_NUMBER =
+          T.let(:accountNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        IBAN_NUMBER =
+          T.let(:ibanNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        CLABE_NUMBER =
+          T.let(:clabeNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        WALLET_ADDRESS =
+          T.let(:walletAddress, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        PAN_NUMBER = T.let(:panNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        ROUTING_NUMBER =
+          T.let(:routingNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        ABA_WIRE_ROUTING_NUMBER =
+          T.let(:abaWireRoutingNumber, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        SWIFT_CODE = T.let(:swiftCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        AU_BSB = T.let(:auBsb, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        CA_CPA = T.let(:caCpa, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        CNAPS = T.let(:cnaps, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        GB_SORT_CODE =
+          T.let(:gbSortCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        IN_IFSC = T.let(:inIfsc, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        MY_BRANCH_CODE =
+          T.let(:myBranchCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        BR_CODIGO = T.let(:brCodigo, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        ROUTING_NUMBER_TYPE =
+          T.let(:routingNumberType, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        ADDRESS = T.let(:address, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        JP_ZENGIN_CODE =
+          T.let(:jpZenginCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        SE_BANKGIRO_CLEARING_CODE =
+          T.let(:seBankgiroClearingCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        NZ_NATIONAL_CLEARING_CODE =
+          T.let(:nzNationalClearingCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        HK_INTERBANK_CLEARING_CODE =
+          T.let(:hkInterbankClearingCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        HU_INTERBANK_CLEARING_CODE =
+          T.let(:huInterbankClearingCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        DK_INTERBANK_CLEARING_CODE =
+          T.let(:dkInterbankClearingCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        ID_SKNBI_CODE =
+          T.let(:idSknbiCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol)
+        ZA_NATIONAL_CLEARING_CODE =
+          T.let(
+            :za_national_clearing_code,
+            ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol
+          )
       end
     end
   end
