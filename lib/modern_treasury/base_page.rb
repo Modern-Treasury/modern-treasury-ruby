@@ -2,32 +2,26 @@
 
 module ModernTreasury
   # @example
-  # ```ruby
-  # if page.has_next?
-  #   page = page.next_page
-  # end
-  # ```
+  #   if page.has_next?
+  #     page = page.next_page
+  #   end
   #
   # @example
-  # ```ruby
-  # page.auto_paging_each do |client|
-  #   puts(client)
-  # end
-  # ```
+  #   page.auto_paging_each do |client|
+  #     puts(client)
+  #   end
   #
   # @example
-  # ```ruby
-  # clients =
-  #   page
-  #   .to_enum
-  #   .lazy
-  #   .select { _1.object_id.even? }
-  #   .map(&:itself)
-  #   .take(2)
-  #   .to_a
+  #   clients =
+  #     page
+  #     .to_enum
+  #     .lazy
+  #     .select { _1.object_id.even? }
+  #     .map(&:itself)
+  #     .take(2)
+  #     .to_a
   #
-  # clients => Array
-  # ```
+  #   clients => Array
   module BasePage
     # rubocop:disable Lint/UnusedMethodArgument
 

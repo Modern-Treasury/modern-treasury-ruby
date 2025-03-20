@@ -2,32 +2,26 @@
 
 module ModernTreasury
   # @example
-  # ```ruby
-  # if page.has_next?
-  #   page = page.next_page
-  # end
-  # ```
+  #   if page.has_next?
+  #     page = page.next_page
+  #   end
   #
   # @example
-  # ```ruby
-  # page.auto_paging_each do |connection|
-  #   puts(connection)
-  # end
-  # ```
+  #   page.auto_paging_each do |connection|
+  #     puts(connection)
+  #   end
   #
   # @example
-  # ```ruby
-  # connections =
-  #   page
-  #   .to_enum
-  #   .lazy
-  #   .select { _1.object_id.even? }
-  #   .map(&:itself)
-  #   .take(2)
-  #   .to_a
+  #   connections =
+  #     page
+  #     .to_enum
+  #     .lazy
+  #     .select { _1.object_id.even? }
+  #     .map(&:itself)
+  #     .take(2)
+  #     .to_a
   #
-  # connections => Array
-  # ```
+  #   connections => Array
   class Page < ::Array
     include ModernTreasury::BasePage
 
