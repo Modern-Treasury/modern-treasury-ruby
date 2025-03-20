@@ -1,6 +1,5 @@
 module ModernTreasury
   module Models
-    
     class InvoiceLineItem = Invoices::InvoiceLineItem
 
     module Invoices

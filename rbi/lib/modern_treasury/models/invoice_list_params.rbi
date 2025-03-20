@@ -92,11 +92,14 @@ module ModernTreasury
       def per_page=(_)
       end
 
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
@@ -112,7 +115,7 @@ module ModernTreasury
           originating_account_id: String,
           payment_order_id: String,
           per_page: Integer,
-          status: Symbol,
+          status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -147,7 +150,7 @@ module ModernTreasury
               originating_account_id: String,
               payment_order_id: String,
               per_page: Integer,
-              status: Symbol,
+              status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -155,17 +158,19 @@ module ModernTreasury
       def to_hash
       end
 
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceListParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol) }
 
-        DRAFT = :draft
-        PAID = :paid
-        PARTIALLY_PAID = :partially_paid
-        PAYMENT_PENDING = :payment_pending
-        UNPAID = :unpaid
-        VOIDED = :voided
+        DRAFT = T.let(:draft, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
+        PAID = T.let(:paid, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
+        PARTIALLY_PAID = T.let(:partially_paid, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
+        PAYMENT_PENDING = T.let(:payment_pending, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
+        UNPAID = T.let(:unpaid, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
+        VOIDED = T.let(:voided, ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
       end
     end
   end

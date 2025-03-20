@@ -33,11 +33,14 @@ module ModernTreasury
       #   transaction. A `credit` moves money from your account to someone else's. A
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
       def direction
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+          .returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+      end
       def direction=(_)
       end
 
@@ -145,11 +148,14 @@ module ModernTreasury
 
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -166,7 +172,7 @@ module ModernTreasury
           id: String,
           amount: Integer,
           created_at: Time,
-          direction: Symbol,
+          direction: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
           discarded_at: T.nilable(Time),
           ledger_account_currency: String,
           ledger_account_currency_exponent: Integer,
@@ -177,7 +183,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           object: String,
           resulting_ledger_account_balances: T.nilable(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances),
-          status: Symbol,
+          status: ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -209,7 +215,7 @@ module ModernTreasury
               id: String,
               amount: Integer,
               created_at: Time,
-              direction: Symbol,
+              direction: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
               discarded_at: T.nilable(Time),
               ledger_account_currency: String,
               ledger_account_currency_exponent: Integer,
@@ -220,7 +226,7 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               object: String,
               resulting_ledger_account_balances: T.nilable(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances),
-              status: Symbol,
+              status: ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol,
               updated_at: Time
             }
           )
@@ -524,14 +530,15 @@ module ModernTreasury
 
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntry::Status) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol) }
 
-        ARCHIVED = :archived
-        PENDING = :pending
-        POSTED = :posted
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
       end
     end
   end

@@ -89,10 +89,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # The status of the connection legal entity.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED = :completed
         DENIED = :denied
         FAILED = :failed

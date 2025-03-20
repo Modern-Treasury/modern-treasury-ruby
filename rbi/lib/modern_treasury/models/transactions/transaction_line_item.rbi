@@ -109,11 +109,22 @@ module ModernTreasury
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
-        sig { returns(T.nilable(Symbol)) }
+        sig do
+          returns(
+            T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
+          )
+        end
         def transactable_type
         end
 
-        sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+        sig do
+          params(
+            _: T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
+          )
+            .returns(
+              T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
+            )
+        end
         def transactable_type=(_)
         end
 
@@ -128,11 +139,14 @@ module ModernTreasury
 
         # Indicates whether the line item is `originating` or `receiving` (see
         #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
         def type
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
+            .returns(ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
+        end
         def type=(_)
         end
 
@@ -157,9 +171,9 @@ module ModernTreasury
             object: String,
             reconcilable: T::Boolean,
             transactable_id: T.nilable(String),
-            transactable_type: T.nilable(Symbol),
+            transactable_type: T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol),
             transaction_id: String,
-            type: Symbol,
+            type: ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol,
             updated_at: Time
           )
             .returns(T.attached_class)
@@ -198,9 +212,9 @@ module ModernTreasury
                 object: String,
                 reconcilable: T::Boolean,
                 transactable_id: T.nilable(String),
-                transactable_type: T.nilable(Symbol),
+                transactable_type: T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol),
                 transaction_id: String,
-                type: Symbol,
+                type: ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol,
                 updated_at: Time
               }
             )
@@ -210,28 +224,57 @@ module ModernTreasury
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
-        class TransactableType < ModernTreasury::Enum
-          abstract!
+        module TransactableType
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol) }
 
-          INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-          PAPER_ITEM = :paper_item
-          PAYMENT_ORDER = :payment_order
-          PAYMENT_ORDER_ATTEMPT = :payment_order_attempt
-          RETURN = :return
-          REVERSAL = :reversal
+          INCOMING_PAYMENT_DETAIL =
+            T.let(
+              :incoming_payment_detail,
+              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+            )
+          PAPER_ITEM =
+            T.let(
+              :paper_item,
+              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+            )
+          PAYMENT_ORDER =
+            T.let(
+              :payment_order,
+              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+            )
+          PAYMENT_ORDER_ATTEMPT =
+            T.let(
+              :payment_order_attempt,
+              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+            )
+          RETURN =
+            T.let(:return, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
+          REVERSAL =
+            T.let(
+              :reversal,
+              ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+            )
         end
 
         # Indicates whether the line item is `originating` or `receiving` (see
         #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
-        class Type < ModernTreasury::Enum
-          abstract!
+        module Type
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
 
-          ORIGINATING = :originating
-          RECEIVING = :receiving
+          ORIGINATING =
+            T.let(:originating, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
+          RECEIVING =
+            T.let(:receiving, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
         end
       end
     end

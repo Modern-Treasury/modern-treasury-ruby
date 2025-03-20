@@ -7,9 +7,9 @@ module ModernTreasury
       sig do
         params(
           returnable_id: T.nilable(String),
-          returnable_type: Symbol,
+          returnable_type: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol,
           additional_information: T.nilable(String),
-          code: T.nilable(Symbol),
+          code: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
@@ -60,7 +60,7 @@ module ModernTreasury
           internal_account_id: String,
           per_page: Integer,
           returnable_id: String,
-          returnable_type: Symbol,
+          returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::ReturnObject])

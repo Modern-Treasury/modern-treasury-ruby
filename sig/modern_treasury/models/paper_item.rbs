@@ -84,7 +84,9 @@ module ModernTreasury
 
       type status = :completed | :pending | :returned
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED: :completed
         PENDING: :pending
         RETURNED: :returned

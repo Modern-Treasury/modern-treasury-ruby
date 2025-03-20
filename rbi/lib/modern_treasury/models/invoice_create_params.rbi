@@ -81,11 +81,11 @@ module ModernTreasury
       end
 
       # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
       def currency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig { params(_: ModernTreasury::Models::Currency::OrSymbol).returns(ModernTreasury::Models::Currency::OrSymbol) }
       def currency=(_)
       end
 
@@ -202,22 +202,28 @@ module ModernTreasury
       #   the automatically initiated payment order's direction will be debit. If the
       #   invoice amount is negative, the automatically initiated payment order's
       #   direction will be credit. One of `manual`, `ui`, or `automatic`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)) }
       def payment_method
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)
+          .returns(ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)
+      end
       def payment_method=(_)
       end
 
       # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderType::OrSymbol)) }
       def payment_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::PaymentOrderType::OrSymbol)
+          .returns(ModernTreasury::Models::PaymentOrderType::OrSymbol)
+      end
       def payment_type=(_)
       end
 
@@ -278,7 +284,7 @@ module ModernTreasury
           contact_details: T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
           counterparty_billing_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress),
           counterparty_shipping_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress),
-          currency: Symbol,
+          currency: ModernTreasury::Models::Currency::OrSymbol,
           description: String,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
@@ -289,8 +295,8 @@ module ModernTreasury
           notification_email_addresses: T.nilable(T::Array[String]),
           notifications_enabled: T::Boolean,
           payment_effective_date: Date,
-          payment_method: Symbol,
-          payment_type: Symbol,
+          payment_method: ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol,
+          payment_type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
           receiving_account_id: String,
           recipient_email: T.nilable(String),
           recipient_name: T.nilable(String),
@@ -341,7 +347,7 @@ module ModernTreasury
               contact_details: T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
               counterparty_billing_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress),
               counterparty_shipping_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress),
-              currency: Symbol,
+              currency: ModernTreasury::Models::Currency::OrSymbol,
               description: String,
               fallback_payment_method: T.nilable(String),
               ingest_ledger_entries: T.nilable(T::Boolean),
@@ -352,8 +358,8 @@ module ModernTreasury
               notification_email_addresses: T.nilable(T::Array[String]),
               notifications_enabled: T::Boolean,
               payment_effective_date: Date,
-              payment_method: Symbol,
-              payment_type: Symbol,
+              payment_method: ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol,
+              payment_type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
               receiving_account_id: String,
               recipient_email: T.nilable(String),
               recipient_name: T.nilable(String),
@@ -383,11 +389,14 @@ module ModernTreasury
         def contact_identifier=(_)
         end
 
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol) }
         def contact_identifier_type
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol)
+            .returns(ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol)
+        end
         def contact_identifier_type=(_)
         end
 
@@ -437,7 +446,7 @@ module ModernTreasury
           params(
             id: String,
             contact_identifier: String,
-            contact_identifier_type: Symbol,
+            contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol,
             created_at: Time,
             discarded_at: T.nilable(Time),
             live_mode: T::Boolean,
@@ -464,7 +473,7 @@ module ModernTreasury
               {
                 id: String,
                 contact_identifier: String,
-                contact_identifier_type: Symbol,
+                contact_identifier_type: ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol,
                 created_at: Time,
                 discarded_at: T.nilable(Time),
                 live_mode: T::Boolean,
@@ -476,14 +485,31 @@ module ModernTreasury
         def to_hash
         end
 
-        class ContactIdentifierType < ModernTreasury::Enum
-          abstract!
+        module ContactIdentifierType
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType) }
+          OrSymbol =
+            T.type_alias do
+              T.any(
+                Symbol,
+                ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
+              )
+            end
 
-          EMAIL = :email
-          PHONE_NUMBER = :phone_number
-          WEBSITE = :website
+          EMAIL =
+            T.let(:email, ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol)
+          PHONE_NUMBER =
+            T.let(
+              :phone_number,
+              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol
+            )
+          WEBSITE =
+            T.let(
+              :website,
+              ModernTreasury::Models::InvoiceCreateParams::ContactDetail::ContactIdentifierType::OrSymbol
+            )
         end
       end
 
@@ -860,14 +886,16 @@ module ModernTreasury
       #   the automatically initiated payment order's direction will be debit. If the
       #   invoice amount is negative, the automatically initiated payment order's
       #   direction will be credit. One of `manual`, `ui`, or `automatic`.
-      class PaymentMethod < ModernTreasury::Enum
-        abstract!
+      module PaymentMethod
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::TaggedSymbol) }
 
-        UI = :ui
-        MANUAL = :manual
-        AUTOMATIC = :automatic
+        UI = T.let(:ui, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)
+        MANUAL = T.let(:manual, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)
+        AUTOMATIC = T.let(:automatic, ModernTreasury::Models::InvoiceCreateParams::PaymentMethod::OrSymbol)
       end
     end
   end

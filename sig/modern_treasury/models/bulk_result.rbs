@@ -65,7 +65,9 @@ module ModernTreasury
         | ModernTreasury::Models::Transaction
         | ModernTreasury::Models::BulkResult::Entity::BulkError
 
-      class Entity < ModernTreasury::Union
+      module Entity
+        extend ModernTreasury::Union
+
         type bulk_error =
           {
             id: String,
@@ -136,7 +138,9 @@ module ModernTreasury
         | :expected_payment
         | :bulk_error
 
-      class EntityType < ModernTreasury::Enum
+      module EntityType
+        extend ModernTreasury::Enum
+
         PAYMENT_ORDER: :payment_order
         LEDGER_TRANSACTION: :ledger_transaction
         TRANSACTION: :transaction
@@ -148,7 +152,9 @@ module ModernTreasury
 
       type request_type = :bulk_request
 
-      class RequestType < ModernTreasury::Enum
+      module RequestType
+        extend ModernTreasury::Enum
+
         BULK_REQUEST: :bulk_request
 
         def self.values: -> ::Array[ModernTreasury::Models::BulkResult::request_type]
@@ -156,7 +162,9 @@ module ModernTreasury
 
       type status = :pending | :successful | :failed
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         PENDING: :pending
         SUCCESSFUL: :successful
         FAILED: :failed

@@ -208,11 +208,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT = :credit
         DEBIT = :debit
 
@@ -449,13 +449,13 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
-        # @abstract
-        #
         # If the ledger transaction can be reconciled to another object in Modern
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   reversal.
-        class LedgerableType < ModernTreasury::Enum
+        module LedgerableType
+          extend ModernTreasury::Enum
+
           EXPECTED_PAYMENT = :expected_payment
           INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
           PAPER_ITEM = :paper_item
@@ -466,10 +466,10 @@ module ModernTreasury
           finalize!
         end
 
-        # @abstract
-        #
         # To post a ledger transaction at creation, use `posted`.
-        class Status < ModernTreasury::Enum
+        module Status
+          extend ModernTreasury::Enum
+
           ARCHIVED = :archived
           PENDING = :pending
           POSTED = :posted

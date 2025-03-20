@@ -41,7 +41,9 @@ module ModernTreasury
           | :date_earlier_than_intended
           | :date_later_than_intended
 
-        class Reason < ModernTreasury::Enum
+        module Reason
+          extend ModernTreasury::Enum
+
           DUPLICATE: :duplicate
           INCORRECT_AMOUNT: :incorrect_amount
           INCORRECT_RECEIVING_ACCOUNT: :incorrect_receiving_account
@@ -172,7 +174,9 @@ module ModernTreasury
             | :return
             | :reversal
 
-          class LedgerableType < ModernTreasury::Enum
+          module LedgerableType
+            extend ModernTreasury::Enum
+
             EXPECTED_PAYMENT: :expected_payment
             INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
             PAPER_ITEM: :paper_item
@@ -185,7 +189,9 @@ module ModernTreasury
 
           type status = :archived | :pending | :posted
 
-          class Status < ModernTreasury::Enum
+          module Status
+            extend ModernTreasury::Enum
+
             ARCHIVED: :archived
             PENDING: :pending
             POSTED: :posted

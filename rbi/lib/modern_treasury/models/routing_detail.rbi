@@ -67,11 +67,14 @@ module ModernTreasury
 
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)) }
       def payment_type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol))
+      end
       def payment_type=(_)
       end
 
@@ -87,11 +90,14 @@ module ModernTreasury
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol) }
       def routing_number_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+          .returns(ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+      end
       def routing_number_type=(_)
       end
 
@@ -112,9 +118,9 @@ module ModernTreasury
           discarded_at: T.nilable(Time),
           live_mode: T::Boolean,
           object: String,
-          payment_type: T.nilable(Symbol),
+          payment_type: T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol),
           routing_number: String,
-          routing_number_type: Symbol,
+          routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -145,9 +151,9 @@ module ModernTreasury
               discarded_at: T.nilable(Time),
               live_mode: T::Boolean,
               object: String,
-              payment_type: T.nilable(Symbol),
+              payment_type: T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol),
               routing_number: String,
-              routing_number_type: Symbol,
+              routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol,
               updated_at: Time
             }
           )
@@ -305,72 +311,89 @@ module ModernTreasury
 
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
-      class PaymentType < ModernTreasury::Enum
-        abstract!
+      module PaymentType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetail::PaymentType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol) }
 
-        ACH = :ach
-        AU_BECS = :au_becs
-        BACS = :bacs
-        BOOK = :book
-        CARD = :card
-        CHATS = :chats
-        CHECK = :check
-        CROSS_BORDER = :cross_border
-        DK_NETS = :dk_nets
-        EFT = :eft
-        HU_ICS = :hu_ics
-        INTERAC = :interac
-        MASAV = :masav
-        MX_CCEN = :mx_ccen
-        NEFT = :neft
-        NICS = :nics
-        NZ_BECS = :nz_becs
-        PL_ELIXIR = :pl_elixir
-        PROVXCHANGE = :provxchange
-        RO_SENT = :ro_sent
-        RTP = :rtp
-        SE_BANKGIROT = :se_bankgirot
-        SEN = :sen
-        SEPA = :sepa
-        SG_GIRO = :sg_giro
-        SIC = :sic
-        SIGNET = :signet
-        SKNBI = :sknbi
-        WIRE = :wire
-        ZENGIN = :zengin
+        ACH = T.let(:ach, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        CARD = T.let(:card, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        CHATS = T.let(:chats, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        CROSS_BORDER = T.let(:cross_border, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        MASAV = T.let(:masav, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        NICS = T.let(:nics, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        PROVXCHANGE = T.let(:provxchange, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        SE_BANKGIROT = T.let(:se_bankgirot, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        SEN = T.let(:sen, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        SIC = T.let(:sic, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        SKNBI = T.let(:sknbi, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
+        ZENGIN = T.let(:zengin, ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)
       end
 
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
-      class RoutingNumberType < ModernTreasury::Enum
-        abstract!
+      module RoutingNumberType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol) }
 
-        ABA = :aba
-        AU_BSB = :au_bsb
-        BR_CODIGO = :br_codigo
-        CA_CPA = :ca_cpa
-        CHIPS = :chips
-        CNAPS = :cnaps
-        DK_INTERBANK_CLEARING_CODE = :dk_interbank_clearing_code
-        GB_SORT_CODE = :gb_sort_code
-        HK_INTERBANK_CLEARING_CODE = :hk_interbank_clearing_code
-        HU_INTERBANK_CLEARING_CODE = :hu_interbank_clearing_code
-        ID_SKNBI_CODE = :id_sknbi_code
-        IN_IFSC = :in_ifsc
-        JP_ZENGIN_CODE = :jp_zengin_code
-        MX_BANK_IDENTIFIER = :mx_bank_identifier
-        MY_BRANCH_CODE = :my_branch_code
-        NZ_NATIONAL_CLEARING_CODE = :nz_national_clearing_code
-        PL_NATIONAL_CLEARING_CODE = :pl_national_clearing_code
-        SE_BANKGIRO_CLEARING_CODE = :se_bankgiro_clearing_code
-        SG_INTERBANK_CLEARING_CODE = :sg_interbank_clearing_code
-        SWIFT = :swift
-        ZA_NATIONAL_CLEARING_CODE = :za_national_clearing_code
+        ABA = T.let(:aba, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        AU_BSB = T.let(:au_bsb, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        BR_CODIGO = T.let(:br_codigo, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        CA_CPA = T.let(:ca_cpa, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        CHIPS = T.let(:chips, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        CNAPS = T.let(:cnaps, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        DK_INTERBANK_CLEARING_CODE =
+          T.let(:dk_interbank_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        GB_SORT_CODE =
+          T.let(:gb_sort_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        HK_INTERBANK_CLEARING_CODE =
+          T.let(:hk_interbank_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        HU_INTERBANK_CLEARING_CODE =
+          T.let(:hu_interbank_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        ID_SKNBI_CODE =
+          T.let(:id_sknbi_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        IN_IFSC = T.let(:in_ifsc, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        JP_ZENGIN_CODE =
+          T.let(:jp_zengin_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        MX_BANK_IDENTIFIER =
+          T.let(:mx_bank_identifier, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        MY_BRANCH_CODE =
+          T.let(:my_branch_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        NZ_NATIONAL_CLEARING_CODE =
+          T.let(:nz_national_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        PL_NATIONAL_CLEARING_CODE =
+          T.let(:pl_national_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        SE_BANKGIRO_CLEARING_CODE =
+          T.let(:se_bankgiro_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        SG_INTERBANK_CLEARING_CODE =
+          T.let(:sg_interbank_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        SWIFT = T.let(:swift, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
+        ZA_NATIONAL_CLEARING_CODE =
+          T.let(:za_national_clearing_code, ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
       end
     end
   end

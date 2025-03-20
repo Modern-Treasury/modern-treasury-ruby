@@ -79,11 +79,14 @@ module ModernTreasury
 
       # The status of the ledger account settlement. It is set to `pending` by default.
       #   To post a ledger account settlement at creation, use `posted`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol))
+      end
       def status=(_)
       end
 
@@ -96,7 +99,7 @@ module ModernTreasury
           effective_at_upper_bound: T.nilable(Time),
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
-          status: T.nilable(Symbol),
+          status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -125,7 +128,7 @@ module ModernTreasury
               effective_at_upper_bound: T.nilable(Time),
               metadata: T::Hash[Symbol, String],
               skip_settlement_ledger_transaction: T.nilable(T::Boolean),
-              status: T.nilable(Symbol),
+              status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -135,13 +138,16 @@ module ModernTreasury
 
       # The status of the ledger account settlement. It is set to `pending` by default.
       #   To post a ledger account settlement at creation, use `posted`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol) }
 
-        PENDING = :pending
-        POSTED = :posted
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol)
       end
     end
   end

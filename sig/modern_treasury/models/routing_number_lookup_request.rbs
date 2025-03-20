@@ -97,7 +97,9 @@ module ModernTreasury
         | :se_bankgiro_clearing_code
         | :swift
 
-      class RoutingNumberType < ModernTreasury::Enum
+      module RoutingNumberType
+        extend ModernTreasury::Enum
+
         ABA: :aba
         AU_BSB: :au_bsb
         CA_CPA: :ca_cpa
@@ -142,7 +144,9 @@ module ModernTreasury
         | :wire
         | :zengin
 
-      class SupportedPaymentType < ModernTreasury::Enum
+      module SupportedPaymentType
+        extend ModernTreasury::Enum
+
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs

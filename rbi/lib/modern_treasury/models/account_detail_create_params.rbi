@@ -6,11 +6,14 @@ module ModernTreasury
       extend ModernTreasury::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol) }
       def accounts_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol)
+          .returns(ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol)
+      end
       def accounts_type=(_)
       end
 
@@ -25,19 +28,22 @@ module ModernTreasury
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)) }
       def account_number_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+          .returns(ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+      end
       def account_number_type=(_)
       end
 
       sig do
         params(
-          accounts_type: Symbol,
+          accounts_type: ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol,
           account_number: String,
-          account_number_type: Symbol,
+          account_number_type: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -49,9 +55,9 @@ module ModernTreasury
         override
           .returns(
             {
-              accounts_type: Symbol,
+              accounts_type: ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol,
               account_number: String,
-              account_number_type: Symbol,
+              account_number_type: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -59,31 +65,44 @@ module ModernTreasury
       def to_hash
       end
 
-      class AccountsType < ModernTreasury::Enum
-        abstract!
+      module AccountsType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol) }
 
-        EXTERNAL_ACCOUNTS = :external_accounts
+        EXTERNAL_ACCOUNTS =
+          T.let(:external_accounts, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol)
       end
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
-      class AccountNumberType < ModernTreasury::Enum
-        abstract!
+      module AccountNumberType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol) }
 
-        AU_NUMBER = :au_number
-        CLABE = :clabe
-        HK_NUMBER = :hk_number
-        IBAN = :iban
-        ID_NUMBER = :id_number
-        NZ_NUMBER = :nz_number
-        OTHER = :other
-        PAN = :pan
-        SG_NUMBER = :sg_number
-        WALLET_ADDRESS = :wallet_address
+        AU_NUMBER =
+          T.let(:au_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        CLABE = T.let(:clabe, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        HK_NUMBER =
+          T.let(:hk_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        IBAN = T.let(:iban, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        ID_NUMBER =
+          T.let(:id_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        NZ_NUMBER =
+          T.let(:nz_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        OTHER = T.let(:other, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        PAN = T.let(:pan, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        SG_NUMBER =
+          T.let(:sg_number, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        WALLET_ADDRESS =
+          T.let(:wallet_address, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
       end
     end
   end

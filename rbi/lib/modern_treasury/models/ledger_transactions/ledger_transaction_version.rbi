@@ -102,11 +102,28 @@ module ModernTreasury
         # If the ledger transaction can be reconciled to another object in Modern
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
-        sig { returns(T.nilable(Symbol)) }
+        sig do
+          returns(
+            T.nilable(
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            )
+          )
+        end
         def ledgerable_type
         end
 
-        sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+        sig do
+          params(
+            _: T.nilable(
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            )
+          )
+            .returns(
+              T.nilable(
+                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+              )
+            )
+        end
         def ledgerable_type=(_)
         end
 
@@ -177,11 +194,14 @@ module ModernTreasury
         end
 
         # One of `pending`, `posted`, or `archived`.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol) }
         def status
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol)
+            .returns(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol)
+        end
         def status=(_)
         end
 
@@ -206,7 +226,9 @@ module ModernTreasury
             ledger_id: String,
             ledger_transaction_id: String,
             ledgerable_id: T.nilable(String),
-            ledgerable_type: T.nilable(Symbol),
+            ledgerable_type: T.nilable(
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            ),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
             object: String,
@@ -214,7 +236,7 @@ module ModernTreasury
             posted_at: T.nilable(Time),
             reversed_by_ledger_transaction_id: T.nilable(String),
             reverses_ledger_transaction_id: T.nilable(String),
-            status: Symbol,
+            status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol,
             version: Integer
           )
             .returns(T.attached_class)
@@ -257,7 +279,9 @@ module ModernTreasury
                 ledger_id: String,
                 ledger_transaction_id: String,
                 ledgerable_id: T.nilable(String),
-                ledgerable_type: T.nilable(Symbol),
+                ledgerable_type: T.nilable(
+                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+                ),
                 live_mode: T::Boolean,
                 metadata: T::Hash[Symbol, String],
                 object: String,
@@ -265,7 +289,7 @@ module ModernTreasury
                 posted_at: T.nilable(Time),
                 reversed_by_ledger_transaction_id: T.nilable(String),
                 reverses_ledger_transaction_id: T.nilable(String),
-                status: Symbol,
+                status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol,
                 version: Integer
               }
             )
@@ -304,11 +328,14 @@ module ModernTreasury
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
-          sig { returns(Symbol) }
+          sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
           def direction
           end
 
-          sig { params(_: Symbol).returns(Symbol) }
+          sig do
+            params(_: ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+              .returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol)
+          end
           def direction=(_)
           end
 
@@ -422,11 +449,22 @@ module ModernTreasury
 
           # Equal to the state of the ledger transaction when the ledger entry was created.
           #   One of `pending`, `posted`, or `archived`.
-          sig { returns(Symbol) }
+          sig do
+            returns(
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
+            )
+          end
           def status
           end
 
-          sig { params(_: Symbol).returns(Symbol) }
+          sig do
+            params(
+              _: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
+            )
+              .returns(
+                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
+              )
+          end
           def status=(_)
           end
 
@@ -435,7 +473,7 @@ module ModernTreasury
               id: String,
               amount: Integer,
               created_at: Time,
-              direction: Symbol,
+              direction: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
               ledger_account_currency: String,
               ledger_account_currency_exponent: Integer,
               ledger_account_id: String,
@@ -447,7 +485,7 @@ module ModernTreasury
               resulting_ledger_account_balances: T.nilable(
                 ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances
               ),
-              status: Symbol
+              status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
             )
               .returns(T.attached_class)
           end
@@ -476,7 +514,7 @@ module ModernTreasury
                   id: String,
                   amount: Integer,
                   created_at: Time,
-                  direction: Symbol,
+                  direction: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
                   ledger_account_currency: String,
                   ledger_account_currency_exponent: Integer,
                   ledger_account_id: String,
@@ -488,7 +526,7 @@ module ModernTreasury
                   resulting_ledger_account_balances: T.nilable(
                     ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances
                   ),
-                  status: Symbol
+                  status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
                 }
               )
           end
@@ -815,42 +853,106 @@ module ModernTreasury
 
           # Equal to the state of the ledger transaction when the ledger entry was created.
           #   One of `pending`, `posted`, or `archived`.
-          class Status < ModernTreasury::Enum
-            abstract!
+          module Status
+            extend ModernTreasury::Enum
 
-            Value = type_template(:out) { {fixed: Symbol} }
+            TaggedSymbol =
+              T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status) }
+            OrSymbol =
+              T.type_alias do
+                T.any(
+                  Symbol,
+                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
+                )
+              end
 
-            ARCHIVED = :archived
-            PENDING = :pending
-            POSTED = :posted
+            ARCHIVED =
+              T.let(
+                :archived,
+                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
+              )
+            PENDING =
+              T.let(
+                :pending,
+                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
+              )
+            POSTED =
+              T.let(
+                :posted,
+                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
+              )
           end
         end
 
         # If the ledger transaction can be reconciled to another object in Modern
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
-        class LedgerableType < ModernTreasury::Enum
-          abstract!
+        module LedgerableType
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType) }
+          OrSymbol =
+            T.type_alias do
+              T.any(
+                Symbol,
+                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+              )
+            end
 
-          EXPECTED_PAYMENT = :expected_payment
-          INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-          PAPER_ITEM = :paper_item
-          PAYMENT_ORDER = :payment_order
-          RETURN = :return
-          REVERSAL = :reversal
+          EXPECTED_PAYMENT =
+            T.let(
+              :expected_payment,
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            )
+          INCOMING_PAYMENT_DETAIL =
+            T.let(
+              :incoming_payment_detail,
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            )
+          PAPER_ITEM =
+            T.let(
+              :paper_item,
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            )
+          PAYMENT_ORDER =
+            T.let(
+              :payment_order,
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            )
+          RETURN =
+            T.let(
+              :return,
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            )
+          REVERSAL =
+            T.let(
+              :reversal,
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
+            )
         end
 
         # One of `pending`, `posted`, or `archived`.
-        class Status < ModernTreasury::Enum
-          abstract!
+        module Status
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status) }
+          OrSymbol =
+            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol) }
 
-          ARCHIVED = :archived
-          PENDING = :pending
-          POSTED = :posted
+          ARCHIVED =
+            T.let(
+              :archived,
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol
+            )
+          PENDING =
+            T.let(
+              :pending,
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol
+            )
+          POSTED =
+            T.let(:posted, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol)
         end
       end
     end

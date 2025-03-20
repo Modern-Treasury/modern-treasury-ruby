@@ -86,11 +86,14 @@ module ModernTreasury
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)) }
       def type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol))
+      end
       def type=(_)
       end
 
@@ -114,7 +117,7 @@ module ModernTreasury
           vendor_code_type: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           posted: T::Boolean,
-          type: T.nilable(Symbol),
+          type: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol),
           vendor_description: T.nilable(String),
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
@@ -147,7 +150,7 @@ module ModernTreasury
               vendor_code_type: T.nilable(String),
               metadata: T::Hash[Symbol, String],
               posted: T::Boolean,
-              type: T.nilable(Symbol),
+              type: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol),
               vendor_description: T.nilable(String),
               request_options: ModernTreasury::RequestOptions
             }
@@ -158,42 +161,44 @@ module ModernTreasury
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      class Type < ModernTreasury::Enum
-        abstract!
+      module Type
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::TransactionCreateParams::Type) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol) }
 
-        ACH = :ach
-        AU_BECS = :au_becs
-        BACS = :bacs
-        BOOK = :book
-        CARD = :card
-        CHATS = :chats
-        CHECK = :check
-        CROSS_BORDER = :cross_border
-        DK_NETS = :dk_nets
-        EFT = :eft
-        HU_ICS = :hu_ics
-        INTERAC = :interac
-        MASAV = :masav
-        MX_CCEN = :mx_ccen
-        NEFT = :neft
-        NICS = :nics
-        NZ_BECS = :nz_becs
-        PL_ELIXIR = :pl_elixir
-        PROVXCHANGE = :provxchange
-        RO_SENT = :ro_sent
-        RTP = :rtp
-        SE_BANKGIROT = :se_bankgirot
-        SEN = :sen
-        SEPA = :sepa
-        SG_GIRO = :sg_giro
-        SIC = :sic
-        SIGNET = :signet
-        SKNBI = :sknbi
-        WIRE = :wire
-        ZENGIN = :zengin
-        OTHER = :other
+        ACH = T.let(:ach, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        CARD = T.let(:card, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        CHATS = T.let(:chats, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        CROSS_BORDER = T.let(:cross_border, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        MASAV = T.let(:masav, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        NICS = T.let(:nics, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        PROVXCHANGE = T.let(:provxchange, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        SE_BANKGIROT = T.let(:se_bankgirot, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        SEN = T.let(:sen, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        SIC = T.let(:sic, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        SKNBI = T.let(:sknbi, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        ZENGIN = T.let(:zengin, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
+        OTHER = T.let(:other, ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)
       end
     end
   end

@@ -3,7 +3,9 @@
 require_relative "test_helper"
 
 class ModernTreasury::Test::BaseModelTest < Minitest::Test
-  class E1 < ModernTreasury::Enum
+  module E1
+    extend ModernTreasury::Enum
+
     A = :a
     B = :b
   end
@@ -242,13 +244,17 @@ class ModernTreasury::Test::BaseModelTest < Minitest::Test
     optional :b, E1, api_name: :renamed_again
   end
 
-  class U1 < ModernTreasury::Union
+  module U1
+    extend ModernTreasury::Union
+
     discriminator :type
     variant :a, M1
     variant :b, M3
   end
 
-  class U2 < ModernTreasury::Union
+  module U2
+    extend ModernTreasury::Union
+
     variant A1
     variant A3
   end
@@ -330,12 +336,16 @@ class ModernTreasury::Test::BaseModelTest < Minitest::Test
     end
   end
 
-  class E2 < ModernTreasury::Enum
+  module E2
+    extend ModernTreasury::Enum
+
     A = :a
     B = :b
   end
 
-  class U3 < ModernTreasury::Union
+  module U3
+    extend ModernTreasury::Union
+
     discriminator :type
     variant :a, M1
     variant :b, M3
@@ -353,7 +363,9 @@ class ModernTreasury::Test::BaseModelTest < Minitest::Test
     assert_equal(U1, U3)
   end
 
-  class U4 < ModernTreasury::Union
+  module U4
+    extend ModernTreasury::Union
+
     variant :a, const: :a
     variant :b, const: :b
   end

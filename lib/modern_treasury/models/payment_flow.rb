@@ -226,45 +226,45 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
-      class Direction < ModernTreasury::Enum
+      module Direction
+        extend ModernTreasury::Enum
+
         CREDIT = :credit
         DEBIT = :debit
 
         finalize!
       end
 
-      # @abstract
-      #
       # When `verified` and `external_account_collection` is `enabled`, filters the list
       #   of external accounts your end-user can select to those with a
       #   `verification_status` of `verified`.
-      class ExistingExternalAccountsFilter < ModernTreasury::Enum
+      module ExistingExternalAccountsFilter
+        extend ModernTreasury::Enum
+
         VERIFIED = :verified
 
         finalize!
       end
 
-      # @abstract
-      #
       # When `enabled`, your end-user can select from an existing external account when
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
-      class ExternalAccountCollection < ModernTreasury::Enum
+      module ExternalAccountCollection
+        extend ModernTreasury::Enum
+
         DISABLED = :disabled
         ENABLED = :enabled
 
         finalize!
       end
 
-      # @abstract
-      #
       # The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         CANCELLED = :cancelled
         COMPLETED = :completed
         EXPIRED = :expired

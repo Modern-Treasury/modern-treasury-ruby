@@ -60,11 +60,14 @@ module ModernTreasury
 
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)) }
       def direction
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
+          .returns(ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
+      end
       def direction=(_)
       end
 
@@ -91,22 +94,28 @@ module ModernTreasury
       # When `verified` and `external_account_collection` is `enabled`, filters the list
       #   of external accounts your end-user can select to those with a
       #   `verification_status` of `verified`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol)) }
       def existing_external_accounts_filter
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol))
+      end
       def existing_external_accounts_filter=(_)
       end
 
       # When `enabled`, your end-user can select from an existing external account when
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)) }
       def external_account_collection
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
+          .returns(ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
+      end
       def external_account_collection=(_)
       end
 
@@ -168,11 +177,14 @@ module ModernTreasury
 
       # The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -192,18 +204,18 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: String,
-          direction: Symbol,
+          direction: ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol,
           due_date: T.nilable(Date),
           effective_date_selection_enabled: T::Boolean,
-          existing_external_accounts_filter: T.nilable(Symbol),
-          external_account_collection: Symbol,
+          existing_external_accounts_filter: T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol),
+          external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol,
           live_mode: T::Boolean,
           object: String,
           originating_account_id: T.nilable(String),
           payment_order_id: T.nilable(String),
           receiving_account_id: T.nilable(String),
           selected_effective_date: T.nilable(Date),
-          status: Symbol,
+          status: ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -241,18 +253,18 @@ module ModernTreasury
               counterparty_id: T.nilable(String),
               created_at: Time,
               currency: String,
-              direction: Symbol,
+              direction: ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol,
               due_date: T.nilable(Date),
               effective_date_selection_enabled: T::Boolean,
-              existing_external_accounts_filter: T.nilable(Symbol),
-              external_account_collection: Symbol,
+              existing_external_accounts_filter: T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol),
+              external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol,
               live_mode: T::Boolean,
               object: String,
               originating_account_id: T.nilable(String),
               payment_order_id: T.nilable(String),
               receiving_account_id: T.nilable(String),
               selected_effective_date: T.nilable(Date),
-              status: Symbol,
+              status: ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol,
               updated_at: Time
             }
           )
@@ -262,49 +274,58 @@ module ModernTreasury
 
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
-      class Direction < ModernTreasury::Enum
-        abstract!
+      module Direction
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::Direction) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol) }
 
-        CREDIT = :credit
-        DEBIT = :debit
+        CREDIT = T.let(:credit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
       end
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
       #   of external accounts your end-user can select to those with a
       #   `verification_status` of `verified`.
-      class ExistingExternalAccountsFilter < ModernTreasury::Enum
-        abstract!
+      module ExistingExternalAccountsFilter
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol) }
 
-        VERIFIED = :verified
+        VERIFIED =
+          T.let(:verified, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol)
       end
 
       # When `enabled`, your end-user can select from an existing external account when
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
-      class ExternalAccountCollection < ModernTreasury::Enum
-        abstract!
+      module ExternalAccountCollection
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol) }
 
-        DISABLED = :disabled
-        ENABLED = :enabled
+        DISABLED = T.let(:disabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
+        ENABLED = T.let(:enabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
       end
 
       # The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::Status) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol) }
 
-        CANCELLED = :cancelled
-        COMPLETED = :completed
-        EXPIRED = :expired
-        PENDING = :pending
+        CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
+        COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
+        EXPIRED = T.let(:expired, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
       end
     end
   end

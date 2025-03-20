@@ -245,7 +245,9 @@ module ModernTreasury
           type address_type =
             :business | :mailing | :other | :po_box | :residential
 
-          class AddressType < ModernTreasury::Enum
+          module AddressType
+            extend ModernTreasury::Enum
+
             BUSINESS: :business
             MAILING: :mailing
             OTHER: :other
@@ -321,7 +323,9 @@ module ModernTreasury
             | :us_ssn
             | :vn_tin
 
-          class IDType < ModernTreasury::Enum
+          module IDType
+            extend ModernTreasury::Enum
+
             AR_CUIL: :ar_cuil
             AR_CUIT: :ar_cuit
             BR_CNPJ: :br_cnpj
@@ -350,7 +354,9 @@ module ModernTreasury
 
         type legal_entity_type = :business | :individual | :joint
 
-        class LegalEntityType < ModernTreasury::Enum
+        module LegalEntityType
+          extend ModernTreasury::Enum
+
           BUSINESS: :business
           INDIVIDUAL: :individual
           JOINT: :joint
@@ -366,7 +372,9 @@ module ModernTreasury
           | :sole_proprietorship
           | :trust
 
-        class LegalStructure < ModernTreasury::Enum
+        module LegalStructure
+          extend ModernTreasury::Enum
+
           CORPORATION: :corporation
           LLC: :llc
           NON_PROFIT: :non_profit
@@ -391,7 +399,9 @@ module ModernTreasury
 
         type risk_rating = :low | :medium | :high
 
-        class RiskRating < ModernTreasury::Enum
+        module RiskRating
+          extend ModernTreasury::Enum
+
           LOW: :low
           MEDIUM: :medium
           HIGH: :high
@@ -402,7 +412,9 @@ module ModernTreasury
 
       type relationship_type = :beneficial_owner | :control_person
 
-      class RelationshipType < ModernTreasury::Enum
+      module RelationshipType
+        extend ModernTreasury::Enum
+
         BENEFICIAL_OWNER: :beneficial_owner
         CONTROL_PERSON: :control_person
 

@@ -99,10 +99,10 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        #
         # The reason for the reversal.
-        class Reason < ModernTreasury::Enum
+        module Reason
+          extend ModernTreasury::Enum
+
           DUPLICATE = :duplicate
           INCORRECT_AMOUNT = :incorrect_amount
           INCORRECT_RECEIVING_ACCOUNT = :incorrect_receiving_account
@@ -112,10 +112,10 @@ module ModernTreasury
           finalize!
         end
 
-        # @abstract
-        #
         # The current status of the reversal.
-        class Status < ModernTreasury::Enum
+        module Status
+          extend ModernTreasury::Enum
+
           COMPLETED = :completed
           FAILED = :failed
           PENDING = :pending

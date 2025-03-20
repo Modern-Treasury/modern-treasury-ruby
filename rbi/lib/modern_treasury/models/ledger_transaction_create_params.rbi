@@ -71,11 +71,14 @@ module ModernTreasury
       #   Treasury, the type will be populated here, otherwise null. This can be one of
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol)) }
       def ledgerable_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol)
+          .returns(ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol)
+      end
       def ledgerable_type=(_)
       end
 
@@ -90,11 +93,14 @@ module ModernTreasury
       end
 
       # To post a ledger transaction at creation, use `posted`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
@@ -106,9 +112,9 @@ module ModernTreasury
           effective_date: Date,
           external_id: String,
           ledgerable_id: String,
-          ledgerable_type: Symbol,
+          ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          status: Symbol,
+          status: ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -137,9 +143,9 @@ module ModernTreasury
               effective_date: Date,
               external_id: String,
               ledgerable_id: String,
-              ledgerable_type: Symbol,
+              ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
               metadata: T::Hash[Symbol, String],
-              status: Symbol,
+              status: ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -162,11 +168,14 @@ module ModernTreasury
         #   transaction. A `credit` moves money from your account to someone else's. A
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
         def direction
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
+            .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
+        end
         def direction=(_)
         end
 
@@ -247,7 +256,7 @@ module ModernTreasury
         sig do
           params(
             amount: Integer,
-            direction: Symbol,
+            direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
             ledger_account_id: String,
             available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
             lock_version: T.nilable(Integer),
@@ -276,7 +285,7 @@ module ModernTreasury
             .returns(
               {
                 amount: Integer,
-                direction: Symbol,
+                direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
                 ledger_account_id: String,
                 available_balance_amount: T.nilable(T::Hash[Symbol, Integer]),
                 lock_version: T.nilable(Integer),
@@ -295,28 +304,42 @@ module ModernTreasury
       #   Treasury, the type will be populated here, otherwise null. This can be one of
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
-      class LedgerableType < ModernTreasury::Enum
-        abstract!
+      module LedgerableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::TaggedSymbol) }
 
-        EXPECTED_PAYMENT = :expected_payment
-        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-        PAPER_ITEM = :paper_item
-        PAYMENT_ORDER = :payment_order
-        RETURN = :return
-        REVERSAL = :reversal
+        EXPECTED_PAYMENT =
+          T.let(:expected_payment, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol)
+        INCOMING_PAYMENT_DETAIL =
+          T.let(
+            :incoming_payment_detail,
+            ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol
+          )
+        PAPER_ITEM =
+          T.let(:paper_item, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol)
+        PAYMENT_ORDER =
+          T.let(:payment_order, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol)
+        RETURN = T.let(:return, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol)
+        REVERSAL =
+          T.let(:reversal, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol)
       end
 
       # To post a ledger transaction at creation, use `posted`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status::TaggedSymbol) }
 
-        ARCHIVED = :archived
-        PENDING = :pending
-        POSTED = :posted
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol)
       end
     end
   end

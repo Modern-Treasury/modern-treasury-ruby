@@ -7,7 +7,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          itemizable_type: Symbol,
+          itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol,
           itemizable_id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
@@ -28,7 +28,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          itemizable_type: Symbol,
+          itemizable_type: ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol,
           itemizable_id: String,
           metadata: T::Hash[Symbol, String],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
@@ -53,7 +53,7 @@ module ModernTreasury
       sig do
         params(
           itemizable_id: String,
-          itemizable_type: Symbol,
+          itemizable_type: ModernTreasury::Models::LineItemListParams::ItemizableType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))

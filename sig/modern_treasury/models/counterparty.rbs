@@ -222,7 +222,9 @@ module ModernTreasury
 
           type contact_identifier_type = :email | :phone_number | :website
 
-          class ContactIdentifierType < ModernTreasury::Enum
+          module ContactIdentifierType
+            extend ModernTreasury::Enum
+
             EMAIL: :email
             PHONE_NUMBER: :phone_number
             WEBSITE: :website
@@ -288,7 +290,9 @@ module ModernTreasury
 
         type party_type = :business | :individual
 
-        class PartyType < ModernTreasury::Enum
+        module PartyType
+          extend ModernTreasury::Enum
+
           BUSINESS: :business
           INDIVIDUAL: :individual
 
@@ -297,7 +301,9 @@ module ModernTreasury
 
         type verification_source = :ach_prenote | :microdeposits | :plaid
 
-        class VerificationSource < ModernTreasury::Enum
+        module VerificationSource
+          extend ModernTreasury::Enum
+
           ACH_PRENOTE: :ach_prenote
           MICRODEPOSITS: :microdeposits
           PLAID: :plaid
@@ -308,7 +314,9 @@ module ModernTreasury
         type verification_status =
           :pending_verification | :unverified | :verified
 
-        class VerificationStatus < ModernTreasury::Enum
+        module VerificationStatus
+          extend ModernTreasury::Enum
+
           PENDING_VERIFICATION: :pending_verification
           UNVERIFIED: :unverified
           VERIFIED: :verified
@@ -320,7 +328,9 @@ module ModernTreasury
       type verification_status =
         :denied | :needs_approval | :unverified | :verified
 
-      class VerificationStatus < ModernTreasury::Enum
+      module VerificationStatus
+        extend ModernTreasury::Enum
+
         DENIED: :denied
         NEEDS_APPROVAL: :needs_approval
         UNVERIFIED: :unverified

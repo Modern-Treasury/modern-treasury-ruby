@@ -47,7 +47,9 @@ module ModernTreasury
 
       type status = :completed | :denied | :failed | :processing
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED: :completed
         DENIED: :denied
         FAILED: :failed

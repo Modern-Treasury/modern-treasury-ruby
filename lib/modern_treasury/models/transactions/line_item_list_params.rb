@@ -57,8 +57,9 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-        # @abstract
-        class Type < ModernTreasury::Enum
+        module Type
+          extend ModernTreasury::Enum
+
           ORIGINATING = :originating
           RECEIVING = :receiving
 

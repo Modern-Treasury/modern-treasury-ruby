@@ -23,11 +23,11 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           entity_id: String,
-          entity_type: Symbol,
+          entity_type: ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol,
           per_page: Integer,
           request_id: String,
-          request_type: Symbol,
-          status: Symbol,
+          request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
+          status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::BulkResult])

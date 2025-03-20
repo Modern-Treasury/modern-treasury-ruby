@@ -2,10 +2,10 @@
 
 module ModernTreasury
   module Models
-    # @abstract
-    #
     # Three-letter ISO currency code.
-    class Currency < ModernTreasury::Enum
+    module Currency
+      extend ModernTreasury::Enum
+
       AED = :AED
       AFN = :AFN
       ALL = :ALL

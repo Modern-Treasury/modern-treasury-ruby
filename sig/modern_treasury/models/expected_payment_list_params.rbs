@@ -82,7 +82,9 @@ module ModernTreasury
       type status =
         :archived | :partially_reconciled | :reconciled | :unreconciled
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         ARCHIVED: :archived
         PARTIALLY_RECONCILED: :partially_reconciled
         RECONCILED: :reconciled
@@ -123,7 +125,9 @@ module ModernTreasury
         | :wire
         | :zengin
 
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs

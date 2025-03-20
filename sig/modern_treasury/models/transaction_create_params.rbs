@@ -92,7 +92,9 @@ module ModernTreasury
         | :zengin
         | :other
 
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH: :ach
         AU_BECS: :au_becs
         BACS: :bacs

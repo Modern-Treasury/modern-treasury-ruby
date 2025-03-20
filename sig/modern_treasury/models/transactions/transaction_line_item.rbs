@@ -1,6 +1,5 @@
 module ModernTreasury
   module Models
-    
     class TransactionLineItem = Transactions::TransactionLineItem
 
     module Transactions
@@ -82,7 +81,9 @@ module ModernTreasury
           | :return
           | :reversal
 
-        class TransactableType < ModernTreasury::Enum
+        module TransactableType
+          extend ModernTreasury::Enum
+
           INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
           PAPER_ITEM: :paper_item
           PAYMENT_ORDER: :payment_order
@@ -95,7 +96,9 @@ module ModernTreasury
 
         type type_ = :originating | :receiving
 
-        class Type < ModernTreasury::Enum
+        module Type
+          extend ModernTreasury::Enum
+
           ORIGINATING: :originating
           RECEIVING: :receiving
 

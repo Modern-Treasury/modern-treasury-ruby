@@ -11,7 +11,7 @@ module ModernTreasury
       sig do
         params(
           connection_id: String,
-          currency: Symbol,
+          currency: ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol,
           name: String,
           party_name: String,
           counterparty_id: String,
@@ -99,11 +99,11 @@ module ModernTreasury
         params(
           after_cursor: T.nilable(String),
           counterparty_id: String,
-          currency: Symbol,
+          currency: ModernTreasury::Models::Currency::OrSymbol,
           legal_entity_id: String,
           metadata: T::Hash[Symbol, String],
-          payment_direction: Symbol,
-          payment_type: Symbol,
+          payment_direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
+          payment_type: ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )

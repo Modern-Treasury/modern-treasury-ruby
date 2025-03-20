@@ -35,11 +35,14 @@ module ModernTreasury
       end
 
       # One of `credit` or `debit`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::TransactionDirection::OrSymbol)) }
       def direction
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
+          .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
+      end
       def direction=(_)
       end
 
@@ -64,21 +67,27 @@ module ModernTreasury
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)) }
       def type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+          .returns(ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+      end
       def type=(_)
       end
 
@@ -97,11 +106,11 @@ module ModernTreasury
           after_cursor: T.nilable(String),
           as_of_date_end: Date,
           as_of_date_start: Date,
-          direction: Symbol,
+          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          status: Symbol,
-          type: Symbol,
+          status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol,
+          type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol,
           virtual_account_id: String,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
@@ -128,11 +137,11 @@ module ModernTreasury
               after_cursor: T.nilable(String),
               as_of_date_end: Date,
               as_of_date_start: Date,
-              direction: Symbol,
+              direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
               metadata: T::Hash[Symbol, String],
               per_page: Integer,
-              status: Symbol,
-              type: Symbol,
+              status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol,
+              type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol,
               virtual_account_id: String,
               request_options: ModernTreasury::RequestOptions
             }
@@ -143,32 +152,38 @@ module ModernTreasury
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol) }
 
-        COMPLETED = :completed
-        PENDING = :pending
-        RETURNED = :returned
+        COMPLETED = T.let(:completed, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
+        RETURNED = T.let(:returned, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
       end
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
-      class Type < ModernTreasury::Enum
-        abstract!
+      module Type
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol) }
 
-        ACH = :ach
-        BOOK = :book
-        CHECK = :check
-        EFT = :eft
-        INTERAC = :interac
-        RTP = :rtp
-        SEPA = :sepa
-        SIGNET = :signet
-        WIRE = :wire
+        ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
       end
     end
   end

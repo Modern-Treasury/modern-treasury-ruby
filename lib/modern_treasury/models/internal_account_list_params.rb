@@ -111,10 +111,10 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # Only return internal accounts that can make this type of payment.
-      class PaymentType < ModernTreasury::Enum
+      module PaymentType
+        extend ModernTreasury::Enum
+
         ACH = :ach
         AU_BECS = :au_becs
         BACS = :bacs

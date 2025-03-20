@@ -38,11 +38,14 @@ module ModernTreasury
       def per_page=(_)
       end
 
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
+          .returns(ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
+      end
       def status=(_)
       end
 
@@ -52,7 +55,7 @@ module ModernTreasury
           connection_id: String,
           legal_entity_id: String,
           per_page: Integer,
-          status: Symbol,
+          status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
           request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
         )
           .returns(T.attached_class)
@@ -75,7 +78,7 @@ module ModernTreasury
               connection_id: String,
               legal_entity_id: String,
               per_page: Integer,
-              status: Symbol,
+              status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol,
               request_options: ModernTreasury::RequestOptions
             }
           )
@@ -83,15 +86,19 @@ module ModernTreasury
       def to_hash
       end
 
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol) }
 
-        COMPLETED = :completed
-        DENIED = :denied
-        FAILED = :failed
-        PROCESSING = :processing
+        COMPLETED = T.let(:completed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
+        DENIED = T.let(:denied, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
+        FAILED = T.let(:failed, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
+        PROCESSING =
+          T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
       end
     end
   end

@@ -107,11 +107,11 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-      # @abstract
-      #
       # Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   object like Return or Reversal.
-      class LedgerableType < ModernTreasury::Enum
+      module LedgerableType
+        extend ModernTreasury::Enum
+
         EXPECTED_PAYMENT = :expected_payment
         INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
         PAPER_ITEM = :paper_item
@@ -122,11 +122,11 @@ module ModernTreasury
         finalize!
       end
 
-      # @abstract
-      #
       # Status of the reversal ledger transaction. It defaults to `posted` if not
       #   provided.
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         ARCHIVED = :archived
         PENDING = :pending
         POSTED = :posted

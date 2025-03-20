@@ -122,7 +122,9 @@ module ModernTreasury
         | :sg_number
         | :wallet_address
 
-      class OriginatingAccountNumberType < ModernTreasury::Enum
+      module OriginatingAccountNumberType
+        extend ModernTreasury::Enum
+
         AU_NUMBER: :au_number
         CLABE: :clabe
         HK_NUMBER: :hk_number
@@ -160,7 +162,9 @@ module ModernTreasury
         | :swift
         | :za_national_clearing_code
 
-      class OriginatingRoutingNumberType < ModernTreasury::Enum
+      module OriginatingRoutingNumberType
+        extend ModernTreasury::Enum
+
         ABA: :aba
         AU_BSB: :au_bsb
         BR_CODIGO: :br_codigo
@@ -188,7 +192,9 @@ module ModernTreasury
 
       type status = :completed | :pending | :returned
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         COMPLETED: :completed
         PENDING: :pending
         RETURNED: :returned
@@ -199,7 +205,9 @@ module ModernTreasury
       type type_ =
         :ach | :book | :check | :eft | :interac | :rtp | :sepa | :signet | :wire
 
-      class Type < ModernTreasury::Enum
+      module Type
+        extend ModernTreasury::Enum
+
         ACH: :ach
         BOOK: :book
         CHECK: :check

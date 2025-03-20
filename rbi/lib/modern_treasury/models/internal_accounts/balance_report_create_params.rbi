@@ -27,11 +27,16 @@ module ModernTreasury
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol) }
         def balance_report_type
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(
+            _: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+          )
+            .returns(ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol)
+        end
         def balance_report_type=(_)
         end
 
@@ -51,7 +56,7 @@ module ModernTreasury
           params(
             as_of_date: Date,
             as_of_time: String,
-            balance_report_type: Symbol,
+            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
             balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
             request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
           )
@@ -66,7 +71,7 @@ module ModernTreasury
               {
                 as_of_date: Date,
                 as_of_time: String,
-                balance_report_type: Symbol,
+                balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
                 balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
                 request_options: ModernTreasury::RequestOptions
               }
@@ -77,15 +82,39 @@ module ModernTreasury
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
-        class BalanceReportType < ModernTreasury::Enum
-          abstract!
+        module BalanceReportType
+          extend ModernTreasury::Enum
 
-          Value = type_template(:out) { {fixed: Symbol} }
+          TaggedSymbol =
+            T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType) }
+          OrSymbol =
+            T.type_alias do
+              T.any(
+                Symbol,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::TaggedSymbol
+              )
+            end
 
-          INTRADAY = :intraday
-          OTHER = :other
-          PREVIOUS_DAY = :previous_day
-          REAL_TIME = :real_time
+          INTRADAY =
+            T.let(
+              :intraday,
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+            )
+          OTHER =
+            T.let(
+              :other,
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+            )
+          PREVIOUS_DAY =
+            T.let(
+              :previous_day,
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+            )
+          REAL_TIME =
+            T.let(
+              :real_time,
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
+            )
         end
 
         class Balance < ModernTreasury::BaseModel
@@ -102,11 +131,22 @@ module ModernTreasury
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
-          sig { returns(Symbol) }
+          sig do
+            returns(
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+            )
+          end
           def balance_type
           end
 
-          sig { params(_: Symbol).returns(Symbol) }
+          sig do
+            params(
+              _: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+            )
+              .returns(
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+          end
           def balance_type=(_)
           end
 
@@ -134,7 +174,7 @@ module ModernTreasury
           sig do
             params(
               amount: Integer,
-              balance_type: Symbol,
+              balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol,
               vendor_code: String,
               vendor_code_type: T.nilable(String)
             )
@@ -145,12 +185,14 @@ module ModernTreasury
 
           sig do
             override
-              .returns({
-                         amount: Integer,
-                         balance_type: Symbol,
-                         vendor_code: String,
-                         vendor_code_type: T.nilable(String)
-                       })
+              .returns(
+                {
+                  amount: Integer,
+                  balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol,
+                  vendor_code: String,
+                  vendor_code_type: T.nilable(String)
+                }
+              )
           end
           def to_hash
           end
@@ -159,20 +201,64 @@ module ModernTreasury
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
-          class BalanceType < ModernTreasury::Enum
-            abstract!
+          module BalanceType
+            extend ModernTreasury::Enum
 
-            Value = type_template(:out) { {fixed: Symbol} }
+            TaggedSymbol =
+              T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType) }
+            OrSymbol =
+              T.type_alias do
+                T.any(
+                  Symbol,
+                  ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::TaggedSymbol
+                )
+              end
 
-            CLOSING_AVAILABLE = :closing_available
-            CLOSING_LEDGER = :closing_ledger
-            CURRENT_AVAILABLE = :current_available
-            CURRENT_LEDGER = :current_ledger
-            OPENING_AVAILABLE = :opening_available
-            OPENING_AVAILABLE_NEXT_BUSINESS_DAY = :opening_available_next_business_day
-            OPENING_LEDGER = :opening_ledger
-            OTHER = :other
-            PREVIOUSLY_CLOSED_BOOK = :previously_closed_book
+            CLOSING_AVAILABLE =
+              T.let(
+                :closing_available,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+            CLOSING_LEDGER =
+              T.let(
+                :closing_ledger,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+            CURRENT_AVAILABLE =
+              T.let(
+                :current_available,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+            CURRENT_LEDGER =
+              T.let(
+                :current_ledger,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+            OPENING_AVAILABLE =
+              T.let(
+                :opening_available,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+            OPENING_AVAILABLE_NEXT_BUSINESS_DAY =
+              T.let(
+                :opening_available_next_business_day,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+            OPENING_LEDGER =
+              T.let(
+                :opening_ledger,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+            OTHER =
+              T.let(
+                :other,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
+            PREVIOUSLY_CLOSED_BOOK =
+              T.let(
+                :previously_closed_book,
+                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
+              )
           end
         end
       end

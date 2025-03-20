@@ -25,11 +25,14 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol) }
       def direction
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol)
+          .returns(ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol)
+      end
       def direction=(_)
       end
 
@@ -52,11 +55,11 @@ module ModernTreasury
       end
 
       # Must conform to ISO 4217. Defaults to the currency of the internal account
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
       def currency
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig { params(_: ModernTreasury::Models::Currency::OrSymbol).returns(ModernTreasury::Models::Currency::OrSymbol) }
       def currency=(_)
       end
 
@@ -89,11 +92,14 @@ module ModernTreasury
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet wire
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)) }
       def type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol))
+          .returns(T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol))
+      end
       def type=(_)
       end
 
@@ -101,14 +107,14 @@ module ModernTreasury
         params(
           amount_lower_bound: Integer,
           amount_upper_bound: Integer,
-          direction: Symbol,
+          direction: ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol,
           internal_account_id: String,
           counterparty_id: T.nilable(String),
-          currency: Symbol,
+          currency: ModernTreasury::Models::Currency::OrSymbol,
           custom_identifiers: T.nilable(T::Hash[Symbol, String]),
           date_lower_bound: T.nilable(Date),
           date_upper_bound: T.nilable(Date),
-          type: T.nilable(Symbol)
+          type: T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
         )
           .returns(T.attached_class)
       end
@@ -132,14 +138,14 @@ module ModernTreasury
             {
               amount_lower_bound: Integer,
               amount_upper_bound: Integer,
-              direction: Symbol,
+              direction: ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol,
               internal_account_id: String,
               counterparty_id: T.nilable(String),
-              currency: Symbol,
+              currency: ModernTreasury::Models::Currency::OrSymbol,
               custom_identifiers: T.nilable(T::Hash[Symbol, String]),
               date_lower_bound: T.nilable(Date),
               date_upper_bound: T.nilable(Date),
-              type: T.nilable(Symbol)
+              type: T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
             }
           )
       end
@@ -148,52 +154,55 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
-      class Direction < ModernTreasury::Enum
-        abstract!
+      module Direction
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReconciliationRule::Direction) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol) }
 
-        CREDIT = :credit
-        DEBIT = :debit
+        CREDIT = T.let(:credit, ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol)
+        DEBIT = T.let(:debit, ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol)
       end
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet wire
-      class Type < ModernTreasury::Enum
-        abstract!
+      module Type
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReconciliationRule::Type) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol) }
 
-        ACH = :ach
-        AU_BECS = :au_becs
-        BACS = :bacs
-        BOOK = :book
-        CARD = :card
-        CHATS = :chats
-        CHECK = :check
-        CROSS_BORDER = :cross_border
-        DK_NETS = :dk_nets
-        EFT = :eft
-        HU_ICS = :hu_ics
-        INTERAC = :interac
-        MASAV = :masav
-        MX_CCEN = :mx_ccen
-        NEFT = :neft
-        NICS = :nics
-        NZ_BECS = :nz_becs
-        PL_ELIXIR = :pl_elixir
-        PROVXCHANGE = :provxchange
-        RO_SENT = :ro_sent
-        RTP = :rtp
-        SE_BANKGIROT = :se_bankgirot
-        SEN = :sen
-        SEPA = :sepa
-        SG_GIRO = :sg_giro
-        SIC = :sic
-        SIGNET = :signet
-        SKNBI = :sknbi
-        WIRE = :wire
-        ZENGIN = :zengin
+        ACH = T.let(:ach, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        BOOK = T.let(:book, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        CARD = T.let(:card, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        CHATS = T.let(:chats, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        CHECK = T.let(:check, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        CROSS_BORDER = T.let(:cross_border, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        DK_NETS = T.let(:dk_nets, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        EFT = T.let(:eft, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        HU_ICS = T.let(:hu_ics, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        INTERAC = T.let(:interac, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        MASAV = T.let(:masav, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        MX_CCEN = T.let(:mx_ccen, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        NICS = T.let(:nics, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        PL_ELIXIR = T.let(:pl_elixir, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        PROVXCHANGE = T.let(:provxchange, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        RO_SENT = T.let(:ro_sent, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        RTP = T.let(:rtp, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        SE_BANKGIROT = T.let(:se_bankgirot, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        SEN = T.let(:sen, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        SEPA = T.let(:sepa, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        SG_GIRO = T.let(:sg_giro, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        SIC = T.let(:sic, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        SIGNET = T.let(:signet, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        SKNBI = T.let(:sknbi, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        WIRE = T.let(:wire, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
+        ZENGIN = T.let(:zengin, ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)
       end
     end
   end

@@ -85,7 +85,9 @@ module ModernTreasury
       type employment_status =
         :employed | :retired | :self_employed | :student | :unemployed
 
-      class EmploymentStatus < ModernTreasury::Enum
+      module EmploymentStatus
+        extend ModernTreasury::Enum
+
         EMPLOYED: :employed
         RETIRED: :retired
         SELF_EMPLOYED: :self_employed
@@ -105,7 +107,9 @@ module ModernTreasury
         | :salary
         | :self_employed
 
-      class IncomeSource < ModernTreasury::Enum
+      module IncomeSource
+        extend ModernTreasury::Enum
+
         FAMILY_SUPPORT: :family_support
         GOVERNMENT_BENEFITS: :government_benefits
         INHERITANCE: :inheritance
@@ -153,7 +157,9 @@ module ModernTreasury
         | :travel
         | :utilities
 
-      class Industry < ModernTreasury::Enum
+      module Industry
+        extend ModernTreasury::Enum
+
         ACCOUNTING: :accounting
         AGRICULTURE: :agriculture
         AUTOMOTIVE: :automotive
@@ -205,7 +211,9 @@ module ModernTreasury
         | :science_engineering
         | :technology
 
-      class Occupation < ModernTreasury::Enum
+      module Occupation
+        extend ModernTreasury::Enum
+
         CONSULTING: :consulting
         EXECUTIVE: :executive
         FINANCE_ACCOUNTING: :finance_accounting
@@ -241,7 +249,9 @@ module ModernTreasury
         | :senior_executive
         | :trust_income
 
-      class SourceOfFunds < ModernTreasury::Enum
+      module SourceOfFunds
+        extend ModernTreasury::Enum
+
         ALIMONY: :alimony
         ANNUITY: :annuity
         BUSINESS_OWNER: :business_owner
@@ -275,7 +285,9 @@ module ModernTreasury
         | :salary
         | :self_employed
 
-      class WealthSource < ModernTreasury::Enum
+      module WealthSource
+        extend ModernTreasury::Enum
+
         BUSINESS_SALE: :business_sale
         FAMILY_SUPPORT: :family_support
         GOVERNMENT_BENEFITS: :government_benefits

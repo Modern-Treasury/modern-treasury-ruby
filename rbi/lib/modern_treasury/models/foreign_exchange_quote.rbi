@@ -181,11 +181,14 @@ module ModernTreasury
         end
 
         # Currency to convert, often called the "sell" currency.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
         def base_currency
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
+            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
+        end
         def base_currency=(_)
         end
 
@@ -219,11 +222,14 @@ module ModernTreasury
         end
 
         # Currency to convert the `base_currency` to, often called the "buy" currency.
-        sig { returns(Symbol) }
+        sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
         def target_currency
         end
 
-        sig { params(_: Symbol).returns(Symbol) }
+        sig do
+          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
+            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
+        end
         def target_currency=(_)
         end
 
@@ -241,11 +247,11 @@ module ModernTreasury
         sig do
           params(
             base_amount: Integer,
-            base_currency: Symbol,
+            base_currency: ModernTreasury::Models::Currency::TaggedSymbol,
             exponent: Integer,
             rate_string: String,
             target_amount: Integer,
-            target_currency: Symbol,
+            target_currency: ModernTreasury::Models::Currency::TaggedSymbol,
             value: Integer
           )
             .returns(T.attached_class)
@@ -258,11 +264,11 @@ module ModernTreasury
             .returns(
               {
                 base_amount: Integer,
-                base_currency: Symbol,
+                base_currency: ModernTreasury::Models::Currency::TaggedSymbol,
                 exponent: Integer,
                 rate_string: String,
                 target_amount: Integer,
-                target_currency: Symbol,
+                target_currency: ModernTreasury::Models::Currency::TaggedSymbol,
                 value: Integer
               }
             )

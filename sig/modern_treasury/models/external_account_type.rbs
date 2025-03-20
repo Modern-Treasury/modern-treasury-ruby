@@ -10,7 +10,9 @@ module ModernTreasury
       | :overdraft
       | :savings
 
-    class ExternalAccountType < ModernTreasury::Enum
+    module ExternalAccountType
+      extend ModernTreasury::Enum
+
       CASH: :cash
       CHECKING: :checking
       GENERAL_LEDGER: :general_ledger

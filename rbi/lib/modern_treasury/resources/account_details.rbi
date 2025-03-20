@@ -7,9 +7,9 @@ module ModernTreasury
       sig do
         params(
           account_id: String,
-          accounts_type: Symbol,
+          accounts_type: ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol,
           account_number: String,
-          account_number_type: Symbol,
+          account_number_type: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
           .returns(ModernTreasury::Models::AccountDetail)
@@ -32,7 +32,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounts_type: Symbol,
+          accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
           account_id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )
@@ -52,7 +52,7 @@ module ModernTreasury
       sig do
         params(
           account_id: String,
-          accounts_type: Symbol,
+          accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
@@ -76,7 +76,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounts_type: Symbol,
+          accounts_type: ModernTreasury::Models::AccountDetailDeleteParams::AccountsType::OrSymbol,
           account_id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
         )

@@ -141,7 +141,9 @@ module ModernTreasury
         | :return
         | :reversal
 
-      class LedgerableType < ModernTreasury::Enum
+      module LedgerableType
+        extend ModernTreasury::Enum
+
         EXPECTED_PAYMENT: :expected_payment
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
         PAPER_ITEM: :paper_item
@@ -180,7 +182,9 @@ module ModernTreasury
 
         type created_at = :asc | :desc
 
-        class CreatedAt < ModernTreasury::Enum
+        module CreatedAt
+          extend ModernTreasury::Enum
+
           ASC: :asc
           DESC: :desc
 
@@ -189,7 +193,9 @@ module ModernTreasury
 
         type effective_at = :asc | :desc
 
-        class EffectiveAt < ModernTreasury::Enum
+        module EffectiveAt
+          extend ModernTreasury::Enum
+
           ASC: :asc
           DESC: :desc
 
@@ -199,7 +205,9 @@ module ModernTreasury
 
       type status = :pending | :posted | :archived
 
-      class Status < ModernTreasury::Enum
+      module Status
+        extend ModernTreasury::Enum
+
         PENDING: :pending
         POSTED: :posted
         ARCHIVED: :archived

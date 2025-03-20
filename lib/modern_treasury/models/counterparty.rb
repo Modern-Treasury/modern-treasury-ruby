@@ -386,8 +386,9 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
-          # @abstract
-          class ContactIdentifierType < ModernTreasury::Enum
+          module ContactIdentifierType
+            extend ModernTreasury::Enum
+
             EMAIL = :email
             PHONE_NUMBER = :phone_number
             WEBSITE = :website
@@ -493,18 +494,19 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
-        # @abstract
-        #
         # Either `individual` or `business`.
-        class PartyType < ModernTreasury::Enum
+        module PartyType
+          extend ModernTreasury::Enum
+
           BUSINESS = :business
           INDIVIDUAL = :individual
 
           finalize!
         end
 
-        # @abstract
-        class VerificationSource < ModernTreasury::Enum
+        module VerificationSource
+          extend ModernTreasury::Enum
+
           ACH_PRENOTE = :ach_prenote
           MICRODEPOSITS = :microdeposits
           PLAID = :plaid
@@ -512,8 +514,9 @@ module ModernTreasury
           finalize!
         end
 
-        # @abstract
-        class VerificationStatus < ModernTreasury::Enum
+        module VerificationStatus
+          extend ModernTreasury::Enum
+
           PENDING_VERIFICATION = :pending_verification
           UNVERIFIED = :unverified
           VERIFIED = :verified
@@ -522,10 +525,10 @@ module ModernTreasury
         end
       end
 
-      # @abstract
-      #
       # The verification status of the counterparty.
-      class VerificationStatus < ModernTreasury::Enum
+      module VerificationStatus
+        extend ModernTreasury::Enum
+
         DENIED = :denied
         NEEDS_APPROVAL = :needs_approval
         UNVERIFIED = :unverified

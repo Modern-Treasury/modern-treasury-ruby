@@ -2,10 +2,10 @@
 
 module ModernTreasury
   module Models
-    # @abstract
-    #
     # Can be `checking`, `savings` or `other`.
-    class ExternalAccountType < ModernTreasury::Enum
+    module ExternalAccountType
+      extend ModernTreasury::Enum
+
       CASH = :cash
       CHECKING = :checking
       GENERAL_LEDGER = :general_ledger

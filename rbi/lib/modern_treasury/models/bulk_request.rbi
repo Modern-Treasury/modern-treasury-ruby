@@ -12,11 +12,14 @@ module ModernTreasury
       end
 
       # One of create, or update.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol) }
       def action_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
+          .returns(ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
+      end
       def action_type=(_)
       end
 
@@ -66,20 +69,26 @@ module ModernTreasury
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol) }
       def resource_type
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+          .returns(ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+      end
       def resource_type=(_)
       end
 
       # One of pending, processing, or completed.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::BulkRequest::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -114,14 +123,14 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          action_type: Symbol,
+          action_type: ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol,
           created_at: Time,
           failed_result_count: Integer,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
-          resource_type: Symbol,
-          status: Symbol,
+          resource_type: ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol,
+          status: ModernTreasury::Models::BulkRequest::Status::TaggedSymbol,
           success_result_count: Integer,
           total_resource_count: Integer,
           updated_at: Time
@@ -149,14 +158,14 @@ module ModernTreasury
           .returns(
             {
               id: String,
-              action_type: Symbol,
+              action_type: ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol,
               created_at: Time,
               failed_result_count: Integer,
               live_mode: T::Boolean,
               metadata: T::Hash[Symbol, String],
               object: String,
-              resource_type: Symbol,
-              status: Symbol,
+              resource_type: ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol,
+              status: ModernTreasury::Models::BulkRequest::Status::TaggedSymbol,
               success_result_count: Integer,
               total_resource_count: Integer,
               updated_at: Time
@@ -167,37 +176,43 @@ module ModernTreasury
       end
 
       # One of create, or update.
-      class ActionType < ModernTreasury::Enum
-        abstract!
+      module ActionType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequest::ActionType) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol) }
 
-        CREATE = :create
-        UPDATE = :update
-        DELETE = :delete
+        CREATE = T.let(:create, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
+        UPDATE = T.let(:update, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
+        DELETE = T.let(:delete, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
-      class ResourceType < ModernTreasury::Enum
-        abstract!
+      module ResourceType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequest::ResourceType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol) }
 
-        PAYMENT_ORDER = :payment_order
-        LEDGER_TRANSACTION = :ledger_transaction
-        TRANSACTION = :transaction
-        EXPECTED_PAYMENT = :expected_payment
+        PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+        LEDGER_TRANSACTION =
+          T.let(:ledger_transaction, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+        EXPECTED_PAYMENT =
+          T.let(:expected_payment, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
       end
 
       # One of pending, processing, or completed.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequest::Status) }
+        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol) }
 
-        PENDING = :pending
-        PROCESSING = :processing
-        COMPLETED = :completed
+        PENDING = T.let(:pending, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
+        PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
+        COMPLETED = T.let(:completed, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
       end
     end
   end

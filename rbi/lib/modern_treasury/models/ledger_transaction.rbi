@@ -93,11 +93,14 @@ module ModernTreasury
       #   Treasury, the type will be populated here, otherwise null. This can be one of
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
-      sig { returns(T.nilable(Symbol)) }
+      sig { returns(T.nilable(ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)) }
       def ledgerable_type
       end
 
-      sig { params(_: T.nilable(Symbol)).returns(T.nilable(Symbol)) }
+      sig do
+        params(_: T.nilable(ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol))
+          .returns(T.nilable(ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol))
+      end
       def ledgerable_type=(_)
       end
 
@@ -167,11 +170,14 @@ module ModernTreasury
       end
 
       # To post a ledger transaction at creation, use `posted`.
-      sig { returns(Symbol) }
+      sig { returns(ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol) }
       def status
       end
 
-      sig { params(_: Symbol).returns(Symbol) }
+      sig do
+        params(_: ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
+          .returns(ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
+      end
       def status=(_)
       end
 
@@ -194,7 +200,7 @@ module ModernTreasury
           ledger_entries: T::Array[ModernTreasury::Models::LedgerEntry],
           ledger_id: String,
           ledgerable_id: T.nilable(String),
-          ledgerable_type: T.nilable(Symbol),
+          ledgerable_type: T.nilable(ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
@@ -202,7 +208,7 @@ module ModernTreasury
           posted_at: T.nilable(Time),
           reversed_by_ledger_transaction_id: T.nilable(String),
           reverses_ledger_transaction_id: T.nilable(String),
-          status: Symbol,
+          status: ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -243,7 +249,7 @@ module ModernTreasury
               ledger_entries: T::Array[ModernTreasury::Models::LedgerEntry],
               ledger_id: String,
               ledgerable_id: T.nilable(String),
-              ledgerable_type: T.nilable(Symbol),
+              ledgerable_type: T.nilable(ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol),
               live_mode: T::Boolean,
               metadata: T::Hash[Symbol, String],
               object: String,
@@ -251,7 +257,7 @@ module ModernTreasury
               posted_at: T.nilable(Time),
               reversed_by_ledger_transaction_id: T.nilable(String),
               reverses_ledger_transaction_id: T.nilable(String),
-              status: Symbol,
+              status: ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol,
               updated_at: Time
             }
           )
@@ -263,28 +269,35 @@ module ModernTreasury
       #   Treasury, the type will be populated here, otherwise null. This can be one of
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
-      class LedgerableType < ModernTreasury::Enum
-        abstract!
+      module LedgerableType
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol) }
 
-        EXPECTED_PAYMENT = :expected_payment
-        INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
-        PAPER_ITEM = :paper_item
-        PAYMENT_ORDER = :payment_order
-        RETURN = :return
-        REVERSAL = :reversal
+        EXPECTED_PAYMENT =
+          T.let(:expected_payment, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
+        INCOMING_PAYMENT_DETAIL =
+          T.let(:incoming_payment_detail, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
+        PAPER_ITEM = T.let(:paper_item, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
+        PAYMENT_ORDER =
+          T.let(:payment_order, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
+        RETURN = T.let(:return, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
+        REVERSAL = T.let(:reversal, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
       end
 
       # To post a ledger transaction at creation, use `posted`.
-      class Status < ModernTreasury::Enum
-        abstract!
+      module Status
+        extend ModernTreasury::Enum
 
-        Value = type_template(:out) { {fixed: Symbol} }
+        TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransaction::Status) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol) }
 
-        ARCHIVED = :archived
-        PENDING = :pending
-        POSTED = :posted
+        ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
+        PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
+        POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
       end
     end
   end
