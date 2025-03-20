@@ -16,8 +16,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentOrder::Accounting)
-          .returns(ModernTreasury::Models::PaymentOrder::Accounting)
+        params(_: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Util::AnyHash))
+          .returns(T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Util::AnyHash))
       end
       def accounting=(_)
       end
@@ -115,8 +115,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::ReturnObject))
-          .returns(T.nilable(ModernTreasury::Models::ReturnObject))
+        params(_: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)))
+          .returns(T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)))
       end
       def current_return=(_)
       end
@@ -205,8 +205,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate))
-          .returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate))
+        params(
+          _: T.nilable(T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+        )
+          .returns(
+            T.nilable(T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+          )
       end
       def foreign_exchange_rate=(_)
       end

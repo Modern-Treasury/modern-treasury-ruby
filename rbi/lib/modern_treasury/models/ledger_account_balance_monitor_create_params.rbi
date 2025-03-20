@@ -12,8 +12,18 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition)
-          .returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition)
+        params(
+          _: T.any(
+            ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+            ModernTreasury::Util::AnyHash
+          )
+        )
+          .returns(
+            T.any(
+              ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+              ModernTreasury::Util::AnyHash
+            )
+          )
       end
       def alert_condition=(_)
       end

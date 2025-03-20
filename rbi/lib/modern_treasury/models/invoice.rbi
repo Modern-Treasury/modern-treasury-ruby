@@ -49,8 +49,16 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress))
-          .returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress))
+        params(
+          _: T.nilable(
+            T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Util::AnyHash)
+          )
+        )
+          .returns(
+            T.nilable(
+              T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Util::AnyHash)
+            )
+          )
       end
       def counterparty_billing_address=(_)
       end
@@ -70,8 +78,16 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress))
-          .returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress))
+        params(
+          _: T.nilable(
+            T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Util::AnyHash)
+          )
+        )
+          .returns(
+            T.nilable(
+              T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Util::AnyHash)
+            )
+          )
       end
       def counterparty_shipping_address=(_)
       end
@@ -151,8 +167,10 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress))
-          .returns(T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress))
+        params(
+          _: T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Util::AnyHash))
+        )
+          .returns(T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Util::AnyHash)))
       end
       def invoicer_address=(_)
       end

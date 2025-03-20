@@ -435,12 +435,18 @@ module ModernTreasury
           sig do
             params(
               _: T.nilable(
-                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances
+                T.any(
+                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances,
+                  ModernTreasury::Util::AnyHash
+                )
               )
             )
               .returns(
                 T.nilable(
-                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances
+                  T.any(
+                    ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances,
+                    ModernTreasury::Util::AnyHash
+                  )
                 )
               )
           end
@@ -548,10 +554,16 @@ module ModernTreasury
 
             sig do
               params(
-                _: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance
+                _: T.any(
+                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+                  ModernTreasury::Util::AnyHash
+                )
               )
                 .returns(
-                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance
+                  T.any(
+                    ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+                    ModernTreasury::Util::AnyHash
+                  )
                 )
             end
             def available_balance=(_)
@@ -568,10 +580,16 @@ module ModernTreasury
 
             sig do
               params(
-                _: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance
+                _: T.any(
+                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+                  ModernTreasury::Util::AnyHash
+                )
               )
                 .returns(
-                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance
+                  T.any(
+                    ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+                    ModernTreasury::Util::AnyHash
+                  )
                 )
             end
             def pending_balance=(_)
@@ -588,10 +606,16 @@ module ModernTreasury
 
             sig do
               params(
-                _: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+                _: T.any(
+                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance,
+                  ModernTreasury::Util::AnyHash
+                )
               )
                 .returns(
-                  ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+                  T.any(
+                    ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance,
+                    ModernTreasury::Util::AnyHash
+                  )
                 )
             end
             def posted_balance=(_)
