@@ -154,17 +154,15 @@ module ModernTreasury
               ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[
-                  ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
-                  ]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[
+                ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
+                ]
+              )
+          end
+          def self.values
           end
         end
       end

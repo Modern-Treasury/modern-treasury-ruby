@@ -120,10 +120,8 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -140,12 +138,10 @@ module ModernTreasury
 
         ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol)
 
-        class << self
-          sig do
-            override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -162,10 +158,8 @@ module ModernTreasury
         HIGH = T.let(:high, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol]) }
+        def self.values
         end
       end
     end

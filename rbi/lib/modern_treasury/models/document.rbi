@@ -203,10 +203,8 @@ module ModernTreasury
         DECISION = T.let(:decision, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
         CONNECTION = T.let(:connection, ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::Document::DocumentableType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::Document::DocumentableType::TaggedSymbol]) }
+        def self.values
         end
       end
 

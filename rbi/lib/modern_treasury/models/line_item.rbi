@@ -149,10 +149,8 @@ module ModernTreasury
           T.let(:ExpectedPayment, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
         PAYMENT_ORDER = T.let(:PaymentOrder, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol]) }
+        def self.values
         end
       end
     end

@@ -47,10 +47,8 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS =
           T.let(:external_accounts, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol]) }
+        def self.values
         end
       end
     end

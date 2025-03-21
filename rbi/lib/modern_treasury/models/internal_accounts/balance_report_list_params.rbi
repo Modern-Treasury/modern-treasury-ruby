@@ -104,15 +104,13 @@ module ModernTreasury
               ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end

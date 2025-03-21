@@ -160,10 +160,8 @@ module ModernTreasury
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
         PROCESSING = T.let(:processing, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

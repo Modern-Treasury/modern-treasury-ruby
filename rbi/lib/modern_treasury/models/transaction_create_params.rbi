@@ -153,10 +153,8 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)
         OTHER = T.let(:other, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol]) }
+        def self.values
         end
       end
     end

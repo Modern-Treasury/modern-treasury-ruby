@@ -85,10 +85,8 @@ module ModernTreasury
         INDIVIDUAL =
           T.let(:individual, ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityListParams::LegalEntityType::TaggedSymbol]) }
+        def self.values
         end
       end
     end

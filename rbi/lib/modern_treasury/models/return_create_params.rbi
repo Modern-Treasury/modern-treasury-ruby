@@ -86,10 +86,8 @@ module ModernTreasury
         INCOMING_PAYMENT_DETAIL =
           T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -154,10 +152,8 @@ module ModernTreasury
         R53 = T.let(:R53, ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol)
         CURRENCYCLOUD = T.let(:currencycloud, ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol]) }
+        def self.values
         end
       end
     end

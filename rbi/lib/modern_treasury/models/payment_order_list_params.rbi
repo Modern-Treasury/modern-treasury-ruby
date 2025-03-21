@@ -205,10 +205,8 @@ module ModernTreasury
         HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -232,10 +230,8 @@ module ModernTreasury
         REVERSED = T.let(:reversed, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
         SENT = T.let(:sent, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -277,10 +273,8 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol]) }
+        def self.values
         end
       end
     end

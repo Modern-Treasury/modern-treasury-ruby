@@ -5,16 +5,6 @@ module ModernTreasury
     module ExternalAccountVerifyResponse
       extend ModernTreasury::Union
 
-      Variants =
-        type_template(:out) do
-          {
-            fixed: T.any(
-              ModernTreasury::Models::ExternalAccount,
-              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt
-            )
-          }
-        end
-
       class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
         sig { returns(String) }
         attr_accessor :id
@@ -290,17 +280,15 @@ module ModernTreasury
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[
-                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
-                  ]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
+                ]
+              )
+          end
+          def self.values
           end
         end
 
@@ -331,17 +319,15 @@ module ModernTreasury
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[
-                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
-                  ]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
+                ]
+              )
+          end
+          def self.values
           end
         end
 
@@ -383,30 +369,26 @@ module ModernTreasury
               ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[
-                  ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
-                  ]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[
+                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
+                ]
+              )
+          end
+          def self.values
           end
         end
       end
 
-      class << self
-        sig do
-          override
-            .returns(
-              [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
-            )
-        end
-        def variants
-        end
+      sig do
+        override
+          .returns(
+            [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
+          )
+      end
+      def self.variants
       end
     end
   end

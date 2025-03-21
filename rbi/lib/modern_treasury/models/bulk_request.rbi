@@ -117,10 +117,8 @@ module ModernTreasury
         UPDATE = T.let(:update, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
         DELETE = T.let(:delete, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -139,10 +137,8 @@ module ModernTreasury
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -157,10 +153,8 @@ module ModernTreasury
         PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
         COMPLETED = T.let(:completed, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

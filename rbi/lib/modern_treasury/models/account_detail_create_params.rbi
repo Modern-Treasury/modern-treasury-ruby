@@ -63,10 +63,8 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS =
           T.let(:external_accounts, ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::AccountDetailCreateParams::AccountsType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -97,13 +95,11 @@ module ModernTreasury
         WALLET_ADDRESS =
           T.let(:wallet_address, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

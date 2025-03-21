@@ -67,13 +67,11 @@ module ModernTreasury
         ARCHIVED =
           T.let(:archived, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

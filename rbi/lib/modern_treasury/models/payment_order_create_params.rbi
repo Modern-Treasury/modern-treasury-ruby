@@ -414,10 +414,8 @@ module ModernTreasury
         CREDIT = T.let(:credit, ModernTreasury::Models::PaymentOrderCreateParams::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrderCreateParams::Direction::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Direction::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Direction::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -457,10 +455,8 @@ module ModernTreasury
         SENDER = T.let(:sender, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer::TaggedSymbol)
         RECEIVER = T.let(:receiver, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -574,15 +570,13 @@ module ModernTreasury
               ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end
@@ -600,10 +594,8 @@ module ModernTreasury
 
         ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderCreateParams::FallbackType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::FallbackType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::FallbackType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -629,15 +621,13 @@ module ModernTreasury
             ModernTreasury::Models::PaymentOrderCreateParams::ForeignExchangeIndicator::TaggedSymbol
           )
 
-        class << self
-          sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ForeignExchangeIndicator::TaggedSymbol]
-              )
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(
+              T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ForeignExchangeIndicator::TaggedSymbol]
+            )
+        end
+        def self.values
         end
       end
 
@@ -921,15 +911,13 @@ module ModernTreasury
               ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -952,15 +940,13 @@ module ModernTreasury
           POSTED =
             T.let(:posted, ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::Status::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::Status::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::Status::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end
@@ -1028,10 +1014,8 @@ module ModernTreasury
         HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderCreateParams::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderCreateParams::Priority::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Priority::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::Priority::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -1367,17 +1351,15 @@ module ModernTreasury
                 ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -1459,17 +1441,15 @@ module ModernTreasury
                 ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -1636,17 +1616,15 @@ module ModernTreasury
                 ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -1726,15 +1704,13 @@ module ModernTreasury
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -1911,17 +1887,15 @@ module ModernTreasury
                 ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
 
@@ -2091,17 +2065,15 @@ module ModernTreasury
                 ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
         end

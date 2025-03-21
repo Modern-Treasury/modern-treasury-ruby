@@ -225,10 +225,8 @@ module ModernTreasury
         CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -247,10 +245,8 @@ module ModernTreasury
           T.let(:automatic, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
         MANUAL = T.let(:manual, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -267,10 +263,8 @@ module ModernTreasury
         RECONCILED = T.let(:reconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
         UNRECONCILED = T.let(:unreconciled, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

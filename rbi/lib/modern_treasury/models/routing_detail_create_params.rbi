@@ -63,10 +63,8 @@ module ModernTreasury
         EXTERNAL_ACCOUNTS =
           T.let(:external_accounts, ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -147,13 +145,11 @@ module ModernTreasury
             ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol
           )
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -202,10 +198,8 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::TaggedSymbol]) }
+        def self.values
         end
       end
     end

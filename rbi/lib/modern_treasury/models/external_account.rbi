@@ -247,15 +247,13 @@ module ModernTreasury
               ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end
@@ -365,10 +363,8 @@ module ModernTreasury
         BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol)
         INDIVIDUAL = T.let(:individual, ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -386,10 +382,8 @@ module ModernTreasury
           T.let(:microdeposits, ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol)
         PLAID = T.let(:plaid, ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -407,10 +401,8 @@ module ModernTreasury
           T.let(:unverified, ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol)
         VERIFIED = T.let(:verified, ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol]) }
+        def self.values
         end
       end
     end

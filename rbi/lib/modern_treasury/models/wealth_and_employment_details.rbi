@@ -164,13 +164,11 @@ module ModernTreasury
         UNEMPLOYED =
           T.let(:unemployed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -202,10 +200,8 @@ module ModernTreasury
         SELF_EMPLOYED =
           T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -279,10 +275,8 @@ module ModernTreasury
         TRAVEL = T.let(:travel, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
         UTILITIES = T.let(:utilities, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -318,10 +312,8 @@ module ModernTreasury
         TECHNOLOGY =
           T.let(:technology, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -371,12 +363,10 @@ module ModernTreasury
         TRUST_INCOME =
           T.let(:trust_income, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
 
-        class << self
-          sig do
-            override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -411,10 +401,8 @@ module ModernTreasury
         SELF_EMPLOYED =
           T.let(:self_employed, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol]) }
+        def self.values
         end
       end
     end
