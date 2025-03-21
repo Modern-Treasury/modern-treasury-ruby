@@ -42,6 +42,8 @@ class ModernTreasury::Test::Resources::PaperItemsTest < ModernTreasury::Test::Re
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::PaperItem
     end

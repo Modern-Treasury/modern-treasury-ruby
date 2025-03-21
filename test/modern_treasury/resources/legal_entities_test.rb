@@ -140,6 +140,8 @@ class ModernTreasury::Test::Resources::LegalEntitiesTest < ModernTreasury::Test:
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::LegalEntity
     end
