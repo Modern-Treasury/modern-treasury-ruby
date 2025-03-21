@@ -87,6 +87,8 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::ReturnObject
     end

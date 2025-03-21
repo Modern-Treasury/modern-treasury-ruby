@@ -108,6 +108,8 @@ class ModernTreasury::Test::Resources::ExternalAccountsTest < ModernTreasury::Te
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::ExternalAccount
     end

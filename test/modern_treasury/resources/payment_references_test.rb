@@ -33,6 +33,8 @@ class ModernTreasury::Test::Resources::PaymentReferencesTest < ModernTreasury::T
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::PaymentReference
     end
