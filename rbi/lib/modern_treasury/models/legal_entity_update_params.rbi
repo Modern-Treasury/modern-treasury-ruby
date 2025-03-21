@@ -315,13 +315,11 @@ module ModernTreasury
           RESIDENTIAL =
             T.let(:residential, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol])
+          end
+          def self.values
           end
         end
       end
@@ -416,13 +414,11 @@ module ModernTreasury
           VN_TIN =
             T.let(:vn_tin, ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol])
+          end
+          def self.values
           end
         end
       end
@@ -447,10 +443,8 @@ module ModernTreasury
           T.let(:sole_proprietorship, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::TaggedSymbol)
         TRUST = T.let(:trust, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -484,10 +478,8 @@ module ModernTreasury
         MEDIUM = T.let(:medium, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::TaggedSymbol)
         HIGH = T.let(:high, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::TaggedSymbol]) }
+        def self.values
         end
       end
     end

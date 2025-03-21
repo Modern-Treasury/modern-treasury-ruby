@@ -114,10 +114,8 @@ module ModernTreasury
           T.let(:expected_payment, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
         BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -133,10 +131,8 @@ module ModernTreasury
         BULK_REQUEST =
           T.let(:bulk_request, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -152,10 +148,8 @@ module ModernTreasury
         SUCCESSFUL = T.let(:successful, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol)
         FAILED = T.let(:failed, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

@@ -217,10 +217,8 @@ module ModernTreasury
         CREDIT = T.let(:credit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -238,13 +236,11 @@ module ModernTreasury
         VERIFIED =
           T.let(:verified, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -262,10 +258,8 @@ module ModernTreasury
         DISABLED = T.let(:disabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
         ENABLED = T.let(:enabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -282,10 +276,8 @@ module ModernTreasury
         EXPIRED = T.let(:expired, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

@@ -494,15 +494,13 @@ module ModernTreasury
                 ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -671,17 +669,15 @@ module ModernTreasury
                 ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -800,17 +796,15 @@ module ModernTreasury
                 ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
 
@@ -1255,17 +1249,15 @@ module ModernTreasury
                     ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                   )
 
-                class << self
-                  sig do
-                    override
-                      .returns(
-                        T::Array[
-                        ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
-                        ]
-                      )
-                  end
-                  def values
-                  end
+                sig do
+                  override
+                    .returns(
+                      T::Array[
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                      ]
+                    )
+                end
+                def self.values
                 end
               end
             end
@@ -1434,17 +1426,15 @@ module ModernTreasury
                     ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                   )
 
-                class << self
-                  sig do
-                    override
-                      .returns(
-                        T::Array[
-                        ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
-                        ]
-                      )
-                  end
-                  def values
-                  end
+                sig do
+                  override
+                    .returns(
+                      T::Array[
+                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                      ]
+                    )
+                end
+                def self.values
                 end
               end
             end
@@ -1476,17 +1466,15 @@ module ModernTreasury
                   ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
                 )
 
-              class << self
-                sig do
-                  override
-                    .returns(
-                      T::Array[
-                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
-                      ]
-                    )
-                end
-                def values
-                end
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+                    ]
+                  )
+              end
+              def self.values
               end
             end
 
@@ -1537,17 +1525,15 @@ module ModernTreasury
                   ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
                 )
 
-              class << self
-                sig do
-                  override
-                    .returns(
-                      T::Array[
-                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
-                      ]
-                    )
-                end
-                def values
-                end
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+                    ]
+                  )
+              end
+              def self.values
               end
             end
 
@@ -1600,17 +1586,15 @@ module ModernTreasury
                   ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
                 )
 
-              class << self
-                sig do
-                  override
-                    .returns(
-                      T::Array[
-                      ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
-                      ]
-                    )
-                end
-                def values
-                end
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+                    ]
+                  )
+              end
+              def self.values
               end
             end
           end
@@ -1641,15 +1625,13 @@ module ModernTreasury
               ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -1698,15 +1680,13 @@ module ModernTreasury
               ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalStructure::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalStructure::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalStructure::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -1757,15 +1737,13 @@ module ModernTreasury
               ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::RiskRating::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::RiskRating::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::RiskRating::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end

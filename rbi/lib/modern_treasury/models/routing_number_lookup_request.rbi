@@ -198,13 +198,11 @@ module ModernTreasury
         SWIFT =
           T.let(:swift, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -281,13 +279,11 @@ module ModernTreasury
         ZENGIN =
           T.let(:zengin, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

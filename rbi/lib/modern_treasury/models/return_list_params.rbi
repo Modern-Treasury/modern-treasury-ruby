@@ -103,10 +103,8 @@ module ModernTreasury
         RETURN = T.let(:return, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
         REVERSAL = T.let(:reversal, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol]) }
+        def self.values
         end
       end
     end

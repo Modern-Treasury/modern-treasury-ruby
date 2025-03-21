@@ -11,10 +11,8 @@ module ModernTreasury
       CREDIT = T.let(:credit, ModernTreasury::Models::TransactionDirection::TaggedSymbol)
       DEBIT = T.let(:debit, ModernTreasury::Models::TransactionDirection::TaggedSymbol)
 
-      class << self
-        sig { override.returns(T::Array[ModernTreasury::Models::TransactionDirection::TaggedSymbol]) }
-        def values
-        end
+      sig { override.returns(T::Array[ModernTreasury::Models::TransactionDirection::TaggedSymbol]) }
+      def self.values
       end
     end
   end

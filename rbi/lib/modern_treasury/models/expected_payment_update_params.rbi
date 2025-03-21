@@ -174,10 +174,8 @@ module ModernTreasury
         CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -194,10 +192,8 @@ module ModernTreasury
         RECONCILED =
           T.let(:reconciled, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

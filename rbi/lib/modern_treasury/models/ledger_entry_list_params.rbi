@@ -293,12 +293,10 @@ module ModernTreasury
           ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol)
           DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol)
 
-          class << self
-            sig do
-              override.returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override.returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol])
+          end
+          def self.values
           end
         end
 
@@ -313,13 +311,11 @@ module ModernTreasury
           ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol)
           DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol])
+          end
+          def self.values
           end
         end
       end
@@ -337,10 +333,8 @@ module ModernTreasury
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

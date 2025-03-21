@@ -416,15 +416,13 @@ module ModernTreasury
                 ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -534,10 +532,8 @@ module ModernTreasury
           BUSINESS = T.let(:business, ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol)
           INDIVIDUAL = T.let(:individual, ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol)
 
-          class << self
-            sig { override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol]) }
-            def values
-            end
+          sig { override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol]) }
+          def self.values
           end
         end
 
@@ -555,12 +551,10 @@ module ModernTreasury
             T.let(:microdeposits, ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol)
           PLAID = T.let(:plaid, ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol)
 
-          class << self
-            sig do
-              override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol])
+          end
+          def self.values
           end
         end
 
@@ -582,12 +576,10 @@ module ModernTreasury
           VERIFIED =
             T.let(:verified, ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol)
 
-          class << self
-            sig do
-              override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override.returns(T::Array[ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol])
+          end
+          def self.values
           end
         end
       end
@@ -606,10 +598,8 @@ module ModernTreasury
         UNVERIFIED = T.let(:unverified, ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol)
         VERIFIED = T.let(:verified, ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol]) }
+        def self.values
         end
       end
     end

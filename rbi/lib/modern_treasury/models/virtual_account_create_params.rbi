@@ -254,15 +254,13 @@ module ModernTreasury
               ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end
@@ -423,15 +421,13 @@ module ModernTreasury
               ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end
@@ -602,15 +598,13 @@ module ModernTreasury
               ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -744,15 +738,13 @@ module ModernTreasury
               ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end

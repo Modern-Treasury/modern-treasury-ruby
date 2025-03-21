@@ -217,10 +217,8 @@ module ModernTreasury
         CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -513,15 +511,13 @@ module ModernTreasury
               ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -555,15 +551,13 @@ module ModernTreasury
               ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end

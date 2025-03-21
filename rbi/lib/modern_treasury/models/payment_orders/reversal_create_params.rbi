@@ -101,13 +101,11 @@ module ModernTreasury
               ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol])
+          end
+          def self.values
           end
         end
 
@@ -409,17 +407,15 @@ module ModernTreasury
                 ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
 
@@ -453,15 +449,13 @@ module ModernTreasury
                 ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
         end

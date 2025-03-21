@@ -85,10 +85,8 @@ module ModernTreasury
         PROCESSING =
           T.let(:processing, ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ConnectionLegalEntityListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

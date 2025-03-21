@@ -477,10 +477,8 @@ module ModernTreasury
         SENDER = T.let(:sender, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)
         RECEIVER = T.let(:receiver, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -497,10 +495,8 @@ module ModernTreasury
         CREDIT = T.let(:credit, ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -520,10 +516,8 @@ module ModernTreasury
         VARIABLE_TO_FIXED =
           T.let(:variable_to_fixed, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -606,10 +600,8 @@ module ModernTreasury
         HIGH = T.let(:high, ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -625,10 +617,8 @@ module ModernTreasury
         EXTERNAL_ACCOUNT =
           T.let(:external_account, ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -1049,15 +1039,13 @@ module ModernTreasury
               ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end
@@ -1081,10 +1069,8 @@ module ModernTreasury
         REVERSED = T.let(:reversed, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
         SENT = T.let(:sent, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -1093,13 +1079,8 @@ module ModernTreasury
       module UltimateOriginatingAccount
         extend ModernTreasury::Union
 
-        Variants =
-          type_template(:out) { {fixed: T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)} }
-
-        class << self
-          sig { override.returns([ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]) }
-          def variants
-          end
+        sig { override.returns([ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]) }
+        def self.variants
         end
       end
 
@@ -1122,13 +1103,11 @@ module ModernTreasury
             ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol
           )
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

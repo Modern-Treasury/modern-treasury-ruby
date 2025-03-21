@@ -140,19 +140,6 @@ module ModernTreasury
       module Entity
         extend ModernTreasury::Union
 
-        Variants =
-          type_template(:out) do
-            {
-              fixed: T.any(
-                ModernTreasury::Models::PaymentOrder,
-                ModernTreasury::Models::ExpectedPayment,
-                ModernTreasury::Models::LedgerTransaction,
-                ModernTreasury::Models::Transaction,
-                ModernTreasury::Models::BulkResult::Entity::BulkError
-              )
-            }
-          end
-
         class BulkError < ModernTreasury::BaseModel
           sig { returns(String) }
           attr_accessor :id
@@ -233,15 +220,13 @@ module ModernTreasury
           end
         end
 
-        class << self
-          sig do
-            override
-              .returns(
-                [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
-              )
-          end
-          def variants
-          end
+        sig do
+          override
+            .returns(
+              [ModernTreasury::Models::PaymentOrder, ModernTreasury::Models::ExpectedPayment, ModernTreasury::Models::LedgerTransaction, ModernTreasury::Models::Transaction, ModernTreasury::Models::BulkResult::Entity::BulkError]
+            )
+        end
+        def self.variants
         end
       end
 
@@ -261,10 +246,8 @@ module ModernTreasury
         EXPECTED_PAYMENT = T.let(:expected_payment, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
         BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -278,10 +261,8 @@ module ModernTreasury
 
         BULK_REQUEST = T.let(:bulk_request, ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -296,10 +277,8 @@ module ModernTreasury
         SUCCESSFUL = T.let(:successful, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
         FAILED = T.let(:failed, ModernTreasury::Models::BulkResult::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

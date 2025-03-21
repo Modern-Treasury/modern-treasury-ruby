@@ -161,10 +161,8 @@ module ModernTreasury
         INDIVIDUAL =
           T.let(:individual, ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::TaggedSymbol]) }
+        def self.values
         end
       end
     end
