@@ -251,10 +251,8 @@ module ModernTreasury
         R53 = T.let(:R53, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
         CURRENCYCLOUD = T.let(:currencycloud, ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Code::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Code::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -675,15 +673,13 @@ module ModernTreasury
               ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end
@@ -703,10 +699,8 @@ module ModernTreasury
         RETURN = T.let(:return, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol)
         REVERSAL = T.let(:reversal, ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -720,10 +714,8 @@ module ModernTreasury
         ORIGINATING = T.let(:originating, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
         RECEIVING = T.let(:receiving, ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Role::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Role::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -741,10 +733,8 @@ module ModernTreasury
         RETURNED = T.let(:returned, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
         SENT = T.let(:sent, ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Status::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -770,10 +760,8 @@ module ModernTreasury
         SEPA = T.let(:sepa, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReturnObject::Type::TaggedSymbol]) }
+        def self.values
         end
       end
     end

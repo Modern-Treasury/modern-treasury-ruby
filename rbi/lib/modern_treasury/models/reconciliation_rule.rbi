@@ -111,10 +111,8 @@ module ModernTreasury
         CREDIT = T.let(:credit, ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReconciliationRule::Direction::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -157,10 +155,8 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ReconciliationRule::Type::TaggedSymbol]) }
+        def self.values
         end
       end
     end

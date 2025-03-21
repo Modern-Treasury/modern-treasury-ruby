@@ -158,10 +158,8 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
         RETURNED = T.let(:returned, ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaperItem::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaperItem::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

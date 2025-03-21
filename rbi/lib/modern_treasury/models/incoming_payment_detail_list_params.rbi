@@ -136,10 +136,8 @@ module ModernTreasury
         RETURNED =
           T.let(:returned, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -163,10 +161,8 @@ module ModernTreasury
         SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol]) }
+        def self.values
         end
       end
     end

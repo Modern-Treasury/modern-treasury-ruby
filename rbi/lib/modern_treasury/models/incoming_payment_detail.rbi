@@ -267,15 +267,13 @@ module ModernTreasury
             ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol
           )
 
-        class << self
-          sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol]
-              )
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(
+              T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol]
+            )
+        end
+        def self.values
         end
       end
 
@@ -373,15 +371,13 @@ module ModernTreasury
             ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol
           )
 
-        class << self
-          sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol]
-              )
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(
+              T::Array[ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol]
+            )
+        end
+        def self.values
         end
       end
 
@@ -398,10 +394,8 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
         RETURNED = T.let(:returned, ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -424,10 +418,8 @@ module ModernTreasury
         SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol]) }
+        def self.values
         end
       end
     end

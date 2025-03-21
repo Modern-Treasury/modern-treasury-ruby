@@ -248,13 +248,11 @@ module ModernTreasury
         REVERSAL =
           T.let(:reversal, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -311,13 +309,11 @@ module ModernTreasury
           DESC =
             T.let(:desc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol])
+          end
+          def self.values
           end
         end
 
@@ -334,13 +330,11 @@ module ModernTreasury
           DESC =
             T.let(:desc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol])
+          end
+          def self.values
           end
         end
       end
@@ -357,10 +351,8 @@ module ModernTreasury
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol)
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

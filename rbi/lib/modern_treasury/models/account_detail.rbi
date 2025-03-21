@@ -106,10 +106,8 @@ module ModernTreasury
         WALLET_ADDRESS =
           T.let(:wallet_address, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol]) }
+        def self.values
         end
       end
     end

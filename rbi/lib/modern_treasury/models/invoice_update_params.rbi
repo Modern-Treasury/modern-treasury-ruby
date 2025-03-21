@@ -416,15 +416,13 @@ module ModernTreasury
               ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::ContactIdentifierType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::ContactIdentifierType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
       end
@@ -712,10 +710,8 @@ module ModernTreasury
         MANUAL = T.let(:manual, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::TaggedSymbol)
         AUTOMATIC = T.let(:automatic, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::TaggedSymbol]) }
+        def self.values
         end
       end
     end

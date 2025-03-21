@@ -501,11 +501,9 @@ module ModernTreasury
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
@@ -520,11 +518,9 @@ module ModernTreasury
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
 
       # Indicates the type of FX transfer to initiate, can be either
@@ -538,11 +534,9 @@ module ModernTreasury
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
 
       class ForeignExchangeRate < ModernTreasury::BaseModel
@@ -619,11 +613,9 @@ module ModernTreasury
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
 
       module ReceivingAccountType
@@ -634,11 +626,9 @@ module ModernTreasury
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
 
       class ReferenceNumber < ModernTreasury::BaseModel
@@ -774,11 +764,9 @@ module ModernTreasury
 
           finalize!
 
-          class << self
-            # @!parse
-            #   # @return [Array<Symbol>]
-            #   def values; end
-          end
+          # @!parse
+          #   # @return [Array<Symbol>]
+          #   def self.values; end
         end
       end
 
@@ -800,11 +788,9 @@ module ModernTreasury
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
 
       # The account to which the originating of this payment should be attributed to.
@@ -817,10 +803,8 @@ module ModernTreasury
         variant -> { ModernTreasury::Models::InternalAccount }
 
         # @!parse
-        #   class << self
-        #     # @return [Array(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)]
-        #     def variants; end
-        #   end
+        #   # @return [Array(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)]
+        #   def self.variants; end
       end
 
       module UltimateOriginatingAccountType
@@ -831,11 +815,9 @@ module ModernTreasury
 
         finalize!
 
-        class << self
-          # @!parse
-          #   # @return [Array<Symbol>]
-          #   def values; end
-        end
+        # @!parse
+        #   # @return [Array<Symbol>]
+        #   def self.values; end
       end
     end
   end

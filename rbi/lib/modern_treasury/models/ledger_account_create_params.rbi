@@ -135,12 +135,10 @@ module ModernTreasury
         VIRTUAL_ACCOUNT =
           T.let(:virtual_account, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol)
 
-        class << self
-          sig do
-            override.returns(T::Array[ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override.returns(T::Array[ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

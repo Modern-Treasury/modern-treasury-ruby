@@ -141,10 +141,8 @@ module ModernTreasury
         UNRECONCILED =
           T.let(:unreconciled, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -190,10 +188,8 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol]) }
+        def self.values
         end
       end
     end

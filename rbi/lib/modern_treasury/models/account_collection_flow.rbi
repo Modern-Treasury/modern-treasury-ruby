@@ -141,10 +141,8 @@ module ModernTreasury
         ACH = T.let(:ach, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -177,10 +175,8 @@ module ModernTreasury
         ESP = T.let(:ESP, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
         GBR = T.let(:GBR, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -198,10 +194,8 @@ module ModernTreasury
         EXPIRED = T.let(:expired, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end
