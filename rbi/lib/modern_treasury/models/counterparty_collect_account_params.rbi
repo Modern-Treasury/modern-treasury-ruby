@@ -152,10 +152,8 @@ module ModernTreasury
             ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol]) }
+        def self.values
         end
       end
     end

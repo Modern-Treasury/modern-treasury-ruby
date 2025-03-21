@@ -100,15 +100,13 @@ module ModernTreasury
         GBR =
           T.let(:GBR, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol]
-              )
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(
+              T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol]
+            )
+        end
+        def self.values
         end
       end
     end

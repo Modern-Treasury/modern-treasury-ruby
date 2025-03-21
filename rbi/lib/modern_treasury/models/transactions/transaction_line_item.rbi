@@ -175,15 +175,13 @@ module ModernTreasury
               ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -202,10 +200,8 @@ module ModernTreasury
           RECEIVING =
             T.let(:receiving, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
 
-          class << self
-            sig { override.returns(T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol]) }
-            def values
-            end
+          sig { override.returns(T::Array[ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol]) }
+          def self.values
           end
         end
       end

@@ -164,15 +164,13 @@ module ModernTreasury
             ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol
           )
 
-        class << self
-          sig do
-            override
-              .returns(
-                T::Array[ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol]
-              )
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(
+              T::Array[ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::TaggedSymbol]
+            )
+        end
+        def self.values
         end
       end
     end

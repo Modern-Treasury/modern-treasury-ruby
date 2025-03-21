@@ -149,10 +149,8 @@ module ModernTreasury
         WIRE = T.let(:wire, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
         ZENGIN = T.let(:zengin, ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::InternalAccountListParams::PaymentType::TaggedSymbol]) }
+        def self.values
         end
       end
     end

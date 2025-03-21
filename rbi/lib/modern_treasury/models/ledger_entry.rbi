@@ -406,10 +406,8 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

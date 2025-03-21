@@ -242,13 +242,11 @@ module ModernTreasury
         REVERSAL =
           T.let(:reversal, ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -265,10 +263,8 @@ module ModernTreasury
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol)
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

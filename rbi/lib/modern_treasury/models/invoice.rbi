@@ -410,13 +410,11 @@ module ModernTreasury
           WEBSITE =
             T.let(:website, ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol])
+          end
+          def self.values
           end
         end
       end
@@ -607,10 +605,8 @@ module ModernTreasury
         MANUAL = T.let(:manual, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
         AUTOMATIC = T.let(:automatic, ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -624,10 +620,8 @@ module ModernTreasury
         EFT = T.let(:eft, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
         ACH = T.let(:ach, ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -645,10 +639,8 @@ module ModernTreasury
         UNPAID = T.let(:unpaid, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
         VOIDED = T.let(:voided, ModernTreasury::Models::Invoice::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::Invoice::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::Invoice::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

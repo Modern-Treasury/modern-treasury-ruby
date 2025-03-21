@@ -42,10 +42,8 @@ module ModernTreasury
       SKNBI = T.let(:sknbi, ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol)
       ZENGIN = T.let(:zengin, ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol)
 
-      class << self
-        sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol]) }
-        def values
-        end
+      sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol]) }
+      def self.values
       end
     end
   end

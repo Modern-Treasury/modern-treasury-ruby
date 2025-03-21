@@ -97,13 +97,11 @@ module ModernTreasury
         REVERSAL =
           T.let(:reversal, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

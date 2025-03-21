@@ -145,10 +145,8 @@ module ModernTreasury
         UNPAID = T.let(:unpaid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
         VOIDED = T.let(:voided, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

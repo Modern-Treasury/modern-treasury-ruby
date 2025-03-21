@@ -115,10 +115,8 @@ module ModernTreasury
           DATE_LATER_THAN_INTENDED =
             T.let(:date_later_than_intended, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
 
-          class << self
-            sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol]) }
-            def values
-            end
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol]) }
+          def self.values
           end
         end
 
@@ -137,10 +135,8 @@ module ModernTreasury
           RETURNED = T.let(:returned, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
           SENT = T.let(:sent, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
 
-          class << self
-            sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol]) }
-            def values
-            end
+          sig { override.returns(T::Array[ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol]) }
+          def self.values
           end
         end
       end

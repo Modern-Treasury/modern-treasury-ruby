@@ -330,10 +330,8 @@ module ModernTreasury
         ZENGIN = T.let(:zengin, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
         OTHER = T.let(:other, ModernTreasury::Models::Transaction::Type::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::Transaction::Type::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::Transaction::Type::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -373,10 +371,8 @@ module ModernTreasury
         US_BANK = T.let(:us_bank, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         USER = T.let(:user, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol]) }
+        def self.values
         end
       end
     end

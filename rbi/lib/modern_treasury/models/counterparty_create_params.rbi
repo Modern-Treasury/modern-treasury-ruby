@@ -184,13 +184,11 @@ module ModernTreasury
             T.let(:customer, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::TaggedSymbol)
           VENDOR = T.let(:vendor, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::TaggedSymbol])
+          end
+          def self.values
           end
         end
       end
@@ -506,15 +504,13 @@ module ModernTreasury
                 ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -596,17 +592,15 @@ module ModernTreasury
                 ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -771,15 +765,13 @@ module ModernTreasury
                 ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -853,13 +845,11 @@ module ModernTreasury
           INDIVIDUAL =
             T.let(:individual, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::TaggedSymbol])
+          end
+          def self.values
           end
         end
 
@@ -1032,15 +1022,13 @@ module ModernTreasury
                 ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
 
@@ -1208,15 +1196,13 @@ module ModernTreasury
                 ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -1235,10 +1221,8 @@ module ModernTreasury
         CUSTOMER = T.let(:customer, ModernTreasury::Models::CounterpartyCreateParams::LedgerType::TaggedSymbol)
         VENDOR = T.let(:vendor, ModernTreasury::Models::CounterpartyCreateParams::LedgerType::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LedgerType::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LedgerType::TaggedSymbol]) }
+        def self.values
         end
       end
 
@@ -1547,15 +1531,13 @@ module ModernTreasury
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::TaggedSymbol
             )
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -1671,15 +1653,13 @@ module ModernTreasury
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -1842,15 +1822,13 @@ module ModernTreasury
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType::TaggedSymbol]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType::TaggedSymbol]
+                )
+            end
+            def self.values
             end
           end
         end
@@ -1969,17 +1947,15 @@ module ModernTreasury
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
               )
 
-            class << self
-              sig do
-                override
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
-                    ]
-                  )
-              end
-              def values
-              end
+            sig do
+              override
+                .returns(
+                  T::Array[
+                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
+                  ]
+                )
+            end
+            def self.values
             end
           end
 
@@ -2424,17 +2400,15 @@ module ModernTreasury
                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                   )
 
-                class << self
-                  sig do
-                    override
-                      .returns(
-                        T::Array[
-                        ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
-                        ]
-                      )
-                  end
-                  def values
-                  end
+                sig do
+                  override
+                    .returns(
+                      T::Array[
+                      ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
+                      ]
+                    )
+                end
+                def self.values
                 end
               end
             end
@@ -2603,17 +2577,15 @@ module ModernTreasury
                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                   )
 
-                class << self
-                  sig do
-                    override
-                      .returns(
-                        T::Array[
-                        ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
-                        ]
-                      )
-                  end
-                  def values
-                  end
+                sig do
+                  override
+                    .returns(
+                      T::Array[
+                      ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
+                      ]
+                    )
+                end
+                def self.values
                 end
               end
             end
@@ -2645,17 +2617,15 @@ module ModernTreasury
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
                 )
 
-              class << self
-                sig do
-                  override
-                    .returns(
-                      T::Array[
-                      ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
-                      ]
-                    )
-                end
-                def values
-                end
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
+                    ]
+                  )
+              end
+              def self.values
               end
             end
 
@@ -2706,17 +2676,15 @@ module ModernTreasury
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
                 )
 
-              class << self
-                sig do
-                  override
-                    .returns(
-                      T::Array[
-                      ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
-                      ]
-                    )
-                end
-                def values
-                end
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
+                    ]
+                  )
+              end
+              def self.values
               end
             end
 
@@ -2769,17 +2737,15 @@ module ModernTreasury
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
                 )
 
-              class << self
-                sig do
-                  override
-                    .returns(
-                      T::Array[
-                      ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
-                      ]
-                    )
-                end
-                def values
-                end
+              sig do
+                override
+                  .returns(
+                    T::Array[
+                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+                    ]
+                  )
+              end
+              def self.values
               end
             end
           end
@@ -2819,15 +2785,13 @@ module ModernTreasury
           TRUST =
             T.let(:trust, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(
-                  T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure::TaggedSymbol]
-                )
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(
+                T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure::TaggedSymbol]
+              )
+          end
+          def self.values
           end
         end
 
@@ -2864,13 +2828,11 @@ module ModernTreasury
           HIGH =
             T.let(:high, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::TaggedSymbol)
 
-          class << self
-            sig do
-              override
-                .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::TaggedSymbol])
-            end
-            def values
-            end
+          sig do
+            override
+              .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::TaggedSymbol])
+          end
+          def self.values
           end
         end
       end
@@ -2893,13 +2855,11 @@ module ModernTreasury
         VERIFIED =
           T.let(:verified, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

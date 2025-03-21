@@ -112,13 +112,11 @@ module ModernTreasury
         DEBIT =
           T.let(:debit, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::TaggedSymbol])
+        end
+        def self.values
         end
       end
 
@@ -143,13 +141,11 @@ module ModernTreasury
           T.let(:signet, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

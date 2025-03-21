@@ -44,10 +44,8 @@ module ModernTreasury
 
         CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentFlowUpdateParams::Status::TaggedSymbol)
 
-        class << self
-          sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlowUpdateParams::Status::TaggedSymbol]) }
-          def values
-          end
+        sig { override.returns(T::Array[ModernTreasury::Models::PaymentFlowUpdateParams::Status::TaggedSymbol]) }
+        def self.values
         end
       end
     end

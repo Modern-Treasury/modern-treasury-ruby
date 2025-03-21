@@ -111,13 +111,11 @@ module ModernTreasury
         POSTED =
           T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol)
 
-        class << self
-          sig do
-            override
-              .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol])
-          end
-          def values
-          end
+        sig do
+          override
+            .returns(T::Array[ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol])
+        end
+        def self.values
         end
       end
     end

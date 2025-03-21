@@ -18,10 +18,8 @@ module ModernTreasury
       OVERDRAFT = T.let(:overdraft, ModernTreasury::Models::ExternalAccountType::TaggedSymbol)
       SAVINGS = T.let(:savings, ModernTreasury::Models::ExternalAccountType::TaggedSymbol)
 
-      class << self
-        sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountType::TaggedSymbol]) }
-        def values
-        end
+      sig { override.returns(T::Array[ModernTreasury::Models::ExternalAccountType::TaggedSymbol]) }
+      def self.values
       end
     end
   end
