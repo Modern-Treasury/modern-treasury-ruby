@@ -8,35 +8,25 @@ module ModernTreasury
 
       # Required.
       sig { returns(String) }
-      def counterparty_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       sig { returns(T::Array[String]) }
-      def payment_types
-      end
-
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def payment_types=(_)
-      end
+      attr_accessor :payment_types
 
       sig do
         returns(
           T.nilable(T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol])
         )
       end
-      def receiving_countries
-      end
+      attr_reader :receiving_countries
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol])
-          .returns(T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol])
+        params(
+          receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::OrSymbol]
+        )
+          .void
       end
-      def receiving_countries=(_)
-      end
+      attr_writer :receiving_countries
 
       sig do
         params(

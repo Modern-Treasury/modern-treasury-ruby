@@ -4,130 +4,59 @@ module ModernTreasury
   module Models
     class IncomingPaymentDetail < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
       sig { returns(Integer) }
-      def amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      attr_accessor :amount
 
       # The date on which the corresponding transaction will occur.
       sig { returns(Date) }
-      def as_of_date
-      end
-
-      sig { params(_: Date).returns(Date) }
-      def as_of_date=(_)
-      end
+      attr_accessor :as_of_date
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # The currency of the incoming payment detail.
       sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-      def currency
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # The raw data from the payment pre-notification file that we get from the bank.
       sig { returns(T::Hash[Symbol, T.anything]) }
-      def data
-      end
-
-      sig { params(_: T::Hash[Symbol, T.anything]).returns(T::Hash[Symbol, T.anything]) }
-      def data=(_)
-      end
+      attr_accessor :data
 
       # One of `credit` or `debit`.
       sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
-      def direction
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::TransactionDirection::TaggedSymbol)
-          .returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol)
-      end
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       # The ID of the Internal Account for the incoming payment detail. This is always
       #   present.
       sig { returns(String) }
-      def internal_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # The ID of the ledger transaction linked to the incoming payment detail or
       #   `null`.
       sig { returns(T.nilable(String)) }
-      def ledger_transaction_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ledger_transaction_id=(_)
-      end
+      attr_accessor :ledger_transaction_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T::Hash[Symbol, String]) }
-      def metadata
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The last 4 digits of the originating account_number for the incoming payment
       #   detail.
       sig { returns(T.nilable(String)) }
-      def originating_account_number_safe
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def originating_account_number_safe=(_)
-      end
+      attr_accessor :originating_account_number_safe
 
       # The type of the originating account number for the incoming payment detail.
       sig do
@@ -135,28 +64,11 @@ module ModernTreasury
           T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol)
         )
       end
-      def originating_account_number_type
-      end
-
-      sig do
-        params(
-          _: T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol)
-        )
-          .returns(
-            T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType::TaggedSymbol)
-          )
-      end
-      def originating_account_number_type=(_)
-      end
+      attr_accessor :originating_account_number_type
 
       # The routing number of the originating account for the incoming payment detail.
       sig { returns(T.nilable(String)) }
-      def originating_routing_number
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def originating_routing_number=(_)
-      end
+      attr_accessor :originating_routing_number
 
       # The type of the originating routing number for the incoming payment detail.
       sig do
@@ -164,112 +76,54 @@ module ModernTreasury
           T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
         )
       end
-      def originating_routing_number_type
-      end
-
-      sig do
-        params(
-          _: T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
-        )
-          .returns(
-            T.nilable(ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType::TaggedSymbol)
-          )
-      end
-      def originating_routing_number_type=(_)
-      end
+      attr_accessor :originating_routing_number_type
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
       sig { returns(ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::IncomingPaymentDetail::Status::TaggedSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       # The ID of the reconciled Transaction or `null`.
       sig { returns(T.nilable(String)) }
-      def transaction_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def transaction_id=(_)
-      end
+      attr_accessor :transaction_id
 
       # The ID of the reconciled Transaction Line Item or `null`.
       sig { returns(T.nilable(String)) }
-      def transaction_line_item_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def transaction_line_item_id=(_)
-      end
+      attr_accessor :transaction_line_item_id
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       sig { returns(ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol) }
-      def type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-          .returns(ModernTreasury::Models::IncomingPaymentDetail::Type::TaggedSymbol)
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # The identifier of the vendor bank.
       sig { returns(T.nilable(String)) }
-      def vendor_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_id=(_)
-      end
+      attr_accessor :vendor_id
 
       # If the incoming payment detail is in a virtual account, the serialized virtual
       #   account object.
       sig { returns(T.nilable(ModernTreasury::Models::VirtualAccount)) }
-      def virtual_account
-      end
+      attr_reader :virtual_account
 
       sig do
-        params(_: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Util::AnyHash)))
-          .returns(T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Util::AnyHash)))
+        params(
+          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Util::AnyHash))
+        )
+          .void
       end
-      def virtual_account=(_)
-      end
+      attr_writer :virtual_account
 
       # If the incoming payment detail is in a virtual account, the ID of the Virtual
       #   Account.
       sig { returns(T.nilable(String)) }
-      def virtual_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def virtual_account_id=(_)
-      end
+      attr_accessor :virtual_account_id
 
       # The account number of the originating account for the incoming payment detail.
       sig { returns(T.nilable(String)) }
-      def originating_account_number
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def originating_account_number=(_)
-      end
+      attr_accessor :originating_account_number
 
       sig do
         params(

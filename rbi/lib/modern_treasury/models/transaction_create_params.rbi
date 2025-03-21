@@ -9,103 +9,56 @@ module ModernTreasury
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
       sig { returns(Integer) }
-      def amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      attr_accessor :amount
 
       # The date on which the transaction occurred.
       sig { returns(T.nilable(Date)) }
-      def as_of_date
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def as_of_date=(_)
-      end
+      attr_accessor :as_of_date
 
       # Either `credit` or `debit`.
       sig { returns(String) }
-      def direction
-      end
-
-      sig { params(_: String).returns(String) }
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       # The ID of the relevant Internal Account.
       sig { returns(String) }
-      def internal_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # When applicable, the bank-given code that determines the transaction's category.
       #   For most banks this is the BAI2/BTRS transaction code.
       sig { returns(T.nilable(String)) }
-      def vendor_code
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_code=(_)
-      end
+      attr_accessor :vendor_code
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
       sig { returns(T.nilable(String)) }
-      def vendor_code_type
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_code_type=(_)
-      end
+      attr_accessor :vendor_code_type
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # This field will be `true` if the transaction has posted to the account.
       sig { returns(T.nilable(T::Boolean)) }
-      def posted
-      end
+      attr_reader :posted
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def posted=(_)
-      end
+      sig { params(posted: T::Boolean).void }
+      attr_writer :posted
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       sig { returns(T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol)) }
-      def type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol))
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       # The transaction detail text that often appears in on your bank statement and in
       #   your banking portal.
       sig { returns(T.nilable(String)) }
-      def vendor_description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_description=(_)
-      end
+      attr_accessor :vendor_description
 
       sig do
         params(

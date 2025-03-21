@@ -7,33 +7,18 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol) }
-      def itemizable_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol)
-          .returns(ModernTreasury::Models::LineItemUpdateParams::ItemizableType::OrSymbol)
-      end
-      def itemizable_type=(_)
-      end
+      attr_accessor :itemizable_type
 
       sig { returns(String) }
-      def itemizable_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def itemizable_id=(_)
-      end
+      attr_accessor :itemizable_id
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig do
         params(

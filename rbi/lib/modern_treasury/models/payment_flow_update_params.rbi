@@ -9,15 +9,7 @@ module ModernTreasury
       # Required. The updated status of the payment flow. Can only be used to mark a
       #   flow as `cancelled`.
       sig { returns(ModernTreasury::Models::PaymentFlowUpdateParams::Status::OrSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentFlowUpdateParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentFlowUpdateParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       sig do
         params(

@@ -7,52 +7,41 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # The actual reference number assigned by the bank.
       sig { returns(T.nilable(String)) }
-      def reference_number
-      end
+      attr_reader :reference_number
 
-      sig { params(_: String).returns(String) }
-      def reference_number=(_)
-      end
+      sig { params(reference_number: String).void }
+      attr_writer :reference_number
 
       # The id of the referenceable to search for. Must be accompanied by the
       #   referenceable_type or will return an error.
       sig { returns(T.nilable(String)) }
-      def referenceable_id
-      end
+      attr_reader :referenceable_id
 
-      sig { params(_: String).returns(String) }
-      def referenceable_id=(_)
-      end
+      sig { params(referenceable_id: String).void }
+      attr_writer :referenceable_id
 
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)) }
-      def referenceable_type
-      end
+      attr_reader :referenceable_type
 
       sig do
-        params(_: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol)
+        params(
+          referenceable_type: ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::OrSymbol
+        )
+          .void
       end
-      def referenceable_type=(_)
-      end
+      attr_writer :referenceable_type
 
       sig do
         params(

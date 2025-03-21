@@ -8,15 +8,10 @@ module ModernTreasury
 
       # The status of the connection legal entity.
       sig { returns(T.nilable(ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol).void }
+      attr_writer :status
 
       sig do
         params(

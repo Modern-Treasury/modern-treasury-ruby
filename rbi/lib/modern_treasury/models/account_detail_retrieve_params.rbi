@@ -7,23 +7,10 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::AccountsType::OrSymbol) }
-      def accounts_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::AccountsType::OrSymbol)
-          .returns(ModernTreasury::Models::AccountsType::OrSymbol)
-      end
-      def accounts_type=(_)
-      end
+      attr_accessor :accounts_type
 
       sig { returns(String) }
-      def account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def account_id=(_)
-      end
+      attr_accessor :account_id
 
       sig do
         params(

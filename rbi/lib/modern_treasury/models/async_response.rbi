@@ -4,20 +4,10 @@ module ModernTreasury
   module Models
     class AsyncResponse < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       sig { params(id: String, object: String).returns(T.attached_class) }
       def self.new(id:, object:)

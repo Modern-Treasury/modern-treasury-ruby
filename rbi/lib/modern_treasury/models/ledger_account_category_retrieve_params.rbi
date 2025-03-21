@@ -10,25 +10,18 @@ module ModernTreasury
       #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #   The balances as of a time are inclusive of entries with that exact time.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances)) }
-      def balances
-      end
+      attr_reader :balances
 
       sig do
         params(
-          _: T.any(
+          balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
             ModernTreasury::Util::AnyHash
           )
         )
-          .returns(
-            T.any(
-              ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-              ModernTreasury::Util::AnyHash
-            )
-          )
+          .void
       end
-      def balances=(_)
-      end
+      attr_writer :balances
 
       sig do
         params(
@@ -57,20 +50,16 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Date)) }
-        def as_of_date
-        end
+        attr_reader :as_of_date
 
-        sig { params(_: Date).returns(Date) }
-        def as_of_date=(_)
-        end
+        sig { params(as_of_date: Date).void }
+        attr_writer :as_of_date
 
         sig { returns(T.nilable(Time)) }
-        def effective_at
-        end
+        attr_reader :effective_at
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at=(_)
-        end
+        sig { params(effective_at: Time).void }
+        attr_writer :effective_at
 
         # For example, if you want the balances as of a particular time (ISO8601), the
         #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.

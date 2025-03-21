@@ -4,129 +4,61 @@ module ModernTreasury
   module Models
     class LedgerEntry < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000. Can be any integer up to 36 digits.
       sig { returns(Integer) }
-      def amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      attr_accessor :amount
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
       #   transaction. A `credit` moves money from your account to someone else's. A
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
       sig { returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol) }
-      def direction
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::TransactionDirection::TaggedSymbol)
-          .returns(ModernTreasury::Models::TransactionDirection::TaggedSymbol)
-      end
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # The currency of the ledger account.
       sig { returns(String) }
-      def ledger_account_currency
-      end
-
-      sig { params(_: String).returns(String) }
-      def ledger_account_currency=(_)
-      end
+      attr_accessor :ledger_account_currency
 
       # The currency exponent of the ledger account.
       sig { returns(Integer) }
-      def ledger_account_currency_exponent
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def ledger_account_currency_exponent=(_)
-      end
+      attr_accessor :ledger_account_currency_exponent
 
       # The ledger account that this ledger entry is associated with.
       sig { returns(String) }
-      def ledger_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def ledger_account_id=(_)
-      end
+      attr_accessor :ledger_account_id
 
       # Lock version of the ledger account. This can be passed when creating a ledger
       #   transaction to only succeed if no ledger transactions have posted since the
       #   given version. See our post about Designing the Ledgers API with Optimistic
       #   Locking for more details.
       sig { returns(T.nilable(Integer)) }
-      def ledger_account_lock_version
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def ledger_account_lock_version=(_)
-      end
+      attr_accessor :ledger_account_lock_version
 
       # The ledger transaction that this ledger entry is associated with.
       sig { returns(String) }
-      def ledger_transaction_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def ledger_transaction_id=(_)
-      end
+      attr_accessor :ledger_transaction_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T::Hash[Symbol, String]) }
-      def metadata
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The pending, posted, and available balances for this ledger entry's ledger
       #   account. The posted balance is the sum of all posted entries on the account. The
@@ -136,44 +68,25 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/docs/transaction-status-and-balances for more
       #   details.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances)) }
-      def resulting_ledger_account_balances
-      end
+      attr_reader :resulting_ledger_account_balances
 
       sig do
         params(
-          _: T.nilable(
+          resulting_ledger_account_balances: T.nilable(
             T.any(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, ModernTreasury::Util::AnyHash)
           )
         )
-          .returns(
-            T.nilable(
-              T.any(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, ModernTreasury::Util::AnyHash)
-            )
-          )
+          .void
       end
-      def resulting_ledger_account_balances=(_)
-      end
+      attr_writer :resulting_ledger_account_balances
 
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
       sig { returns(ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(
@@ -250,69 +163,48 @@ module ModernTreasury
         #   pending_debits; for debit normal, available_amount = posted_debits -
         #   pending_credits.
         sig { returns(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance) }
-        def available_balance
-        end
+        attr_reader :available_balance
 
         sig do
           params(
-            _: T.any(
+            available_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
               ModernTreasury::Util::AnyHash
             )
           )
-            .returns(
-              T.any(
-                ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
-                ModernTreasury::Util::AnyHash
-              )
-            )
+            .void
         end
-        def available_balance=(_)
-        end
+        attr_writer :available_balance
 
         # The pending_balance is the sum of all pending and posted entries.
         sig { returns(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance) }
-        def pending_balance
-        end
+        attr_reader :pending_balance
 
         sig do
           params(
-            _: T.any(
+            pending_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
               ModernTreasury::Util::AnyHash
             )
           )
-            .returns(
-              T.any(
-                ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
-                ModernTreasury::Util::AnyHash
-              )
-            )
+            .void
         end
-        def pending_balance=(_)
-        end
+        attr_writer :pending_balance
 
         # The posted_balance is the sum of all posted entries.
         sig { returns(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance) }
-        def posted_balance
-        end
+        attr_reader :posted_balance
 
         sig do
           params(
-            _: T.any(
+            posted_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance,
               ModernTreasury::Util::AnyHash
             )
           )
-            .returns(
-              T.any(
-                ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance,
-                ModernTreasury::Util::AnyHash
-              )
-            )
+            .void
         end
-        def posted_balance=(_)
-        end
+        attr_writer :posted_balance
 
         # The pending, posted, and available balances for this ledger entry's ledger
         #   account. The posted balance is the sum of all posted entries on the account. The
@@ -356,46 +248,21 @@ module ModernTreasury
 
         class AvailableBalance < ModernTreasury::BaseModel
           sig { returns(Integer) }
-          def amount
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def amount=(_)
-          end
+          attr_accessor :amount
 
           sig { returns(Integer) }
-          def credits
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def credits=(_)
-          end
+          attr_accessor :credits
 
           # The currency of the ledger account.
           sig { returns(String) }
-          def currency
-          end
-
-          sig { params(_: String).returns(String) }
-          def currency=(_)
-          end
+          attr_accessor :currency
 
           # The currency exponent of the ledger account.
           sig { returns(Integer) }
-          def currency_exponent
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def currency_exponent=(_)
-          end
+          attr_accessor :currency_exponent
 
           sig { returns(Integer) }
-          def debits
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def debits=(_)
-          end
+          attr_accessor :debits
 
           # The available_balance is the sum of all posted inbound entries and pending
           #   outbound entries. For credit normal, available_amount = posted_credits -
@@ -432,46 +299,21 @@ module ModernTreasury
 
         class PendingBalance < ModernTreasury::BaseModel
           sig { returns(Integer) }
-          def amount
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def amount=(_)
-          end
+          attr_accessor :amount
 
           sig { returns(Integer) }
-          def credits
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def credits=(_)
-          end
+          attr_accessor :credits
 
           # The currency of the ledger account.
           sig { returns(String) }
-          def currency
-          end
-
-          sig { params(_: String).returns(String) }
-          def currency=(_)
-          end
+          attr_accessor :currency
 
           # The currency exponent of the ledger account.
           sig { returns(Integer) }
-          def currency_exponent
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def currency_exponent=(_)
-          end
+          attr_accessor :currency_exponent
 
           sig { returns(Integer) }
-          def debits
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def debits=(_)
-          end
+          attr_accessor :debits
 
           # The pending_balance is the sum of all pending and posted entries.
           sig do
@@ -505,46 +347,21 @@ module ModernTreasury
 
         class PostedBalance < ModernTreasury::BaseModel
           sig { returns(Integer) }
-          def amount
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def amount=(_)
-          end
+          attr_accessor :amount
 
           sig { returns(Integer) }
-          def credits
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def credits=(_)
-          end
+          attr_accessor :credits
 
           # The currency of the ledger account.
           sig { returns(String) }
-          def currency
-          end
-
-          sig { params(_: String).returns(String) }
-          def currency=(_)
-          end
+          attr_accessor :currency
 
           # The currency exponent of the ledger account.
           sig { returns(Integer) }
-          def currency_exponent
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def currency_exponent=(_)
-          end
+          attr_accessor :currency_exponent
 
           sig { returns(Integer) }
-          def debits
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def debits=(_)
-          end
+          attr_accessor :debits
 
           # The posted_balance is the sum of all posted entries.
           sig do

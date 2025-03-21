@@ -4,8 +4,7 @@ module ModernTreasury
   module Resources
     class PaymentOrders
       sig { returns(ModernTreasury::Resources::PaymentOrders::Reversals) }
-      def reversals
-      end
+      attr_reader :reversals
 
       # Create a new Payment Order
       sig do

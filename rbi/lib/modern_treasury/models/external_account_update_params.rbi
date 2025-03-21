@@ -8,79 +8,48 @@ module ModernTreasury
 
       # Can be `checking`, `savings` or `other`.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::OrSymbol)) }
-      def account_type
-      end
+      attr_reader :account_type
 
-      sig do
-        params(_: ModernTreasury::Models::ExternalAccountType::OrSymbol)
-          .returns(ModernTreasury::Models::ExternalAccountType::OrSymbol)
-      end
-      def account_type=(_)
-      end
+      sig { params(account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol).void }
+      attr_writer :account_type
 
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # A nickname for the external account. This is only for internal usage and won't
       #   affect any payments
       sig { returns(T.nilable(String)) }
-      def name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress)) }
-      def party_address
-      end
+      attr_reader :party_address
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          party_address: T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def party_address=(_)
-      end
+      attr_writer :party_address
 
       # If this value isn't provided, it will be inherited from the counterparty's name.
       sig { returns(T.nilable(String)) }
-      def party_name
-      end
+      attr_reader :party_name
 
-      sig { params(_: String).returns(String) }
-      def party_name=(_)
-      end
+      sig { params(party_name: String).void }
+      attr_writer :party_name
 
       # Either `individual` or `business`.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol)) }
-      def party_type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol))
-      end
-      def party_type=(_)
-      end
+      attr_accessor :party_type
 
       sig do
         params(
@@ -128,55 +97,25 @@ module ModernTreasury
       class PartyAddress < ModernTreasury::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
-        def country
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         sig { returns(T.nilable(String)) }
-        def line1
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def line1=(_)
-        end
+        attr_accessor :line1
 
         sig { returns(T.nilable(String)) }
-        def line2
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def line2=(_)
-        end
+        attr_accessor :line2
 
         # Locality or City.
         sig { returns(T.nilable(String)) }
-        def locality
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def locality=(_)
-        end
+        attr_accessor :locality
 
         # The postal code of the address.
         sig { returns(T.nilable(String)) }
-        def postal_code
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def postal_code=(_)
-        end
+        attr_accessor :postal_code
 
         # Region or State.
         sig { returns(T.nilable(String)) }
-        def region
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         sig do
           params(

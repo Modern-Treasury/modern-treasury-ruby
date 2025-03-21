@@ -4,180 +4,72 @@ module ModernTreasury
   module Models
     class WealthAndEmploymentDetails < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # The annual income of the individual.
       sig { returns(T.nilable(Integer)) }
-      def annual_income
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def annual_income=(_)
-      end
+      attr_accessor :annual_income
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # The country in which the employer is located.
       sig { returns(T.nilable(String)) }
-      def employer_country
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def employer_country=(_)
-      end
+      attr_accessor :employer_country
 
       # The name of the employer.
       sig { returns(T.nilable(String)) }
-      def employer_name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def employer_name=(_)
-      end
+      attr_accessor :employer_name
 
       # The state in which the employer is located.
       sig { returns(T.nilable(String)) }
-      def employer_state
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def employer_state=(_)
-      end
+      attr_accessor :employer_state
 
       # The employment status of the individual.
       sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::OrSymbol)) }
-      def employment_status
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::OrSymbol))
-      end
-      def employment_status=(_)
-      end
+      attr_accessor :employment_status
 
       # The country in which the individual's income is earned.
       sig { returns(T.nilable(String)) }
-      def income_country
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def income_country=(_)
-      end
+      attr_accessor :income_country
 
       # The source of the individual's income.
       sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol)) }
-      def income_source
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::OrSymbol))
-      end
-      def income_source=(_)
-      end
+      attr_accessor :income_source
 
       # The state in which the individual's income is earned.
       sig { returns(T.nilable(String)) }
-      def income_state
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def income_state=(_)
-      end
+      attr_accessor :income_state
 
       # The industry of the individual.
       sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol)) }
-      def industry
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::Industry::OrSymbol))
-      end
-      def industry=(_)
-      end
+      attr_accessor :industry
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The occupation of the individual.
       sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol)) }
-      def occupation
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::OrSymbol))
-      end
-      def occupation=(_)
-      end
+      attr_accessor :occupation
 
       # The source of the individual's funds.
       sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol)) }
-      def source_of_funds
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::OrSymbol))
-      end
-      def source_of_funds=(_)
-      end
+      attr_accessor :source_of_funds
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # The source of the individual's wealth.
       sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol)) }
-      def wealth_source
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::OrSymbol))
-      end
-      def wealth_source=(_)
-      end
+      attr_accessor :wealth_source
 
       sig do
         params(

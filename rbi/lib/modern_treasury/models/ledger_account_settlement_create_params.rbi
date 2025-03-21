@@ -9,86 +9,46 @@ module ModernTreasury
       # The id of the contra ledger account that sends to or receives funds from the
       #   settled ledger account.
       sig { returns(String) }
-      def contra_ledger_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def contra_ledger_account_id=(_)
-      end
+      attr_accessor :contra_ledger_account_id
 
       # The id of the settled ledger account whose ledger entries are queried against,
       #   and its balance is reduced as a result.
       sig { returns(String) }
-      def settled_ledger_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def settled_ledger_account_id=(_)
-      end
+      attr_accessor :settled_ledger_account_id
 
       # If true, the settlement amount and settlement_entry_direction will bring the
       #   settlement ledger account's balance closer to zero, even if the balance is
       #   negative.
       sig { returns(T.nilable(T::Boolean)) }
-      def allow_either_direction
-      end
-
-      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-      def allow_either_direction=(_)
-      end
+      attr_accessor :allow_either_direction
 
       # The description of the ledger account settlement.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # The exclusive upper bound of the effective_at timestamp of the ledger entries to
       #   be included in the ledger account settlement. The default value is the
       #   created_at timestamp of the ledger account settlement.
       sig { returns(T.nilable(Time)) }
-      def effective_at_upper_bound
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def effective_at_upper_bound=(_)
-      end
+      attr_accessor :effective_at_upper_bound
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # It is set to `false` by default. It should be set to `true` when migrating
       #   existing settlements.
       sig { returns(T.nilable(T::Boolean)) }
-      def skip_settlement_ledger_transaction
-      end
-
-      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-      def skip_settlement_ledger_transaction=(_)
-      end
+      attr_accessor :skip_settlement_ledger_transaction
 
       # The status of the ledger account settlement. It is set to `pending` by default.
       #   To post a ledger account settlement at creation, use `posted`.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol)) }
-      def status
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol))
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       sig do
         params(

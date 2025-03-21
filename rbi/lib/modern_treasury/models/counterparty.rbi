@@ -4,125 +4,54 @@ module ModernTreasury
   module Models
     class Counterparty < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # The accounts for this counterparty.
       sig { returns(T::Array[ModernTreasury::Models::Counterparty::Account]) }
-      def accounts
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::Counterparty::Account])
-          .returns(T::Array[ModernTreasury::Models::Counterparty::Account])
-      end
-      def accounts=(_)
-      end
+      attr_accessor :accounts
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # The counterparty's email.
       sig { returns(T.nilable(String)) }
-      def email
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def email=(_)
-      end
+      attr_accessor :email
 
       # The id of the legal entity.
       sig { returns(T.nilable(String)) }
-      def legal_entity_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def legal_entity_id=(_)
-      end
+      attr_accessor :legal_entity_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T::Hash[Symbol, String]) }
-      def metadata
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       # A human friendly name for this counterparty.
       sig { returns(T.nilable(String)) }
-      def name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # Send an email to the counterparty whenever an associated payment order is sent
       #   to the bank.
       sig { returns(T::Boolean) }
-      def send_remittance_advice
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def send_remittance_advice=(_)
-      end
+      attr_accessor :send_remittance_advice
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # The verification status of the counterparty.
       sig { returns(ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol) }
-      def verification_status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol)
-          .returns(ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol)
-      end
-      def verification_status=(_)
-      end
+      attr_accessor :verification_status
 
       sig do
         params(
@@ -184,196 +113,134 @@ module ModernTreasury
 
       class Account < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        def id
-        end
+        attr_reader :id
 
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        sig { params(id: String).void }
+        attr_writer :id
 
         sig { returns(T.nilable(T::Array[ModernTreasury::Models::AccountDetail])) }
-        def account_details
-        end
-
-        sig do
-          params(_: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)])
-            .returns(T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)])
-        end
-        def account_details=(_)
-        end
-
-        # Can be `checking`, `savings` or `other`.
-        sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::TaggedSymbol)) }
-        def account_type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::ExternalAccountType::OrSymbol)
-            .returns(ModernTreasury::Models::ExternalAccountType::OrSymbol)
-        end
-        def account_type=(_)
-        end
-
-        sig { returns(T.nilable(T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail])) }
-        def contact_details
-        end
+        attr_reader :account_details
 
         sig do
           params(
-            _: T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Util::AnyHash)]
+            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)]
           )
-            .returns(
-              T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Util::AnyHash)]
-            )
+            .void
         end
-        def contact_details=(_)
+        attr_writer :account_details
+
+        # Can be `checking`, `savings` or `other`.
+        sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::TaggedSymbol)) }
+        attr_reader :account_type
+
+        sig { params(account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol).void }
+        attr_writer :account_type
+
+        sig { returns(T.nilable(T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail])) }
+        attr_reader :contact_details
+
+        sig do
+          params(
+            contact_details: T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Util::AnyHash)]
+          )
+            .void
         end
+        attr_writer :contact_details
 
         sig { returns(T.nilable(Time)) }
-        def created_at
-        end
+        attr_reader :created_at
 
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        sig { params(created_at: Time).void }
+        attr_writer :created_at
 
         sig { returns(T.nilable(Time)) }
-        def discarded_at
-        end
-
-        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-        def discarded_at=(_)
-        end
+        attr_accessor :discarded_at
 
         # If the external account links to a ledger account in Modern Treasury, the id of
         #   the ledger account will be populated here.
         sig { returns(T.nilable(String)) }
-        def ledger_account_id
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def ledger_account_id=(_)
-        end
+        attr_accessor :ledger_account_id
 
         # This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         sig { returns(T.nilable(T::Boolean)) }
-        def live_mode
-        end
+        attr_reader :live_mode
 
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        sig { params(live_mode: T::Boolean).void }
+        attr_writer :live_mode
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         # A nickname for the external account. This is only for internal usage and won't
         #   affect any payments
         sig { returns(T.nilable(String)) }
-        def name
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def name=(_)
-        end
+        attr_accessor :name
 
         sig { returns(T.nilable(String)) }
-        def object
-        end
+        attr_reader :object
 
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        sig { params(object: String).void }
+        attr_writer :object
 
         # The address associated with the owner or `null`.
         sig { returns(T.nilable(ModernTreasury::Models::Counterparty::Account::PartyAddress)) }
-        def party_address
-        end
+        attr_reader :party_address
 
         sig do
           params(
-            _: T.nilable(
+            party_address: T.nilable(
               T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Util::AnyHash)
             )
           )
-            .returns(
-              T.nilable(
-                T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Util::AnyHash)
-              )
-            )
+            .void
         end
-        def party_address=(_)
-        end
+        attr_writer :party_address
 
         # The legal name of the entity which owns the account.
         sig { returns(T.nilable(String)) }
-        def party_name
-        end
+        attr_reader :party_name
 
-        sig { params(_: String).returns(String) }
-        def party_name=(_)
-        end
+        sig { params(party_name: String).void }
+        attr_writer :party_name
 
         # Either `individual` or `business`.
         sig { returns(T.nilable(ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol)) }
-        def party_type
-        end
-
-        sig do
-          params(_: T.nilable(ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol))
-            .returns(T.nilable(ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol))
-        end
-        def party_type=(_)
-        end
+        attr_accessor :party_type
 
         sig { returns(T.nilable(T::Array[ModernTreasury::Models::RoutingDetail])) }
-        def routing_details
-        end
+        attr_reader :routing_details
 
         sig do
-          params(_: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)])
-            .returns(T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)])
+          params(
+            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)]
+          )
+            .void
         end
-        def routing_details=(_)
-        end
+        attr_writer :routing_details
 
         sig { returns(T.nilable(Time)) }
-        def updated_at
-        end
+        attr_reader :updated_at
 
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        sig { params(updated_at: Time).void }
+        attr_writer :updated_at
 
         sig { returns(T.nilable(ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol)) }
-        def verification_source
-        end
-
-        sig do
-          params(_: T.nilable(ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol))
-            .returns(T.nilable(ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol))
-        end
-        def verification_source=(_)
-        end
+        attr_accessor :verification_source
 
         sig { returns(T.nilable(ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol)) }
-        def verification_status
-        end
+        attr_reader :verification_status
 
         sig do
-          params(_: ModernTreasury::Models::Counterparty::Account::VerificationStatus::OrSymbol)
-            .returns(ModernTreasury::Models::Counterparty::Account::VerificationStatus::OrSymbol)
+          params(verification_status: ModernTreasury::Models::Counterparty::Account::VerificationStatus::OrSymbol)
+            .void
         end
-        def verification_status=(_)
-        end
+        attr_writer :verification_status
 
         sig do
           params(
@@ -452,75 +319,30 @@ module ModernTreasury
 
         class ContactDetail < ModernTreasury::BaseModel
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           sig { returns(String) }
-          def contact_identifier
-          end
-
-          sig { params(_: String).returns(String) }
-          def contact_identifier=(_)
-          end
+          attr_accessor :contact_identifier
 
           sig { returns(ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol) }
-          def contact_identifier_type
-          end
-
-          sig do
-            params(
-              _: ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
-            )
-              .returns(ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol)
-          end
-          def contact_identifier_type=(_)
-          end
+          attr_accessor :contact_identifier_type
 
           sig { returns(Time) }
-          def created_at
-          end
-
-          sig { params(_: Time).returns(Time) }
-          def created_at=(_)
-          end
+          attr_accessor :created_at
 
           sig { returns(T.nilable(Time)) }
-          def discarded_at
-          end
-
-          sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-          def discarded_at=(_)
-          end
+          attr_accessor :discarded_at
 
           # This field will be true if this object exists in the live environment or false
           #   if it exists in the test environment.
           sig { returns(T::Boolean) }
-          def live_mode
-          end
-
-          sig { params(_: T::Boolean).returns(T::Boolean) }
-          def live_mode=(_)
-          end
+          attr_accessor :live_mode
 
           sig { returns(String) }
-          def object
-          end
-
-          sig { params(_: String).returns(String) }
-          def object=(_)
-          end
+          attr_accessor :object
 
           sig { returns(Time) }
-          def updated_at
-          end
-
-          sig { params(_: Time).returns(Time) }
-          def updated_at=(_)
-          end
+          attr_accessor :updated_at
 
           sig do
             params(
@@ -609,98 +431,43 @@ module ModernTreasury
 
         class PartyAddress < ModernTreasury::BaseModel
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           # Country code conforms to [ISO 3166-1 alpha-2]
           sig { returns(T.nilable(String)) }
-          def country
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def country=(_)
-          end
+          attr_accessor :country
 
           sig { returns(Time) }
-          def created_at
-          end
-
-          sig { params(_: Time).returns(Time) }
-          def created_at=(_)
-          end
+          attr_accessor :created_at
 
           sig { returns(T.nilable(String)) }
-          def line1
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def line1=(_)
-          end
+          attr_accessor :line1
 
           sig { returns(T.nilable(String)) }
-          def line2
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def line2=(_)
-          end
+          attr_accessor :line2
 
           # This field will be true if this object exists in the live environment or false
           #   if it exists in the test environment.
           sig { returns(T::Boolean) }
-          def live_mode
-          end
-
-          sig { params(_: T::Boolean).returns(T::Boolean) }
-          def live_mode=(_)
-          end
+          attr_accessor :live_mode
 
           # Locality or City.
           sig { returns(T.nilable(String)) }
-          def locality
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def locality=(_)
-          end
+          attr_accessor :locality
 
           sig { returns(String) }
-          def object
-          end
-
-          sig { params(_: String).returns(String) }
-          def object=(_)
-          end
+          attr_accessor :object
 
           # The postal code of the address.
           sig { returns(T.nilable(String)) }
-          def postal_code
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def postal_code=(_)
-          end
+          attr_accessor :postal_code
 
           # Region or State.
           sig { returns(T.nilable(String)) }
-          def region
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def region=(_)
-          end
+          attr_accessor :region
 
           sig { returns(Time) }
-          def updated_at
-          end
-
-          sig { params(_: Time).returns(Time) }
-          def updated_at=(_)
-          end
+          attr_accessor :updated_at
 
           # The address associated with the owner or `null`.
           sig do

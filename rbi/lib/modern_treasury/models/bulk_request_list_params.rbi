@@ -8,66 +8,42 @@ module ModernTreasury
 
       # One of create, or update.
       sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)) }
-      def action_type
-      end
+      attr_reader :action_type
 
-      sig do
-        params(_: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
-          .returns(ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol)
-      end
-      def action_type=(_)
-      end
+      sig { params(action_type: ModernTreasury::Models::BulkRequestListParams::ActionType::OrSymbol).void }
+      attr_writer :action_type
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # One of payment_order, expected_payment, or ledger_transaction.
       sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)) }
-      def resource_type
-      end
+      attr_reader :resource_type
 
-      sig do
-        params(_: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
-          .returns(ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol)
-      end
-      def resource_type=(_)
-      end
+      sig { params(resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol).void }
+      attr_writer :resource_type
 
       # One of pending, processing, or completed.
       sig { returns(T.nilable(ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol).void }
+      attr_writer :status
 
       sig do
         params(

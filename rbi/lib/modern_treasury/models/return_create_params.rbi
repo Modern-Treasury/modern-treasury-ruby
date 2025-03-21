@@ -8,67 +8,31 @@ module ModernTreasury
 
       # The ID of the object being returned or `null`.
       sig { returns(T.nilable(String)) }
-      def returnable_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def returnable_id=(_)
-      end
+      attr_accessor :returnable_id
 
       # The type of object being returned. Currently, this may only be
       #   incoming_payment_detail.
       sig { returns(ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol) }
-      def returnable_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol)
-          .returns(ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol)
-      end
-      def returnable_type=(_)
-      end
+      attr_accessor :returnable_type
 
       # Some returns may include additional information from the bank. In these cases,
       #   this string will be present.
       sig { returns(T.nilable(String)) }
-      def additional_information
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def additional_information=(_)
-      end
+      attr_accessor :additional_information
 
       # The return code. For ACH returns, this is the required ACH return code.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)) }
-      def code
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol))
-      end
-      def code=(_)
-      end
+      attr_accessor :code
 
       # If the return code is `R14` or `R15` this is the date the deceased counterparty
       #   passed away.
       sig { returns(T.nilable(Date)) }
-      def date_of_death
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def date_of_death=(_)
-      end
+      attr_accessor :date_of_death
 
       # An optional description of the reason for the return. This is for internal usage
       #   and will not be transmitted to the bank.”
       sig { returns(T.nilable(String)) }
-      def reason
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def reason=(_)
-      end
+      attr_accessor :reason
 
       sig do
         params(

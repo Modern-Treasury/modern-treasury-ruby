@@ -6,112 +6,77 @@ module ModernTreasury
       # The ID of a counterparty. An external account created with this flow will be
       #   associated with this counterparty.
       sig { returns(String) }
-      def counterparty_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       sig { returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol]) }
-      def payment_types
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol])
-          .returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol])
-      end
-      def payment_types=(_)
-      end
+      attr_accessor :payment_types
 
       sig { returns(T.nilable(String)) }
-      def id
-      end
+      attr_reader :id
 
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      sig { params(id: String).void }
+      attr_writer :id
 
       # The client token of the account collection flow. This token can be used to embed
       #   account collection in your client-side application.
       sig { returns(T.nilable(String)) }
-      def client_token
-      end
+      attr_reader :client_token
 
-      sig { params(_: String).returns(String) }
-      def client_token=(_)
-      end
+      sig { params(client_token: String).void }
+      attr_writer :client_token
 
       sig { returns(T.nilable(Time)) }
-      def created_at
-      end
+      attr_reader :created_at
 
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      sig { params(created_at: Time).void }
+      attr_writer :created_at
 
       # If present, the ID of the external account created using this flow.
       sig { returns(T.nilable(String)) }
-      def external_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def external_account_id=(_)
-      end
+      attr_accessor :external_account_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T.nilable(T::Boolean)) }
-      def live_mode
-      end
+      attr_reader :live_mode
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      sig { params(live_mode: T::Boolean).void }
+      attr_writer :live_mode
 
       sig { returns(T.nilable(String)) }
-      def object
-      end
+      attr_reader :object
 
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      sig { params(object: String).void }
+      attr_writer :object
 
       sig do
         returns(
           T.nilable(T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol])
         )
       end
-      def receiving_countries
-      end
+      attr_reader :receiving_countries
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::OrSymbol])
-          .returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::OrSymbol])
+        params(
+          receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::OrSymbol]
+        )
+          .void
       end
-      def receiving_countries=(_)
-      end
+      attr_writer :receiving_countries
 
       # The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
       sig { returns(T.nilable(ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::AccountCollectionFlow::Status::OrSymbol)
-          .returns(ModernTreasury::Models::AccountCollectionFlow::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::AccountCollectionFlow::Status::OrSymbol).void }
+      attr_writer :status
 
       sig { returns(T.nilable(Time)) }
-      def updated_at
-      end
+      attr_reader :updated_at
 
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      sig { params(updated_at: Time).void }
+      attr_writer :updated_at
 
       sig do
         params(

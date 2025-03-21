@@ -8,96 +8,61 @@ module ModernTreasury
 
       # The identifier of the financial institution the account belongs to.
       sig { returns(String) }
-      def connection_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def connection_id=(_)
-      end
+      attr_accessor :connection_id
 
       # Either "USD" or "CAD". Internal accounts created at Increase only supports
       #   "USD".
       sig { returns(ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol) }
-      def currency
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol)
-          .returns(ModernTreasury::Models::InternalAccountCreateParams::Currency::OrSymbol)
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # The nickname of the account.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # The legal name of the entity which owns the account.
       sig { returns(String) }
-      def party_name
-      end
-
-      sig { params(_: String).returns(String) }
-      def party_name=(_)
-      end
+      attr_accessor :party_name
 
       # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # The LegalEntity associated to this account.
       sig { returns(T.nilable(String)) }
-      def legal_entity_id
-      end
+      attr_reader :legal_entity_id
 
-      sig { params(_: String).returns(String) }
-      def legal_entity_id=(_)
-      end
+      sig { params(legal_entity_id: String).void }
+      attr_writer :legal_entity_id
 
       # The parent internal account of this new account.
       sig { returns(T.nilable(String)) }
-      def parent_account_id
-      end
+      attr_reader :parent_account_id
 
-      sig { params(_: String).returns(String) }
-      def parent_account_id=(_)
-      end
+      sig { params(parent_account_id: String).void }
+      attr_writer :parent_account_id
 
       # The address associated with the owner or null.
       sig { returns(T.nilable(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress)) }
-      def party_address
-      end
+      attr_reader :party_address
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          party_address: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def party_address=(_)
-      end
+      attr_writer :party_address
 
       # A hash of vendor specific attributes that will be used when creating the account
       #   at the vendor specified by the given connection.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def vendor_attributes
-      end
+      attr_reader :vendor_attributes
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def vendor_attributes=(_)
-      end
+      sig { params(vendor_attributes: T::Hash[Symbol, String]).void }
+      attr_writer :vendor_attributes
 
       sig do
         params(
@@ -171,55 +136,28 @@ module ModernTreasury
       class PartyAddress < ModernTreasury::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
-        def country
-        end
-
-        sig { params(_: String).returns(String) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         sig { returns(String) }
-        def line1
-        end
-
-        sig { params(_: String).returns(String) }
-        def line1=(_)
-        end
+        attr_accessor :line1
 
         # Locality or City.
         sig { returns(String) }
-        def locality
-        end
-
-        sig { params(_: String).returns(String) }
-        def locality=(_)
-        end
+        attr_accessor :locality
 
         # The postal code of the address.
         sig { returns(String) }
-        def postal_code
-        end
-
-        sig { params(_: String).returns(String) }
-        def postal_code=(_)
-        end
+        attr_accessor :postal_code
 
         # Region or State.
         sig { returns(String) }
-        def region
-        end
-
-        sig { params(_: String).returns(String) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         sig { returns(T.nilable(String)) }
-        def line2
-        end
+        attr_reader :line2
 
-        sig { params(_: String).returns(String) }
-        def line2=(_)
-        end
+        sig { params(line2: String).void }
+        attr_writer :line2
 
         # The address associated with the owner or null.
         sig do

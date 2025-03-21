@@ -4,121 +4,65 @@ module ModernTreasury
   module Models
     class LedgerAccountBalanceMonitor < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Describes the condition that must be satisfied for the monitor to be triggered.
       sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition) }
-      def alert_condition
-      end
+      attr_reader :alert_condition
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition, ModernTreasury::Util::AnyHash)
+          alert_condition: T.any(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def alert_condition=(_)
-      end
+      attr_writer :alert_condition
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # The ledger account's balances and the monitor state as of the current ledger
       #   account lock version.
       sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState) }
-      def current_ledger_account_balance_state
-      end
+      attr_reader :current_ledger_account_balance_state
 
       sig do
         params(
-          _: T.any(
+          current_ledger_account_balance_state: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
             ModernTreasury::Util::AnyHash
           )
         )
-          .returns(
-            T.any(
-              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
-              ModernTreasury::Util::AnyHash
-            )
-          )
+          .void
       end
-      def current_ledger_account_balance_state=(_)
-      end
+      attr_writer :current_ledger_account_balance_state
 
       # An optional, free-form description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # The ledger account associated with this balance monitor.
       sig { returns(String) }
-      def ledger_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def ledger_account_id=(_)
-      end
+      attr_accessor :ledger_account_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T::Hash[Symbol, String]) }
-      def metadata
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(
@@ -179,34 +123,19 @@ module ModernTreasury
         # One of `available_balance_amount`, `pending_balance_amount`,
         #   `posted_balance_amount`, `ledger_account_lock_version`.
         sig { returns(String) }
-        def field
-        end
-
-        sig { params(_: String).returns(String) }
-        def field=(_)
-        end
+        attr_accessor :field
 
         # A logical operator to compare the `field` against the `value`. One of
         #   `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
         #   `greater_than`.
         sig { returns(String) }
-        def operator
-        end
-
-        sig { params(_: String).returns(String) }
-        def operator=(_)
-        end
+        attr_accessor :operator
 
         # The monitor's `current_ledger_account_balance_state.triggered` will be `true`
         #   when comparing the `field` to this integer value using the `operator` is
         #   logically true.
         sig { returns(Integer) }
-        def value
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def value=(_)
-        end
+        attr_accessor :value
 
         # Describes the condition that must be satisfied for the monitor to be triggered.
         sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }
@@ -220,44 +149,27 @@ module ModernTreasury
 
       class CurrentLedgerAccountBalanceState < ModernTreasury::BaseModel
         sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances) }
-        def balances
-        end
+        attr_reader :balances
 
         sig do
           params(
-            _: T.any(
+            balances: T.any(
               ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
               ModernTreasury::Util::AnyHash
             )
           )
-            .returns(
-              T.any(
-                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
-                ModernTreasury::Util::AnyHash
-              )
-            )
+            .void
         end
-        def balances=(_)
-        end
+        attr_writer :balances
 
         # The current lock version of the ledger account.
         sig { returns(Integer) }
-        def ledger_account_lock_version
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def ledger_account_lock_version=(_)
-        end
+        attr_accessor :ledger_account_lock_version
 
         # If `true`, the ledger account's balances satisfy the `alert_condition` at this
         #   lock version.
         sig { returns(T::Boolean) }
-        def triggered
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def triggered=(_)
-        end
+        attr_accessor :triggered
 
         # The ledger account's balances and the monitor state as of the current ledger
         #   account lock version.
@@ -298,25 +210,18 @@ module ModernTreasury
               ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance
             )
           end
-          def available_balance
-          end
+          attr_reader :available_balance
 
           sig do
             params(
-              _: T.any(
+              available_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
                 ModernTreasury::Util::AnyHash
               )
             )
-              .returns(
-                T.any(
-                  ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
-                  ModernTreasury::Util::AnyHash
-                )
-              )
+              .void
           end
-          def available_balance=(_)
-          end
+          attr_writer :available_balance
 
           # The pending_balance is the sum of all pending and posted entries.
           sig do
@@ -324,25 +229,18 @@ module ModernTreasury
               ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance
             )
           end
-          def pending_balance
-          end
+          attr_reader :pending_balance
 
           sig do
             params(
-              _: T.any(
+              pending_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
                 ModernTreasury::Util::AnyHash
               )
             )
-              .returns(
-                T.any(
-                  ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
-                  ModernTreasury::Util::AnyHash
-                )
-              )
+              .void
           end
-          def pending_balance=(_)
-          end
+          attr_writer :pending_balance
 
           # The posted_balance is the sum of all posted entries.
           sig do
@@ -350,25 +248,18 @@ module ModernTreasury
               ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
             )
           end
-          def posted_balance
-          end
+          attr_reader :posted_balance
 
           sig do
             params(
-              _: T.any(
+              posted_balance: T.any(
                 ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance,
                 ModernTreasury::Util::AnyHash
               )
             )
-              .returns(
-                T.any(
-                  ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance,
-                  ModernTreasury::Util::AnyHash
-                )
-              )
+              .void
           end
-          def posted_balance=(_)
-          end
+          attr_writer :posted_balance
 
           sig do
             params(
@@ -405,46 +296,21 @@ module ModernTreasury
 
           class AvailableBalance < ModernTreasury::BaseModel
             sig { returns(Integer) }
-            def amount
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def amount=(_)
-            end
+            attr_accessor :amount
 
             sig { returns(Integer) }
-            def credits
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def credits=(_)
-            end
+            attr_accessor :credits
 
             # The currency of the ledger account.
             sig { returns(String) }
-            def currency
-            end
-
-            sig { params(_: String).returns(String) }
-            def currency=(_)
-            end
+            attr_accessor :currency
 
             # The currency exponent of the ledger account.
             sig { returns(Integer) }
-            def currency_exponent
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def currency_exponent=(_)
-            end
+            attr_accessor :currency_exponent
 
             sig { returns(Integer) }
-            def debits
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def debits=(_)
-            end
+            attr_accessor :debits
 
             # The available_balance is the sum of all posted inbound entries and pending
             #   outbound entries. For credit normal, available_amount = posted_credits -
@@ -481,46 +347,21 @@ module ModernTreasury
 
           class PendingBalance < ModernTreasury::BaseModel
             sig { returns(Integer) }
-            def amount
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def amount=(_)
-            end
+            attr_accessor :amount
 
             sig { returns(Integer) }
-            def credits
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def credits=(_)
-            end
+            attr_accessor :credits
 
             # The currency of the ledger account.
             sig { returns(String) }
-            def currency
-            end
-
-            sig { params(_: String).returns(String) }
-            def currency=(_)
-            end
+            attr_accessor :currency
 
             # The currency exponent of the ledger account.
             sig { returns(Integer) }
-            def currency_exponent
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def currency_exponent=(_)
-            end
+            attr_accessor :currency_exponent
 
             sig { returns(Integer) }
-            def debits
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def debits=(_)
-            end
+            attr_accessor :debits
 
             # The pending_balance is the sum of all pending and posted entries.
             sig do
@@ -554,46 +395,21 @@ module ModernTreasury
 
           class PostedBalance < ModernTreasury::BaseModel
             sig { returns(Integer) }
-            def amount
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def amount=(_)
-            end
+            attr_accessor :amount
 
             sig { returns(Integer) }
-            def credits
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def credits=(_)
-            end
+            attr_accessor :credits
 
             # The currency of the ledger account.
             sig { returns(String) }
-            def currency
-            end
-
-            sig { params(_: String).returns(String) }
-            def currency=(_)
-            end
+            attr_accessor :currency
 
             # The currency exponent of the ledger account.
             sig { returns(Integer) }
-            def currency_exponent
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def currency_exponent=(_)
-            end
+            attr_accessor :currency_exponent
 
             sig { returns(Integer) }
-            def debits
-            end
-
-            sig { params(_: Integer).returns(Integer) }
-            def debits=(_)
-            end
+            attr_accessor :debits
 
             # The posted_balance is the sum of all posted entries.
             sig do

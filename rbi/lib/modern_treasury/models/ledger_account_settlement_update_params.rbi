@@ -8,35 +8,23 @@ module ModernTreasury
 
       # The description of the ledger account settlement.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # To post a pending ledger account settlement, use `posted`. To archive a pending
       #   ledger transaction, use `archived`.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::OrSymbol).void }
+      attr_writer :status
 
       sig do
         params(

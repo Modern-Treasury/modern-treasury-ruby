@@ -8,85 +8,63 @@ module ModernTreasury
 
       # An optional description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # The timestamp (ISO8601 format) at which the ledger transaction happened for
       #   reporting purposes.
       sig { returns(T.nilable(Time)) }
-      def effective_at
-      end
+      attr_reader :effective_at
 
-      sig { params(_: Time).returns(Time) }
-      def effective_at=(_)
-      end
+      sig { params(effective_at: Time).void }
+      attr_writer :effective_at
 
       # An array of ledger entry objects.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry])) }
-      def ledger_entries
-      end
+      attr_reader :ledger_entries
 
       sig do
         params(
-          _: T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)]
+          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)]
-          )
+          .void
       end
-      def ledger_entries=(_)
-      end
+      attr_writer :ledger_entries
 
       # If the ledger transaction can be reconciled to another object in Modern
       #   Treasury, the id will be populated here, otherwise null.
       sig { returns(T.nilable(String)) }
-      def ledgerable_id
-      end
+      attr_reader :ledgerable_id
 
-      sig { params(_: String).returns(String) }
-      def ledgerable_id=(_)
-      end
+      sig { params(ledgerable_id: String).void }
+      attr_writer :ledgerable_id
 
       # If the ledger transaction can be reconciled to another object in Modern
       #   Treasury, the type will be populated here, otherwise null. This can be one of
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)) }
-      def ledgerable_type
-      end
+      attr_reader :ledgerable_type
 
       sig do
-        params(_: ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)
-          .returns(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)
+        params(ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol)
+          .void
       end
-      def ledgerable_type=(_)
-      end
+      attr_writer :ledgerable_type
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # To post a ledger transaction at creation, use `posted`.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::LedgerTransactionUpdateParams::Status::OrSymbol).void }
+      attr_writer :status
 
       sig do
         params(
@@ -135,101 +113,56 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         #   as 1000. Can be any integer up to 36 digits.
         sig { returns(Integer) }
-        def amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def amount=(_)
-        end
+        attr_accessor :amount
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         #   transaction. A `credit` moves money from your account to someone else's. A
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
         sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
-        def direction
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-            .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-        end
-        def direction=(_)
-        end
+        attr_accessor :direction
 
         # The ledger account that this ledger entry is associated with.
         sig { returns(String) }
-        def ledger_account_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def ledger_account_id=(_)
-        end
+        attr_accessor :ledger_account_id
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
         #   account’s available balance. If any of these conditions would be false after the
         #   transaction is created, the entire call will fail with error code 422.
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-        def available_balance_amount
-        end
-
-        sig { params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer])) }
-        def available_balance_amount=(_)
-        end
+        attr_accessor :available_balance_amount
 
         # Lock version of the ledger account. This can be passed when creating a ledger
         #   transaction to only succeed if no ledger transactions have posted since the
         #   given version. See our post about Designing the Ledgers API with Optimistic
         #   Locking for more details.
         sig { returns(T.nilable(Integer)) }
-        def lock_version
-        end
-
-        sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-        def lock_version=(_)
-        end
+        attr_accessor :lock_version
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
         #   account’s pending balance. If any of these conditions would be false after the
         #   transaction is created, the entire call will fail with error code 422.
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-        def pending_balance_amount
-        end
-
-        sig { params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer])) }
-        def pending_balance_amount=(_)
-        end
+        attr_accessor :pending_balance_amount
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
         #   account’s posted balance. If any of these conditions would be false after the
         #   transaction is created, the entire call will fail with error code 422.
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-        def posted_balance_amount
-        end
-
-        sig { params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer])) }
-        def posted_balance_amount=(_)
-        end
+        attr_accessor :posted_balance_amount
 
         # If true, response will include the balance of the associated ledger account for
         #   the entry.
         sig { returns(T.nilable(T::Boolean)) }
-        def show_resulting_ledger_account_balances
-        end
-
-        sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-        def show_resulting_ledger_account_balances=(_)
-        end
+        attr_accessor :show_resulting_ledger_account_balances
 
         sig do
           params(

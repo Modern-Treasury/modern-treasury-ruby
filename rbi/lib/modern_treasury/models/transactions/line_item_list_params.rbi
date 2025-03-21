@@ -8,47 +8,28 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def id
-        end
+        attr_reader :id
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def id=(_)
-        end
+        sig { params(id: T::Hash[Symbol, String]).void }
+        attr_writer :id
 
         sig { returns(T.nilable(String)) }
-        def after_cursor
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def after_cursor=(_)
-        end
+        attr_accessor :after_cursor
 
         sig { returns(T.nilable(Integer)) }
-        def per_page
-        end
+        attr_reader :per_page
 
-        sig { params(_: Integer).returns(Integer) }
-        def per_page=(_)
-        end
+        sig { params(per_page: Integer).void }
+        attr_writer :per_page
 
         sig { returns(T.nilable(String)) }
-        def transaction_id
-        end
+        attr_reader :transaction_id
 
-        sig { params(_: String).returns(String) }
-        def transaction_id=(_)
-        end
+        sig { params(transaction_id: String).void }
+        attr_writer :transaction_id
 
         sig { returns(T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol)) }
-        def type
-        end
-
-        sig do
-          params(_: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol))
-            .returns(T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol))
-        end
-        def type=(_)
-        end
+        attr_accessor :type
 
         sig do
           params(

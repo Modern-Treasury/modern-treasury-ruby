@@ -4,298 +4,155 @@ module ModernTreasury
   module Models
     class PaymentOrder < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(ModernTreasury::Models::PaymentOrder::Accounting) }
-      def accounting
-      end
+      attr_reader :accounting
 
       sig do
-        params(_: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Util::AnyHash))
-          .returns(T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Util::AnyHash))
+        params(accounting: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Util::AnyHash))
+          .void
       end
-      def accounting=(_)
-      end
+      attr_writer :accounting
 
       # The ID of one of your accounting categories. Note that these will only be
       #   accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
-      def accounting_category_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def accounting_category_id=(_)
-      end
+      attr_accessor :accounting_category_id
 
       # The ID of one of your accounting ledger classes. Note that these will only be
       #   accessible if your accounting system has been connected.
       sig { returns(T.nilable(String)) }
-      def accounting_ledger_class_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def accounting_ledger_class_id=(_)
-      end
+      attr_accessor :accounting_ledger_class_id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented as
       #   1000 (cents). For RTP, the maximum amount allowed by the network is $100,000.
       sig { returns(Integer) }
-      def amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      attr_accessor :amount
 
       # The party that will pay the fees for the payment order. Only applies to wire
       #   payment orders. Can be one of shared, sender, or receiver, which correspond
       #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)) }
-      def charge_bearer
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol))
-      end
-      def charge_bearer=(_)
-      end
+      attr_accessor :charge_bearer
 
       # Custom key-value pair for usage in compliance rules. Please contact support
       #   before making changes to this field.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def compliance_rule_metadata
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, T.anything])).returns(T.nilable(T::Hash[Symbol, T.anything]))
-      end
-      def compliance_rule_metadata=(_)
-      end
+      attr_accessor :compliance_rule_metadata
 
       # If the payment order is tied to a specific Counterparty, their id will appear,
       #   otherwise `null`.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # Defaults to the currency of the originating account.
       sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-      def currency
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # If the payment order's status is `returned`, this will include the return
       #   object's data.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnObject)) }
-      def current_return
-      end
+      attr_reader :current_return
 
       sig do
-        params(_: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)))
-          .returns(T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)))
+        params(
+          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash))
+        )
+          .void
       end
-      def current_return=(_)
-      end
+      attr_writer :current_return
 
       # The ID of the compliance decision for the payment order, if transaction
       #   monitoring is enabled.
       sig { returns(T.nilable(String)) }
-      def decision_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def decision_id=(_)
-      end
+      attr_accessor :decision_id
 
       # An optional description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # One of `credit`, `debit`. Describes the direction money is flowing in the
       #   transaction. A `credit` moves money from your account to someone else's. A
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
       sig { returns(ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol) }
-      def direction
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol)
-      end
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       # Date transactions are to be posted to the participants' account. Defaults to the
       #   current business day or the next business day if the current day is a bank
       #   holiday or weekend. Format: yyyy-mm-dd.
       sig { returns(Date) }
-      def effective_date
-      end
-
-      sig { params(_: Date).returns(Date) }
-      def effective_date=(_)
-      end
+      attr_accessor :effective_date
 
       # RFP payments require an expires_at. This value must be past the effective_date.
       sig { returns(T.nilable(Time)) }
-      def expires_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def expires_at=(_)
-      end
+      attr_accessor :expires_at
 
       # If present, indicates a specific foreign exchange contract number that has been
       #   generated by your financial institution.
       sig { returns(T.nilable(String)) }
-      def foreign_exchange_contract
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def foreign_exchange_contract=(_)
-      end
+      attr_accessor :foreign_exchange_contract
 
       # Indicates the type of FX transfer to initiate, can be either
       #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   currency matches the originating account currency.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol)) }
-      def foreign_exchange_indicator
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol))
-      end
-      def foreign_exchange_indicator=(_)
-      end
+      attr_accessor :foreign_exchange_indicator
 
       # Associated serialized foreign exchange rate information.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate)) }
-      def foreign_exchange_rate
-      end
+      attr_reader :foreign_exchange_rate
 
       sig do
         params(
-          _: T.nilable(T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
         )
-          .returns(
-            T.nilable(T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
-          )
+          .void
       end
-      def foreign_exchange_rate=(_)
-      end
+      attr_writer :foreign_exchange_rate
 
       # The ID of the ledger transaction linked to the payment order.
       sig { returns(T.nilable(String)) }
-      def ledger_transaction_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ledger_transaction_id=(_)
-      end
+      attr_accessor :ledger_transaction_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T::Hash[Symbol, String]) }
-      def metadata
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       # A boolean to determine if NSF Protection is enabled for this payment order. Note
       #   that this setting must also be turned on in your organization settings page.
       sig { returns(T::Boolean) }
-      def nsf_protected
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def nsf_protected=(_)
-      end
+      attr_accessor :nsf_protected
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The ID of one of your organization's internal accounts.
       sig { returns(String) }
-      def originating_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def originating_account_id=(_)
-      end
+      attr_accessor :originating_account_id
 
       # If present, this will replace your default company name on receiver's bank
       #   statement. This field can only be used for ACH payments currently. For ACH, only
       #   the first 16 characters of this string will be used. Any additional characters
       #   will be truncated.
       sig { returns(T.nilable(String)) }
-      def originating_party_name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def originating_party_name=(_)
-      end
+      attr_accessor :originating_party_name
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
       sig { returns(ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol) }
-      def priority
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol)
-      end
-      def priority=(_)
-      end
+      attr_accessor :priority
 
       # If present, Modern Treasury will not process the payment until after this time.
       #   If `process_after` is past the cutoff for `effective_date`, `process_after` will
@@ -303,75 +160,34 @@ module ModernTreasury
       #   earliest possible sending date after `process_after`. Format is ISO8601
       #   timestamp.
       sig { returns(T.nilable(Time)) }
-      def process_after
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def process_after=(_)
-      end
+      attr_accessor :process_after
 
       # For `wire`, this is usually the purpose which is transmitted via the
       #   "InstrForDbtrAgt" field in the ISO20022 file. For `eft`, this field is the 3
       #   digit CPA Code that will be attached to the payment.
       sig { returns(T.nilable(String)) }
-      def purpose
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def purpose=(_)
-      end
+      attr_accessor :purpose
 
       # The receiving account ID. Can be an `external_account` or `internal_account`.
       sig { returns(String) }
-      def receiving_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def receiving_account_id=(_)
-      end
+      attr_accessor :receiving_account_id
 
       sig { returns(ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol) }
-      def receiving_account_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol)
-      end
-      def receiving_account_type=(_)
-      end
+      attr_accessor :receiving_account_type
 
       sig { returns(T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber]) }
-      def reference_numbers
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber])
-          .returns(T::Array[ModernTreasury::Models::PaymentOrder::ReferenceNumber])
-      end
-      def reference_numbers=(_)
-      end
+      attr_accessor :reference_numbers
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
       #   payments the field will be passed through as the "Originator to Beneficiary
       #   Information", also known as OBI or Fedwire tag 6000.
       sig { returns(T.nilable(String)) }
-      def remittance_information
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def remittance_information=(_)
-      end
+      attr_accessor :remittance_information
 
       # Send an email to the counterparty when the payment order is sent to the bank. If
       #   `null`, `send_remittance_advice` on the Counterparty is used.
       sig { returns(T.nilable(T::Boolean)) }
-      def send_remittance_advice
-      end
-
-      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-      def send_remittance_advice=(_)
-      end
+      attr_accessor :send_remittance_advice
 
       # An optional descriptor which will appear in the receiver's statement. For
       #   `check` payments this field will be used as the memo line. For `ach` the maximum
@@ -380,173 +196,76 @@ module ModernTreasury
       #   characters for other useful information. For `eft` the maximum length is 15
       #   characters.
       sig { returns(T.nilable(String)) }
-      def statement_descriptor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def statement_descriptor=(_)
-      end
+      attr_accessor :statement_descriptor
 
       # The current status of the payment order.
       sig { returns(ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       # An additional layer of classification for the type of payment order you are
       #   doing. This field is only used for `ach` payment orders currently. For `ach`
       #   payment orders, the `subtype` represents the SEC code. We currently support
       #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol)) }
-      def subtype
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol))
-      end
-      def subtype=(_)
-      end
+      attr_accessor :subtype
 
       # The IDs of all the transactions associated to this payment order. Usually, you
       #   will only have a single transaction ID. However, if a payment order initially
       #   results in a Return, but gets redrafted and is later successfully completed, it
       #   can have many transactions.
       sig { returns(T::Array[String]) }
-      def transaction_ids
-      end
-
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def transaction_ids=(_)
-      end
+      attr_accessor :transaction_ids
 
       # A flag that determines whether a payment order should go through transaction
       #   monitoring.
       sig { returns(T::Boolean) }
-      def transaction_monitoring_enabled
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def transaction_monitoring_enabled=(_)
-      end
+      attr_accessor :transaction_monitoring_enabled
 
       # One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
       #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
       #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
       sig { returns(ModernTreasury::Models::PaymentOrderType::TaggedSymbol) }
-      def type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentOrderType::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentOrderType::TaggedSymbol)
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       # The account to which the originating of this payment should be attributed to.
       #   Can be a `virtual_account` or `internal_account`.
       sig { returns(T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount))) }
-      def ultimate_originating_account
-      end
-
-      sig do
-        params(
-          _: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount))
-        )
-          .returns(T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount)))
-      end
-      def ultimate_originating_account=(_)
-      end
+      attr_accessor :ultimate_originating_account
 
       # The ultimate originating account ID. Can be a `virtual_account` or
       #   `internal_account`.
       sig { returns(T.nilable(String)) }
-      def ultimate_originating_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ultimate_originating_account_id=(_)
-      end
+      attr_accessor :ultimate_originating_account_id
 
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol)) }
-      def ultimate_originating_account_type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol))
-      end
-      def ultimate_originating_account_type=(_)
-      end
+      attr_accessor :ultimate_originating_account_type
 
       # Identifier of the ultimate originator of the payment order.
       sig { returns(T.nilable(String)) }
-      def ultimate_originating_party_identifier
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ultimate_originating_party_identifier=(_)
-      end
+      attr_accessor :ultimate_originating_party_identifier
 
       # Name of the ultimate originator of the payment order.
       sig { returns(T.nilable(String)) }
-      def ultimate_originating_party_name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ultimate_originating_party_name=(_)
-      end
+      attr_accessor :ultimate_originating_party_name
 
       sig { returns(T.nilable(String)) }
-      def ultimate_receiving_party_identifier
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ultimate_receiving_party_identifier=(_)
-      end
+      attr_accessor :ultimate_receiving_party_identifier
 
       sig { returns(T.nilable(String)) }
-      def ultimate_receiving_party_name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ultimate_receiving_party_name=(_)
-      end
+      attr_accessor :ultimate_receiving_party_name
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # Additional vendor specific fields for this payment. Data must be represented as
       #   key-value pairs.
       sig { returns(T.nilable(T.anything)) }
-      def vendor_attributes
-      end
-
-      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
-      def vendor_attributes=(_)
-      end
+      attr_accessor :vendor_attributes
 
       # This field will be populated if a vendor failure occurs. Logic shouldn't be
       #   built on its value as it is free-form.
       sig { returns(T.nilable(String)) }
-      def vendor_failure_reason
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_failure_reason=(_)
-      end
+      attr_accessor :vendor_failure_reason
 
       sig do
         params(
@@ -727,23 +446,13 @@ module ModernTreasury
         # The ID of one of your accounting categories. Note that these will only be
         #   accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
-        def account_id
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def account_id=(_)
-        end
+        attr_accessor :account_id
 
         # The ID of one of the class objects in your accounting system. Class objects
         #   track segments of your business independent of client or project. Note that
         #   these will only be accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
-        def class_id
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def class_id=(_)
-        end
+        attr_accessor :class_id
 
         sig { params(account_id: T.nilable(String), class_id: T.nilable(String)).returns(T.attached_class) }
         def self.new(account_id: nil, class_id: nil)
@@ -822,75 +531,34 @@ module ModernTreasury
         # Amount in the lowest denomination of the `base_currency` to convert, often
         #   called the "sell" amount.
         sig { returns(Integer) }
-        def base_amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def base_amount=(_)
-        end
+        attr_accessor :base_amount
 
         # Currency to convert, often called the "sell" currency.
         sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-        def base_currency
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-        end
-        def base_currency=(_)
-        end
+        attr_accessor :base_currency
 
         # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
         #   `exponent`).
         sig { returns(Integer) }
-        def exponent
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def exponent=(_)
-        end
+        attr_accessor :exponent
 
         # A string representation of the rate.
         sig { returns(String) }
-        def rate_string
-        end
-
-        sig { params(_: String).returns(String) }
-        def rate_string=(_)
-        end
+        attr_accessor :rate_string
 
         # Amount in the lowest denomination of the `target_currency`, often called the
         #   "buy" amount.
         sig { returns(Integer) }
-        def target_amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def target_amount=(_)
-        end
+        attr_accessor :target_amount
 
         # Currency to convert the `base_currency` to, often called the "buy" currency.
         sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-        def target_currency
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-        end
-        def target_currency=(_)
-        end
+        attr_accessor :target_currency
 
         # The whole number component of the rate. The decimal is calculated as `value` /
         #   (10 ^ `exponent`).
         sig { returns(Integer) }
-        def value
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def value=(_)
-        end
+        attr_accessor :value
 
         # Associated serialized foreign exchange rate information.
         sig do
@@ -966,67 +634,29 @@ module ModernTreasury
 
       class ReferenceNumber < ModernTreasury::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(Time) }
-        def created_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        attr_accessor :created_at
 
         # This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         sig { returns(T::Boolean) }
-        def live_mode
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        attr_accessor :live_mode
 
         sig { returns(String) }
-        def object
-        end
-
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        attr_accessor :object
 
         # The vendor reference number.
         sig { returns(String) }
-        def reference_number
-        end
-
-        sig { params(_: String).returns(String) }
-        def reference_number=(_)
-        end
+        attr_accessor :reference_number
 
         # The type of the reference number. Referring to the vendor payment id.
         sig { returns(ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol) }
-        def reference_number_type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol)
-            .returns(ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol)
-        end
-        def reference_number_type=(_)
-        end
+        attr_accessor :reference_number_type
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig do
           params(

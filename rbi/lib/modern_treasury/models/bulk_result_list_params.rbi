@@ -7,77 +7,51 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Unique identifier for the result entity object.
       sig { returns(T.nilable(String)) }
-      def entity_id
-      end
+      attr_reader :entity_id
 
-      sig { params(_: String).returns(String) }
-      def entity_id=(_)
-      end
+      sig { params(entity_id: String).void }
+      attr_writer :entity_id
 
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       sig { returns(T.nilable(ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)) }
-      def entity_type
-      end
+      attr_reader :entity_type
 
-      sig do
-        params(_: ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
-          .returns(ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol)
-      end
-      def entity_type=(_)
-      end
+      sig { params(entity_type: ModernTreasury::Models::BulkResultListParams::EntityType::OrSymbol).void }
+      attr_writer :entity_type
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # Unique identifier for the request that created this bulk result. This is the ID
       #   of the bulk request when `request_type` is bulk_request
       sig { returns(T.nilable(String)) }
-      def request_id
-      end
+      attr_reader :request_id
 
-      sig { params(_: String).returns(String) }
-      def request_id=(_)
-      end
+      sig { params(request_id: String).void }
+      attr_writer :request_id
 
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       sig { returns(T.nilable(ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol)) }
-      def request_type
-      end
+      attr_reader :request_type
 
-      sig do
-        params(_: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol)
-          .returns(ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol)
-      end
-      def request_type=(_)
-      end
+      sig { params(request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol).void }
+      attr_writer :request_type
 
       # One of successful or failed.
       sig { returns(T.nilable(ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::BulkResultListParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol).void }
+      attr_writer :status
 
       sig do
         params(

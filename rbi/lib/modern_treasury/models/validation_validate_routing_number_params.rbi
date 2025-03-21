@@ -8,27 +8,14 @@ module ModernTreasury
 
       # The routing number that is being validated.
       sig { returns(String) }
-      def routing_number
-      end
-
-      sig { params(_: String).returns(String) }
-      def routing_number=(_)
-      end
+      attr_accessor :routing_number
 
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       sig { returns(ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol) }
-      def routing_number_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
-          .returns(ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol)
-      end
-      def routing_number_type=(_)
-      end
+      attr_accessor :routing_number_type
 
       sig do
         params(

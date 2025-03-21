@@ -7,54 +7,36 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail])) }
-      def account_details
-      end
+      attr_reader :account_details
 
       sig do
         params(
-          _: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
+          account_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
-          )
+          .void
       end
-      def account_details=(_)
-      end
+      attr_writer :account_details
 
       # Can be `checking`, `savings` or `other`.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::OrSymbol)) }
-      def account_type
-      end
+      attr_reader :account_type
 
-      sig do
-        params(_: ModernTreasury::Models::ExternalAccountType::OrSymbol)
-          .returns(ModernTreasury::Models::ExternalAccountType::OrSymbol)
-      end
-      def account_type=(_)
-      end
+      sig { params(account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol).void }
+      attr_writer :account_type
 
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail])) }
-      def contact_details
-      end
+      attr_reader :contact_details
 
       sig do
         params(
-          _: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)]
+          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)]
-          )
+          .void
       end
-      def contact_details=(_)
-      end
+      attr_writer :contact_details
 
       # Specifies a ledger account object that will be created with the external
       #   account. The resulting ledger account is linked to the external account for
@@ -62,109 +44,76 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
       #   for more details.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount)) }
-      def ledger_account
-      end
+      attr_reader :ledger_account
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+          ledger_account: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def ledger_account=(_)
-      end
+      attr_writer :ledger_account
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # A nickname for the external account. This is only for internal usage and won't
       #   affect any payments
       sig { returns(T.nilable(String)) }
-      def name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # Required if receiving wire payments.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress)) }
-      def party_address
-      end
+      attr_reader :party_address
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
+          party_address: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def party_address=(_)
-      end
+      attr_writer :party_address
 
       sig { returns(T.nilable(String)) }
-      def party_identifier
-      end
+      attr_reader :party_identifier
 
-      sig { params(_: String).returns(String) }
-      def party_identifier=(_)
-      end
+      sig { params(party_identifier: String).void }
+      attr_writer :party_identifier
 
       # If this value isn't provided, it will be inherited from the counterparty's name.
       sig { returns(T.nilable(String)) }
-      def party_name
-      end
+      attr_reader :party_name
 
-      sig { params(_: String).returns(String) }
-      def party_name=(_)
-      end
+      sig { params(party_name: String).void }
+      attr_writer :party_name
 
       # Either `individual` or `business`.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol)) }
-      def party_type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol))
-      end
-      def party_type=(_)
-      end
+      attr_accessor :party_type
 
       # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
       #   you can pass the processor token in this field.
       sig { returns(T.nilable(String)) }
-      def plaid_processor_token
-      end
+      attr_reader :plaid_processor_token
 
-      sig { params(_: String).returns(String) }
-      def plaid_processor_token=(_)
-      end
+      sig { params(plaid_processor_token: String).void }
+      attr_writer :plaid_processor_token
 
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail])) }
-      def routing_details
-      end
+      attr_reader :routing_details
 
       sig do
         params(
-          _: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
+          routing_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
-          )
+          .void
       end
-      def routing_details=(_)
-      end
+      attr_writer :routing_details
 
       sig do
         params(
@@ -229,27 +178,22 @@ module ModernTreasury
 
       class AccountDetail < ModernTreasury::BaseModel
         sig { returns(String) }
-        def account_number
-        end
-
-        sig { params(_: String).returns(String) }
-        def account_number=(_)
-        end
+        attr_accessor :account_number
 
         sig do
           returns(
             T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol)
           )
         end
-        def account_number_type
-        end
+        attr_reader :account_number_type
 
         sig do
-          params(_: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol)
-            .returns(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol)
+          params(
+            account_number_type: ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+          )
+            .void
         end
-        def account_number_type=(_)
-        end
+        attr_writer :account_number_type
 
         sig do
           params(
@@ -352,12 +296,10 @@ module ModernTreasury
 
       class ContactDetail < ModernTreasury::BaseModel
         sig { returns(T.nilable(String)) }
-        def contact_identifier
-        end
+        attr_reader :contact_identifier
 
-        sig { params(_: String).returns(String) }
-        def contact_identifier=(_)
-        end
+        sig { params(contact_identifier: String).void }
+        attr_writer :contact_identifier
 
         sig do
           returns(
@@ -366,19 +308,15 @@ module ModernTreasury
             )
           )
         end
-        def contact_identifier_type
-        end
+        attr_reader :contact_identifier_type
 
         sig do
           params(
-            _: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType::OrSymbol
+            contact_identifier_type: ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType::OrSymbol
           )
-            .returns(
-              ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType::OrSymbol
-            )
+            .void
         end
-        def contact_identifier_type=(_)
-        end
+        attr_writer :contact_identifier_type
 
         sig do
           params(
@@ -447,80 +385,43 @@ module ModernTreasury
       class LedgerAccount < ModernTreasury::BaseModel
         # The currency of the ledger account.
         sig { returns(String) }
-        def currency
-        end
-
-        sig { params(_: String).returns(String) }
-        def currency=(_)
-        end
+        attr_accessor :currency
 
         # The id of the ledger that this account belongs to.
         sig { returns(String) }
-        def ledger_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def ledger_id=(_)
-        end
+        attr_accessor :ledger_id
 
         # The name of the ledger account.
         sig { returns(String) }
-        def name
-        end
-
-        sig { params(_: String).returns(String) }
-        def name=(_)
-        end
+        attr_accessor :name
 
         # The normal balance of the ledger account.
         sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
-        def normal_balance
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-            .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-        end
-        def normal_balance=(_)
-        end
+        attr_accessor :normal_balance
 
         # The currency exponent of the ledger account.
         sig { returns(T.nilable(Integer)) }
-        def currency_exponent
-        end
-
-        sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-        def currency_exponent=(_)
-        end
+        attr_accessor :currency_exponent
 
         # The description of the ledger account.
         sig { returns(T.nilable(String)) }
-        def description
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def description=(_)
-        end
+        attr_accessor :description
 
         # The array of ledger account category ids that this ledger account should be a
         #   child of.
         sig { returns(T.nilable(T::Array[String])) }
-        def ledger_account_category_ids
-        end
+        attr_reader :ledger_account_category_ids
 
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def ledger_account_category_ids=(_)
-        end
+        sig { params(ledger_account_category_ids: T::Array[String]).void }
+        attr_writer :ledger_account_category_ids
 
         # If the ledger account links to another object in Modern Treasury, the id will be
         #   populated here, otherwise null.
         sig { returns(T.nilable(String)) }
-        def ledgerable_id
-        end
+        attr_reader :ledgerable_id
 
-        sig { params(_: String).returns(String) }
-        def ledgerable_id=(_)
-        end
+        sig { params(ledgerable_id: String).void }
+        attr_writer :ledgerable_id
 
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
@@ -530,25 +431,23 @@ module ModernTreasury
             T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol)
           )
         end
-        def ledgerable_type
-        end
+        attr_reader :ledgerable_type
 
         sig do
-          params(_: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol)
-            .returns(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol)
+          params(
+            ledgerable_type: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol
+          )
+            .void
         end
-        def ledgerable_type=(_)
-        end
+        attr_writer :ledgerable_type
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         # Specifies a ledger account object that will be created with the external
         #   account. The resulting ledger account is linked to the external account for
@@ -657,55 +556,25 @@ module ModernTreasury
       class PartyAddress < ModernTreasury::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
-        def country
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         sig { returns(T.nilable(String)) }
-        def line1
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def line1=(_)
-        end
+        attr_accessor :line1
 
         sig { returns(T.nilable(String)) }
-        def line2
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def line2=(_)
-        end
+        attr_accessor :line2
 
         # Locality or City.
         sig { returns(T.nilable(String)) }
-        def locality
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def locality=(_)
-        end
+        attr_accessor :locality
 
         # The postal code of the address.
         sig { returns(T.nilable(String)) }
-        def postal_code
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def postal_code=(_)
-        end
+        attr_accessor :postal_code
 
         # Region or State.
         sig { returns(T.nilable(String)) }
-        def region
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         # Required if receiving wire payments.
         sig do
@@ -761,38 +630,25 @@ module ModernTreasury
 
       class RoutingDetail < ModernTreasury::BaseModel
         sig { returns(String) }
-        def routing_number
-        end
-
-        sig { params(_: String).returns(String) }
-        def routing_number=(_)
-        end
+        attr_accessor :routing_number
 
         sig { returns(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol) }
-        def routing_number_type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol)
-            .returns(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol)
-        end
-        def routing_number_type=(_)
-        end
+        attr_accessor :routing_number_type
 
         sig do
           returns(
             T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
           )
         end
-        def payment_type
-        end
+        attr_reader :payment_type
 
         sig do
-          params(_: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
-            .returns(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
+          params(
+            payment_type: ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType::OrSymbol
+          )
+            .void
         end
-        def payment_type=(_)
-        end
+        attr_writer :payment_type
 
         sig do
           params(

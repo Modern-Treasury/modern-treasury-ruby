@@ -9,48 +9,35 @@ module ModernTreasury
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
-      def id
-      end
+      attr_reader :id
 
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def id=(_)
-      end
+      sig { params(id: T::Array[String]).void }
+      attr_writer :id
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Query the balance monitors for a single ledger account.
       sig { returns(T.nilable(String)) }
-      def ledger_account_id
-      end
+      attr_reader :ledger_account_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_account_id=(_)
-      end
+      sig { params(ledger_account_id: String).void }
+      attr_writer :ledger_account_id
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       sig do
         params(

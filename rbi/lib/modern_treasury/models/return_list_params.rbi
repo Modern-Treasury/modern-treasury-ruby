@@ -7,62 +7,44 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Specify `counterparty_id` if you wish to see returns that occurred with a
       #   specific counterparty.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # Specify `internal_account_id` if you wish to see returns to/from a specific
       #   account.
       sig { returns(T.nilable(String)) }
-      def internal_account_id
-      end
+      attr_reader :internal_account_id
 
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      sig { params(internal_account_id: String).void }
+      attr_writer :internal_account_id
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # The ID of a valid returnable. Must be accompanied by `returnable_type`.
       sig { returns(T.nilable(String)) }
-      def returnable_id
-      end
+      attr_reader :returnable_id
 
-      sig { params(_: String).returns(String) }
-      def returnable_id=(_)
-      end
+      sig { params(returnable_id: String).void }
+      attr_writer :returnable_id
 
       # One of `payment_order`, `paper_item`, `reversal`, or `incoming_payment_detail`.
       #   Must be accompanied by `returnable_id`.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)) }
-      def returnable_type
-      end
+      attr_reader :returnable_type
 
-      sig do
-        params(_: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
-          .returns(ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol)
-      end
-      def returnable_type=(_)
-      end
+      sig { params(returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol).void }
+      attr_writer :returnable_type
 
       sig do
         params(

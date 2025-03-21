@@ -9,15 +9,7 @@ module ModernTreasury
       # Required. The updated status of the account collection flow. Can only be used to
       #   mark a flow as `cancelled`.
       sig { returns(ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       sig do
         params(

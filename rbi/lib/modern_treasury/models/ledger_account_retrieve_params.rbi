@@ -13,19 +13,15 @@ module ModernTreasury
       #   not including that bound. Use `balances[as_of_lock_version]` to retrieve a
       #   balance as of a specific Ledger Account `lock_version`.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances)) }
-      def balances
-      end
+      attr_reader :balances
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Util::AnyHash)
+          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def balances=(_)
-      end
+      attr_writer :balances
 
       sig do
         params(
@@ -51,44 +47,34 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Date)) }
-        def as_of_date
-        end
+        attr_reader :as_of_date
 
-        sig { params(_: Date).returns(Date) }
-        def as_of_date=(_)
-        end
+        sig { params(as_of_date: Date).void }
+        attr_writer :as_of_date
 
         sig { returns(T.nilable(Integer)) }
-        def as_of_lock_version
-        end
+        attr_reader :as_of_lock_version
 
-        sig { params(_: Integer).returns(Integer) }
-        def as_of_lock_version=(_)
-        end
+        sig { params(as_of_lock_version: Integer).void }
+        attr_writer :as_of_lock_version
 
         sig { returns(T.nilable(Time)) }
-        def effective_at
-        end
+        attr_reader :effective_at
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at=(_)
-        end
+        sig { params(effective_at: Time).void }
+        attr_writer :effective_at
 
         sig { returns(T.nilable(Time)) }
-        def effective_at_lower_bound
-        end
+        attr_reader :effective_at_lower_bound
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at_lower_bound=(_)
-        end
+        sig { params(effective_at_lower_bound: Time).void }
+        attr_writer :effective_at_lower_bound
 
         sig { returns(T.nilable(Time)) }
-        def effective_at_upper_bound
-        end
+        attr_reader :effective_at_upper_bound
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at_upper_bound=(_)
-        end
+        sig { params(effective_at_upper_bound: Time).void }
+        attr_writer :effective_at_upper_bound
 
         # Use `balances[effective_at_lower_bound]` and
         #   `balances[effective_at_upper_bound]` to get the balances change between the two

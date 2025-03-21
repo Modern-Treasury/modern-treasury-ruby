@@ -7,50 +7,34 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       sig { returns(T.nilable(ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)) }
-      def legal_entity_type
-      end
+      attr_reader :legal_entity_type
 
-      sig do
-        params(_: ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)
-          .returns(ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol)
-      end
-      def legal_entity_type=(_)
-      end
+      sig { params(legal_entity_type: ModernTreasury::Models::LegalEntityListParams::LegalEntityType::OrSymbol).void }
+      attr_writer :legal_entity_type
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       sig { returns(T.nilable(String)) }
-      def show_deleted
-      end
+      attr_reader :show_deleted
 
-      sig { params(_: String).returns(String) }
-      def show_deleted=(_)
-      end
+      sig { params(show_deleted: String).void }
+      attr_writer :show_deleted
 
       sig do
         params(

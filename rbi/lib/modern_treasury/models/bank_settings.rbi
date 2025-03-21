@@ -4,94 +4,44 @@ module ModernTreasury
   module Models
     class BankSettings < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # The percentage of backup withholding to apply to the legal entity.
       sig { returns(T.nilable(Integer)) }
-      def backup_withholding_percentage
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def backup_withholding_percentage=(_)
-      end
+      attr_accessor :backup_withholding_percentage
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # Whether backup withholding is enabled. See more here -
       #   https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
       sig { returns(T.nilable(T::Boolean)) }
-      def enable_backup_withholding
-      end
-
-      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-      def enable_backup_withholding=(_)
-      end
+      attr_accessor :enable_backup_withholding
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # Cross River Bank specific setting to opt out of privacy policy.
       sig { returns(T.nilable(T::Boolean)) }
-      def privacy_opt_out
-      end
-
-      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-      def privacy_opt_out=(_)
-      end
+      attr_accessor :privacy_opt_out
 
       # It covers, among other types of insider loans, extensions of credit by a member
       #   bank to an executive officer, director, or principal shareholder of the member
       #   bank; a bank holding company of which the member bank is a subsidiary; and any
       #   other subsidiary of that bank holding company.
       sig { returns(T.nilable(T::Boolean)) }
-      def regulation_o
-      end
-
-      sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-      def regulation_o=(_)
-      end
+      attr_accessor :regulation_o
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(

@@ -8,53 +8,37 @@ module ModernTreasury
 
       # Describes the condition that must be satisfied for the monitor to be triggered.
       sig { returns(ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition) }
-      def alert_condition
-      end
+      attr_reader :alert_condition
 
       sig do
         params(
-          _: T.any(
+          alert_condition: T.any(
             ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
             ModernTreasury::Util::AnyHash
           )
         )
-          .returns(
-            T.any(
-              ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
-              ModernTreasury::Util::AnyHash
-            )
-          )
+          .void
       end
-      def alert_condition=(_)
-      end
+      attr_writer :alert_condition
 
       # The ledger account associated with this balance monitor.
       sig { returns(String) }
-      def ledger_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def ledger_account_id=(_)
-      end
+      attr_accessor :ledger_account_id
 
       # An optional, free-form description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
+      attr_reader :description
 
-      sig { params(_: String).returns(String) }
-      def description=(_)
-      end
+      sig { params(description: String).void }
+      attr_writer :description
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig do
         params(
@@ -91,34 +75,19 @@ module ModernTreasury
         # One of `available_balance_amount`, `pending_balance_amount`,
         #   `posted_balance_amount`, `ledger_account_lock_version`.
         sig { returns(String) }
-        def field
-        end
-
-        sig { params(_: String).returns(String) }
-        def field=(_)
-        end
+        attr_accessor :field
 
         # A logical operator to compare the `field` against the `value`. One of
         #   `less_than`, `less_than_or_equals`, `equals`, `greater_than_or_equals`,
         #   `greater_than`.
         sig { returns(String) }
-        def operator
-        end
-
-        sig { params(_: String).returns(String) }
-        def operator=(_)
-        end
+        attr_accessor :operator
 
         # The monitor's `current_ledger_account_balance_state.triggered` will be `true`
         #   when comparing the `field` to this integer value using the `operator` is
         #   logically true.
         sig { returns(Integer) }
-        def value
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def value=(_)
-        end
+        attr_accessor :value
 
         # Describes the condition that must be satisfied for the monitor to be triggered.
         sig { params(field: String, operator: String, value: Integer).returns(T.attached_class) }

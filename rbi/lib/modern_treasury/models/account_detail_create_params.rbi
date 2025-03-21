@@ -7,37 +7,24 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol) }
-      def accounts_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol)
-          .returns(ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol)
-      end
-      def accounts_type=(_)
-      end
+      attr_accessor :accounts_type
 
       # The account number for the bank account.
       sig { returns(String) }
-      def account_number
-      end
-
-      sig { params(_: String).returns(String) }
-      def account_number=(_)
-      end
+      attr_accessor :account_number
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       sig { returns(T.nilable(ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)) }
-      def account_number_type
-      end
+      attr_reader :account_number_type
 
       sig do
-        params(_: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
-          .returns(ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol)
+        params(
+          account_number_type: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol
+        )
+          .void
       end
-      def account_number_type=(_)
-      end
+      attr_writer :account_number_type
 
       sig do
         params(
