@@ -9,85 +9,48 @@ module ModernTreasury
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
       sig { returns(T.nilable(Integer)) }
-      def amount
-      end
+      attr_reader :amount
 
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      sig { params(amount: Integer).void }
+      attr_writer :amount
 
       # Defaults to today.
       sig { returns(T.nilable(Date)) }
-      def as_of_date
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def as_of_date=(_)
-      end
+      attr_accessor :as_of_date
 
       # Defaults to the currency of the originating account.
       sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
-      def currency
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::Currency::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol))
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # Defaults to a random description.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # One of `credit`, `debit`.
       sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)) }
-      def direction
-      end
+      attr_reader :direction
 
-      sig do
-        params(_: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)
-          .returns(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol)
-      end
-      def direction=(_)
-      end
+      sig { params(direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol).void }
+      attr_writer :direction
 
       # The ID of one of your internal accounts.
       sig { returns(T.nilable(String)) }
-      def internal_account_id
-      end
+      attr_reader :internal_account_id
 
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      sig { params(internal_account_id: String).void }
+      attr_writer :internal_account_id
 
       # One of `ach`, `wire`, `check`.
       sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)) }
-      def type
-      end
+      attr_reader :type
 
-      sig do
-        params(_: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
-          .returns(ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol)
-      end
-      def type=(_)
-      end
+      sig { params(type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol).void }
+      attr_writer :type
 
       # An optional parameter to associate the incoming payment detail to a virtual
       #   account.
       sig { returns(T.nilable(String)) }
-      def virtual_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def virtual_account_id=(_)
-      end
+      attr_accessor :virtual_account_id
 
       sig do
         params(

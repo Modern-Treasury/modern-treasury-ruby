@@ -5,98 +5,42 @@ module ModernTreasury
     module InternalAccounts
       class BalanceReport < ModernTreasury::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         # The date of the balance report in local time.
         sig { returns(Date) }
-        def as_of_date
-        end
-
-        sig { params(_: Date).returns(Date) }
-        def as_of_date=(_)
-        end
+        attr_accessor :as_of_date
 
         # The time (24-hour clock) of the balance report in local time.
         sig { returns(T.nilable(Time)) }
-        def as_of_time
-        end
-
-        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-        def as_of_time=(_)
-        end
+        attr_accessor :as_of_time
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol) }
-        def balance_report_type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol)
-            .returns(ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol)
-        end
-        def balance_report_type=(_)
-        end
+        attr_accessor :balance_report_type
 
         # An array of `Balance` objects.
         sig { returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance]) }
-        def balances
-        end
-
-        sig do
-          params(_: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance])
-            .returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReport::Balance])
-        end
-        def balances=(_)
-        end
+        attr_accessor :balances
 
         sig { returns(Time) }
-        def created_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        attr_accessor :created_at
 
         # The ID of one of your organization's Internal Accounts.
         sig { returns(String) }
-        def internal_account_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def internal_account_id=(_)
-        end
+        attr_accessor :internal_account_id
 
         # This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         sig { returns(T::Boolean) }
-        def live_mode
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        attr_accessor :live_mode
 
         sig { returns(String) }
-        def object
-        end
-
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        attr_accessor :object
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig do
           params(
@@ -186,130 +130,59 @@ module ModernTreasury
 
         class Balance < ModernTreasury::BaseModel
           sig { returns(String) }
-          def id
-          end
-
-          sig { params(_: String).returns(String) }
-          def id=(_)
-          end
+          attr_accessor :id
 
           # The balance amount.
           sig { returns(Integer) }
-          def amount
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def amount=(_)
-          end
+          attr_accessor :amount
 
           # The date on which the balance became true for the account.
           sig { returns(T.nilable(Date)) }
-          def as_of_date
-          end
-
-          sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-          def as_of_date=(_)
-          end
+          attr_accessor :as_of_date
 
           # The time on which the balance became true for the account.
           sig { returns(T.nilable(Time)) }
-          def as_of_time
-          end
-
-          sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-          def as_of_time=(_)
-          end
+          attr_accessor :as_of_time
 
           # The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
           sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType::TaggedSymbol) }
-          def balance_type
-          end
-
-          sig do
-            params(_: ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType::TaggedSymbol)
-              .returns(ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType::TaggedSymbol)
-          end
-          def balance_type=(_)
-          end
+          attr_accessor :balance_type
 
           sig { returns(Time) }
-          def created_at
-          end
-
-          sig { params(_: Time).returns(Time) }
-          def created_at=(_)
-          end
+          attr_accessor :created_at
 
           # The currency of the balance.
           sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-          def currency
-          end
-
-          sig do
-            params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-              .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-          end
-          def currency=(_)
-          end
+          attr_accessor :currency
 
           # This field will be true if this object exists in the live environment or false
           #   if it exists in the test environment.
           sig { returns(T::Boolean) }
-          def live_mode
-          end
-
-          sig { params(_: T::Boolean).returns(T::Boolean) }
-          def live_mode=(_)
-          end
+          attr_accessor :live_mode
 
           sig { returns(String) }
-          def object
-          end
-
-          sig { params(_: String).returns(String) }
-          def object=(_)
-          end
+          attr_accessor :object
 
           sig { returns(Time) }
-          def updated_at
-          end
-
-          sig { params(_: Time).returns(Time) }
-          def updated_at=(_)
-          end
+          attr_accessor :updated_at
 
           # The date on which the balance becomes available.
           sig { returns(T.nilable(Date)) }
-          def value_date
-          end
-
-          sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-          def value_date=(_)
-          end
+          attr_accessor :value_date
 
           # The code used by the bank when reporting this specific balance.
           sig { returns(String) }
-          def vendor_code
-          end
-
-          sig { params(_: String).returns(String) }
-          def vendor_code=(_)
-          end
+          attr_accessor :vendor_code
 
           # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
           #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
           #   `swift`, or `us_bank`.
           sig { returns(T.nilable(String)) }
-          def vendor_code_type
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def vendor_code_type=(_)
-          end
+          attr_accessor :vendor_code_type
 
           sig do
             params(

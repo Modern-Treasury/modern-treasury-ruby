@@ -10,12 +10,7 @@ module ModernTreasury
         # The ids of the ledger entries that are to be added or removed from the ledger
         #   account settlement.
         sig { returns(T.nilable(T::Array[String])) }
-        def ledger_entry_ids
-        end
-
-        sig { params(_: T.nilable(T::Array[String])).returns(T.nilable(T::Array[String])) }
-        def ledger_entry_ids=(_)
-        end
+        attr_accessor :ledger_entry_ids
 
         sig do
           params(

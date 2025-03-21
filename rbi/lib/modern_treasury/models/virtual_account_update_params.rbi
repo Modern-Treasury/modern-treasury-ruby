@@ -7,37 +7,26 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # The ledger account that you'd like to link to the virtual account.
       sig { returns(T.nilable(String)) }
-      def ledger_account_id
-      end
+      attr_reader :ledger_account_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_account_id=(_)
-      end
+      sig { params(ledger_account_id: String).void }
+      attr_writer :ledger_account_id
 
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(String)) }
-      def name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig do
         params(

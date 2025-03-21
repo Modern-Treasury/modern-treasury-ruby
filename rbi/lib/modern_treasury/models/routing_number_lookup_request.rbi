@@ -5,63 +5,53 @@ module ModernTreasury
     class RoutingNumberLookupRequest < ModernTreasury::BaseModel
       # The address of the bank.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)) }
-      def bank_address
-      end
+      attr_reader :bank_address
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash)
+          bank_address: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def bank_address=(_)
-      end
+      attr_writer :bank_address
 
       # The name of the bank.
       sig { returns(T.nilable(String)) }
-      def bank_name
-      end
+      attr_reader :bank_name
 
-      sig { params(_: String).returns(String) }
-      def bank_name=(_)
-      end
+      sig { params(bank_name: String).void }
+      attr_writer :bank_name
 
       # The routing number of the bank.
       sig { returns(T.nilable(String)) }
-      def routing_number
-      end
+      attr_reader :routing_number
 
-      sig { params(_: String).returns(String) }
-      def routing_number=(_)
-      end
+      sig { params(routing_number: String).void }
+      attr_writer :routing_number
 
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol)) }
-      def routing_number_type
-      end
+      attr_reader :routing_number_type
 
       sig do
-        params(_: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::OrSymbol)
-          .returns(ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::OrSymbol)
+        params(
+          routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::OrSymbol
+        )
+          .void
       end
-      def routing_number_type=(_)
-      end
+      attr_writer :routing_number_type
 
       # An object containing key-value pairs, each with a sanctions list as the key and
       #   a boolean value representing whether the bank is on that particular sanctions
       #   list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
-      def sanctions
-      end
+      attr_reader :sanctions
 
-      sig { params(_: T::Hash[Symbol, T.anything]).returns(T::Hash[Symbol, T.anything]) }
-      def sanctions=(_)
-      end
+      sig { params(sanctions: T::Hash[Symbol, T.anything]).void }
+      attr_writer :sanctions
 
       # An array of payment types that are supported for this routing number. This can
       #   include `ach`, `wire`, `rtp`, `sepa`, `bacs`, `au_becs`, and 'fednow' currently.
@@ -72,15 +62,15 @@ module ModernTreasury
           )
         )
       end
-      def supported_payment_types
-      end
+      attr_reader :supported_payment_types
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::OrSymbol])
-          .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::OrSymbol])
+        params(
+          supported_payment_types: T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::OrSymbol]
+        )
+          .void
       end
-      def supported_payment_types=(_)
-      end
+      attr_writer :supported_payment_types
 
       sig do
         params(
@@ -122,55 +112,25 @@ module ModernTreasury
       class BankAddress < ModernTreasury::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
-        def country
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         sig { returns(T.nilable(String)) }
-        def line1
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def line1=(_)
-        end
+        attr_accessor :line1
 
         sig { returns(T.nilable(String)) }
-        def line2
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def line2=(_)
-        end
+        attr_accessor :line2
 
         # Locality or City.
         sig { returns(T.nilable(String)) }
-        def locality
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def locality=(_)
-        end
+        attr_accessor :locality
 
         # The postal code of the address.
         sig { returns(T.nilable(String)) }
-        def postal_code
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def postal_code=(_)
-        end
+        attr_accessor :postal_code
 
         # Region or State.
         sig { returns(T.nilable(String)) }
-        def region
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         # The address of the bank.
         sig do

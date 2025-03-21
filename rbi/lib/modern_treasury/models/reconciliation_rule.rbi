@@ -6,102 +6,49 @@ module ModernTreasury
       # The lowest amount this expected payment may be equal to. Value in specified
       #   currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(Integer) }
-      def amount_lower_bound
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount_lower_bound=(_)
-      end
+      attr_accessor :amount_lower_bound
 
       # The highest amount this expected payment may be equal to. Value in specified
       #   currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(Integer) }
-      def amount_upper_bound
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount_upper_bound=(_)
-      end
+      attr_accessor :amount_upper_bound
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       sig { returns(ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol) }
-      def direction
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol)
-          .returns(ModernTreasury::Models::ReconciliationRule::Direction::OrSymbol)
-      end
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       # The ID of the Internal Account for the expected payment
       sig { returns(String) }
-      def internal_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # The ID of the counterparty you expect for this payment
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       # Must conform to ISO 4217. Defaults to the currency of the internal account
       sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
-      def currency
-      end
+      attr_reader :currency
 
-      sig { params(_: ModernTreasury::Models::Currency::OrSymbol).returns(ModernTreasury::Models::Currency::OrSymbol) }
-      def currency=(_)
-      end
+      sig { params(currency: ModernTreasury::Models::Currency::OrSymbol).void }
+      attr_writer :currency
 
       # A hash of custom identifiers for this payment
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def custom_identifiers
-      end
-
-      sig { params(_: T.nilable(T::Hash[Symbol, String])).returns(T.nilable(T::Hash[Symbol, String])) }
-      def custom_identifiers=(_)
-      end
+      attr_accessor :custom_identifiers
 
       # The earliest date the payment may come in. Format is yyyy-mm-dd
       sig { returns(T.nilable(Date)) }
-      def date_lower_bound
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def date_lower_bound=(_)
-      end
+      attr_accessor :date_lower_bound
 
       # The latest date the payment may come in. Format is yyyy-mm-dd
       sig { returns(T.nilable(Date)) }
-      def date_upper_bound
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def date_upper_bound=(_)
-      end
+      attr_accessor :date_upper_bound
 
       # One of ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet wire
       sig { returns(T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol)) }
-      def type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ReconciliationRule::Type::OrSymbol))
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       sig do
         params(

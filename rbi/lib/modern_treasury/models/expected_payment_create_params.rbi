@@ -9,220 +9,118 @@ module ModernTreasury
       # The lowest amount this expected payment may be equal to. Value in specified
       #   currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
-      def amount_lower_bound
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def amount_lower_bound=(_)
-      end
+      attr_accessor :amount_lower_bound
 
       # The highest amount this expected payment may be equal to. Value in specified
       #   currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
-      def amount_upper_bound
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def amount_upper_bound=(_)
-      end
+      attr_accessor :amount_upper_bound
 
       # The ID of the counterparty you expect for this payment.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       # Must conform to ISO 4217. Defaults to the currency of the internal account.
       sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
-      def currency
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::Currency::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol))
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # The earliest date the payment may come in. Format: yyyy-mm-dd
       sig { returns(T.nilable(Date)) }
-      def date_lower_bound
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def date_lower_bound=(_)
-      end
+      attr_accessor :date_lower_bound
 
       # The latest date the payment may come in. Format: yyyy-mm-dd
       sig { returns(T.nilable(Date)) }
-      def date_upper_bound
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def date_upper_bound=(_)
-      end
+      attr_accessor :date_upper_bound
 
       # An optional description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol)) }
-      def direction
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol))
-      end
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       # The ID of the Internal Account for the expected payment.
       sig { returns(T.nilable(String)) }
-      def internal_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # Specifies a ledger transaction object that will be created with the expected
       #   payment. If the ledger transaction cannot be created, then the expected payment
       #   creation will fail. The resulting ledger transaction will mirror the status of
       #   the expected payment.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction)) }
-      def ledger_transaction
-      end
+      attr_reader :ledger_transaction
 
       sig do
         params(
-          _: T.any(
+          ledger_transaction: T.any(
             ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
             ModernTreasury::Util::AnyHash
           )
         )
-          .returns(
-            T.any(
-              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
-              ModernTreasury::Util::AnyHash
-            )
-          )
+          .void
       end
-      def ledger_transaction=(_)
-      end
+      attr_writer :ledger_transaction
 
       # Either ledger_transaction or ledger_transaction_id can be provided. Only a
       #   pending ledger transaction can be attached upon expected payment creation. Once
       #   the expected payment is created, the status of the ledger transaction tracks the
       #   expected payment automatically.
       sig { returns(T.nilable(String)) }
-      def ledger_transaction_id
-      end
+      attr_reader :ledger_transaction_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_transaction_id=(_)
-      end
+      sig { params(ledger_transaction_id: String).void }
+      attr_writer :ledger_transaction_id
 
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem])) }
-      def line_items
-      end
+      attr_reader :line_items
 
       sig do
         params(
-          _: T::Array[T.any(ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem, ModernTreasury::Util::AnyHash)]
+          line_items: T::Array[T.any(ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem, ModernTreasury::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem, ModernTreasury::Util::AnyHash)]
-          )
+          .void
       end
-      def line_items=(_)
-      end
+      attr_writer :line_items
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # The reconciliation filters you have for this payment.
       sig { returns(T.nilable(T.anything)) }
-      def reconciliation_filters
-      end
-
-      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
-      def reconciliation_filters=(_)
-      end
+      attr_accessor :reconciliation_filters
 
       # The reconciliation groups you have for this payment.
       sig { returns(T.nilable(T.anything)) }
-      def reconciliation_groups
-      end
-
-      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
-      def reconciliation_groups=(_)
-      end
+      attr_accessor :reconciliation_groups
 
       # An array of reconciliation rule variables for this payment.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
-      def reconciliation_rule_variables
-      end
-
-      sig do
-        params(_: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]))
-          .returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]))
-      end
-      def reconciliation_rule_variables=(_)
-      end
+      attr_accessor :reconciliation_rule_variables
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
       #   payments the field will be passed through as the "Originator to Beneficiary
       #   Information", also known as OBI or Fedwire tag 6000.
       sig { returns(T.nilable(String)) }
-      def remittance_information
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def remittance_information=(_)
-      end
+      attr_accessor :remittance_information
 
       # The statement description you expect to see on the transaction. For ACH
       #   payments, this will be the full line item passed from the bank. For wire
       #   payments, this will be the OBI field on the wire. For check payments, this will
       #   be the memo field.
       sig { returns(T.nilable(String)) }
-      def statement_descriptor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def statement_descriptor=(_)
-      end
+      attr_accessor :statement_descriptor
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet, wire.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol)) }
-      def type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol))
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       sig do
         params(
@@ -329,64 +227,43 @@ module ModernTreasury
       class LedgerTransaction < ModernTreasury::BaseModel
         # An array of ledger entry objects.
         sig { returns(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry]) }
-        def ledger_entries
-        end
-
-        sig do
-          params(_: T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry])
-            .returns(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry])
-        end
-        def ledger_entries=(_)
-        end
+        attr_accessor :ledger_entries
 
         # An optional description for internal use.
         sig { returns(T.nilable(String)) }
-        def description
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def description=(_)
-        end
+        attr_accessor :description
 
         # The timestamp (ISO8601 format) at which the ledger transaction happened for
         #   reporting purposes.
         sig { returns(T.nilable(Time)) }
-        def effective_at
-        end
+        attr_reader :effective_at
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at=(_)
-        end
+        sig { params(effective_at: Time).void }
+        attr_writer :effective_at
 
         # The date (YYYY-MM-DD) on which the ledger transaction happened for reporting
         #   purposes.
         sig { returns(T.nilable(Date)) }
-        def effective_date
-        end
+        attr_reader :effective_date
 
-        sig { params(_: Date).returns(Date) }
-        def effective_date=(_)
-        end
+        sig { params(effective_date: Date).void }
+        attr_writer :effective_date
 
         # A unique string to represent the ledger transaction. Only one pending or posted
         #   ledger transaction may have this ID in the ledger.
         sig { returns(T.nilable(String)) }
-        def external_id
-        end
+        attr_reader :external_id
 
-        sig { params(_: String).returns(String) }
-        def external_id=(_)
-        end
+        sig { params(external_id: String).void }
+        attr_writer :external_id
 
         # If the ledger transaction can be reconciled to another object in Modern
         #   Treasury, the id will be populated here, otherwise null.
         sig { returns(T.nilable(String)) }
-        def ledgerable_id
-        end
+        attr_reader :ledgerable_id
 
-        sig { params(_: String).returns(String) }
-        def ledgerable_id=(_)
-        end
+        sig { params(ledgerable_id: String).void }
+        attr_writer :ledgerable_id
 
         # If the ledger transaction can be reconciled to another object in Modern
         #   Treasury, the type will be populated here, otherwise null. This can be one of
@@ -399,27 +276,23 @@ module ModernTreasury
             )
           )
         end
-        def ledgerable_type
-        end
+        attr_reader :ledgerable_type
 
         sig do
           params(
-            _: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
+            ledgerable_type: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol
           )
-            .returns(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::OrSymbol)
+            .void
         end
-        def ledgerable_type=(_)
-        end
+        attr_writer :ledgerable_type
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         # To post a ledger transaction at creation, use `posted`.
         sig do
@@ -427,15 +300,13 @@ module ModernTreasury
             T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
           )
         end
-        def status
-        end
+        attr_reader :status
 
         sig do
-          params(_: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
-            .returns(ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+          params(status: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::OrSymbol)
+            .void
         end
-        def status=(_)
-        end
+        attr_writer :status
 
         # Specifies a ledger transaction object that will be created with the expected
         #   payment. If the ledger transaction cannot be created, then the expected payment
@@ -496,101 +367,56 @@ module ModernTreasury
           # Value in specified currency's smallest unit. e.g. $10 would be represented
           #   as 1000. Can be any integer up to 36 digits.
           sig { returns(Integer) }
-          def amount
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def amount=(_)
-          end
+          attr_accessor :amount
 
           # One of `credit`, `debit`. Describes the direction money is flowing in the
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
           sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
-          def direction
-          end
-
-          sig do
-            params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-              .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-          end
-          def direction=(_)
-          end
+          attr_accessor :direction
 
           # The ledger account that this ledger entry is associated with.
           sig { returns(String) }
-          def ledger_account_id
-          end
-
-          sig { params(_: String).returns(String) }
-          def ledger_account_id=(_)
-          end
+          attr_accessor :ledger_account_id
 
           # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   account’s available balance. If any of these conditions would be false after the
           #   transaction is created, the entire call will fail with error code 422.
           sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-          def available_balance_amount
-          end
-
-          sig { params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer])) }
-          def available_balance_amount=(_)
-          end
+          attr_accessor :available_balance_amount
 
           # Lock version of the ledger account. This can be passed when creating a ledger
           #   transaction to only succeed if no ledger transactions have posted since the
           #   given version. See our post about Designing the Ledgers API with Optimistic
           #   Locking for more details.
           sig { returns(T.nilable(Integer)) }
-          def lock_version
-          end
-
-          sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-          def lock_version=(_)
-          end
+          attr_accessor :lock_version
 
           # Additional data represented as key-value pairs. Both the key and value must be
           #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
-          def metadata
-          end
+          attr_reader :metadata
 
-          sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-          def metadata=(_)
-          end
+          sig { params(metadata: T::Hash[Symbol, String]).void }
+          attr_writer :metadata
 
           # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   account’s pending balance. If any of these conditions would be false after the
           #   transaction is created, the entire call will fail with error code 422.
           sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-          def pending_balance_amount
-          end
-
-          sig { params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer])) }
-          def pending_balance_amount=(_)
-          end
+          attr_accessor :pending_balance_amount
 
           # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to lock on the
           #   account’s posted balance. If any of these conditions would be false after the
           #   transaction is created, the entire call will fail with error code 422.
           sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-          def posted_balance_amount
-          end
-
-          sig { params(_: T.nilable(T::Hash[Symbol, Integer])).returns(T.nilable(T::Hash[Symbol, Integer])) }
-          def posted_balance_amount=(_)
-          end
+          attr_accessor :posted_balance_amount
 
           # If true, response will include the balance of the associated ledger account for
           #   the entry.
           sig { returns(T.nilable(T::Boolean)) }
-          def show_resulting_ledger_account_balances
-          end
-
-          sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-          def show_resulting_ledger_account_balances=(_)
-          end
+          attr_accessor :show_resulting_ledger_account_balances
 
           sig do
             params(
@@ -746,41 +572,24 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         #   as 1000.
         sig { returns(Integer) }
-        def amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def amount=(_)
-        end
+        attr_accessor :amount
 
         # The ID of one of your accounting categories. Note that these will only be
         #   accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
-        def accounting_category_id
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def accounting_category_id=(_)
-        end
+        attr_accessor :accounting_category_id
 
         # A free-form description of the line item.
         sig { returns(T.nilable(String)) }
-        def description
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def description=(_)
-        end
+        attr_accessor :description
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         sig do
           params(

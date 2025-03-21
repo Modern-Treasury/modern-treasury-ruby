@@ -9,64 +9,34 @@ module ModernTreasury
       # Required. Value in specified currency's smallest unit. e.g. $10 would be
       #   represented as 1000. Can be any integer up to 36 digits.
       sig { returns(Integer) }
-      def amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      attr_accessor :amount
 
       # Required. The ID of a counterparty associated with the payment. As part of the
       #   payment workflow an external account will be associated with this model.
       sig { returns(String) }
-      def counterparty_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       # Required. The currency of the payment.
       sig { returns(String) }
-      def currency
-      end
-
-      sig { params(_: String).returns(String) }
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # Required. Describes the direction money is flowing in the transaction. Can only
       #   be `debit`. A `debit` pulls money from someone else's account to your own.
       sig { returns(ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol) }
-      def direction
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol)
-      end
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       # Required. The ID of one of your organization's internal accounts.
       sig { returns(String) }
-      def originating_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def originating_account_id=(_)
-      end
+      attr_accessor :originating_account_id
 
       # Optional. Can only be passed in when `effective_date_selection_enabled` is
       #   `true`. When set, the due date is shown to your end-user in the pre-built UI as
       #   they are selecting a payment `effective_date`.
       sig { returns(T.nilable(Date)) }
-      def due_date
-      end
+      attr_reader :due_date
 
-      sig { params(_: Date).returns(Date) }
-      def due_date=(_)
-      end
+      sig { params(due_date: Date).void }
+      attr_writer :due_date
 
       sig do
         params(

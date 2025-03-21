@@ -4,93 +4,40 @@ module ModernTreasury
   module Models
     class ConnectionLegalEntity < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # The ID of the connection.
       sig { returns(String) }
-      def connection_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def connection_id=(_)
-      end
+      attr_accessor :connection_id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # The ID of the legal entity.
       sig { returns(String) }
-      def legal_entity_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def legal_entity_id=(_)
-      end
+      attr_accessor :legal_entity_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The status of the connection legal entity.
       sig { returns(ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # The ID of the legal entity at the vendor.
       sig { returns(String) }
-      def vendor_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def vendor_id=(_)
-      end
+      attr_accessor :vendor_id
 
       sig do
         params(

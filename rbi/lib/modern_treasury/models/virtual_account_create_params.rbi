@@ -8,121 +8,89 @@ module ModernTreasury
 
       # The ID of the internal account that this virtual account is associated with.
       sig { returns(String) }
-      def internal_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # The name of the virtual account.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # An array of account detail objects.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail])) }
-      def account_details
-      end
+      attr_reader :account_details
 
       sig do
         params(
-          _: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
+          account_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)]
-          )
+          .void
       end
-      def account_details=(_)
-      end
+      attr_writer :account_details
 
       # The ID of the counterparty that the virtual account belongs to.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # The ID of a credit normal ledger account. When money leaves the virtual account,
       #   this ledger account will be credited. Must be accompanied by a
       #   debit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
-      def credit_ledger_account_id
-      end
+      attr_reader :credit_ledger_account_id
 
-      sig { params(_: String).returns(String) }
-      def credit_ledger_account_id=(_)
-      end
+      sig { params(credit_ledger_account_id: String).void }
+      attr_writer :credit_ledger_account_id
 
       # The ID of a debit normal ledger account. When money enters the virtual account,
       #   this ledger account will be debited. Must be accompanied by a
       #   credit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
-      def debit_ledger_account_id
-      end
+      attr_reader :debit_ledger_account_id
 
-      sig { params(_: String).returns(String) }
-      def debit_ledger_account_id=(_)
-      end
+      sig { params(debit_ledger_account_id: String).void }
+      attr_writer :debit_ledger_account_id
 
       # An optional description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
+      attr_reader :description
 
-      sig { params(_: String).returns(String) }
-      def description=(_)
-      end
+      sig { params(description: String).void }
+      attr_writer :description
 
       # Specifies a ledger account object that will be created with the virtual account.
       #   The resulting ledger account is linked to the virtual account for auto-ledgering
       #   IPDs.
       sig { returns(T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount)) }
-      def ledger_account
-      end
+      attr_reader :ledger_account
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
+          ledger_account: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def ledger_account=(_)
-      end
+      attr_writer :ledger_account
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # An array of routing detail objects.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail])) }
-      def routing_details
-      end
+      attr_reader :routing_details
 
       sig do
         params(
-          _: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
+          routing_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)]
-          )
+          .void
       end
-      def routing_details=(_)
-      end
+      attr_writer :routing_details
 
       sig do
         params(
@@ -179,12 +147,7 @@ module ModernTreasury
       class AccountDetail < ModernTreasury::BaseModel
         # The account number for the bank account.
         sig { returns(String) }
-        def account_number
-        end
-
-        sig { params(_: String).returns(String) }
-        def account_number=(_)
-        end
+        attr_accessor :account_number
 
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   account number is in a generic format.
@@ -193,15 +156,15 @@ module ModernTreasury
             T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol)
           )
         end
-        def account_number_type
-        end
+        attr_reader :account_number_type
 
         sig do
-          params(_: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol)
-            .returns(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol)
+          params(
+            account_number_type: ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::OrSymbol
+          )
+            .void
         end
-        def account_number_type=(_)
-        end
+        attr_writer :account_number_type
 
         sig do
           params(
@@ -307,80 +270,43 @@ module ModernTreasury
       class LedgerAccount < ModernTreasury::BaseModel
         # The currency of the ledger account.
         sig { returns(String) }
-        def currency
-        end
-
-        sig { params(_: String).returns(String) }
-        def currency=(_)
-        end
+        attr_accessor :currency
 
         # The id of the ledger that this account belongs to.
         sig { returns(String) }
-        def ledger_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def ledger_id=(_)
-        end
+        attr_accessor :ledger_id
 
         # The name of the ledger account.
         sig { returns(String) }
-        def name
-        end
-
-        sig { params(_: String).returns(String) }
-        def name=(_)
-        end
+        attr_accessor :name
 
         # The normal balance of the ledger account.
         sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
-        def normal_balance
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-            .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-        end
-        def normal_balance=(_)
-        end
+        attr_accessor :normal_balance
 
         # The currency exponent of the ledger account.
         sig { returns(T.nilable(Integer)) }
-        def currency_exponent
-        end
-
-        sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-        def currency_exponent=(_)
-        end
+        attr_accessor :currency_exponent
 
         # The description of the ledger account.
         sig { returns(T.nilable(String)) }
-        def description
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def description=(_)
-        end
+        attr_accessor :description
 
         # The array of ledger account category ids that this ledger account should be a
         #   child of.
         sig { returns(T.nilable(T::Array[String])) }
-        def ledger_account_category_ids
-        end
+        attr_reader :ledger_account_category_ids
 
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def ledger_account_category_ids=(_)
-        end
+        sig { params(ledger_account_category_ids: T::Array[String]).void }
+        attr_writer :ledger_account_category_ids
 
         # If the ledger account links to another object in Modern Treasury, the id will be
         #   populated here, otherwise null.
         sig { returns(T.nilable(String)) }
-        def ledgerable_id
-        end
+        attr_reader :ledgerable_id
 
-        sig { params(_: String).returns(String) }
-        def ledgerable_id=(_)
-        end
+        sig { params(ledgerable_id: String).void }
+        attr_writer :ledgerable_id
 
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
@@ -390,25 +316,23 @@ module ModernTreasury
             T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol)
           )
         end
-        def ledgerable_type
-        end
+        attr_reader :ledgerable_type
 
         sig do
-          params(_: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol)
-            .returns(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol)
+          params(
+            ledgerable_type: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::OrSymbol
+          )
+            .void
         end
-        def ledgerable_type=(_)
-        end
+        attr_writer :ledgerable_type
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         # Specifies a ledger account object that will be created with the virtual account.
         #   The resulting ledger account is linked to the virtual account for auto-ledgering
@@ -515,26 +439,13 @@ module ModernTreasury
       class RoutingDetail < ModernTreasury::BaseModel
         # The routing number of the bank.
         sig { returns(String) }
-        def routing_number
-        end
-
-        sig { params(_: String).returns(String) }
-        def routing_number=(_)
-        end
+        attr_accessor :routing_number
 
         # The type of routing number. See
         #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
         #   more details.
         sig { returns(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol) }
-        def routing_number_type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol)
-            .returns(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::OrSymbol)
-        end
-        def routing_number_type=(_)
-        end
+        attr_accessor :routing_number_type
 
         # If the routing detail is to be used for a specific payment type this field will
         #   be populated, otherwise null.
@@ -543,19 +454,7 @@ module ModernTreasury
             T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
           )
         end
-        def payment_type
-        end
-
-        sig do
-          params(
-            _: T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
-          )
-            .returns(
-              T.nilable(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::OrSymbol)
-            )
-        end
-        def payment_type=(_)
-        end
+        attr_accessor :payment_type
 
         sig do
           params(

@@ -8,49 +8,39 @@ module ModernTreasury
 
       # The Counterparty associated to this account.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # The Ledger Account associated to this account.
       sig { returns(T.nilable(String)) }
-      def ledger_account_id
-      end
+      attr_reader :ledger_account_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_account_id=(_)
-      end
+      sig { params(ledger_account_id: String).void }
+      attr_writer :ledger_account_id
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # The nickname for the internal account.
       sig { returns(T.nilable(String)) }
-      def name
-      end
+      attr_reader :name
 
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      sig { params(name: String).void }
+      attr_writer :name
 
       # The parent internal account for this account.
       sig { returns(T.nilable(String)) }
-      def parent_account_id
-      end
+      attr_reader :parent_account_id
 
-      sig { params(_: String).returns(String) }
-      def parent_account_id=(_)
-      end
+      sig { params(parent_account_id: String).void }
+      attr_writer :parent_account_id
 
       sig do
         params(

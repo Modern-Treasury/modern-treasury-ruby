@@ -4,91 +4,41 @@ module ModernTreasury
   module Models
     class Event < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # The body of the event.
       sig { returns(T::Hash[Symbol, T.anything]) }
-      def data
-      end
-
-      sig { params(_: T::Hash[Symbol, T.anything]).returns(T::Hash[Symbol, T.anything]) }
-      def data=(_)
-      end
+      attr_accessor :data
 
       # The ID of the entity for the event.
       sig { returns(String) }
-      def entity_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def entity_id=(_)
-      end
+      attr_accessor :entity_id
 
       # The name of the event.
       sig { returns(String) }
-      def event_name
-      end
-
-      sig { params(_: String).returns(String) }
-      def event_name=(_)
-      end
+      attr_accessor :event_name
 
       # The time of the event.
       sig { returns(Time) }
-      def event_time
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def event_time=(_)
-      end
+      attr_accessor :event_time
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The type of resource for the event.
       sig { returns(String) }
-      def resource
-      end
-
-      sig { params(_: String).returns(String) }
-      def resource=(_)
-      end
+      attr_accessor :resource
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(

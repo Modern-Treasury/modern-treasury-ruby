@@ -4,157 +4,71 @@ module ModernTreasury
   module Models
     class VirtualAccount < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # An array of account detail objects.
       sig { returns(T::Array[ModernTreasury::Models::AccountDetail]) }
-      def account_details
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::AccountDetail])
-          .returns(T::Array[ModernTreasury::Models::AccountDetail])
-      end
-      def account_details=(_)
-      end
+      attr_accessor :account_details
 
       # The ID of a counterparty that the virtual account belongs to. Optional.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # The ID of a credit normal ledger account. When money enters the virtual account,
       #   this ledger account will be credited. Must be accompanied by a
       #   debit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
-      def credit_ledger_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def credit_ledger_account_id=(_)
-      end
+      attr_accessor :credit_ledger_account_id
 
       # The ID of a debit normal ledger account. When money enters the virtual account,
       #   this ledger account will be debited. Must be accompanied by a
       #   credit_ledger_account_id if present.
       sig { returns(T.nilable(String)) }
-      def debit_ledger_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def debit_ledger_account_id=(_)
-      end
+      attr_accessor :debit_ledger_account_id
 
       # An optional free-form description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # The ID of the internal account that the virtual account is in.
       sig { returns(String) }
-      def internal_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # If the virtual account links to a ledger account in Modern Treasury, the id of
       #   the ledger account will be populated here.
       sig { returns(T.nilable(String)) }
-      def ledger_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ledger_account_id=(_)
-      end
+      attr_accessor :ledger_account_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T::Hash[Symbol, String]) }
-      def metadata
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       # The name of the virtual account.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # An array of routing detail objects. These will be the routing details of the
       #   internal account.
       sig { returns(T::Array[ModernTreasury::Models::RoutingDetail]) }
-      def routing_details
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::RoutingDetail])
-          .returns(T::Array[ModernTreasury::Models::RoutingDetail])
-      end
-      def routing_details=(_)
-      end
+      attr_accessor :routing_details
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(

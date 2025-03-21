@@ -9,12 +9,10 @@ module ModernTreasury
       # If true, response will include the balances attached to the ledger entry. If
       #   there is no balance available, null will be returned instead.
       sig { returns(T.nilable(T::Boolean)) }
-      def show_balances
-      end
+      attr_reader :show_balances
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def show_balances=(_)
-      end
+      sig { params(show_balances: T::Boolean).void }
+      attr_writer :show_balances
 
       sig do
         params(

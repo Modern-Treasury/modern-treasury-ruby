@@ -7,85 +7,64 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Currency to convert, often called the "sell" currency.
       sig { returns(T.nilable(String)) }
-      def base_currency
-      end
+      attr_reader :base_currency
 
-      sig { params(_: String).returns(String) }
-      def base_currency=(_)
-      end
+      sig { params(base_currency: String).void }
+      attr_writer :base_currency
 
       # An inclusive upper bound for searching effective_at
       sig { returns(T.nilable(Date)) }
-      def effective_at_end
-      end
+      attr_reader :effective_at_end
 
-      sig { params(_: Date).returns(Date) }
-      def effective_at_end=(_)
-      end
+      sig { params(effective_at_end: Date).void }
+      attr_writer :effective_at_end
 
       # An inclusive lower bound for searching effective_at
       sig { returns(T.nilable(Date)) }
-      def effective_at_start
-      end
+      attr_reader :effective_at_start
 
-      sig { params(_: Date).returns(Date) }
-      def effective_at_start=(_)
-      end
+      sig { params(effective_at_start: Date).void }
+      attr_writer :effective_at_start
 
       # The timestamp until which the quote must be booked by.
       sig { returns(T.nilable(Time)) }
-      def expires_at
-      end
+      attr_reader :expires_at
 
-      sig { params(_: Time).returns(Time) }
-      def expires_at=(_)
-      end
+      sig { params(expires_at: Time).void }
+      attr_writer :expires_at
 
       # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(T.nilable(String)) }
-      def internal_account_id
-      end
+      attr_reader :internal_account_id
 
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      sig { params(internal_account_id: String).void }
+      attr_writer :internal_account_id
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # Currency to convert the `base_currency` to, often called the "buy" currency.
       sig { returns(T.nilable(String)) }
-      def target_currency
-      end
+      attr_reader :target_currency
 
-      sig { params(_: String).returns(String) }
-      def target_currency=(_)
-      end
+      sig { params(target_currency: String).void }
+      attr_writer :target_currency
 
       sig do
         params(

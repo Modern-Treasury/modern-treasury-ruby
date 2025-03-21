@@ -7,166 +7,117 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # An inclusive upper bound for searching created_at
       sig { returns(T.nilable(Date)) }
-      def created_at_end
-      end
+      attr_reader :created_at_end
 
-      sig { params(_: Date).returns(Date) }
-      def created_at_end=(_)
-      end
+      sig { params(created_at_end: Date).void }
+      attr_writer :created_at_end
 
       # An inclusive lower bound for searching created_at
       sig { returns(T.nilable(Date)) }
-      def created_at_start
-      end
+      attr_reader :created_at_start
 
-      sig { params(_: Date).returns(Date) }
-      def created_at_start=(_)
-      end
+      sig { params(created_at_start: Date).void }
+      attr_writer :created_at_start
 
       sig { returns(T.nilable(ModernTreasury::Models::TransactionDirection::OrSymbol)) }
-      def direction
-      end
+      attr_reader :direction
 
-      sig do
-        params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-          .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-      end
-      def direction=(_)
-      end
+      sig { params(direction: ModernTreasury::Models::TransactionDirection::OrSymbol).void }
+      attr_writer :direction
 
       # An inclusive upper bound for searching effective_date
       sig { returns(T.nilable(Date)) }
-      def effective_date_end
-      end
+      attr_reader :effective_date_end
 
-      sig { params(_: Date).returns(Date) }
-      def effective_date_end=(_)
-      end
+      sig { params(effective_date_end: Date).void }
+      attr_writer :effective_date_end
 
       # An inclusive lower bound for searching effective_date
       sig { returns(T.nilable(Date)) }
-      def effective_date_start
-      end
+      attr_reader :effective_date_start
 
-      sig { params(_: Date).returns(Date) }
-      def effective_date_start=(_)
-      end
+      sig { params(effective_date_start: Date).void }
+      attr_writer :effective_date_start
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(String)) }
-      def originating_account_id
-      end
+      attr_reader :originating_account_id
 
-      sig { params(_: String).returns(String) }
-      def originating_account_id=(_)
-      end
+      sig { params(originating_account_id: String).void }
+      attr_writer :originating_account_id
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderListParams::Priority::OrSymbol)) }
-      def priority
-      end
+      attr_reader :priority
 
-      sig do
-        params(_: ModernTreasury::Models::PaymentOrderListParams::Priority::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentOrderListParams::Priority::OrSymbol)
-      end
-      def priority=(_)
-      end
+      sig { params(priority: ModernTreasury::Models::PaymentOrderListParams::Priority::OrSymbol).void }
+      attr_writer :priority
 
       # An inclusive upper bound for searching process_after
       sig { returns(T.nilable(Time)) }
-      def process_after_end
-      end
+      attr_reader :process_after_end
 
-      sig { params(_: Time).returns(Time) }
-      def process_after_end=(_)
-      end
+      sig { params(process_after_end: Time).void }
+      attr_writer :process_after_end
 
       # An inclusive lower bound for searching process_after
       sig { returns(T.nilable(Time)) }
-      def process_after_start
-      end
+      attr_reader :process_after_start
 
-      sig { params(_: Time).returns(Time) }
-      def process_after_start=(_)
-      end
+      sig { params(process_after_start: Time).void }
+      attr_writer :process_after_start
 
       # Query for records with the provided reference number
       sig { returns(T.nilable(String)) }
-      def reference_number
-      end
+      attr_reader :reference_number
 
-      sig { params(_: String).returns(String) }
-      def reference_number=(_)
-      end
+      sig { params(reference_number: String).void }
+      attr_writer :reference_number
 
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol).void }
+      attr_writer :status
 
       # The ID of a transaction that the payment order has been reconciled to.
       sig { returns(T.nilable(String)) }
-      def transaction_id
-      end
+      attr_reader :transaction_id
 
-      sig { params(_: String).returns(String) }
-      def transaction_id=(_)
-      end
+      sig { params(transaction_id: String).void }
+      attr_writer :transaction_id
 
       sig { returns(T.nilable(ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)) }
-      def type
-      end
+      attr_reader :type
 
-      sig do
-        params(_: ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol)
-      end
-      def type=(_)
-      end
+      sig { params(type: ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol).void }
+      attr_writer :type
 
       sig do
         params(

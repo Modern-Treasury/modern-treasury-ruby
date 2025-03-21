@@ -4,117 +4,51 @@ module ModernTreasury
   module Models
     class Document < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       sig { returns(T::Array[ModernTreasury::Models::Document::DocumentDetail]) }
-      def document_details
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::Document::DocumentDetail])
-          .returns(T::Array[ModernTreasury::Models::Document::DocumentDetail])
-      end
-      def document_details=(_)
-      end
+      attr_accessor :document_details
 
       # A category given to the document, can be `null`.
       sig { returns(T.nilable(String)) }
-      def document_type
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def document_type=(_)
-      end
+      attr_accessor :document_type
 
       # The unique identifier for the associated object.
       sig { returns(String) }
-      def documentable_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def documentable_id=(_)
-      end
+      attr_accessor :documentable_id
 
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
       sig { returns(ModernTreasury::Models::Document::DocumentableType::TaggedSymbol) }
-      def documentable_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-          .returns(ModernTreasury::Models::Document::DocumentableType::TaggedSymbol)
-      end
-      def documentable_type=(_)
-      end
+      attr_accessor :documentable_type
 
       sig { returns(ModernTreasury::Models::Document::File) }
-      def file
-      end
+      attr_reader :file
 
-      sig do
-        params(_: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Util::AnyHash))
-          .returns(T.any(ModernTreasury::Models::Document::File, ModernTreasury::Util::AnyHash))
-      end
-      def file=(_)
-      end
+      sig { params(file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Util::AnyHash)).void }
+      attr_writer :file
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The source of the document. Can be `vendor`, `customer`, or `modern_treasury`.
       sig { returns(String) }
-      def source
-      end
-
-      sig { params(_: String).returns(String) }
-      def source=(_)
-      end
+      attr_accessor :source
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(
@@ -173,70 +107,30 @@ module ModernTreasury
 
       class DocumentDetail < ModernTreasury::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(Time) }
-        def created_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        attr_accessor :created_at
 
         sig { returns(T.nilable(Time)) }
-        def discarded_at
-        end
-
-        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-        def discarded_at=(_)
-        end
+        attr_accessor :discarded_at
 
         sig { returns(String) }
-        def document_identifier
-        end
-
-        sig { params(_: String).returns(String) }
-        def document_identifier=(_)
-        end
+        attr_accessor :document_identifier
 
         sig { returns(String) }
-        def document_identifier_type
-        end
-
-        sig { params(_: String).returns(String) }
-        def document_identifier_type=(_)
-        end
+        attr_accessor :document_identifier_type
 
         # This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         sig { returns(T::Boolean) }
-        def live_mode
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        attr_accessor :live_mode
 
         sig { returns(String) }
-        def object
-        end
-
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        attr_accessor :object
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig do
           params(
@@ -319,30 +213,24 @@ module ModernTreasury
       class File < ModernTreasury::BaseModel
         # The MIME content type of the document.
         sig { returns(T.nilable(String)) }
-        def content_type
-        end
+        attr_reader :content_type
 
-        sig { params(_: String).returns(String) }
-        def content_type=(_)
-        end
+        sig { params(content_type: String).void }
+        attr_writer :content_type
 
         # The original filename of the document.
         sig { returns(T.nilable(String)) }
-        def filename
-        end
+        attr_reader :filename
 
-        sig { params(_: String).returns(String) }
-        def filename=(_)
-        end
+        sig { params(filename: String).void }
+        attr_writer :filename
 
         # The size of the document in bytes.
         sig { returns(T.nilable(Integer)) }
-        def size
-        end
+        attr_reader :size
 
-        sig { params(_: Integer).returns(Integer) }
-        def size=(_)
-        end
+        sig { params(size: Integer).void }
+        attr_writer :size
 
         sig { params(content_type: String, filename: String, size: Integer).returns(T.attached_class) }
         def self.new(content_type: nil, filename: nil, size: nil)

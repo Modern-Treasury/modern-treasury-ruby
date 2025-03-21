@@ -8,40 +8,23 @@ module ModernTreasury
 
       # Name of the ledgerable event.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # Additionally data to be used by the Ledger Event Handler.
       sig { returns(T.nilable(T.anything)) }
-      def custom_data
-      end
-
-      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
-      def custom_data=(_)
-      end
+      attr_accessor :custom_data
 
       # Description of the ledgerable event.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig do
         params(

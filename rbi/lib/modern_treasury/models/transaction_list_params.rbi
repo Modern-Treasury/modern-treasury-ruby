@@ -7,129 +7,98 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Filters transactions with an `as_of_date` starting on or before the specified
       #   date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
-      def as_of_date_end
-      end
+      attr_reader :as_of_date_end
 
-      sig { params(_: Date).returns(Date) }
-      def as_of_date_end=(_)
-      end
+      sig { params(as_of_date_end: Date).void }
+      attr_writer :as_of_date_end
 
       # Filters transactions with an `as_of_date` starting on or after the specified
       #   date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
-      def as_of_date_start
-      end
+      attr_reader :as_of_date_start
 
-      sig { params(_: Date).returns(Date) }
-      def as_of_date_start=(_)
-      end
+      sig { params(as_of_date_start: Date).void }
+      attr_writer :as_of_date_start
 
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # Filters for transactions including the queried string in the description.
       sig { returns(T.nilable(String)) }
-      def description
-      end
+      attr_reader :description
 
-      sig { params(_: String).returns(String) }
-      def description=(_)
-      end
+      sig { params(description: String).void }
+      attr_writer :description
 
       sig { returns(T.nilable(String)) }
-      def direction
-      end
+      attr_reader :direction
 
-      sig { params(_: String).returns(String) }
-      def direction=(_)
-      end
+      sig { params(direction: String).void }
+      attr_writer :direction
 
       # Specify `internal_account_id` if you wish to see transactions to/from a specific
       #   account.
       sig { returns(T.nilable(String)) }
-      def internal_account_id
-      end
+      attr_reader :internal_account_id
 
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      sig { params(internal_account_id: String).void }
+      attr_writer :internal_account_id
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(String)) }
-      def payment_type
-      end
+      attr_reader :payment_type
 
-      sig { params(_: String).returns(String) }
-      def payment_type=(_)
-      end
+      sig { params(payment_type: String).void }
+      attr_writer :payment_type
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # Either `true` or `false`.
       sig { returns(T.nilable(T::Boolean)) }
-      def posted
-      end
+      attr_reader :posted
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def posted=(_)
-      end
+      sig { params(posted: T::Boolean).void }
+      attr_writer :posted
 
       sig { returns(T.nilable(String)) }
-      def transactable_type
-      end
+      attr_reader :transactable_type
 
-      sig { params(_: String).returns(String) }
-      def transactable_type=(_)
-      end
+      sig { params(transactable_type: String).void }
+      attr_writer :transactable_type
 
       # Filters for transactions including the queried vendor id (an identifier given to
       #   transactions by the bank).
       sig { returns(T.nilable(String)) }
-      def vendor_id
-      end
+      attr_reader :vendor_id
 
-      sig { params(_: String).returns(String) }
-      def vendor_id=(_)
-      end
+      sig { params(vendor_id: String).void }
+      attr_writer :vendor_id
 
       sig { returns(T.nilable(String)) }
-      def virtual_account_id
-      end
+      attr_reader :virtual_account_id
 
-      sig { params(_: String).returns(String) }
-      def virtual_account_id=(_)
-      end
+      sig { params(virtual_account_id: String).void }
+      attr_writer :virtual_account_id
 
       sig do
         params(

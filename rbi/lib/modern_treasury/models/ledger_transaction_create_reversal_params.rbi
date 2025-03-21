@@ -9,42 +9,31 @@ module ModernTreasury
       # An optional free-form description for the reversal ledger transaction. Maximum
       #   of 1000 characters allowed.
       sig { returns(T.nilable(String)) }
-      def description
-      end
+      attr_reader :description
 
-      sig { params(_: String).returns(String) }
-      def description=(_)
-      end
+      sig { params(description: String).void }
+      attr_writer :description
 
       # The timestamp (ISO8601 format) at which the reversal ledger transaction happened
       #   for reporting purposes. It defaults to the `effective_at` of the original ledger
       #   transaction if not provided.
       sig { returns(T.nilable(Time)) }
-      def effective_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def effective_at=(_)
-      end
+      attr_accessor :effective_at
 
       # Must be unique within the ledger.
       sig { returns(T.nilable(String)) }
-      def external_id
-      end
+      attr_reader :external_id
 
-      sig { params(_: String).returns(String) }
-      def external_id=(_)
-      end
+      sig { params(external_id: String).void }
+      attr_writer :external_id
 
       # Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   object like Return or Reversal.
       sig { returns(T.nilable(String)) }
-      def ledgerable_id
-      end
+      attr_reader :ledgerable_id
 
-      sig { params(_: String).returns(String) }
-      def ledgerable_id=(_)
-      end
+      sig { params(ledgerable_id: String).void }
+      attr_writer :ledgerable_id
 
       # Specify this if you'd like to link the reversal ledger transaction to a Payment
       #   object like Return or Reversal.
@@ -53,38 +42,31 @@ module ModernTreasury
           T.nilable(ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol)
         )
       end
-      def ledgerable_type
-      end
+      attr_reader :ledgerable_type
 
       sig do
-        params(_: ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol)
-          .returns(ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol)
+        params(
+          ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateReversalParams::LedgerableType::OrSymbol
+        )
+          .void
       end
-      def ledgerable_type=(_)
-      end
+      attr_writer :ledgerable_type
 
       # Additional data to be added to the reversal ledger transaction as key-value
       #   pairs. Both the key and value must be strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # Status of the reversal ledger transaction. It defaults to `posted` if not
       #   provided.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::LedgerTransactionCreateReversalParams::Status::OrSymbol).void }
+      attr_writer :status
 
       sig do
         params(

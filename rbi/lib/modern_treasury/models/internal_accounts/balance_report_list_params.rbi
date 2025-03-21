@@ -8,21 +8,14 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(String)) }
-        def after_cursor
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def after_cursor=(_)
-        end
+        attr_accessor :after_cursor
 
         # The date of the balance report in local time.
         sig { returns(T.nilable(Date)) }
-        def as_of_date
-        end
+        attr_reader :as_of_date
 
-        sig { params(_: Date).returns(Date) }
-        def as_of_date=(_)
-        end
+        sig { params(as_of_date: Date).void }
+        attr_writer :as_of_date
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
@@ -31,23 +24,21 @@ module ModernTreasury
             T.nilable(ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol)
           )
         end
-        def balance_report_type
-        end
+        attr_reader :balance_report_type
 
         sig do
-          params(_: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol)
-            .returns(ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol)
+          params(
+            balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol
+          )
+            .void
         end
-        def balance_report_type=(_)
-        end
+        attr_writer :balance_report_type
 
         sig { returns(T.nilable(Integer)) }
-        def per_page
-        end
+        attr_reader :per_page
 
-        sig { params(_: Integer).returns(Integer) }
-        def per_page=(_)
-        end
+        sig { params(per_page: Integer).void }
+        attr_writer :per_page
 
         sig do
           params(
