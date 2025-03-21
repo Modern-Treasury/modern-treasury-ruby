@@ -59,7 +59,7 @@ module ModernTreasury
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::OrSymbol,
           payment_type: T.nilable(ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

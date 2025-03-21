@@ -115,7 +115,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

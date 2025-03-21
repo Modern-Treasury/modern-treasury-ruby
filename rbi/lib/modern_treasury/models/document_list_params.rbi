@@ -51,7 +51,7 @@ module ModernTreasury
           documentable_id: String,
           documentable_type: ModernTreasury::Models::DocumentListParams::DocumentableType::OrSymbol,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

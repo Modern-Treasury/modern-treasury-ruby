@@ -57,7 +57,7 @@ module ModernTreasury
           deposit_date_start: Date,
           lockbox_number: String,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

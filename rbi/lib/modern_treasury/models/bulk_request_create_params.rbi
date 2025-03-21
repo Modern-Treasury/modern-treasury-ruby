@@ -115,7 +115,7 @@ module ModernTreasury
           )
           ],
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -734,7 +734,10 @@ module ModernTreasury
               direction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction::OrSymbol,
               originating_account_id: String,
               type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
-              accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
+              accounting: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Accounting,
+                ModernTreasury::Util::AnyHash
+              ),
               accounting_category_id: T.nilable(String),
               accounting_ledger_class_id: T.nilable(String),
               charge_bearer: T.nilable(
@@ -749,7 +752,10 @@ module ModernTreasury
               foreign_exchange_indicator: T.nilable(
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator::OrSymbol
               ),
-              ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
+              ledger_transaction: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction,
+                ModernTreasury::Util::AnyHash
+              ),
               ledger_transaction_id: String,
               line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem],
               metadata: T::Hash[Symbol, String],
@@ -758,7 +764,10 @@ module ModernTreasury
               priority: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority::OrSymbol,
               process_after: T.nilable(Time),
               purpose: T.nilable(String),
-              receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
+              receiving_account: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount,
+                ModernTreasury::Util::AnyHash
+              ),
               receiving_account_id: String,
               remittance_information: T.nilable(String),
               send_remittance_advice: T.nilable(T::Boolean),
@@ -1866,10 +1875,16 @@ module ModernTreasury
                 contact_details: T::Array[
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
                 ],
-                ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
+                ledger_account: T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
+                  ModernTreasury::Util::AnyHash
+                ),
                 metadata: T::Hash[Symbol, String],
                 name: T.nilable(String),
-                party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
+                party_address: T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyAddress,
+                  ModernTreasury::Util::AnyHash
+                ),
                 party_identifier: String,
                 party_name: String,
                 party_type: T.nilable(
@@ -3154,7 +3169,10 @@ module ModernTreasury
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction::OrSymbol
               ),
               internal_account_id: T.nilable(String),
-              ledger_transaction: ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
+              ledger_transaction: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction,
+                ModernTreasury::Util::AnyHash
+              ),
               ledger_transaction_id: String,
               line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem],
               metadata: T::Hash[Symbol, String],
@@ -5105,7 +5123,10 @@ module ModernTreasury
           sig do
             params(
               id: String,
-              accounting: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
+              accounting: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Accounting,
+                ModernTreasury::Util::AnyHash
+              ),
               accounting_category_id: T.nilable(String),
               accounting_ledger_class_id: T.nilable(String),
               amount: Integer,
@@ -5131,7 +5152,10 @@ module ModernTreasury
               priority: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority::OrSymbol,
               process_after: T.nilable(Time),
               purpose: T.nilable(String),
-              receiving_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
+              receiving_account: T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount,
+                ModernTreasury::Util::AnyHash
+              ),
               receiving_account_id: String,
               remittance_information: T.nilable(String),
               send_remittance_advice: T.nilable(T::Boolean),
@@ -5789,10 +5813,16 @@ module ModernTreasury
                 contact_details: T::Array[
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
                 ],
-                ledger_account: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
+                ledger_account: T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
+                  ModernTreasury::Util::AnyHash
+                ),
                 metadata: T::Hash[Symbol, String],
                 name: T.nilable(String),
-                party_address: ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
+                party_address: T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyAddress,
+                  ModernTreasury::Util::AnyHash
+                ),
                 party_identifier: String,
                 party_name: String,
                 party_type: T.nilable(

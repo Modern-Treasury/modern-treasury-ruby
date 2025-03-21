@@ -231,7 +231,10 @@ module ModernTreasury
           description: T.nilable(String),
           direction: T.nilable(ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::OrSymbol),
           internal_account_id: T.nilable(String),
-          ledger_transaction: ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
+          ledger_transaction: T.any(
+            ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
+            ModernTreasury::Util::AnyHash
+          ),
           ledger_transaction_id: String,
           line_items: T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem],
           metadata: T::Hash[Symbol, String],
@@ -241,7 +244,7 @@ module ModernTreasury
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

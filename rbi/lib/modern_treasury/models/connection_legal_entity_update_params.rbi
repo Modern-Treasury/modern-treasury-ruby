@@ -21,7 +21,7 @@ module ModernTreasury
       sig do
         params(
           status: ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

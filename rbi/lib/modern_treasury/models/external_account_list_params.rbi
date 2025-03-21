@@ -57,7 +57,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           party_name: String,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

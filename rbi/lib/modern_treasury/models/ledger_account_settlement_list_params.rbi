@@ -109,7 +109,7 @@ module ModernTreasury
           settled_ledger_account_id: String,
           settlement_entry_direction: String,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

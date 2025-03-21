@@ -71,7 +71,7 @@ module ModernTreasury
           currency: ModernTreasury::Models::Currency::OrSymbol,
           fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol,
           priority: ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

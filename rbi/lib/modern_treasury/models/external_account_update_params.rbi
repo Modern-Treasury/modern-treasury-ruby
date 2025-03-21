@@ -88,10 +88,10 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+          party_address: T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

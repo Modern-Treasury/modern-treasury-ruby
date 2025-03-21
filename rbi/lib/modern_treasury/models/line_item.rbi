@@ -130,7 +130,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: ModernTreasury::Models::LineItem::Accounting,
+          accounting: T.any(ModernTreasury::Models::LineItem::Accounting, ModernTreasury::Util::AnyHash),
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,

@@ -204,7 +204,7 @@ module ModernTreasury
           statement_descriptor: T.nilable(String),
           status: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol),
           type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

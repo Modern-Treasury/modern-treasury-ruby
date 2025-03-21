@@ -13,7 +13,7 @@ module ModernTreasury
           ledger_id: String,
           metadata: T.nilable(T::Hash[Symbol, String]),
           variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)
       end
@@ -38,7 +38,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)
       end
@@ -57,7 +57,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: String,
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerEventHandler])
       end
@@ -81,7 +81,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)
       end

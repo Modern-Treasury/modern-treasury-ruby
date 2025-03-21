@@ -16,7 +16,7 @@ module ModernTreasury
           ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
           metadata: T::Hash[Symbol, String],
           routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
@@ -56,7 +56,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
@@ -75,7 +75,7 @@ module ModernTreasury
           ledger_account_id: String,
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end
@@ -99,7 +99,7 @@ module ModernTreasury
           internal_account_id: String,
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::VirtualAccount])
       end
@@ -120,7 +120,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)
       end

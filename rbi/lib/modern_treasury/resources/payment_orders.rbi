@@ -46,7 +46,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentOrder)
       end
@@ -183,7 +183,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentOrder)
       end
@@ -228,7 +228,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::PaymentOrder)
       end
@@ -380,7 +380,7 @@ module ModernTreasury
           status: ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol,
           transaction_id: String,
           type: ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::PaymentOrder])
       end
@@ -458,7 +458,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::AsyncResponse)
       end
