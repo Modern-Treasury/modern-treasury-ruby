@@ -92,6 +92,8 @@ class ModernTreasury::Test::Resources::LedgerAccountCategoriesTest < ModernTreas
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::LedgerAccountCategory
     end

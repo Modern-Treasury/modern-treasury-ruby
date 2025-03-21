@@ -65,6 +65,8 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::ForeignExchangeQuote
     end

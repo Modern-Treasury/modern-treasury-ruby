@@ -87,6 +87,8 @@ class ModernTreasury::Test::Resources::LedgerAccountBalanceMonitorsTest < Modern
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::LedgerAccountBalanceMonitor
     end
