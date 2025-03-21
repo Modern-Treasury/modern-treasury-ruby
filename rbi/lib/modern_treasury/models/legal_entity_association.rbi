@@ -118,7 +118,7 @@ module ModernTreasury
           object: String,
           ownership_percentage: T.nilable(Integer),
           parent_legal_entity_id: String,
-          relationship_types: T::Array[ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol],
+          relationship_types: T::Array[ModernTreasury::Models::LegalEntityAssociation::RelationshipType::OrSymbol],
           title: T.nilable(String),
           updated_at: Time
         )
@@ -463,7 +463,12 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            addresses: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address],
+            addresses: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
@@ -474,19 +479,29 @@ module ModernTreasury
             doing_business_as_names: T::Array[String],
             email: T.nilable(String),
             first_name: T.nilable(String),
-            identifications: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification],
+            identifications: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             last_name: T.nilable(String),
-            legal_entity_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol,
-            legal_structure: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol),
+            legal_entity_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol,
+            legal_structure: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
             middle_name: T.nilable(String),
             object: String,
-            phone_numbers: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber],
+            phone_numbers: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             politically_exposed_person: T.nilable(T::Boolean),
             preferred_name: T.nilable(String),
             prefix: T.nilable(String),
-            risk_rating: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol),
+            risk_rating: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol),
             suffix: T.nilable(String),
             updated_at: Time,
             wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
@@ -692,7 +707,7 @@ module ModernTreasury
           sig do
             params(
               id: String,
-              address_types: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol],
+              address_types: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol],
               country: T.nilable(String),
               created_at: Time,
               discarded_at: T.nilable(Time),
@@ -885,7 +900,7 @@ module ModernTreasury
               id: String,
               created_at: Time,
               discarded_at: T.nilable(Time),
-              id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol,
+              id_type: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol,
               issuing_country: T.nilable(String),
               live_mode: T::Boolean,
               object: String,

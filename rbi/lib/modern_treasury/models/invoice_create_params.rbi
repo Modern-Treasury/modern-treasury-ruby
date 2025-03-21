@@ -50,8 +50,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail])
-          .returns(T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail])
+        params(
+          _: T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)]
+          )
       end
       def contact_details=(_)
       end
@@ -317,7 +321,7 @@ module ModernTreasury
           due_date: Time,
           originating_account_id: String,
           auto_advance: T.nilable(T::Boolean),
-          contact_details: T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
+          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)],
           counterparty_billing_address: T.nilable(
             T.any(
               ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress,
@@ -334,7 +338,9 @@ module ModernTreasury
           description: String,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
-          invoice_line_items: T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]),
+          invoice_line_items: T.nilable(
+            T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem, ModernTreasury::Util::AnyHash)]
+          ),
           invoicer_address: T.nilable(
             T.any(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, ModernTreasury::Util::AnyHash)
           ),

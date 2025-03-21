@@ -123,14 +123,14 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          action_type: ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol,
+          action_type: ModernTreasury::Models::BulkRequest::ActionType::OrSymbol,
           created_at: Time,
           failed_result_count: Integer,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
-          resource_type: ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol,
-          status: ModernTreasury::Models::BulkRequest::Status::TaggedSymbol,
+          resource_type: ModernTreasury::Models::BulkRequest::ResourceType::OrSymbol,
+          status: ModernTreasury::Models::BulkRequest::Status::OrSymbol,
           success_result_count: Integer,
           total_resource_count: Integer,
           updated_at: Time

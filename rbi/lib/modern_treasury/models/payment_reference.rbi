@@ -96,9 +96,9 @@ module ModernTreasury
           live_mode: T::Boolean,
           object: String,
           reference_number: String,
-          reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol,
+          reference_number_type: ModernTreasury::Models::PaymentReference::ReferenceNumberType::OrSymbol,
           referenceable_id: String,
-          referenceable_type: ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol,
+          referenceable_type: ModernTreasury::Models::PaymentReference::ReferenceableType::OrSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)

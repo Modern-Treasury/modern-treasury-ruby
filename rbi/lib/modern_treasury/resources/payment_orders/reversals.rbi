@@ -9,7 +9,10 @@ module ModernTreasury
           params(
             payment_order_id: String,
             reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
-            ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+            ledger_transaction: T.any(
+              ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
+              ModernTreasury::Util::AnyHash
+            ),
             metadata: T::Hash[Symbol, String],
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )

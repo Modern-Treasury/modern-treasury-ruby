@@ -7,11 +7,11 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
-          accounts: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
+          accounting: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Util::AnyHash),
+          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Util::AnyHash)],
           email: T.nilable(String),
           ledger_type: ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol,
-          legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
+          legal_entity: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Util::AnyHash),
           legal_entity_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,

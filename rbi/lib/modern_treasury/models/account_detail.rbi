@@ -88,7 +88,7 @@ module ModernTreasury
         params(
           id: String,
           account_number_safe: String,
-          account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol,
+          account_number_type: ModernTreasury::Models::AccountDetail::AccountNumberType::OrSymbol,
           created_at: Time,
           discarded_at: T.nilable(Time),
           live_mode: T::Boolean,

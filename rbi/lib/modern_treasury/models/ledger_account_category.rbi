@@ -129,7 +129,7 @@ module ModernTreasury
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           name: String,
-          normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
+          normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
           object: String,
           updated_at: Time
         )

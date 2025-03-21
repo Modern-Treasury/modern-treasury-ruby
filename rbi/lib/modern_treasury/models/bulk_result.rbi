@@ -160,19 +160,20 @@ module ModernTreasury
           created_at: Time,
           entity: T.any(
             ModernTreasury::Models::PaymentOrder,
+            ModernTreasury::Util::AnyHash,
             ModernTreasury::Models::ExpectedPayment,
             ModernTreasury::Models::LedgerTransaction,
             ModernTreasury::Models::Transaction,
             ModernTreasury::Models::BulkResult::Entity::BulkError
           ),
           entity_id: String,
-          entity_type: ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol,
+          entity_type: ModernTreasury::Models::BulkResult::EntityType::OrSymbol,
           live_mode: T::Boolean,
           object: String,
           request_id: String,
           request_params: T.nilable(T::Hash[Symbol, String]),
-          request_type: ModernTreasury::Models::BulkResult::RequestType::TaggedSymbol,
-          status: ModernTreasury::Models::BulkResult::Status::TaggedSymbol,
+          request_type: ModernTreasury::Models::BulkResult::RequestType::OrSymbol,
+          status: ModernTreasury::Models::BulkResult::Status::OrSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -300,7 +301,7 @@ module ModernTreasury
               created_at: Time,
               live_mode: T::Boolean,
               object: String,
-              request_errors: T::Array[ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError],
+              request_errors: T::Array[T.any(ModernTreasury::Models::BulkResult::Entity::BulkError::RequestError, ModernTreasury::Util::AnyHash)],
               updated_at: Time
             )
               .returns(T.attached_class)

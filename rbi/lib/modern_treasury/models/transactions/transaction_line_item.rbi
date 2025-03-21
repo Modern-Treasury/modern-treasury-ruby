@@ -171,9 +171,9 @@ module ModernTreasury
             object: String,
             reconcilable: T::Boolean,
             transactable_id: T.nilable(String),
-            transactable_type: T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol),
+            transactable_type: T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::OrSymbol),
             transaction_id: String,
-            type: ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol,
+            type: ModernTreasury::Models::Transactions::TransactionLineItem::Type::OrSymbol,
             updated_at: Time
           )
             .returns(T.attached_class)

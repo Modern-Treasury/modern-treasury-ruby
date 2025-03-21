@@ -177,7 +177,7 @@ module ModernTreasury
           amount: Integer,
           check_number: T.nilable(String),
           created_at: Time,
-          currency: ModernTreasury::Models::Currency::TaggedSymbol,
+          currency: ModernTreasury::Models::Currency::OrSymbol,
           deposit_date: Date,
           live_mode: T::Boolean,
           lockbox_number: String,
@@ -185,7 +185,7 @@ module ModernTreasury
           object: String,
           remitter_name: T.nilable(String),
           routing_number: T.nilable(String),
-          status: ModernTreasury::Models::PaperItem::Status::TaggedSymbol,
+          status: ModernTreasury::Models::PaperItem::Status::OrSymbol,
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
           updated_at: Time
