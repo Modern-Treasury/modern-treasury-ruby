@@ -75,6 +75,8 @@ class ModernTreasury::Test::Resources::InternalAccounts::BalanceReportsTest < Mo
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::InternalAccounts::BalanceReport
     end

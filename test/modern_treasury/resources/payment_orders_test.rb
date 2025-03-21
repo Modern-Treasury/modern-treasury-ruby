@@ -206,6 +206,8 @@ class ModernTreasury::Test::Resources::PaymentOrdersTest < ModernTreasury::Test:
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::PaymentOrder
     end

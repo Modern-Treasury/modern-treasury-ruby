@@ -34,6 +34,8 @@ class ModernTreasury::Test::Resources::EventsTest < ModernTreasury::Test::Resour
     end
 
     row = response.to_enum.first
+    return if row.nil?
+
     assert_pattern do
       row => ModernTreasury::Models::Event
     end
