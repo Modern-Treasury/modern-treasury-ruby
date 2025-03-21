@@ -77,7 +77,7 @@ module ModernTreasury
           per_page: Integer,
           resource_type: ModernTreasury::Models::BulkRequestListParams::ResourceType::OrSymbol,
           status: ModernTreasury::Models::BulkRequestListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

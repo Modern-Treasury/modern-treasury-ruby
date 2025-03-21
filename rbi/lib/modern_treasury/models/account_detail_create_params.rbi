@@ -44,7 +44,7 @@ module ModernTreasury
           accounts_type: ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol,
           account_number: String,
           account_number_type: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

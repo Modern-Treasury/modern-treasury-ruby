@@ -29,8 +29,8 @@ module ModernTreasury
 
       sig do
         params(
-          balances: ModernTreasury::Models::LedgerAccountRetrieveParams::Balances,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          balances: T.any(ModernTreasury::Models::LedgerAccountRetrieveParams::Balances, ModernTreasury::Util::AnyHash),
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

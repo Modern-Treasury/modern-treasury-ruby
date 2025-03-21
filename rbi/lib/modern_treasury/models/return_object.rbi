@@ -245,7 +245,7 @@ module ModernTreasury
           code: T.nilable(ModernTreasury::Models::ReturnObject::Code::TaggedSymbol),
           created_at: Time,
           currency: ModernTreasury::Models::Currency::TaggedSymbol,
-          current_return: T.nilable(ModernTreasury::Models::ReturnObject),
+          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)),
           date_of_death: T.nilable(Date),
           failure_reason: T.nilable(String),
           internal_account_id: T.nilable(String),

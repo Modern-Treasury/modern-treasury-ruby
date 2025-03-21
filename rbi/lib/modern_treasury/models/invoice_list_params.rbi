@@ -116,7 +116,7 @@ module ModernTreasury
           payment_order_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

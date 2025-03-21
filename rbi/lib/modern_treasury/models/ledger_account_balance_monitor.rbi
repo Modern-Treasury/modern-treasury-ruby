@@ -123,9 +123,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition,
+          alert_condition: T.any(ModernTreasury::Models::LedgerAccountBalanceMonitor::AlertCondition, ModernTreasury::Util::AnyHash),
           created_at: Time,
-          current_ledger_account_balance_state: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+          current_ledger_account_balance_state: T.any(
+            ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState,
+            ModernTreasury::Util::AnyHash
+          ),
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
           ledger_account_id: String,
@@ -260,7 +263,10 @@ module ModernTreasury
         #   account lock version.
         sig do
           params(
-            balances: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
+            balances: T.any(
+              ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances,
+              ModernTreasury::Util::AnyHash
+            ),
             ledger_account_lock_version: Integer,
             triggered: T::Boolean
           )
@@ -366,9 +372,18 @@ module ModernTreasury
 
           sig do
             params(
-              available_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
-              pending_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
-              posted_balance: ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance
+              available_balance: T.any(
+                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::AvailableBalance,
+                ModernTreasury::Util::AnyHash
+              ),
+              pending_balance: T.any(
+                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PendingBalance,
+                ModernTreasury::Util::AnyHash
+              ),
+              posted_balance: T.any(
+                ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances::PostedBalance,
+                ModernTreasury::Util::AnyHash
+              )
             )
               .returns(T.attached_class)
           end

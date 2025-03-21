@@ -95,7 +95,7 @@ module ModernTreasury
             quantity: Integer,
             unit_amount: Integer,
             unit_amount_decimal: String,
-            request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

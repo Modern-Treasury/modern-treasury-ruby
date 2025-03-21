@@ -30,7 +30,7 @@ module ModernTreasury
           suffix: T.nilable(String),
           wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
           website: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -88,7 +88,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -125,7 +125,7 @@ module ModernTreasury
           suffix: T.nilable(String),
           wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
           website: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LegalEntity)
       end
@@ -185,7 +185,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           show_deleted: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::LegalEntity])
       end

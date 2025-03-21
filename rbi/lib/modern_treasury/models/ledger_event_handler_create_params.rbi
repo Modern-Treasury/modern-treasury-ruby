@@ -96,14 +96,19 @@ module ModernTreasury
 
       sig do
         params(
-          ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+          ledger_transaction_template: T.any(
+            ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+            ModernTreasury::Util::AnyHash
+          ),
           name: String,
-          conditions: T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions),
+          conditions: T.nilable(
+            T.any(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, ModernTreasury::Util::AnyHash)
+          ),
           description: T.nilable(String),
           ledger_id: String,
           metadata: T.nilable(T::Hash[Symbol, String]),
           variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]),
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

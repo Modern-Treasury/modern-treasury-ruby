@@ -25,7 +25,10 @@ module ModernTreasury
       end
 
       sig do
-        params(query: ModernTreasury::Models::LedgerEventHandlerVariable::Query, type: String)
+        params(
+          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Util::AnyHash),
+          type: String
+        )
           .returns(T.attached_class)
       end
       def self.new(query:, type:)

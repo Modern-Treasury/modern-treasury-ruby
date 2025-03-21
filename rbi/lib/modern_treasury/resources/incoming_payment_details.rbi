@@ -7,7 +7,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
@@ -23,7 +23,7 @@ module ModernTreasury
         params(
           id: String,
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::IncomingPaymentDetail)
       end
@@ -49,7 +49,7 @@ module ModernTreasury
           status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol,
           type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol,
           virtual_account_id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::IncomingPaymentDetail])
       end
@@ -92,7 +92,7 @@ module ModernTreasury
           internal_account_id: String,
           type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::AsyncResponse)
       end

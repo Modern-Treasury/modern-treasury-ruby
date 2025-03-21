@@ -88,7 +88,7 @@ module ModernTreasury
           request_id: String,
           request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
           status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

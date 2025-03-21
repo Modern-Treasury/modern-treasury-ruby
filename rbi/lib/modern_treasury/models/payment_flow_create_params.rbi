@@ -76,7 +76,7 @@ module ModernTreasury
           direction: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           due_date: Date,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

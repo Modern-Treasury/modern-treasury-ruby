@@ -26,7 +26,7 @@ module ModernTreasury
           page: T.nilable(T::Class[ModernTreasury::BasePage[ModernTreasury::BaseModel]]),
           stream: T.nilable(T::Class[T.anything]),
           model: T.nilable(ModernTreasury::Converter::Input),
-          options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         }
       end
 
@@ -130,7 +130,7 @@ module ModernTreasury
     # @api private
     sig do
       overridable
-        .params(req: ModernTreasury::BaseClient::RequestComponentsShape, opts: T::Hash[Symbol, T.anything])
+        .params(req: ModernTreasury::BaseClient::RequestComponentsShape, opts: ModernTreasury::Util::AnyHash)
         .returns(ModernTreasury::BaseClient::RequestInputShape)
     end
     private def build_request(req, opts)
@@ -176,7 +176,7 @@ module ModernTreasury
         page: T.nilable(T::Class[ModernTreasury::BasePage[ModernTreasury::BaseModel]]),
         stream: T.nilable(T::Class[T.anything]),
         model: T.nilable(ModernTreasury::Converter::Input),
-        options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+        options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
       )
         .returns(T.anything)
     end

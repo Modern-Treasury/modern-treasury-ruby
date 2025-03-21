@@ -12,7 +12,7 @@ module ModernTreasury
           base_currency: ModernTreasury::Models::Currency::OrSymbol,
           effective_at: Time,
           target_amount: Integer,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::ForeignExchangeQuote)
       end
@@ -39,7 +39,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::ForeignExchangeQuote)
       end
@@ -62,7 +62,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           target_currency: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::ForeignExchangeQuote])
       end

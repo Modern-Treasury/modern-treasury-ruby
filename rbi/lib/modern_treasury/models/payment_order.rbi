@@ -551,7 +551,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounting: ModernTreasury::Models::PaymentOrder::Accounting,
+          accounting: T.any(ModernTreasury::Models::PaymentOrder::Accounting, ModernTreasury::Util::AnyHash),
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           amount: Integer,
@@ -560,7 +560,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: ModernTreasury::Models::Currency::TaggedSymbol,
-          current_return: T.nilable(ModernTreasury::Models::ReturnObject),
+          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)),
           decision_id: T.nilable(String),
           description: T.nilable(String),
           direction: ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol,
@@ -568,7 +568,7 @@ module ModernTreasury
           expires_at: T.nilable(Time),
           foreign_exchange_contract: T.nilable(String),
           foreign_exchange_indicator: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol),
-          foreign_exchange_rate: T.nilable(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate),
+          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::PaymentOrder::ForeignExchangeRate, ModernTreasury::Util::AnyHash)),
           ledger_transaction_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],

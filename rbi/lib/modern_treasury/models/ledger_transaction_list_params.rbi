@@ -205,14 +205,14 @@ module ModernTreasury
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
+          order_by: T.any(ModernTreasury::Models::LedgerTransactionListParams::OrderBy, ModernTreasury::Util::AnyHash),
           partially_posts_ledger_transaction_id: String,
           per_page: Integer,
           posted_at: T::Hash[Symbol, Time],
           reverses_ledger_transaction_id: String,
           status: ModernTreasury::Models::LedgerTransactionListParams::Status::OrSymbol,
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

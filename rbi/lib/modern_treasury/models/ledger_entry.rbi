@@ -190,7 +190,9 @@ module ModernTreasury
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
-          resulting_ledger_account_balances: T.nilable(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances),
+          resulting_ledger_account_balances: T.nilable(
+            T.any(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, ModernTreasury::Util::AnyHash)
+          ),
           status: ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol,
           updated_at: Time
         )
@@ -321,9 +323,18 @@ module ModernTreasury
         #   details.
         sig do
           params(
-            available_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
-            pending_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
-            posted_balance: ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance
+            available_balance: T.any(
+              ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
+              ModernTreasury::Util::AnyHash
+            ),
+            pending_balance: T.any(
+              ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
+              ModernTreasury::Util::AnyHash
+            ),
+            posted_balance: T.any(
+              ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance,
+              ModernTreasury::Util::AnyHash
+            )
           )
             .returns(T.attached_class)
         end

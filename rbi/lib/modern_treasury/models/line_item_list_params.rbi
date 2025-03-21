@@ -38,7 +38,7 @@ module ModernTreasury
           itemizable_type: ModernTreasury::Models::LineItemListParams::ItemizableType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

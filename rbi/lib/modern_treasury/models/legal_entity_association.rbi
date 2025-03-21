@@ -111,7 +111,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          child_legal_entity: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity,
+          child_legal_entity: T.any(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity, ModernTreasury::Util::AnyHash),
           created_at: Time,
           discarded_at: T.nilable(Time),
           live_mode: T::Boolean,
@@ -464,7 +464,7 @@ module ModernTreasury
           params(
             id: String,
             addresses: T::Array[ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address],
-            bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
+            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
             created_at: Time,
@@ -489,7 +489,7 @@ module ModernTreasury
             risk_rating: T.nilable(ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol),
             suffix: T.nilable(String),
             updated_at: Time,
-            wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
+            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
             website: T.nilable(String)
           )
             .returns(T.attached_class)

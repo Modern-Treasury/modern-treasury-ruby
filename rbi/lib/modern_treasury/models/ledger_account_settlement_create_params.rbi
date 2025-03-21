@@ -100,7 +100,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
           status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

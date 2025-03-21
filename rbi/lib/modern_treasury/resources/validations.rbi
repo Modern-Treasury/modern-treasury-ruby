@@ -9,7 +9,7 @@ module ModernTreasury
         params(
           routing_number: String,
           routing_number_type: ModernTreasury::Models::ValidationValidateRoutingNumberParams::RoutingNumberType::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::RoutingNumberLookupRequest)
       end

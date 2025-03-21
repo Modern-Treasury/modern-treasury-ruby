@@ -11,7 +11,7 @@ module ModernTreasury
             reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
             ledger_transaction: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
             metadata: T::Hash[Symbol, String],
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Models::PaymentOrders::Reversal)
         end
@@ -38,7 +38,7 @@ module ModernTreasury
           params(
             reversal_id: String,
             payment_order_id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Models::PaymentOrders::Reversal)
         end
@@ -57,7 +57,7 @@ module ModernTreasury
             payment_order_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Page[ModernTreasury::Models::PaymentOrders::Reversal])
         end
