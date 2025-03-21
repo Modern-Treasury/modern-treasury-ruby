@@ -72,7 +72,7 @@ module ModernTreasury
             ledger_transaction_id: String,
             per_page: Integer,
             version: T::Hash[Symbol, Integer],
-            request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

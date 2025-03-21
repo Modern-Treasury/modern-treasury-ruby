@@ -19,7 +19,7 @@ module ModernTreasury
       sig do
         params(
           show_balances: T::Boolean,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

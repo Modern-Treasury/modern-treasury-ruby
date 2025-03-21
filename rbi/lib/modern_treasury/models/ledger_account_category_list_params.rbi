@@ -108,7 +108,7 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
-          balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
+          balances: T.any(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, ModernTreasury::Util::AnyHash),
           currency: String,
           ledger_account_id: String,
           ledger_id: String,
@@ -116,7 +116,7 @@ module ModernTreasury
           name: String,
           parent_ledger_account_category_id: String,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
