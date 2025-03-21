@@ -154,7 +154,9 @@ module ModernTreasury
           name: String,
           object: String,
           updated_at: Time,
-          variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])
+          variables: T.nilable(
+            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Util::AnyHash)]
+          )
         )
           .returns(T.attached_class)
       end
@@ -280,7 +282,12 @@ module ModernTreasury
           params(
             description: T.nilable(String),
             effective_at: T.nilable(String),
-            ledger_entries: T::Array[ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry],
+            ledger_entries: T::Array[
+            T.any(
+              ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             status: T.nilable(String)
           )
             .returns(T.attached_class)

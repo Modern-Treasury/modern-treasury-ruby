@@ -46,8 +46,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol)
-          .returns(ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol)
+        params(_: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::OrSymbol)
+          .returns(ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::OrSymbol)
       end
       def routing_number_type=(_)
       end
@@ -76,10 +76,8 @@ module ModernTreasury
       end
 
       sig do
-        params(
-          _: T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol]
-        )
-          .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol])
+        params(_: T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::OrSymbol])
+          .returns(T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::OrSymbol])
       end
       def supported_payment_types=(_)
       end
@@ -89,9 +87,9 @@ module ModernTreasury
           bank_address: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash),
           bank_name: String,
           routing_number: String,
-          routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol,
+          routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::OrSymbol,
           sanctions: T::Hash[Symbol, T.anything],
-          supported_payment_types: T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::TaggedSymbol]
+          supported_payment_types: T::Array[ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType::OrSymbol]
         )
           .returns(T.attached_class)
       end

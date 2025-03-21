@@ -58,7 +58,7 @@ module ModernTreasury
           ledger_account_statement_id: String,
           ledger_transaction_id: String,
           metadata: T::Hash[Symbol, String],
-          order_by: ModernTreasury::Models::LedgerEntryListParams::OrderBy,
+          order_by: T.any(ModernTreasury::Models::LedgerEntryListParams::OrderBy, ModernTreasury::Util::AnyHash),
           per_page: Integer,
           show_balances: T::Boolean,
           show_deleted: T::Boolean,

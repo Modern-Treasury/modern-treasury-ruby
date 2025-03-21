@@ -10,7 +10,7 @@ module ModernTreasury
       # Create a ledger transaction.
       sig do
         params(
-          ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
+          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry, ModernTreasury::Util::AnyHash)],
           description: T.nilable(String),
           effective_at: Time,
           effective_date: Date,
@@ -75,7 +75,7 @@ module ModernTreasury
           id: String,
           description: T.nilable(String),
           effective_at: Time,
-          ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry],
+          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)],
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
@@ -126,7 +126,7 @@ module ModernTreasury
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          order_by: ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
+          order_by: T.any(ModernTreasury::Models::LedgerTransactionListParams::OrderBy, ModernTreasury::Util::AnyHash),
           partially_posts_ledger_transaction_id: String,
           per_page: Integer,
           posted_at: T::Hash[Symbol, Time],
@@ -185,7 +185,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          posted_ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
+          posted_ledger_entries: T::Array[
+          T.any(
+            ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
+            ModernTreasury::Util::AnyHash
+          )
+          ],
           description: String,
           effective_at: Time,
           metadata: T::Hash[Symbol, String],

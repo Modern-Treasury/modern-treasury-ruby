@@ -106,7 +106,7 @@ module ModernTreasury
 
       sig do
         params(
-          ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry],
+          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry, ModernTreasury::Util::AnyHash)],
           description: T.nilable(String),
           effective_at: Time,
           effective_date: Date,

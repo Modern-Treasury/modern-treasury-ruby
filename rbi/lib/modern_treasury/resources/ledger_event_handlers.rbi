@@ -6,13 +6,20 @@ module ModernTreasury
       # create ledger_event_handler
       sig do
         params(
-          ledger_transaction_template: ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+          ledger_transaction_template: T.any(
+            ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
+            ModernTreasury::Util::AnyHash
+          ),
           name: String,
-          conditions: T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions),
+          conditions: T.nilable(
+            T.any(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, ModernTreasury::Util::AnyHash)
+          ),
           description: T.nilable(String),
           ledger_id: String,
           metadata: T.nilable(T::Hash[Symbol, String]),
-          variables: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]),
+          variables: T.nilable(
+            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Util::AnyHash)]
+          ),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerEventHandler)

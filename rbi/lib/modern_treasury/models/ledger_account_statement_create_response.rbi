@@ -189,7 +189,7 @@ module ModernTreasury
           ),
           ledger_account_id: String,
           ledger_account_lock_version: Integer,
-          ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
+          ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
           ledger_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],

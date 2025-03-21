@@ -6,7 +6,10 @@ module ModernTreasury
       # Create a ledger account balance monitor.
       sig do
         params(
-          alert_condition: ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+          alert_condition: T.any(
+            ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams::AlertCondition,
+            ModernTreasury::Util::AnyHash
+          ),
           ledger_account_id: String,
           description: String,
           metadata: T::Hash[Symbol, String],

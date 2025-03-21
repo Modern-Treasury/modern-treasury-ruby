@@ -180,7 +180,7 @@ module ModernTreasury
           id: String,
           amount: Integer,
           created_at: Time,
-          direction: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
+          direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           discarded_at: T.nilable(Time),
           ledger_account_currency: String,
           ledger_account_currency_exponent: Integer,
@@ -193,7 +193,7 @@ module ModernTreasury
           resulting_ledger_account_balances: T.nilable(
             T.any(ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances, ModernTreasury::Util::AnyHash)
           ),
-          status: ModernTreasury::Models::LedgerEntry::Status::TaggedSymbol,
+          status: ModernTreasury::Models::LedgerEntry::Status::OrSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)

@@ -11,7 +11,12 @@ module ModernTreasury
             as_of_date: Date,
             as_of_time: String,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
-            balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
+            balances: T::Array[
+            T.any(
+              ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Models::InternalAccounts::BalanceReport)

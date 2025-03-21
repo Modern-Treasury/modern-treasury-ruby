@@ -60,8 +60,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)))
-          .returns(T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)))
+        params(_: T.nilable(ModernTreasury::Models::ReturnObject))
+          .returns(T.nilable(ModernTreasury::Models::ReturnObject))
       end
       def current_return=(_)
       end
@@ -242,10 +242,10 @@ module ModernTreasury
         params(
           id: String,
           amount: Integer,
-          code: T.nilable(ModernTreasury::Models::ReturnObject::Code::TaggedSymbol),
+          code: T.nilable(ModernTreasury::Models::ReturnObject::Code::OrSymbol),
           created_at: Time,
-          currency: ModernTreasury::Models::Currency::TaggedSymbol,
-          current_return: T.nilable(T.any(ModernTreasury::Models::ReturnObject, ModernTreasury::Util::AnyHash)),
+          currency: ModernTreasury::Models::Currency::OrSymbol,
+          current_return: T.nilable(ModernTreasury::Models::ReturnObject),
           date_of_death: T.nilable(Date),
           failure_reason: T.nilable(String),
           internal_account_id: T.nilable(String),
@@ -253,14 +253,14 @@ module ModernTreasury
           live_mode: T::Boolean,
           object: String,
           reason: T.nilable(String),
-          reference_numbers: T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber],
+          reference_numbers: T::Array[T.any(ModernTreasury::Models::ReturnObject::ReferenceNumber, ModernTreasury::Util::AnyHash)],
           returnable_id: T.nilable(String),
-          returnable_type: T.nilable(ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol),
-          role: ModernTreasury::Models::ReturnObject::Role::TaggedSymbol,
-          status: ModernTreasury::Models::ReturnObject::Status::TaggedSymbol,
+          returnable_type: T.nilable(ModernTreasury::Models::ReturnObject::ReturnableType::OrSymbol),
+          role: ModernTreasury::Models::ReturnObject::Role::OrSymbol,
+          status: ModernTreasury::Models::ReturnObject::Status::OrSymbol,
           transaction_id: T.nilable(String),
           transaction_line_item_id: T.nilable(String),
-          type: ModernTreasury::Models::ReturnObject::Type::TaggedSymbol,
+          type: ModernTreasury::Models::ReturnObject::Type::OrSymbol,
           updated_at: Time,
           additional_information: T.nilable(String)
         )
@@ -465,7 +465,7 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             reference_number: String,
-            reference_number_type: ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol,
+            reference_number_type: ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::OrSymbol,
             updated_at: Time
           )
             .returns(T.attached_class)

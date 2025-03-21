@@ -115,8 +115,8 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             object: String,
             payment_order_id: T.nilable(String),
-            reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol,
-            status: ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol,
+            reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason::OrSymbol,
+            status: ModernTreasury::Models::PaymentOrders::Reversal::Status::OrSymbol,
             transaction_ids: T::Array[T.nilable(T.anything)],
             updated_at: Time
           )

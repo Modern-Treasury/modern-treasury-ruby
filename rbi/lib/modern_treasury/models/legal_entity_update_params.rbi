@@ -12,8 +12,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address])
-          .returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address])
+        params(
+          _: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Address, ModernTreasury::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Address, ModernTreasury::Util::AnyHash)]
+          )
       end
       def addresses=(_)
       end
@@ -97,8 +101,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification])
-          .returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification])
+        params(
+          _: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Identification, ModernTreasury::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Identification, ModernTreasury::Util::AnyHash)]
+          )
       end
       def identifications=(_)
       end
@@ -148,8 +156,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber])
-          .returns(T::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber])
+        params(
+          _: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber, ModernTreasury::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber, ModernTreasury::Util::AnyHash)]
+          )
       end
       def phone_numbers=(_)
       end
@@ -228,7 +240,7 @@ module ModernTreasury
 
       sig do
         params(
-          addresses: T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address],
+          addresses: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Address, ModernTreasury::Util::AnyHash)],
           bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
@@ -237,12 +249,12 @@ module ModernTreasury
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           first_name: T.nilable(String),
-          identifications: T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Identification],
+          identifications: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::Identification, ModernTreasury::Util::AnyHash)],
           last_name: T.nilable(String),
           legal_structure: T.nilable(ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::OrSymbol),
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
-          phone_numbers: T::Array[ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber],
+          phone_numbers: T::Array[T.any(ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber, ModernTreasury::Util::AnyHash)],
           politically_exposed_person: T.nilable(T::Boolean),
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),

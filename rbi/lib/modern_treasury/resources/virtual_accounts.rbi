@@ -8,14 +8,14 @@ module ModernTreasury
         params(
           internal_account_id: String,
           name: String,
-          account_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail],
+          account_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)],
           counterparty_id: String,
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
-          ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+          ledger_account: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash),
           metadata: T::Hash[Symbol, String],
-          routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
+          routing_details: T::Array[T.any(ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::VirtualAccount)

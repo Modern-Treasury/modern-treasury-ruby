@@ -160,12 +160,12 @@ module ModernTreasury
           discarded_at: T.nilable(Time),
           ledger_id: String,
           ledgerable_id: T.nilable(String),
-          ledgerable_type: T.nilable(ModernTreasury::Models::LedgerAccount::LedgerableType::TaggedSymbol),
+          ledgerable_type: T.nilable(ModernTreasury::Models::LedgerAccount::LedgerableType::OrSymbol),
           live_mode: T::Boolean,
           lock_version: Integer,
           metadata: T::Hash[Symbol, String],
           name: String,
-          normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
+          normal_balance: ModernTreasury::Models::TransactionDirection::OrSymbol,
           object: String,
           updated_at: Time
         )
