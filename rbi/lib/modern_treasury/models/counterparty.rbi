@@ -127,7 +127,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounts: T::Array[ModernTreasury::Models::Counterparty::Account],
+          accounts: T::Array[T.any(ModernTreasury::Models::Counterparty::Account, ModernTreasury::Util::AnyHash)],
           created_at: Time,
           discarded_at: T.nilable(Time),
           email: T.nilable(String),
@@ -138,7 +138,7 @@ module ModernTreasury
           object: String,
           send_remittance_advice: T::Boolean,
           updated_at: Time,
-          verification_status: ModernTreasury::Models::Counterparty::VerificationStatus::TaggedSymbol
+          verification_status: ModernTreasury::Models::Counterparty::VerificationStatus::OrSymbol
         )
           .returns(T.attached_class)
       end
@@ -196,8 +196,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::AccountDetail])
-            .returns(T::Array[ModernTreasury::Models::AccountDetail])
+          params(_: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)])
+            .returns(T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)])
         end
         def account_details=(_)
         end
@@ -208,8 +208,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::ExternalAccountType::TaggedSymbol)
-            .returns(ModernTreasury::Models::ExternalAccountType::TaggedSymbol)
+          params(_: ModernTreasury::Models::ExternalAccountType::OrSymbol)
+            .returns(ModernTreasury::Models::ExternalAccountType::OrSymbol)
         end
         def account_type=(_)
         end
@@ -219,8 +219,12 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail])
-            .returns(T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail])
+          params(
+            _: T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Util::AnyHash)]
+          )
+            .returns(
+              T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Util::AnyHash)]
+            )
         end
         def contact_details=(_)
         end
@@ -335,8 +339,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::RoutingDetail])
-            .returns(T::Array[ModernTreasury::Models::RoutingDetail])
+          params(_: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)])
+            .returns(T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)])
         end
         def routing_details=(_)
         end
@@ -365,8 +369,8 @@ module ModernTreasury
         end
 
         sig do
-          params(_: ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol)
-            .returns(ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol)
+          params(_: ModernTreasury::Models::Counterparty::Account::VerificationStatus::OrSymbol)
+            .returns(ModernTreasury::Models::Counterparty::Account::VerificationStatus::OrSymbol)
         end
         def verification_status=(_)
         end
@@ -374,9 +378,9 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            account_details: T::Array[ModernTreasury::Models::AccountDetail],
-            account_type: ModernTreasury::Models::ExternalAccountType::TaggedSymbol,
-            contact_details: T::Array[ModernTreasury::Models::Counterparty::Account::ContactDetail],
+            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)],
+            account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
+            contact_details: T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Util::AnyHash)],
             created_at: Time,
             discarded_at: T.nilable(Time),
             ledger_account_id: T.nilable(String),
@@ -388,11 +392,11 @@ module ModernTreasury
               T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Util::AnyHash)
             ),
             party_name: String,
-            party_type: T.nilable(ModernTreasury::Models::Counterparty::Account::PartyType::TaggedSymbol),
-            routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
+            party_type: T.nilable(ModernTreasury::Models::Counterparty::Account::PartyType::OrSymbol),
+            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)],
             updated_at: Time,
-            verification_source: T.nilable(ModernTreasury::Models::Counterparty::Account::VerificationSource::TaggedSymbol),
-            verification_status: ModernTreasury::Models::Counterparty::Account::VerificationStatus::TaggedSymbol
+            verification_source: T.nilable(ModernTreasury::Models::Counterparty::Account::VerificationSource::OrSymbol),
+            verification_status: ModernTreasury::Models::Counterparty::Account::VerificationStatus::OrSymbol
           )
             .returns(T.attached_class)
         end
@@ -522,7 +526,7 @@ module ModernTreasury
             params(
               id: String,
               contact_identifier: String,
-              contact_identifier_type: ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::TaggedSymbol,
+              contact_identifier_type: ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType::OrSymbol,
               created_at: Time,
               discarded_at: T.nilable(Time),
               live_mode: T::Boolean,

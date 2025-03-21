@@ -11,6 +11,7 @@ module ModernTreasury
           resources: T::Array[
           T.any(
             ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
+            ModernTreasury::Util::AnyHash,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,

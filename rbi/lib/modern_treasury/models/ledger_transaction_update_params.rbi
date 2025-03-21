@@ -31,8 +31,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry])
-          .returns(T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry])
+        params(
+          _: T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)]
+          )
       end
       def ledger_entries=(_)
       end
@@ -88,7 +92,7 @@ module ModernTreasury
         params(
           description: T.nilable(String),
           effective_at: Time,
-          ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry],
+          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry, ModernTreasury::Util::AnyHash)],
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],

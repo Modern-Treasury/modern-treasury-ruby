@@ -152,11 +152,11 @@ module ModernTreasury
             live_mode: T::Boolean,
             object: String,
             originating_account_id: String,
-            payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol,
+            payment_type: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::OrSymbol,
             priority: T.nilable(
-              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
+              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::OrSymbol
             ),
-            status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol,
+            status: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::OrSymbol,
             updated_at: Time
           )
             .returns(T.attached_class)

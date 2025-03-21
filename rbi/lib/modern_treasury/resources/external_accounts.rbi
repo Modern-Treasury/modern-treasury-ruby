@@ -7,18 +7,18 @@ module ModernTreasury
       sig do
         params(
           counterparty_id: T.nilable(String),
-          account_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
+          account_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail, ModernTreasury::Util::AnyHash)],
           account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-          contact_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
-          ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)],
+          ledger_account: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+          party_address: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash),
           party_identifier: String,
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol),
           plaid_processor_token: String,
-          routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
+          routing_details: T::Array[T.any(ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail, ModernTreasury::Util::AnyHash)],
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::ExternalAccount)
@@ -79,7 +79,7 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress,
+          party_address: T.any(ModernTreasury::Models::ExternalAccountUpdateParams::PartyAddress, ModernTreasury::Util::AnyHash),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountUpdateParams::PartyType::OrSymbol),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))

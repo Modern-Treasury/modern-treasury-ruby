@@ -65,8 +65,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
+        params(_: ModernTreasury::Models::PaymentFlow::Direction::OrSymbol)
+          .returns(ModernTreasury::Models::PaymentFlow::Direction::OrSymbol)
       end
       def direction=(_)
       end
@@ -113,8 +113,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
+        params(_: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::OrSymbol)
+          .returns(ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::OrSymbol)
       end
       def external_account_collection=(_)
       end
@@ -182,8 +182,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
+        params(_: ModernTreasury::Models::PaymentFlow::Status::OrSymbol)
+          .returns(ModernTreasury::Models::PaymentFlow::Status::OrSymbol)
       end
       def status=(_)
       end
@@ -204,18 +204,18 @@ module ModernTreasury
           counterparty_id: T.nilable(String),
           created_at: Time,
           currency: String,
-          direction: ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol,
+          direction: ModernTreasury::Models::PaymentFlow::Direction::OrSymbol,
           due_date: T.nilable(Date),
           effective_date_selection_enabled: T::Boolean,
-          existing_external_accounts_filter: T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol),
-          external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol,
+          existing_external_accounts_filter: T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::OrSymbol),
+          external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::OrSymbol,
           live_mode: T::Boolean,
           object: String,
           originating_account_id: T.nilable(String),
           payment_order_id: T.nilable(String),
           receiving_account_id: T.nilable(String),
           selected_effective_date: T.nilable(Date),
-          status: ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol,
+          status: ModernTreasury::Models::PaymentFlow::Status::OrSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)

@@ -222,13 +222,16 @@ module ModernTreasury
             effective_at: Time,
             effective_date: Date,
             external_id: T.nilable(String),
-            ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry],
+            ledger_entries: T::Array[
+            T.any(
+              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             ledger_id: String,
             ledger_transaction_id: String,
             ledgerable_id: T.nilable(String),
-            ledgerable_type: T.nilable(
-              ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
-            ),
+            ledgerable_type: T.nilable(ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::OrSymbol),
             live_mode: T::Boolean,
             metadata: T::Hash[Symbol, String],
             object: String,
@@ -236,7 +239,7 @@ module ModernTreasury
             posted_at: T.nilable(Time),
             reversed_by_ledger_transaction_id: T.nilable(String),
             reverses_ledger_transaction_id: T.nilable(String),
-            status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol,
+            status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::OrSymbol,
             version: Integer
           )
             .returns(T.attached_class)
@@ -479,7 +482,7 @@ module ModernTreasury
               id: String,
               amount: Integer,
               created_at: Time,
-              direction: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
+              direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
               ledger_account_currency: String,
               ledger_account_currency_exponent: Integer,
               ledger_account_id: String,
@@ -494,7 +497,7 @@ module ModernTreasury
                   ModernTreasury::Util::AnyHash
                 )
               ),
-              status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
+              status: ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::OrSymbol
             )
               .returns(T.attached_class)
           end

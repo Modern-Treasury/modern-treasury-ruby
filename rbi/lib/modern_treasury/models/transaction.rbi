@@ -267,7 +267,7 @@ module ModernTreasury
           as_of_time: T.nilable(Time),
           as_of_timezone: T.nilable(String),
           created_at: Time,
-          currency: ModernTreasury::Models::Currency::TaggedSymbol,
+          currency: ModernTreasury::Models::Currency::OrSymbol,
           custom_identifiers: T::Hash[Symbol, String],
           direction: String,
           discarded_at: T.nilable(Time),
@@ -278,10 +278,10 @@ module ModernTreasury
           object: String,
           posted: T::Boolean,
           reconciled: T::Boolean,
-          type: ModernTreasury::Models::Transaction::Type::TaggedSymbol,
+          type: ModernTreasury::Models::Transaction::Type::OrSymbol,
           updated_at: Time,
           vendor_code: T.nilable(String),
-          vendor_code_type: T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol),
+          vendor_code_type: T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::OrSymbol),
           vendor_customer_id: T.nilable(String),
           vendor_id: T.nilable(String),
           details: T::Hash[Symbol, String],
@@ -431,11 +431,11 @@ module ModernTreasury
         sig do
           params(
             base_amount: Integer,
-            base_currency: ModernTreasury::Models::Currency::TaggedSymbol,
+            base_currency: ModernTreasury::Models::Currency::OrSymbol,
             exponent: Integer,
             rate_string: String,
             target_amount: Integer,
-            target_currency: ModernTreasury::Models::Currency::TaggedSymbol,
+            target_currency: ModernTreasury::Models::Currency::OrSymbol,
             value: Integer
           )
             .returns(T.attached_class)

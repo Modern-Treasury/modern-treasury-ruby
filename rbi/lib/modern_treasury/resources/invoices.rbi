@@ -14,15 +14,29 @@ module ModernTreasury
           due_date: Time,
           originating_account_id: String,
           auto_advance: T.nilable(T::Boolean),
-          contact_details: T::Array[ModernTreasury::Models::InvoiceCreateParams::ContactDetail],
-          counterparty_billing_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress),
-          counterparty_shipping_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress),
+          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::ContactDetail, ModernTreasury::Util::AnyHash)],
+          counterparty_billing_address: T.nilable(
+            T.any(
+              ModernTreasury::Models::InvoiceCreateParams::CounterpartyBillingAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          ),
+          counterparty_shipping_address: T.nilable(
+            T.any(
+              ModernTreasury::Models::InvoiceCreateParams::CounterpartyShippingAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          ),
           currency: ModernTreasury::Models::Currency::OrSymbol,
           description: String,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
-          invoice_line_items: T.nilable(T::Array[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem]),
-          invoicer_address: T.nilable(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress),
+          invoice_line_items: T.nilable(
+            T::Array[T.any(ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem, ModernTreasury::Util::AnyHash)]
+          ),
+          invoicer_address: T.nilable(
+            T.any(ModernTreasury::Models::InvoiceCreateParams::InvoicerAddress, ModernTreasury::Util::AnyHash)
+          ),
           ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),
@@ -136,17 +150,31 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          contact_details: T::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail],
-          counterparty_billing_address: T.nilable(ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress),
+          contact_details: T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::ContactDetail, ModernTreasury::Util::AnyHash)],
+          counterparty_billing_address: T.nilable(
+            T.any(
+              ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          ),
           counterparty_id: String,
-          counterparty_shipping_address: T.nilable(ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress),
+          counterparty_shipping_address: T.nilable(
+            T.any(
+              ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          ),
           currency: ModernTreasury::Models::Currency::OrSymbol,
           description: String,
           due_date: Time,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
-          invoice_line_items: T.nilable(T::Array[ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem]),
-          invoicer_address: T.nilable(ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress),
+          invoice_line_items: T.nilable(
+            T::Array[T.any(ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem, ModernTreasury::Util::AnyHash)]
+          ),
+          invoicer_address: T.nilable(
+            T.any(ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, ModernTreasury::Util::AnyHash)
+          ),
           ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),

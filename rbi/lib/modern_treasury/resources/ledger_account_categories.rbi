@@ -45,7 +45,10 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          balances: ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+          balances: T.any(
+            ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
+            ModernTreasury::Util::AnyHash
+          ),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerAccountCategory)
@@ -91,7 +94,7 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
-          balances: ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
+          balances: T.any(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, ModernTreasury::Util::AnyHash),
           currency: String,
           ledger_account_id: String,
           ledger_id: String,

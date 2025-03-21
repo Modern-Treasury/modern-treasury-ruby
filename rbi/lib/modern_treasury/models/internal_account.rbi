@@ -201,12 +201,12 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          account_details: T::Array[ModernTreasury::Models::AccountDetail],
-          account_type: T.nilable(ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol),
+          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)],
+          account_type: T.nilable(ModernTreasury::Models::InternalAccount::AccountType::OrSymbol),
           connection: T.any(ModernTreasury::Models::Connection, ModernTreasury::Util::AnyHash),
           counterparty_id: T.nilable(String),
           created_at: Time,
-          currency: ModernTreasury::Models::Currency::TaggedSymbol,
+          currency: ModernTreasury::Models::Currency::OrSymbol,
           ledger_account_id: T.nilable(String),
           legal_entity_id: T.nilable(String),
           live_mode: T::Boolean,
@@ -216,8 +216,8 @@ module ModernTreasury
           parent_account_id: T.nilable(String),
           party_address: T.nilable(T.any(ModernTreasury::Models::InternalAccount::PartyAddress, ModernTreasury::Util::AnyHash)),
           party_name: String,
-          party_type: T.nilable(ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol),
-          routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
+          party_type: T.nilable(ModernTreasury::Models::InternalAccount::PartyType::OrSymbol),
+          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)],
           updated_at: Time
         )
           .returns(T.attached_class)

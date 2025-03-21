@@ -86,8 +86,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol])
-          .returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol])
+        params(_: T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::OrSymbol])
+          .returns(T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::OrSymbol])
       end
       def receiving_countries=(_)
       end
@@ -99,8 +99,8 @@ module ModernTreasury
       end
 
       sig do
-        params(_: ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
+        params(_: ModernTreasury::Models::AccountCollectionFlow::Status::OrSymbol)
+          .returns(ModernTreasury::Models::AccountCollectionFlow::Status::OrSymbol)
       end
       def status=(_)
       end
@@ -116,15 +116,15 @@ module ModernTreasury
       sig do
         params(
           counterparty_id: String,
-          payment_types: T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol],
+          payment_types: T::Array[ModernTreasury::Models::AccountCollectionFlow::PaymentType::OrSymbol],
           id: String,
           client_token: String,
           created_at: Time,
           external_account_id: T.nilable(String),
           live_mode: T::Boolean,
           object: String,
-          receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol],
-          status: ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol,
+          receiving_countries: T::Array[ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::OrSymbol],
+          status: ModernTreasury::Models::AccountCollectionFlow::Status::OrSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)

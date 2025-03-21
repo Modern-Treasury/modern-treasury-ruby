@@ -101,7 +101,7 @@ module ModernTreasury
           legal_entity_id: String,
           live_mode: T::Boolean,
           object: String,
-          status: ModernTreasury::Models::ConnectionLegalEntity::Status::TaggedSymbol,
+          status: ModernTreasury::Models::ConnectionLegalEntity::Status::OrSymbol,
           updated_at: Time,
           vendor_id: String
         )

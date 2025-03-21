@@ -251,11 +251,11 @@ module ModernTreasury
         sig do
           params(
             base_amount: Integer,
-            base_currency: ModernTreasury::Models::Currency::TaggedSymbol,
+            base_currency: ModernTreasury::Models::Currency::OrSymbol,
             exponent: Integer,
             rate_string: String,
             target_amount: Integer,
-            target_currency: ModernTreasury::Models::Currency::TaggedSymbol,
+            target_currency: ModernTreasury::Models::Currency::OrSymbol,
             value: Integer
           )
             .returns(T.attached_class)

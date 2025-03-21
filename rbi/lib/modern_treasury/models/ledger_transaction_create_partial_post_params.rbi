@@ -52,7 +52,12 @@ module ModernTreasury
 
       sig do
         params(
-          posted_ledger_entries: T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry],
+          posted_ledger_entries: T::Array[
+          T.any(
+            ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
+            ModernTreasury::Util::AnyHash
+          )
+          ],
           description: String,
           effective_at: Time,
           metadata: T::Hash[Symbol, String],

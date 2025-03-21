@@ -164,8 +164,22 @@ module ModernTreasury
         end
 
         sig do
-          params(_: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address])
-            .returns(T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address])
+          params(
+            _: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address,
+              ModernTreasury::Util::AnyHash
+            )
+            ]
+          )
+            .returns(
+              T::Array[
+              T.any(
+                ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
+            )
         end
         def addresses=(_)
         end
@@ -256,10 +270,20 @@ module ModernTreasury
 
         sig do
           params(
-            _: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
+            _: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification,
+              ModernTreasury::Util::AnyHash
+            )
+            ]
           )
             .returns(
-              T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification]
+              T::Array[
+              T.any(
+                ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
             )
         end
         def identifications=(_)
@@ -353,10 +377,20 @@ module ModernTreasury
 
         sig do
           params(
-            _: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
+            _: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber,
+              ModernTreasury::Util::AnyHash
+            )
+            ]
           )
             .returns(
-              T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber]
+              T::Array[
+              T.any(
+                ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
             )
         end
         def phone_numbers=(_)
@@ -451,7 +485,12 @@ module ModernTreasury
         # The child legal entity.
         sig do
           params(
-            addresses: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address],
+            addresses: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
@@ -460,7 +499,12 @@ module ModernTreasury
             doing_business_as_names: T::Array[String],
             email: T.nilable(String),
             first_name: T.nilable(String),
-            identifications: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification],
+            identifications: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             last_name: T.nilable(String),
             legal_entity_type: ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalEntityType::OrSymbol,
             legal_structure: T.nilable(
@@ -468,7 +512,12 @@ module ModernTreasury
             ),
             metadata: T::Hash[Symbol, String],
             middle_name: T.nilable(String),
-            phone_numbers: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber],
+            phone_numbers: T::Array[
+            T.any(
+              ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::PhoneNumber,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             politically_exposed_person: T.nilable(T::Boolean),
             preferred_name: T.nilable(String),
             prefix: T.nilable(String),
