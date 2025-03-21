@@ -8,22 +8,18 @@ module ModernTreasury
 
       # An optional, free-form description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
+      attr_reader :description
 
-      sig { params(_: String).returns(String) }
-      def description=(_)
-      end
+      sig { params(description: String).void }
+      attr_writer :description
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig do
         params(

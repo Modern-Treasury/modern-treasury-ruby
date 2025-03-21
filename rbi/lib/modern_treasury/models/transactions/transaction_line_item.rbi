@@ -5,39 +5,19 @@ module ModernTreasury
     module Transactions
       class TransactionLineItem < ModernTreasury::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         # If a matching object exists in Modern Treasury, `amount` will be populated.
         #   Value in specified currency's smallest unit (taken from parent Transaction).
         sig { returns(Integer) }
-        def amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def amount=(_)
-        end
+        attr_accessor :amount
 
         # The ID for the counterparty for this transaction line item.
         sig { returns(T.nilable(String)) }
-        def counterparty_id
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def counterparty_id=(_)
-        end
+        attr_accessor :counterparty_id
 
         sig { returns(Time) }
-        def created_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        attr_accessor :created_at
 
         # If no matching object is found, `description` will be a free-form text field
         #   describing the line item. This field may contain personally identifiable
@@ -45,67 +25,32 @@ module ModernTreasury
         #   about changing your settings at
         #   https://docs.moderntreasury.com/reference/personally-identifiable-information.
         sig { returns(String) }
-        def description
-        end
-
-        sig { params(_: String).returns(String) }
-        def description=(_)
-        end
+        attr_accessor :description
 
         sig { returns(T.nilable(Time)) }
-        def discarded_at
-        end
-
-        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-        def discarded_at=(_)
-        end
+        attr_accessor :discarded_at
 
         # The ID of the reconciled Expected Payment, otherwise `null`.
         sig { returns(T.nilable(String)) }
-        def expected_payment_id
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def expected_payment_id=(_)
-        end
+        attr_accessor :expected_payment_id
 
         # This field will be true if this object exists in the live environment, or false
         #   if it exists in the test environment.
         sig { returns(T::Boolean) }
-        def live_mode
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        attr_accessor :live_mode
 
         sig { returns(String) }
-        def object
-        end
-
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        attr_accessor :object
 
         # Describes whether this line item should be counted towards the corresponding
         #   transaction’s reconciliation.
         sig { returns(T::Boolean) }
-        def reconcilable
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def reconcilable=(_)
-        end
+        attr_accessor :reconcilable
 
         # If a matching object exists in Modern Treasury, the ID will be populated here,
         #   otherwise `null`.
         sig { returns(T.nilable(String)) }
-        def transactable_id
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def transactable_id=(_)
-        end
+        attr_accessor :transactable_id
 
         # If a matching object exists in Modern Treasury, the type will be populated here,
         #   otherwise `null`.
@@ -114,49 +59,19 @@ module ModernTreasury
             T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
           )
         end
-        def transactable_type
-        end
-
-        sig do
-          params(
-            _: T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
-          )
-            .returns(
-              T.nilable(ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol)
-            )
-        end
-        def transactable_type=(_)
-        end
+        attr_accessor :transactable_type
 
         # The ID of the parent transaction.
         sig { returns(String) }
-        def transaction_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def transaction_id=(_)
-        end
+        attr_accessor :transaction_id
 
         # Indicates whether the line item is `originating` or `receiving` (see
         #   https://www.moderntreasury.com/journal/beginners-guide-to-ach for more).
         sig { returns(ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
-        def type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
-            .returns(ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)
-        end
-        def type=(_)
-        end
+        attr_accessor :type
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig do
           params(

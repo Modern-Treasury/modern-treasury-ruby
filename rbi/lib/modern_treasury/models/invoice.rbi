@@ -4,397 +4,192 @@ module ModernTreasury
   module Models
     class Invoice < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Amount paid on the invoice in specified currency's smallest unit, e.g., $10 USD
       #   would be represented as 1000.
       sig { returns(Integer) }
-      def amount_paid
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount_paid=(_)
-      end
+      attr_accessor :amount_paid
 
       # Amount remaining due on the invoice in specified currency's smallest unit, e.g.,
       #   $10 USD would be represented as 1000.
       sig { returns(Integer) }
-      def amount_remaining
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount_remaining=(_)
-      end
+      attr_accessor :amount_remaining
 
       # The invoicer's contact details displayed at the top of the invoice.
       sig { returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail]) }
-      def contact_details
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::Invoice::ContactDetail])
-          .returns(T::Array[ModernTreasury::Models::Invoice::ContactDetail])
-      end
-      def contact_details=(_)
-      end
+      attr_accessor :contact_details
 
       # The counterparty's billing address.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress)) }
-      def counterparty_billing_address
-      end
+      attr_reader :counterparty_billing_address
 
       sig do
         params(
-          _: T.nilable(
+          counterparty_billing_address: T.nilable(
             T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Util::AnyHash)
           )
         )
-          .returns(
-            T.nilable(
-              T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Util::AnyHash)
-            )
-          )
+          .void
       end
-      def counterparty_billing_address=(_)
-      end
+      attr_writer :counterparty_billing_address
 
       # The ID of the counterparty receiving the invoice.
       sig { returns(String) }
-      def counterparty_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       # The counterparty's shipping address where physical goods should be delivered.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress)) }
-      def counterparty_shipping_address
-      end
+      attr_reader :counterparty_shipping_address
 
       sig do
         params(
-          _: T.nilable(
+          counterparty_shipping_address: T.nilable(
             T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Util::AnyHash)
           )
         )
-          .returns(
-            T.nilable(
-              T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Util::AnyHash)
-            )
-          )
+          .void
       end
-      def counterparty_shipping_address=(_)
-      end
+      attr_writer :counterparty_shipping_address
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # Currency that the invoice is denominated in. Defaults to `USD` if not provided.
       sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-      def currency
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # A free-form description of the invoice.
       sig { returns(String) }
-      def description
-      end
-
-      sig { params(_: String).returns(String) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # A future date by when the invoice needs to be paid.
       sig { returns(Time) }
-      def due_date
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def due_date=(_)
-      end
+      attr_accessor :due_date
 
       # The expected payments created for an unpaid invoice.
       sig { returns(T::Array[ModernTreasury::Models::ExpectedPayment]) }
-      def expected_payments
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::ExpectedPayment])
-          .returns(T::Array[ModernTreasury::Models::ExpectedPayment])
-      end
-      def expected_payments=(_)
-      end
+      attr_accessor :expected_payments
 
       # When payment_method is automatic, the fallback payment method to use when an
       #   automatic payment fails. One of `manual` or `ui`.
       sig { returns(T.nilable(String)) }
-      def fallback_payment_method
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def fallback_payment_method=(_)
-      end
+      attr_accessor :fallback_payment_method
 
       # The URL of the hosted web UI where the invoice can be viewed.
       sig { returns(String) }
-      def hosted_url
-      end
-
-      sig { params(_: String).returns(String) }
-      def hosted_url=(_)
-      end
+      attr_accessor :hosted_url
 
       # The invoice issuer's business address.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress)) }
-      def invoicer_address
-      end
+      attr_reader :invoicer_address
 
       sig do
         params(
-          _: T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Util::AnyHash))
+          invoicer_address: T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Util::AnyHash))
         )
-          .returns(T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Util::AnyHash)))
+          .void
       end
-      def invoicer_address=(_)
-      end
+      attr_writer :invoicer_address
 
       # The ledger account settlement object linked to the invoice.
       sig { returns(T.nilable(String)) }
-      def ledger_account_settlement_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ledger_account_settlement_id=(_)
-      end
+      attr_accessor :ledger_account_settlement_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
-
-      sig { params(_: T.nilable(T::Hash[Symbol, String])).returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       # Emails in addition to the counterparty email to send invoice status
       #   notifications to. At least one email is required if notifications are enabled
       #   and the counterparty doesn't have an email.
       sig { returns(T.nilable(T::Array[String])) }
-      def notification_email_addresses
-      end
-
-      sig { params(_: T.nilable(T::Array[String])).returns(T.nilable(T::Array[String])) }
-      def notification_email_addresses=(_)
-      end
+      attr_accessor :notification_email_addresses
 
       # If true, the invoice will send email notifications to the invoice recipients
       #   about invoice status changes.
       sig { returns(T::Boolean) }
-      def notifications_enabled
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def notifications_enabled=(_)
-      end
+      attr_accessor :notifications_enabled
 
       # A unique record number assigned to each invoice that is issued.
       sig { returns(String) }
-      def number
-      end
-
-      sig { params(_: String).returns(String) }
-      def number=(_)
-      end
+      attr_accessor :number
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The ID of the internal account the invoice should be paid to.
       sig { returns(String) }
-      def originating_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def originating_account_id=(_)
-      end
+      attr_accessor :originating_account_id
 
       # Date transactions are to be posted to the participants' account. Defaults to the
       #   current business day or the next business day if the current day is a bank
       #   holiday or weekend. Format: yyyy-mm-dd.
       sig { returns(T.nilable(Date)) }
-      def payment_effective_date
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def payment_effective_date=(_)
-      end
+      attr_accessor :payment_effective_date
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol)) }
-      def payment_method
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::Invoice::PaymentMethod::TaggedSymbol))
-      end
-      def payment_method=(_)
-      end
+      attr_accessor :payment_method
 
       # The payment orders created for paying the invoice through the invoice payment
       #   UI.
       sig { returns(T::Array[ModernTreasury::Models::PaymentOrder]) }
-      def payment_orders
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::PaymentOrder])
-          .returns(T::Array[ModernTreasury::Models::PaymentOrder])
-      end
-      def payment_orders=(_)
-      end
+      attr_accessor :payment_orders
 
       # One of `ach` or `eft`.
       sig { returns(T.nilable(ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol)) }
-      def payment_type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::Invoice::PaymentType::TaggedSymbol))
-      end
-      def payment_type=(_)
-      end
+      attr_accessor :payment_type
 
       # The URL where the invoice PDF can be downloaded.
       sig { returns(T.nilable(String)) }
-      def pdf_url
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def pdf_url=(_)
-      end
+      attr_accessor :pdf_url
 
       # The receiving account ID. Can be an `internal_account`.
       sig { returns(T.nilable(String)) }
-      def receiving_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def receiving_account_id=(_)
-      end
+      attr_accessor :receiving_account_id
 
       # The email of the recipient of the invoice. Leaving this value as null will
       #   fallback to using the counterparty's name.
       sig { returns(T.nilable(String)) }
-      def recipient_email
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def recipient_email=(_)
-      end
+      attr_accessor :recipient_email
 
       # The name of the recipient of the invoice. Leaving this value as null will
       #   fallback to using the counterparty's name.
       sig { returns(T.nilable(String)) }
-      def recipient_name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def recipient_name=(_)
-      end
+      attr_accessor :recipient_name
 
       # Number of days after due date when overdue reminder emails will be sent out to
       #   invoice recipients.
       sig { returns(T.nilable(T::Array[Integer])) }
-      def remind_after_overdue_days
-      end
-
-      sig { params(_: T.nilable(T::Array[Integer])).returns(T.nilable(T::Array[Integer])) }
-      def remind_after_overdue_days=(_)
-      end
+      attr_accessor :remind_after_overdue_days
 
       # The status of the invoice.
       sig { returns(ModernTreasury::Models::Invoice::Status::TaggedSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Invoice::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::Invoice::Status::TaggedSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       # Total amount due in specified currency's smallest unit, e.g., $10 USD would be
       #   represented as 1000.
       sig { returns(Integer) }
-      def total_amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def total_amount=(_)
-      end
+      attr_accessor :total_amount
 
       # IDs of transaction line items associated with an invoice.
       sig { returns(T::Array[String]) }
-      def transaction_line_item_ids
-      end
-
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def transaction_line_item_ids=(_)
-      end
+      attr_accessor :transaction_line_item_ids
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # The ID of the virtual account the invoice should be paid to.
       sig { returns(T.nilable(String)) }
-      def virtual_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def virtual_account_id=(_)
-      end
+      attr_accessor :virtual_account_id
 
       sig do
         params(
@@ -532,73 +327,30 @@ module ModernTreasury
 
       class ContactDetail < ModernTreasury::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(String) }
-        def contact_identifier
-        end
-
-        sig { params(_: String).returns(String) }
-        def contact_identifier=(_)
-        end
+        attr_accessor :contact_identifier
 
         sig { returns(ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol) }
-        def contact_identifier_type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
-            .returns(ModernTreasury::Models::Invoice::ContactDetail::ContactIdentifierType::TaggedSymbol)
-        end
-        def contact_identifier_type=(_)
-        end
+        attr_accessor :contact_identifier_type
 
         sig { returns(Time) }
-        def created_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        attr_accessor :created_at
 
         sig { returns(T.nilable(Time)) }
-        def discarded_at
-        end
-
-        sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-        def discarded_at=(_)
-        end
+        attr_accessor :discarded_at
 
         # This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         sig { returns(T::Boolean) }
-        def live_mode
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        attr_accessor :live_mode
 
         sig { returns(String) }
-        def object
-        end
-
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        attr_accessor :object
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig do
           params(
@@ -672,55 +424,28 @@ module ModernTreasury
       class CounterpartyBillingAddress < ModernTreasury::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
-        def country
-        end
-
-        sig { params(_: String).returns(String) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         sig { returns(String) }
-        def line1
-        end
-
-        sig { params(_: String).returns(String) }
-        def line1=(_)
-        end
+        attr_accessor :line1
 
         # Locality or City.
         sig { returns(String) }
-        def locality
-        end
-
-        sig { params(_: String).returns(String) }
-        def locality=(_)
-        end
+        attr_accessor :locality
 
         # The postal code of the address.
         sig { returns(String) }
-        def postal_code
-        end
-
-        sig { params(_: String).returns(String) }
-        def postal_code=(_)
-        end
+        attr_accessor :postal_code
 
         # Region or State.
         sig { returns(String) }
-        def region
-        end
-
-        sig { params(_: String).returns(String) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         sig { returns(T.nilable(String)) }
-        def line2
-        end
+        attr_reader :line2
 
-        sig { params(_: String).returns(String) }
-        def line2=(_)
-        end
+        sig { params(line2: String).void }
+        attr_writer :line2
 
         # The counterparty's billing address.
         sig do
@@ -757,55 +482,28 @@ module ModernTreasury
       class CounterpartyShippingAddress < ModernTreasury::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
-        def country
-        end
-
-        sig { params(_: String).returns(String) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         sig { returns(String) }
-        def line1
-        end
-
-        sig { params(_: String).returns(String) }
-        def line1=(_)
-        end
+        attr_accessor :line1
 
         # Locality or City.
         sig { returns(String) }
-        def locality
-        end
-
-        sig { params(_: String).returns(String) }
-        def locality=(_)
-        end
+        attr_accessor :locality
 
         # The postal code of the address.
         sig { returns(String) }
-        def postal_code
-        end
-
-        sig { params(_: String).returns(String) }
-        def postal_code=(_)
-        end
+        attr_accessor :postal_code
 
         # Region or State.
         sig { returns(String) }
-        def region
-        end
-
-        sig { params(_: String).returns(String) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         sig { returns(T.nilable(String)) }
-        def line2
-        end
+        attr_reader :line2
 
-        sig { params(_: String).returns(String) }
-        def line2=(_)
-        end
+        sig { params(line2: String).void }
+        attr_writer :line2
 
         # The counterparty's shipping address where physical goods should be delivered.
         sig do
@@ -842,55 +540,28 @@ module ModernTreasury
       class InvoicerAddress < ModernTreasury::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(String) }
-        def country
-        end
-
-        sig { params(_: String).returns(String) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         sig { returns(String) }
-        def line1
-        end
-
-        sig { params(_: String).returns(String) }
-        def line1=(_)
-        end
+        attr_accessor :line1
 
         # Locality or City.
         sig { returns(String) }
-        def locality
-        end
-
-        sig { params(_: String).returns(String) }
-        def locality=(_)
-        end
+        attr_accessor :locality
 
         # The postal code of the address.
         sig { returns(String) }
-        def postal_code
-        end
-
-        sig { params(_: String).returns(String) }
-        def postal_code=(_)
-        end
+        attr_accessor :postal_code
 
         # Region or State.
         sig { returns(String) }
-        def region
-        end
-
-        sig { params(_: String).returns(String) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         sig { returns(T.nilable(String)) }
-        def line2
-        end
+        attr_reader :line2
 
-        sig { params(_: String).returns(String) }
-        def line2=(_)
-        end
+        sig { params(line2: String).void }
+        attr_writer :line2
 
         # The invoice issuer's business address.
         sig do

@@ -4,8 +4,7 @@ module ModernTreasury
   module Resources
     class LedgerAccountSettlements
       sig { returns(ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries) }
-      def account_entries
-      end
+      attr_reader :account_entries
 
       # Create a ledger account settlement.
       sig do

@@ -9,43 +9,29 @@ module ModernTreasury
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
-      def id
-      end
+      attr_reader :id
 
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def id=(_)
-      end
+      sig { params(id: T::Array[String]).void }
+      attr_writer :id
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount)) }
-      def available_balance_amount
-      end
+      attr_reader :available_balance_amount
 
       sig do
         params(
-          _: T.any(
+          available_balance_amount: T.any(
             ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
             ModernTreasury::Util::AnyHash
           )
         )
-          .returns(
-            T.any(
-              ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-              ModernTreasury::Util::AnyHash
-            )
-          )
+          .void
       end
-      def available_balance_amount=(_)
-      end
+      attr_writer :available_balance_amount
 
       # Use `balances[effective_at_lower_bound]` and
       #   `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -53,130 +39,103 @@ module ModernTreasury
       #   the provided timestamps. If no value is supplied the balances will be retrieved
       #   not including that bound.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::Balances)) }
-      def balances
-      end
+      attr_reader :balances
 
       sig do
-        params(_: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Util::AnyHash))
-          .returns(T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Util::AnyHash))
+        params(
+          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Util::AnyHash)
+        )
+          .void
       end
-      def balances=(_)
-      end
+      attr_writer :balances
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   created at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      def created_at
-      end
+      attr_reader :created_at
 
-      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
-      def created_at=(_)
-      end
+      sig { params(created_at: T::Hash[Symbol, Time]).void }
+      attr_writer :created_at
 
       sig { returns(T.nilable(String)) }
-      def currency
-      end
+      attr_reader :currency
 
-      sig { params(_: String).returns(String) }
-      def currency=(_)
-      end
+      sig { params(currency: String).void }
+      attr_writer :currency
 
       sig { returns(T.nilable(String)) }
-      def ledger_account_category_id
-      end
+      attr_reader :ledger_account_category_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_account_category_id=(_)
-      end
+      sig { params(ledger_account_category_id: String).void }
+      attr_writer :ledger_account_category_id
 
       sig { returns(T.nilable(String)) }
-      def ledger_id
-      end
+      attr_reader :ledger_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_id=(_)
-      end
+      sig { params(ledger_id: String).void }
+      attr_writer :ledger_id
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # If you have specific names to retrieve in bulk, you can pass them as query
       #   parameters delimited with `name[]=`, for example `?name[]=123&name[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
-      def name
-      end
+      attr_reader :name
 
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def name=(_)
-      end
+      sig { params(name: T::Array[String]).void }
+      attr_writer :name
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount)) }
-      def pending_balance_amount
-      end
+      attr_reader :pending_balance_amount
 
       sig do
         params(
-          _: T.any(
+          pending_balance_amount: T.any(
             ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
             ModernTreasury::Util::AnyHash
           )
         )
-          .returns(
-            T.any(
-              ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-              ModernTreasury::Util::AnyHash
-            )
-          )
+          .void
       end
-      def pending_balance_amount=(_)
-      end
+      attr_writer :pending_balance_amount
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
       #   filter by balance amount.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount)) }
-      def posted_balance_amount
-      end
+      attr_reader :posted_balance_amount
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, ModernTreasury::Util::AnyHash)
+          posted_balance_amount: T.any(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def posted_balance_amount=(_)
-      end
+      attr_writer :posted_balance_amount
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   updated at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      def updated_at
-      end
+      attr_reader :updated_at
 
-      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
-      def updated_at=(_)
-      end
+      sig { params(updated_at: T::Hash[Symbol, Time]).void }
+      attr_writer :updated_at
 
       sig do
         params(
@@ -250,52 +209,40 @@ module ModernTreasury
 
       class AvailableBalanceAmount < ModernTreasury::BaseModel
         sig { returns(T.nilable(Integer)) }
-        def eq
-        end
+        attr_reader :eq
 
-        sig { params(_: Integer).returns(Integer) }
-        def eq=(_)
-        end
+        sig { params(eq: Integer).void }
+        attr_writer :eq
 
         sig { returns(T.nilable(Integer)) }
-        def gt
-        end
+        attr_reader :gt
 
-        sig { params(_: Integer).returns(Integer) }
-        def gt=(_)
-        end
+        sig { params(gt: Integer).void }
+        attr_writer :gt
 
         sig { returns(T.nilable(Integer)) }
-        def gte
-        end
+        attr_reader :gte
 
-        sig { params(_: Integer).returns(Integer) }
-        def gte=(_)
-        end
+        sig { params(gte: Integer).void }
+        attr_writer :gte
 
         sig { returns(T.nilable(Integer)) }
-        def lt
-        end
+        attr_reader :lt
 
-        sig { params(_: Integer).returns(Integer) }
-        def lt=(_)
-        end
+        sig { params(lt: Integer).void }
+        attr_writer :lt
 
         sig { returns(T.nilable(Integer)) }
-        def lte
-        end
+        attr_reader :lte
 
-        sig { params(_: Integer).returns(Integer) }
-        def lte=(_)
-        end
+        sig { params(lte: Integer).void }
+        attr_writer :lte
 
         sig { returns(T.nilable(Integer)) }
-        def not_eq
-        end
+        attr_reader :not_eq
 
-        sig { params(_: Integer).returns(Integer) }
-        def not_eq=(_)
-        end
+        sig { params(not_eq: Integer).void }
+        attr_writer :not_eq
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         #   filter by balance amount.
@@ -324,36 +271,28 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Date)) }
-        def as_of_date
-        end
+        attr_reader :as_of_date
 
-        sig { params(_: Date).returns(Date) }
-        def as_of_date=(_)
-        end
+        sig { params(as_of_date: Date).void }
+        attr_writer :as_of_date
 
         sig { returns(T.nilable(Time)) }
-        def effective_at
-        end
+        attr_reader :effective_at
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at=(_)
-        end
+        sig { params(effective_at: Time).void }
+        attr_writer :effective_at
 
         sig { returns(T.nilable(Time)) }
-        def effective_at_lower_bound
-        end
+        attr_reader :effective_at_lower_bound
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at_lower_bound=(_)
-        end
+        sig { params(effective_at_lower_bound: Time).void }
+        attr_writer :effective_at_lower_bound
 
         sig { returns(T.nilable(Time)) }
-        def effective_at_upper_bound
-        end
+        attr_reader :effective_at_upper_bound
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at_upper_bound=(_)
-        end
+        sig { params(effective_at_upper_bound: Time).void }
+        attr_writer :effective_at_upper_bound
 
         # Use `balances[effective_at_lower_bound]` and
         #   `balances[effective_at_upper_bound]` to get the balances change between the two
@@ -389,52 +328,40 @@ module ModernTreasury
 
       class PendingBalanceAmount < ModernTreasury::BaseModel
         sig { returns(T.nilable(Integer)) }
-        def eq
-        end
+        attr_reader :eq
 
-        sig { params(_: Integer).returns(Integer) }
-        def eq=(_)
-        end
+        sig { params(eq: Integer).void }
+        attr_writer :eq
 
         sig { returns(T.nilable(Integer)) }
-        def gt
-        end
+        attr_reader :gt
 
-        sig { params(_: Integer).returns(Integer) }
-        def gt=(_)
-        end
+        sig { params(gt: Integer).void }
+        attr_writer :gt
 
         sig { returns(T.nilable(Integer)) }
-        def gte
-        end
+        attr_reader :gte
 
-        sig { params(_: Integer).returns(Integer) }
-        def gte=(_)
-        end
+        sig { params(gte: Integer).void }
+        attr_writer :gte
 
         sig { returns(T.nilable(Integer)) }
-        def lt
-        end
+        attr_reader :lt
 
-        sig { params(_: Integer).returns(Integer) }
-        def lt=(_)
-        end
+        sig { params(lt: Integer).void }
+        attr_writer :lt
 
         sig { returns(T.nilable(Integer)) }
-        def lte
-        end
+        attr_reader :lte
 
-        sig { params(_: Integer).returns(Integer) }
-        def lte=(_)
-        end
+        sig { params(lte: Integer).void }
+        attr_writer :lte
 
         sig { returns(T.nilable(Integer)) }
-        def not_eq
-        end
+        attr_reader :not_eq
 
-        sig { params(_: Integer).returns(Integer) }
-        def not_eq=(_)
-        end
+        sig { params(not_eq: Integer).void }
+        attr_writer :not_eq
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         #   filter by balance amount.
@@ -463,52 +390,40 @@ module ModernTreasury
 
       class PostedBalanceAmount < ModernTreasury::BaseModel
         sig { returns(T.nilable(Integer)) }
-        def eq
-        end
+        attr_reader :eq
 
-        sig { params(_: Integer).returns(Integer) }
-        def eq=(_)
-        end
+        sig { params(eq: Integer).void }
+        attr_writer :eq
 
         sig { returns(T.nilable(Integer)) }
-        def gt
-        end
+        attr_reader :gt
 
-        sig { params(_: Integer).returns(Integer) }
-        def gt=(_)
-        end
+        sig { params(gt: Integer).void }
+        attr_writer :gt
 
         sig { returns(T.nilable(Integer)) }
-        def gte
-        end
+        attr_reader :gte
 
-        sig { params(_: Integer).returns(Integer) }
-        def gte=(_)
-        end
+        sig { params(gte: Integer).void }
+        attr_writer :gte
 
         sig { returns(T.nilable(Integer)) }
-        def lt
-        end
+        attr_reader :lt
 
-        sig { params(_: Integer).returns(Integer) }
-        def lt=(_)
-        end
+        sig { params(lt: Integer).void }
+        attr_writer :lt
 
         sig { returns(T.nilable(Integer)) }
-        def lte
-        end
+        attr_reader :lte
 
-        sig { params(_: Integer).returns(Integer) }
-        def lte=(_)
-        end
+        sig { params(lte: Integer).void }
+        attr_writer :lte
 
         sig { returns(T.nilable(Integer)) }
-        def not_eq
-        end
+        attr_reader :not_eq
 
-        sig { params(_: Integer).returns(Integer) }
-        def not_eq=(_)
-        end
+        sig { params(not_eq: Integer).void }
+        attr_writer :not_eq
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), `eq` (=), or `not_eq` (!=) to
         #   filter by balance amount.

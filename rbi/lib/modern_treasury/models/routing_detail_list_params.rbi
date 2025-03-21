@@ -7,31 +7,16 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::AccountsType::OrSymbol) }
-      def accounts_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::AccountsType::OrSymbol)
-          .returns(ModernTreasury::Models::AccountsType::OrSymbol)
-      end
-      def accounts_type=(_)
-      end
+      attr_accessor :accounts_type
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       sig do
         params(

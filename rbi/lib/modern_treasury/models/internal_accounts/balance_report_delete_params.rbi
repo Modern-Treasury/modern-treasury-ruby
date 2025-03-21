@@ -8,12 +8,7 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(String) }
-        def internal_account_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def internal_account_id=(_)
-        end
+        attr_accessor :internal_account_id
 
         sig do
           params(

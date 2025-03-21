@@ -7,99 +7,69 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Filters incoming payment details with an as_of_date starting on or before the
       #   specified date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
-      def as_of_date_end
-      end
+      attr_reader :as_of_date_end
 
-      sig { params(_: Date).returns(Date) }
-      def as_of_date_end=(_)
-      end
+      sig { params(as_of_date_end: Date).void }
+      attr_writer :as_of_date_end
 
       # Filters incoming payment details with an as_of_date starting on or after the
       #   specified date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
-      def as_of_date_start
-      end
+      attr_reader :as_of_date_start
 
-      sig { params(_: Date).returns(Date) }
-      def as_of_date_start=(_)
-      end
+      sig { params(as_of_date_start: Date).void }
+      attr_writer :as_of_date_start
 
       # One of `credit` or `debit`.
       sig { returns(T.nilable(ModernTreasury::Models::TransactionDirection::OrSymbol)) }
-      def direction
-      end
+      attr_reader :direction
 
-      sig do
-        params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-          .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-      end
-      def direction=(_)
-      end
+      sig { params(direction: ModernTreasury::Models::TransactionDirection::OrSymbol).void }
+      attr_writer :direction
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
       sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::IncomingPaymentDetailListParams::Status::OrSymbol).void }
+      attr_writer :status
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       sig { returns(T.nilable(ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)) }
-      def type
-      end
+      attr_reader :type
 
-      sig do
-        params(_: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-          .returns(ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol)
-      end
-      def type=(_)
-      end
+      sig { params(type: ModernTreasury::Models::IncomingPaymentDetailListParams::Type::OrSymbol).void }
+      attr_writer :type
 
       # If the incoming payment detail is in a virtual account, the ID of the Virtual
       #   Account.
       sig { returns(T.nilable(String)) }
-      def virtual_account_id
-      end
+      attr_reader :virtual_account_id
 
-      sig { params(_: String).returns(String) }
-      def virtual_account_id=(_)
-      end
+      sig { params(virtual_account_id: String).void }
+      attr_writer :virtual_account_id
 
       sig do
         params(

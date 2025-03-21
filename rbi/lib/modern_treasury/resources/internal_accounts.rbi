@@ -4,8 +4,7 @@ module ModernTreasury
   module Resources
     class InternalAccounts
       sig { returns(ModernTreasury::Resources::InternalAccounts::BalanceReports) }
-      def balance_reports
-      end
+      attr_reader :balance_reports
 
       # create internal account
       sig do

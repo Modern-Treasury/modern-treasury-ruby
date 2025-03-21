@@ -9,48 +9,20 @@ module ModernTreasury
 
         # The date of the balance report in local time.
         sig { returns(Date) }
-        def as_of_date
-        end
-
-        sig { params(_: Date).returns(Date) }
-        def as_of_date=(_)
-        end
+        attr_accessor :as_of_date
 
         # The time (24-hour clock) of the balance report in local time.
         sig { returns(String) }
-        def as_of_time
-        end
-
-        sig { params(_: String).returns(String) }
-        def as_of_time=(_)
-        end
+        attr_accessor :as_of_time
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         sig { returns(ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol) }
-        def balance_report_type
-        end
-
-        sig do
-          params(
-            _: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol
-          )
-            .returns(ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol)
-        end
-        def balance_report_type=(_)
-        end
+        attr_accessor :balance_report_type
 
         # An array of `Balance` objects.
         sig { returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance]) }
-        def balances
-        end
-
-        sig do
-          params(_: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance])
-            .returns(T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance])
-        end
-        def balances=(_)
-        end
+        attr_accessor :balances
 
         sig do
           params(
@@ -136,12 +108,7 @@ module ModernTreasury
         class Balance < ModernTreasury::BaseModel
           # The balance amount.
           sig { returns(Integer) }
-          def amount
-          end
-
-          sig { params(_: Integer).returns(Integer) }
-          def amount=(_)
-          end
+          attr_accessor :amount
 
           # The specific type of balance reported. One of `opening_ledger`,
           #   `closing_ledger`, `current_ledger`, `opening_available`,
@@ -152,40 +119,18 @@ module ModernTreasury
               ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
             )
           end
-          def balance_type
-          end
-
-          sig do
-            params(
-              _: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
-            )
-              .returns(
-                ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::BalanceType::OrSymbol
-              )
-          end
-          def balance_type=(_)
-          end
+          attr_accessor :balance_type
 
           # The code used by the bank when reporting this specific balance.
           sig { returns(String) }
-          def vendor_code
-          end
-
-          sig { params(_: String).returns(String) }
-          def vendor_code=(_)
-          end
+          attr_accessor :vendor_code
 
           # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
           #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
           #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
           #   `swift`, or `us_bank`.
           sig { returns(T.nilable(String)) }
-          def vendor_code_type
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def vendor_code_type=(_)
-          end
+          attr_accessor :vendor_code_type
 
           sig do
             params(

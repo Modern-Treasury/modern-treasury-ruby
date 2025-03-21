@@ -10,45 +10,31 @@ module ModernTreasury
       #   There must be one entry for each of the existing entries with a lesser amount
       #   than the existing entry.
       sig { returns(T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]) }
-      def posted_ledger_entries
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry])
-          .returns(T::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry])
-      end
-      def posted_ledger_entries=(_)
-      end
+      attr_accessor :posted_ledger_entries
 
       # An optional free-form description for the posted ledger transaction. Maximum of
       #   1000 characters allowed.
       sig { returns(T.nilable(String)) }
-      def description
-      end
+      attr_reader :description
 
-      sig { params(_: String).returns(String) }
-      def description=(_)
-      end
+      sig { params(description: String).void }
+      attr_writer :description
 
       # The timestamp (IS08601 format) at which the posted ledger transaction happened
       #   for reporting purposes.
       sig { returns(T.nilable(Time)) }
-      def effective_at
-      end
+      attr_reader :effective_at
 
-      sig { params(_: Time).returns(Time) }
-      def effective_at=(_)
-      end
+      sig { params(effective_at: Time).void }
+      attr_writer :effective_at
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig do
         params(
@@ -87,12 +73,7 @@ module ModernTreasury
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         #   as 1000. Can be any integer up to 36 digits.
         sig { returns(Integer) }
-        def amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def amount=(_)
-        end
+        attr_accessor :amount
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         #   transaction. A `credit` moves money from your account to someone else's. A
@@ -103,38 +84,19 @@ module ModernTreasury
             ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
           )
         end
-        def direction
-        end
-
-        sig do
-          params(
-            _: ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
-          )
-            .returns(
-              ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::OrSymbol
-            )
-        end
-        def direction=(_)
-        end
+        attr_accessor :direction
 
         # The ledger account that this ledger entry is associated with.
         sig { returns(String) }
-        def ledger_account_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def ledger_account_id=(_)
-        end
+        attr_accessor :ledger_account_id
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         sig do
           params(

@@ -8,40 +8,20 @@ module ModernTreasury
 
       # The unique identifier for the associated object.
       sig { returns(String) }
-      def documentable_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def documentable_id=(_)
-      end
+      attr_accessor :documentable_id
 
       sig { returns(ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol) }
-      def documentable_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
-          .returns(ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol)
-      end
-      def documentable_type=(_)
-      end
+      attr_accessor :documentable_type
 
       sig { returns(T.any(IO, StringIO)) }
-      def file
-      end
-
-      sig { params(_: T.any(IO, StringIO)).returns(T.any(IO, StringIO)) }
-      def file=(_)
-      end
+      attr_accessor :file
 
       # A category given to the document, can be `null`.
       sig { returns(T.nilable(String)) }
-      def document_type
-      end
+      attr_reader :document_type
 
-      sig { params(_: String).returns(String) }
-      def document_type=(_)
-      end
+      sig { params(document_type: String).void }
+      attr_writer :document_type
 
       sig do
         params(

@@ -4,92 +4,42 @@ module ModernTreasury
   module Models
     class LedgerableEvent < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # Additionally data to be used by the Ledger Event Handler.
       sig { returns(T.nilable(T.anything)) }
-      def custom_data
-      end
-
-      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
-      def custom_data=(_)
-      end
+      attr_accessor :custom_data
 
       # Description of the ledgerable event.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # Id of the ledger event handler that is used to create a ledger transaction.
       sig { returns(String) }
-      def ledger_event_handler_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def ledger_event_handler_id=(_)
-      end
+      attr_accessor :ledger_event_handler_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
-
-      sig { params(_: T.nilable(T::Hash[Symbol, String])).returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       # Name of the ledgerable event.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(

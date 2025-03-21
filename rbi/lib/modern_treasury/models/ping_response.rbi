@@ -4,12 +4,7 @@ module ModernTreasury
   module Models
     class PingResponse < ModernTreasury::BaseModel
       sig { returns(String) }
-      def ping
-      end
-
-      sig { params(_: String).returns(String) }
-      def ping=(_)
-      end
+      attr_accessor :ping
 
       sig { params(ping: String).returns(T.attached_class) }
       def self.new(ping:)

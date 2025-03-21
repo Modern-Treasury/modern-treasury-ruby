@@ -8,61 +8,46 @@ module ModernTreasury
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(String)) }
-        def after_cursor
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def after_cursor=(_)
-        end
+        attr_accessor :after_cursor
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #   created_at timestamp. For example, for all dates after Jan 1 2000 12:00 UTC, use
         #   created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-        def created_at
-        end
+        attr_reader :created_at
 
-        sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
-        def created_at=(_)
-        end
+        sig { params(created_at: T::Hash[Symbol, Time]).void }
+        attr_writer :created_at
 
         # Get all ledger transaction versions that are included in the ledger account
         #   statement.
         sig { returns(T.nilable(String)) }
-        def ledger_account_statement_id
-        end
+        attr_reader :ledger_account_statement_id
 
-        sig { params(_: String).returns(String) }
-        def ledger_account_statement_id=(_)
-        end
+        sig { params(ledger_account_statement_id: String).void }
+        attr_writer :ledger_account_statement_id
 
         # Get all the ledger transaction versions corresponding to the ID of a ledger
         #   transaction.
         sig { returns(T.nilable(String)) }
-        def ledger_transaction_id
-        end
+        attr_reader :ledger_transaction_id
 
-        sig { params(_: String).returns(String) }
-        def ledger_transaction_id=(_)
-        end
+        sig { params(ledger_transaction_id: String).void }
+        attr_writer :ledger_transaction_id
 
         sig { returns(T.nilable(Integer)) }
-        def per_page
-        end
+        attr_reader :per_page
 
-        sig { params(_: Integer).returns(Integer) }
-        def per_page=(_)
-        end
+        sig { params(per_page: Integer).void }
+        attr_writer :per_page
 
         # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
         #   version. For example, for all versions after 2, use version%5Bgt%5D=2.
         sig { returns(T.nilable(T::Hash[Symbol, Integer])) }
-        def version
-        end
+        attr_reader :version
 
-        sig { params(_: T::Hash[Symbol, Integer]).returns(T::Hash[Symbol, Integer]) }
-        def version=(_)
-        end
+        sig { params(version: T::Hash[Symbol, Integer]).void }
+        attr_writer :version
 
         sig do
           params(

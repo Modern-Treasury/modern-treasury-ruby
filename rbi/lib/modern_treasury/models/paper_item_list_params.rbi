@@ -7,48 +7,35 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
       sig { returns(T.nilable(Date)) }
-      def deposit_date_end
-      end
+      attr_reader :deposit_date_end
 
-      sig { params(_: Date).returns(Date) }
-      def deposit_date_end=(_)
-      end
+      sig { params(deposit_date_end: Date).void }
+      attr_writer :deposit_date_end
 
       # Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
       sig { returns(T.nilable(Date)) }
-      def deposit_date_start
-      end
+      attr_reader :deposit_date_start
 
-      sig { params(_: Date).returns(Date) }
-      def deposit_date_start=(_)
-      end
+      sig { params(deposit_date_start: Date).void }
+      attr_writer :deposit_date_start
 
       # Specify `lockbox_number` if you wish to see paper items that are associated with
       #   a specific lockbox number.
       sig { returns(T.nilable(String)) }
-      def lockbox_number
-      end
+      attr_reader :lockbox_number
 
-      sig { params(_: String).returns(String) }
-      def lockbox_number=(_)
-      end
+      sig { params(lockbox_number: String).void }
+      attr_writer :lockbox_number
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       sig do
         params(

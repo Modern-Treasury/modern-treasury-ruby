@@ -8,59 +8,44 @@ module ModernTreasury
 
       # A new email for the counterparty.
       sig { returns(T.nilable(String)) }
-      def email
-      end
+      attr_reader :email
 
-      sig { params(_: String).returns(String) }
-      def email=(_)
-      end
+      sig { params(email: String).void }
+      attr_writer :email
 
       # The id of the legal entity.
       sig { returns(T.nilable(String)) }
-      def legal_entity_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def legal_entity_id=(_)
-      end
+      attr_accessor :legal_entity_id
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
       #   an empty string or `null` as the value.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # A new name for the counterparty. Will only update if passed.
       sig { returns(T.nilable(String)) }
-      def name
-      end
+      attr_reader :name
 
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      sig { params(name: String).void }
+      attr_writer :name
 
       # If this is `true`, Modern Treasury will send an email to the counterparty
       #   whenever an associated payment order is sent to the bank.
       sig { returns(T.nilable(T::Boolean)) }
-      def send_remittance_advice
-      end
+      attr_reader :send_remittance_advice
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def send_remittance_advice=(_)
-      end
+      sig { params(send_remittance_advice: T::Boolean).void }
+      attr_writer :send_remittance_advice
 
       # Either a valid SSN or EIN.
       sig { returns(T.nilable(String)) }
-      def taxpayer_identifier
-      end
+      attr_reader :taxpayer_identifier
 
-      sig { params(_: String).returns(String) }
-      def taxpayer_identifier=(_)
-      end
+      sig { params(taxpayer_identifier: String).void }
+      attr_writer :taxpayer_identifier
 
       sig do
         params(

@@ -7,23 +7,10 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol) }
-      def itemizable_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol)
-          .returns(ModernTreasury::Models::LineItemRetrieveParams::ItemizableType::OrSymbol)
-      end
-      def itemizable_type=(_)
-      end
+      attr_accessor :itemizable_type
 
       sig { returns(String) }
-      def itemizable_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def itemizable_id=(_)
-      end
+      attr_accessor :itemizable_id
 
       sig do
         params(

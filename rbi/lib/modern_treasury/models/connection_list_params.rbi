@@ -7,38 +7,27 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # A string code representing the vendor (i.e. bank).
       sig { returns(T.nilable(String)) }
-      def entity
-      end
+      attr_reader :entity
 
-      sig { params(_: String).returns(String) }
-      def entity=(_)
-      end
+      sig { params(entity: String).void }
+      attr_writer :entity
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # An identifier assigned by the vendor to your organization.
       sig { returns(T.nilable(String)) }
-      def vendor_customer_id
-      end
+      attr_reader :vendor_customer_id
 
-      sig { params(_: String).returns(String) }
-      def vendor_customer_id=(_)
-      end
+      sig { params(vendor_customer_id: String).void }
+      attr_writer :vendor_customer_id
 
       sig do
         params(

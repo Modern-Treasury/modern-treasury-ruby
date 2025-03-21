@@ -9,181 +9,84 @@ module ModernTreasury
       # The lowest amount this expected payment may be equal to. Value in specified
       #   currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
-      def amount_lower_bound
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def amount_lower_bound=(_)
-      end
+      attr_accessor :amount_lower_bound
 
       # The highest amount this expected payment may be equal to. Value in specified
       #   currency's smallest unit. e.g. $10 would be represented as 1000.
       sig { returns(T.nilable(Integer)) }
-      def amount_upper_bound
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def amount_upper_bound=(_)
-      end
+      attr_accessor :amount_upper_bound
 
       # The ID of the counterparty you expect for this payment.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       # Must conform to ISO 4217. Defaults to the currency of the internal account.
       sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
-      def currency
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::Currency::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol))
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # The earliest date the payment may come in. Format: yyyy-mm-dd
       sig { returns(T.nilable(Date)) }
-      def date_lower_bound
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def date_lower_bound=(_)
-      end
+      attr_accessor :date_lower_bound
 
       # The latest date the payment may come in. Format: yyyy-mm-dd
       sig { returns(T.nilable(Date)) }
-      def date_upper_bound
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def date_upper_bound=(_)
-      end
+      attr_accessor :date_upper_bound
 
       # An optional description for internal use.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol)) }
-      def direction
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::OrSymbol))
-      end
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       # The ID of the Internal Account for the expected payment.
       sig { returns(T.nilable(String)) }
-      def internal_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # The reconciliation filters you have for this payment.
       sig { returns(T.nilable(T.anything)) }
-      def reconciliation_filters
-      end
-
-      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
-      def reconciliation_filters=(_)
-      end
+      attr_accessor :reconciliation_filters
 
       # The reconciliation groups you have for this payment.
       sig { returns(T.nilable(T.anything)) }
-      def reconciliation_groups
-      end
-
-      sig { params(_: T.nilable(T.anything)).returns(T.nilable(T.anything)) }
-      def reconciliation_groups=(_)
-      end
+      attr_accessor :reconciliation_groups
 
       # An array of reconciliation rule variables for this payment.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule])) }
-      def reconciliation_rule_variables
-      end
-
-      sig do
-        params(_: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]))
-          .returns(T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]))
-      end
-      def reconciliation_rule_variables=(_)
-      end
+      attr_accessor :reconciliation_rule_variables
 
       # For `ach`, this field will be passed through on an addenda record. For `wire`
       #   payments the field will be passed through as the "Originator to Beneficiary
       #   Information", also known as OBI or Fedwire tag 6000.
       sig { returns(T.nilable(String)) }
-      def remittance_information
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def remittance_information=(_)
-      end
+      attr_accessor :remittance_information
 
       # The statement description you expect to see on the transaction. For ACH
       #   payments, this will be the full line item passed from the bank. For wire
       #   payments, this will be the OBI field on the wire. For check payments, this will
       #   be the memo field.
       sig { returns(T.nilable(String)) }
-      def statement_descriptor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def statement_descriptor=(_)
-      end
+      attr_accessor :statement_descriptor
 
       # The Expected Payment's status can be updated from partially_reconciled to
       #   reconciled.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol)) }
-      def status
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol))
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
       #   sepa, signet, wire.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol)) }
-      def type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol))
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       sig do
         params(

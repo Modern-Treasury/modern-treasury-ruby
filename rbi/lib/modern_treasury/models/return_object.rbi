@@ -4,239 +4,103 @@ module ModernTreasury
   module Models
     class ReturnObject < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
       sig { returns(Integer) }
-      def amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      attr_accessor :amount
 
       # The return code. For ACH returns, this is the required ACH return code.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnObject::Code::TaggedSymbol)) }
-      def code
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ReturnObject::Code::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ReturnObject::Code::TaggedSymbol))
-      end
-      def code=(_)
-      end
+      attr_accessor :code
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # Currency that this transaction is denominated in.
       sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-      def currency
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # If the return's status is `returned`, this will include the return object's data
       #   that is returning this return.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnObject)) }
-      def current_return
-      end
+      attr_reader :current_return
 
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ReturnObject))
-          .returns(T.nilable(ModernTreasury::Models::ReturnObject))
-      end
-      def current_return=(_)
-      end
+      sig { params(current_return: T.nilable(ModernTreasury::Models::ReturnObject)).void }
+      attr_writer :current_return
 
       # If the return code is `R14` or `R15` this is the date the deceased counterparty
       #   passed away.
       sig { returns(T.nilable(Date)) }
-      def date_of_death
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def date_of_death=(_)
-      end
+      attr_accessor :date_of_death
 
       # If an originating return failed to be processed by the bank, a description of
       #   the failure reason will be available.
       sig { returns(T.nilable(String)) }
-      def failure_reason
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def failure_reason=(_)
-      end
+      attr_accessor :failure_reason
 
       # The ID of the relevant Internal Account.
       sig { returns(T.nilable(String)) }
-      def internal_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # The ID of the ledger transaction linked to the return.
       sig { returns(T.nilable(String)) }
-      def ledger_transaction_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def ledger_transaction_id=(_)
-      end
+      attr_accessor :ledger_transaction_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # Often the bank will provide an explanation for the return, which is a short
       #   human readable string.
       sig { returns(T.nilable(String)) }
-      def reason
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def reason=(_)
-      end
+      attr_accessor :reason
 
       # An array of Payment Reference objects.
       sig { returns(T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber]) }
-      def reference_numbers
-      end
-
-      sig do
-        params(_: T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber])
-          .returns(T::Array[ModernTreasury::Models::ReturnObject::ReferenceNumber])
-      end
-      def reference_numbers=(_)
-      end
+      attr_accessor :reference_numbers
 
       # The ID of the object being returned or `null`.
       sig { returns(T.nilable(String)) }
-      def returnable_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def returnable_id=(_)
-      end
+      attr_accessor :returnable_id
 
       # The type of object being returned or `null`.
       sig { returns(T.nilable(ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol)) }
-      def returnable_type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::ReturnObject::ReturnableType::TaggedSymbol))
-      end
-      def returnable_type=(_)
-      end
+      attr_accessor :returnable_type
 
       # The role of the return, can be `originating` or `receiving`.
       sig { returns(ModernTreasury::Models::ReturnObject::Role::TaggedSymbol) }
-      def role
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
-          .returns(ModernTreasury::Models::ReturnObject::Role::TaggedSymbol)
-      end
-      def role=(_)
-      end
+      attr_accessor :role
 
       # The current status of the return.
       sig { returns(ModernTreasury::Models::ReturnObject::Status::TaggedSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::ReturnObject::Status::TaggedSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       # The ID of the relevant Transaction or `null`.
       sig { returns(T.nilable(String)) }
-      def transaction_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def transaction_id=(_)
-      end
+      attr_accessor :transaction_id
 
       # The ID of the relevant Transaction Line Item or `null`.
       sig { returns(T.nilable(String)) }
-      def transaction_line_item_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def transaction_line_item_id=(_)
-      end
+      attr_accessor :transaction_line_item_id
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       #   `interac`, `manual`, `paper_item`, `wire`.
       sig { returns(ModernTreasury::Models::ReturnObject::Type::TaggedSymbol) }
-      def type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
-          .returns(ModernTreasury::Models::ReturnObject::Type::TaggedSymbol)
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # Some returns may include additional information from the bank. In these cases,
       #   this string will be present.
       sig { returns(T.nilable(String)) }
-      def additional_information
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def additional_information=(_)
-      end
+      attr_accessor :additional_information
 
       sig do
         params(
@@ -396,67 +260,29 @@ module ModernTreasury
 
       class ReferenceNumber < ModernTreasury::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(Time) }
-        def created_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        attr_accessor :created_at
 
         # This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         sig { returns(T::Boolean) }
-        def live_mode
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        attr_accessor :live_mode
 
         sig { returns(String) }
-        def object
-        end
-
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        attr_accessor :object
 
         # The vendor reference number.
         sig { returns(String) }
-        def reference_number
-        end
-
-        sig { params(_: String).returns(String) }
-        def reference_number=(_)
-        end
+        attr_accessor :reference_number
 
         # The type of the reference number. Referring to the vendor payment id.
         sig { returns(ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol) }
-        def reference_number_type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol)
-            .returns(ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol)
-        end
-        def reference_number_type=(_)
-        end
+        attr_accessor :reference_number_type
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig do
           params(
