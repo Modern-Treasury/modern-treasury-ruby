@@ -230,8 +230,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem])
-          .returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem])
+        params(
+          _: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem, ModernTreasury::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem, ModernTreasury::Util::AnyHash)]
+          )
       end
       def line_items=(_)
       end
@@ -459,7 +463,7 @@ module ModernTreasury
             ModernTreasury::Util::AnyHash
           ),
           ledger_transaction_id: String,
-          line_items: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem],
+          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateAsyncParams::LineItem, ModernTreasury::Util::AnyHash)],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_party_name: T.nilable(String),
@@ -832,7 +836,12 @@ module ModernTreasury
         #   the payment order.
         sig do
           params(
-            ledger_entries: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry],
+            ledger_entries: T::Array[
+            T.any(
+              ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction::LedgerEntry,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             description: T.nilable(String),
             effective_at: Time,
             effective_date: Date,
@@ -1227,9 +1236,21 @@ module ModernTreasury
 
         sig do
           params(
-            _: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail]
+            _: T::Array[
+            T.any(
+              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail,
+              ModernTreasury::Util::AnyHash
+            )
+            ]
           )
-            .returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail])
+            .returns(
+              T::Array[
+              T.any(
+                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
+            )
         end
         def account_details=(_)
         end
@@ -1258,9 +1279,21 @@ module ModernTreasury
 
         sig do
           params(
-            _: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail]
+            _: T::Array[
+            T.any(
+              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail,
+              ModernTreasury::Util::AnyHash
+            )
+            ]
           )
-            .returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail])
+            .returns(
+              T::Array[
+              T.any(
+                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
+            )
         end
         def contact_details=(_)
         end
@@ -1392,9 +1425,21 @@ module ModernTreasury
 
         sig do
           params(
-            _: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail]
+            _: T::Array[
+            T.any(
+              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail,
+              ModernTreasury::Util::AnyHash
+            )
+            ]
           )
-            .returns(T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail])
+            .returns(
+              T::Array[
+              T.any(
+                ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
+            )
         end
         def routing_details=(_)
         end
@@ -1404,9 +1449,19 @@ module ModernTreasury
         #   internal account.
         sig do
           params(
-            account_details: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail],
+            account_details: T::Array[
+            T.any(
+              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-            contact_details: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail],
+            contact_details: T::Array[
+            T.any(
+              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             ledger_account: T.any(
               ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount,
               ModernTreasury::Util::AnyHash
@@ -1421,7 +1476,12 @@ module ModernTreasury
             party_name: String,
             party_type: T.nilable(ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::PartyType::OrSymbol),
             plaid_processor_token: String,
-            routing_details: T::Array[ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail]
+            routing_details: T::Array[
+            T.any(
+              ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail,
+              ModernTreasury::Util::AnyHash
+            )
+            ]
           )
             .returns(T.attached_class)
         end

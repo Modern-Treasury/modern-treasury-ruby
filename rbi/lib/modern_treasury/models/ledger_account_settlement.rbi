@@ -179,7 +179,7 @@ module ModernTreasury
           object: String,
           settled_ledger_account_id: String,
           settlement_entry_direction: T.nilable(String),
-          status: ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol,
+          status: ModernTreasury::Models::LedgerAccountSettlement::Status::OrSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)

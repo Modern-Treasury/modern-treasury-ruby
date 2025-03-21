@@ -137,7 +137,7 @@ module ModernTreasury
           created_at: Time,
           description: T.nilable(String),
           itemizable_id: String,
-          itemizable_type: ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol,
+          itemizable_type: ModernTreasury::Models::LineItem::ItemizableType::OrSymbol,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,

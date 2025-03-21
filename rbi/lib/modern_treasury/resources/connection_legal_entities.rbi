@@ -7,7 +7,10 @@ module ModernTreasury
       sig do
         params(
           connection_id: String,
-          legal_entity: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity,
+          legal_entity: T.any(
+            ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity,
+            ModernTreasury::Util::AnyHash
+          ),
           legal_entity_id: String,
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )

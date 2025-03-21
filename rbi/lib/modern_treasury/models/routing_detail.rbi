@@ -122,9 +122,9 @@ module ModernTreasury
           discarded_at: T.nilable(Time),
           live_mode: T::Boolean,
           object: String,
-          payment_type: T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol),
+          payment_type: T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::OrSymbol),
           routing_number: String,
-          routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol,
+          routing_number_type: ModernTreasury::Models::RoutingDetail::RoutingNumberType::OrSymbol,
           updated_at: Time
         )
           .returns(T.attached_class)

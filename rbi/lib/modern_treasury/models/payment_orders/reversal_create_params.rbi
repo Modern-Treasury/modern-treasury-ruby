@@ -258,7 +258,12 @@ module ModernTreasury
           #   The resulting ledger transaction will mirror the status of the reversal.
           sig do
             params(
-              ledger_entries: T::Array[ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry],
+              ledger_entries: T::Array[
+              T.any(
+                ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry,
+                ModernTreasury::Util::AnyHash
+              )
+              ],
               description: T.nilable(String),
               effective_at: Time,
               effective_date: Date,

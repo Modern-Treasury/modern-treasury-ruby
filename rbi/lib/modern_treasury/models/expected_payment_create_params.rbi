@@ -138,8 +138,12 @@ module ModernTreasury
       end
 
       sig do
-        params(_: T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem])
-          .returns(T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem])
+        params(
+          _: T::Array[T.any(ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem, ModernTreasury::Util::AnyHash)]
+        )
+          .returns(
+            T::Array[T.any(ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem, ModernTreasury::Util::AnyHash)]
+          )
       end
       def line_items=(_)
       end
@@ -236,11 +240,11 @@ module ModernTreasury
             ModernTreasury::Util::AnyHash
           ),
           ledger_transaction_id: String,
-          line_items: T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem],
+          line_items: T::Array[T.any(ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem, ModernTreasury::Util::AnyHash)],
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
-          reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
+          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Util::AnyHash)]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
@@ -439,7 +443,12 @@ module ModernTreasury
         #   the expected payment.
         sig do
           params(
-            ledger_entries: T::Array[ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry],
+            ledger_entries: T::Array[
+            T.any(
+              ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerEntry,
+              ModernTreasury::Util::AnyHash
+            )
+            ],
             description: T.nilable(String),
             effective_at: Time,
             effective_date: Date,

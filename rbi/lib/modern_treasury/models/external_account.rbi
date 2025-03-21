@@ -198,9 +198,9 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          account_details: T::Array[ModernTreasury::Models::AccountDetail],
-          account_type: ModernTreasury::Models::ExternalAccountType::TaggedSymbol,
-          contact_details: T::Array[ModernTreasury::Models::ExternalAccount::ContactDetail],
+          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Util::AnyHash)],
+          account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
+          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccount::ContactDetail, ModernTreasury::Util::AnyHash)],
           counterparty_id: T.nilable(String),
           created_at: Time,
           discarded_at: T.nilable(Time),
@@ -211,11 +211,11 @@ module ModernTreasury
           object: String,
           party_address: T.nilable(T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Util::AnyHash)),
           party_name: String,
-          party_type: T.nilable(ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol),
-          routing_details: T::Array[ModernTreasury::Models::RoutingDetail],
+          party_type: T.nilable(ModernTreasury::Models::ExternalAccount::PartyType::OrSymbol),
+          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Util::AnyHash)],
           updated_at: Time,
-          verification_source: T.nilable(ModernTreasury::Models::ExternalAccount::VerificationSource::TaggedSymbol),
-          verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus::TaggedSymbol
+          verification_source: T.nilable(ModernTreasury::Models::ExternalAccount::VerificationSource::OrSymbol),
+          verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus::OrSymbol
         )
           .returns(T.attached_class)
       end
@@ -345,7 +345,7 @@ module ModernTreasury
           params(
             id: String,
             contact_identifier: String,
-            contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::TaggedSymbol,
+            contact_identifier_type: ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType::OrSymbol,
             created_at: Time,
             discarded_at: T.nilable(Time),
             live_mode: T::Boolean,

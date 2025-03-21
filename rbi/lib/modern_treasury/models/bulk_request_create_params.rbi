@@ -104,6 +104,7 @@ module ModernTreasury
           resources: T::Array[
           T.any(
             ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest,
+            ModernTreasury::Util::AnyHash,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest,
             ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest,
@@ -502,10 +503,20 @@ module ModernTreasury
 
           sig do
             params(
-              _: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem]
+              _: T::Array[
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
             )
               .returns(
-                T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem]
+                T::Array[
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem,
+                  ModernTreasury::Util::AnyHash
+                )
+                ]
               )
           end
           def line_items=(_)
@@ -757,7 +768,12 @@ module ModernTreasury
                 ModernTreasury::Util::AnyHash
               ),
               ledger_transaction_id: String,
-              line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem],
+              line_items: T::Array[
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LineItem,
+                ModernTreasury::Util::AnyHash
+              )
+              ],
               metadata: T::Hash[Symbol, String],
               nsf_protected: T::Boolean,
               originating_party_name: T.nilable(String),
@@ -1215,7 +1231,10 @@ module ModernTreasury
             sig do
               params(
                 ledger_entries: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerEntry,
+                  ModernTreasury::Util::AnyHash
+                )
                 ],
                 description: T.nilable(String),
                 effective_at: Time,
@@ -1652,12 +1671,18 @@ module ModernTreasury
             sig do
               params(
                 _: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail,
+                    ModernTreasury::Util::AnyHash
+                  )
                   ]
                 )
             end
@@ -1691,12 +1716,18 @@ module ModernTreasury
             sig do
               params(
                 _: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail,
+                    ModernTreasury::Util::AnyHash
+                  )
                   ]
                 )
             end
@@ -1851,12 +1882,18 @@ module ModernTreasury
             sig do
               params(
                 _: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail,
+                    ModernTreasury::Util::AnyHash
+                  )
                   ]
                 )
             end
@@ -1869,11 +1906,17 @@ module ModernTreasury
             sig do
               params(
                 account_details: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ],
                 account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
                 contact_details: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ],
                 ledger_account: T.any(
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount,
@@ -1892,7 +1935,10 @@ module ModernTreasury
                 ),
                 plaid_processor_token: String,
                 routing_details: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
                 .returns(T.attached_class)
@@ -3071,10 +3117,20 @@ module ModernTreasury
 
           sig do
             params(
-              _: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem]
+              _: T::Array[
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
             )
               .returns(
-                T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem]
+                T::Array[
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem,
+                  ModernTreasury::Util::AnyHash
+                )
+                ]
               )
           end
           def line_items=(_)
@@ -3174,11 +3230,16 @@ module ModernTreasury
                 ModernTreasury::Util::AnyHash
               ),
               ledger_transaction_id: String,
-              line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem],
+              line_items: T::Array[
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LineItem,
+                ModernTreasury::Util::AnyHash
+              )
+              ],
               metadata: T::Hash[Symbol, String],
               reconciliation_filters: T.nilable(T.anything),
               reconciliation_groups: T.nilable(T.anything),
-              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
+              reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Util::AnyHash)]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
               type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol)
@@ -3421,7 +3482,10 @@ module ModernTreasury
             sig do
               params(
                 ledger_entries: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerEntry,
+                  ModernTreasury::Util::AnyHash
+                )
                 ],
                 description: T.nilable(String),
                 effective_at: Time,
@@ -3929,7 +3993,12 @@ module ModernTreasury
 
           sig do
             params(
-              ledger_entries: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry],
+              ledger_entries: T::Array[
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerEntry,
+                ModernTreasury::Util::AnyHash
+              )
+              ],
               description: T.nilable(String),
               effective_at: Time,
               effective_date: Date,
@@ -4849,10 +4918,20 @@ module ModernTreasury
 
           sig do
             params(
-              _: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem]
+              _: T::Array[
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem,
+                ModernTreasury::Util::AnyHash
+              )
+              ]
             )
               .returns(
-                T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem]
+                T::Array[
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem,
+                  ModernTreasury::Util::AnyHash
+                )
+                ]
               )
           end
           def line_items=(_)
@@ -5144,7 +5223,12 @@ module ModernTreasury
               foreign_exchange_indicator: T.nilable(
                 ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator::OrSymbol
               ),
-              line_items: T::Array[ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem],
+              line_items: T::Array[
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::LineItem,
+                ModernTreasury::Util::AnyHash
+              )
+              ],
               metadata: T::Hash[Symbol, String],
               nsf_protected: T::Boolean,
               originating_account_id: String,
@@ -5590,12 +5674,18 @@ module ModernTreasury
             sig do
               params(
                 _: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail,
+                    ModernTreasury::Util::AnyHash
+                  )
                   ]
                 )
             end
@@ -5629,12 +5719,18 @@ module ModernTreasury
             sig do
               params(
                 _: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail,
+                    ModernTreasury::Util::AnyHash
+                  )
                   ]
                 )
             end
@@ -5789,12 +5885,18 @@ module ModernTreasury
             sig do
               params(
                 _: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
                 .returns(
                   T::Array[
-                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
+                  T.any(
+                    ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail,
+                    ModernTreasury::Util::AnyHash
+                  )
                   ]
                 )
             end
@@ -5807,11 +5909,17 @@ module ModernTreasury
             sig do
               params(
                 account_details: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ],
                 account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
                 contact_details: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ],
                 ledger_account: T.any(
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount,
@@ -5830,7 +5938,10 @@ module ModernTreasury
                 ),
                 plaid_processor_token: String,
                 routing_details: T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
                 .returns(T.attached_class)
@@ -7170,7 +7281,7 @@ module ModernTreasury
               metadata: T::Hash[Symbol, String],
               reconciliation_filters: T.nilable(T.anything),
               reconciliation_groups: T.nilable(T.anything),
-              reconciliation_rule_variables: T.nilable(T::Array[ModernTreasury::Models::ReconciliationRule]),
+              reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Util::AnyHash)]),
               remittance_information: T.nilable(String),
               statement_descriptor: T.nilable(String),
               status: T.nilable(
@@ -7386,12 +7497,18 @@ module ModernTreasury
           sig do
             params(
               _: T::Array[
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry,
+                ModernTreasury::Util::AnyHash
+              )
               ]
             )
               .returns(
                 T::Array[
-                ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
+                T.any(
+                  ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry,
+                  ModernTreasury::Util::AnyHash
+                )
                 ]
               )
           end
@@ -7471,7 +7588,10 @@ module ModernTreasury
               description: T.nilable(String),
               effective_at: Time,
               ledger_entries: T::Array[
-              ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry
+              T.any(
+                ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerEntry,
+                ModernTreasury::Util::AnyHash
+              )
               ],
               ledgerable_id: String,
               ledgerable_type: ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType::OrSymbol,
