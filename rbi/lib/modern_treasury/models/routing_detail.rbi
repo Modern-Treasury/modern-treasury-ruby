@@ -4,114 +4,54 @@ module ModernTreasury
   module Models
     class RoutingDetail < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(T.nilable(ModernTreasury::Models::RoutingDetail::BankAddress)) }
-      def bank_address
-      end
+      attr_reader :bank_address
 
       sig do
         params(
-          _: T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Util::AnyHash))
+          bank_address: T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Util::AnyHash))
         )
-          .returns(
-            T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Util::AnyHash))
-          )
+          .void
       end
-      def bank_address=(_)
-      end
+      attr_writer :bank_address
 
       # The name of the bank.
       sig { returns(String) }
-      def bank_name
-      end
-
-      sig { params(_: String).returns(String) }
-      def bank_name=(_)
-      end
+      attr_accessor :bank_name
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol)) }
-      def payment_type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::RoutingDetail::PaymentType::TaggedSymbol))
-      end
-      def payment_type=(_)
-      end
+      attr_accessor :payment_type
 
       # The routing number of the bank.
       sig { returns(String) }
-      def routing_number
-      end
-
-      sig { params(_: String).returns(String) }
-      def routing_number=(_)
-      end
+      attr_accessor :routing_number
 
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       sig { returns(ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol) }
-      def routing_number_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
-          .returns(ModernTreasury::Models::RoutingDetail::RoutingNumberType::TaggedSymbol)
-      end
-      def routing_number_type=(_)
-      end
+      attr_accessor :routing_number_type
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(
@@ -167,98 +107,43 @@ module ModernTreasury
 
       class BankAddress < ModernTreasury::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
-        def country
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def country=(_)
-        end
+        attr_accessor :country
 
         sig { returns(Time) }
-        def created_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        attr_accessor :created_at
 
         sig { returns(T.nilable(String)) }
-        def line1
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def line1=(_)
-        end
+        attr_accessor :line1
 
         sig { returns(T.nilable(String)) }
-        def line2
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def line2=(_)
-        end
+        attr_accessor :line2
 
         # This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         sig { returns(T::Boolean) }
-        def live_mode
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        attr_accessor :live_mode
 
         # Locality or City.
         sig { returns(T.nilable(String)) }
-        def locality
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def locality=(_)
-        end
+        attr_accessor :locality
 
         sig { returns(String) }
-        def object
-        end
-
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        attr_accessor :object
 
         # The postal code of the address.
         sig { returns(T.nilable(String)) }
-        def postal_code
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def postal_code=(_)
-        end
+        attr_accessor :postal_code
 
         # Region or State.
         sig { returns(T.nilable(String)) }
-        def region
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def region=(_)
-        end
+        attr_accessor :region
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig do
           params(

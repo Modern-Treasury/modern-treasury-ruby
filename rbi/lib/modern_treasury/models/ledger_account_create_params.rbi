@@ -8,104 +8,60 @@ module ModernTreasury
 
       # The currency of the ledger account.
       sig { returns(String) }
-      def currency
-      end
-
-      sig { params(_: String).returns(String) }
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # The id of the ledger that this account belongs to.
       sig { returns(String) }
-      def ledger_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def ledger_id=(_)
-      end
+      attr_accessor :ledger_id
 
       # The name of the ledger account.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       # The normal balance of the ledger account.
       sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
-      def normal_balance
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-          .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-      end
-      def normal_balance=(_)
-      end
+      attr_accessor :normal_balance
 
       # The currency exponent of the ledger account.
       sig { returns(T.nilable(Integer)) }
-      def currency_exponent
-      end
-
-      sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-      def currency_exponent=(_)
-      end
+      attr_accessor :currency_exponent
 
       # The description of the ledger account.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # The array of ledger account category ids that this ledger account should be a
       #   child of.
       sig { returns(T.nilable(T::Array[String])) }
-      def ledger_account_category_ids
-      end
+      attr_reader :ledger_account_category_ids
 
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def ledger_account_category_ids=(_)
-      end
+      sig { params(ledger_account_category_ids: T::Array[String]).void }
+      attr_writer :ledger_account_category_ids
 
       # If the ledger account links to another object in Modern Treasury, the id will be
       #   populated here, otherwise null.
       sig { returns(T.nilable(String)) }
-      def ledgerable_id
-      end
+      attr_reader :ledgerable_id
 
-      sig { params(_: String).returns(String) }
-      def ledgerable_id=(_)
-      end
+      sig { params(ledgerable_id: String).void }
+      attr_writer :ledgerable_id
 
       # If the ledger account links to another object in Modern Treasury, the type will
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)) }
-      def ledgerable_type
-      end
+      attr_reader :ledgerable_type
 
-      sig do
-        params(_: ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)
-          .returns(ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol)
-      end
-      def ledgerable_type=(_)
-      end
+      sig { params(ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol).void }
+      attr_writer :ledgerable_type
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig do
         params(

@@ -4,25 +4,20 @@ module ModernTreasury
   module Models
     class LedgerEventHandlerVariable < ModernTreasury::BaseModel
       sig { returns(ModernTreasury::Models::LedgerEventHandlerVariable::Query) }
-      def query
-      end
+      attr_reader :query
 
       sig do
-        params(_: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Util::AnyHash))
-          .returns(T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Util::AnyHash))
+        params(
+          query: T.any(ModernTreasury::Models::LedgerEventHandlerVariable::Query, ModernTreasury::Util::AnyHash)
+        )
+          .void
       end
-      def query=(_)
-      end
+      attr_writer :query
 
       # The type of object this variable is. Currently, only "ledger_account" is
       #   supported.
       sig { returns(String) }
-      def type
-      end
-
-      sig { params(_: String).returns(String) }
-      def type=(_)
-      end
+      attr_accessor :type
 
       sig do
         params(
@@ -41,30 +36,15 @@ module ModernTreasury
       class Query < ModernTreasury::BaseModel
         # The LHS of the conditional.
         sig { returns(String) }
-        def field
-        end
-
-        sig { params(_: String).returns(String) }
-        def field=(_)
-        end
+        attr_accessor :field
 
         # What the operator between the `field` and `value` is.
         sig { returns(String) }
-        def operator
-        end
-
-        sig { params(_: String).returns(String) }
-        def operator=(_)
-        end
+        attr_accessor :operator
 
         # The RHS of the conditional.
         sig { returns(String) }
-        def value
-        end
-
-        sig { params(_: String).returns(String) }
-        def value=(_)
-        end
+        attr_accessor :value
 
         sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
         def self.new(field:, operator:, value:)

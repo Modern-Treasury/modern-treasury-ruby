@@ -9,51 +9,29 @@ module ModernTreasury
       # The inclusive lower bound of the effective_at timestamp of the ledger entries to
       #   be included in the ledger account statement.
       sig { returns(Time) }
-      def effective_at_lower_bound
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def effective_at_lower_bound=(_)
-      end
+      attr_accessor :effective_at_lower_bound
 
       # The exclusive upper bound of the effective_at timestamp of the ledger entries to
       #   be included in the ledger account statement.
       sig { returns(Time) }
-      def effective_at_upper_bound
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def effective_at_upper_bound=(_)
-      end
+      attr_accessor :effective_at_upper_bound
 
       # The id of the ledger account whose ledger entries are queried against, and its
       #   balances are computed as a result.
       sig { returns(String) }
-      def ledger_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def ledger_account_id=(_)
-      end
+      attr_accessor :ledger_account_id
 
       # The description of the ledger account statement.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig do
         params(

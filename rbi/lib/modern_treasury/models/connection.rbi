@@ -4,81 +4,36 @@ module ModernTreasury
   module Models
     class Connection < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # An identifier given to this connection by the bank.
       sig { returns(T.nilable(String)) }
-      def vendor_customer_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_customer_id=(_)
-      end
+      attr_accessor :vendor_customer_id
 
       # Unique identifier for the bank or vendor.
       sig { returns(String) }
-      def vendor_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def vendor_id=(_)
-      end
+      attr_accessor :vendor_id
 
       # A human-friendly name for the bank or vendor.
       sig { returns(String) }
-      def vendor_name
-      end
-
-      sig { params(_: String).returns(String) }
-      def vendor_name=(_)
-      end
+      attr_accessor :vendor_name
 
       sig do
         params(

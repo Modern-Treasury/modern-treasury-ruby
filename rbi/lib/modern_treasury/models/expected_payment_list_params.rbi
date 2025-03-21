@@ -7,104 +7,72 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # Specify counterparty_id to see expected_payments for a specific account.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # Used to return expected payments created after some datetime
       sig { returns(T.nilable(Time)) }
-      def created_at_lower_bound
-      end
+      attr_reader :created_at_lower_bound
 
-      sig { params(_: Time).returns(Time) }
-      def created_at_lower_bound=(_)
-      end
+      sig { params(created_at_lower_bound: Time).void }
+      attr_writer :created_at_lower_bound
 
       # Used to return expected payments created before some datetime
       sig { returns(T.nilable(Time)) }
-      def created_at_upper_bound
-      end
+      attr_reader :created_at_upper_bound
 
-      sig { params(_: Time).returns(Time) }
-      def created_at_upper_bound=(_)
-      end
+      sig { params(created_at_upper_bound: Time).void }
+      attr_writer :created_at_upper_bound
 
       # One of credit, debit
       sig { returns(T.nilable(ModernTreasury::Models::TransactionDirection::OrSymbol)) }
-      def direction
-      end
+      attr_reader :direction
 
-      sig do
-        params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-          .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-      end
-      def direction=(_)
-      end
+      sig { params(direction: ModernTreasury::Models::TransactionDirection::OrSymbol).void }
+      attr_writer :direction
 
       # Specify internal_account_id to see expected_payments for a specific account.
       sig { returns(T.nilable(String)) }
-      def internal_account_id
-      end
+      attr_reader :internal_account_id
 
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      sig { params(internal_account_id: String).void }
+      attr_writer :internal_account_id
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # One of unreconciled, reconciled, or archived.
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol).void }
+      attr_writer :status
 
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #   sepa, signet, wire
       sig { returns(T.nilable(ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol)) }
-      def type
-      end
+      attr_reader :type
 
-      sig do
-        params(_: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol)
-          .returns(ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol)
-      end
-      def type=(_)
-      end
+      sig { params(type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol).void }
+      attr_writer :type
 
       sig do
         params(

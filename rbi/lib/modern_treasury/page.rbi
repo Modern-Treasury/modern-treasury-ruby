@@ -7,20 +7,10 @@ module ModernTreasury
     Elem = type_member
 
     sig { returns(Integer) }
-    def per_page
-    end
-
-    sig { params(_: Integer).returns(Integer) }
-    def per_page=(_)
-    end
+    attr_accessor :per_page
 
     sig { returns(String) }
-    def after_cursor
-    end
-
-    sig { params(_: String).returns(String) }
-    def after_cursor=(_)
-    end
+    attr_accessor :after_cursor
 
     sig { override.returns(T::Boolean) }
     def next_page?

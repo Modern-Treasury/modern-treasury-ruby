@@ -17,56 +17,26 @@ module ModernTreasury
 
       class ExternalAccountVerificationAttempt < ModernTreasury::BaseModel
         sig { returns(String) }
-        def id
-        end
-
-        sig { params(_: String).returns(String) }
-        def id=(_)
-        end
+        attr_accessor :id
 
         sig { returns(Time) }
-        def created_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def created_at=(_)
-        end
+        attr_accessor :created_at
 
         # The ID of the external account.
         sig { returns(String) }
-        def external_account_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def external_account_id=(_)
-        end
+        attr_accessor :external_account_id
 
         # This field will be true if this object exists in the live environment or false
         #   if it exists in the test environment.
         sig { returns(T::Boolean) }
-        def live_mode
-        end
-
-        sig { params(_: T::Boolean).returns(T::Boolean) }
-        def live_mode=(_)
-        end
+        attr_accessor :live_mode
 
         sig { returns(String) }
-        def object
-        end
-
-        sig { params(_: String).returns(String) }
-        def object=(_)
-        end
+        attr_accessor :object
 
         # The ID of the internal account where the micro-deposits originate from.
         sig { returns(String) }
-        def originating_account_id
-        end
-
-        sig { params(_: String).returns(String) }
-        def originating_account_id=(_)
-        end
+        attr_accessor :originating_account_id
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         #   `rtp`.
@@ -75,19 +45,7 @@ module ModernTreasury
             ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
           )
         end
-        def payment_type
-        end
-
-        sig do
-          params(
-            _: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
-          )
-            .returns(
-              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::PaymentType::TaggedSymbol
-            )
-        end
-        def payment_type=(_)
-        end
+        attr_accessor :payment_type
 
         # The priority of the payment. Can be `normal` or `high`.
         sig do
@@ -97,23 +55,7 @@ module ModernTreasury
             )
           )
         end
-        def priority
-        end
-
-        sig do
-          params(
-            _: T.nilable(
-              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
-            )
-          )
-            .returns(
-              T.nilable(
-                ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Priority::TaggedSymbol
-              )
-            )
-        end
-        def priority=(_)
-        end
+        attr_accessor :priority
 
         # The status of the verification attempt. Can be `pending_verification`,
         #   `verified`, `failed`, or `cancelled`.
@@ -122,27 +64,10 @@ module ModernTreasury
             ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
           )
         end
-        def status
-        end
-
-        sig do
-          params(
-            _: ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
-          )
-            .returns(
-              ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt::Status::TaggedSymbol
-            )
-        end
-        def status=(_)
-        end
+        attr_accessor :status
 
         sig { returns(Time) }
-        def updated_at
-        end
-
-        sig { params(_: Time).returns(Time) }
-        def updated_at=(_)
-        end
+        attr_accessor :updated_at
 
         sig do
           params(

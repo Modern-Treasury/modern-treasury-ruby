@@ -9,50 +9,37 @@ module ModernTreasury
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
-      def id
-      end
+      attr_reader :id
 
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def id=(_)
-      end
+      sig { params(id: T::Array[String]).void }
+      attr_writer :id
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       # Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
       #   posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
       #   updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
       sig { returns(T.nilable(T::Hash[Symbol, Time])) }
-      def updated_at
-      end
+      attr_reader :updated_at
 
-      sig { params(_: T::Hash[Symbol, Time]).returns(T::Hash[Symbol, Time]) }
-      def updated_at=(_)
-      end
+      sig { params(updated_at: T::Hash[Symbol, Time]).void }
+      attr_writer :updated_at
 
       sig do
         params(

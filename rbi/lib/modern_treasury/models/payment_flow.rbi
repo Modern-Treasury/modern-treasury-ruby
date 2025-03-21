@@ -4,197 +4,131 @@ module ModernTreasury
   module Models
     class PaymentFlow < ModernTreasury::BaseModel
       sig { returns(T.nilable(String)) }
-      def id
-      end
+      attr_reader :id
 
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      sig { params(id: String).void }
+      attr_writer :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000. Can be any integer up to 36 digits.
       sig { returns(T.nilable(Integer)) }
-      def amount
-      end
+      attr_reader :amount
 
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      sig { params(amount: Integer).void }
+      attr_writer :amount
 
       # The client token of the payment flow. This token can be used to embed a payment
       #   workflow in your client-side application.
       sig { returns(T.nilable(String)) }
-      def client_token
-      end
+      attr_reader :client_token
 
-      sig { params(_: String).returns(String) }
-      def client_token=(_)
-      end
+      sig { params(client_token: String).void }
+      attr_writer :client_token
 
       # The ID of a counterparty associated with the payment. As part of the payment
       #   workflow an external account will be associated with this counterparty.
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def counterparty_id=(_)
-      end
+      attr_accessor :counterparty_id
 
       sig { returns(T.nilable(Time)) }
-      def created_at
-      end
+      attr_reader :created_at
 
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      sig { params(created_at: Time).void }
+      attr_writer :created_at
 
       # The currency of the payment.
       sig { returns(T.nilable(String)) }
-      def currency
-      end
+      attr_reader :currency
 
-      sig { params(_: String).returns(String) }
-      def currency=(_)
-      end
+      sig { params(currency: String).void }
+      attr_writer :currency
 
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)) }
-      def direction
-      end
+      attr_reader :direction
 
-      sig do
-        params(_: ModernTreasury::Models::PaymentFlow::Direction::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentFlow::Direction::OrSymbol)
-      end
-      def direction=(_)
-      end
+      sig { params(direction: ModernTreasury::Models::PaymentFlow::Direction::OrSymbol).void }
+      attr_writer :direction
 
       # The due date for the flow. Can only be passed in when
       #   `effective_date_selection_enabled` is `true`.
       sig { returns(T.nilable(Date)) }
-      def due_date
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def due_date=(_)
-      end
+      attr_accessor :due_date
 
       # When `true`, your end-user can schedule the payment `effective_date` while
       #   completing the pre-built UI.
       sig { returns(T.nilable(T::Boolean)) }
-      def effective_date_selection_enabled
-      end
+      attr_reader :effective_date_selection_enabled
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def effective_date_selection_enabled=(_)
-      end
+      sig { params(effective_date_selection_enabled: T::Boolean).void }
+      attr_writer :effective_date_selection_enabled
 
       # When `verified` and `external_account_collection` is `enabled`, filters the list
       #   of external accounts your end-user can select to those with a
       #   `verification_status` of `verified`.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol)) }
-      def existing_external_accounts_filter
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol))
-      end
-      def existing_external_accounts_filter=(_)
-      end
+      attr_accessor :existing_external_accounts_filter
 
       # When `enabled`, your end-user can select from an existing external account when
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)) }
-      def external_account_collection
-      end
+      attr_reader :external_account_collection
 
       sig do
-        params(_: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::OrSymbol)
+        params(
+          external_account_collection: ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::OrSymbol
+        )
+          .void
       end
-      def external_account_collection=(_)
-      end
+      attr_writer :external_account_collection
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T.nilable(T::Boolean)) }
-      def live_mode
-      end
+      attr_reader :live_mode
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      sig { params(live_mode: T::Boolean).void }
+      attr_writer :live_mode
 
       sig { returns(T.nilable(String)) }
-      def object
-      end
+      attr_reader :object
 
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      sig { params(object: String).void }
+      attr_writer :object
 
       # The ID of one of your organization's internal accounts.
       sig { returns(T.nilable(String)) }
-      def originating_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def originating_account_id=(_)
-      end
+      attr_accessor :originating_account_id
 
       # If present, the ID of the payment order created using this flow.
       sig { returns(T.nilable(String)) }
-      def payment_order_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def payment_order_id=(_)
-      end
+      attr_accessor :payment_order_id
 
       # If present, the ID of the external account created using this flow.
       sig { returns(T.nilable(String)) }
-      def receiving_account_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def receiving_account_id=(_)
-      end
+      attr_accessor :receiving_account_id
 
       # This field is set after your end-user selects a payment date while completing
       #   the pre-built UI. This field is always `null` unless
       #   `effective_date_selection_enabled` is `true`.
       sig { returns(T.nilable(Date)) }
-      def selected_effective_date
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def selected_effective_date=(_)
-      end
+      attr_accessor :selected_effective_date
 
       # The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
       sig { returns(T.nilable(ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::PaymentFlow::Status::OrSymbol)
-          .returns(ModernTreasury::Models::PaymentFlow::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::PaymentFlow::Status::OrSymbol).void }
+      attr_writer :status
 
       sig { returns(T.nilable(Time)) }
-      def updated_at
-      end
+      attr_reader :updated_at
 
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      sig { params(updated_at: Time).void }
+      attr_writer :updated_at
 
       sig do
         params(

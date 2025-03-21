@@ -7,47 +7,31 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       sig { returns(T.nilable(String)) }
-      def connection_id
-      end
+      attr_reader :connection_id
 
-      sig { params(_: String).returns(String) }
-      def connection_id=(_)
-      end
+      sig { params(connection_id: String).void }
+      attr_writer :connection_id
 
       sig { returns(T.nilable(String)) }
-      def legal_entity_id
-      end
+      attr_reader :legal_entity_id
 
-      sig { params(_: String).returns(String) }
-      def legal_entity_id=(_)
-      end
+      sig { params(legal_entity_id: String).void }
+      attr_writer :legal_entity_id
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       sig { returns(T.nilable(ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::ConnectionLegalEntityListParams::Status::OrSymbol).void }
+      attr_writer :status
 
       sig do
         params(

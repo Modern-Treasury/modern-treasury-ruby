@@ -7,62 +7,45 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       sig { returns(T.nilable(String)) }
-      def entity_id
-      end
+      attr_reader :entity_id
 
-      sig { params(_: String).returns(String) }
-      def entity_id=(_)
-      end
+      sig { params(entity_id: String).void }
+      attr_writer :entity_id
 
       sig { returns(T.nilable(String)) }
-      def event_name
-      end
+      attr_reader :event_name
 
-      sig { params(_: String).returns(String) }
-      def event_name=(_)
-      end
+      sig { params(event_name: String).void }
+      attr_writer :event_name
 
       # An inclusive upper bound for when the event occurred
       sig { returns(T.nilable(Time)) }
-      def event_time_end
-      end
+      attr_reader :event_time_end
 
-      sig { params(_: Time).returns(Time) }
-      def event_time_end=(_)
-      end
+      sig { params(event_time_end: Time).void }
+      attr_writer :event_time_end
 
       # An inclusive lower bound for when the event occurred
       sig { returns(T.nilable(Time)) }
-      def event_time_start
-      end
+      attr_reader :event_time_start
 
-      sig { params(_: Time).returns(Time) }
-      def event_time_start=(_)
-      end
+      sig { params(event_time_start: Time).void }
+      attr_writer :event_time_start
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       sig { returns(T.nilable(String)) }
-      def resource
-      end
+      attr_reader :resource
 
-      sig { params(_: String).returns(String) }
-      def resource=(_)
-      end
+      sig { params(resource: String).void }
+      attr_writer :resource
 
       sig do
         params(

@@ -8,59 +8,41 @@ module ModernTreasury
 
       # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(String) }
-      def internal_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # Currency to convert the `base_currency` to, often called the "buy" currency.
       sig { returns(ModernTreasury::Models::Currency::OrSymbol) }
-      def target_currency
-      end
-
-      sig { params(_: ModernTreasury::Models::Currency::OrSymbol).returns(ModernTreasury::Models::Currency::OrSymbol) }
-      def target_currency=(_)
-      end
+      attr_accessor :target_currency
 
       # Amount in the lowest denomination of the `base_currency` to convert, often
       #   called the "sell" amount.
       sig { returns(T.nilable(Integer)) }
-      def base_amount
-      end
+      attr_reader :base_amount
 
-      sig { params(_: Integer).returns(Integer) }
-      def base_amount=(_)
-      end
+      sig { params(base_amount: Integer).void }
+      attr_writer :base_amount
 
       # Currency to convert, often called the "sell" currency.
       sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
-      def base_currency
-      end
+      attr_reader :base_currency
 
-      sig { params(_: ModernTreasury::Models::Currency::OrSymbol).returns(ModernTreasury::Models::Currency::OrSymbol) }
-      def base_currency=(_)
-      end
+      sig { params(base_currency: ModernTreasury::Models::Currency::OrSymbol).void }
+      attr_writer :base_currency
 
       # The timestamp until when the quoted rate is valid.
       sig { returns(T.nilable(Time)) }
-      def effective_at
-      end
+      attr_reader :effective_at
 
-      sig { params(_: Time).returns(Time) }
-      def effective_at=(_)
-      end
+      sig { params(effective_at: Time).void }
+      attr_writer :effective_at
 
       # Amount in the lowest denomination of the `target_currency`, often called the
       #   "buy" amount.
       sig { returns(T.nilable(Integer)) }
-      def target_amount
-      end
+      attr_reader :target_amount
 
-      sig { params(_: Integer).returns(Integer) }
-      def target_amount=(_)
-      end
+      sig { params(target_amount: Integer).void }
+      attr_writer :target_amount
 
       sig do
         params(

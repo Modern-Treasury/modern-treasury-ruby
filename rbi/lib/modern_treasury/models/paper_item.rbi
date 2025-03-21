@@ -4,170 +4,74 @@ module ModernTreasury
   module Models
     class PaperItem < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # The account number on the paper item.
       sig { returns(T.nilable(String)) }
-      def account_number
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def account_number=(_)
-      end
+      attr_accessor :account_number
 
       # The last 4 digits of the account_number.
       sig { returns(T.nilable(String)) }
-      def account_number_safe
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def account_number_safe=(_)
-      end
+      attr_accessor :account_number_safe
 
       # The amount of the paper item.
       sig { returns(Integer) }
-      def amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      attr_accessor :amount
 
       # The check number on the paper item.
       sig { returns(T.nilable(String)) }
-      def check_number
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def check_number=(_)
-      end
+      attr_accessor :check_number
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # The currency of the paper item.
       sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-      def currency
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # The date the paper item was deposited into your organization's bank account.
       sig { returns(Date) }
-      def deposit_date
-      end
-
-      sig { params(_: Date).returns(Date) }
-      def deposit_date=(_)
-      end
+      attr_accessor :deposit_date
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # The identifier for the lockbox assigned by the bank.
       sig { returns(String) }
-      def lockbox_number
-      end
-
-      sig { params(_: String).returns(String) }
-      def lockbox_number=(_)
-      end
+      attr_accessor :lockbox_number
 
       # The memo field on the paper item.
       sig { returns(T.nilable(String)) }
-      def memo_field
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def memo_field=(_)
-      end
+      attr_accessor :memo_field
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The name of the remitter on the paper item.
       sig { returns(T.nilable(String)) }
-      def remitter_name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def remitter_name=(_)
-      end
+      attr_accessor :remitter_name
 
       # The routing number on the paper item.
       sig { returns(T.nilable(String)) }
-      def routing_number
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def routing_number=(_)
-      end
+      attr_accessor :routing_number
 
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
       sig { returns(ModernTreasury::Models::PaperItem::Status::TaggedSymbol) }
-      def status
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaperItem::Status::TaggedSymbol)
-      end
-      def status=(_)
-      end
+      attr_accessor :status
 
       # The ID of the reconciled Transaction or `null`.
       sig { returns(T.nilable(String)) }
-      def transaction_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def transaction_id=(_)
-      end
+      attr_accessor :transaction_id
 
       # The ID of the reconciled Transaction Line Item or `null`.
       sig { returns(T.nilable(String)) }
-      def transaction_line_item_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def transaction_line_item_id=(_)
-      end
+      attr_accessor :transaction_line_item_id
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(

@@ -9,100 +9,75 @@ module ModernTreasury
       # If you have specific IDs to retrieve in bulk, you can pass them as query
       #   parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       sig { returns(T.nilable(T::Array[String])) }
-      def id
-      end
+      attr_reader :id
 
-      sig { params(_: T::Array[String]).returns(T::Array[String]) }
-      def id=(_)
-      end
+      sig { params(id: T::Array[String]).void }
+      attr_writer :id
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       # For example, if you want the balances as of a particular time (ISO8601), the
       #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.
       #   The balances as of a time are inclusive of entries with that exact time.
       sig { returns(T.nilable(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances)) }
-      def balances
-      end
+      attr_reader :balances
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, ModernTreasury::Util::AnyHash)
+          balances: T.any(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::LedgerAccountCategoryListParams::Balances, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def balances=(_)
-      end
+      attr_writer :balances
 
       sig { returns(T.nilable(String)) }
-      def currency
-      end
+      attr_reader :currency
 
-      sig { params(_: String).returns(String) }
-      def currency=(_)
-      end
+      sig { params(currency: String).void }
+      attr_writer :currency
 
       # Query categories which contain a ledger account directly or through child
       #   categories.
       sig { returns(T.nilable(String)) }
-      def ledger_account_id
-      end
+      attr_reader :ledger_account_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_account_id=(_)
-      end
+      sig { params(ledger_account_id: String).void }
+      attr_writer :ledger_account_id
 
       sig { returns(T.nilable(String)) }
-      def ledger_id
-      end
+      attr_reader :ledger_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_id=(_)
-      end
+      sig { params(ledger_id: String).void }
+      attr_writer :ledger_id
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       sig { returns(T.nilable(String)) }
-      def name
-      end
+      attr_reader :name
 
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      sig { params(name: String).void }
+      attr_writer :name
 
       # Query categories that are nested underneath a parent category
       sig { returns(T.nilable(String)) }
-      def parent_ledger_account_category_id
-      end
+      attr_reader :parent_ledger_account_category_id
 
-      sig { params(_: String).returns(String) }
-      def parent_ledger_account_category_id=(_)
-      end
+      sig { params(parent_ledger_account_category_id: String).void }
+      attr_writer :parent_ledger_account_category_id
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       sig do
         params(
@@ -158,12 +133,10 @@ module ModernTreasury
 
       class Balances < ModernTreasury::BaseModel
         sig { returns(T.nilable(Time)) }
-        def effective_at
-        end
+        attr_reader :effective_at
 
-        sig { params(_: Time).returns(Time) }
-        def effective_at=(_)
-        end
+        sig { params(effective_at: Time).void }
+        attr_writer :effective_at
 
         # For example, if you want the balances as of a particular time (ISO8601), the
         #   encoded query string would be `balances%5Beffective_at%5D=2000-12-31T12:00:00Z`.

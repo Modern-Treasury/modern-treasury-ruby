@@ -7,101 +7,73 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(T.nilable(String)) }
-      def after_cursor
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def after_cursor=(_)
-      end
+      attr_accessor :after_cursor
 
       sig { returns(T.nilable(String)) }
-      def counterparty_id
-      end
+      attr_reader :counterparty_id
 
-      sig { params(_: String).returns(String) }
-      def counterparty_id=(_)
-      end
+      sig { params(counterparty_id: String).void }
+      attr_writer :counterparty_id
 
       # An inclusive upper bound for searching due_date
       sig { returns(T.nilable(Date)) }
-      def due_date_end
-      end
+      attr_reader :due_date_end
 
-      sig { params(_: Date).returns(Date) }
-      def due_date_end=(_)
-      end
+      sig { params(due_date_end: Date).void }
+      attr_writer :due_date_end
 
       # An inclusive lower bound for searching due_date
       sig { returns(T.nilable(Date)) }
-      def due_date_start
-      end
+      attr_reader :due_date_start
 
-      sig { params(_: Date).returns(Date) }
-      def due_date_start=(_)
-      end
+      sig { params(due_date_start: Date).void }
+      attr_writer :due_date_start
 
       sig { returns(T.nilable(String)) }
-      def expected_payment_id
-      end
+      attr_reader :expected_payment_id
 
-      sig { params(_: String).returns(String) }
-      def expected_payment_id=(_)
-      end
+      sig { params(expected_payment_id: String).void }
+      attr_writer :expected_payment_id
 
       # For example, if you want to query for records with metadata key `Type` and value
       #   `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
       #   parameters.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # A unique record number assigned to each invoice that is issued.
       sig { returns(T.nilable(String)) }
-      def number
-      end
+      attr_reader :number
 
-      sig { params(_: String).returns(String) }
-      def number=(_)
-      end
+      sig { params(number: String).void }
+      attr_writer :number
 
       sig { returns(T.nilable(String)) }
-      def originating_account_id
-      end
+      attr_reader :originating_account_id
 
-      sig { params(_: String).returns(String) }
-      def originating_account_id=(_)
-      end
+      sig { params(originating_account_id: String).void }
+      attr_writer :originating_account_id
 
       sig { returns(T.nilable(String)) }
-      def payment_order_id
-      end
+      attr_reader :payment_order_id
 
-      sig { params(_: String).returns(String) }
-      def payment_order_id=(_)
-      end
+      sig { params(payment_order_id: String).void }
+      attr_writer :payment_order_id
 
       sig { returns(T.nilable(Integer)) }
-      def per_page
-      end
+      attr_reader :per_page
 
-      sig { params(_: Integer).returns(Integer) }
-      def per_page=(_)
-      end
+      sig { params(per_page: Integer).void }
+      attr_writer :per_page
 
       sig { returns(T.nilable(ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)) }
-      def status
-      end
+      attr_reader :status
 
-      sig do
-        params(_: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
-          .returns(ModernTreasury::Models::InvoiceListParams::Status::OrSymbol)
-      end
-      def status=(_)
-      end
+      sig { params(status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol).void }
+      attr_writer :status
 
       sig do
         params(

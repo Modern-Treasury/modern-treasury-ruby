@@ -4,119 +4,63 @@ module ModernTreasury
   module Models
     class ForeignExchangeQuote < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # The timestamp until when the quoted rate is valid.
       sig { returns(Time) }
-      def effective_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def effective_at=(_)
-      end
+      attr_accessor :effective_at
 
       # The timestamp until which the quote must be booked by.
       sig { returns(Time) }
-      def expires_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def expires_at=(_)
-      end
+      attr_accessor :expires_at
 
       # Either `fixed_to_variable` if the `base_amount` was specified, or
       #   `variable_to_fixed` if the `target_amount` was specified when requesting the
       #   quote.
       sig { returns(String) }
-      def foreign_exchange_indicator
-      end
-
-      sig { params(_: String).returns(String) }
-      def foreign_exchange_indicator=(_)
-      end
+      attr_accessor :foreign_exchange_indicator
 
       # The serialized rate information represented by this quote.
       sig { returns(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate) }
-      def foreign_exchange_rate
-      end
+      attr_reader :foreign_exchange_rate
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash)
+          foreign_exchange_rate: T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::ForeignExchangeQuote::ForeignExchangeRate, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def foreign_exchange_rate=(_)
-      end
+      attr_writer :foreign_exchange_rate
 
       # The ID for the `InternalAccount` this quote is associated with.
       sig { returns(String) }
-      def internal_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T::Hash[Symbol, String]) }
-      def metadata
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # This vendor assigned ID for this quote.
       sig { returns(T.nilable(String)) }
-      def vendor_id
-      end
+      attr_reader :vendor_id
 
-      sig { params(_: String).returns(String) }
-      def vendor_id=(_)
-      end
+      sig { params(vendor_id: String).void }
+      attr_writer :vendor_id
 
       sig do
         params(
@@ -177,75 +121,34 @@ module ModernTreasury
         # Amount in the lowest denomination of the `base_currency` to convert, often
         #   called the "sell" amount.
         sig { returns(Integer) }
-        def base_amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def base_amount=(_)
-        end
+        attr_accessor :base_amount
 
         # Currency to convert, often called the "sell" currency.
         sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-        def base_currency
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-        end
-        def base_currency=(_)
-        end
+        attr_accessor :base_currency
 
         # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
         #   `exponent`).
         sig { returns(Integer) }
-        def exponent
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def exponent=(_)
-        end
+        attr_accessor :exponent
 
         # A string representation of the rate.
         sig { returns(String) }
-        def rate_string
-        end
-
-        sig { params(_: String).returns(String) }
-        def rate_string=(_)
-        end
+        attr_accessor :rate_string
 
         # Amount in the lowest denomination of the `target_currency`, often called the
         #   "buy" amount.
         sig { returns(Integer) }
-        def target_amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def target_amount=(_)
-        end
+        attr_accessor :target_amount
 
         # Currency to convert the `base_currency` to, often called the "buy" currency.
         sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-        def target_currency
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-        end
-        def target_currency=(_)
-        end
+        attr_accessor :target_currency
 
         # The whole number component of the rate. The decimal is calculated as `value` /
         #   (10 ^ `exponent`).
         sig { returns(Integer) }
-        def value
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def value=(_)
-        end
+        attr_accessor :value
 
         # The serialized rate information represented by this quote.
         sig do

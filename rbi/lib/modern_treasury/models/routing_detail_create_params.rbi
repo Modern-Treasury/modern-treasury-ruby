@@ -7,51 +7,22 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::OrSymbol) }
-      def accounts_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::OrSymbol)
-          .returns(ModernTreasury::Models::RoutingDetailCreateParams::AccountsType::OrSymbol)
-      end
-      def accounts_type=(_)
-      end
+      attr_accessor :accounts_type
 
       # The routing number of the bank.
       sig { returns(String) }
-      def routing_number
-      end
-
-      sig { params(_: String).returns(String) }
-      def routing_number=(_)
-      end
+      attr_accessor :routing_number
 
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       sig { returns(ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::OrSymbol) }
-      def routing_number_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::OrSymbol)
-          .returns(ModernTreasury::Models::RoutingDetailCreateParams::RoutingNumberType::OrSymbol)
-      end
-      def routing_number_type=(_)
-      end
+      attr_accessor :routing_number_type
 
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::OrSymbol)) }
-      def payment_type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::OrSymbol))
-          .returns(T.nilable(ModernTreasury::Models::RoutingDetailCreateParams::PaymentType::OrSymbol))
-      end
-      def payment_type=(_)
-      end
+      attr_accessor :payment_type
 
       sig do
         params(

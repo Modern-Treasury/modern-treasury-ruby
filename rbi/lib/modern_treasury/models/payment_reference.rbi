@@ -4,90 +4,39 @@ module ModernTreasury
   module Models
     class PaymentReference < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # The actual reference number assigned by the bank.
       sig { returns(String) }
-      def reference_number
-      end
-
-      sig { params(_: String).returns(String) }
-      def reference_number=(_)
-      end
+      attr_accessor :reference_number
 
       # The type of reference number.
       sig { returns(ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol) }
-      def reference_number_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentReference::ReferenceNumberType::TaggedSymbol)
-      end
-      def reference_number_type=(_)
-      end
+      attr_accessor :reference_number_type
 
       # The id of the referenceable to search for. Must be accompanied by the
       #   referenceable_type or will return an error.
       sig { returns(String) }
-      def referenceable_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def referenceable_id=(_)
-      end
+      attr_accessor :referenceable_id
 
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       sig { returns(ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol) }
-      def referenceable_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol)
-          .returns(ModernTreasury::Models::PaymentReference::ReferenceableType::TaggedSymbol)
-      end
-      def referenceable_type=(_)
-      end
+      attr_accessor :referenceable_type
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       sig do
         params(

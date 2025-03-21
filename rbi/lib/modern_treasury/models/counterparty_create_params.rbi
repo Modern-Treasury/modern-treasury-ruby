@@ -8,130 +8,92 @@ module ModernTreasury
 
       # A human friendly name for this counterparty.
       sig { returns(T.nilable(String)) }
-      def name
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Accounting)) }
-      def accounting
-      end
+      attr_reader :accounting
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Util::AnyHash)
+          accounting: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def accounting=(_)
-      end
+      attr_writer :accounting
 
       # The accounts for this counterparty.
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account])) }
-      def accounts
-      end
+      attr_reader :accounts
 
       sig do
         params(
-          _: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Util::AnyHash)]
+          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Util::AnyHash)]
         )
-          .returns(
-            T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Util::AnyHash)]
-          )
+          .void
       end
-      def accounts=(_)
-      end
+      attr_writer :accounts
 
       # The counterparty's email.
       sig { returns(T.nilable(String)) }
-      def email
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def email=(_)
-      end
+      attr_accessor :email
 
       # An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #   or `vendor`.
       sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol)) }
-      def ledger_type
-      end
+      attr_reader :ledger_type
 
-      sig do
-        params(_: ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol)
-          .returns(ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol)
-      end
-      def ledger_type=(_)
-      end
+      sig { params(ledger_type: ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol).void }
+      attr_writer :ledger_type
 
       sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity)) }
-      def legal_entity
-      end
+      attr_reader :legal_entity
 
       sig do
         params(
-          _: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Util::AnyHash)
+          legal_entity: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Util::AnyHash)
         )
-          .returns(
-            T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Util::AnyHash)
-          )
+          .void
       end
-      def legal_entity=(_)
-      end
+      attr_writer :legal_entity
 
       # The id of the legal entity.
       sig { returns(T.nilable(String)) }
-      def legal_entity_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def legal_entity_id=(_)
-      end
+      attr_accessor :legal_entity_id
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
+      attr_reader :metadata
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      sig { params(metadata: T::Hash[Symbol, String]).void }
+      attr_writer :metadata
 
       # Send an email to the counterparty whenever an associated payment order is sent
       #   to the bank.
       sig { returns(T.nilable(T::Boolean)) }
-      def send_remittance_advice
-      end
+      attr_reader :send_remittance_advice
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def send_remittance_advice=(_)
-      end
+      sig { params(send_remittance_advice: T::Boolean).void }
+      attr_writer :send_remittance_advice
 
       # Either a valid SSN or EIN.
       sig { returns(T.nilable(String)) }
-      def taxpayer_identifier
-      end
+      attr_reader :taxpayer_identifier
 
-      sig { params(_: String).returns(String) }
-      def taxpayer_identifier=(_)
-      end
+      sig { params(taxpayer_identifier: String).void }
+      attr_writer :taxpayer_identifier
 
       # The verification status of the counterparty.
       sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol)) }
-      def verification_status
-      end
+      attr_reader :verification_status
 
       sig do
-        params(_: ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol)
-          .returns(ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol)
+        params(
+          verification_status: ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol
+        )
+          .void
       end
-      def verification_status=(_)
-      end
+      attr_writer :verification_status
 
       sig do
         params(
@@ -192,15 +154,10 @@ module ModernTreasury
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
         #   or `vendor`.
         sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol)) }
-        def type
-        end
+        attr_reader :type
 
-        sig do
-          params(_: ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol)
-            .returns(ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol)
-        end
-        def type=(_)
-        end
+        sig { params(type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol).void }
+        attr_writer :type
 
         sig do
           params(type: ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol)
@@ -240,66 +197,43 @@ module ModernTreasury
 
       class Account < ModernTreasury::BaseModel
         sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail])) }
-        def account_details
-        end
+        attr_reader :account_details
 
         sig do
           params(
-            _: T::Array[
+            account_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail,
               ModernTreasury::Util::AnyHash
             )
             ]
           )
-            .returns(
-              T::Array[
-              T.any(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail,
-                ModernTreasury::Util::AnyHash
-              )
-              ]
-            )
+            .void
         end
-        def account_details=(_)
-        end
+        attr_writer :account_details
 
         # Can be `checking`, `savings` or `other`.
         sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountType::OrSymbol)) }
-        def account_type
-        end
+        attr_reader :account_type
 
-        sig do
-          params(_: ModernTreasury::Models::ExternalAccountType::OrSymbol)
-            .returns(ModernTreasury::Models::ExternalAccountType::OrSymbol)
-        end
-        def account_type=(_)
-        end
+        sig { params(account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol).void }
+        attr_writer :account_type
 
         sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail])) }
-        def contact_details
-        end
+        attr_reader :contact_details
 
         sig do
           params(
-            _: T::Array[
+            contact_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail,
               ModernTreasury::Util::AnyHash
             )
             ]
           )
-            .returns(
-              T::Array[
-              T.any(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail,
-                ModernTreasury::Util::AnyHash
-              )
-              ]
-            )
+            .void
         end
-        def contact_details=(_)
-        end
+        attr_writer :contact_details
 
         # Specifies a ledger account object that will be created with the external
         #   account. The resulting ledger account is linked to the external account for
@@ -307,131 +241,87 @@ module ModernTreasury
         #   https://docs.moderntreasury.com/docs/linking-to-other-modern-treasury-objects
         #   for more details.
         sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount)) }
-        def ledger_account
-        end
+        attr_reader :ledger_account
 
         sig do
           params(
-            _: T.any(
+            ledger_account: T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
               ModernTreasury::Util::AnyHash
             )
           )
-            .returns(
-              T.any(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
-                ModernTreasury::Util::AnyHash
-              )
-            )
+            .void
         end
-        def ledger_account=(_)
-        end
+        attr_writer :ledger_account
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         # A nickname for the external account. This is only for internal usage and won't
         #   affect any payments
         sig { returns(T.nilable(String)) }
-        def name
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def name=(_)
-        end
+        attr_accessor :name
 
         # Required if receiving wire payments.
         sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress)) }
-        def party_address
-        end
+        attr_reader :party_address
 
         sig do
           params(
-            _: T.any(
+            party_address: T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
               ModernTreasury::Util::AnyHash
             )
           )
-            .returns(
-              T.any(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
-                ModernTreasury::Util::AnyHash
-              )
-            )
+            .void
         end
-        def party_address=(_)
-        end
+        attr_writer :party_address
 
         sig { returns(T.nilable(String)) }
-        def party_identifier
-        end
+        attr_reader :party_identifier
 
-        sig { params(_: String).returns(String) }
-        def party_identifier=(_)
-        end
+        sig { params(party_identifier: String).void }
+        attr_writer :party_identifier
 
         # If this value isn't provided, it will be inherited from the counterparty's name.
         sig { returns(T.nilable(String)) }
-        def party_name
-        end
+        attr_reader :party_name
 
-        sig { params(_: String).returns(String) }
-        def party_name=(_)
-        end
+        sig { params(party_name: String).void }
+        attr_writer :party_name
 
         # Either `individual` or `business`.
         sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::OrSymbol)) }
-        def party_type
-        end
-
-        sig do
-          params(_: T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::OrSymbol))
-            .returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::OrSymbol))
-        end
-        def party_type=(_)
-        end
+        attr_accessor :party_type
 
         # If you've enabled the Modern Treasury + Plaid integration in your Plaid account,
         #   you can pass the processor token in this field.
         sig { returns(T.nilable(String)) }
-        def plaid_processor_token
-        end
+        attr_reader :plaid_processor_token
 
-        sig { params(_: String).returns(String) }
-        def plaid_processor_token=(_)
-        end
+        sig { params(plaid_processor_token: String).void }
+        attr_writer :plaid_processor_token
 
         sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail])) }
-        def routing_details
-        end
+        attr_reader :routing_details
 
         sig do
           params(
-            _: T::Array[
+            routing_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail,
               ModernTreasury::Util::AnyHash
             )
             ]
           )
-            .returns(
-              T::Array[
-              T.any(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail,
-                ModernTreasury::Util::AnyHash
-              )
-              ]
-            )
+            .void
         end
-        def routing_details=(_)
-        end
+        attr_writer :routing_details
 
         sig do
           params(
@@ -511,12 +401,7 @@ module ModernTreasury
 
         class AccountDetail < ModernTreasury::BaseModel
           sig { returns(String) }
-          def account_number
-          end
-
-          sig { params(_: String).returns(String) }
-          def account_number=(_)
-          end
+          attr_accessor :account_number
 
           sig do
             returns(
@@ -525,19 +410,15 @@ module ModernTreasury
               )
             )
           end
-          def account_number_type
-          end
+          attr_reader :account_number_type
 
           sig do
             params(
-              _: ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::OrSymbol
+              account_number_type: ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::OrSymbol
             )
-              .returns(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::OrSymbol
-              )
+              .void
           end
-          def account_number_type=(_)
-          end
+          attr_writer :account_number_type
 
           sig do
             params(
@@ -640,12 +521,10 @@ module ModernTreasury
 
         class ContactDetail < ModernTreasury::BaseModel
           sig { returns(T.nilable(String)) }
-          def contact_identifier
-          end
+          attr_reader :contact_identifier
 
-          sig { params(_: String).returns(String) }
-          def contact_identifier=(_)
-          end
+          sig { params(contact_identifier: String).void }
+          attr_writer :contact_identifier
 
           sig do
             returns(
@@ -654,19 +533,15 @@ module ModernTreasury
               )
             )
           end
-          def contact_identifier_type
-          end
+          attr_reader :contact_identifier_type
 
           sig do
             params(
-              _: ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType::OrSymbol
+              contact_identifier_type: ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType::OrSymbol
             )
-              .returns(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType::OrSymbol
-              )
+              .void
           end
-          def contact_identifier_type=(_)
-          end
+          attr_writer :contact_identifier_type
 
           sig do
             params(
@@ -739,80 +614,43 @@ module ModernTreasury
         class LedgerAccount < ModernTreasury::BaseModel
           # The currency of the ledger account.
           sig { returns(String) }
-          def currency
-          end
-
-          sig { params(_: String).returns(String) }
-          def currency=(_)
-          end
+          attr_accessor :currency
 
           # The id of the ledger that this account belongs to.
           sig { returns(String) }
-          def ledger_id
-          end
-
-          sig { params(_: String).returns(String) }
-          def ledger_id=(_)
-          end
+          attr_accessor :ledger_id
 
           # The name of the ledger account.
           sig { returns(String) }
-          def name
-          end
-
-          sig { params(_: String).returns(String) }
-          def name=(_)
-          end
+          attr_accessor :name
 
           # The normal balance of the ledger account.
           sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
-          def normal_balance
-          end
-
-          sig do
-            params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-              .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-          end
-          def normal_balance=(_)
-          end
+          attr_accessor :normal_balance
 
           # The currency exponent of the ledger account.
           sig { returns(T.nilable(Integer)) }
-          def currency_exponent
-          end
-
-          sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-          def currency_exponent=(_)
-          end
+          attr_accessor :currency_exponent
 
           # The description of the ledger account.
           sig { returns(T.nilable(String)) }
-          def description
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def description=(_)
-          end
+          attr_accessor :description
 
           # The array of ledger account category ids that this ledger account should be a
           #   child of.
           sig { returns(T.nilable(T::Array[String])) }
-          def ledger_account_category_ids
-          end
+          attr_reader :ledger_account_category_ids
 
-          sig { params(_: T::Array[String]).returns(T::Array[String]) }
-          def ledger_account_category_ids=(_)
-          end
+          sig { params(ledger_account_category_ids: T::Array[String]).void }
+          attr_writer :ledger_account_category_ids
 
           # If the ledger account links to another object in Modern Treasury, the id will be
           #   populated here, otherwise null.
           sig { returns(T.nilable(String)) }
-          def ledgerable_id
-          end
+          attr_reader :ledgerable_id
 
-          sig { params(_: String).returns(String) }
-          def ledgerable_id=(_)
-          end
+          sig { params(ledgerable_id: String).void }
+          attr_writer :ledgerable_id
 
           # If the ledger account links to another object in Modern Treasury, the type will
           #   be populated here, otherwise null. The value is one of internal_account or
@@ -824,29 +662,23 @@ module ModernTreasury
               )
             )
           end
-          def ledgerable_type
-          end
+          attr_reader :ledgerable_type
 
           sig do
             params(
-              _: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType::OrSymbol
+              ledgerable_type: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType::OrSymbol
             )
-              .returns(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType::OrSymbol
-              )
+              .void
           end
-          def ledgerable_type=(_)
-          end
+          attr_writer :ledgerable_type
 
           # Additional data represented as key-value pairs. Both the key and value must be
           #   strings.
           sig { returns(T.nilable(T::Hash[Symbol, String])) }
-          def metadata
-          end
+          attr_reader :metadata
 
-          sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-          def metadata=(_)
-          end
+          sig { params(metadata: T::Hash[Symbol, String]).void }
+          attr_writer :metadata
 
           # Specifies a ledger account object that will be created with the external
           #   account. The resulting ledger account is linked to the external account for
@@ -955,55 +787,25 @@ module ModernTreasury
         class PartyAddress < ModernTreasury::BaseModel
           # Country code conforms to [ISO 3166-1 alpha-2]
           sig { returns(T.nilable(String)) }
-          def country
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def country=(_)
-          end
+          attr_accessor :country
 
           sig { returns(T.nilable(String)) }
-          def line1
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def line1=(_)
-          end
+          attr_accessor :line1
 
           sig { returns(T.nilable(String)) }
-          def line2
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def line2=(_)
-          end
+          attr_accessor :line2
 
           # Locality or City.
           sig { returns(T.nilable(String)) }
-          def locality
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def locality=(_)
-          end
+          attr_accessor :locality
 
           # The postal code of the address.
           sig { returns(T.nilable(String)) }
-          def postal_code
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def postal_code=(_)
-          end
+          attr_accessor :postal_code
 
           # Region or State.
           sig { returns(T.nilable(String)) }
-          def region
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def region=(_)
-          end
+          attr_accessor :region
 
           # Required if receiving wire payments.
           sig do
@@ -1063,46 +865,29 @@ module ModernTreasury
 
         class RoutingDetail < ModernTreasury::BaseModel
           sig { returns(String) }
-          def routing_number
-          end
-
-          sig { params(_: String).returns(String) }
-          def routing_number=(_)
-          end
+          attr_accessor :routing_number
 
           sig do
             returns(
               ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::OrSymbol
             )
           end
-          def routing_number_type
-          end
-
-          sig do
-            params(
-              _: ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::OrSymbol
-            )
-              .returns(
-                ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::OrSymbol
-              )
-          end
-          def routing_number_type=(_)
-          end
+          attr_accessor :routing_number_type
 
           sig do
             returns(
               T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::OrSymbol)
             )
           end
-          def payment_type
-          end
+          attr_reader :payment_type
 
           sig do
-            params(_: ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::OrSymbol)
-              .returns(ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::OrSymbol)
+            params(
+              payment_type: ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::OrSymbol
+            )
+              .void
           end
-          def payment_type=(_)
-          end
+          attr_writer :payment_type
 
           sig do
             params(
@@ -1460,114 +1245,65 @@ module ModernTreasury
       class LegalEntity < ModernTreasury::BaseModel
         # The type of legal entity.
         sig { returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::OrSymbol) }
-        def legal_entity_type
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::OrSymbol)
-            .returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::OrSymbol)
-        end
-        def legal_entity_type=(_)
-        end
+        attr_accessor :legal_entity_type
 
         # A list of addresses for the entity.
         sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address])) }
-        def addresses
-        end
+        attr_reader :addresses
 
         sig do
           params(
-            _: T::Array[
+            addresses: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address,
               ModernTreasury::Util::AnyHash
             )
             ]
           )
-            .returns(
-              T::Array[
-              T.any(
-                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address,
-                ModernTreasury::Util::AnyHash
-              )
-              ]
-            )
+            .void
         end
-        def addresses=(_)
-        end
+        attr_writer :addresses
 
         sig { returns(T.nilable(ModernTreasury::Models::BankSettings)) }
-        def bank_settings
-        end
+        attr_reader :bank_settings
 
         sig do
-          params(_: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
-            .returns(T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
+          params(
+            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash))
+          )
+            .void
         end
-        def bank_settings=(_)
-        end
+        attr_writer :bank_settings
 
         # The business's legal business name.
         sig { returns(T.nilable(String)) }
-        def business_name
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def business_name=(_)
-        end
+        attr_accessor :business_name
 
         # The country of citizenship for an individual.
         sig { returns(T.nilable(String)) }
-        def citizenship_country
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def citizenship_country=(_)
-        end
+        attr_accessor :citizenship_country
 
         # A business's formation date (YYYY-MM-DD).
         sig { returns(T.nilable(Date)) }
-        def date_formed
-        end
-
-        sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-        def date_formed=(_)
-        end
+        attr_accessor :date_formed
 
         # An individual's date of birth (YYYY-MM-DD).
         sig { returns(T.nilable(Date)) }
-        def date_of_birth
-        end
-
-        sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-        def date_of_birth=(_)
-        end
+        attr_accessor :date_of_birth
 
         sig { returns(T.nilable(T::Array[String])) }
-        def doing_business_as_names
-        end
+        attr_reader :doing_business_as_names
 
-        sig { params(_: T::Array[String]).returns(T::Array[String]) }
-        def doing_business_as_names=(_)
-        end
+        sig { params(doing_business_as_names: T::Array[String]).void }
+        attr_writer :doing_business_as_names
 
         # The entity's primary email.
         sig { returns(T.nilable(String)) }
-        def email
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def email=(_)
-        end
+        attr_accessor :email
 
         # An individual's first name.
         sig { returns(T.nilable(String)) }
-        def first_name
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def first_name=(_)
-        end
+        attr_accessor :first_name
 
         # A list of identifications for the legal entity.
         sig do
@@ -1575,38 +1311,24 @@ module ModernTreasury
             T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification])
           )
         end
-        def identifications
-        end
+        attr_reader :identifications
 
         sig do
           params(
-            _: T::Array[
+            identifications: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification,
               ModernTreasury::Util::AnyHash
             )
             ]
           )
-            .returns(
-              T::Array[
-              T.any(
-                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification,
-                ModernTreasury::Util::AnyHash
-              )
-              ]
-            )
+            .void
         end
-        def identifications=(_)
-        end
+        attr_writer :identifications
 
         # An individual's last name.
         sig { returns(T.nilable(String)) }
-        def last_name
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def last_name=(_)
-        end
+        attr_accessor :last_name
 
         # The legal entity associations and its child legal entities.
         sig do
@@ -1614,19 +1336,7 @@ module ModernTreasury
             T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation])
           )
         end
-        def legal_entity_associations
-        end
-
-        sig do
-          params(
-            _: T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation])
-          )
-            .returns(
-              T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation])
-            )
-        end
-        def legal_entity_associations=(_)
-        end
+        attr_accessor :legal_entity_associations
 
         # The business's legal structure.
         sig do
@@ -1634,135 +1344,70 @@ module ModernTreasury
             T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure::OrSymbol)
           )
         end
-        def legal_structure
-        end
-
-        sig do
-          params(
-            _: T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure::OrSymbol)
-          )
-            .returns(
-              T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure::OrSymbol)
-            )
-        end
-        def legal_structure=(_)
-        end
+        attr_accessor :legal_structure
 
         # Additional data represented as key-value pairs. Both the key and value must be
         #   strings.
         sig { returns(T.nilable(T::Hash[Symbol, String])) }
-        def metadata
-        end
+        attr_reader :metadata
 
-        sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-        def metadata=(_)
-        end
+        sig { params(metadata: T::Hash[Symbol, String]).void }
+        attr_writer :metadata
 
         # An individual's middle name.
         sig { returns(T.nilable(String)) }
-        def middle_name
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def middle_name=(_)
-        end
+        attr_accessor :middle_name
 
         sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber])) }
-        def phone_numbers
-        end
+        attr_reader :phone_numbers
 
         sig do
           params(
-            _: T::Array[
+            phone_numbers: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber,
               ModernTreasury::Util::AnyHash
             )
             ]
           )
-            .returns(
-              T::Array[
-              T.any(
-                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber,
-                ModernTreasury::Util::AnyHash
-              )
-              ]
-            )
+            .void
         end
-        def phone_numbers=(_)
-        end
+        attr_writer :phone_numbers
 
         # Whether the individual is a politically exposed person.
         sig { returns(T.nilable(T::Boolean)) }
-        def politically_exposed_person
-        end
-
-        sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-        def politically_exposed_person=(_)
-        end
+        attr_accessor :politically_exposed_person
 
         # An individual's preferred name.
         sig { returns(T.nilable(String)) }
-        def preferred_name
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def preferred_name=(_)
-        end
+        attr_accessor :preferred_name
 
         # An individual's prefix.
         sig { returns(T.nilable(String)) }
-        def prefix
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def prefix=(_)
-        end
+        attr_accessor :prefix
 
         # The risk rating of the legal entity. One of low, medium, high.
         sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::OrSymbol)) }
-        def risk_rating
-        end
-
-        sig do
-          params(_: T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::OrSymbol))
-            .returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::OrSymbol))
-        end
-        def risk_rating=(_)
-        end
+        attr_accessor :risk_rating
 
         # An individual's suffix.
         sig { returns(T.nilable(String)) }
-        def suffix
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def suffix=(_)
-        end
+        attr_accessor :suffix
 
         sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)) }
-        def wealth_and_employment_details
-        end
+        attr_reader :wealth_and_employment_details
 
         sig do
           params(
-            _: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
           )
-            .returns(
-              T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
-            )
+            .void
         end
-        def wealth_and_employment_details=(_)
-        end
+        attr_writer :wealth_and_employment_details
 
         # The entity's primary website URL.
         sig { returns(T.nilable(String)) }
-        def website
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def website=(_)
-        end
+        attr_accessor :website
 
         sig do
           params(
@@ -1917,47 +1562,22 @@ module ModernTreasury
         class Address < ModernTreasury::BaseModel
           # Country code conforms to [ISO 3166-1 alpha-2]
           sig { returns(T.nilable(String)) }
-          def country
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def country=(_)
-          end
+          attr_accessor :country
 
           sig { returns(T.nilable(String)) }
-          def line1
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def line1=(_)
-          end
+          attr_accessor :line1
 
           # Locality or City.
           sig { returns(T.nilable(String)) }
-          def locality
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def locality=(_)
-          end
+          attr_accessor :locality
 
           # The postal code of the address.
           sig { returns(T.nilable(String)) }
-          def postal_code
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def postal_code=(_)
-          end
+          attr_accessor :postal_code
 
           # Region or State.
           sig { returns(T.nilable(String)) }
-          def region
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def region=(_)
-          end
+          attr_accessor :region
 
           # The types of this address.
           sig do
@@ -1967,27 +1587,18 @@ module ModernTreasury
               )
             )
           end
-          def address_types
-          end
+          attr_reader :address_types
 
           sig do
             params(
-              _: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType::OrSymbol]
+              address_types: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType::OrSymbol]
             )
-              .returns(
-                T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType::OrSymbol]
-              )
+              .void
           end
-          def address_types=(_)
-          end
+          attr_writer :address_types
 
           sig { returns(T.nilable(String)) }
-          def line2
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def line2=(_)
-          end
+          attr_accessor :line2
 
           sig do
             params(
@@ -2076,34 +1687,16 @@ module ModernTreasury
         class Identification < ModernTreasury::BaseModel
           # The ID number of identification document.
           sig { returns(String) }
-          def id_number
-          end
-
-          sig { params(_: String).returns(String) }
-          def id_number=(_)
-          end
+          attr_accessor :id_number
 
           # The type of ID number.
           sig { returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType::OrSymbol) }
-          def id_type
-          end
-
-          sig do
-            params(_: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType::OrSymbol)
-              .returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType::OrSymbol)
-          end
-          def id_type=(_)
-          end
+          attr_accessor :id_type
 
           # The ISO 3166-1 alpha-2 country code of the country that issued the
           #   identification
           sig { returns(T.nilable(String)) }
-          def issuing_country
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def issuing_country=(_)
-          end
+          attr_accessor :issuing_country
 
           sig do
             params(
@@ -2270,23 +1863,7 @@ module ModernTreasury
               ]
             )
           end
-          def relationship_types
-          end
-
-          sig do
-            params(
-              _: T::Array[
-              ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
-              ]
-            )
-              .returns(
-                T::Array[
-                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
-                ]
-              )
-          end
-          def relationship_types=(_)
-          end
+          attr_accessor :relationship_types
 
           # The child legal entity.
           sig do
@@ -2296,52 +1873,33 @@ module ModernTreasury
               )
             )
           end
-          def child_legal_entity
-          end
+          attr_reader :child_legal_entity
 
           sig do
             params(
-              _: T.any(
+              child_legal_entity: T.any(
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
                 ModernTreasury::Util::AnyHash
               )
             )
-              .returns(
-                T.any(
-                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
-                  ModernTreasury::Util::AnyHash
-                )
-              )
+              .void
           end
-          def child_legal_entity=(_)
-          end
+          attr_writer :child_legal_entity
 
           # The ID of the child legal entity.
           sig { returns(T.nilable(String)) }
-          def child_legal_entity_id
-          end
+          attr_reader :child_legal_entity_id
 
-          sig { params(_: String).returns(String) }
-          def child_legal_entity_id=(_)
-          end
+          sig { params(child_legal_entity_id: String).void }
+          attr_writer :child_legal_entity_id
 
           # The child entity's ownership percentage iff they are a beneficial owner.
           sig { returns(T.nilable(Integer)) }
-          def ownership_percentage
-          end
-
-          sig { params(_: T.nilable(Integer)).returns(T.nilable(Integer)) }
-          def ownership_percentage=(_)
-          end
+          attr_accessor :ownership_percentage
 
           # The job title of the child entity at the parent entity.
           sig { returns(T.nilable(String)) }
-          def title
-          end
-
-          sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-          def title=(_)
-          end
+          attr_accessor :title
 
           sig do
             params(
@@ -2436,102 +1994,61 @@ module ModernTreasury
                 )
               )
             end
-            def addresses
-            end
+            attr_reader :addresses
 
             sig do
               params(
-                _: T::Array[
+                addresses: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
                   ModernTreasury::Util::AnyHash
                 )
                 ]
               )
-                .returns(
-                  T::Array[
-                  T.any(
-                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
-                    ModernTreasury::Util::AnyHash
-                  )
-                  ]
-                )
+                .void
             end
-            def addresses=(_)
-            end
+            attr_writer :addresses
 
             sig { returns(T.nilable(ModernTreasury::Models::BankSettings)) }
-            def bank_settings
-            end
+            attr_reader :bank_settings
 
             sig do
-              params(_: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
-                .returns(T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)))
+              params(
+                bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash))
+              )
+                .void
             end
-            def bank_settings=(_)
-            end
+            attr_writer :bank_settings
 
             # The business's legal business name.
             sig { returns(T.nilable(String)) }
-            def business_name
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def business_name=(_)
-            end
+            attr_accessor :business_name
 
             # The country of citizenship for an individual.
             sig { returns(T.nilable(String)) }
-            def citizenship_country
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def citizenship_country=(_)
-            end
+            attr_accessor :citizenship_country
 
             # A business's formation date (YYYY-MM-DD).
             sig { returns(T.nilable(Date)) }
-            def date_formed
-            end
-
-            sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-            def date_formed=(_)
-            end
+            attr_accessor :date_formed
 
             # An individual's date of birth (YYYY-MM-DD).
             sig { returns(T.nilable(Date)) }
-            def date_of_birth
-            end
-
-            sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-            def date_of_birth=(_)
-            end
+            attr_accessor :date_of_birth
 
             sig { returns(T.nilable(T::Array[String])) }
-            def doing_business_as_names
-            end
+            attr_reader :doing_business_as_names
 
-            sig { params(_: T::Array[String]).returns(T::Array[String]) }
-            def doing_business_as_names=(_)
-            end
+            sig { params(doing_business_as_names: T::Array[String]).void }
+            attr_writer :doing_business_as_names
 
             # The entity's primary email.
             sig { returns(T.nilable(String)) }
-            def email
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def email=(_)
-            end
+            attr_accessor :email
 
             # An individual's first name.
             sig { returns(T.nilable(String)) }
-            def first_name
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def first_name=(_)
-            end
+            attr_accessor :first_name
 
             # A list of identifications for the legal entity.
             sig do
@@ -2543,38 +2060,24 @@ module ModernTreasury
                 )
               )
             end
-            def identifications
-            end
+            attr_reader :identifications
 
             sig do
               params(
-                _: T::Array[
+                identifications: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
                   ModernTreasury::Util::AnyHash
                 )
                 ]
               )
-                .returns(
-                  T::Array[
-                  T.any(
-                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
-                    ModernTreasury::Util::AnyHash
-                  )
-                  ]
-                )
+                .void
             end
-            def identifications=(_)
-            end
+            attr_writer :identifications
 
             # An individual's last name.
             sig { returns(T.nilable(String)) }
-            def last_name
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def last_name=(_)
-            end
+            attr_accessor :last_name
 
             # The type of legal entity.
             sig do
@@ -2584,19 +2087,15 @@ module ModernTreasury
                 )
               )
             end
-            def legal_entity_type
-            end
+            attr_reader :legal_entity_type
 
             sig do
               params(
-                _: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol
+                legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol
               )
-                .returns(
-                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol
-                )
+                .void
             end
-            def legal_entity_type=(_)
-            end
+            attr_writer :legal_entity_type
 
             # The business's legal structure.
             sig do
@@ -2606,42 +2105,19 @@ module ModernTreasury
                 )
               )
             end
-            def legal_structure
-            end
-
-            sig do
-              params(
-                _: T.nilable(
-                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
-                )
-              )
-                .returns(
-                  T.nilable(
-                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::OrSymbol
-                  )
-                )
-            end
-            def legal_structure=(_)
-            end
+            attr_accessor :legal_structure
 
             # Additional data represented as key-value pairs. Both the key and value must be
             #   strings.
             sig { returns(T.nilable(T::Hash[Symbol, String])) }
-            def metadata
-            end
+            attr_reader :metadata
 
-            sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-            def metadata=(_)
-            end
+            sig { params(metadata: T::Hash[Symbol, String]).void }
+            attr_writer :metadata
 
             # An individual's middle name.
             sig { returns(T.nilable(String)) }
-            def middle_name
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def middle_name=(_)
-            end
+            attr_accessor :middle_name
 
             sig do
               returns(
@@ -2652,56 +2128,32 @@ module ModernTreasury
                 )
               )
             end
-            def phone_numbers
-            end
+            attr_reader :phone_numbers
 
             sig do
               params(
-                _: T::Array[
+                phone_numbers: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
                   ModernTreasury::Util::AnyHash
                 )
                 ]
               )
-                .returns(
-                  T::Array[
-                  T.any(
-                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
-                    ModernTreasury::Util::AnyHash
-                  )
-                  ]
-                )
+                .void
             end
-            def phone_numbers=(_)
-            end
+            attr_writer :phone_numbers
 
             # Whether the individual is a politically exposed person.
             sig { returns(T.nilable(T::Boolean)) }
-            def politically_exposed_person
-            end
-
-            sig { params(_: T.nilable(T::Boolean)).returns(T.nilable(T::Boolean)) }
-            def politically_exposed_person=(_)
-            end
+            attr_accessor :politically_exposed_person
 
             # An individual's preferred name.
             sig { returns(T.nilable(String)) }
-            def preferred_name
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def preferred_name=(_)
-            end
+            attr_accessor :preferred_name
 
             # An individual's prefix.
             sig { returns(T.nilable(String)) }
-            def prefix
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def prefix=(_)
-            end
+            attr_accessor :prefix
 
             # The risk rating of the legal entity. One of low, medium, high.
             sig do
@@ -2711,56 +2163,26 @@ module ModernTreasury
                 )
               )
             end
-            def risk_rating
-            end
-
-            sig do
-              params(
-                _: T.nilable(
-                  ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol
-                )
-              )
-                .returns(
-                  T.nilable(
-                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol
-                  )
-                )
-            end
-            def risk_rating=(_)
-            end
+            attr_accessor :risk_rating
 
             # An individual's suffix.
             sig { returns(T.nilable(String)) }
-            def suffix
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def suffix=(_)
-            end
+            attr_accessor :suffix
 
             sig { returns(T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails)) }
-            def wealth_and_employment_details
-            end
+            attr_reader :wealth_and_employment_details
 
             sig do
               params(
-                _: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+                wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
               )
-                .returns(
-                  T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
-                )
+                .void
             end
-            def wealth_and_employment_details=(_)
-            end
+            attr_writer :wealth_and_employment_details
 
             # The entity's primary website URL.
             sig { returns(T.nilable(String)) }
-            def website
-            end
-
-            sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-            def website=(_)
-            end
+            attr_accessor :website
 
             # The child legal entity.
             sig do
@@ -2883,47 +2305,22 @@ module ModernTreasury
             class Address < ModernTreasury::BaseModel
               # Country code conforms to [ISO 3166-1 alpha-2]
               sig { returns(T.nilable(String)) }
-              def country
-              end
-
-              sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-              def country=(_)
-              end
+              attr_accessor :country
 
               sig { returns(T.nilable(String)) }
-              def line1
-              end
-
-              sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-              def line1=(_)
-              end
+              attr_accessor :line1
 
               # Locality or City.
               sig { returns(T.nilable(String)) }
-              def locality
-              end
-
-              sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-              def locality=(_)
-              end
+              attr_accessor :locality
 
               # The postal code of the address.
               sig { returns(T.nilable(String)) }
-              def postal_code
-              end
-
-              sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-              def postal_code=(_)
-              end
+              attr_accessor :postal_code
 
               # Region or State.
               sig { returns(T.nilable(String)) }
-              def region
-              end
-
-              sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-              def region=(_)
-              end
+              attr_accessor :region
 
               # The types of this address.
               sig do
@@ -2935,31 +2332,20 @@ module ModernTreasury
                   )
                 )
               end
-              def address_types
-              end
+              attr_reader :address_types
 
               sig do
                 params(
-                  _: T::Array[
+                  address_types: T::Array[
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
                   ]
                 )
-                  .returns(
-                    T::Array[
-                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::OrSymbol
-                    ]
-                  )
+                  .void
               end
-              def address_types=(_)
-              end
+              attr_writer :address_types
 
               sig { returns(T.nilable(String)) }
-              def line2
-              end
-
-              sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-              def line2=(_)
-              end
+              attr_accessor :line2
 
               sig do
                 params(
@@ -3056,12 +2442,7 @@ module ModernTreasury
             class Identification < ModernTreasury::BaseModel
               # The ID number of identification document.
               sig { returns(String) }
-              def id_number
-              end
-
-              sig { params(_: String).returns(String) }
-              def id_number=(_)
-              end
+              attr_accessor :id_number
 
               # The type of ID number.
               sig do
@@ -3069,29 +2450,12 @@ module ModernTreasury
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
                 )
               end
-              def id_type
-              end
-
-              sig do
-                params(
-                  _: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
-                )
-                  .returns(
-                    ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::OrSymbol
-                  )
-              end
-              def id_type=(_)
-              end
+              attr_accessor :id_type
 
               # The ISO 3166-1 alpha-2 country code of the country that issued the
               #   identification
               sig { returns(T.nilable(String)) }
-              def issuing_country
-              end
-
-              sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-              def issuing_country=(_)
-              end
+              attr_accessor :issuing_country
 
               sig do
                 params(
@@ -3358,12 +2722,10 @@ module ModernTreasury
 
             class PhoneNumber < ModernTreasury::BaseModel
               sig { returns(T.nilable(String)) }
-              def phone_number
-              end
+              attr_reader :phone_number
 
-              sig { params(_: String).returns(String) }
-              def phone_number=(_)
-              end
+              sig { params(phone_number: String).void }
+              attr_writer :phone_number
 
               # A list of phone numbers in E.164 format.
               sig { params(phone_number: String).returns(T.attached_class) }
@@ -3471,12 +2833,10 @@ module ModernTreasury
 
         class PhoneNumber < ModernTreasury::BaseModel
           sig { returns(T.nilable(String)) }
-          def phone_number
-          end
+          attr_reader :phone_number
 
-          sig { params(_: String).returns(String) }
-          def phone_number=(_)
-          end
+          sig { params(phone_number: String).void }
+          attr_writer :phone_number
 
           # A list of phone numbers in E.164 format.
           sig { params(phone_number: String).returns(T.attached_class) }

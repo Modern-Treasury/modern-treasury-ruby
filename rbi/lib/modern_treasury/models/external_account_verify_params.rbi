@@ -9,60 +9,35 @@ module ModernTreasury
       # The ID of the internal account where the micro-deposits originate from. Both
       #   credit and debit capabilities must be enabled.
       sig { returns(String) }
-      def originating_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def originating_account_id=(_)
-      end
+      attr_accessor :originating_account_id
 
       # Can be `ach`, `eft`, or `rtp`.
       sig { returns(ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol) }
-      def payment_type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-          .returns(ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::OrSymbol)
-      end
-      def payment_type=(_)
-      end
+      attr_accessor :payment_type
 
       # Defaults to the currency of the originating account.
       sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
-      def currency
-      end
+      attr_reader :currency
 
-      sig { params(_: ModernTreasury::Models::Currency::OrSymbol).returns(ModernTreasury::Models::Currency::OrSymbol) }
-      def currency=(_)
-      end
+      sig { params(currency: ModernTreasury::Models::Currency::OrSymbol).void }
+      attr_writer :currency
 
       # A payment type to fallback to if the original type is not valid for the
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (payment_type=rtp and fallback_type=ach)
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol)) }
-      def fallback_type
-      end
+      attr_reader :fallback_type
 
-      sig do
-        params(_: ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol)
-          .returns(ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol)
-      end
-      def fallback_type=(_)
-      end
+      sig { params(fallback_type: ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::OrSymbol).void }
+      attr_writer :fallback_type
 
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #   transfer. This will apply to both `payment_type` and `fallback_type`.
       sig { returns(T.nilable(ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol)) }
-      def priority
-      end
+      attr_reader :priority
 
-      sig do
-        params(_: ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol)
-          .returns(ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol)
-      end
-      def priority=(_)
-      end
+      sig { params(priority: ModernTreasury::Models::ExternalAccountVerifyParams::Priority::OrSymbol).void }
+      attr_writer :priority
 
       sig do
         params(

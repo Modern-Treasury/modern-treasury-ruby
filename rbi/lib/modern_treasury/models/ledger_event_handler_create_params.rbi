@@ -7,92 +7,54 @@ module ModernTreasury
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate) }
-      def ledger_transaction_template
-      end
+      attr_reader :ledger_transaction_template
 
       sig do
         params(
-          _: T.any(
+          ledger_transaction_template: T.any(
             ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
             ModernTreasury::Util::AnyHash
           )
         )
-          .returns(
-            T.any(
-              ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate,
-              ModernTreasury::Util::AnyHash
-            )
-          )
+          .void
       end
-      def ledger_transaction_template=(_)
-      end
+      attr_writer :ledger_transaction_template
 
       # Name of the ledger event handler.
       sig { returns(String) }
-      def name
-      end
-
-      sig { params(_: String).returns(String) }
-      def name=(_)
-      end
+      attr_accessor :name
 
       sig { returns(T.nilable(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions)) }
-      def conditions
-      end
+      attr_reader :conditions
 
       sig do
         params(
-          _: T.nilable(
+          conditions: T.nilable(
             T.any(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, ModernTreasury::Util::AnyHash)
           )
         )
-          .returns(
-            T.nilable(
-              T.any(ModernTreasury::Models::LedgerEventHandlerCreateParams::Conditions, ModernTreasury::Util::AnyHash)
-            )
-          )
+          .void
       end
-      def conditions=(_)
-      end
+      attr_writer :conditions
 
       # An optional description.
       sig { returns(T.nilable(String)) }
-      def description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def description=(_)
-      end
+      attr_accessor :description
 
       # The id of the ledger that this account belongs to.
       sig { returns(T.nilable(String)) }
-      def ledger_id
-      end
+      attr_reader :ledger_id
 
-      sig { params(_: String).returns(String) }
-      def ledger_id=(_)
-      end
+      sig { params(ledger_id: String).void }
+      attr_writer :ledger_id
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata
-      end
-
-      sig { params(_: T.nilable(T::Hash[Symbol, String])).returns(T.nilable(T::Hash[Symbol, String])) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       sig { returns(T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable])) }
-      def variables
-      end
-
-      sig do
-        params(_: T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]))
-          .returns(T.nilable(T::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]))
-      end
-      def variables=(_)
-      end
+      attr_accessor :variables
 
       sig do
         params(
@@ -147,22 +109,12 @@ module ModernTreasury
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
         # An optional description for internal use.
         sig { returns(T.nilable(String)) }
-        def description
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def description=(_)
-        end
+        attr_accessor :description
 
         # The timestamp (ISO8601 format) at which the ledger transaction happened for
         #   reporting purposes.
         sig { returns(T.nilable(String)) }
-        def effective_at
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def effective_at=(_)
-        end
+        attr_accessor :effective_at
 
         # An array of ledger entry objects.
         sig do
@@ -170,28 +122,11 @@ module ModernTreasury
             T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
           )
         end
-        def ledger_entries
-        end
-
-        sig do
-          params(
-            _: T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
-          )
-            .returns(
-              T::Array[ModernTreasury::Models::LedgerEventHandlerCreateParams::LedgerTransactionTemplate::LedgerEntry]
-            )
-        end
-        def ledger_entries=(_)
-        end
+        attr_accessor :ledger_entries
 
         # To post a ledger transaction at creation, use `posted`.
         sig { returns(T.nilable(String)) }
-        def status
-        end
-
-        sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-        def status=(_)
-        end
+        attr_accessor :status
 
         sig do
           params(
@@ -227,30 +162,15 @@ module ModernTreasury
         class LedgerEntry < ModernTreasury::BaseModel
           # The LHS of the conditional.
           sig { returns(String) }
-          def amount
-          end
-
-          sig { params(_: String).returns(String) }
-          def amount=(_)
-          end
+          attr_accessor :amount
 
           # What the operator between the `field` and `value` is.
           sig { returns(String) }
-          def direction
-          end
-
-          sig { params(_: String).returns(String) }
-          def direction=(_)
-          end
+          attr_accessor :direction
 
           # The RHS of the conditional.
           sig { returns(String) }
-          def ledger_account_id
-          end
-
-          sig { params(_: String).returns(String) }
-          def ledger_account_id=(_)
-          end
+          attr_accessor :ledger_account_id
 
           sig do
             params(amount: String, direction: String, ledger_account_id: String).returns(T.attached_class)
@@ -267,30 +187,15 @@ module ModernTreasury
       class Conditions < ModernTreasury::BaseModel
         # The LHS of the conditional.
         sig { returns(String) }
-        def field
-        end
-
-        sig { params(_: String).returns(String) }
-        def field=(_)
-        end
+        attr_accessor :field
 
         # What the operator between the `field` and `value` is.
         sig { returns(String) }
-        def operator
-        end
-
-        sig { params(_: String).returns(String) }
-        def operator=(_)
-        end
+        attr_accessor :operator
 
         # The RHS of the conditional.
         sig { returns(String) }
-        def value
-        end
-
-        sig { params(_: String).returns(String) }
-        def value=(_)
-        end
+        attr_accessor :value
 
         sig { params(field: String, operator: String, value: String).returns(T.attached_class) }
         def self.new(field:, operator:, value:)

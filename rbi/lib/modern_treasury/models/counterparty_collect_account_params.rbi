@@ -10,26 +10,16 @@ module ModernTreasury
       #   Use `debit` when you need to charge a counterparty. This field helps us send a
       #   more tailored email to your counterparties."
       sig { returns(ModernTreasury::Models::TransactionDirection::OrSymbol) }
-      def direction
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::TransactionDirection::OrSymbol)
-          .returns(ModernTreasury::Models::TransactionDirection::OrSymbol)
-      end
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       # The URL you want your customer to visit upon filling out the form. By default,
       #   they will be sent to a Modern Treasury landing page. This must be a valid HTTPS
       #   URL if set.
       sig { returns(T.nilable(String)) }
-      def custom_redirect
-      end
+      attr_reader :custom_redirect
 
-      sig { params(_: String).returns(String) }
-      def custom_redirect=(_)
-      end
+      sig { params(custom_redirect: String).void }
+      attr_writer :custom_redirect
 
       # The list of fields you want on the form. This field is optional and if it is not
       #   set, will default to [\"nameOnAccount\", \"accountType\", \"accountNumber\",
@@ -37,27 +27,20 @@ module ModernTreasury
       #   \"nameOnAccount\", \"taxpayerIdentifier\", \"accountType\", \"accountNumber\",
       #   \"routingNumber\", \"address\", \"ibanNumber\", \"swiftCode\"].
       sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol])) }
-      def fields
-      end
+      attr_reader :fields
 
-      sig do
-        params(_: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol])
-          .returns(T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol])
-      end
-      def fields=(_)
-      end
+      sig { params(fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol]).void }
+      attr_writer :fields
 
       # By default, Modern Treasury will send an email to your counterparty that
       #   includes a link to the form they must fill out. However, if you would like to
       #   send the counterparty the link, you can set this parameter to `false`. The JSON
       #   body will include the link to the secure Modern Treasury form.
       sig { returns(T.nilable(T::Boolean)) }
-      def send_email
-      end
+      attr_reader :send_email
 
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def send_email=(_)
-      end
+      sig { params(send_email: T::Boolean).void }
+      attr_writer :send_email
 
       sig do
         params(

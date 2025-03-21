@@ -4,235 +4,112 @@ module ModernTreasury
   module Models
     class Transaction < ModernTreasury::BaseModel
       sig { returns(String) }
-      def id
-      end
-
-      sig { params(_: String).returns(String) }
-      def id=(_)
-      end
+      attr_accessor :id
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented
       #   as 1000.
       sig { returns(Integer) }
-      def amount
-      end
-
-      sig { params(_: Integer).returns(Integer) }
-      def amount=(_)
-      end
+      attr_accessor :amount
 
       # The date on which the transaction occurred.
       sig { returns(T.nilable(Date)) }
-      def as_of_date
-      end
-
-      sig { params(_: T.nilable(Date)).returns(T.nilable(Date)) }
-      def as_of_date=(_)
-      end
+      attr_accessor :as_of_date
 
       # The time on which the transaction occurred. Depending on the granularity of the
       #   timestamp information received from the bank, it may be `null`.
       sig { returns(T.nilable(Time)) }
-      def as_of_time
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def as_of_time=(_)
-      end
+      attr_accessor :as_of_time
 
       # The timezone in which the `as_of_time` is represented. Can be `null` if the bank
       #   does not provide timezone info.
       sig { returns(T.nilable(String)) }
-      def as_of_timezone
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def as_of_timezone=(_)
-      end
+      attr_accessor :as_of_timezone
 
       sig { returns(Time) }
-      def created_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def created_at=(_)
-      end
+      attr_accessor :created_at
 
       # Currency that this transaction is denominated in.
       sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-      def currency
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-          .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-      end
-      def currency=(_)
-      end
+      attr_accessor :currency
 
       # An object containing key-value pairs, each with a custom identifier as the key
       #   and a string value.
       sig { returns(T::Hash[Symbol, String]) }
-      def custom_identifiers
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def custom_identifiers=(_)
-      end
+      attr_accessor :custom_identifiers
 
       # Either `credit` or `debit`.
       sig { returns(String) }
-      def direction
-      end
-
-      sig { params(_: String).returns(String) }
-      def direction=(_)
-      end
+      attr_accessor :direction
 
       sig { returns(T.nilable(Time)) }
-      def discarded_at
-      end
-
-      sig { params(_: T.nilable(Time)).returns(T.nilable(Time)) }
-      def discarded_at=(_)
-      end
+      attr_accessor :discarded_at
 
       # Associated serialized foreign exchange rate information.
       sig { returns(T.nilable(ModernTreasury::Models::Transaction::ForeignExchangeRate)) }
-      def foreign_exchange_rate
-      end
+      attr_reader :foreign_exchange_rate
 
       sig do
         params(
-          _: T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
         )
-          .returns(
-            T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
-          )
+          .void
       end
-      def foreign_exchange_rate=(_)
-      end
+      attr_writer :foreign_exchange_rate
 
       # The ID of the relevant Internal Account.
       sig { returns(String) }
-      def internal_account_id
-      end
-
-      sig { params(_: String).returns(String) }
-      def internal_account_id=(_)
-      end
+      attr_accessor :internal_account_id
 
       # This field will be true if this object exists in the live environment or false
       #   if it exists in the test environment.
       sig { returns(T::Boolean) }
-      def live_mode
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def live_mode=(_)
-      end
+      attr_accessor :live_mode
 
       # Additional data represented as key-value pairs. Both the key and value must be
       #   strings.
       sig { returns(T::Hash[Symbol, String]) }
-      def metadata
-      end
-
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def metadata=(_)
-      end
+      attr_accessor :metadata
 
       sig { returns(String) }
-      def object
-      end
-
-      sig { params(_: String).returns(String) }
-      def object=(_)
-      end
+      attr_accessor :object
 
       # This field will be `true` if the transaction has posted to the account.
       sig { returns(T::Boolean) }
-      def posted
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def posted=(_)
-      end
+      attr_accessor :posted
 
       # This field will be `true` if a transaction is reconciled by the Modern Treasury
       #   system. This means that it has transaction line items that sum up to the
       #   transaction's amount.
       sig { returns(T::Boolean) }
-      def reconciled
-      end
-
-      sig { params(_: T::Boolean).returns(T::Boolean) }
-      def reconciled=(_)
-      end
+      attr_accessor :reconciled
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       sig { returns(ModernTreasury::Models::Transaction::Type::TaggedSymbol) }
-      def type
-      end
-
-      sig do
-        params(_: ModernTreasury::Models::Transaction::Type::TaggedSymbol)
-          .returns(ModernTreasury::Models::Transaction::Type::TaggedSymbol)
-      end
-      def type=(_)
-      end
+      attr_accessor :type
 
       sig { returns(Time) }
-      def updated_at
-      end
-
-      sig { params(_: Time).returns(Time) }
-      def updated_at=(_)
-      end
+      attr_accessor :updated_at
 
       # When applicable, the bank-given code that determines the transaction's category.
       #   For most banks this is the BAI2/BTRS transaction code.
       sig { returns(T.nilable(String)) }
-      def vendor_code
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_code=(_)
-      end
+      attr_accessor :vendor_code
 
       # The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
       sig { returns(T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)) }
-      def vendor_code_type
-      end
-
-      sig do
-        params(_: T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol))
-          .returns(T.nilable(ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol))
-      end
-      def vendor_code_type=(_)
-      end
+      attr_accessor :vendor_code_type
 
       # An identifier given to this transaction by the bank, often `null`.
       sig { returns(T.nilable(String)) }
-      def vendor_customer_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_customer_id=(_)
-      end
+      attr_accessor :vendor_customer_id
 
       # An identifier given to this transaction by the bank.
       sig { returns(T.nilable(String)) }
-      def vendor_id
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_id=(_)
-      end
+      attr_accessor :vendor_id
 
       # This field contains additional information that the bank provided about the
       #   transaction. This is structured data. Some of the data in here might overlap
@@ -242,22 +119,15 @@ module ModernTreasury
       #   partner. Currently, the following keys may be in the details object:
       #   `originator_name`, `originator_to_beneficiary_information`.
       sig { returns(T.nilable(T::Hash[Symbol, String])) }
-      def details
-      end
+      attr_reader :details
 
-      sig { params(_: T::Hash[Symbol, String]).returns(T::Hash[Symbol, String]) }
-      def details=(_)
-      end
+      sig { params(details: T::Hash[Symbol, String]).void }
+      attr_writer :details
 
       # The transaction detail text that often appears in on your bank statement and in
       #   your banking portal.
       sig { returns(T.nilable(String)) }
-      def vendor_description
-      end
-
-      sig { params(_: T.nilable(String)).returns(T.nilable(String)) }
-      def vendor_description=(_)
-      end
+      attr_accessor :vendor_description
 
       sig do
         params(
@@ -357,75 +227,34 @@ module ModernTreasury
         # Amount in the lowest denomination of the `base_currency` to convert, often
         #   called the "sell" amount.
         sig { returns(Integer) }
-        def base_amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def base_amount=(_)
-        end
+        attr_accessor :base_amount
 
         # Currency to convert, often called the "sell" currency.
         sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-        def base_currency
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-        end
-        def base_currency=(_)
-        end
+        attr_accessor :base_currency
 
         # The exponent component of the rate. The decimal is calculated as `value` / (10 ^
         #   `exponent`).
         sig { returns(Integer) }
-        def exponent
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def exponent=(_)
-        end
+        attr_accessor :exponent
 
         # A string representation of the rate.
         sig { returns(String) }
-        def rate_string
-        end
-
-        sig { params(_: String).returns(String) }
-        def rate_string=(_)
-        end
+        attr_accessor :rate_string
 
         # Amount in the lowest denomination of the `target_currency`, often called the
         #   "buy" amount.
         sig { returns(Integer) }
-        def target_amount
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def target_amount=(_)
-        end
+        attr_accessor :target_amount
 
         # Currency to convert the `base_currency` to, often called the "buy" currency.
         sig { returns(ModernTreasury::Models::Currency::TaggedSymbol) }
-        def target_currency
-        end
-
-        sig do
-          params(_: ModernTreasury::Models::Currency::TaggedSymbol)
-            .returns(ModernTreasury::Models::Currency::TaggedSymbol)
-        end
-        def target_currency=(_)
-        end
+        attr_accessor :target_currency
 
         # The whole number component of the rate. The decimal is calculated as `value` /
         #   (10 ^ `exponent`).
         sig { returns(Integer) }
-        def value
-        end
-
-        sig { params(_: Integer).returns(Integer) }
-        def value=(_)
-        end
+        attr_accessor :value
 
         # Associated serialized foreign exchange rate information.
         sig do
