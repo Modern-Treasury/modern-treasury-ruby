@@ -94,7 +94,7 @@ module ModernTreasury
           payment_direction: ModernTreasury::Models::TransactionDirection::OrSymbol,
           payment_type: ModernTreasury::Models::InternalAccountListParams::PaymentType::OrSymbol,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

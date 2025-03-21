@@ -12,7 +12,7 @@ module ModernTreasury
           code: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::ReturnObject)
       end
@@ -41,7 +41,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::ReturnObject)
       end
@@ -61,7 +61,7 @@ module ModernTreasury
           per_page: Integer,
           returnable_id: String,
           returnable_type: ModernTreasury::Models::ReturnListParams::ReturnableType::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::ReturnObject])
       end

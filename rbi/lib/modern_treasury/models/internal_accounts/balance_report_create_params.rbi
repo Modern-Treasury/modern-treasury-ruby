@@ -58,7 +58,7 @@ module ModernTreasury
             as_of_time: String,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::BalanceReportType::OrSymbol,
             balances: T::Array[ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance],
-            request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

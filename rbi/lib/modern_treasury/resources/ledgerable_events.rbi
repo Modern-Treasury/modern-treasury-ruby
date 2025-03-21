@@ -10,7 +10,7 @@ module ModernTreasury
           custom_data: T.nilable(T.anything),
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerableEvent)
       end
@@ -32,7 +32,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::LedgerableEvent)
       end

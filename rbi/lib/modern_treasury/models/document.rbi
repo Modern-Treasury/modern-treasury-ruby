@@ -125,7 +125,7 @@ module ModernTreasury
           document_type: T.nilable(String),
           documentable_id: String,
           documentable_type: ModernTreasury::Models::Document::DocumentableType::TaggedSymbol,
-          file: ModernTreasury::Models::Document::File,
+          file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Util::AnyHash),
           live_mode: T::Boolean,
           object: String,
           source: String,

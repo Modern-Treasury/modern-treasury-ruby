@@ -108,9 +108,9 @@ module ModernTreasury
           counterparty_id: String,
           legal_entity_id: String,
           parent_account_id: String,
-          party_address: ModernTreasury::Models::InternalAccountCreateParams::PartyAddress,
+          party_address: T.any(ModernTreasury::Models::InternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash),
           vendor_attributes: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

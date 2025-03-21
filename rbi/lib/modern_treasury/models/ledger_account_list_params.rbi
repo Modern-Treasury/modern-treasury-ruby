@@ -182,19 +182,25 @@ module ModernTreasury
         params(
           id: T::Array[String],
           after_cursor: T.nilable(String),
-          available_balance_amount: ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-          balances: ModernTreasury::Models::LedgerAccountListParams::Balances,
+          available_balance_amount: T.any(
+            ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
+            ModernTreasury::Util::AnyHash
+          ),
+          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Util::AnyHash),
           created_at: T::Hash[Symbol, Time],
           currency: String,
           ledger_account_category_id: String,
           ledger_id: String,
           metadata: T::Hash[Symbol, String],
           name: T::Array[String],
-          pending_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+          pending_balance_amount: T.any(
+            ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
+            ModernTreasury::Util::AnyHash
+          ),
           per_page: Integer,
-          posted_balance_amount: ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
+          posted_balance_amount: T.any(ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount, ModernTreasury::Util::AnyHash),
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

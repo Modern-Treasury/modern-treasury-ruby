@@ -154,7 +154,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          balances: ModernTreasury::Models::LedgerAccount::Balances,
+          balances: T.any(ModernTreasury::Models::LedgerAccount::Balances, ModernTreasury::Util::AnyHash),
           created_at: Time,
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
@@ -294,11 +294,11 @@ module ModernTreasury
         #   amounts.
         sig do
           params(
-            available_balance: ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance,
+            available_balance: T.any(ModernTreasury::Models::LedgerAccount::Balances::AvailableBalance, ModernTreasury::Util::AnyHash),
             effective_at_lower_bound: T.nilable(Time),
             effective_at_upper_bound: T.nilable(Time),
-            pending_balance: ModernTreasury::Models::LedgerAccount::Balances::PendingBalance,
-            posted_balance: ModernTreasury::Models::LedgerAccount::Balances::PostedBalance
+            pending_balance: T.any(ModernTreasury::Models::LedgerAccount::Balances::PendingBalance, ModernTreasury::Util::AnyHash),
+            posted_balance: T.any(ModernTreasury::Models::LedgerAccount::Balances::PostedBalance, ModernTreasury::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

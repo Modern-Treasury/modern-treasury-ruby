@@ -125,10 +125,10 @@ module ModernTreasury
           credit_ledger_account_id: String,
           debit_ledger_account_id: String,
           description: String,
-          ledger_account: ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount,
+          ledger_account: T.any(ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash),
           metadata: T::Hash[Symbol, String],
           routing_details: T::Array[ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail],
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

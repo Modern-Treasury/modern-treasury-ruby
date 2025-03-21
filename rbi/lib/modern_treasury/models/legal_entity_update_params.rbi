@@ -229,7 +229,7 @@ module ModernTreasury
       sig do
         params(
           addresses: T::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address],
-          bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
+          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
           date_formed: T.nilable(Date),
@@ -248,9 +248,9 @@ module ModernTreasury
           prefix: T.nilable(String),
           risk_rating: T.nilable(ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::OrSymbol),
           suffix: T.nilable(String),
-          wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
+          wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
           website: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

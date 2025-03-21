@@ -140,12 +140,15 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          conditions: T.nilable(ModernTreasury::Models::LedgerEventHandler::Conditions),
+          conditions: T.nilable(T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Util::AnyHash)),
           created_at: Time,
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
           ledger_id: T.nilable(String),
-          ledger_transaction_template: ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+          ledger_transaction_template: T.any(
+            ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
+            ModernTreasury::Util::AnyHash
+          ),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
           name: String,

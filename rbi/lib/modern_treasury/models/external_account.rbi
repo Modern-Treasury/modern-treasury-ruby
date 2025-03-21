@@ -209,7 +209,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
           object: String,
-          party_address: T.nilable(ModernTreasury::Models::ExternalAccount::PartyAddress),
+          party_address: T.nilable(T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Util::AnyHash)),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccount::PartyType::TaggedSymbol),
           routing_details: T::Array[ModernTreasury::Models::RoutingDetail],

@@ -132,17 +132,17 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          accounting: ModernTreasury::Models::CounterpartyCreateParams::Accounting,
+          accounting: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Util::AnyHash),
           accounts: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account],
           email: T.nilable(String),
           ledger_type: ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol,
-          legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
+          legal_entity: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Util::AnyHash),
           legal_entity_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
           verification_status: ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -392,10 +392,16 @@ module ModernTreasury
             account_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail],
             account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
             contact_details: T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail],
-            ledger_account: ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
+            ledger_account: T.any(
+              ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
+              ModernTreasury::Util::AnyHash
+            ),
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
-            party_address: ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
+            party_address: T.any(
+              ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
+              ModernTreasury::Util::AnyHash
+            ),
             party_identifier: String,
             party_name: String,
             party_type: T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::OrSymbol),
@@ -1659,7 +1665,7 @@ module ModernTreasury
           params(
             legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::OrSymbol,
             addresses: T::Array[ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address],
-            bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
+            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
             date_formed: T.nilable(Date),
@@ -1679,7 +1685,7 @@ module ModernTreasury
             prefix: T.nilable(String),
             risk_rating: T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::OrSymbol),
             suffix: T.nilable(String),
-            wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
+            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
             website: T.nilable(String)
           )
             .returns(T.attached_class)
@@ -2217,7 +2223,10 @@ module ModernTreasury
               relationship_types: T::Array[
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::OrSymbol
               ],
-              child_legal_entity: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+              child_legal_entity: T.any(
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
+                ModernTreasury::Util::AnyHash
+              ),
               child_legal_entity_id: String,
               ownership_percentage: T.nilable(Integer),
               title: T.nilable(String)
@@ -2616,7 +2625,7 @@ module ModernTreasury
                 addresses: T::Array[
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
                 ],
-                bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
+                bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
                 business_name: T.nilable(String),
                 citizenship_country: T.nilable(String),
                 date_formed: T.nilable(Date),
@@ -2644,7 +2653,7 @@ module ModernTreasury
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol
                 ),
                 suffix: T.nilable(String),
-                wealth_and_employment_details: T.nilable(ModernTreasury::Models::WealthAndEmploymentDetails),
+                wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
                 website: T.nilable(String)
               )
                 .returns(T.attached_class)

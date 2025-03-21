@@ -160,16 +160,16 @@ module ModernTreasury
           account_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail],
           account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
           contact_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail],
-          ledger_account: ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount,
+          ledger_account: T.any(ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount, ModernTreasury::Util::AnyHash),
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
-          party_address: ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress,
+          party_address: T.any(ModernTreasury::Models::ExternalAccountCreateParams::PartyAddress, ModernTreasury::Util::AnyHash),
           party_identifier: String,
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccountCreateParams::PartyType::OrSymbol),
           plaid_processor_token: String,
           routing_details: T::Array[ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail],
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

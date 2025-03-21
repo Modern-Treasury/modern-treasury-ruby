@@ -86,7 +86,7 @@ module ModernTreasury
 
       sig do
         params(
-          bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
+          bank_address: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Util::AnyHash),
           bank_name: String,
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol,

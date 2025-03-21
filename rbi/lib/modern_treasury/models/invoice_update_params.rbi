@@ -314,16 +314,28 @@ module ModernTreasury
       sig do
         params(
           contact_details: T::Array[ModernTreasury::Models::InvoiceUpdateParams::ContactDetail],
-          counterparty_billing_address: T.nilable(ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress),
+          counterparty_billing_address: T.nilable(
+            T.any(
+              ModernTreasury::Models::InvoiceUpdateParams::CounterpartyBillingAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          ),
           counterparty_id: String,
-          counterparty_shipping_address: T.nilable(ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress),
+          counterparty_shipping_address: T.nilable(
+            T.any(
+              ModernTreasury::Models::InvoiceUpdateParams::CounterpartyShippingAddress,
+              ModernTreasury::Util::AnyHash
+            )
+          ),
           currency: ModernTreasury::Models::Currency::OrSymbol,
           description: String,
           due_date: Time,
           fallback_payment_method: T.nilable(String),
           ingest_ledger_entries: T.nilable(T::Boolean),
           invoice_line_items: T.nilable(T::Array[ModernTreasury::Models::InvoiceUpdateParams::InvoiceLineItem]),
-          invoicer_address: T.nilable(ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress),
+          invoicer_address: T.nilable(
+            T.any(ModernTreasury::Models::InvoiceUpdateParams::InvoicerAddress, ModernTreasury::Util::AnyHash)
+          ),
           ledger_account_settlement_id: T.nilable(String),
           metadata: T.nilable(T::Hash[Symbol, String]),
           notification_email_addresses: T.nilable(T::Array[String]),
@@ -338,7 +350,7 @@ module ModernTreasury
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: String,
           virtual_account_id: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

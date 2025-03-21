@@ -15,7 +15,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
@@ -52,7 +52,7 @@ module ModernTreasury
           params(
             id: String,
             invoice_id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
@@ -77,7 +77,7 @@ module ModernTreasury
             quantity: Integer,
             unit_amount: Integer,
             unit_amount_decimal: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end
@@ -117,7 +117,7 @@ module ModernTreasury
             invoice_id: String,
             after_cursor: T.nilable(String),
             per_page: Integer,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Page[ModernTreasury::Models::Invoices::InvoiceLineItem])
         end
@@ -135,7 +135,7 @@ module ModernTreasury
           params(
             id: String,
             invoice_id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .returns(ModernTreasury::Models::Invoices::InvoiceLineItem)
         end

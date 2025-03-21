@@ -183,7 +183,10 @@ module ModernTreasury
           description: T.nilable(String),
           effective_at_lower_bound: Time,
           effective_at_upper_bound: Time,
-          ending_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance,
+          ending_balance: T.any(
+            ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance,
+            ModernTreasury::Util::AnyHash
+          ),
           ledger_account_id: String,
           ledger_account_lock_version: Integer,
           ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection::TaggedSymbol,
@@ -191,7 +194,10 @@ module ModernTreasury
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           object: String,
-          starting_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance,
+          starting_balance: T.any(
+            ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance,
+            ModernTreasury::Util::AnyHash
+          ),
           updated_at: Time
         )
           .returns(T.attached_class)
@@ -317,9 +323,18 @@ module ModernTreasury
         #   sum of the pending and posted outgoing amounts.
         sig do
           params(
-            available_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::AvailableBalance,
-            pending_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::PendingBalance,
-            posted_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::PostedBalance
+            available_balance: T.any(
+              ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::AvailableBalance,
+              ModernTreasury::Util::AnyHash
+            ),
+            pending_balance: T.any(
+              ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::PendingBalance,
+              ModernTreasury::Util::AnyHash
+            ),
+            posted_balance: T.any(
+              ModernTreasury::Models::LedgerAccountStatementCreateResponse::EndingBalance::PostedBalance,
+              ModernTreasury::Util::AnyHash
+            )
           )
             .returns(T.attached_class)
         end
@@ -639,9 +654,18 @@ module ModernTreasury
         #   sum of the pending and posted outgoing amounts.
         sig do
           params(
-            available_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::AvailableBalance,
-            pending_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::PendingBalance,
-            posted_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::PostedBalance
+            available_balance: T.any(
+              ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::AvailableBalance,
+              ModernTreasury::Util::AnyHash
+            ),
+            pending_balance: T.any(
+              ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::PendingBalance,
+              ModernTreasury::Util::AnyHash
+            ),
+            posted_balance: T.any(
+              ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance::PostedBalance,
+              ModernTreasury::Util::AnyHash
+            )
           )
             .returns(T.attached_class)
         end

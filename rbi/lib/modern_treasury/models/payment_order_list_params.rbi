@@ -187,7 +187,7 @@ module ModernTreasury
           status: ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol,
           transaction_id: String,
           type: ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything])
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

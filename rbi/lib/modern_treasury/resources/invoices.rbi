@@ -35,7 +35,7 @@ module ModernTreasury
           recipient_name: T.nilable(String),
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::Invoice)
       end
@@ -121,7 +121,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::Invoice)
       end
@@ -161,7 +161,7 @@ module ModernTreasury
           remind_after_overdue_days: T.nilable(T::Array[Integer]),
           status: String,
           virtual_account_id: T.nilable(String),
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Models::Invoice)
       end
@@ -259,7 +259,7 @@ module ModernTreasury
           payment_order_id: String,
           per_page: Integer,
           status: ModernTreasury::Models::InvoiceListParams::Status::OrSymbol,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .returns(ModernTreasury::Page[ModernTreasury::Models::Invoice])
       end
@@ -290,7 +290,7 @@ module ModernTreasury
         params(
           payment_order_id: String,
           id: String,
-          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, T::Hash[Symbol, T.anything]))
+          request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
         )
           .void
       end

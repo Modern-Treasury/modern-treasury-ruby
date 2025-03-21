@@ -402,9 +402,13 @@ module ModernTreasury
           amount_paid: Integer,
           amount_remaining: Integer,
           contact_details: T::Array[ModernTreasury::Models::Invoice::ContactDetail],
-          counterparty_billing_address: T.nilable(ModernTreasury::Models::Invoice::CounterpartyBillingAddress),
+          counterparty_billing_address: T.nilable(
+            T.any(ModernTreasury::Models::Invoice::CounterpartyBillingAddress, ModernTreasury::Util::AnyHash)
+          ),
           counterparty_id: String,
-          counterparty_shipping_address: T.nilable(ModernTreasury::Models::Invoice::CounterpartyShippingAddress),
+          counterparty_shipping_address: T.nilable(
+            T.any(ModernTreasury::Models::Invoice::CounterpartyShippingAddress, ModernTreasury::Util::AnyHash)
+          ),
           created_at: Time,
           currency: ModernTreasury::Models::Currency::TaggedSymbol,
           description: String,
@@ -412,7 +416,7 @@ module ModernTreasury
           expected_payments: T::Array[ModernTreasury::Models::ExpectedPayment],
           fallback_payment_method: T.nilable(String),
           hosted_url: String,
-          invoicer_address: T.nilable(ModernTreasury::Models::Invoice::InvoicerAddress),
+          invoicer_address: T.nilable(T.any(ModernTreasury::Models::Invoice::InvoicerAddress, ModernTreasury::Util::AnyHash)),
           ledger_account_settlement_id: T.nilable(String),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
