@@ -102,6 +102,10 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :additional_information
 
+      # The raw data from the return file that we get from the bank.
+      sig { returns(T.nilable(T.anything)) }
+      attr_accessor :data
+
       sig do
         params(
           id: String,
@@ -126,7 +130,8 @@ module ModernTreasury
           transaction_line_item_id: T.nilable(String),
           type: ModernTreasury::Models::ReturnObject::Type::OrSymbol,
           updated_at: Time,
-          additional_information: T.nilable(String)
+          additional_information: T.nilable(String),
+          data: T.nilable(T.anything)
         )
           .returns(T.attached_class)
       end
@@ -153,7 +158,8 @@ module ModernTreasury
         transaction_line_item_id:,
         type:,
         updated_at:,
-        additional_information: nil
+        additional_information: nil,
+        data: nil
       )
       end
 
@@ -183,7 +189,8 @@ module ModernTreasury
               transaction_line_item_id: T.nilable(String),
               type: ModernTreasury::Models::ReturnObject::Type::TaggedSymbol,
               updated_at: Time,
-              additional_information: T.nilable(String)
+              additional_information: T.nilable(String),
+              data: T.nilable(T.anything)
             }
           )
       end
@@ -530,6 +537,11 @@ module ModernTreasury
               :jpmc_payment_returned_datetime,
               ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          JPMC_TRANSACTION_REFERENCE_NUMBER =
+            T.let(
+              :jpmc_transaction_reference_number,
+              ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           LOB_CHECK_ID =
             T.let(
               :lob_check_id,
@@ -562,9 +574,19 @@ module ModernTreasury
               :pnc_payment_trace_id,
               ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          PNC_REQUEST_FOR_PAYMENT_ID =
+            T.let(
+              :pnc_request_for_payment_id,
+              ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           PNC_TRANSACTION_REFERENCE_NUMBER =
             T.let(
               :pnc_transaction_reference_number,
+              ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          RBC_WIRE_REFERENCE_ID =
+            T.let(
+              :rbc_wire_reference_id,
               ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           RSPEC_VENDOR_PAYMENT_ID =

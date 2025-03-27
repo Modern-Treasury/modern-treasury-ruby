@@ -27,7 +27,7 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            ledger_entry_ids: T.nilable(T::Array[T.anything]),
+            ledger_entry_ids: T.nilable(T::Array[String]),
             request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
           )
             .void

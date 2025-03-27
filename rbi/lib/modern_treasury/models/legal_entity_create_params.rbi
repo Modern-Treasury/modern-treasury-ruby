@@ -41,6 +41,17 @@ module ModernTreasury
       sig { returns(T.nilable(String)) }
       attr_accessor :citizenship_country
 
+      sig { returns(T.nilable(ModernTreasury::Models::LegalEntityComplianceDetail)) }
+      attr_reader :compliance_details
+
+      sig do
+        params(
+          compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Util::AnyHash))
+        )
+          .void
+      end
+      attr_writer :compliance_details
+
       # A business's formation date (YYYY-MM-DD).
       sig { returns(T.nilable(Date)) }
       attr_accessor :date_formed
@@ -74,6 +85,18 @@ module ModernTreasury
           .void
       end
       attr_writer :identifications
+
+      # A list of industry classifications for the legal entity.
+      sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityIndustryClassification])) }
+      attr_reader :industry_classifications
+
+      sig do
+        params(
+          industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Util::AnyHash)]
+        )
+          .void
+      end
+      attr_writer :industry_classifications
 
       # An individual's last name.
       sig { returns(T.nilable(String)) }
@@ -152,12 +175,14 @@ module ModernTreasury
           bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
+          compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Util::AnyHash)),
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           first_name: T.nilable(String),
           identifications: T::Array[T.any(ModernTreasury::Models::LegalEntityCreateParams::Identification, ModernTreasury::Util::AnyHash)],
+          industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Util::AnyHash)],
           last_name: T.nilable(String),
           legal_entity_associations: T.nilable(
             T::Array[
@@ -188,12 +213,14 @@ module ModernTreasury
         bank_settings: nil,
         business_name: nil,
         citizenship_country: nil,
+        compliance_details: nil,
         date_formed: nil,
         date_of_birth: nil,
         doing_business_as_names: nil,
         email: nil,
         first_name: nil,
         identifications: nil,
+        industry_classifications: nil,
         last_name: nil,
         legal_entity_associations: nil,
         legal_structure: nil,
@@ -220,12 +247,14 @@ module ModernTreasury
               bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
               business_name: T.nilable(String),
               citizenship_country: T.nilable(String),
+              compliance_details: T.nilable(ModernTreasury::Models::LegalEntityComplianceDetail),
               date_formed: T.nilable(Date),
               date_of_birth: T.nilable(Date),
               doing_business_as_names: T::Array[String],
               email: T.nilable(String),
               first_name: T.nilable(String),
               identifications: T::Array[ModernTreasury::Models::LegalEntityCreateParams::Identification],
+              industry_classifications: T::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
               last_name: T.nilable(String),
               legal_entity_associations: T.nilable(T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation]),
               legal_structure: T.nilable(ModernTreasury::Models::LegalEntityCreateParams::LegalStructure::OrSymbol),
@@ -620,6 +649,17 @@ module ModernTreasury
           sig { returns(T.nilable(String)) }
           attr_accessor :citizenship_country
 
+          sig { returns(T.nilable(ModernTreasury::Models::LegalEntityComplianceDetail)) }
+          attr_reader :compliance_details
+
+          sig do
+            params(
+              compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Util::AnyHash))
+            )
+              .void
+          end
+          attr_writer :compliance_details
+
           # A business's formation date (YYYY-MM-DD).
           sig { returns(T.nilable(Date)) }
           attr_accessor :date_formed
@@ -664,6 +704,18 @@ module ModernTreasury
               .void
           end
           attr_writer :identifications
+
+          # A list of industry classifications for the legal entity.
+          sig { returns(T.nilable(T::Array[ModernTreasury::Models::LegalEntityIndustryClassification])) }
+          attr_reader :industry_classifications
+
+          sig do
+            params(
+              industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Util::AnyHash)]
+            )
+              .void
+          end
+          attr_writer :industry_classifications
 
           # An individual's last name.
           sig { returns(T.nilable(String)) }
@@ -784,6 +836,7 @@ module ModernTreasury
               bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
               business_name: T.nilable(String),
               citizenship_country: T.nilable(String),
+              compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Util::AnyHash)),
               date_formed: T.nilable(Date),
               date_of_birth: T.nilable(Date),
               doing_business_as_names: T::Array[String],
@@ -795,6 +848,7 @@ module ModernTreasury
                 ModernTreasury::Util::AnyHash
               )
               ],
+              industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Util::AnyHash)],
               last_name: T.nilable(String),
               legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol,
               legal_structure: T.nilable(
@@ -825,12 +879,14 @@ module ModernTreasury
             bank_settings: nil,
             business_name: nil,
             citizenship_country: nil,
+            compliance_details: nil,
             date_formed: nil,
             date_of_birth: nil,
             doing_business_as_names: nil,
             email: nil,
             first_name: nil,
             identifications: nil,
+            industry_classifications: nil,
             last_name: nil,
             legal_entity_type: nil,
             legal_structure: nil,
@@ -855,12 +911,14 @@ module ModernTreasury
                   bank_settings: T.nilable(ModernTreasury::Models::BankSettings),
                   business_name: T.nilable(String),
                   citizenship_country: T.nilable(String),
+                  compliance_details: T.nilable(ModernTreasury::Models::LegalEntityComplianceDetail),
                   date_formed: T.nilable(Date),
                   date_of_birth: T.nilable(Date),
                   doing_business_as_names: T::Array[String],
                   email: T.nilable(String),
                   first_name: T.nilable(String),
                   identifications: T::Array[ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::Identification],
+                  industry_classifications: T::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
                   last_name: T.nilable(String),
                   legal_entity_type: ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol,
                   legal_structure: T.nilable(

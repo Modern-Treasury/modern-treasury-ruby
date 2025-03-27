@@ -240,10 +240,12 @@ module ModernTreasury
         OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol) }
 
         PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
+        LEDGER_ACCOUNT = T.let(:ledger_account, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
         LEDGER_TRANSACTION =
           T.let(:ledger_transaction, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
-        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
         EXPECTED_PAYMENT = T.let(:expected_payment, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
+        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
+        ENTITY_LINK = T.let(:entity_link, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
         BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkResult::EntityType::TaggedSymbol]) }

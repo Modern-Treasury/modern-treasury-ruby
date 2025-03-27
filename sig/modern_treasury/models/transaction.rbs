@@ -238,6 +238,7 @@ module ModernTreasury
         | :iso20022
         | :jpmc
         | :mx
+        | :paypal
         | :plaid
         | :pnc
         | :rspec_vendor
@@ -265,6 +266,7 @@ module ModernTreasury
         ISO20022: :iso20022
         JPMC: :jpmc
         MX: :mx
+        PAYPAL: :paypal
         PLAID: :plaid
         PNC: :pnc
         RSPEC_VENDOR: :rspec_vendor

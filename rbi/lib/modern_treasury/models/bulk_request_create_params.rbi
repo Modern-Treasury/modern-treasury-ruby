@@ -125,12 +125,16 @@ module ModernTreasury
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol)
+        LEDGER_ACCOUNT =
+          T.let(:ledger_account, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol)
         LEDGER_TRANSACTION =
           T.let(:ledger_transaction, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol)
-        TRANSACTION =
-          T.let(:transaction, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol)
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol)
+        TRANSACTION =
+          T.let(:transaction, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol)
+        ENTITY_LINK =
+          T.let(:entity_link, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol]) }
         def self.values

@@ -17,7 +17,10 @@ class ModernTreasury::Test::Resources::LedgerAccountSettlements::AccountEntriesT
 
   def test_delete_required_params
     response =
-      @modern_treasury.ledger_account_settlements.account_entries.delete("id", ledger_entry_ids: [{}])
+      @modern_treasury.ledger_account_settlements.account_entries.delete(
+        "id",
+        ledger_entry_ids: ["182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e"]
+      )
 
     assert_pattern do
       response => nil
