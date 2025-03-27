@@ -99,6 +99,9 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Defaults to the currency of the originating account.
       #
+      #   @option params [Object, nil] :data An object passed through to the simulated IPD that could reflect what a vendor
+      #     would pass.
+      #
       #   @option params [String, nil] :description Defaults to a random description.
       #
       #   @option params [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction] :direction One of `credit`, `debit`.

@@ -33,6 +33,12 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
       optional :code, enum: -> { ModernTreasury::Models::ReturnCreateParams::Code }, nil?: true
 
+      # @!attribute data
+      #   The raw data from the return file that we get from the bank.
+      #
+      #   @return [Object, nil]
+      optional :data, ModernTreasury::Unknown, nil?: true
+
       # @!attribute date_of_death
       #   If the return code is `R14` or `R15` this is the date the deceased counterparty
       #     passed away.
@@ -52,6 +58,7 @@ module ModernTreasury
       #   # @param returnable_type [Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType]
       #   # @param additional_information [String, nil]
       #   # @param code [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil]
+      #   # @param data [Object, nil]
       #   # @param date_of_death [Date, nil]
       #   # @param reason [String, nil]
       #   # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}]
@@ -61,6 +68,7 @@ module ModernTreasury
       #     returnable_type:,
       #     additional_information: nil,
       #     code: nil,
+      #     data: nil,
       #     date_of_death: nil,
       #     reason: nil,
       #     request_options: {},

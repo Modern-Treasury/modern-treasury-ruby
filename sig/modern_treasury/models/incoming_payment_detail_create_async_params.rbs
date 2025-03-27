@@ -5,6 +5,7 @@ module ModernTreasury
         amount: Integer,
         as_of_date: Date?,
         currency: ModernTreasury::Models::currency?,
+        data: top?,
         description: String?,
         direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
         internal_account_id: String,
@@ -24,6 +25,8 @@ module ModernTreasury
       attr_accessor as_of_date: Date?
 
       attr_accessor currency: ModernTreasury::Models::currency?
+
+      attr_accessor data: top?
 
       attr_accessor description: String?
 
@@ -49,6 +52,7 @@ module ModernTreasury
         ?amount: Integer,
         ?as_of_date: Date?,
         ?currency: ModernTreasury::Models::currency?,
+        ?data: top?,
         ?description: String?,
         ?direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
         ?internal_account_id: String,
@@ -71,16 +75,32 @@ module ModernTreasury
       end
 
       type type_ =
-        :ach | :book | :check | :eft | :interac | :rtp | :sepa | :signet | :wire
+        :ach
+        | :au_becs
+        | :bacs
+        | :book
+        | :check
+        | :eft
+        | :interac
+        | :neft
+        | :nz_becs
+        | :rtp
+        | :sepa
+        | :signet
+        | :wire
 
       module Type
         extend ModernTreasury::Enum
 
         ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
         BOOK: :book
         CHECK: :check
         EFT: :eft
         INTERAC: :interac
+        NEFT: :neft
+        NZ_BECS: :nz_becs
         RTP: :rtp
         SEPA: :sepa
         SIGNET: :signet

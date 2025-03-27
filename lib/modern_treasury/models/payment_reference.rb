@@ -132,6 +132,7 @@ module ModernTreasury
         JPMC_PAYMENT_BATCH_ID = :jpmc_payment_batch_id
         JPMC_PAYMENT_INFORMATION_ID = :jpmc_payment_information_id
         JPMC_PAYMENT_RETURNED_DATETIME = :jpmc_payment_returned_datetime
+        JPMC_TRANSACTION_REFERENCE_NUMBER = :jpmc_transaction_reference_number
         LOB_CHECK_ID = :lob_check_id
         OTHER = :other
         PARTIAL_SWIFT_MIR = :partial_swift_mir
@@ -139,7 +140,9 @@ module ModernTreasury
         PNC_INSTRUCTION_ID = :pnc_instruction_id
         PNC_MULTIPAYMENT_ID = :pnc_multipayment_id
         PNC_PAYMENT_TRACE_ID = :pnc_payment_trace_id
+        PNC_REQUEST_FOR_PAYMENT_ID = :pnc_request_for_payment_id
         PNC_TRANSACTION_REFERENCE_NUMBER = :pnc_transaction_reference_number
+        RBC_WIRE_REFERENCE_ID = :rbc_wire_reference_id
         RSPEC_VENDOR_PAYMENT_ID = :rspec_vendor_payment_id
         RTP_INSTRUCTION_ID = :rtp_instruction_id
         SIGNET_API_REFERENCE_ID = :signet_api_reference_id

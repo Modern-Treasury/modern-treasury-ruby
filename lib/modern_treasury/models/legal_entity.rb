@@ -31,6 +31,11 @@ module ModernTreasury
       #   @return [String, nil]
       required :citizenship_country, String, nil?: true
 
+      # @!attribute compliance_details
+      #
+      #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+      required :compliance_details, -> { ModernTreasury::Models::LegalEntityComplianceDetail }, nil?: true
+
       # @!attribute created_at
       #
       #   @return [Time]
@@ -76,6 +81,13 @@ module ModernTreasury
       #   @return [Array<ModernTreasury::Models::LegalEntity::Identification>]
       required :identifications,
                -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntity::Identification] }
+
+      # @!attribute industry_classifications
+      #   A list of industry classifications for the legal entity.
+      #
+      #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+      required :industry_classifications,
+               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
 
       # @!attribute last_name
       #   An individual's last name.
@@ -187,6 +199,7 @@ module ModernTreasury
       #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
       #   # @param business_name [String, nil]
       #   # @param citizenship_country [String, nil]
+      #   # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
       #   # @param created_at [Time]
       #   # @param date_formed [Date, nil]
       #   # @param date_of_birth [Date, nil]
@@ -195,6 +208,7 @@ module ModernTreasury
       #   # @param email [String, nil]
       #   # @param first_name [String, nil]
       #   # @param identifications [Array<ModernTreasury::Models::LegalEntity::Identification>]
+      #   # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
       #   # @param last_name [String, nil]
       #   # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityAssociation>, nil]
       #   # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntity::LegalEntityType]
@@ -219,6 +233,7 @@ module ModernTreasury
       #     bank_settings:,
       #     business_name:,
       #     citizenship_country:,
+      #     compliance_details:,
       #     created_at:,
       #     date_formed:,
       #     date_of_birth:,
@@ -227,6 +242,7 @@ module ModernTreasury
       #     email:,
       #     first_name:,
       #     identifications:,
+      #     industry_classifications:,
       #     last_name:,
       #     legal_entity_associations:,
       #     legal_entity_type:,

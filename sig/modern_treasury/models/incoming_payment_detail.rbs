@@ -203,16 +203,32 @@ module ModernTreasury
       end
 
       type type_ =
-        :ach | :book | :check | :eft | :interac | :rtp | :sepa | :signet | :wire
+        :ach
+        | :au_becs
+        | :bacs
+        | :book
+        | :check
+        | :eft
+        | :interac
+        | :neft
+        | :nz_becs
+        | :rtp
+        | :sepa
+        | :signet
+        | :wire
 
       module Type
         extend ModernTreasury::Enum
 
         ACH: :ach
+        AU_BECS: :au_becs
+        BACS: :bacs
         BOOK: :book
         CHECK: :check
         EFT: :eft
         INTERAC: :interac
+        NEFT: :neft
+        NZ_BECS: :nz_becs
         RTP: :rtp
         SEPA: :sepa
         SIGNET: :signet
