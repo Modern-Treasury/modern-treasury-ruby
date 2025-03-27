@@ -1,5 +1,102 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2025-03-27)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### ⚠ BREAKING CHANGES
+
+* use tagged enums in sorbet type definitions ([#302](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/302))
+* support `for item in stream` style iteration on `Stream`s ([#300](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/300))
+* **model:** base model should recursively store coerced base models ([#289](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/289))
+
+### Features
+
+* add deprecation notice to enum members and resources ([#244](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/244)) ([fb72692](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fb72692ef48d0beeb9c5cc0ce29d9ce57cdb9fd5))
+* add jsonl support ([#258](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/258)) ([976b6cc](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/976b6cc94ba23e3fe45f3ccf89cdacc30437d2da))
+* add SKIP_BREW env var to ./scripts/bootstrap ([#262](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/262)) ([6dde65a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6dde65a27f715100ac7efd110e2e62f29da9db89))
+* consistently accept `AnyHash` types in parameter positions in sorbet ([#307](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/307)) ([7c5b92c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7c5b92ca758bac921b0093bbb87b59383606d514))
+* **internal:** modified tests for thread and fiber safety ([#250](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/250)) ([dfae756](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/dfae756f1770139b8a03a4883aa46d34b6cedfdd))
+* isolate platform headers ([#245](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/245)) ([37ee661](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/37ee661500df8b2a5c5b45fa48152a14ec7fb601))
+* prevent tapioca from introspecting the gem internals ([#306](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/306)) ([ab48c2e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ab48c2ecc47cb4f253a8276c3ef67ee72956ec0f))
+* support `for item in stream` style iteration on `Stream`s ([#300](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/300)) ([57a92cf](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/57a92cf5eb08cbd41c543e5153422c6db75b09d8))
+* support client level methods ([#265](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/265)) ([bd55768](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/bd557686ba505e3c60a007b6ef41ebc68bea8b37))
+* support jsonl uploads ([#277](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/277)) ([e72650d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e72650db988af6f1bca15defb9a061b8c510e919))
+* support streaming uploads ([#270](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/270)) ([a4f928e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a4f928ee5a2a23d58ee0ff90cce869a9dde601a6))
+* use tagged enums in sorbet type definitions ([#302](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/302)) ([3f08a9b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3f08a9b1dad4c6af9da1863c0a9de7a91edef4fd))
+* use Time type instead of String ([#248](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/248)) ([43a8bce](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/43a8bce634d49d9e185c70030ba5eebbbee1fe88))
+
+
+### Bug Fixes
+
+* bad documentation url for gemdocs.org ([#288](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/288)) ([1ec5b6f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/1ec5b6f6dbd2276dcafacfcf40ede4680c876da2))
+* better support header parameters ([#251](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/251)) ([ea3f187](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ea3f1875e37f7cef409980927e84c3766263b068))
+* enums should only coerce matching symbols into strings ([#271](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/271)) ([54a0d52](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/54a0d52532c402ef5cf184dfb5e48f499120680e))
+* label optional keyword arguments in *.rbs type definitions ([#298](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/298)) ([484b14c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/484b14c1baf14839dfeba00e2b50b199aef45dce))
+* **model:** base model should recursively store coerced base models ([#289](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/289)) ([6dcd8ee](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6dcd8ee4ddb0429c7c31db5ee483220356d8a288))
+* pages should be able to accept non-converter models ([#310](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/310)) ([b68aa0f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b68aa0fb3f18bdcb64bdf12982159754696fa9fe))
+* rectify a mistake where wrong lines were chosen during rebase ([#266](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/266)) ([c802cd1](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c802cd188f414afae8c51a12e067feeab78d6d46))
+* resolve tapioca derived sorbet errors ([#301](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/301)) ([5def2e0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5def2e0076a1c599eef945ea87a157178753ebff))
+* sorbet class aliases are not type aliases ([#297](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/297)) ([0b2ed47](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0b2ed47703ee3df1cdc7d54115cced647a9d2ff8))
+* yard example tag formatting ([#304](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/304)) ([c2bbb15](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c2bbb1560c8f0d9eda8b0e9a7495521dba317625))
+
+
+### Chores
+
+* `BaseModel` fields that are `BaseModel` typed should also accept `Hash` ([#303](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/303)) ([0f19c3f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0f19c3f8111ba89df2f675eb0def49d2cd54e823))
+* add `[@yieldparam](https://github.com/yieldparam)` to yard doc ([#293](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/293)) ([fcc16ec](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fcc16ec81f9da585d3a496f0a11a9831c5191973))
+* add `sorbet` section to README ([#263](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/263)) ([520a6f6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/520a6f6e21bbcb4e2050d26684b9166244773b12))
+* add example directory ([#296](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/296)) ([fcf4305](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fcf430583250d5d94dce5a4e189c7c4c1374f443))
+* add more examples to README.md ([#264](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/264)) ([7ad1314](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7ad1314455b2c37a26253792f3754703277b7358))
+* add most doc strings to rbi type definitions ([#278](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/278)) ([957e838](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/957e838cf25877b399bda8ba62c8b1ace20db9e9))
+* add type annotations for enum and union member listing methods ([#305](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/305)) ([f22016b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/f22016b098d65cc4dc6e0c40d388bd6bcb782ba7))
+* be consistent and use lower case headers everywhere ([#252](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/252)) ([17b99c3](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/17b99c3773896718c3f892eed230487f7fd779bc))
+* bump lockfile ([#255](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/255)) ([3bb9a63](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3bb9a63411a8c6feeccad1d8e3c928a60cd0bd04))
+* disable dangerous rubocop auto correct rule ([#312](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/312)) ([35c3f9a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/35c3f9abfaa32eec7c85a620ec1958fbeb7190f6))
+* disable overloads in `*.rbs` definitions for readable LSP errors ([#299](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/299)) ([59eae12](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/59eae125ac716b8592ec4085bbfa68d58e945520))
+* disable unnecessary linter rules for sorbet manifests ([#292](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/292)) ([3860a7f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3860a7f5580c6c360b097ff4ebafbc20e0650113))
+* do not label modules as abstract ([#287](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/287)) ([fdc9bab](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fdc9bab299e51058cf1e2e064ebd28b4529cf6ce))
+* document Client's concurrency capability ([#291](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/291)) ([ad2e938](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ad2e9387a1b30c7d01d13a799b740fb007ead56a))
+* document union variants in yard doc ([#282](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/282)) ([e74d95e](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/e74d95e3899561aa99679f419531860d0f759002))
+* ensure doc strings for rbi method arguments ([#279](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/279)) ([852e73c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/852e73c7ae27707e67c74d3653f726b4f785831e))
+* error fields are now mutable in keeping with rest of SDK ([#281](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/281)) ([230c82a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/230c82a6f34799acff8c3b9c2a5cb5d452882988))
+* fused enum should use faster internal iteration by default ([#268](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/268)) ([039e8e3](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/039e8e3e70f5d95886526944365ffe93b20e7b57))
+* generate better supported rbi signatures ([#260](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/260)) ([24a7a0b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/24a7a0be46446742ba39a4b5c04a6fa04c09d26c))
+* ignore some spurious linter warnings and formatting changes ([#290](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/290)) ([cc00998](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cc00998f6c12586875def66d86f426d794e22250))
+* improve documentation ([#269](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/269)) ([8827afe](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8827afee672339402beb1ed67159a77ecb326ede))
+* improve rbi typedef for page classes ([#274](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/274)) ([b554a85](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/b554a858f1c9f4a8904ff2cec74e88eb942b61ae))
+* **internal:** add sorbet config for SDK local development ([#295](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/295)) ([8b134d2](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/8b134d228300cc041e4143dd8bcce4a792cf8157))
+* **internal:** add utils methods for parsing SSE ([#253](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/253)) ([0bfd6f6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/0bfd6f69f8255beea8af70668b12cde28413c87a))
+* **internal:** group related utils together ([#247](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/247)) ([7433b72](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7433b728498965cd6c403d8111f0574dfec54335))
+* **internal:** prune unused `extern` references ([#242](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/242)) ([3a44bf4](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3a44bf4d6624ed702295e6b7f434f2d1cec1f4a3))
+* **internal:** remove extra empty newlines ([#275](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/275)) ([4c4d3e7](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4c4d3e77a972df4399be1d37585a091fbd26104e))
+* mark non-inheritable SDK internal classes as final ([#284](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/284)) ([eec18e8](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/eec18e8d531fdb3de779dc1e8d7977c7ff919db9))
+* modify sorbet initializers to better support auto-completion ([#261](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/261)) ([342f949](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/342f9492844abf691981fe616085dd0a90464efd))
+* more aggressive tapioca detection logic for skipping compiler introspection ([#315](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/315)) ([ec93f39](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ec93f39cfd8c43e0c8eaf82daad90f74a6cab4c2))
+* more readable output when tests fail ([#313](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/313)) ([68e6ebf](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/68e6ebf0e4790f24730ba2d89f54ca946e1e141b))
+* move examples into tests ([#257](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/257)) ([fed4bb0](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fed4bb0f821bfe0072896519c5419f7ee7f316de))
+* pagination ([#267](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/267)) ([37d0695](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/37d06957f4738772cc24bd00c3866e780cb95208))
+* recursively accept `AnyHash` for `BaseModel`s in arrays and hashes ([#308](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/308)) ([a11f16b](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a11f16bb8a1293bd958ce040d131f3e79805f1b3))
+* reduce verbosity in type declarations ([#311](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/311)) ([000bb00](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/000bb001597f30b977cdbe86725968be0fc58c8a))
+* refactor BasePage to have initializer ([#273](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/273)) ([d7310d5](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/d7310d52af5a201a2ddfc1f01b5a739efda60c72))
+* **refactor:** improve requester internals ([#246](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/246)) ([cf4388f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cf4388faaf7f871a005a6ef60b9e0f44f4ea03b0))
+* remove stale thread local checks ([#272](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/272)) ([cda480c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/cda480cb4e4d044dc07b86d7ab922182dd34fa7a))
+* rename misleading variable ([#256](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/256)) ([5d27783](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5d277830203c12ee4745b2905d12cf7b02a12891))
+* sdk client internal refactoring ([#286](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/286)) ([c22dc61](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/c22dc619a1f52aa868ce7d70a4a1be9f9811ddbf))
+* sdk internal updates ([#276](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/276)) ([99b568c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/99b568c1aa7a2c459e55651f0844350d9644da40))
+* slightly more consistent type definition layout ([#283](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/283)) ([6d3fab6](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/6d3fab6b14967169a84e242391222572d270f7b1))
+* support different EOLs in streaming ([#259](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/259)) ([3726c3d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3726c3d3f6f0fc92d4f6bc74092293601c84b5c2))
+* switch to prettier looking sorbet annotations ([#309](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/309)) ([7a9697a](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/7a9697a41665dabd07d05a93be5db76f500ce8c7))
+* touch up sdk usage examples ([#280](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/280)) ([ba2e4bc](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ba2e4bcd80c478f7600c068ec7fd313707d3e1ce))
+* update custom timeout header name ([#254](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/254)) ([05892f9](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/05892f94f01a5fd8a31d5211c1fbe886f93b966b))
+* use generics instead of overloading for sorbet type definitions ([#285](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/285)) ([60c0274](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/60c02749fe27dada0a830b6dea3b7282d78ae742))
+* use multi-line formatting style for really long lines ([#294](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/294)) ([3a1710c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/3a1710c5523848f3edc1ad09f0cc917f74dc48b2))
+
+
+### Documentation
+
+* update URLs from stainlessapi.com to stainless.com ([#249](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/249)) ([4b26881](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/4b268816ee6ccd4f2c8e0757c853058baaaf82e1))
+
 ## 0.1.0-alpha.15 (2025-02-21)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
