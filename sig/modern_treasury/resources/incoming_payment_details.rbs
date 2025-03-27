@@ -29,6 +29,7 @@ module ModernTreasury
         ?amount: Integer,
         ?as_of_date: Date?,
         ?currency: ModernTreasury::Models::currency?,
+        ?data: top?,
         ?description: String?,
         ?direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::direction,
         ?internal_account_id: String,

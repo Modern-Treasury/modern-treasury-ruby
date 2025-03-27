@@ -782,6 +782,11 @@ module ModernTreasury
         #   @return [String, nil]
         optional :citizenship_country, String, nil?: true
 
+        # @!attribute compliance_details
+        #
+        #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+        optional :compliance_details, -> { ModernTreasury::Models::LegalEntityComplianceDetail }, nil?: true
+
         # @!attribute date_formed
         #   A business's formation date (YYYY-MM-DD).
         #
@@ -825,6 +830,17 @@ module ModernTreasury
         # @!parse
         #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
         #   attr_writer :identifications
+
+        # @!attribute [r] industry_classifications
+        #   A list of industry classifications for the legal entity.
+        #
+        #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
+        optional :industry_classifications,
+                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
+
+        # @!parse
+        #   # @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+        #   attr_writer :industry_classifications
 
         # @!attribute last_name
         #   An individual's last name.
@@ -926,12 +942,14 @@ module ModernTreasury
         #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
         #   # @param business_name [String, nil]
         #   # @param citizenship_country [String, nil]
+        #   # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
         #   # @param date_formed [Date, nil]
         #   # @param date_of_birth [Date, nil]
         #   # @param doing_business_as_names [Array<String>]
         #   # @param email [String, nil]
         #   # @param first_name [String, nil]
         #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification>]
+        #   # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
         #   # @param last_name [String, nil]
         #   # @param legal_entity_associations [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation>, nil]
         #   # @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure, nil]
@@ -952,12 +970,14 @@ module ModernTreasury
         #     bank_settings: nil,
         #     business_name: nil,
         #     citizenship_country: nil,
+        #     compliance_details: nil,
         #     date_formed: nil,
         #     date_of_birth: nil,
         #     doing_business_as_names: nil,
         #     email: nil,
         #     first_name: nil,
         #     identifications: nil,
+        #     industry_classifications: nil,
         #     last_name: nil,
         #     legal_entity_associations: nil,
         #     legal_structure: nil,
@@ -1243,6 +1263,11 @@ module ModernTreasury
             #   @return [String, nil]
             optional :citizenship_country, String, nil?: true
 
+            # @!attribute compliance_details
+            #
+            #   @return [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+            optional :compliance_details, -> { ModernTreasury::Models::LegalEntityComplianceDetail }, nil?: true
+
             # @!attribute date_formed
             #   A business's formation date (YYYY-MM-DD).
             #
@@ -1290,6 +1315,17 @@ module ModernTreasury
             # @!parse
             #   # @return [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>]
             #   attr_writer :identifications
+
+            # @!attribute [r] industry_classifications
+            #   A list of industry classifications for the legal entity.
+            #
+            #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
+            optional :industry_classifications,
+                     -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
+
+            # @!parse
+            #   # @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+            #   attr_writer :industry_classifications
 
             # @!attribute last_name
             #   An individual's last name.
@@ -1399,12 +1435,14 @@ module ModernTreasury
             #   # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
             #   # @param business_name [String, nil]
             #   # @param citizenship_country [String, nil]
+            #   # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
             #   # @param date_formed [Date, nil]
             #   # @param date_of_birth [Date, nil]
             #   # @param doing_business_as_names [Array<String>]
             #   # @param email [String, nil]
             #   # @param first_name [String, nil]
             #   # @param identifications [Array<ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>]
+            #   # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
             #   # @param last_name [String, nil]
             #   # @param legal_entity_type [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType]
             #   # @param legal_structure [Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure, nil]
@@ -1424,12 +1462,14 @@ module ModernTreasury
             #     bank_settings: nil,
             #     business_name: nil,
             #     citizenship_country: nil,
+            #     compliance_details: nil,
             #     date_formed: nil,
             #     date_of_birth: nil,
             #     doing_business_as_names: nil,
             #     email: nil,
             #     first_name: nil,
             #     identifications: nil,
+            #     industry_classifications: nil,
             #     last_name: nil,
             #     legal_entity_type: nil,
             #     legal_structure: nil,

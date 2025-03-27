@@ -10,7 +10,7 @@ module ModernTreasury
 
         def delete: (
           String id,
-          ledger_entry_ids: ::Array[top]?,
+          ledger_entry_ids: ::Array[String]?,
           ?request_options: ModernTreasury::request_opts
         ) -> nil
 

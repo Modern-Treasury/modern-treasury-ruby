@@ -1,0 +1,85 @@
+module ModernTreasury
+  module Models
+    type legal_entity_industry_classification =
+      {
+        id: String,
+        classification_codes: ::Array[String],
+        classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::classification_type,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time
+      }
+
+    class LegalEntityIndustryClassification < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor classification_codes: ::Array[String]
+
+      attr_accessor classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::classification_type
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor updated_at: Time
+
+      def initialize: (
+        id: String,
+        classification_codes: ::Array[String],
+        classification_type: ModernTreasury::Models::LegalEntityIndustryClassification::classification_type,
+        created_at: Time,
+        discarded_at: Time?,
+        live_mode: bool,
+        object: String,
+        updated_at: Time
+      ) -> void
+
+      def to_hash: -> ModernTreasury::Models::legal_entity_industry_classification
+
+      type classification_type =
+        :anzsic
+        | :bics
+        | :gics
+        | :hsics
+        | :icb
+        | :isic
+        | :mgecs
+        | :nace
+        | :naics
+        | :rbics
+        | :sic
+        | :sni
+        | :trbc
+        | :uksic
+        | :unspsc
+
+      module ClassificationType
+        extend ModernTreasury::Enum
+
+        ANZSIC: :anzsic
+        BICS: :bics
+        GICS: :gics
+        HSICS: :hsics
+        ICB: :icb
+        ISIC: :isic
+        MGECS: :mgecs
+        NACE: :nace
+        NAICS: :naics
+        RBICS: :rbics
+        SIC: :sic
+        SNI: :sni
+        TRBC: :trbc
+        UKSIC: :uksic
+        UNSPSC: :unspsc
+
+        def self?.values: -> ::Array[ModernTreasury::Models::LegalEntityIndustryClassification::classification_type]
+      end
+    end
+  end
+end

@@ -9,12 +9,12 @@ module ModernTreasury
 
         # The ids of the ledger entries that are to be added or removed from the ledger
         #   account settlement.
-        sig { returns(T.nilable(T::Array[T.anything])) }
+        sig { returns(T.nilable(T::Array[String])) }
         attr_accessor :ledger_entry_ids
 
         sig do
           params(
-            ledger_entry_ids: T.nilable(T::Array[T.anything]),
+            ledger_entry_ids: T.nilable(T::Array[String]),
             request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
           )
             .returns(T.attached_class)
@@ -24,12 +24,10 @@ module ModernTreasury
 
         sig do
           override
-            .returns(
-              {
-                ledger_entry_ids: T.nilable(T::Array[T.anything]),
-                request_options: ModernTreasury::RequestOptions
-              }
-            )
+            .returns({
+                       ledger_entry_ids: T.nilable(T::Array[String]),
+                       request_options: ModernTreasury::RequestOptions
+                     })
         end
         def to_hash
         end

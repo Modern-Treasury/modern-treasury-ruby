@@ -30,6 +30,13 @@ module ModernTreasury
       #   @return [Symbol, ModernTreasury::Models::Currency, nil]
       optional :currency, enum: -> { ModernTreasury::Models::Currency }, nil?: true
 
+      # @!attribute data
+      #   An object passed through to the simulated IPD that could reflect what a vendor
+      #     would pass.
+      #
+      #   @return [Object, nil]
+      optional :data, ModernTreasury::Unknown, nil?: true
+
       # @!attribute description
       #   Defaults to a random description.
       #
@@ -78,6 +85,7 @@ module ModernTreasury
       #   # @param amount [Integer]
       #   # @param as_of_date [Date, nil]
       #   # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+      #   # @param data [Object, nil]
       #   # @param description [String, nil]
       #   # @param direction [Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction]
       #   # @param internal_account_id [String]
@@ -89,6 +97,7 @@ module ModernTreasury
       #     amount: nil,
       #     as_of_date: nil,
       #     currency: nil,
+      #     data: nil,
       #     description: nil,
       #     direction: nil,
       #     internal_account_id: nil,
@@ -121,10 +130,14 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         ACH = :ach
+        AU_BECS = :au_becs
+        BACS = :bacs
         BOOK = :book
         CHECK = :check
         EFT = :eft
         INTERAC = :interac
+        NEFT = :neft
+        NZ_BECS = :nz_becs
         RTP = :rtp
         SEPA = :sepa
         SIGNET = :signet
