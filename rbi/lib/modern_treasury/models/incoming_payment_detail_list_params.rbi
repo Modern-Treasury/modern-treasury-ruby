@@ -152,10 +152,14 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        AU_BECS = T.let(:au_becs, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         BOOK = T.let(:book, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         CHECK = T.let(:check, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         EFT = T.let(:eft, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         INTERAC = T.let(:interac, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
+        NZ_BECS = T.let(:nz_becs, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         RTP = T.let(:rtp, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         SIGNET = T.let(:signet, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)

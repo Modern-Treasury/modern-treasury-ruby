@@ -197,6 +197,11 @@ module ModernTreasury
           )
         SWIFT =
           T.let(:swift, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol)
+        ZA_NATIONAL_CLEARING_CODE =
+          T.let(
+            :za_national_clearing_code,
+            ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::TaggedSymbol
+          )
 
         sig do
           override

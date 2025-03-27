@@ -300,10 +300,14 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         ACH = :ach
+        AU_BECS = :au_becs
+        BACS = :bacs
         BOOK = :book
         CHECK = :check
         EFT = :eft
         INTERAC = :interac
+        NEFT = :neft
+        NZ_BECS = :nz_becs
         RTP = :rtp
         SEPA = :sepa
         SIGNET = :signet

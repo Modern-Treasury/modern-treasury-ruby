@@ -7,6 +7,7 @@ module ModernTreasury
         bank_settings: ModernTreasury::Models::BankSettings?,
         business_name: String?,
         citizenship_country: String?,
+        compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
         created_at: Time,
         date_formed: Date?,
         date_of_birth: Date?,
@@ -15,6 +16,7 @@ module ModernTreasury
         email: String?,
         first_name: String?,
         identifications: ::Array[ModernTreasury::Models::LegalEntity::Identification],
+        industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
         last_name: String?,
         legal_entity_associations: ::Array[ModernTreasury::Models::LegalEntityAssociation]?,
         legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
@@ -45,6 +47,8 @@ module ModernTreasury
 
       attr_accessor citizenship_country: String?
 
+      attr_accessor compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?
+
       attr_accessor created_at: Time
 
       attr_accessor date_formed: Date?
@@ -60,6 +64,8 @@ module ModernTreasury
       attr_accessor first_name: String?
 
       attr_accessor identifications: ::Array[ModernTreasury::Models::LegalEntity::Identification]
+
+      attr_accessor industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
 
       attr_accessor last_name: String?
 
@@ -101,6 +107,7 @@ module ModernTreasury
         bank_settings: ModernTreasury::Models::BankSettings?,
         business_name: String?,
         citizenship_country: String?,
+        compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
         created_at: Time,
         date_formed: Date?,
         date_of_birth: Date?,
@@ -109,6 +116,7 @@ module ModernTreasury
         email: String?,
         first_name: String?,
         identifications: ::Array[ModernTreasury::Models::LegalEntity::Identification],
+        industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
         last_name: String?,
         legal_entity_associations: ::Array[ModernTreasury::Models::LegalEntityAssociation]?,
         legal_entity_type: ModernTreasury::Models::LegalEntity::legal_entity_type,
