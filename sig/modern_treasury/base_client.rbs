@@ -51,7 +51,7 @@ module ModernTreasury
     ) -> void
 
     # @api private
-    attr_accessor requester: top
+    attr_accessor requester: ModernTreasury::PooledNetRequester
 
     def initialize: (
       base_url: String,
