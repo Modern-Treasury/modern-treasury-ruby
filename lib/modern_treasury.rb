@@ -36,7 +36,6 @@ require "connection_pool"
 # Package files.
 require_relative "modern_treasury/version"
 require_relative "modern_treasury/util"
-require_relative "modern_treasury/extern"
 require_relative "modern_treasury/base_model"
 require_relative "modern_treasury/base_page"
 require_relative "modern_treasury/request_options"

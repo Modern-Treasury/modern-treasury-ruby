@@ -85,7 +85,7 @@ module ModernTreasury
     end
 
     # @api private
-    sig { returns(T.anything) }
+    sig { returns(ModernTreasury::PooledNetRequester) }
     attr_accessor :requester
 
     # @api private
