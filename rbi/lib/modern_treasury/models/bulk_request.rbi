@@ -131,11 +131,13 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol) }
 
         PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+        LEDGER_ACCOUNT = T.let(:ledger_account, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
         LEDGER_TRANSACTION =
           T.let(:ledger_transaction, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
-        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
+        ENTITY_LINK = T.let(:entity_link, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol]) }
         def self.values

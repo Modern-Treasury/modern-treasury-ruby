@@ -22,6 +22,11 @@ module ModernTreasury
       sig { returns(T.nilable(ModernTreasury::Models::Currency::OrSymbol)) }
       attr_accessor :currency
 
+      # An object passed through to the simulated IPD that could reflect what a vendor
+      #   would pass.
+      sig { returns(T.nilable(T.anything)) }
+      attr_accessor :data
+
       # Defaults to a random description.
       sig { returns(T.nilable(String)) }
       attr_accessor :description
@@ -57,6 +62,7 @@ module ModernTreasury
           amount: Integer,
           as_of_date: T.nilable(Date),
           currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
+          data: T.nilable(T.anything),
           description: T.nilable(String),
           direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
           internal_account_id: String,
@@ -70,6 +76,7 @@ module ModernTreasury
         amount: nil,
         as_of_date: nil,
         currency: nil,
+        data: nil,
         description: nil,
         direction: nil,
         internal_account_id: nil,
@@ -86,6 +93,7 @@ module ModernTreasury
               amount: Integer,
               as_of_date: T.nilable(Date),
               currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
+              data: T.nilable(T.anything),
               description: T.nilable(String),
               direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
               internal_account_id: String,
@@ -130,11 +138,17 @@ module ModernTreasury
           T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
+        AU_BECS =
+          T.let(:au_becs, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
+        BACS = T.let(:bacs, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
         BOOK = T.let(:book, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
         CHECK = T.let(:check, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
         EFT = T.let(:eft, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
         INTERAC =
           T.let(:interac, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
+        NEFT = T.let(:neft, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
+        NZ_BECS =
+          T.let(:nz_becs, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
         RTP = T.let(:rtp, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
         SEPA = T.let(:sepa, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::TaggedSymbol)
         SIGNET =

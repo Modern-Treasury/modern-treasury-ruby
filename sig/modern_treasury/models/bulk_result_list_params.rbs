@@ -63,18 +63,22 @@ module ModernTreasury
 
       type entity_type =
         :payment_order
+        | :ledger_account
         | :ledger_transaction
-        | :transaction
         | :expected_payment
+        | :transaction
+        | :entity_link
         | :bulk_error
 
       module EntityType
         extend ModernTreasury::Enum
 
         PAYMENT_ORDER: :payment_order
+        LEDGER_ACCOUNT: :ledger_account
         LEDGER_TRANSACTION: :ledger_transaction
-        TRANSACTION: :transaction
         EXPECTED_PAYMENT: :expected_payment
+        TRANSACTION: :transaction
+        ENTITY_LINK: :entity_link
         BULK_ERROR: :bulk_error
 
         def self?.values: -> ::Array[ModernTreasury::Models::BulkResultListParams::entity_type]

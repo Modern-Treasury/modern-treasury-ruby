@@ -87,6 +87,7 @@ module ModernTreasury
           amount: Integer,
           as_of_date: T.nilable(Date),
           currency: T.nilable(ModernTreasury::Models::Currency::OrSymbol),
+          data: T.nilable(T.anything),
           description: T.nilable(String),
           direction: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction::OrSymbol,
           internal_account_id: String,
@@ -104,6 +105,9 @@ module ModernTreasury
         as_of_date: nil,
         # Defaults to the currency of the originating account.
         currency: nil,
+        # An object passed through to the simulated IPD that could reflect what a vendor
+        #   would pass.
+        data: nil,
         # Defaults to a random description.
         description: nil,
         # One of `credit`, `debit`.

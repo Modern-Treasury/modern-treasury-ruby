@@ -10,6 +10,7 @@ module ModernTreasury
           returnable_type: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol,
           additional_information: T.nilable(String),
           code: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol),
+          data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
           request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
@@ -27,6 +28,8 @@ module ModernTreasury
         additional_information: nil,
         # The return code. For ACH returns, this is the required ACH return code.
         code: nil,
+        # The raw data from the return file that we get from the bank.
+        data: nil,
         # If the return code is `R14` or `R15` this is the date the deceased counterparty
         #   passed away.
         date_of_death: nil,

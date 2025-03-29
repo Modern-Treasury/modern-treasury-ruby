@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2025-03-29)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Features
+
+* **internal:** converter interface should recurse without schema ([#321](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/321)) ([ded9140](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/ded9140f4e2d9d8a9785afdaa578d08e10fa7ea9))
+
+
+### Chores
+
+* **api:** updates to bulk creation request, legal entity schemas and more ([#316](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/316)) ([a03bb4d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/a03bb4d6a6e779dce45bf424f67c2b31ba8da146))
+* **internal:** minor refactoring of utils ([#320](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/320)) ([5ea443d](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/5ea443d4e6e2e8c646817f81345b57a19524f77d))
+* **internal:** remove CI condition ([#319](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/319)) ([fa5282f](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/fa5282fb5bf2042e625b88e3ad47dd335997f9f5))
+* remove unnecessary & confusing module ([#322](https://github.com/Modern-Treasury/modern-treasury-ruby/issues/322)) ([96f186c](https://github.com/Modern-Treasury/modern-treasury-ruby/commit/96f186c6efec72c630ae5f25f8f49adcccce50b3))
+
 ## 0.1.0-alpha.16 (2025-03-27)
 
 Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/Modern-Treasury/modern-treasury-ruby/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)

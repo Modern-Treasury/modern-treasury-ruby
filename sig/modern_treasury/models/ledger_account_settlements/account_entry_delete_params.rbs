@@ -2,16 +2,17 @@ module ModernTreasury
   module Models
     module LedgerAccountSettlements
       type account_entry_delete_params =
-        { ledger_entry_ids: ::Array[top]? } & ModernTreasury::request_parameters
+        { ledger_entry_ids: ::Array[String]? }
+        & ModernTreasury::request_parameters
 
       class AccountEntryDeleteParams < ModernTreasury::BaseModel
         extend ModernTreasury::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
-        attr_accessor ledger_entry_ids: ::Array[top]?
+        attr_accessor ledger_entry_ids: ::Array[String]?
 
         def initialize: (
-          ledger_entry_ids: ::Array[top]?,
+          ledger_entry_ids: ::Array[String]?,
           ?request_options: ModernTreasury::request_opts
         ) -> void
 

@@ -17,6 +17,8 @@ module ModernTreasury
       #
       #   @option params [Symbol, ModernTreasury::Models::ReturnCreateParams::Code, nil] :code The return code. For ACH returns, this is the required ACH return code.
       #
+      #   @option params [Object, nil] :data The raw data from the return file that we get from the bank.
+      #
       #   @option params [Date, nil] :date_of_death If the return code is `R14` or `R15` this is the date the deceased counterparty
       #     passed away.
       #

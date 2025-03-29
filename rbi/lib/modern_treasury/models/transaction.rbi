@@ -362,6 +362,7 @@ module ModernTreasury
         ISO20022 = T.let(:iso20022, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         JPMC = T.let(:jpmc, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         MX = T.let(:mx, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
+        PAYPAL = T.let(:paypal, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         PLAID = T.let(:plaid, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         PNC = T.let(:pnc, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)
         RSPEC_VENDOR = T.let(:rspec_vendor, ModernTreasury::Models::Transaction::VendorCodeType::TaggedSymbol)

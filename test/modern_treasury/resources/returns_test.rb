@@ -38,7 +38,8 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         transaction_line_item_id: String | nil,
         type: ModernTreasury::Models::ReturnObject::Type,
         updated_at: Time,
-        additional_information: String | nil
+        additional_information: String | nil,
+        data: ModernTreasury::Unknown | nil
       }
     end
   end
@@ -74,7 +75,8 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         transaction_line_item_id: String | nil,
         type: ModernTreasury::Models::ReturnObject::Type,
         updated_at: Time,
-        additional_information: String | nil
+        additional_information: String | nil,
+        data: ModernTreasury::Unknown | nil
       }
     end
   end
@@ -117,7 +119,8 @@ class ModernTreasury::Test::Resources::ReturnsTest < ModernTreasury::Test::Resou
         transaction_line_item_id: String | nil,
         type: ModernTreasury::Models::ReturnObject::Type,
         updated_at: Time,
-        additional_information: String | nil
+        additional_information: String | nil,
+        data: ModernTreasury::Unknown | nil
       }
     end
   end

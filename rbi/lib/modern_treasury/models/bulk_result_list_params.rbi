@@ -107,11 +107,14 @@ module ModernTreasury
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
+        LEDGER_ACCOUNT =
+          T.let(:ledger_account, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
         LEDGER_TRANSACTION =
           T.let(:ledger_transaction, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
-        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
+        TRANSACTION = T.let(:transaction, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
+        ENTITY_LINK = T.let(:entity_link, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
         BULK_ERROR = T.let(:bulk_error, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
 
         sig { override.returns(T::Array[ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol]) }

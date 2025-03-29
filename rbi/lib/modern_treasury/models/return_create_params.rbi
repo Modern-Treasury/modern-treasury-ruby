@@ -24,6 +24,10 @@ module ModernTreasury
       sig { returns(T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol)) }
       attr_accessor :code
 
+      # The raw data from the return file that we get from the bank.
+      sig { returns(T.nilable(T.anything)) }
+      attr_accessor :data
+
       # If the return code is `R14` or `R15` this is the date the deceased counterparty
       #   passed away.
       sig { returns(T.nilable(Date)) }
@@ -40,6 +44,7 @@ module ModernTreasury
           returnable_type: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol,
           additional_information: T.nilable(String),
           code: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol),
+          data: T.nilable(T.anything),
           date_of_death: T.nilable(Date),
           reason: T.nilable(String),
           request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
@@ -51,6 +56,7 @@ module ModernTreasury
         returnable_type:,
         additional_information: nil,
         code: nil,
+        data: nil,
         date_of_death: nil,
         reason: nil,
         request_options: {}
@@ -65,6 +71,7 @@ module ModernTreasury
               returnable_type: ModernTreasury::Models::ReturnCreateParams::ReturnableType::OrSymbol,
               additional_information: T.nilable(String),
               code: T.nilable(ModernTreasury::Models::ReturnCreateParams::Code::OrSymbol),
+              data: T.nilable(T.anything),
               date_of_death: T.nilable(Date),
               reason: T.nilable(String),
               request_options: ModernTreasury::RequestOptions

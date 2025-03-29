@@ -896,6 +896,11 @@ module ModernTreasury
               :jpmc_payment_returned_datetime,
               ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          JPMC_TRANSACTION_REFERENCE_NUMBER =
+            T.let(
+              :jpmc_transaction_reference_number,
+              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           LOB_CHECK_ID =
             T.let(
               :lob_check_id,
@@ -928,9 +933,19 @@ module ModernTreasury
               :pnc_payment_trace_id,
               ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
+          PNC_REQUEST_FOR_PAYMENT_ID =
+            T.let(
+              :pnc_request_for_payment_id,
+              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
           PNC_TRANSACTION_REFERENCE_NUMBER =
             T.let(
               :pnc_transaction_reference_number,
+              ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+            )
+          RBC_WIRE_REFERENCE_ID =
+            T.let(
+              :rbc_wire_reference_id,
               ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
             )
           RSPEC_VENDOR_PAYMENT_ID =

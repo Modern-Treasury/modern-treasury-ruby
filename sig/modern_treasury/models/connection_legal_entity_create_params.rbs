@@ -39,12 +39,14 @@ module ModernTreasury
           bank_settings: ModernTreasury::Models::BankSettings?,
           business_name: String?,
           citizenship_country: String?,
+          compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
           date_formed: Date?,
           date_of_birth: Date?,
           doing_business_as_names: ::Array[String],
           email: String?,
           first_name: String?,
           identifications: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification],
+          industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
           last_name: String?,
           legal_entity_associations: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]?,
           legal_entity_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_type,
@@ -74,6 +76,8 @@ module ModernTreasury
 
         attr_accessor citizenship_country: String?
 
+        attr_accessor compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?
+
         attr_accessor date_formed: Date?
 
         attr_accessor date_of_birth: Date?
@@ -91,6 +95,12 @@ module ModernTreasury
         def identifications=: (
           ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification]
         ) -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification]
+
+        attr_reader industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]?
+
+        def industry_classifications=: (
+          ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
+        ) -> ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
 
         attr_accessor last_name: String?
 
@@ -135,12 +145,14 @@ module ModernTreasury
           ?bank_settings: ModernTreasury::Models::BankSettings?,
           ?business_name: String?,
           ?citizenship_country: String?,
+          ?compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
           ?date_formed: Date?,
           ?date_of_birth: Date?,
           ?doing_business_as_names: ::Array[String],
           ?email: String?,
           ?first_name: String?,
           ?identifications: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification],
+          ?industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
           ?last_name: String?,
           ?legal_entity_associations: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation]?,
           ?legal_entity_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::legal_entity_type,
@@ -344,12 +356,14 @@ module ModernTreasury
               bank_settings: ModernTreasury::Models::BankSettings?,
               business_name: String?,
               citizenship_country: String?,
+              compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
               date_formed: Date?,
               date_of_birth: Date?,
               doing_business_as_names: ::Array[String],
               email: String?,
               first_name: String?,
               identifications: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification],
+              industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
               last_name: String?,
               legal_entity_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type,
               legal_structure: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure?,
@@ -378,6 +392,8 @@ module ModernTreasury
 
             attr_accessor citizenship_country: String?
 
+            attr_accessor compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?
+
             attr_accessor date_formed: Date?
 
             attr_accessor date_of_birth: Date?
@@ -395,6 +411,12 @@ module ModernTreasury
             def identifications=: (
               ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]
             ) -> ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification]
+
+            attr_reader industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]?
+
+            def industry_classifications=: (
+              ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
+            ) -> ::Array[ModernTreasury::Models::LegalEntityIndustryClassification]
 
             attr_accessor last_name: String?
 
@@ -437,12 +459,14 @@ module ModernTreasury
               ?bank_settings: ModernTreasury::Models::BankSettings?,
               ?business_name: String?,
               ?citizenship_country: String?,
+              ?compliance_details: ModernTreasury::Models::LegalEntityComplianceDetail?,
               ?date_formed: Date?,
               ?date_of_birth: Date?,
               ?doing_business_as_names: ::Array[String],
               ?email: String?,
               ?first_name: String?,
               ?identifications: ::Array[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification],
+              ?industry_classifications: ::Array[ModernTreasury::Models::LegalEntityIndustryClassification],
               ?last_name: String?,
               ?legal_entity_type: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_entity_type,
               ?legal_structure: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::legal_structure?,

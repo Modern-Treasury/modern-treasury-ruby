@@ -69,9 +69,11 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         PAYMENT_ORDER = :payment_order
+        LEDGER_ACCOUNT = :ledger_account
         LEDGER_TRANSACTION = :ledger_transaction
-        TRANSACTION = :transaction
         EXPECTED_PAYMENT = :expected_payment
+        TRANSACTION = :transaction
+        ENTITY_LINK = :entity_link
 
         finalize!
 

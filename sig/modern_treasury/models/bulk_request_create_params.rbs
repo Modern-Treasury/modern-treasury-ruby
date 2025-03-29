@@ -46,15 +46,22 @@ module ModernTreasury
       end
 
       type resource_type =
-        :payment_order | :ledger_transaction | :transaction | :expected_payment
+        :payment_order
+        | :ledger_account
+        | :ledger_transaction
+        | :expected_payment
+        | :transaction
+        | :entity_link
 
       module ResourceType
         extend ModernTreasury::Enum
 
         PAYMENT_ORDER: :payment_order
+        LEDGER_ACCOUNT: :ledger_account
         LEDGER_TRANSACTION: :ledger_transaction
-        TRANSACTION: :transaction
         EXPECTED_PAYMENT: :expected_payment
+        TRANSACTION: :transaction
+        ENTITY_LINK: :entity_link
 
         def self?.values: -> ::Array[ModernTreasury::Models::BulkRequestCreateParams::resource_type]
       end

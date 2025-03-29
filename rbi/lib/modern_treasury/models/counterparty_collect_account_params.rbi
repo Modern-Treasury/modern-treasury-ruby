@@ -148,7 +148,7 @@ module ModernTreasury
           T.let(:idSknbiCode, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
         ZA_NATIONAL_CLEARING_CODE =
           T.let(
-            :za_national_clearing_code,
+            :zaNationalClearingCode,
             ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol
           )
 

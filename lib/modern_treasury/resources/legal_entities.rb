@@ -17,6 +17,8 @@ module ModernTreasury
       #
       #   @option params [String, nil] :citizenship_country The country of citizenship for an individual.
       #
+      #   @option params [ModernTreasury::Models::LegalEntityComplianceDetail, nil] :compliance_details
+      #
       #   @option params [Date, nil] :date_formed A business's formation date (YYYY-MM-DD).
       #
       #   @option params [Date, nil] :date_of_birth An individual's date of birth (YYYY-MM-DD).
@@ -28,6 +30,8 @@ module ModernTreasury
       #   @option params [String, nil] :first_name An individual's first name.
       #
       #   @option params [Array<ModernTreasury::Models::LegalEntityCreateParams::Identification>] :identifications A list of identifications for the legal entity.
+      #
+      #   @option params [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] :industry_classifications A list of industry classifications for the legal entity.
       #
       #   @option params [String, nil] :last_name An individual's last name.
       #
@@ -102,6 +106,8 @@ module ModernTreasury
       #
       #   @option params [String, nil] :citizenship_country The country of citizenship for an individual.
       #
+      #   @option params [ModernTreasury::Models::LegalEntityComplianceDetail, nil] :compliance_details
+      #
       #   @option params [Date, nil] :date_formed A business's formation date (YYYY-MM-DD).
       #
       #   @option params [Date, nil] :date_of_birth An individual's date of birth (YYYY-MM-DD).
@@ -113,6 +119,8 @@ module ModernTreasury
       #   @option params [String, nil] :first_name An individual's first name.
       #
       #   @option params [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>] :identifications A list of identifications for the legal entity.
+      #
+      #   @option params [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] :industry_classifications A list of industry classifications for the legal entity.
       #
       #   @option params [String, nil] :last_name An individual's last name.
       #

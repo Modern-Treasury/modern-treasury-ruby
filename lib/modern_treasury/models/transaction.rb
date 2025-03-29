@@ -363,6 +363,7 @@ module ModernTreasury
         ISO20022 = :iso20022
         JPMC = :jpmc
         MX = :mx
+        PAYPAL = :paypal
         PLAID = :plaid
         PNC = :pnc
         RSPEC_VENDOR = :rspec_vendor

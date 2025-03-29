@@ -1,0 +1,62 @@
+module ModernTreasury
+  module Models
+    type legal_entity_compliance_detail =
+      {
+        id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        issuer: String,
+        live_mode: bool,
+        object: String,
+        token_expires_at: Time?,
+        token_issued_at: Time?,
+        token_url: String?,
+        updated_at: Time,
+        validated: bool,
+        validated_at: Time?
+      }
+
+    class LegalEntityComplianceDetail < ModernTreasury::BaseModel
+      attr_accessor id: String
+
+      attr_accessor created_at: Time
+
+      attr_accessor discarded_at: Time?
+
+      attr_accessor issuer: String
+
+      attr_accessor live_mode: bool
+
+      attr_accessor object: String
+
+      attr_accessor token_expires_at: Time?
+
+      attr_accessor token_issued_at: Time?
+
+      attr_accessor token_url: String?
+
+      attr_accessor updated_at: Time
+
+      attr_accessor validated: bool
+
+      attr_accessor validated_at: Time?
+
+      def initialize: (
+        id: String,
+        created_at: Time,
+        discarded_at: Time?,
+        issuer: String,
+        live_mode: bool,
+        object: String,
+        token_expires_at: Time?,
+        token_issued_at: Time?,
+        token_url: String?,
+        updated_at: Time,
+        validated: bool,
+        validated_at: Time?
+      ) -> void
+
+      def to_hash: -> ModernTreasury::Models::legal_entity_compliance_detail
+    end
+  end
+end

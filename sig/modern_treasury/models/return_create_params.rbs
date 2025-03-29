@@ -6,6 +6,7 @@ module ModernTreasury
         returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
         additional_information: String?,
         code: ModernTreasury::Models::ReturnCreateParams::code?,
+        data: top?,
         date_of_death: Date?,
         reason: String?
       }
@@ -23,6 +24,8 @@ module ModernTreasury
 
       attr_accessor code: ModernTreasury::Models::ReturnCreateParams::code?
 
+      attr_accessor data: top?
+
       attr_accessor date_of_death: Date?
 
       attr_accessor reason: String?
@@ -32,6 +35,7 @@ module ModernTreasury
         returnable_type: ModernTreasury::Models::ReturnCreateParams::returnable_type,
         ?additional_information: String?,
         ?code: ModernTreasury::Models::ReturnCreateParams::code?,
+        ?data: top?,
         ?date_of_death: Date?,
         ?reason: String?,
         ?request_options: ModernTreasury::request_opts
