@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module Transactions
       class LineItemListParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
+        extend ModernTreasury::Type::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
         sig { returns(T.nilable(T::Hash[Symbol, String])) }

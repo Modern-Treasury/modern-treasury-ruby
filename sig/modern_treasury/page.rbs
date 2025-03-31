@@ -1,6 +1,6 @@
 module ModernTreasury
   class Page[Elem] < ::Array[Elem]
-    include ModernTreasury::BasePage[Elem]
+    include ModernTreasury::Type::BasePage[Elem]
 
     attr_accessor per_page: Integer
 

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class InternalAccountCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The identifier of the financial institution the account belongs to.

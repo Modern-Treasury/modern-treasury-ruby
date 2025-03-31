@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class ReturnCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The ID of the object being returned or `null`.

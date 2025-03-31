@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class PaymentFlowUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # Required. The updated status of the payment flow. Can only be used to mark a

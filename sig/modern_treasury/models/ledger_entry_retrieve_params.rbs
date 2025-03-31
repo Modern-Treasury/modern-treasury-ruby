@@ -4,7 +4,7 @@ module ModernTreasury
       { show_balances: bool } & ModernTreasury::request_parameters
 
     class LedgerEntryRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_reader show_balances: bool?

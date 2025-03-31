@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class RoutingDetailDeleteParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       sig { returns(ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::OrSymbol) }

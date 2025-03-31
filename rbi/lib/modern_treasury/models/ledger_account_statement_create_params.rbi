@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountStatementCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The inclusive lower bound of the effective_at timestamp of the ledger entries to

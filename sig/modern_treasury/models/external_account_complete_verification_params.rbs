@@ -4,7 +4,7 @@ module ModernTreasury
       { amounts: ::Array[Integer] } & ModernTreasury::request_parameters
 
     class ExternalAccountCompleteVerificationParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_reader amounts: ::Array[Integer]?

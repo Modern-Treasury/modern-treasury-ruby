@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module LedgerAccountSettlements
       class AccountEntryUpdateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
+        extend ModernTreasury::Type::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
         # The ids of the ledger entries that are to be added or removed from the ledger

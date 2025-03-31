@@ -9,7 +9,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class ConnectionLegalEntityCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_accessor connection_id: String

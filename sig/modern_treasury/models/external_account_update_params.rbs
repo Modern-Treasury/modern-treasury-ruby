@@ -13,7 +13,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class ExternalAccountUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_reader account_type: ModernTreasury::Models::external_account_type?

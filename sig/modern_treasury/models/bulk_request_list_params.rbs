@@ -12,7 +12,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class BulkRequestListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_reader action_type: ModernTreasury::Models::BulkRequestListParams::action_type?

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   class Page < ::Array
-    include ModernTreasury::BasePage
+    include ModernTreasury::Type::BasePage
 
     Elem = type_member
 

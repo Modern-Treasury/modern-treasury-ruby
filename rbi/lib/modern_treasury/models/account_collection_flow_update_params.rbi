@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class AccountCollectionFlowUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # Required. The updated status of the account collection flow. Can only be used to

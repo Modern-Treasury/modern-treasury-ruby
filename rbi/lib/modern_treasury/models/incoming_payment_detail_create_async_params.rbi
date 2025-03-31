@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # Value in specified currency's smallest unit. e.g. $10 would be represented

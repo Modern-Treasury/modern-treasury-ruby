@@ -16,7 +16,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class LedgerAccountCategoryListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_reader id: ::Array[String]?

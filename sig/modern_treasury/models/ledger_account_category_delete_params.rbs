@@ -4,7 +4,7 @@ module ModernTreasury
       {  } & ModernTreasury::request_parameters
 
     class LedgerAccountCategoryDeleteParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       def initialize: (?request_options: ModernTreasury::request_opts) -> void

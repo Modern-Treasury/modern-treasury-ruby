@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlementListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # If you have specific IDs to retrieve in bulk, you can pass them as query
