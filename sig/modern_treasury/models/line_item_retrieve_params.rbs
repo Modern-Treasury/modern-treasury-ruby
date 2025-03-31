@@ -8,7 +8,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class LineItemRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_accessor itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::itemizable_type

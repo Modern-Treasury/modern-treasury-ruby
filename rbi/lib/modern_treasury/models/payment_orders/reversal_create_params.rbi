@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module PaymentOrders
       class ReversalCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
+        extend ModernTreasury::Type::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,

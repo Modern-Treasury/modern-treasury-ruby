@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerEntryUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # Additional data represented as key-value pairs. Both the key and value must be

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class ExternalAccountUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # Can be `checking`, `savings` or `other`.

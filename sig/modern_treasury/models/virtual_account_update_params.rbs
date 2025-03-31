@@ -10,7 +10,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class VirtualAccountUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_reader counterparty_id: String?

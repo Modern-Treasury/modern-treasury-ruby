@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class ConnectionLegalEntityUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The status of the connection legal entity.

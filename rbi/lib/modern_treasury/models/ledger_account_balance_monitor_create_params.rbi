@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # Describes the condition that must be satisfied for the monitor to be triggered.

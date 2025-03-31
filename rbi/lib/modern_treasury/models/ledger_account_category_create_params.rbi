@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The currency of the ledger account category.

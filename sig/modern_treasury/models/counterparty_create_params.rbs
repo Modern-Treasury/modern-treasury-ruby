@@ -17,7 +17,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class CounterpartyCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_accessor name: String?

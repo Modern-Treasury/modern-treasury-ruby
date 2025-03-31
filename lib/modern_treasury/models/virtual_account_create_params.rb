@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     class VirtualAccountCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
+      #   extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # @!attribute internal_account_id

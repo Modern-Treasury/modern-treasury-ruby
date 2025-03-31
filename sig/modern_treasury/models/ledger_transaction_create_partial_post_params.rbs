@@ -10,7 +10,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class LedgerTransactionCreatePartialPostParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_accessor posted_ledger_entries: ::Array[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry]
