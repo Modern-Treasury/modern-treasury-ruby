@@ -5,7 +5,7 @@ module ModernTreasury
     module LedgerAccountSettlements
       class AccountEntryUpdateParams < ModernTreasury::BaseModel
         # @!parse
-        #   extend ModernTreasury::RequestParameters::Converter
+        #   extend ModernTreasury::Type::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
         # @!attribute ledger_entry_ids

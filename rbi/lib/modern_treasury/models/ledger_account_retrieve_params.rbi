@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # Use `balances[effective_at_lower_bound]` and

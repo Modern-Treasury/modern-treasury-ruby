@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.

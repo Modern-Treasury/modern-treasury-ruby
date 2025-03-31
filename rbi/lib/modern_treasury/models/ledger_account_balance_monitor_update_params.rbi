@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountBalanceMonitorUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # An optional, free-form description for internal use.

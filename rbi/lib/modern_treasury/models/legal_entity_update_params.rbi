@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LegalEntityUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # A list of addresses for the entity.

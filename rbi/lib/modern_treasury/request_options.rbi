@@ -1,21 +1,6 @@
 # typed: strong
 
 module ModernTreasury
-  # @api private
-  module RequestParameters
-    # Options to specify HTTP behaviour for this request.
-    sig { returns(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)) }
-    attr_accessor :request_options
-
-    # @api private
-    module Converter
-      # @api private
-      sig { params(params: T.anything).returns([T.anything, ModernTreasury::Util::AnyHash]) }
-      def dump_request(params)
-      end
-    end
-  end
-
   # Specify HTTP behaviour to use for a specific request. These options supplement
   #   or override those provided at the client level.
   #

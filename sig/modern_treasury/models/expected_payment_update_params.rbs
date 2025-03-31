@@ -23,7 +23,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class ExpectedPaymentUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_accessor amount_lower_bound: Integer?

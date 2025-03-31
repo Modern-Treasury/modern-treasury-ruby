@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class CounterpartyUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # A new email for the counterparty.

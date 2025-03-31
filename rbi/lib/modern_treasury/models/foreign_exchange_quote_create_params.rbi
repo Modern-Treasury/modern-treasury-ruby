@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class ForeignExchangeQuoteCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The ID for the `InternalAccount` this quote is associated with.

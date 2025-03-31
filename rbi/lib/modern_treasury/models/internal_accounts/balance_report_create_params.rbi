@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module InternalAccounts
       class BalanceReportCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
+        extend ModernTreasury::Type::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
         # The date of the balance report in local time.

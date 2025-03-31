@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountSettlementUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The description of the ledger account settlement.

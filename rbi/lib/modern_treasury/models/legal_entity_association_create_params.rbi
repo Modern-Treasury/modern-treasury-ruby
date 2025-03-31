@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LegalEntityAssociationCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The ID of the parent legal entity. This must be a business or joint legal

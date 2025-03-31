@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class IncomingPaymentDetailUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # Additional data in the form of key-value pairs. Pairs can be removed by passing
