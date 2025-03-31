@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class ExpectedPaymentCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The lowest amount this expected payment may be equal to. Value in specified

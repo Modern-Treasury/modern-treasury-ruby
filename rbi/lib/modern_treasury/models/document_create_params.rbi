@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class DocumentCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The unique identifier for the associated object.

@@ -5,7 +5,7 @@ module ModernTreasury
     module InternalAccounts
       class BalanceReportDeleteParams < ModernTreasury::BaseModel
         # @!parse
-        #   extend ModernTreasury::RequestParameters::Converter
+        #   extend ModernTreasury::Type::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
         # @!attribute internal_account_id

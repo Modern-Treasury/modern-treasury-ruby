@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class BulkRequestCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # One of create, or update.

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The name of the ledger.

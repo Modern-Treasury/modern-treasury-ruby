@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     class LedgerAccountSettlementCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::RequestParameters::Converter
+      #   extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # @!attribute contra_ledger_account_id

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerEntryRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # If true, response will include the balances attached to the ledger entry. If

@@ -40,7 +40,7 @@ module ModernTreasury
       & ModernTreasury::request_parameters
 
     class PaymentOrderUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       attr_reader accounting: ModernTreasury::Models::PaymentOrderUpdateParams::Accounting?

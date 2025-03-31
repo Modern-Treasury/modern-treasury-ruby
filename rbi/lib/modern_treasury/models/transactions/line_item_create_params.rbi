@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module Transactions
       class LineItemCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::RequestParameters::Converter
+        extend ModernTreasury::Type::RequestParameters::Converter
         include ModernTreasury::RequestParameters
 
         # If a matching object exists in Modern Treasury, `amount` will be populated.

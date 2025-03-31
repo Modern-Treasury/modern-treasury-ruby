@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class CounterpartyCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # A human friendly name for this counterparty.

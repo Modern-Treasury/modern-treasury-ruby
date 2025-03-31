@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # For example, if you want the balances as of a particular time (ISO8601), the

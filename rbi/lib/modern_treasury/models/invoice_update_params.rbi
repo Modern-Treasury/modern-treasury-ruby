@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     class InvoiceUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       # The invoicer's contact details displayed at the top of the invoice.

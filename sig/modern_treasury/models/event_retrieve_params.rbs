@@ -3,7 +3,7 @@ module ModernTreasury
     type event_retrieve_params = {  } & ModernTreasury::request_parameters
 
     class EventRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::RequestParameters::Converter
+      extend ModernTreasury::Type::RequestParameters::Converter
       include ModernTreasury::RequestParameters
 
       def initialize: (?request_options: ModernTreasury::request_opts) -> void

@@ -23,7 +23,7 @@ module ModernTreasury
   #
   #   connections => Array
   class Page < ::Array
-    include ModernTreasury::BasePage
+    include ModernTreasury::Type::BasePage
 
     # @return [Integer]
     attr_accessor :per_page
@@ -33,7 +33,7 @@ module ModernTreasury
 
     # @api private
     #
-    # @param client [ModernTreasury::BaseClient]
+    # @param client [ModernTreasury::Transport::BaseClient]
     # @param req [Hash{Symbol=>Object}]
     # @param headers [Hash{String=>String}, Net::HTTPHeader]
     # @param page_data [Hash{Symbol=>Object}]
@@ -43,7 +43,7 @@ module ModernTreasury
 
       case page_data
       in Array
-        replace(page_data.map { ModernTreasury::Converter.coerce(model, _1) })
+        replace(page_data.map { ModernTreasury::Type::Converter.coerce(model, _1) })
       else
       end
 
