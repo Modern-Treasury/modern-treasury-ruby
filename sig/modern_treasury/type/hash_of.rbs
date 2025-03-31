@@ -1,6 +1,6 @@
 module ModernTreasury
   module Type
-    class HashOf
+    class HashOf[Elem]
       include ModernTreasury::Type::Converter
 
       def self.[]: (
@@ -21,7 +21,7 @@ module ModernTreasury
 
       def dump: (::Hash[top, top] | top value) -> (::Hash[Symbol, top] | top)
 
-      def item_type: -> top
+      def item_type: -> Elem
 
       def nilable?: -> bool
 
