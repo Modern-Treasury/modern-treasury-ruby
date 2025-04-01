@@ -410,7 +410,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol) }
 
         SHARED = T.let(:shared, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol)
         SENDER = T.let(:sender, ModernTreasury::Models::PaymentOrderUpdateParams::ChargeBearer::TaggedSymbol)
@@ -431,7 +431,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrderUpdateParams::Direction::TaggedSymbol)
@@ -450,7 +450,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderUpdateParams::FallbackType::TaggedSymbol)
 
@@ -468,7 +468,13 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator::TaggedSymbol) }
+          T.type_alias do
+            T.any(
+              Symbol,
+              String,
+              ModernTreasury::Models::PaymentOrderUpdateParams::ForeignExchangeIndicator::TaggedSymbol
+            )
+          end
 
         FIXED_TO_VARIABLE =
           T.let(
@@ -549,7 +555,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol) }
 
         HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderUpdateParams::Priority::TaggedSymbol)
@@ -836,6 +842,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                 )
               end
@@ -961,6 +968,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
                 )
               end
@@ -1131,6 +1139,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
                 )
               end
@@ -1231,7 +1240,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::PartyType::TaggedSymbol
+              )
+            end
 
           BUSINESS =
             T.let(
@@ -1317,6 +1332,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                 )
               end
@@ -1450,6 +1466,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                 )
               end
@@ -1627,7 +1644,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol) }
 
         APPROVED = T.let(:approved, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)
         CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentOrderUpdateParams::Status::TaggedSymbol)

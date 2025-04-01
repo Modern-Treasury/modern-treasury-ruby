@@ -200,7 +200,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol) }
 
         HIGH = T.let(:high, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrderListParams::Priority::TaggedSymbol)
@@ -215,7 +215,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol) }
 
         APPROVED = T.let(:approved, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
         CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentOrderListParams::Status::TaggedSymbol)
@@ -240,7 +240,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderListParams::Type) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::PaymentOrderListParams::Type::TaggedSymbol)

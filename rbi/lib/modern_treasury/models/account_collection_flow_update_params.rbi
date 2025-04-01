@@ -41,7 +41,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol) }
 
         CANCELLED =
           T.let(:cancelled, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::TaggedSymbol)

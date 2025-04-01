@@ -119,7 +119,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::TransactionCreateParams::Type) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::TransactionCreateParams::Type::TaggedSymbol)

@@ -227,7 +227,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::TaggedSymbol) }
 
         EXPECTED_PAYMENT =
           T.let(
@@ -303,7 +303,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol
+              )
+            end
 
           ASC = T.let(:asc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::CreatedAt::TaggedSymbol)
           DESC =
@@ -323,7 +329,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol
+              )
+            end
 
           ASC =
             T.let(:asc, ModernTreasury::Models::LedgerTransactionListParams::OrderBy::EffectiveAt::TaggedSymbol)
@@ -345,7 +357,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol) }
 
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol)
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerTransactionListParams::Status::TaggedSymbol)

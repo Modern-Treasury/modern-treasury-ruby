@@ -99,7 +99,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol
+              )
+            end
 
           INTRADAY =
             T.let(:intraday, ModernTreasury::Models::InternalAccounts::BalanceReport::BalanceReportType::TaggedSymbol)
@@ -250,7 +256,13 @@ module ModernTreasury
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType) }
             OrSymbol =
-              T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType::TaggedSymbol) }
+              T.type_alias do
+                T.any(
+                  Symbol,
+                  String,
+                  ModernTreasury::Models::InternalAccounts::BalanceReport::Balance::BalanceType::TaggedSymbol
+                )
+              end
 
             CLOSING_AVAILABLE =
               T.let(

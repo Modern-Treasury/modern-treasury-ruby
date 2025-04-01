@@ -331,7 +331,7 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol) }
 
           BUSINESS =
             T.let(:business, ModernTreasury::Models::LegalEntityUpdateParams::Address::AddressType::TaggedSymbol)
@@ -398,7 +398,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol
+              )
+            end
 
           AR_CUIL =
             T.let(:ar_cuil, ModernTreasury::Models::LegalEntityUpdateParams::Identification::IDType::TaggedSymbol)
@@ -459,7 +465,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::TaggedSymbol) }
 
         CORPORATION =
           T.let(:corporation, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure::TaggedSymbol)
@@ -501,7 +507,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::TaggedSymbol) }
 
         LOW = T.let(:low, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::TaggedSymbol)
         MEDIUM = T.let(:medium, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating::TaggedSymbol)

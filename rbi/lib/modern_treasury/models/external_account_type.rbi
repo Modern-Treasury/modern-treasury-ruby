@@ -7,7 +7,8 @@ module ModernTreasury
       extend ModernTreasury::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountType) }
-      OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountType::TaggedSymbol) }
+      OrSymbol =
+        T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountType::TaggedSymbol) }
 
       CASH = T.let(:cash, ModernTreasury::Models::ExternalAccountType::TaggedSymbol)
       CHECKING = T.let(:checking, ModernTreasury::Models::ExternalAccountType::TaggedSymbol)

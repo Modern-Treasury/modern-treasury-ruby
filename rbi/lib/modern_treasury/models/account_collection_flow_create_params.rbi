@@ -61,7 +61,13 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol) }
+          T.type_alias do
+            T.any(
+              Symbol,
+              String,
+              ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol
+            )
+          end
 
         USA =
           T.let(:USA, ModernTreasury::Models::AccountCollectionFlowCreateParams::ReceivingCountry::TaggedSymbol)

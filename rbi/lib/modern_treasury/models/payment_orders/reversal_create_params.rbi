@@ -76,7 +76,7 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol) }
 
           DUPLICATE =
             T.let(:duplicate, ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::TaggedSymbol)
@@ -372,6 +372,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
                 )
               end
@@ -429,6 +430,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::Status::TaggedSymbol
                 )
               end

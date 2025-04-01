@@ -132,7 +132,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol) }
 
         ARCHIVED = T.let(:archived, ModernTreasury::Models::ExpectedPaymentListParams::Status::TaggedSymbol)
         PARTIALLY_RECONCILED =
@@ -153,7 +153,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::ExpectedPaymentListParams::Type::TaggedSymbol)

@@ -88,7 +88,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol) }
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::PaymentReferenceListParams::ReferenceableType::TaggedSymbol)

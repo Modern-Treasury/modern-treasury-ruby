@@ -104,7 +104,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol) }
 
         PENDING =
           T.let(:pending, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::TaggedSymbol)
