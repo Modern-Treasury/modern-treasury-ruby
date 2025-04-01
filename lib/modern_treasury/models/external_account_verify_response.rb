@@ -105,6 +105,8 @@ module ModernTreasury
 
         # The type of payment that can be made to this account. Can be `ach`, `eft`, or
         #   `rtp`.
+        #
+        # @see ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt#payment_type
         module PaymentType
           extend ModernTreasury::Enum
 
@@ -147,6 +149,8 @@ module ModernTreasury
         end
 
         # The priority of the payment. Can be `normal` or `high`.
+        #
+        # @see ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt#priority
         module Priority
           extend ModernTreasury::Enum
 
@@ -162,6 +166,8 @@ module ModernTreasury
 
         # The status of the verification attempt. Can be `pending_verification`,
         #   `verified`, `failed`, or `cancelled`.
+        #
+        # @see ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt#status
         module Status
           extend ModernTreasury::Enum
 

@@ -43,6 +43,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
+      # @see ModernTreasury::Models::ExternalAccountCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::ExternalAccountCreateParams.dump_request(params)
         @client.request(
@@ -63,6 +65,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
+      # @see ModernTreasury::Models::ExternalAccountRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -97,6 +101,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
+      # @see ModernTreasury::Models::ExternalAccountUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::ExternalAccountUpdateParams.dump_request(params)
         @client.request(
@@ -127,6 +133,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExternalAccount>]
+      #
+      # @see ModernTreasury::Models::ExternalAccountListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::ExternalAccountListParams.dump_request(params)
         @client.request(
@@ -148,6 +156,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
+      #
+      # @see ModernTreasury::Models::ExternalAccountDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -168,6 +178,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExternalAccount]
+      #
+      # @see ModernTreasury::Models::ExternalAccountCompleteVerificationParams
       def complete_verification(id, params = {})
         parsed, options = ModernTreasury::Models::ExternalAccountCompleteVerificationParams.dump_request(params)
         @client.request(
@@ -202,6 +214,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::ExternalAccount, ModernTreasury::Models::ExternalAccountVerifyResponse::ExternalAccountVerificationAttempt]
+      #
+      # @see ModernTreasury::Models::ExternalAccountVerifyParams
       def verify(id, params)
         parsed, options = ModernTreasury::Models::ExternalAccountVerifyParams.dump_request(params)
         @client.request(
@@ -213,6 +227,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

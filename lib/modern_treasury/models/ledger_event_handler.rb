@@ -116,6 +116,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # @deprecated
+      #
+      # @see ModernTreasury::Models::LedgerEventHandler#conditions
       class Conditions < ModernTreasury::BaseModel
         # @!attribute field
         #   The LHS of the conditional.
@@ -146,6 +148,8 @@ module ModernTreasury
       end
 
       # @deprecated
+      #
+      # @see ModernTreasury::Models::LedgerEventHandler#ledger_transaction_template
       class LedgerTransactionTemplate < ModernTreasury::BaseModel
         # @!attribute description
         #   An optional description for internal use.

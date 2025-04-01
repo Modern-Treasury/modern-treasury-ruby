@@ -12,6 +12,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaperItem]
+      #
+      # @see ModernTreasury::Models::PaperItemRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -39,6 +41,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaperItem>]
+      #
+      # @see ModernTreasury::Models::PaperItemListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::PaperItemListParams.dump_request(params)
         @client.request(
@@ -51,6 +55,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

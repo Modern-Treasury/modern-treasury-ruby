@@ -25,6 +25,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
+      #
+      # @see ModernTreasury::Models::LedgerEventHandlerCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerEventHandlerCreateParams.dump_request(params)
         @client.request(
@@ -45,6 +47,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
+      #
+      # @see ModernTreasury::Models::LedgerEventHandlerRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -75,6 +79,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerEventHandler>]
+      #
+      # @see ModernTreasury::Models::LedgerEventHandlerListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerEventHandlerListParams.dump_request(params)
         @client.request(
@@ -96,6 +102,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerEventHandler]
+      #
+      # @see ModernTreasury::Models::LedgerEventHandlerDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -105,6 +113,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

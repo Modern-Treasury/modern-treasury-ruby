@@ -17,6 +17,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Ledger]
+      #
+      # @see ModernTreasury::Models::LedgerCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerCreateParams.dump_request(params)
         @client.request(
@@ -37,6 +39,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Ledger]
+      #
+      # @see ModernTreasury::Models::LedgerRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -62,6 +66,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Ledger]
+      #
+      # @see ModernTreasury::Models::LedgerUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerUpdateParams.dump_request(params)
         @client.request(
@@ -95,6 +101,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Ledger>]
+      #
+      # @see ModernTreasury::Models::LedgerListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerListParams.dump_request(params)
         @client.request(
@@ -116,6 +124,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Ledger]
+      #
+      # @see ModernTreasury::Models::LedgerDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -125,6 +135,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

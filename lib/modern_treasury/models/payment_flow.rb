@@ -228,6 +228,8 @@ module ModernTreasury
 
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
+      #
+      # @see ModernTreasury::Models::PaymentFlow#direction
       module Direction
         extend ModernTreasury::Enum
 
@@ -244,6 +246,8 @@ module ModernTreasury
       # When `verified` and `external_account_collection` is `enabled`, filters the list
       #   of external accounts your end-user can select to those with a
       #   `verification_status` of `verified`.
+      #
+      # @see ModernTreasury::Models::PaymentFlow#existing_external_accounts_filter
       module ExistingExternalAccountsFilter
         extend ModernTreasury::Enum
 
@@ -259,6 +263,8 @@ module ModernTreasury
       # When `enabled`, your end-user can select from an existing external account when
       #   completing the flow. When `disabled`, your end-user must add new payment details
       #   when completing the flow.
+      #
+      # @see ModernTreasury::Models::PaymentFlow#external_account_collection
       module ExternalAccountCollection
         extend ModernTreasury::Enum
 
@@ -274,6 +280,8 @@ module ModernTreasury
 
       # The current status of the payment flow. One of `pending`, `completed`,
       #   `expired`, or `cancelled`.
+      #
+      # @see ModernTreasury::Models::PaymentFlow#status
       module Status
         extend ModernTreasury::Enum
 

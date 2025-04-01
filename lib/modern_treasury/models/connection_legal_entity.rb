@@ -90,6 +90,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The status of the connection legal entity.
+      #
+      # @see ModernTreasury::Models::ConnectionLegalEntity#status
       module Status
         extend ModernTreasury::Enum
 

@@ -144,6 +144,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::LedgerAccountStatementRetrieveResponse#ending_balance
       class EndingBalance < ModernTreasury::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
@@ -184,6 +185,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance#available_balance
         class AvailableBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -229,6 +231,7 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @see ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance#pending_balance
         class PendingBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -271,6 +274,7 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @see ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::EndingBalance#posted_balance
         class PostedBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -314,6 +318,7 @@ module ModernTreasury
         end
       end
 
+      # @see ModernTreasury::Models::LedgerAccountStatementRetrieveResponse#starting_balance
       class StartingBalance < ModernTreasury::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
@@ -354,6 +359,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance#available_balance
         class AvailableBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -399,6 +405,7 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @see ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance#pending_balance
         class PendingBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -441,6 +448,7 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @see ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance#posted_balance
         class PostedBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #

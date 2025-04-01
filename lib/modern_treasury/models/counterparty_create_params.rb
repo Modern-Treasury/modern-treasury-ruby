@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Counterparties#create
     class CounterpartyCreateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -163,6 +164,8 @@ module ModernTreasury
 
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
         #   or `vendor`.
+        #
+        # @see ModernTreasury::Models::CounterpartyCreateParams::Accounting#type
         module Type
           extend ModernTreasury::Enum
 
@@ -356,6 +359,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail#account_number_type
           module AccountNumberType
             extend ModernTreasury::Enum
 
@@ -406,6 +410,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail#contact_identifier_type
           module ContactIdentifierType
             extend ModernTreasury::Enum
 
@@ -421,6 +426,7 @@ module ModernTreasury
           end
         end
 
+        # @see ModernTreasury::Models::CounterpartyCreateParams::Account#ledger_account
         class LedgerAccount < ModernTreasury::BaseModel
           # @!attribute currency
           #   The currency of the ledger account.
@@ -543,6 +549,8 @@ module ModernTreasury
           # If the ledger account links to another object in Modern Treasury, the type will
           #   be populated here, otherwise null. The value is one of internal_account or
           #   external_account.
+          #
+          # @see ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Enum
 
@@ -559,6 +567,7 @@ module ModernTreasury
           end
         end
 
+        # @see ModernTreasury::Models::CounterpartyCreateParams::Account#party_address
         class PartyAddress < ModernTreasury::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -610,6 +619,8 @@ module ModernTreasury
         end
 
         # Either `individual` or `business`.
+        #
+        # @see ModernTreasury::Models::CounterpartyCreateParams::Account#party_type
         module PartyType
           extend ModernTreasury::Enum
 
@@ -654,6 +665,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail#routing_number_type
           module RoutingNumberType
             extend ModernTreasury::Enum
 
@@ -686,6 +698,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
+          # @see ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail#payment_type
           module PaymentType
             extend ModernTreasury::Enum
 
@@ -999,6 +1012,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The type of legal entity.
+        #
+        # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity#legal_entity_type
         module LegalEntityType
           extend ModernTreasury::Enum
 
@@ -1119,6 +1134,8 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # The type of ID number.
+          #
+          # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification#id_type
           module IDType
             extend ModernTreasury::Enum
 
@@ -1230,6 +1247,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
+          # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation#child_legal_entity
           class ChildLegalEntity < ModernTreasury::BaseModel
             # @!attribute [r] addresses
             #   A list of addresses for the entity.
@@ -1601,6 +1619,8 @@ module ModernTreasury
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
               # The type of ID number.
+              #
+              # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification#id_type
               module IDType
                 extend ModernTreasury::Enum
 
@@ -1635,6 +1655,8 @@ module ModernTreasury
             end
 
             # The type of legal entity.
+            #
+            # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity#legal_entity_type
             module LegalEntityType
               extend ModernTreasury::Enum
 
@@ -1649,6 +1671,8 @@ module ModernTreasury
             end
 
             # The business's legal structure.
+            #
+            # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity#legal_structure
             module LegalStructure
               extend ModernTreasury::Enum
 
@@ -1687,6 +1711,8 @@ module ModernTreasury
             end
 
             # The risk rating of the legal entity. One of low, medium, high.
+            #
+            # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity#risk_rating
             module RiskRating
               extend ModernTreasury::Enum
 
@@ -1704,6 +1730,8 @@ module ModernTreasury
         end
 
         # The business's legal structure.
+        #
+        # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity#legal_structure
         module LegalStructure
           extend ModernTreasury::Enum
 
@@ -1742,6 +1770,8 @@ module ModernTreasury
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
+        #
+        # @see ModernTreasury::Models::CounterpartyCreateParams::LegalEntity#risk_rating
         module RiskRating
           extend ModernTreasury::Enum
 

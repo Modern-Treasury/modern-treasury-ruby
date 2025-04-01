@@ -18,6 +18,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
+        #
+        # @see ModernTreasury::Models::Transactions::LineItemCreateParams
         def create(params)
           parsed, options = ModernTreasury::Models::Transactions::LineItemCreateParams.dump_request(params)
           @client.request(
@@ -38,6 +40,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
+        #
+        # @see ModernTreasury::Models::Transactions::LineItemRetrieveParams
         def retrieve(id, params = {})
           @client.request(
             method: :get,
@@ -64,6 +68,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
+        #
+        # @see ModernTreasury::Models::Transactions::LineItemListParams
         def list(params = {})
           parsed, options = ModernTreasury::Models::Transactions::LineItemListParams.dump_request(params)
           @client.request(
@@ -85,6 +91,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [nil]
+        #
+        # @see ModernTreasury::Models::Transactions::LineItemDeleteParams
         def delete(id, params = {})
           @client.request(
             method: :delete,
@@ -94,6 +102,8 @@ module ModernTreasury
           )
         end
 
+        # @api private
+        #
         # @param client [ModernTreasury::Client]
         def initialize(client:)
           @client = client

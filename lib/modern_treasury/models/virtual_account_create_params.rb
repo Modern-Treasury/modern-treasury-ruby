@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::VirtualAccounts#create
     class VirtualAccountCreateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -169,6 +170,8 @@ module ModernTreasury
 
         # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
         #   account number is in a generic format.
+        #
+        # @see ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail#account_number_type
         module AccountNumberType
           extend ModernTreasury::Enum
 
@@ -311,6 +314,8 @@ module ModernTreasury
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
+        #
+        # @see ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount#ledgerable_type
         module LedgerableType
           extend ModernTreasury::Enum
 
@@ -364,6 +369,8 @@ module ModernTreasury
         # The type of routing number. See
         #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
         #   more details.
+        #
+        # @see ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail#routing_number_type
         module RoutingNumberType
           extend ModernTreasury::Enum
 
@@ -398,6 +405,8 @@ module ModernTreasury
 
         # If the routing detail is to be used for a specific payment type this field will
         #   be populated, otherwise null.
+        #
+        # @see ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail#payment_type
         module PaymentType
           extend ModernTreasury::Enum
 

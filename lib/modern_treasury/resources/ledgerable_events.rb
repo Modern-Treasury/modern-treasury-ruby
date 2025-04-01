@@ -19,6 +19,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
+      #
+      # @see ModernTreasury::Models::LedgerableEventCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerableEventCreateParams.dump_request(params)
         @client.request(
@@ -39,6 +41,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerableEvent]
+      #
+      # @see ModernTreasury::Models::LedgerableEventRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -48,6 +52,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

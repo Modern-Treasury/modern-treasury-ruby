@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module LedgerAccountSettlements
+      # @see ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries#update
       class AccountEntryUpdateParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter

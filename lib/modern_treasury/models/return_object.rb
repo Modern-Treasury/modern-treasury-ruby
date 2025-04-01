@@ -211,6 +211,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The return code. For ACH returns, this is the required ACH return code.
+      #
+      # @see ModernTreasury::Models::ReturnObject#code
       module Code
         extend ModernTreasury::Enum
 
@@ -330,6 +332,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The type of the reference number. Referring to the vendor payment id.
+        #
+        # @see ModernTreasury::Models::ReturnObject::ReferenceNumber#reference_number_type
         module ReferenceNumberType
           extend ModernTreasury::Enum
 
@@ -418,6 +422,8 @@ module ModernTreasury
       end
 
       # The type of object being returned or `null`.
+      #
+      # @see ModernTreasury::Models::ReturnObject#returnable_type
       module ReturnableType
         extend ModernTreasury::Enum
 
@@ -435,6 +441,8 @@ module ModernTreasury
       end
 
       # The role of the return, can be `originating` or `receiving`.
+      #
+      # @see ModernTreasury::Models::ReturnObject#role
       module Role
         extend ModernTreasury::Enum
 
@@ -449,6 +457,8 @@ module ModernTreasury
       end
 
       # The current status of the return.
+      #
+      # @see ModernTreasury::Models::ReturnObject#status
       module Status
         extend ModernTreasury::Enum
 
@@ -468,6 +478,8 @@ module ModernTreasury
 
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       #   `interac`, `manual`, `paper_item`, `wire`.
+      #
+      # @see ModernTreasury::Models::ReturnObject#type
       module Type
         extend ModernTreasury::Enum
 

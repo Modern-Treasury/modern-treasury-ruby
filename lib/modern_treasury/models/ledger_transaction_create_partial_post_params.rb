@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerTransactions#create_partial_post
     class LedgerTransactionCreatePartialPostParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -109,6 +110,8 @@ module ModernTreasury
         #   transaction. A `credit` moves money from your account to someone else's. A
         #   `debit` pulls money from someone else's account to your own. Note that wire,
         #   rtp, and check payments will always be `credit`.
+        #
+        # @see ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry#direction
         module Direction
           extend ModernTreasury::Enum
 

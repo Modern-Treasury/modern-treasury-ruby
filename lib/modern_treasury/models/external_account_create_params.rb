@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::ExternalAccounts#create
     class ExternalAccountCreateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -194,6 +195,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail#account_number_type
         module AccountNumberType
           extend ModernTreasury::Enum
 
@@ -244,6 +246,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail#contact_identifier_type
         module ContactIdentifierType
           extend ModernTreasury::Enum
 
@@ -381,6 +384,8 @@ module ModernTreasury
         # If the ledger account links to another object in Modern Treasury, the type will
         #   be populated here, otherwise null. The value is one of internal_account or
         #   external_account.
+        #
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount#ledgerable_type
         module LedgerableType
           extend ModernTreasury::Enum
 
@@ -492,6 +497,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail#routing_number_type
         module RoutingNumberType
           extend ModernTreasury::Enum
 
@@ -524,6 +530,7 @@ module ModernTreasury
           #   def self.values; end
         end
 
+        # @see ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail#payment_type
         module PaymentType
           extend ModernTreasury::Enum
 

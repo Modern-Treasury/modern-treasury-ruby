@@ -86,6 +86,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The type of reference number.
+      #
+      # @see ModernTreasury::Models::PaymentReference#reference_number_type
       module ReferenceNumberType
         extend ModernTreasury::Enum
 
@@ -174,6 +176,8 @@ module ModernTreasury
 
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
+      #
+      # @see ModernTreasury::Models::PaymentReference#referenceable_type
       module ReferenceableType
         extend ModernTreasury::Enum
 

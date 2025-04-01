@@ -110,6 +110,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # One of create, or update.
+      #
+      # @see ModernTreasury::Models::BulkRequest#action_type
       module ActionType
         extend ModernTreasury::Enum
 
@@ -125,6 +127,8 @@ module ModernTreasury
       end
 
       # One of payment_order, expected_payment, or ledger_transaction.
+      #
+      # @see ModernTreasury::Models::BulkRequest#resource_type
       module ResourceType
         extend ModernTreasury::Enum
 
@@ -143,6 +147,8 @@ module ModernTreasury
       end
 
       # One of pending, processing, or completed.
+      #
+      # @see ModernTreasury::Models::BulkRequest#status
       module Status
         extend ModernTreasury::Enum
 

@@ -113,6 +113,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::ForeignExchangeQuote#foreign_exchange_rate
       class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often

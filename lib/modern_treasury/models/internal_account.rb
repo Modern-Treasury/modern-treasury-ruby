@@ -165,6 +165,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # Can be checking, savings or other.
+      #
+      # @see ModernTreasury::Models::InternalAccount#account_type
       module AccountType
         extend ModernTreasury::Enum
 
@@ -184,6 +186,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
+      # @see ModernTreasury::Models::InternalAccount#party_address
       class PartyAddress < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -282,6 +285,8 @@ module ModernTreasury
       end
 
       # Either individual or business.
+      #
+      # @see ModernTreasury::Models::InternalAccount#party_type
       module PartyType
         extend ModernTreasury::Enum
 

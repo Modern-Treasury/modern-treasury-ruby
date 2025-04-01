@@ -99,6 +99,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::RoutingDetail#bank_address
       class BankAddress < ModernTreasury::BaseModel
         # @!attribute id
         #
@@ -196,6 +197,8 @@ module ModernTreasury
 
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
+      #
+      # @see ModernTreasury::Models::RoutingDetail#payment_type
       module PaymentType
         extend ModernTreasury::Enum
 
@@ -240,6 +243,8 @@ module ModernTreasury
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
+      #
+      # @see ModernTreasury::Models::RoutingDetail#routing_number_type
       module RoutingNumberType
         extend ModernTreasury::Enum
 

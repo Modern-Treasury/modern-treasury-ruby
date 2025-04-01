@@ -100,6 +100,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The reason for the reversal.
+        #
+        # @see ModernTreasury::Models::PaymentOrders::Reversal#reason
         module Reason
           extend ModernTreasury::Enum
 
@@ -117,6 +119,8 @@ module ModernTreasury
         end
 
         # The current status of the reversal.
+        #
+        # @see ModernTreasury::Models::PaymentOrders::Reversal#status
         module Status
           extend ModernTreasury::Enum
 

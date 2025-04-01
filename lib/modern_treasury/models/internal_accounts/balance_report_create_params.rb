@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module InternalAccounts
+      # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#create
       class BalanceReportCreateParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -109,6 +110,8 @@ module ModernTreasury
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
+          #
+          # @see ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance#balance_type
           module BalanceType
             extend ModernTreasury::Enum
 
