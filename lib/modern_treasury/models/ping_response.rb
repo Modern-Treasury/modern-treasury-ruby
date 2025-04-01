@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Client#ping
     class PingResponse < ModernTreasury::BaseModel
       # @!attribute ping
       #

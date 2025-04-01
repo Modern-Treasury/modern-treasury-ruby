@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::ConnectionLegalEntities#create
     class ConnectionLegalEntity < ModernTreasury::BaseModel
       # @!attribute id
       #

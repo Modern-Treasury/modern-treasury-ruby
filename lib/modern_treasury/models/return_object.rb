@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Returns#create
     class ReturnObject < ModernTreasury::BaseModel
       # @!attribute id
       #

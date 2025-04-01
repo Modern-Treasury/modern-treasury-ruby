@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::BulkRequests#create
     class BulkRequest < ModernTreasury::BaseModel
       # @!attribute id
       #

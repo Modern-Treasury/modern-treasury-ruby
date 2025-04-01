@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::PaymentReferences#retrieve
     class PaymentReference < ModernTreasury::BaseModel
       # @!attribute id
       #

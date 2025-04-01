@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Connections#list
     class Connection < ModernTreasury::BaseModel
       # @!attribute id
       #

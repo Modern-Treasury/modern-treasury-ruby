@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerTransactions#create
     class LedgerTransaction < ModernTreasury::BaseModel
       # @!attribute id
       #
