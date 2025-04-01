@@ -136,7 +136,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
         WIRE = T.let(:wire, ModernTreasury::Models::AccountCollectionFlow::PaymentType::TaggedSymbol)
@@ -154,7 +154,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol) }
 
         USA = T.let(:USA, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
         AUS = T.let(:AUS, ModernTreasury::Models::AccountCollectionFlow::ReceivingCountry::TaggedSymbol)
@@ -187,7 +187,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlow::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol) }
 
         CANCELLED = T.let(:cancelled, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)
         COMPLETED = T.let(:completed, ModernTreasury::Models::AccountCollectionFlow::Status::TaggedSymbol)

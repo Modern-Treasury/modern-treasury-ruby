@@ -212,7 +212,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::Direction) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentFlow::Direction::TaggedSymbol)
@@ -231,7 +232,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol) }
 
         VERIFIED =
           T.let(:verified, ModernTreasury::Models::PaymentFlow::ExistingExternalAccountsFilter::TaggedSymbol)
@@ -253,7 +254,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol) }
 
         DISABLED = T.let(:disabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
         ENABLED = T.let(:enabled, ModernTreasury::Models::PaymentFlow::ExternalAccountCollection::TaggedSymbol)
@@ -269,7 +270,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentFlow::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol) }
 
         CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)
         COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentFlow::Status::TaggedSymbol)

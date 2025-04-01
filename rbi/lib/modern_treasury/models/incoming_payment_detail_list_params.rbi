@@ -128,7 +128,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol) }
 
         COMPLETED =
           T.let(:completed, ModernTreasury::Models::IncomingPaymentDetailListParams::Status::TaggedSymbol)
@@ -149,7 +149,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::IncomingPaymentDetailListParams::Type::TaggedSymbol)

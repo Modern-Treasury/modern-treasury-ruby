@@ -93,7 +93,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol) }
 
         INCOMING_PAYMENT_DETAIL =
           T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnListParams::ReturnableType::TaggedSymbol)

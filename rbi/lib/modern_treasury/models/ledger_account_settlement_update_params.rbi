@@ -60,7 +60,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol) }
 
         POSTED =
           T.let(:posted, ModernTreasury::Models::LedgerAccountSettlementUpdateParams::Status::TaggedSymbol)

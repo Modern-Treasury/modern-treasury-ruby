@@ -135,7 +135,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol) }
 
         DRAFT = T.let(:draft, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)
         PAID = T.let(:paid, ModernTreasury::Models::InvoiceListParams::Status::TaggedSymbol)

@@ -493,6 +493,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType::TaggedSymbol
                 )
               end
@@ -588,6 +589,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
                 )
               end
@@ -810,6 +812,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
                 )
               end
@@ -1277,6 +1280,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                     )
                   end
@@ -1374,6 +1378,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                     )
                   end
@@ -1509,6 +1514,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
                   )
                 end
@@ -1548,6 +1554,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
                   )
                 end
@@ -1624,6 +1631,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
                   )
                 end
@@ -1668,6 +1676,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityType::TaggedSymbol
               )
             end
@@ -1703,6 +1712,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalStructure::TaggedSymbol
               )
             end
@@ -1775,6 +1785,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::RiskRating::TaggedSymbol
               )
             end

@@ -143,7 +143,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LineItem::ItemizableType) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol) }
 
         EXPECTED_PAYMENT =
           T.let(:ExpectedPayment, ModernTreasury::Models::LineItem::ItemizableType::TaggedSymbol)

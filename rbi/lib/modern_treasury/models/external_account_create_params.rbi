@@ -226,6 +226,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
               )
             end
@@ -347,6 +348,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
             end
@@ -511,6 +513,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
               )
             end
@@ -609,7 +612,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountCreateParams::PartyType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountCreateParams::PartyType::TaggedSymbol) }
 
         BUSINESS = T.let(:business, ModernTreasury::Models::ExternalAccountCreateParams::PartyType::TaggedSymbol)
         INDIVIDUAL =
@@ -675,6 +678,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             end
@@ -804,6 +808,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExternalAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
               )
             end

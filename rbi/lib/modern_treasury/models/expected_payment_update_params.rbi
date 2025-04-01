@@ -169,7 +169,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction::TaggedSymbol)
@@ -187,7 +187,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol) }
 
         RECONCILED =
           T.let(:reconciled, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::TaggedSymbol)

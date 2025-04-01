@@ -8,7 +8,8 @@ module ModernTreasury
       extend ModernTreasury::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentType) }
-      OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol) }
+      OrSymbol =
+        T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol) }
 
       ACH = T.let(:ach, ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol)
       AU_BECS = T.let(:au_becs, ModernTreasury::Models::ExpectedPaymentType::TaggedSymbol)

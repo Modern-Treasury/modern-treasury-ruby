@@ -396,6 +396,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::InvoiceUpdateParams::ContactDetail::ContactIdentifierType::TaggedSymbol
               )
             end
@@ -704,7 +705,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::TaggedSymbol) }
 
         UI = T.let(:ui, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::TaggedSymbol)
         MANUAL = T.let(:manual, ModernTreasury::Models::InvoiceUpdateParams::PaymentMethod::TaggedSymbol)

@@ -103,7 +103,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::EntityType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol) }
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::BulkResultListParams::EntityType::TaggedSymbol)
@@ -129,7 +129,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::RequestType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol) }
 
         BULK_REQUEST =
           T.let(:bulk_request, ModernTreasury::Models::BulkResultListParams::RequestType::TaggedSymbol)
@@ -145,7 +145,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol) }
 
         PENDING = T.let(:pending, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol)
         SUCCESSFUL = T.let(:successful, ModernTreasury::Models::BulkResultListParams::Status::TaggedSymbol)

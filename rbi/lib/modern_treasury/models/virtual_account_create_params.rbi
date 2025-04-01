@@ -199,6 +199,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail::AccountNumberType::TaggedSymbol
               )
             end
@@ -396,6 +397,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount::LedgerableType::TaggedSymbol
               )
             end
@@ -488,6 +490,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::RoutingNumberType::TaggedSymbol
               )
             end
@@ -619,6 +622,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail::PaymentType::TaggedSymbol
               )
             end

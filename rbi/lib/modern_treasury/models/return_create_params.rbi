@@ -88,7 +88,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol) }
 
         INCOMING_PAYMENT_DETAIL =
           T.let(:incoming_payment_detail, ModernTreasury::Models::ReturnCreateParams::ReturnableType::TaggedSymbol)
@@ -103,7 +103,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnCreateParams::Code) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol) }
 
         NUMBER_901 = T.let(:"901", ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol)
         NUMBER_902 = T.let(:"902", ModernTreasury::Models::ReturnCreateParams::Code::TaggedSymbol)

@@ -145,6 +145,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry::Direction::TaggedSymbol
               )
             end
