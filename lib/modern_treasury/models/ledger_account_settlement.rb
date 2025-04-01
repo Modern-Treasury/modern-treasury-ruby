@@ -154,6 +154,8 @@ module ModernTreasury
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       #   `posted`, `archiving` or `archived`.
+      #
+      # @see ModernTreasury::Models::LedgerAccountSettlement#status
       module Status
         extend ModernTreasury::Enum
 

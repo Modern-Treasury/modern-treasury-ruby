@@ -24,6 +24,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementCreateResponse]
+      #
+      # @see ModernTreasury::Models::LedgerAccountStatementCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerAccountStatementCreateParams.dump_request(params)
         @client.request(
@@ -44,6 +46,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountStatementRetrieveResponse]
+      #
+      # @see ModernTreasury::Models::LedgerAccountStatementRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -53,6 +57,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

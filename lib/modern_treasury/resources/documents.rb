@@ -18,6 +18,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Document]
+      #
+      # @see ModernTreasury::Models::DocumentCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::DocumentCreateParams.dump_request(params)
         @client.request(
@@ -39,6 +41,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Document]
+      #
+      # @see ModernTreasury::Models::DocumentRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -65,6 +69,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Document>]
+      #
+      # @see ModernTreasury::Models::DocumentListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::DocumentListParams.dump_request(params)
         @client.request(
@@ -77,6 +83,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

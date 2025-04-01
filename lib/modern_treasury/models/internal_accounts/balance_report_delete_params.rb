@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module InternalAccounts
+      # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#delete
       class BalanceReportDeleteParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter

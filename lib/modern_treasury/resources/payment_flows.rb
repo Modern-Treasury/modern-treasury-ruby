@@ -27,6 +27,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
+      #
+      # @see ModernTreasury::Models::PaymentFlowCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::PaymentFlowCreateParams.dump_request(params)
         @client.request(
@@ -47,6 +49,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
+      #
+      # @see ModernTreasury::Models::PaymentFlowRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -68,6 +72,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentFlow]
+      #
+      # @see ModernTreasury::Models::PaymentFlowUpdateParams
       def update(id, params)
         parsed, options = ModernTreasury::Models::PaymentFlowUpdateParams.dump_request(params)
         @client.request(
@@ -102,6 +108,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentFlow>]
+      #
+      # @see ModernTreasury::Models::PaymentFlowListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::PaymentFlowListParams.dump_request(params)
         @client.request(
@@ -114,6 +122,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

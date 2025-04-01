@@ -100,6 +100,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitor#alert_condition
       class AlertCondition < ModernTreasury::BaseModel
         # @!attribute field
         #   One of `available_balance_amount`, `pending_balance_amount`,
@@ -136,6 +137,7 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitor#current_ledger_account_balance_state
       class CurrentLedgerAccountBalanceState < ModernTreasury::BaseModel
         # @!attribute balances
         #
@@ -168,6 +170,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState#balances
         class Balances < ModernTreasury::BaseModel
           # @!attribute available_balance
           #   The available_balance is the sum of all posted inbound entries and pending
@@ -202,6 +205,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#available_balance
           class AvailableBalance < ModernTreasury::BaseModel
             # @!attribute amount
             #
@@ -247,6 +251,7 @@ module ModernTreasury
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
           end
 
+          # @see ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#pending_balance
           class PendingBalance < ModernTreasury::BaseModel
             # @!attribute amount
             #
@@ -289,6 +294,7 @@ module ModernTreasury
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
           end
 
+          # @see ModernTreasury::Models::LedgerAccountBalanceMonitor::CurrentLedgerAccountBalanceState::Balances#posted_balance
           class PostedBalance < ModernTreasury::BaseModel
             # @!attribute amount
             #

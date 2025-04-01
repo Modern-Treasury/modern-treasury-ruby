@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerTransactions#list
     class LedgerTransactionListParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -294,6 +295,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::LedgerTransactionListParams::OrderBy#created_at
         module CreatedAt
           extend ModernTreasury::Enum
 
@@ -307,6 +309,7 @@ module ModernTreasury
           #   def self.values; end
         end
 
+        # @see ModernTreasury::Models::LedgerTransactionListParams::OrderBy#effective_at
         module EffectiveAt
           extend ModernTreasury::Enum
 

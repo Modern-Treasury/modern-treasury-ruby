@@ -234,6 +234,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::Transaction#foreign_exchange_rate
       class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
@@ -299,6 +300,8 @@ module ModernTreasury
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+      #
+      # @see ModernTreasury::Models::Transaction#type
       module Type
         extend ModernTreasury::Enum
 
@@ -345,6 +348,8 @@ module ModernTreasury
       #   `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
       #   `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
       #   `swift`, `us_bank`, or others.
+      #
+      # @see ModernTreasury::Models::Transaction#vendor_code_type
       module VendorCodeType
         extend ModernTreasury::Enum
 

@@ -96,6 +96,8 @@ module ModernTreasury
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
+        #
+        # @see ModernTreasury::Models::InternalAccounts::BalanceReport#balance_report_type
         module BalanceReportType
           extend ModernTreasury::Enum
 
@@ -234,6 +236,8 @@ module ModernTreasury
           #   `closing_ledger`, `current_ledger`, `opening_available`,
           #   `opening_available_next_business_day`, `closing_available`, `current_available`,
           #   'previously_closed_book', or `other`.
+          #
+          # @see ModernTreasury::Models::InternalAccounts::BalanceReport::Balance#balance_type
           module BalanceType
             extend ModernTreasury::Enum
 
