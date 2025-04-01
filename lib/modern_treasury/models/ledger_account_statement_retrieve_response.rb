@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerAccountStatements#retrieve
     class LedgerAccountStatementRetrieveResponse < ModernTreasury::BaseModel
       # @!attribute id
       #

@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::ExternalAccounts#verify
     module ExternalAccountVerifyResponse
       extend ModernTreasury::Union
 

@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::PaperItems#retrieve
     class PaperItem < ModernTreasury::BaseModel
       # @!attribute id
       #

@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::PaymentFlows#create
     class PaymentFlow < ModernTreasury::BaseModel
       # @!attribute [r] id
       #

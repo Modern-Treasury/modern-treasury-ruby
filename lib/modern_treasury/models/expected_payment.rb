@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::ExpectedPayments#create
     class ExpectedPayment < ModernTreasury::BaseModel
       # @!attribute id
       #

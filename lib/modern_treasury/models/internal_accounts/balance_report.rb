@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module InternalAccounts
+      # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#create
       class BalanceReport < ModernTreasury::BaseModel
         # @!attribute id
         #

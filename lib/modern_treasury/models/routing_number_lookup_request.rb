@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Validations#validate_routing_number
     class RoutingNumberLookupRequest < ModernTreasury::BaseModel
       # @!attribute [r] bank_address
       #   The address of the bank.

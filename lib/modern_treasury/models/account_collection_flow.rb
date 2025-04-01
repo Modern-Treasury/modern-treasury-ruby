@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::AccountCollectionFlows#create
     class AccountCollectionFlow < ModernTreasury::BaseModel
       # @!attribute counterparty_id
       #   The ID of a counterparty. An external account created with this flow will be

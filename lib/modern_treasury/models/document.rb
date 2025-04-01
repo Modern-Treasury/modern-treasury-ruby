@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Documents#create
     class Document < ModernTreasury::BaseModel
       # @!attribute id
       #

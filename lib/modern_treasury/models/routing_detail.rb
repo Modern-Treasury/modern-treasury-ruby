@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::RoutingDetails#create
     class RoutingDetail < ModernTreasury::BaseModel
       # @!attribute id
       #

@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::InternalAccounts#create
     class InternalAccount < ModernTreasury::BaseModel
       # @!attribute id
       #

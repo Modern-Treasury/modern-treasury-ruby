@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LegalEntities#create
     class LegalEntity < ModernTreasury::BaseModel
       # @!attribute id
       #

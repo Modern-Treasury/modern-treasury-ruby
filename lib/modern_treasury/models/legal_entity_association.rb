@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LegalEntityAssociations#create
     class LegalEntityAssociation < ModernTreasury::BaseModel
       # @!attribute id
       #

@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Events#retrieve
     class Event < ModernTreasury::BaseModel
       # @!attribute id
       #

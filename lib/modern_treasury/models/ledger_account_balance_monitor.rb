@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerAccountBalanceMonitors#create
     class LedgerAccountBalanceMonitor < ModernTreasury::BaseModel
       # @!attribute id
       #

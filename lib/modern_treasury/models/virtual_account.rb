@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::VirtualAccounts#create
     class VirtualAccount < ModernTreasury::BaseModel
       # @!attribute id
       #
