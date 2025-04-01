@@ -5,23 +5,15 @@ module ModernTreasury
     class ForeignExchangeQuotes
       # create foreign_exchange_quote
       #
-      # @param params [ModernTreasury::Models::ForeignExchangeQuoteCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(internal_account_id:, target_currency:, base_amount: nil, base_currency: nil, effective_at: nil, target_amount: nil, request_options: {})
       #
-      #   @option params [String] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::Currency] :target_currency Currency to convert the `base_currency` to, often called the "buy" currency.
-      #
-      #   @option params [Integer] :base_amount Amount in the lowest denomination of the `base_currency` to convert, often
-      #     called the "sell" amount.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::Currency] :base_currency Currency to convert, often called the "sell" currency.
-      #
-      #   @option params [Time] :effective_at The timestamp until when the quoted rate is valid.
-      #
-      #   @option params [Integer] :target_amount Amount in the lowest denomination of the `target_currency`, often called the
-      #     "buy" amount.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param internal_account_id [String]
+      # @param target_currency [Symbol, ModernTreasury::Models::Currency]
+      # @param base_amount [Integer]
+      # @param base_currency [Symbol, ModernTreasury::Models::Currency]
+      # @param effective_at [Time]
+      # @param target_amount [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
@@ -39,11 +31,10 @@ module ModernTreasury
 
       # get foreign_exchange_quote
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ForeignExchangeQuoteRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ForeignExchangeQuote]
       #
@@ -59,29 +50,18 @@ module ModernTreasury
 
       # list foreign_exchange_quotes
       #
-      # @param params [ModernTreasury::Models::ForeignExchangeQuoteListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, base_currency: nil, effective_at_end: nil, effective_at_start: nil, expires_at: nil, internal_account_id: nil, metadata: nil, per_page: nil, target_currency: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [String] :base_currency Currency to convert, often called the "sell" currency.
-      #
-      #   @option params [Date] :effective_at_end An inclusive upper bound for searching effective_at
-      #
-      #   @option params [Date] :effective_at_start An inclusive lower bound for searching effective_at
-      #
-      #   @option params [Time] :expires_at The timestamp until which the quote must be booked by.
-      #
-      #   @option params [String] :internal_account_id The ID for the `InternalAccount` this quote is associated with.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [String] :target_currency Currency to convert the `base_currency` to, often called the "buy" currency.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param base_currency [String]
+      # @param effective_at_end [Date]
+      # @param effective_at_start [Date]
+      # @param expires_at [Time]
+      # @param internal_account_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param per_page [Integer]
+      # @param target_currency [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       #

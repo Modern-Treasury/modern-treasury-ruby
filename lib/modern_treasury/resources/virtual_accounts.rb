@@ -5,36 +5,19 @@ module ModernTreasury
     class VirtualAccounts
       # create virtual_account
       #
-      # @param params [ModernTreasury::Models::VirtualAccountCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(internal_account_id:, name:, account_details: nil, counterparty_id: nil, credit_ledger_account_id: nil, debit_ledger_account_id: nil, description: nil, ledger_account: nil, metadata: nil, routing_details: nil, request_options: {})
       #
-      #   @option params [String] :internal_account_id The ID of the internal account that this virtual account is associated with.
-      #
-      #   @option params [String] :name The name of the virtual account.
-      #
-      #   @option params [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>] :account_details An array of account detail objects.
-      #
-      #   @option params [String] :counterparty_id The ID of the counterparty that the virtual account belongs to.
-      #
-      #   @option params [String] :credit_ledger_account_id The ID of a credit normal ledger account. When money leaves the virtual account,
-      #     this ledger account will be credited. Must be accompanied by a
-      #     debit_ledger_account_id if present.
-      #
-      #   @option params [String] :debit_ledger_account_id The ID of a debit normal ledger account. When money enters the virtual account,
-      #     this ledger account will be debited. Must be accompanied by a
-      #     credit_ledger_account_id if present.
-      #
-      #   @option params [String] :description An optional description for internal use.
-      #
-      #   @option params [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount] :ledger_account Specifies a ledger account object that will be created with the virtual account.
-      #     The resulting ledger account is linked to the virtual account for auto-ledgering
-      #     IPDs.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>] :routing_details An array of routing detail objects.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param internal_account_id [String]
+      # @param name [String]
+      # @param account_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::AccountDetail>]
+      # @param counterparty_id [String]
+      # @param credit_ledger_account_id [String]
+      # @param debit_ledger_account_id [String]
+      # @param description [String]
+      # @param ledger_account [ModernTreasury::Models::VirtualAccountCreateParams::LedgerAccount]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param routing_details [Array<ModernTreasury::Models::VirtualAccountCreateParams::RoutingDetail>]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       #
@@ -52,11 +35,10 @@ module ModernTreasury
 
       # get virtual_account
       #
-      # @param id [String] Virtual Acccount ID
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::VirtualAccountRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       #
@@ -72,19 +54,14 @@ module ModernTreasury
 
       # update virtual_account
       #
-      # @param id [String] Virtual Acccount ID
+      # @overload update(id, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::VirtualAccountUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :counterparty_id
-      #
-      #   @option params [String] :ledger_account_id The ledger account that you'd like to link to the virtual account.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata
-      #
-      #   @option params [String, nil] :name
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param counterparty_id [String]
+      # @param ledger_account_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param name [String, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       #
@@ -102,21 +79,14 @@ module ModernTreasury
 
       # Get a list of virtual accounts.
       #
-      # @param params [ModernTreasury::Models::VirtualAccountListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, counterparty_id: nil, internal_account_id: nil, metadata: nil, per_page: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [String] :counterparty_id
-      #
-      #   @option params [String] :internal_account_id
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param counterparty_id [String]
+      # @param internal_account_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param per_page [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::VirtualAccount>]
       #
@@ -135,11 +105,10 @@ module ModernTreasury
 
       # delete virtual_account
       #
-      # @param id [String] Virtual Acccount ID
+      # @overload delete(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::VirtualAccountDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::VirtualAccount]
       #
