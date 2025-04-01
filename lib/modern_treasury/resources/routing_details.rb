@@ -23,6 +23,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::RoutingDetail]
+      #
+      # @see ModernTreasury::Models::RoutingDetailCreateParams
       def create(account_id, params)
         parsed, options = ModernTreasury::Models::RoutingDetailCreateParams.dump_request(params)
         accounts_type =
@@ -51,6 +53,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::RoutingDetail]
+      #
+      # @see ModernTreasury::Models::RoutingDetailRetrieveParams
       def retrieve(id, params)
         parsed, options = ModernTreasury::Models::RoutingDetailRetrieveParams.dump_request(params)
         accounts_type =
@@ -84,6 +88,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::RoutingDetail>]
+      #
+      # @see ModernTreasury::Models::RoutingDetailListParams
       def list(account_id, params)
         parsed, options = ModernTreasury::Models::RoutingDetailListParams.dump_request(params)
         accounts_type =
@@ -113,6 +119,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
+      #
+      # @see ModernTreasury::Models::RoutingDetailDeleteParams
       def delete(id, params)
         parsed, options = ModernTreasury::Models::RoutingDetailDeleteParams.dump_request(params)
         accounts_type =
@@ -131,6 +139,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

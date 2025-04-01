@@ -154,6 +154,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::LedgerEntry#resulting_ledger_account_balances
       class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
@@ -196,6 +197,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#available_balance
         class AvailableBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -241,6 +243,7 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#pending_balance
         class PendingBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -283,6 +286,7 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @see ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances#posted_balance
         class PostedBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -328,6 +332,8 @@ module ModernTreasury
 
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
+      #
+      # @see ModernTreasury::Models::LedgerEntry#status
       module Status
         extend ModernTreasury::Enum
 

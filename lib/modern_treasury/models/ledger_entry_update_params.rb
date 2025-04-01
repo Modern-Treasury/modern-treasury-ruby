@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerEntries#update
     class LedgerEntryUpdateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter

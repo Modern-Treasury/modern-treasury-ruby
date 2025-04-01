@@ -35,6 +35,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
+      #
+      # @see ModernTreasury::Models::CounterpartyCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::CounterpartyCreateParams.dump_request(params)
         @client.request(
@@ -55,6 +57,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
+      #
+      # @see ModernTreasury::Models::CounterpartyRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -87,6 +91,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Counterparty]
+      #
+      # @see ModernTreasury::Models::CounterpartyUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::CounterpartyUpdateParams.dump_request(params)
         @client.request(
@@ -125,6 +131,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
+      #
+      # @see ModernTreasury::Models::CounterpartyListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::CounterpartyListParams.dump_request(params)
         @client.request(
@@ -146,6 +154,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
+      #
+      # @see ModernTreasury::Models::CounterpartyDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -183,6 +193,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::CounterpartyCollectAccountResponse]
+      #
+      # @see ModernTreasury::Models::CounterpartyCollectAccountParams
       def collect_account(id, params)
         parsed, options = ModernTreasury::Models::CounterpartyCollectAccountParams.dump_request(params)
         @client.request(
@@ -194,6 +206,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

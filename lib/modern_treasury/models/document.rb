@@ -179,6 +179,8 @@ module ModernTreasury
       # The type of the associated object. Currently can be one of `payment_order`,
       #   `transaction`, `paper_item`, `expected_payment`, `counterparty`, `organization`,
       #   `case`, `internal_account`, `decision`, or `external_account`.
+      #
+      # @see ModernTreasury::Models::Document#documentable_type
       module DocumentableType
         extend ModernTreasury::Enum
 
@@ -202,6 +204,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
+      # @see ModernTreasury::Models::Document#file
       class File < ModernTreasury::BaseModel
         # @!attribute [r] content_type
         #   The MIME content type of the document.

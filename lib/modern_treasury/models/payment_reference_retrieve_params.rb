@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::PaymentReferences#retrieve
     class PaymentReferenceRetrieveParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter

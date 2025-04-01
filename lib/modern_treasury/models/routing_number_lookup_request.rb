@@ -93,6 +93,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::RoutingNumberLookupRequest#bank_address
       class BankAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -147,6 +148,8 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
+      #
+      # @see ModernTreasury::Models::RoutingNumberLookupRequest#routing_number_type
       module RoutingNumberType
         extend ModernTreasury::Enum
 

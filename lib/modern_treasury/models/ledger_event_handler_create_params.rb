@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerEventHandlers#create
     class LedgerEventHandlerCreateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter

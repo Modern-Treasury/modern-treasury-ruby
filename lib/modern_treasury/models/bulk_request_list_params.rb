@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::BulkRequests#list
     class BulkRequestListParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter

@@ -118,6 +118,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::LineItem#accounting
       class Accounting < ModernTreasury::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
@@ -144,6 +145,8 @@ module ModernTreasury
       end
 
       # One of `payment_orders` or `expected_payments`.
+      #
+      # @see ModernTreasury::Models::LineItem#itemizable_type
       module ItemizableType
         extend ModernTreasury::Enum
 

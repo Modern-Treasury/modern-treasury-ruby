@@ -75,6 +75,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The classification system of the classification codes.
+      #
+      # @see ModernTreasury::Models::LegalEntityIndustryClassification#classification_type
       module ClassificationType
         extend ModernTreasury::Enum
 

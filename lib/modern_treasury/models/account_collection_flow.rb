@@ -180,6 +180,8 @@ module ModernTreasury
 
       # The current status of the account collection flow. One of `pending`,
       #   `completed`, `expired`, or `cancelled`.
+      #
+      # @see ModernTreasury::Models::AccountCollectionFlow#status
       module Status
         extend ModernTreasury::Enum
 

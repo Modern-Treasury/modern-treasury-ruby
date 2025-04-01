@@ -23,6 +23,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntityAssociation]
+      #
+      # @see ModernTreasury::Models::LegalEntityAssociationCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LegalEntityAssociationCreateParams.dump_request(params)
         @client.request(
@@ -34,6 +36,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

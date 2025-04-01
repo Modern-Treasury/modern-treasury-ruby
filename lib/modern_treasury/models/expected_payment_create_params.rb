@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::ExpectedPayments#create
     class ExpectedPaymentCreateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -457,6 +458,8 @@ module ModernTreasury
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   reversal.
+        #
+        # @see ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction#ledgerable_type
         module LedgerableType
           extend ModernTreasury::Enum
 
@@ -475,6 +478,8 @@ module ModernTreasury
         end
 
         # To post a ledger transaction at creation, use `posted`.
+        #
+        # @see ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction#status
         module Status
           extend ModernTreasury::Enum
 

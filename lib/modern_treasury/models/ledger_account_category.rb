@@ -110,6 +110,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::LedgerAccountCategory#balances
       class Balances < ModernTreasury::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
@@ -148,6 +149,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::LedgerAccountCategory::Balances#available_balance
         class AvailableBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -193,6 +195,7 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @see ModernTreasury::Models::LedgerAccountCategory::Balances#pending_balance
         class PendingBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #
@@ -235,6 +238,7 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
         end
 
+        # @see ModernTreasury::Models::LedgerAccountCategory::Balances#posted_balance
         class PostedBalance < ModernTreasury::BaseModel
           # @!attribute amount
           #

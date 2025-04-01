@@ -86,6 +86,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
+      #
+      # @see ModernTreasury::Models::InvoiceCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::InvoiceCreateParams.dump_request(params)
         @client.request(
@@ -106,6 +108,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
+      #
+      # @see ModernTreasury::Models::InvoiceRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -197,6 +201,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::Invoice]
+      #
+      # @see ModernTreasury::Models::InvoiceUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::InvoiceUpdateParams.dump_request(params)
         @client.request(
@@ -239,6 +245,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Invoice>]
+      #
+      # @see ModernTreasury::Models::InvoiceListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::InvoiceListParams.dump_request(params)
         @client.request(
@@ -262,6 +270,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [nil]
+      #
+      # @see ModernTreasury::Models::InvoiceAddPaymentOrderParams
       def add_payment_order(payment_order_id, params)
         parsed, options = ModernTreasury::Models::InvoiceAddPaymentOrderParams.dump_request(params)
         id =
@@ -276,6 +286,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

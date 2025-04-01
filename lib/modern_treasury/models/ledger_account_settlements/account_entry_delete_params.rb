@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module LedgerAccountSettlements
+      # @see ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries#delete
       class AccountEntryDeleteParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter

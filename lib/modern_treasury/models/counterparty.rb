@@ -386,6 +386,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::Counterparty::Account::ContactDetail#contact_identifier_type
           module ContactIdentifierType
             extend ModernTreasury::Enum
 
@@ -401,6 +402,7 @@ module ModernTreasury
           end
         end
 
+        # @see ModernTreasury::Models::Counterparty::Account#party_address
         class PartyAddress < ModernTreasury::BaseModel
           # @!attribute id
           #
@@ -499,6 +501,8 @@ module ModernTreasury
         end
 
         # Either `individual` or `business`.
+        #
+        # @see ModernTreasury::Models::Counterparty::Account#party_type
         module PartyType
           extend ModernTreasury::Enum
 
@@ -512,6 +516,7 @@ module ModernTreasury
           #   def self.values; end
         end
 
+        # @see ModernTreasury::Models::Counterparty::Account#verification_source
         module VerificationSource
           extend ModernTreasury::Enum
 
@@ -526,6 +531,7 @@ module ModernTreasury
           #   def self.values; end
         end
 
+        # @see ModernTreasury::Models::Counterparty::Account#verification_status
         module VerificationStatus
           extend ModernTreasury::Enum
 
@@ -542,6 +548,8 @@ module ModernTreasury
       end
 
       # The verification status of the counterparty.
+      #
+      # @see ModernTreasury::Models::Counterparty#verification_status
       module VerificationStatus
         extend ModernTreasury::Enum
 

@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module PaymentOrders
+      # @see ModernTreasury::Resources::PaymentOrders::Reversals#create
       class ReversalCreateParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -302,6 +303,8 @@ module ModernTreasury
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
+          #
+          # @see ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Enum
 
@@ -320,6 +323,8 @@ module ModernTreasury
           end
 
           # To post a ledger transaction at creation, use `posted`.
+          #
+          # @see ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction#status
           module Status
             extend ModernTreasury::Enum
 

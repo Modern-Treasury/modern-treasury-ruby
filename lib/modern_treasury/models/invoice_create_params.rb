@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Invoices#create
     class InvoiceCreateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -353,6 +354,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::InvoiceCreateParams::ContactDetail#contact_identifier_type
         module ContactIdentifierType
           extend ModernTreasury::Enum
 

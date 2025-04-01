@@ -224,6 +224,8 @@ module ModernTreasury
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
       # The type of the originating account number for the incoming payment detail.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#originating_account_number_type
       module OriginatingAccountNumberType
         extend ModernTreasury::Enum
 
@@ -246,6 +248,8 @@ module ModernTreasury
       end
 
       # The type of the originating routing number for the incoming payment detail.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#originating_routing_number_type
       module OriginatingRoutingNumberType
         extend ModernTreasury::Enum
 
@@ -280,6 +284,8 @@ module ModernTreasury
 
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#status
       module Status
         extend ModernTreasury::Enum
 
@@ -296,6 +302,8 @@ module ModernTreasury
 
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
+      #
+      # @see ModernTreasury::Models::IncomingPaymentDetail#type
       module Type
         extend ModernTreasury::Enum
 

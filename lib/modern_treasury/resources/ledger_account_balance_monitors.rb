@@ -19,6 +19,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerAccountBalanceMonitorCreateParams.dump_request(params)
         @client.request(
@@ -39,6 +41,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -62,6 +66,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountBalanceMonitorUpdateParams.dump_request(params)
         @client.request(
@@ -93,6 +99,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccountBalanceMonitor>]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountBalanceMonitorListParams.dump_request(params)
         @client.request(
@@ -114,6 +122,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccountBalanceMonitor]
+      #
+      # @see ModernTreasury::Models::LedgerAccountBalanceMonitorDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -123,6 +133,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

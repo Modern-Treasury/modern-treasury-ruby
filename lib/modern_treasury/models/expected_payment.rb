@@ -236,6 +236,8 @@ module ModernTreasury
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
+      #
+      # @see ModernTreasury::Models::ExpectedPayment#direction
       module Direction
         extend ModernTreasury::Enum
 
@@ -252,6 +254,8 @@ module ModernTreasury
       # One of manual if this expected payment was manually reconciled in the dashboard,
       #   automatic if it was automatically reconciled by Modern Treasury, or null if it
       #   is unreconciled.
+      #
+      # @see ModernTreasury::Models::ExpectedPayment#reconciliation_method
       module ReconciliationMethod
         extend ModernTreasury::Enum
 
@@ -266,6 +270,8 @@ module ModernTreasury
       end
 
       # One of unreconciled, partially_reconciled, reconciled, or archived.
+      #
+      # @see ModernTreasury::Models::ExpectedPayment#status
       module Status
         extend ModernTreasury::Enum
 

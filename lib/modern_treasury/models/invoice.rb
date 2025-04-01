@@ -395,6 +395,7 @@ module ModernTreasury
 
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+        # @see ModernTreasury::Models::Invoice::ContactDetail#contact_identifier_type
         module ContactIdentifierType
           extend ModernTreasury::Enum
 
@@ -410,6 +411,7 @@ module ModernTreasury
         end
       end
 
+      # @see ModernTreasury::Models::Invoice#counterparty_billing_address
       class CounterpartyBillingAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -464,6 +466,7 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @see ModernTreasury::Models::Invoice#counterparty_shipping_address
       class CounterpartyShippingAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -518,6 +521,7 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
       end
 
+      # @see ModernTreasury::Models::Invoice#invoicer_address
       class InvoicerAddress < ModernTreasury::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -574,6 +578,8 @@ module ModernTreasury
 
       # When opening an invoice, whether to show the embedded payment UI , automatically
       #   debit the recipient, or rely on manual payment from the recipient.
+      #
+      # @see ModernTreasury::Models::Invoice#payment_method
       module PaymentMethod
         extend ModernTreasury::Enum
 
@@ -589,6 +595,8 @@ module ModernTreasury
       end
 
       # One of `ach` or `eft`.
+      #
+      # @see ModernTreasury::Models::Invoice#payment_type
       module PaymentType
         extend ModernTreasury::Enum
 
@@ -603,6 +611,8 @@ module ModernTreasury
       end
 
       # The status of the invoice.
+      #
+      # @see ModernTreasury::Models::Invoice#status
       module Status
         extend ModernTreasury::Enum
 
