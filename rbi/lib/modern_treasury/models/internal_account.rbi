@@ -171,7 +171,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccount::AccountType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol) }
 
         CASH = T.let(:cash, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol)
         CHECKING = T.let(:checking, ModernTreasury::Models::InternalAccount::AccountType::TaggedSymbol)
@@ -288,7 +288,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccount::PartyType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol) }
 
         BUSINESS = T.let(:business, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol)
         INDIVIDUAL = T.let(:individual, ModernTreasury::Models::InternalAccount::PartyType::TaggedSymbol)

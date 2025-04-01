@@ -42,7 +42,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol) }
 
         EXTERNAL_ACCOUNTS =
           T.let(:external_accounts, ModernTreasury::Models::RoutingDetailDeleteParams::AccountsType::TaggedSymbol)

@@ -121,7 +121,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol) }
 
         USD = T.let(:USD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)
         CAD = T.let(:CAD, ModernTreasury::Models::InternalAccountCreateParams::Currency::TaggedSymbol)

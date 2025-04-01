@@ -170,7 +170,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol) }
 
         EXPECTED_PAYMENT =
           T.let(:expected_payment, ModernTreasury::Models::LedgerTransaction::LedgerableType::TaggedSymbol)
@@ -193,7 +193,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransaction::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol) }
 
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerTransaction::Status::TaggedSymbol)

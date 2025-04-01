@@ -85,6 +85,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::TaggedSymbol
               )
             end

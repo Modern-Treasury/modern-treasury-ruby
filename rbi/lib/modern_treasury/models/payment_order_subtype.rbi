@@ -10,7 +10,8 @@ module ModernTreasury
       extend ModernTreasury::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderSubtype) }
-      OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol) }
+      OrSymbol =
+        T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol) }
 
       BACS_NEW_INSTRUCTION = T.let(:"0C", ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol)
       BACS_CANCELLATION_INSTRUCTION = T.let(:"0N", ModernTreasury::Models::PaymentOrderSubtype::TaggedSymbol)

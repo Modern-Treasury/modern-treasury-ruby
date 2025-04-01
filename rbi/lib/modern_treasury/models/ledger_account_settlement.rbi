@@ -151,7 +151,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol) }
 
         ARCHIVED = T.let(:archived, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)
         ARCHIVING = T.let(:archiving, ModernTreasury::Models::LedgerAccountSettlement::Status::TaggedSymbol)

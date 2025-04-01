@@ -604,6 +604,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::Status::TaggedSymbol
                 )
               end
@@ -647,6 +648,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerableType::TaggedSymbol
               )
             end
@@ -699,7 +701,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::Status::TaggedSymbol
+              )
+            end
 
           ARCHIVED =
             T.let(

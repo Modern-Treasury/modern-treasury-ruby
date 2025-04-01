@@ -471,7 +471,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol) }
 
         SHARED = T.let(:shared, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)
         SENDER = T.let(:sender, ModernTreasury::Models::PaymentOrder::ChargeBearer::TaggedSymbol)
@@ -490,7 +490,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::Direction) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::PaymentOrder::Direction::TaggedSymbol)
@@ -509,7 +510,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol) }
 
         FIXED_TO_VARIABLE =
           T.let(:fixed_to_variable, ModernTreasury::Models::PaymentOrder::ForeignExchangeIndicator::TaggedSymbol)
@@ -603,7 +604,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::Priority) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol) }
 
         HIGH = T.let(:high, ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::PaymentOrder::Priority::TaggedSymbol)
@@ -618,7 +620,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol) }
 
         INTERNAL_ACCOUNT =
           T.let(:internal_account, ModernTreasury::Models::PaymentOrder::ReceivingAccountType::TaggedSymbol)
@@ -703,7 +705,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::PaymentOrder::ReferenceNumber::ReferenceNumberType::TaggedSymbol
+              )
+            end
 
           ACH_ORIGINAL_TRACE_NUMBER =
             T.let(
@@ -1086,7 +1094,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol) }
 
         APPROVED = T.let(:approved, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
         CANCELLED = T.let(:cancelled, ModernTreasury::Models::PaymentOrder::Status::TaggedSymbol)
@@ -1121,7 +1130,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrder::UltimateOriginatingAccountType::TaggedSymbol) }
 
         INTERNAL_ACCOUNT =
           T.let(

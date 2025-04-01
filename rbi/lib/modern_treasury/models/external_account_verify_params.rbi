@@ -83,7 +83,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
         AU_BECS = T.let(:au_becs, ModernTreasury::Models::ExternalAccountVerifyParams::PaymentType::TaggedSymbol)
@@ -134,7 +134,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol) }
 
         ACH = T.let(:ach, ModernTreasury::Models::ExternalAccountVerifyParams::FallbackType::TaggedSymbol)
 
@@ -153,7 +153,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol) }
 
         HIGH = T.let(:high, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol)
         NORMAL = T.let(:normal, ModernTreasury::Models::ExternalAccountVerifyParams::Priority::TaggedSymbol)

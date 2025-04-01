@@ -498,6 +498,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                 )
               end
@@ -626,6 +627,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               end
@@ -757,6 +759,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
               )
             end
@@ -797,6 +800,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
               )
             end
@@ -866,7 +870,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
+              )
+            end
 
           LOW =
             T.let(:low, ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol)
@@ -893,7 +903,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol) }
 
         BENEFICIAL_OWNER =
           T.let(:beneficial_owner, ModernTreasury::Models::LegalEntityAssociation::RelationshipType::TaggedSymbol)

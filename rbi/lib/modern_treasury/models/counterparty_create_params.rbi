@@ -178,7 +178,7 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::TaggedSymbol) }
 
           CUSTOMER =
             T.let(:customer, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::TaggedSymbol)
@@ -449,6 +449,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType::TaggedSymbol
                 )
               end
@@ -572,6 +573,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail::ContactIdentifierType::TaggedSymbol
                 )
               end
@@ -740,6 +742,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType::TaggedSymbol
                 )
               end
@@ -838,7 +841,7 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::TaggedSymbol) }
 
           BUSINESS =
             T.let(:business, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType::TaggedSymbol)
@@ -912,6 +915,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType::TaggedSymbol
                 )
               end
@@ -1041,6 +1045,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType::TaggedSymbol
                 )
               end
@@ -1216,7 +1221,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::CounterpartyCreateParams::LedgerType::TaggedSymbol) }
 
         CUSTOMER = T.let(:customer, ModernTreasury::Models::CounterpartyCreateParams::LedgerType::TaggedSymbol)
         VENDOR = T.let(:vendor, ModernTreasury::Models::CounterpartyCreateParams::LedgerType::TaggedSymbol)
@@ -1545,6 +1550,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::TaggedSymbol
               )
             end
@@ -1652,6 +1658,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType::TaggedSymbol
                 )
               end
@@ -1741,6 +1748,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType::TaggedSymbol
                 )
               end
@@ -1961,6 +1969,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType::TaggedSymbol
                 )
               end
@@ -2428,6 +2437,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType::TaggedSymbol
                     )
                   end
@@ -2525,6 +2535,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification::IDType::TaggedSymbol
                     )
                   end
@@ -2660,6 +2671,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::TaggedSymbol
                   )
                 end
@@ -2699,6 +2711,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalStructure::TaggedSymbol
                   )
                 end
@@ -2775,6 +2788,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::TaggedSymbol
                   )
                 end
@@ -2816,7 +2830,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure::TaggedSymbol
+              )
+            end
 
           CORPORATION =
             T.let(
@@ -2877,7 +2897,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::TaggedSymbol
+              )
+            end
 
           LOW =
             T.let(:low, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::TaggedSymbol)
@@ -2902,7 +2928,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::TaggedSymbol) }
 
         DENIED =
           T.let(:denied, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::TaggedSymbol)

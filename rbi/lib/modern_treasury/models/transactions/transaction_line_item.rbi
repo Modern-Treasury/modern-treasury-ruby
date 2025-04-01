@@ -145,7 +145,13 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol) }
+            T.type_alias do
+              T.any(
+                Symbol,
+                String,
+                ModernTreasury::Models::Transactions::TransactionLineItem::TransactableType::TaggedSymbol
+              )
+            end
 
           INCOMING_PAYMENT_DETAIL =
             T.let(
@@ -193,7 +199,7 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol) }
 
           ORIGINATING =
             T.let(:originating, ModernTreasury::Models::Transactions::TransactionLineItem::Type::TaggedSymbol)

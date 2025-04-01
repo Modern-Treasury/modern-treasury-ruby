@@ -103,7 +103,7 @@ module ModernTreasury
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol) }
 
           DUPLICATE = T.let(:duplicate, ModernTreasury::Models::PaymentOrders::Reversal::Reason::TaggedSymbol)
           INCORRECT_AMOUNT =
@@ -126,7 +126,7 @@ module ModernTreasury
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol) }
 
           COMPLETED = T.let(:completed, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
           FAILED = T.let(:failed, ModernTreasury::Models::PaymentOrders::Reversal::Status::TaggedSymbol)
