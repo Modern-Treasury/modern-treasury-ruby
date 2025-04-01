@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerEntries#retrieve
     class LedgerEntry < ModernTreasury::BaseModel
       # @!attribute id
       #

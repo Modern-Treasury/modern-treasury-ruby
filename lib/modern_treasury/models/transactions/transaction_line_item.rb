@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module Transactions
+      # @see ModernTreasury::Resources::Transactions::LineItems#create
       class TransactionLineItem < ModernTreasury::BaseModel
         # @!attribute id
         #

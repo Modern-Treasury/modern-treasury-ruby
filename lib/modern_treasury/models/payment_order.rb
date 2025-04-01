@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::PaymentOrders#create
     class PaymentOrder < ModernTreasury::BaseModel
       # @!attribute id
       #

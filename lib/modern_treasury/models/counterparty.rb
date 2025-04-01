@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Counterparties#create
     class Counterparty < ModernTreasury::BaseModel
       # @!attribute id
       #

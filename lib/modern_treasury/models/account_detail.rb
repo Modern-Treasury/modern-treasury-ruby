@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::AccountDetails#create
     class AccountDetail < ModernTreasury::BaseModel
       # @!attribute id
       #

@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::IncomingPaymentDetails#retrieve
     class IncomingPaymentDetail < ModernTreasury::BaseModel
       # @!attribute id
       #

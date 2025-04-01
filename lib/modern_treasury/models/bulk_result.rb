@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::BulkResults#retrieve
     class BulkResult < ModernTreasury::BaseModel
       # @!attribute id
       #

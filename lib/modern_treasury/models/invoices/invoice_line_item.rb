@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module Invoices
+      # @see ModernTreasury::Resources::Invoices::LineItems#create
       class InvoiceLineItem < ModernTreasury::BaseModel
         # @!attribute id
         #

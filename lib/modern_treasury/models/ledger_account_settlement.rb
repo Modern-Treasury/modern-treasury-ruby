@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerAccountSettlements#create
     class LedgerAccountSettlement < ModernTreasury::BaseModel
       # @!attribute id
       #
