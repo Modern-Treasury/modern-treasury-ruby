@@ -88,6 +88,8 @@ module ModernTreasury
 
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
+      #
+      # @see ModernTreasury::Models::AccountDetail#account_number_type
       module AccountNumberType
         extend ModernTreasury::Enum
 

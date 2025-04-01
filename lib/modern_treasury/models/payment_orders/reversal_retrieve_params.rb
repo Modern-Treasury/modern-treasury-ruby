@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module PaymentOrders
+      # @see ModernTreasury::Resources::PaymentOrders::Reversals#retrieve
       class ReversalRetrieveParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter

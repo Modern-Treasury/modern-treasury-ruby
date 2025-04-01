@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::PaymentOrders#create_async
     class PaymentOrderCreateAsyncParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -733,6 +734,8 @@ module ModernTreasury
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   reversal.
+        #
+        # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction#ledgerable_type
         module LedgerableType
           extend ModernTreasury::Enum
 
@@ -751,6 +754,8 @@ module ModernTreasury
         end
 
         # To post a ledger transaction at creation, use `posted`.
+        #
+        # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::LedgerTransaction#status
         module Status
           extend ModernTreasury::Enum
 
@@ -1010,6 +1015,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::AccountDetail#account_number_type
           module AccountNumberType
             extend ModernTreasury::Enum
 
@@ -1060,6 +1066,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::ContactDetail#contact_identifier_type
           module ContactIdentifierType
             extend ModernTreasury::Enum
 
@@ -1075,6 +1082,7 @@ module ModernTreasury
           end
         end
 
+        # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount#ledger_account
         class LedgerAccount < ModernTreasury::BaseModel
           # @!attribute currency
           #   The currency of the ledger account.
@@ -1197,6 +1205,8 @@ module ModernTreasury
           # If the ledger account links to another object in Modern Treasury, the type will
           #   be populated here, otherwise null. The value is one of internal_account or
           #   external_account.
+          #
+          # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::LedgerAccount#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Enum
 
@@ -1213,6 +1223,7 @@ module ModernTreasury
           end
         end
 
+        # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount#party_address
         class PartyAddress < ModernTreasury::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -1264,6 +1275,8 @@ module ModernTreasury
         end
 
         # Either `individual` or `business`.
+        #
+        # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount#party_type
         module PartyType
           extend ModernTreasury::Enum
 
@@ -1308,6 +1321,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail#routing_number_type
           module RoutingNumberType
             extend ModernTreasury::Enum
 
@@ -1340,6 +1354,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
+          # @see ModernTreasury::Models::PaymentOrderCreateAsyncParams::ReceivingAccount::RoutingDetail#payment_type
           module PaymentType
             extend ModernTreasury::Enum
 

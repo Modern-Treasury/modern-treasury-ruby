@@ -157,6 +157,8 @@ module ModernTreasury
 
       # The current status of the paper item. One of `pending`, `completed`, or
       #   `returned`.
+      #
+      # @see ModernTreasury::Models::PaperItem#status
       module Status
         extend ModernTreasury::Enum
 

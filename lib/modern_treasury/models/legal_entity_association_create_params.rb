@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LegalEntityAssociations#create
     class LegalEntityAssociationCreateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -446,6 +447,8 @@ module ModernTreasury
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
           # The type of ID number.
+          #
+          # @see ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification#id_type
           module IDType
             extend ModernTreasury::Enum
 
@@ -480,6 +483,8 @@ module ModernTreasury
         end
 
         # The type of legal entity.
+        #
+        # @see ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity#legal_entity_type
         module LegalEntityType
           extend ModernTreasury::Enum
 
@@ -494,6 +499,8 @@ module ModernTreasury
         end
 
         # The business's legal structure.
+        #
+        # @see ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity#legal_structure
         module LegalStructure
           extend ModernTreasury::Enum
 
@@ -532,6 +539,8 @@ module ModernTreasury
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
+        #
+        # @see ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity#risk_rating
         module RiskRating
           extend ModernTreasury::Enum
 

@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module LedgerTransactions
+      # @see ModernTreasury::Resources::LedgerTransactions::Versions#list
       class VersionListParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter

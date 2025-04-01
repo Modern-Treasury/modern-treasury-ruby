@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module InternalAccounts
+      # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#retrieve
       class BalanceReportRetrieveParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter

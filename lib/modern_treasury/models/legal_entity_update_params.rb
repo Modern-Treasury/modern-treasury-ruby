@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LegalEntities#update
     class LegalEntityUpdateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -347,6 +348,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The type of ID number.
+        #
+        # @see ModernTreasury::Models::LegalEntityUpdateParams::Identification#id_type
         module IDType
           extend ModernTreasury::Enum
 

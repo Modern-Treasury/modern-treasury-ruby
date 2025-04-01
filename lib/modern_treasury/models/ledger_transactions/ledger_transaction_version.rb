@@ -324,6 +324,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry#resulting_ledger_account_balances
           class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
             # @!attribute available_balance
             #   The available_balance is the sum of all posted inbound entries and pending
@@ -366,6 +367,7 @@ module ModernTreasury
 
             # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+            # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances#available_balance
             class AvailableBalance < ModernTreasury::BaseModel
               # @!attribute amount
               #
@@ -411,6 +413,7 @@ module ModernTreasury
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
             end
 
+            # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances#pending_balance
             class PendingBalance < ModernTreasury::BaseModel
               # @!attribute amount
               #
@@ -453,6 +456,7 @@ module ModernTreasury
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
             end
 
+            # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances#posted_balance
             class PostedBalance < ModernTreasury::BaseModel
               # @!attribute amount
               #
@@ -498,6 +502,8 @@ module ModernTreasury
 
           # Equal to the state of the ledger transaction when the ledger entry was created.
           #   One of `pending`, `posted`, or `archived`.
+          #
+          # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry#status
           module Status
             extend ModernTreasury::Enum
 
@@ -516,6 +522,8 @@ module ModernTreasury
         # If the ledger transaction can be reconciled to another object in Modern
         #   Treasury, the type will be populated here, otherwise null. This can be one of
         #   payment_order, incoming_payment_detail, expected_payment, return, or reversal.
+        #
+        # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion#ledgerable_type
         module LedgerableType
           extend ModernTreasury::Enum
 
@@ -534,6 +542,8 @@ module ModernTreasury
         end
 
         # One of `pending`, `posted`, or `archived`.
+        #
+        # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion#status
         module Status
           extend ModernTreasury::Enum
 

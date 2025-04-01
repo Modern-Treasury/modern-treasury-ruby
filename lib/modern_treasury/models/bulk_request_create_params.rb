@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::BulkRequests#create
     class BulkRequestCreateParams < ModernTreasury::BaseModel
       # @!parse
       #   extend ModernTreasury::Type::RequestParameters::Converter
@@ -512,6 +513,8 @@ module ModernTreasury
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#direction
           module Direction
             extend ModernTreasury::Enum
 
@@ -525,6 +528,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#accounting
           class Accounting < ModernTreasury::BaseModel
             # @!attribute account_id
             #   The ID of one of your accounting categories. Note that these will only be
@@ -553,6 +557,8 @@ module ModernTreasury
           # The party that will pay the fees for the payment order. Only applies to wire
           #   payment orders. Can be one of shared, sender, or receiver, which correspond
           #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#charge_bearer
           module ChargeBearer
             extend ModernTreasury::Enum
 
@@ -570,6 +576,8 @@ module ModernTreasury
           # A payment type to fallback to if the original type is not valid for the
           #   receiving account. Currently, this only supports falling back from RTP to ACH
           #   (type=rtp and fallback_type=ach)
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#fallback_type
           module FallbackType
             extend ModernTreasury::Enum
 
@@ -585,6 +593,8 @@ module ModernTreasury
           # Indicates the type of FX transfer to initiate, can be either
           #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           #   currency matches the originating account currency.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#foreign_exchange_indicator
           module ForeignExchangeIndicator
             extend ModernTreasury::Enum
 
@@ -598,6 +608,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#ledger_transaction
           class LedgerTransaction < ModernTreasury::BaseModel
             # @!attribute ledger_entries
             #   An array of ledger entry objects.
@@ -836,6 +847,8 @@ module ModernTreasury
             #   Treasury, the type will be populated here, otherwise null. This can be one of
             #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             #   reversal.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction#ledgerable_type
             module LedgerableType
               extend ModernTreasury::Enum
 
@@ -854,6 +867,8 @@ module ModernTreasury
             end
 
             # To post a ledger transaction at creation, use `posted`.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction#status
             module Status
               extend ModernTreasury::Enum
 
@@ -915,6 +930,8 @@ module ModernTreasury
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
           #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           #   an overnight check rather than standard mail.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#priority
           module Priority
             extend ModernTreasury::Enum
 
@@ -928,6 +945,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest#receiving_account
           class ReceivingAccount < ModernTreasury::BaseModel
             # @!attribute [r] account_details
             #
@@ -1125,6 +1143,7 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail#account_number_type
               module AccountNumberType
                 extend ModernTreasury::Enum
 
@@ -1175,6 +1194,7 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail#contact_identifier_type
               module ContactIdentifierType
                 extend ModernTreasury::Enum
 
@@ -1190,6 +1210,7 @@ module ModernTreasury
               end
             end
 
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#ledger_account
             class LedgerAccount < ModernTreasury::BaseModel
               # @!attribute currency
               #   The currency of the ledger account.
@@ -1312,6 +1333,8 @@ module ModernTreasury
               # If the ledger account links to another object in Modern Treasury, the type will
               #   be populated here, otherwise null. The value is one of internal_account or
               #   external_account.
+              #
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount#ledgerable_type
               module LedgerableType
                 extend ModernTreasury::Enum
 
@@ -1328,6 +1351,7 @@ module ModernTreasury
               end
             end
 
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#party_address
             class PartyAddress < ModernTreasury::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -1379,6 +1403,8 @@ module ModernTreasury
             end
 
             # Either `individual` or `business`.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount#party_type
             module PartyType
               extend ModernTreasury::Enum
 
@@ -1423,6 +1449,7 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail#routing_number_type
               module RoutingNumberType
                 extend ModernTreasury::Enum
 
@@ -1455,6 +1482,7 @@ module ModernTreasury
                 #   def self.values; end
               end
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail#payment_type
               module PaymentType
                 extend ModernTreasury::Enum
 
@@ -1701,6 +1729,8 @@ module ModernTreasury
 
           # One of credit or debit. When you are receiving money, use credit. When you are
           #   being charged, use debit.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest#direction
           module Direction
             extend ModernTreasury::Enum
 
@@ -1714,6 +1744,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest#ledger_transaction
           class LedgerTransaction < ModernTreasury::BaseModel
             # @!attribute ledger_entries
             #   An array of ledger entry objects.
@@ -1952,6 +1983,8 @@ module ModernTreasury
             #   Treasury, the type will be populated here, otherwise null. This can be one of
             #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
             #   reversal.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction#ledgerable_type
             module LedgerableType
               extend ModernTreasury::Enum
 
@@ -1970,6 +2003,8 @@ module ModernTreasury
             end
 
             # To post a ledger transaction at creation, use `posted`.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction#status
             module Status
               extend ModernTreasury::Enum
 
@@ -2258,6 +2293,8 @@ module ModernTreasury
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Enum
 
@@ -2276,6 +2313,8 @@ module ModernTreasury
           end
 
           # To post a ledger transaction at creation, use `posted`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest#status
           module Status
             extend ModernTreasury::Enum
 
@@ -2402,6 +2441,8 @@ module ModernTreasury
 
           # The type of the transaction. Examples could be
           #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest#type
           module Type
             extend ModernTreasury::Enum
 
@@ -2882,6 +2923,7 @@ module ModernTreasury
 
           # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#accounting
           class Accounting < ModernTreasury::BaseModel
             # @!attribute account_id
             #   The ID of one of your accounting categories. Note that these will only be
@@ -2910,6 +2952,8 @@ module ModernTreasury
           # The party that will pay the fees for the payment order. Only applies to wire
           #   payment orders. Can be one of shared, sender, or receiver, which correspond
           #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#charge_bearer
           module ChargeBearer
             extend ModernTreasury::Enum
 
@@ -2928,6 +2972,8 @@ module ModernTreasury
           #   transaction. A `credit` moves money from your account to someone else's. A
           #   `debit` pulls money from someone else's account to your own. Note that wire,
           #   rtp, and check payments will always be `credit`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#direction
           module Direction
             extend ModernTreasury::Enum
 
@@ -2944,6 +2990,8 @@ module ModernTreasury
           # A payment type to fallback to if the original type is not valid for the
           #   receiving account. Currently, this only supports falling back from RTP to ACH
           #   (type=rtp and fallback_type=ach)
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#fallback_type
           module FallbackType
             extend ModernTreasury::Enum
 
@@ -2959,6 +3007,8 @@ module ModernTreasury
           # Indicates the type of FX transfer to initiate, can be either
           #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
           #   currency matches the originating account currency.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#foreign_exchange_indicator
           module ForeignExchangeIndicator
             extend ModernTreasury::Enum
 
@@ -3018,6 +3068,8 @@ module ModernTreasury
           # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
           #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
           #   an overnight check rather than standard mail.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#priority
           module Priority
             extend ModernTreasury::Enum
 
@@ -3031,6 +3083,7 @@ module ModernTreasury
             #   def self.values; end
           end
 
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#receiving_account
           class ReceivingAccount < ModernTreasury::BaseModel
             # @!attribute [r] account_details
             #
@@ -3228,6 +3281,7 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail#account_number_type
               module AccountNumberType
                 extend ModernTreasury::Enum
 
@@ -3278,6 +3332,7 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail#contact_identifier_type
               module ContactIdentifierType
                 extend ModernTreasury::Enum
 
@@ -3293,6 +3348,7 @@ module ModernTreasury
               end
             end
 
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#ledger_account
             class LedgerAccount < ModernTreasury::BaseModel
               # @!attribute currency
               #   The currency of the ledger account.
@@ -3415,6 +3471,8 @@ module ModernTreasury
               # If the ledger account links to another object in Modern Treasury, the type will
               #   be populated here, otherwise null. The value is one of internal_account or
               #   external_account.
+              #
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount#ledgerable_type
               module LedgerableType
                 extend ModernTreasury::Enum
 
@@ -3431,6 +3489,7 @@ module ModernTreasury
               end
             end
 
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#party_address
             class PartyAddress < ModernTreasury::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
@@ -3482,6 +3541,8 @@ module ModernTreasury
             end
 
             # Either `individual` or `business`.
+            #
+            # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount#party_type
             module PartyType
               extend ModernTreasury::Enum
 
@@ -3526,6 +3587,7 @@ module ModernTreasury
 
               # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail#routing_number_type
               module RoutingNumberType
                 extend ModernTreasury::Enum
 
@@ -3558,6 +3620,7 @@ module ModernTreasury
                 #   def self.values; end
               end
 
+              # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail#payment_type
               module PaymentType
                 extend ModernTreasury::Enum
 
@@ -3604,6 +3667,8 @@ module ModernTreasury
           # To cancel a payment order, use `cancelled`. To redraft a returned payment order,
           #   use `approved`. To undo approval on a denied or approved payment order, use
           #   `needs_approval`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID#status
           module Status
             extend ModernTreasury::Enum
 
@@ -3808,6 +3873,8 @@ module ModernTreasury
 
           # One of credit or debit. When you are receiving money, use credit. When you are
           #   being charged, use debit.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID#direction
           module Direction
             extend ModernTreasury::Enum
 
@@ -3823,6 +3890,8 @@ module ModernTreasury
 
           # The Expected Payment's status can be updated from partially_reconciled to
           #   reconciled.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID#status
           module Status
             extend ModernTreasury::Enum
 
@@ -4088,6 +4157,8 @@ module ModernTreasury
           #   Treasury, the type will be populated here, otherwise null. This can be one of
           #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
           #   reversal.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID#ledgerable_type
           module LedgerableType
             extend ModernTreasury::Enum
 
@@ -4106,6 +4177,8 @@ module ModernTreasury
           end
 
           # To post a ledger transaction at creation, use `posted`.
+          #
+          # @see ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID#status
           module Status
             extend ModernTreasury::Enum
 

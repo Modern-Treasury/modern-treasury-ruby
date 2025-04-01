@@ -34,6 +34,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemCreateParams
         def create(invoice_id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemCreateParams.dump_request(params)
           @client.request(
@@ -56,6 +58,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemRetrieveParams
         def retrieve(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemRetrieveParams.dump_request(params)
           invoice_id =
@@ -102,6 +106,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemUpdateParams
         def update(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemUpdateParams.dump_request(params)
           invoice_id =
@@ -130,6 +136,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Invoices::InvoiceLineItem>]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemListParams
         def list(invoice_id, params = {})
           parsed, options = ModernTreasury::Models::Invoices::LineItemListParams.dump_request(params)
           @client.request(
@@ -153,6 +161,8 @@ module ModernTreasury
         #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
         #
         # @return [ModernTreasury::Models::Invoices::InvoiceLineItem]
+        #
+        # @see ModernTreasury::Models::Invoices::LineItemDeleteParams
         def delete(id, params)
           parsed, options = ModernTreasury::Models::Invoices::LineItemDeleteParams.dump_request(params)
           invoice_id =
@@ -167,6 +177,8 @@ module ModernTreasury
           )
         end
 
+        # @api private
+        #
         # @param client [ModernTreasury::Client]
         def initialize(client:)
           @client = client

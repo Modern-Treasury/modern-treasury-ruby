@@ -18,6 +18,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::RoutingNumberLookupRequest]
+      #
+      # @see ModernTreasury::Models::ValidationValidateRoutingNumberParams
       def validate_routing_number(params)
         parsed, options = ModernTreasury::Models::ValidationValidateRoutingNumberParams.dump_request(params)
         @client.request(
@@ -29,6 +31,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

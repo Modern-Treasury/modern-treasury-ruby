@@ -12,6 +12,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::PaymentReference]
+      #
+      # @see ModernTreasury::Models::PaymentReferenceRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -40,6 +42,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentReference>]
+      #
+      # @see ModernTreasury::Models::PaymentReferenceListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::PaymentReferenceListParams.dump_request(params)
         @client.request(
@@ -57,6 +61,8 @@ module ModernTreasury
       # get payment_reference
       alias_method :retireve, :retrieve
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

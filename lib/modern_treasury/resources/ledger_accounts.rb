@@ -35,6 +35,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccount]
+      #
+      # @see ModernTreasury::Models::LedgerAccountCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LedgerAccountCreateParams.dump_request(params)
         @client.request(
@@ -62,6 +64,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccount]
+      #
+      # @see ModernTreasury::Models::LedgerAccountRetrieveParams
       def retrieve(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountRetrieveParams.dump_request(params)
         @client.request(
@@ -89,6 +93,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccount]
+      #
+      # @see ModernTreasury::Models::LedgerAccountUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountUpdateParams.dump_request(params)
         @client.request(
@@ -150,6 +156,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccount>]
+      #
+      # @see ModernTreasury::Models::LedgerAccountListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::LedgerAccountListParams.dump_request(params)
         @client.request(
@@ -171,6 +179,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LedgerAccount]
+      #
+      # @see ModernTreasury::Models::LedgerAccountDeleteParams
       def delete(id, params = {})
         @client.request(
           method: :delete,
@@ -180,6 +190,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

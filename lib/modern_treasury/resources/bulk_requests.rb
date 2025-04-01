@@ -20,6 +20,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::BulkRequest]
+      #
+      # @see ModernTreasury::Models::BulkRequestCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::BulkRequestCreateParams.dump_request(params)
         @client.request(
@@ -40,6 +42,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::BulkRequest]
+      #
+      # @see ModernTreasury::Models::BulkRequestRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -70,6 +74,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::BulkRequest>]
+      #
+      # @see ModernTreasury::Models::BulkRequestListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::BulkRequestListParams.dump_request(params)
         @client.request(
@@ -82,6 +88,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

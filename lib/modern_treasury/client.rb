@@ -140,6 +140,8 @@ module ModernTreasury
     #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
     #
     # @return [ModernTreasury::Models::PingResponse]
+    #
+    # @see ModernTreasury::Models::ClientPingParams
     def ping(params = {})
       request(
         method: :get,

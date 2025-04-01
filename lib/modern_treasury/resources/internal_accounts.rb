@@ -33,6 +33,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
+      #
+      # @see ModernTreasury::Models::InternalAccountCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::InternalAccountCreateParams.dump_request(params)
         @client.request(
@@ -53,6 +55,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
+      #
+      # @see ModernTreasury::Models::InternalAccountRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -82,6 +86,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::InternalAccount]
+      #
+      # @see ModernTreasury::Models::InternalAccountUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::InternalAccountUpdateParams.dump_request(params)
         @client.request(
@@ -118,6 +124,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
+      #
+      # @see ModernTreasury::Models::InternalAccountListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::InternalAccountListParams.dump_request(params)
         @client.request(
@@ -130,6 +138,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

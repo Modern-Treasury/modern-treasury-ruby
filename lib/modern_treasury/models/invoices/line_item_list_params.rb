@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module Invoices
+      # @see ModernTreasury::Resources::Invoices::LineItems#list
       class LineItemListParams < ModernTreasury::BaseModel
         # @!parse
         #   extend ModernTreasury::Type::RequestParameters::Converter

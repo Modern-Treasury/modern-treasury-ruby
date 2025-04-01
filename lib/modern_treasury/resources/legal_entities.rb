@@ -63,6 +63,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
+      #
+      # @see ModernTreasury::Models::LegalEntityCreateParams
       def create(params)
         parsed, options = ModernTreasury::Models::LegalEntityCreateParams.dump_request(params)
         @client.request(
@@ -83,6 +85,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
+      #
+      # @see ModernTreasury::Models::LegalEntityRetrieveParams
       def retrieve(id, params = {})
         @client.request(
           method: :get,
@@ -150,6 +154,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Models::LegalEntity]
+      #
+      # @see ModernTreasury::Models::LegalEntityUpdateParams
       def update(id, params = {})
         parsed, options = ModernTreasury::Models::LegalEntityUpdateParams.dump_request(params)
         @client.request(
@@ -180,6 +186,8 @@ module ModernTreasury
       #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
+      #
+      # @see ModernTreasury::Models::LegalEntityListParams
       def list(params = {})
         parsed, options = ModernTreasury::Models::LegalEntityListParams.dump_request(params)
         @client.request(
@@ -192,6 +200,8 @@ module ModernTreasury
         )
       end
 
+      # @api private
+      #
       # @param client [ModernTreasury::Client]
       def initialize(client:)
         @client = client

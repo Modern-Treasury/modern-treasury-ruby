@@ -464,6 +464,7 @@ module ModernTreasury
 
       # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
+      # @see ModernTreasury::Models::PaymentOrder#accounting
       class Accounting < ModernTreasury::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
@@ -492,6 +493,8 @@ module ModernTreasury
       # The party that will pay the fees for the payment order. Only applies to wire
       #   payment orders. Can be one of shared, sender, or receiver, which correspond
       #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
+      #
+      # @see ModernTreasury::Models::PaymentOrder#charge_bearer
       module ChargeBearer
         extend ModernTreasury::Enum
 
@@ -510,6 +513,8 @@ module ModernTreasury
       #   transaction. A `credit` moves money from your account to someone else's. A
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
+      #
+      # @see ModernTreasury::Models::PaymentOrder#direction
       module Direction
         extend ModernTreasury::Enum
 
@@ -526,6 +531,8 @@ module ModernTreasury
       # Indicates the type of FX transfer to initiate, can be either
       #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   currency matches the originating account currency.
+      #
+      # @see ModernTreasury::Models::PaymentOrder#foreign_exchange_indicator
       module ForeignExchangeIndicator
         extend ModernTreasury::Enum
 
@@ -539,6 +546,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
+      # @see ModernTreasury::Models::PaymentOrder#foreign_exchange_rate
       class ForeignExchangeRate < ModernTreasury::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
@@ -605,6 +613,8 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
+      #
+      # @see ModernTreasury::Models::PaymentOrder#priority
       module Priority
         extend ModernTreasury::Enum
 
@@ -618,6 +628,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
+      # @see ModernTreasury::Models::PaymentOrder#receiving_account_type
       module ReceivingAccountType
         extend ModernTreasury::Enum
 
@@ -686,6 +697,8 @@ module ModernTreasury
         # def initialize: (Hash | ModernTreasury::BaseModel) -> void
 
         # The type of the reference number. Referring to the vendor payment id.
+        #
+        # @see ModernTreasury::Models::PaymentOrder::ReferenceNumber#reference_number_type
         module ReferenceNumberType
           extend ModernTreasury::Enum
 
@@ -774,6 +787,8 @@ module ModernTreasury
       end
 
       # The current status of the payment order.
+      #
+      # @see ModernTreasury::Models::PaymentOrder#status
       module Status
         extend ModernTreasury::Enum
 
@@ -798,6 +813,8 @@ module ModernTreasury
 
       # The account to which the originating of this payment should be attributed to.
       #   Can be a `virtual_account` or `internal_account`.
+      #
+      # @see ModernTreasury::Models::PaymentOrder#ultimate_originating_account
       module UltimateOriginatingAccount
         extend ModernTreasury::Union
 
@@ -810,6 +827,7 @@ module ModernTreasury
         #   def self.variants; end
       end
 
+      # @see ModernTreasury::Models::PaymentOrder#ultimate_originating_account_type
       module UltimateOriginatingAccountType
         extend ModernTreasury::Enum
 
