@@ -5,15 +5,12 @@ module ModernTreasury
     class LineItems
       # Get a single line item
       #
-      # @param id [String] The ID of the line item.
+      # @overload retrieve(id, itemizable_type:, itemizable_id:, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LineItemRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType] :itemizable_type One of `payment_orders` or `expected_payments`.
-      #
-      #   @option params [String] :itemizable_id The ID of the payment order or expected payment.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemRetrieveParams::ItemizableType]
+      # @param itemizable_id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LineItem]
       #
@@ -38,18 +35,13 @@ module ModernTreasury
 
       # update line item
       #
-      # @param id [String] Path param: The ID of the line item.
+      # @overload update(id, itemizable_type:, itemizable_id:, metadata: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LineItemUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
-      #
-      #   @option params [String] :itemizable_id Path param: The ID of the payment order or expected payment.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Body param: Additional data represented as key-value pairs. Both the key and
-      #     value must be strings.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemUpdateParams::ItemizableType]
+      # @param itemizable_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LineItem]
       #
@@ -75,17 +67,13 @@ module ModernTreasury
 
       # Get a list of line items
       #
-      # @param itemizable_id [String] Path param: The ID of the payment order or expected payment.
+      # @overload list(itemizable_id, itemizable_type:, after_cursor: nil, per_page: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LineItemListParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType] :itemizable_type Path param: One of `payment_orders` or `expected_payments`.
-      #
-      #   @option params [String, nil] :after_cursor Query param:
-      #
-      #   @option params [Integer] :per_page Query param:
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param itemizable_id [String]
+      # @param itemizable_type [Symbol, ModernTreasury::Models::LineItemListParams::ItemizableType]
+      # @param after_cursor [String, nil]
+      # @param per_page [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LineItem>]
       #

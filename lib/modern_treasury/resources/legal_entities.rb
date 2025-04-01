@@ -5,62 +5,35 @@ module ModernTreasury
     class LegalEntities
       # create legal_entity
       #
-      # @param params [ModernTreasury::Models::LegalEntityCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(legal_entity_type:, addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_entity_associations: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
-      #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType] :legal_entity_type The type of legal entity.
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityCreateParams::Address>] :addresses A list of addresses for the entity.
-      #
-      #   @option params [ModernTreasury::Models::BankSettings, nil] :bank_settings
-      #
-      #   @option params [String, nil] :business_name The business's legal business name.
-      #
-      #   @option params [String, nil] :citizenship_country The country of citizenship for an individual.
-      #
-      #   @option params [ModernTreasury::Models::LegalEntityComplianceDetail, nil] :compliance_details
-      #
-      #   @option params [Date, nil] :date_formed A business's formation date (YYYY-MM-DD).
-      #
-      #   @option params [Date, nil] :date_of_birth An individual's date of birth (YYYY-MM-DD).
-      #
-      #   @option params [Array<String>] :doing_business_as_names
-      #
-      #   @option params [String, nil] :email The entity's primary email.
-      #
-      #   @option params [String, nil] :first_name An individual's first name.
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityCreateParams::Identification>] :identifications A list of identifications for the legal entity.
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] :industry_classifications A list of industry classifications for the legal entity.
-      #
-      #   @option params [String, nil] :last_name An individual's last name.
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation>, nil] :legal_entity_associations The legal entity associations and its child legal entities.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil] :legal_structure The business's legal structure.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [String, nil] :middle_name An individual's middle name.
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>] :phone_numbers
-      #
-      #   @option params [Boolean, nil] :politically_exposed_person Whether the individual is a politically exposed person.
-      #
-      #   @option params [String, nil] :preferred_name An individual's preferred name.
-      #
-      #   @option params [String, nil] :prefix An individual's prefix.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating, nil] :risk_rating The risk rating of the legal entity. One of low, medium, high.
-      #
-      #   @option params [String, nil] :suffix An individual's suffix.
-      #
-      #   @option params [ModernTreasury::Models::WealthAndEmploymentDetails, nil] :wealth_and_employment_details
-      #
-      #   @option params [String, nil] :website The entity's primary website URL.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalEntityType]
+      # @param addresses [Array<ModernTreasury::Models::LegalEntityCreateParams::Address>]
+      # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
+      # @param business_name [String, nil]
+      # @param citizenship_country [String, nil]
+      # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+      # @param date_formed [Date, nil]
+      # @param date_of_birth [Date, nil]
+      # @param doing_business_as_names [Array<String>]
+      # @param email [String, nil]
+      # @param first_name [String, nil]
+      # @param identifications [Array<ModernTreasury::Models::LegalEntityCreateParams::Identification>]
+      # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+      # @param last_name [String, nil]
+      # @param legal_entity_associations [Array<ModernTreasury::Models::LegalEntityCreateParams::LegalEntityAssociation>, nil]
+      # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityCreateParams::LegalStructure, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param middle_name [String, nil]
+      # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityCreateParams::PhoneNumber>]
+      # @param politically_exposed_person [Boolean, nil]
+      # @param preferred_name [String, nil]
+      # @param prefix [String, nil]
+      # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityCreateParams::RiskRating, nil]
+      # @param suffix [String, nil]
+      # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
+      # @param website [String, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -78,11 +51,10 @@ module ModernTreasury
 
       # Get details on a single legal entity.
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LegalEntityRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -98,60 +70,34 @@ module ModernTreasury
 
       # Update a legal entity.
       #
-      # @param id [String] id
+      # @overload update(id, addresses: nil, bank_settings: nil, business_name: nil, citizenship_country: nil, compliance_details: nil, date_formed: nil, date_of_birth: nil, doing_business_as_names: nil, email: nil, first_name: nil, identifications: nil, industry_classifications: nil, last_name: nil, legal_structure: nil, metadata: nil, middle_name: nil, phone_numbers: nil, politically_exposed_person: nil, preferred_name: nil, prefix: nil, risk_rating: nil, suffix: nil, wealth_and_employment_details: nil, website: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LegalEntityUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>] :addresses A list of addresses for the entity.
-      #
-      #   @option params [ModernTreasury::Models::BankSettings, nil] :bank_settings
-      #
-      #   @option params [String, nil] :business_name The business's legal business name.
-      #
-      #   @option params [String, nil] :citizenship_country The country of citizenship for an individual.
-      #
-      #   @option params [ModernTreasury::Models::LegalEntityComplianceDetail, nil] :compliance_details
-      #
-      #   @option params [Date, nil] :date_formed A business's formation date (YYYY-MM-DD).
-      #
-      #   @option params [Date, nil] :date_of_birth An individual's date of birth (YYYY-MM-DD).
-      #
-      #   @option params [Array<String>] :doing_business_as_names
-      #
-      #   @option params [String, nil] :email The entity's primary email.
-      #
-      #   @option params [String, nil] :first_name An individual's first name.
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>] :identifications A list of identifications for the legal entity.
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityIndustryClassification>] :industry_classifications A list of industry classifications for the legal entity.
-      #
-      #   @option params [String, nil] :last_name An individual's last name.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure, nil] :legal_structure The business's legal structure.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [String, nil] :middle_name An individual's middle name.
-      #
-      #   @option params [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>] :phone_numbers
-      #
-      #   @option params [Boolean, nil] :politically_exposed_person Whether the individual is a politically exposed person.
-      #
-      #   @option params [String, nil] :preferred_name An individual's preferred name.
-      #
-      #   @option params [String, nil] :prefix An individual's prefix.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil] :risk_rating The risk rating of the legal entity. One of low, medium, high.
-      #
-      #   @option params [String, nil] :suffix An individual's suffix.
-      #
-      #   @option params [ModernTreasury::Models::WealthAndEmploymentDetails, nil] :wealth_and_employment_details
-      #
-      #   @option params [String, nil] :website The entity's primary website URL.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param addresses [Array<ModernTreasury::Models::LegalEntityUpdateParams::Address>]
+      # @param bank_settings [ModernTreasury::Models::BankSettings, nil]
+      # @param business_name [String, nil]
+      # @param citizenship_country [String, nil]
+      # @param compliance_details [ModernTreasury::Models::LegalEntityComplianceDetail, nil]
+      # @param date_formed [Date, nil]
+      # @param date_of_birth [Date, nil]
+      # @param doing_business_as_names [Array<String>]
+      # @param email [String, nil]
+      # @param first_name [String, nil]
+      # @param identifications [Array<ModernTreasury::Models::LegalEntityUpdateParams::Identification>]
+      # @param industry_classifications [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
+      # @param last_name [String, nil]
+      # @param legal_structure [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::LegalStructure, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param middle_name [String, nil]
+      # @param phone_numbers [Array<ModernTreasury::Models::LegalEntityUpdateParams::PhoneNumber>]
+      # @param politically_exposed_person [Boolean, nil]
+      # @param preferred_name [String, nil]
+      # @param prefix [String, nil]
+      # @param risk_rating [Symbol, ModernTreasury::Models::LegalEntityUpdateParams::RiskRating, nil]
+      # @param suffix [String, nil]
+      # @param wealth_and_employment_details [ModernTreasury::Models::WealthAndEmploymentDetails, nil]
+      # @param website [String, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LegalEntity]
       #
@@ -169,21 +115,14 @@ module ModernTreasury
 
       # Get a list of all legal entities.
       #
-      # @param params [ModernTreasury::Models::LegalEntityListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, legal_entity_type: nil, metadata: nil, per_page: nil, show_deleted: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType] :legal_entity_type
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [String] :show_deleted
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param legal_entity_type [Symbol, ModernTreasury::Models::LegalEntityListParams::LegalEntityType]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param per_page [Integer]
+      # @param show_deleted [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::LegalEntity>]
       #

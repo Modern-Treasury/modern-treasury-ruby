@@ -5,16 +5,12 @@ module ModernTreasury
     class Ledgers
       # Create a ledger.
       #
-      # @param params [ModernTreasury::Models::LedgerCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(name:, description: nil, metadata: nil, request_options: {})
       #
-      #   @option params [String] :name The name of the ledger.
-      #
-      #   @option params [String, nil] :description An optional free-form description for internal use.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param name [String]
+      # @param description [String, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Ledger]
       #
@@ -32,11 +28,10 @@ module ModernTreasury
 
       # Get details on a single ledger.
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LedgerRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Ledger]
       #
@@ -52,18 +47,13 @@ module ModernTreasury
 
       # Update the details of a ledger.
       #
-      # @param id [String] id
+      # @overload update(id, description: nil, metadata: nil, name: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LedgerUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String, nil] :description An optional free-form description for internal use.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [String] :name The name of the ledger.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param description [String, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param name [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Ledger]
       #
@@ -81,24 +71,14 @@ module ModernTreasury
 
       # Get a list of ledgers.
       #
-      # @param params [ModernTreasury::Models::LedgerListParams, Hash{Symbol=>Object}] .
+      # @overload list(id: nil, after_cursor: nil, metadata: nil, per_page: nil, updated_at: nil, request_options: {})
       #
-      #   @option params [Array<String>] :id If you have specific IDs to retrieve in bulk, you can pass them as query
-      #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
-      #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [Hash{Symbol=>Time}] :updated_at Use `gt` (>), `gte` (>=), `lt` (<), `lte` (<=), or `eq` (=) to filter by the
-      #     posted at timestamp. For example, for all times after Jan 1 2000 12:00 UTC, use
-      #     updated_at%5Bgt%5D=2000-01-01T12:00:00Z.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [Array<String>]
+      # @param after_cursor [String, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param per_page [Integer]
+      # @param updated_at [Hash{Symbol=>Time}]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Ledger>]
       #
@@ -117,11 +97,10 @@ module ModernTreasury
 
       # Delete a ledger.
       #
-      # @param id [String] id
+      # @overload delete(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::LedgerDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Ledger]
       #

@@ -135,9 +135,9 @@ module ModernTreasury
     # A test endpoint often used to confirm credentials and headers are being passed
     #   in correctly.
     #
-    # @param params [ModernTreasury::Models::ClientPingParams, Hash{Symbol=>Object}] .
+    # @overload ping(request_options: {})
     #
-    #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+    # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
     #
     # @return [ModernTreasury::Models::PingResponse]
     #
