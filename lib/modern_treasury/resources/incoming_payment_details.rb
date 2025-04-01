@@ -15,7 +15,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/incoming_payment_details/%0s", id],
+          path: ["api/incoming_payment_details/%1$s", id],
           model: ModernTreasury::Models::IncomingPaymentDetail,
           options: params[:request_options]
         )
@@ -37,7 +37,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::IncomingPaymentDetailUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/incoming_payment_details/%0s", id],
+          path: ["api/incoming_payment_details/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::IncomingPaymentDetail,
           options: options

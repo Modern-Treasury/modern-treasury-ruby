@@ -15,7 +15,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/events/%0s", id],
+          path: ["api/events/%1$s", id],
           model: ModernTreasury::Models::Event,
           options: params[:request_options]
         )

@@ -50,7 +50,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/payment_flows/%0s", id],
+          path: ["api/payment_flows/%1$s", id],
           model: ModernTreasury::Models::PaymentFlow,
           options: params[:request_options]
         )
@@ -72,7 +72,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::PaymentFlowUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/payment_flows/%0s", id],
+          path: ["api/payment_flows/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::PaymentFlow,
           options: options

@@ -86,7 +86,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/legal_entities/%0s", id],
+          path: ["api/legal_entities/%1$s", id],
           model: ModernTreasury::Models::LegalEntity,
           options: params[:request_options]
         )
@@ -154,7 +154,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::LegalEntityUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/legal_entities/%0s", id],
+          path: ["api/legal_entities/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::LegalEntity,
           options: options

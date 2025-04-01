@@ -27,7 +27,7 @@ module ModernTreasury
           end
         @client.request(
           method: :post,
-          path: ["api/%0s/%1s/account_details", accounts_type, account_id],
+          path: ["api/%1$s/%2$s/account_details", accounts_type, account_id],
           body: parsed,
           model: ModernTreasury::Models::AccountDetail,
           options: options
@@ -59,7 +59,7 @@ module ModernTreasury
           end
         @client.request(
           method: :get,
-          path: ["api/%0s/%1s/account_details/%2s", accounts_type, account_id, id],
+          path: ["api/%1$s/%2$s/account_details/%3$s", accounts_type, account_id, id],
           model: ModernTreasury::Models::AccountDetail,
           options: options
         )
@@ -88,7 +88,7 @@ module ModernTreasury
           end
         @client.request(
           method: :get,
-          path: ["api/%0s/%1s/account_details", accounts_type, account_id],
+          path: ["api/%1$s/%2$s/account_details", accounts_type, account_id],
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::AccountDetail,
@@ -121,7 +121,7 @@ module ModernTreasury
           end
         @client.request(
           method: :delete,
-          path: ["api/%0s/%1s/account_details/%2s", accounts_type, account_id, id],
+          path: ["api/%1$s/%2$s/account_details/%3$s", accounts_type, account_id, id],
           model: NilClass,
           options: options
         )

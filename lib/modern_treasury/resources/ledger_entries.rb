@@ -19,7 +19,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::LedgerEntryRetrieveParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["api/ledger_entries/%0s", id],
+          path: ["api/ledger_entries/%1$s", id],
           query: parsed,
           model: ModernTreasury::Models::LedgerEntry,
           options: options
@@ -42,7 +42,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::LedgerEntryUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/ledger_entries/%0s", id],
+          path: ["api/ledger_entries/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerEntry,
           options: options
