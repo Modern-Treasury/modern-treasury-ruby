@@ -64,7 +64,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/transactions/%0s", id],
+          path: ["api/transactions/%1$s", id],
           model: ModernTreasury::Models::Transaction,
           options: params[:request_options]
         )
@@ -86,7 +86,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::TransactionUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/transactions/%0s", id],
+          path: ["api/transactions/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::Transaction,
           options: options
@@ -158,7 +158,7 @@ module ModernTreasury
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["api/transactions/%0s", id],
+          path: ["api/transactions/%1$s", id],
           model: NilClass,
           options: params[:request_options]
         )

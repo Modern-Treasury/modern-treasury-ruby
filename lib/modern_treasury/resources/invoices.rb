@@ -109,7 +109,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/invoices/%0s", id],
+          path: ["api/invoices/%1$s", id],
           model: ModernTreasury::Models::Invoice,
           options: params[:request_options]
         )
@@ -201,7 +201,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::InvoiceUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/invoices/%0s", id],
+          path: ["api/invoices/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::Invoice,
           options: options
@@ -270,7 +270,7 @@ module ModernTreasury
           end
         @client.request(
           method: :put,
-          path: ["api/invoices/%0s/payment_orders/%1s", id, payment_order_id],
+          path: ["api/invoices/%1$s/payment_orders/%2$s", id, payment_order_id],
           model: NilClass,
           options: options
         )

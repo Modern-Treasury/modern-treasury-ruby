@@ -28,7 +28,7 @@ module ModernTreasury
           end
         @client.request(
           method: :get,
-          path: ["api/%0s/%1s/line_items/%2s", itemizable_type, itemizable_id, id],
+          path: ["api/%1$s/%2$s/line_items/%3$s", itemizable_type, itemizable_id, id],
           model: ModernTreasury::Models::LineItem,
           options: options
         )
@@ -62,7 +62,7 @@ module ModernTreasury
           end
         @client.request(
           method: :patch,
-          path: ["api/%0s/%1s/line_items/%2s", itemizable_type, itemizable_id, id],
+          path: ["api/%1$s/%2$s/line_items/%3$s", itemizable_type, itemizable_id, id],
           body: parsed,
           model: ModernTreasury::Models::LineItem,
           options: options
@@ -92,7 +92,7 @@ module ModernTreasury
           end
         @client.request(
           method: :get,
-          path: ["api/%0s/%1s/line_items", itemizable_type, itemizable_id],
+          path: ["api/%1$s/%2$s/line_items", itemizable_type, itemizable_id],
           query: parsed,
           page: ModernTreasury::Page,
           model: ModernTreasury::Models::LineItem,

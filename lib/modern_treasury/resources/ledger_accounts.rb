@@ -66,7 +66,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::LedgerAccountRetrieveParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["api/ledger_accounts/%0s", id],
+          path: ["api/ledger_accounts/%1$s", id],
           query: parsed,
           model: ModernTreasury::Models::LedgerAccount,
           options: options
@@ -93,7 +93,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::LedgerAccountUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/ledger_accounts/%0s", id],
+          path: ["api/ledger_accounts/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerAccount,
           options: options
@@ -174,7 +174,7 @@ module ModernTreasury
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["api/ledger_accounts/%0s", id],
+          path: ["api/ledger_accounts/%1$s", id],
           model: ModernTreasury::Models::LedgerAccount,
           options: params[:request_options]
         )

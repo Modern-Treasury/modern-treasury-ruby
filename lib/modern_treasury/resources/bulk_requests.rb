@@ -43,7 +43,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/bulk_requests/%0s", id],
+          path: ["api/bulk_requests/%1$s", id],
           model: ModernTreasury::Models::BulkRequest,
           options: params[:request_options]
         )

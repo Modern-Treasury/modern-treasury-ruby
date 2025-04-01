@@ -15,7 +15,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/payment_references/%0s", id],
+          path: ["api/payment_references/%1$s", id],
           model: ModernTreasury::Models::PaymentReference,
           options: params[:request_options]
         )
