@@ -47,7 +47,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/ledger_account_statements/%0s", id],
+          path: ["api/ledger_account_statements/%1$s", id],
           model: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse,
           options: params[:request_options]
         )

@@ -27,7 +27,7 @@ module ModernTreasury
             ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["api/internal_accounts/%0s/balance_reports", internal_account_id],
+            path: ["api/internal_accounts/%1$s/balance_reports", internal_account_id],
             body: parsed,
             model: ModernTreasury::Models::InternalAccounts::BalanceReport,
             options: options
@@ -55,7 +55,7 @@ module ModernTreasury
             end
           @client.request(
             method: :get,
-            path: ["api/internal_accounts/%0s/balance_reports/%1s", internal_account_id, id],
+            path: ["api/internal_accounts/%1$s/balance_reports/%2$s", internal_account_id, id],
             model: ModernTreasury::Models::InternalAccounts::BalanceReport,
             options: options
           )
@@ -83,7 +83,7 @@ module ModernTreasury
           parsed, options = ModernTreasury::Models::InternalAccounts::BalanceReportListParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["api/internal_accounts/%0s/balance_reports", internal_account_id],
+            path: ["api/internal_accounts/%1$s/balance_reports", internal_account_id],
             query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::InternalAccounts::BalanceReport,
@@ -112,7 +112,7 @@ module ModernTreasury
             end
           @client.request(
             method: :delete,
-            path: ["api/internal_accounts/%0s/balance_reports/%1s", internal_account_id, id],
+            path: ["api/internal_accounts/%1$s/balance_reports/%2$s", internal_account_id, id],
             model: NilClass,
             options: options
           )

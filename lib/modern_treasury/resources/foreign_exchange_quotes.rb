@@ -47,7 +47,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/foreign_exchange_quotes/%0s", id],
+          path: ["api/foreign_exchange_quotes/%1$s", id],
           model: ModernTreasury::Models::ForeignExchangeQuote,
           options: params[:request_options]
         )

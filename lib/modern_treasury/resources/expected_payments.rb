@@ -87,7 +87,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/expected_payments/%0s", id],
+          path: ["api/expected_payments/%1$s", id],
           model: ModernTreasury::Models::ExpectedPayment,
           options: params[:request_options]
         )
@@ -151,7 +151,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::ExpectedPaymentUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/expected_payments/%0s", id],
+          path: ["api/expected_payments/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::ExpectedPayment,
           options: options
@@ -212,7 +212,7 @@ module ModernTreasury
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["api/expected_payments/%0s", id],
+          path: ["api/expected_payments/%1$s", id],
           model: ModernTreasury::Models::ExpectedPayment,
           options: params[:request_options]
         )

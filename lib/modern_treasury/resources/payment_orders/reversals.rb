@@ -28,7 +28,7 @@ module ModernTreasury
           parsed, options = ModernTreasury::Models::PaymentOrders::ReversalCreateParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["api/payment_orders/%0s/reversals", payment_order_id],
+            path: ["api/payment_orders/%1$s/reversals", payment_order_id],
             body: parsed,
             model: ModernTreasury::Models::PaymentOrders::Reversal,
             options: options
@@ -54,7 +54,7 @@ module ModernTreasury
             end
           @client.request(
             method: :get,
-            path: ["api/payment_orders/%0s/reversals/%1s", payment_order_id, reversal_id],
+            path: ["api/payment_orders/%1$s/reversals/%2$s", payment_order_id, reversal_id],
             model: ModernTreasury::Models::PaymentOrders::Reversal,
             options: options
           )
@@ -77,7 +77,7 @@ module ModernTreasury
           parsed, options = ModernTreasury::Models::PaymentOrders::ReversalListParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["api/payment_orders/%0s/reversals", payment_order_id],
+            path: ["api/payment_orders/%1$s/reversals", payment_order_id],
             query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::PaymentOrders::Reversal,

@@ -51,7 +51,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/returns/%0s", id],
+          path: ["api/returns/%1$s", id],
           model: ModernTreasury::Models::ReturnObject,
           options: params[:request_options]
         )

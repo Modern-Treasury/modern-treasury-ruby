@@ -58,7 +58,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/counterparties/%0s", id],
+          path: ["api/counterparties/%1$s", id],
           model: ModernTreasury::Models::Counterparty,
           options: params[:request_options]
         )
@@ -91,7 +91,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::CounterpartyUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/counterparties/%0s", id],
+          path: ["api/counterparties/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::Counterparty,
           options: options
@@ -149,7 +149,7 @@ module ModernTreasury
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["api/counterparties/%0s", id],
+          path: ["api/counterparties/%1$s", id],
           model: NilClass,
           options: params[:request_options]
         )
@@ -187,7 +187,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::CounterpartyCollectAccountParams.dump_request(params)
         @client.request(
           method: :post,
-          path: ["api/counterparties/%0s/collect_account", id],
+          path: ["api/counterparties/%1$s/collect_account", id],
           body: parsed,
           model: ModernTreasury::Models::CounterpartyCollectAccountResponse,
           options: options
