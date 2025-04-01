@@ -301,7 +301,15 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
+        def self.new(
+          id:,
+          created_at:,
+          live_mode:,
+          object:,
+          reference_number:,
+          reference_number_type:,
+          updated_at:
+        )
         end
 
         sig do

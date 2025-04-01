@@ -38,7 +38,13 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, request_options: {})
+      def self.new(
+        counterparty_id: nil,
+        ledger_account_id: nil,
+        metadata: nil,
+        name: nil,
+        request_options: {}
+      )
       end
 
       sig do

@@ -41,7 +41,13 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(after_cursor: nil, documentable_id: nil, documentable_type: nil, per_page: nil, request_options: {})
+      def self.new(
+        after_cursor: nil,
+        documentable_id: nil,
+        documentable_type: nil,
+        per_page: nil,
+        request_options: {}
+      )
       end
 
       sig do
