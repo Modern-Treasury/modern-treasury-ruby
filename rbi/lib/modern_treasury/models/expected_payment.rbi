@@ -220,7 +220,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::Direction) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPayment::Direction::TaggedSymbol)
@@ -239,7 +239,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol) }
 
         AUTOMATIC =
           T.let(:automatic, ModernTreasury::Models::ExpectedPayment::ReconciliationMethod::TaggedSymbol)
@@ -255,7 +255,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPayment::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol) }
 
         ARCHIVED = T.let(:archived, ModernTreasury::Models::ExpectedPayment::Status::TaggedSymbol)
         PARTIALLY_RECONCILED =

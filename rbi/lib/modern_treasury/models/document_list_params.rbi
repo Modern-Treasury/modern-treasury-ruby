@@ -74,7 +74,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol) }
 
         CASES = T.let(:cases, ModernTreasury::Models::DocumentListParams::DocumentableType::TaggedSymbol)
         COUNTERPARTIES =

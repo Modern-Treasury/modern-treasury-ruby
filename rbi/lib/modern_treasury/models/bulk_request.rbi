@@ -111,7 +111,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequest::ActionType) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol) }
 
         CREATE = T.let(:create, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
         UPDATE = T.let(:update, ModernTreasury::Models::BulkRequest::ActionType::TaggedSymbol)
@@ -128,7 +129,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequest::ResourceType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol) }
 
         PAYMENT_ORDER = T.let(:payment_order, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
         LEDGER_ACCOUNT = T.let(:ledger_account, ModernTreasury::Models::BulkRequest::ResourceType::TaggedSymbol)
@@ -149,7 +150,8 @@ module ModernTreasury
         extend ModernTreasury::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequest::Status) }
-        OrSymbol = T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol) }
+        OrSymbol =
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol) }
 
         PENDING = T.let(:pending, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)
         PROCESSING = T.let(:processing, ModernTreasury::Models::BulkRequest::Status::TaggedSymbol)

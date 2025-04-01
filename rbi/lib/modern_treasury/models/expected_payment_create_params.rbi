@@ -212,7 +212,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol) }
 
         CREDIT = T.let(:credit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol)
         DEBIT = T.let(:debit, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction::TaggedSymbol)
@@ -476,6 +476,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::LedgerableType::TaggedSymbol
               )
             end
@@ -531,6 +532,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction::Status::TaggedSymbol
               )
             end

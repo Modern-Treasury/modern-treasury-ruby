@@ -103,7 +103,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestCreateParams::ActionType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestCreateParams::ActionType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkRequestCreateParams::ActionType::TaggedSymbol) }
 
         CREATE = T.let(:create, ModernTreasury::Models::BulkRequestCreateParams::ActionType::TaggedSymbol)
         UPDATE = T.let(:update, ModernTreasury::Models::BulkRequestCreateParams::ActionType::TaggedSymbol)
@@ -121,7 +121,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkRequestCreateParams::ResourceType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol) }
 
         PAYMENT_ORDER =
           T.let(:payment_order, ModernTreasury::Models::BulkRequestCreateParams::ResourceType::TaggedSymbol)
@@ -632,6 +632,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Direction::TaggedSymbol
                 )
               end
@@ -696,6 +697,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ChargeBearer::TaggedSymbol
                 )
               end
@@ -742,6 +744,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::FallbackType::TaggedSymbol
                 )
               end
@@ -778,6 +781,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ForeignExchangeIndicator::TaggedSymbol
                 )
               end
@@ -1073,6 +1077,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::LedgerableType::TaggedSymbol
                   )
                 end
@@ -1132,6 +1137,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::LedgerTransaction::Status::TaggedSymbol
                   )
                 end
@@ -1229,6 +1235,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::Priority::TaggedSymbol
                 )
               end
@@ -1569,6 +1576,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                     )
                   end
@@ -1694,6 +1702,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
                     )
                   end
@@ -1864,6 +1873,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
                     )
                   end
@@ -1969,6 +1979,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::PartyType::TaggedSymbol
                   )
                 end
@@ -2059,6 +2070,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                     )
                   end
@@ -2192,6 +2204,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderAsyncCreateRequest::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                     )
                   end
@@ -2603,6 +2616,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::Direction::TaggedSymbol
                 )
               end
@@ -2898,6 +2912,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::LedgerableType::TaggedSymbol
                   )
                 end
@@ -2957,6 +2972,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentCreateRequest::LedgerTransaction::Status::TaggedSymbol
                   )
                 end
@@ -3301,6 +3317,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::LedgerableType::TaggedSymbol
                 )
               end
@@ -3360,6 +3377,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionCreateRequest::Status::TaggedSymbol
                 )
               end
@@ -3518,6 +3536,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::TransactionCreateRequest::Type::TaggedSymbol
                 )
               end
@@ -4227,6 +4246,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ChargeBearer::TaggedSymbol
                 )
               end
@@ -4274,6 +4294,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Direction::TaggedSymbol
                 )
               end
@@ -4315,6 +4336,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::FallbackType::TaggedSymbol
                 )
               end
@@ -4351,6 +4373,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ForeignExchangeIndicator::TaggedSymbol
                 )
               end
@@ -4442,6 +4465,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Priority::TaggedSymbol
                 )
               end
@@ -4782,6 +4806,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::AccountDetail::AccountNumberType::TaggedSymbol
                     )
                   end
@@ -4907,6 +4932,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::ContactDetail::ContactIdentifierType::TaggedSymbol
                     )
                   end
@@ -5077,6 +5103,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::LedgerAccount::LedgerableType::TaggedSymbol
                     )
                   end
@@ -5182,6 +5209,7 @@ module ModernTreasury
                 T.type_alias do
                   T.any(
                     Symbol,
+                    String,
                     ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::PartyType::TaggedSymbol
                   )
                 end
@@ -5272,6 +5300,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::RoutingNumberType::TaggedSymbol
                     )
                   end
@@ -5405,6 +5434,7 @@ module ModernTreasury
                   T.type_alias do
                     T.any(
                       Symbol,
+                      String,
                       ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::ReceivingAccount::RoutingDetail::PaymentType::TaggedSymbol
                     )
                   end
@@ -5588,6 +5618,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::PaymentOrderUpdateRequestWithID::Status::TaggedSymbol
                 )
               end
@@ -5856,6 +5887,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Direction::TaggedSymbol
                 )
               end
@@ -5896,6 +5928,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::ExpectedPaymentUpdateRequestWithID::Status::TaggedSymbol
                 )
               end
@@ -6209,6 +6242,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::LedgerableType::TaggedSymbol
                 )
               end
@@ -6268,6 +6302,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::BulkRequestCreateParams::Resource::LedgerTransactionUpdateRequestWithID::Status::TaggedSymbol
                 )
               end

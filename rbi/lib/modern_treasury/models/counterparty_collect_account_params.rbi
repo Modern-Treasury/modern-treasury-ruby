@@ -76,7 +76,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol) }
 
         NAME = T.let(:name, ModernTreasury::Models::CounterpartyCollectAccountParams::Field::TaggedSymbol)
         NAME_ON_ACCOUNT =

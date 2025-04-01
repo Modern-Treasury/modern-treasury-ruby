@@ -288,7 +288,7 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol) }
 
           ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol)
           DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::CreatedAt::TaggedSymbol)
@@ -306,7 +306,7 @@ module ModernTreasury
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt) }
           OrSymbol =
-            T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol) }
+            T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol) }
 
           ASC = T.let(:asc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol)
           DESC = T.let(:desc, ModernTreasury::Models::LedgerEntryListParams::OrderBy::EffectiveAt::TaggedSymbol)
@@ -327,7 +327,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntryListParams::Status) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol) }
 
         PENDING = T.let(:pending, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)
         POSTED = T.let(:posted, ModernTreasury::Models::LedgerEntryListParams::Status::TaggedSymbol)

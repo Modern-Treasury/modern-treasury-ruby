@@ -94,7 +94,13 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType::TaggedSymbol) }
+          T.type_alias do
+            T.any(
+              Symbol,
+              String,
+              ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType::TaggedSymbol
+            )
+          end
 
         BENEFICIAL_OWNER =
           T.let(
@@ -543,6 +549,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Address::AddressType::TaggedSymbol
                 )
               end
@@ -640,6 +647,7 @@ module ModernTreasury
               T.type_alias do
                 T.any(
                   Symbol,
+                  String,
                   ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::Identification::IDType::TaggedSymbol
                 )
               end
@@ -775,6 +783,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalEntityType::TaggedSymbol
               )
             end
@@ -814,6 +823,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::LegalStructure::TaggedSymbol
               )
             end
@@ -886,6 +896,7 @@ module ModernTreasury
             T.type_alias do
               T.any(
                 Symbol,
+                String,
                 ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity::RiskRating::TaggedSymbol
               )
             end

@@ -151,7 +151,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol) }
 
         EMPLOYED =
           T.let(:employed, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus::TaggedSymbol)
@@ -179,7 +179,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol) }
 
         FAMILY_SUPPORT =
           T.let(:family_support, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource::TaggedSymbol)
@@ -212,7 +212,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol) }
 
         ACCOUNTING =
           T.let(:accounting, ModernTreasury::Models::WealthAndEmploymentDetails::Industry::TaggedSymbol)
@@ -287,7 +287,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol) }
 
         CONSULTING =
           T.let(:consulting, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation::TaggedSymbol)
@@ -324,7 +324,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol) }
 
         ALIMONY =
           T.let(:alimony, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds::TaggedSymbol)
@@ -377,7 +377,7 @@ module ModernTreasury
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol) }
 
         BUSINESS_SALE =
           T.let(:business_sale, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource::TaggedSymbol)

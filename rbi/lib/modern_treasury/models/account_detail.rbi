@@ -92,7 +92,7 @@ module ModernTreasury
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType) }
         OrSymbol =
-          T.type_alias { T.any(Symbol, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol) }
+          T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol) }
 
         AU_NUMBER = T.let(:au_number, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol)
         CLABE = T.let(:clabe, ModernTreasury::Models::AccountDetail::AccountNumberType::TaggedSymbol)
