@@ -308,7 +308,12 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(as_of_date: nil, effective_at: nil, effective_at_lower_bound: nil, effective_at_upper_bound: nil)
+        def self.new(
+          as_of_date: nil,
+          effective_at: nil,
+          effective_at_lower_bound: nil,
+          effective_at_upper_bound: nil
+        )
         end
 
         sig do

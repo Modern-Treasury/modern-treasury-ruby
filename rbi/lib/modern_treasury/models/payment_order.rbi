@@ -567,7 +567,15 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:)
+        def self.new(
+          base_amount:,
+          base_currency:,
+          exponent:,
+          rate_string:,
+          target_amount:,
+          target_currency:,
+          value:
+        )
         end
 
         sig do
@@ -660,7 +668,15 @@ module ModernTreasury
           )
             .returns(T.attached_class)
         end
-        def self.new(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:)
+        def self.new(
+          id:,
+          created_at:,
+          live_mode:,
+          object:,
+          reference_number:,
+          reference_number_type:,
+          updated_at:
+        )
         end
 
         sig do

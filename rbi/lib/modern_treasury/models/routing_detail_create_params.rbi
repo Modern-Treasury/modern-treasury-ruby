@@ -34,7 +34,13 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(accounts_type:, routing_number:, routing_number_type:, payment_type: nil, request_options: {})
+      def self.new(
+        accounts_type:,
+        routing_number:,
+        routing_number_type:,
+        payment_type: nil,
+        request_options: {}
+      )
       end
 
       sig do
