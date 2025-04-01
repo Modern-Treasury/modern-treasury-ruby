@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::Invoices#create
     class Invoice < ModernTreasury::BaseModel
       # @!attribute id
       #

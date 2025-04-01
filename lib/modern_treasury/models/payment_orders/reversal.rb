@@ -3,6 +3,7 @@
 module ModernTreasury
   module Models
     module PaymentOrders
+      # @see ModernTreasury::Resources::PaymentOrders::Reversals#create
       class Reversal < ModernTreasury::BaseModel
         # @!attribute id
         #

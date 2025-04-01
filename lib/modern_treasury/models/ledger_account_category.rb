@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LedgerAccountCategories#create
     class LedgerAccountCategory < ModernTreasury::BaseModel
       # @!attribute id
       #

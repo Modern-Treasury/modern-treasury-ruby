@@ -2,6 +2,7 @@
 
 module ModernTreasury
   module Models
+    # @see ModernTreasury::Resources::LineItems#retrieve
     class LineItem < ModernTreasury::BaseModel
       # @!attribute id
       #
