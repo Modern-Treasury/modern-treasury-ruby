@@ -110,7 +110,9 @@ module ModernTreasury
       #
       # @return [Boolean]
       def ==(other)
+        # rubocop:disable Layout/LineLength
         other.is_a?(Module) && other.singleton_class <= ModernTreasury::Union && other.derefed_variants == derefed_variants
+        # rubocop:enable Layout/LineLength
       end
 
       # @api private
