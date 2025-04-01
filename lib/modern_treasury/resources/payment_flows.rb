@@ -5,26 +5,15 @@ module ModernTreasury
     class PaymentFlows
       # create payment_flow
       #
-      # @param params [ModernTreasury::Models::PaymentFlowCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(amount:, counterparty_id:, currency:, direction:, originating_account_id:, due_date: nil, request_options: {})
       #
-      #   @option params [Integer] :amount Required. Value in specified currency's smallest unit. e.g. $10 would be
-      #     represented as 1000. Can be any integer up to 36 digits.
-      #
-      #   @option params [String] :counterparty_id Required. The ID of a counterparty associated with the payment. As part of the
-      #     payment workflow an external account will be associated with this model.
-      #
-      #   @option params [String] :currency Required. The currency of the payment.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction] :direction Required. Describes the direction money is flowing in the transaction. Can only
-      #     be `debit`. A `debit` pulls money from someone else's account to your own.
-      #
-      #   @option params [String] :originating_account_id Required. The ID of one of your organization's internal accounts.
-      #
-      #   @option params [Date] :due_date Optional. Can only be passed in when `effective_date_selection_enabled` is
-      #     `true`. When set, the due date is shown to your end-user in the pre-built UI as
-      #     they are selecting a payment `effective_date`.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param amount [Integer]
+      # @param counterparty_id [String]
+      # @param currency [String]
+      # @param direction [Symbol, ModernTreasury::Models::PaymentFlowCreateParams::Direction]
+      # @param originating_account_id [String]
+      # @param due_date [Date]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -42,11 +31,10 @@ module ModernTreasury
 
       # get payment_flow
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::PaymentFlowRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -62,14 +50,11 @@ module ModernTreasury
 
       # update payment_flow
       #
-      # @param id [String] id
+      # @overload update(id, status:, request_options: {})
       #
-      # @param params [ModernTreasury::Models::PaymentFlowUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status] :status Required. The updated status of the payment flow. Can only be used to mark a
-      #     flow as `cancelled`.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param status [Symbol, ModernTreasury::Models::PaymentFlowUpdateParams::Status]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::PaymentFlow]
       #
@@ -87,25 +72,17 @@ module ModernTreasury
 
       # list payment_flows
       #
-      # @param params [ModernTreasury::Models::PaymentFlowListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, client_token: nil, counterparty_id: nil, originating_account_id: nil, payment_order_id: nil, per_page: nil, receiving_account_id: nil, status: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [String] :client_token
-      #
-      #   @option params [String] :counterparty_id
-      #
-      #   @option params [String] :originating_account_id
-      #
-      #   @option params [String] :payment_order_id
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [String] :receiving_account_id
-      #
-      #   @option params [String] :status
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param client_token [String]
+      # @param counterparty_id [String]
+      # @param originating_account_id [String]
+      # @param payment_order_id [String]
+      # @param per_page [Integer]
+      # @param receiving_account_id [String]
+      # @param status [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaymentFlow>]
       #

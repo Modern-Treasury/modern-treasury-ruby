@@ -8,29 +8,18 @@ module ModernTreasury
 
       # create internal account
       #
-      # @param params [ModernTreasury::Models::InternalAccountCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(connection_id:, currency:, name:, party_name:, counterparty_id: nil, legal_entity_id: nil, parent_account_id: nil, party_address: nil, vendor_attributes: nil, request_options: {})
       #
-      #   @option params [String] :connection_id The identifier of the financial institution the account belongs to.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency] :currency Either "USD" or "CAD". Internal accounts created at Increase only supports
-      #     "USD".
-      #
-      #   @option params [String] :name The nickname of the account.
-      #
-      #   @option params [String] :party_name The legal name of the entity which owns the account.
-      #
-      #   @option params [String] :counterparty_id The Counterparty associated to this account.
-      #
-      #   @option params [String] :legal_entity_id The LegalEntity associated to this account.
-      #
-      #   @option params [String] :parent_account_id The parent internal account of this new account.
-      #
-      #   @option params [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress] :party_address The address associated with the owner or null.
-      #
-      #   @option params [Hash{Symbol=>String}] :vendor_attributes A hash of vendor specific attributes that will be used when creating the account
-      #     at the vendor specified by the given connection.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param connection_id [String]
+      # @param currency [Symbol, ModernTreasury::Models::InternalAccountCreateParams::Currency]
+      # @param name [String]
+      # @param party_name [String]
+      # @param counterparty_id [String]
+      # @param legal_entity_id [String]
+      # @param parent_account_id [String]
+      # @param party_address [ModernTreasury::Models::InternalAccountCreateParams::PartyAddress]
+      # @param vendor_attributes [Hash{Symbol=>String}]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -48,11 +37,10 @@ module ModernTreasury
 
       # get internal account
       #
-      # @param id [String] Unique identifier for the account.
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::InternalAccountRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -68,22 +56,15 @@ module ModernTreasury
 
       # update internal account
       #
-      # @param id [String] Unique identifier for the account.
+      # @overload update(id, counterparty_id: nil, ledger_account_id: nil, metadata: nil, name: nil, parent_account_id: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::InternalAccountUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [String] :counterparty_id The Counterparty associated to this account.
-      #
-      #   @option params [String] :ledger_account_id The Ledger Account associated to this account.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #     an empty string or `null` as the value.
-      #
-      #   @option params [String] :name The nickname for the internal account.
-      #
-      #   @option params [String] :parent_account_id The parent internal account for this account.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param counterparty_id [String]
+      # @param ledger_account_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param name [String]
+      # @param parent_account_id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::InternalAccount]
       #
@@ -101,27 +82,17 @@ module ModernTreasury
 
       # list internal accounts
       #
-      # @param params [ModernTreasury::Models::InternalAccountListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, counterparty_id: nil, currency: nil, legal_entity_id: nil, metadata: nil, payment_direction: nil, payment_type: nil, per_page: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [String] :counterparty_id Only return internal accounts associated with this counterparty.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::Currency] :currency Only return internal accounts with this currency.
-      #
-      #   @option params [String] :legal_entity_id Only return internal accounts associated with this legal entity.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::TransactionDirection] :payment_direction Only return internal accounts that can originate payments with this direction.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType] :payment_type Only return internal accounts that can make this type of payment.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param counterparty_id [String]
+      # @param currency [Symbol, ModernTreasury::Models::Currency]
+      # @param legal_entity_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param payment_direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      # @param payment_type [Symbol, ModernTreasury::Models::InternalAccountListParams::PaymentType]
+      # @param per_page [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::InternalAccount>]
       #

@@ -5,15 +5,12 @@ module ModernTreasury
     class ConnectionLegalEntities
       # Create a connection legal entity.
       #
-      # @param params [ModernTreasury::Models::ConnectionLegalEntityCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {})
       #
-      #   @option params [String] :connection_id The ID of the connection.
-      #
-      #   @option params [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity] :legal_entity The legal entity.
-      #
-      #   @option params [String] :legal_entity_id The ID of the legal entity.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param connection_id [String]
+      # @param legal_entity [ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity]
+      # @param legal_entity_id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
@@ -31,11 +28,10 @@ module ModernTreasury
 
       # Get details on a single connection legal entity.
       #
-      # @param id [String] The id of an existing connection legal entity.
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ConnectionLegalEntityRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
@@ -51,13 +47,11 @@ module ModernTreasury
 
       # Update a connection legal entity.
       #
-      # @param id [String] The id of an existing connection legal entity.
+      # @overload update(id, status: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ConnectionLegalEntityUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status] :status The status of the connection legal entity.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityUpdateParams::Status]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ConnectionLegalEntity]
       #
@@ -75,19 +69,14 @@ module ModernTreasury
 
       # Get a list of all connection legal entities.
       #
-      # @param params [ModernTreasury::Models::ConnectionLegalEntityListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, connection_id: nil, legal_entity_id: nil, per_page: nil, status: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [String] :connection_id
-      #
-      #   @option params [String] :legal_entity_id
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status] :status
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param connection_id [String]
+      # @param legal_entity_id [String]
+      # @param per_page [Integer]
+      # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ConnectionLegalEntity>]
       #

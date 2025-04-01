@@ -5,63 +5,28 @@ module ModernTreasury
     class ExpectedPayments
       # create expected payment
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, ledger_transaction: nil, ledger_transaction_id: nil, line_items: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, type: nil, request_options: {})
       #
-      #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
-      #
-      #   @option params [Integer, nil] :amount_upper_bound The highest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
-      #
-      #   @option params [String, nil] :counterparty_id The ID of the counterparty you expect for this payment.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Must conform to ISO 4217. Defaults to the currency of the internal account.
-      #
-      #   @option params [Date, nil] :date_lower_bound The earliest date the payment may come in. Format: yyyy-mm-dd
-      #
-      #   @option params [Date, nil] :date_upper_bound The latest date the payment may come in. Format: yyyy-mm-dd
-      #
-      #   @option params [String, nil] :description An optional description for internal use.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil] :direction One of credit or debit. When you are receiving money, use credit. When you are
-      #     being charged, use debit.
-      #
-      #   @option params [String, nil] :internal_account_id The ID of the Internal Account for the expected payment.
-      #
-      #   @option params [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction] :ledger_transaction Specifies a ledger transaction object that will be created with the expected
-      #     payment. If the ledger transaction cannot be created, then the expected payment
-      #     creation will fail. The resulting ledger transaction will mirror the status of
-      #     the expected payment.
-      #
-      #   @option params [String] :ledger_transaction_id Either ledger_transaction or ledger_transaction_id can be provided. Only a
-      #     pending ledger transaction can be attached upon expected payment creation. Once
-      #     the expected payment is created, the status of the ledger transaction tracks the
-      #     expected payment automatically.
-      #
-      #   @option params [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>] :line_items
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
-      #
-      #   @option params [Object, nil] :reconciliation_groups The reconciliation groups you have for this payment.
-      #
-      #   @option params [Array<ModernTreasury::Models::ReconciliationRule>, nil] :reconciliation_rule_variables An array of reconciliation rule variables for this payment.
-      #
-      #   @option params [String, nil] :remittance_information For `ach`, this field will be passed through on an addenda record. For `wire`
-      #     payments the field will be passed through as the "Originator to Beneficiary
-      #     Information", also known as OBI or Fedwire tag 6000.
-      #
-      #   @option params [String, nil] :statement_descriptor The statement description you expect to see on the transaction. For ACH
-      #     payments, this will be the full line item passed from the bank. For wire
-      #     payments, this will be the OBI field on the wire. For check payments, this will
-      #     be the memo field.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #     sepa, signet, wire.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param amount_lower_bound [Integer, nil]
+      # @param amount_upper_bound [Integer, nil]
+      # @param counterparty_id [String, nil]
+      # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+      # @param date_lower_bound [Date, nil]
+      # @param date_upper_bound [Date, nil]
+      # @param description [String, nil]
+      # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentCreateParams::Direction, nil]
+      # @param internal_account_id [String, nil]
+      # @param ledger_transaction [ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction]
+      # @param ledger_transaction_id [String]
+      # @param line_items [Array<ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem>]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param reconciliation_filters [Object, nil]
+      # @param reconciliation_groups [Object, nil]
+      # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+      # @param remittance_information [String, nil]
+      # @param statement_descriptor [String, nil]
+      # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
@@ -79,11 +44,10 @@ module ModernTreasury
 
       # get expected payment
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
@@ -99,56 +63,27 @@ module ModernTreasury
 
       # update expected payment
       #
-      # @param id [String] id
+      # @overload update(id, amount_lower_bound: nil, amount_upper_bound: nil, counterparty_id: nil, currency: nil, date_lower_bound: nil, date_upper_bound: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, reconciliation_filters: nil, reconciliation_groups: nil, reconciliation_rule_variables: nil, remittance_information: nil, statement_descriptor: nil, status: nil, type: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Integer, nil] :amount_lower_bound The lowest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
-      #
-      #   @option params [Integer, nil] :amount_upper_bound The highest amount this expected payment may be equal to. Value in specified
-      #     currency's smallest unit. e.g. $10 would be represented as 1000.
-      #
-      #   @option params [String, nil] :counterparty_id The ID of the counterparty you expect for this payment.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::Currency, nil] :currency Must conform to ISO 4217. Defaults to the currency of the internal account.
-      #
-      #   @option params [Date, nil] :date_lower_bound The earliest date the payment may come in. Format: yyyy-mm-dd
-      #
-      #   @option params [Date, nil] :date_upper_bound The latest date the payment may come in. Format: yyyy-mm-dd
-      #
-      #   @option params [String, nil] :description An optional description for internal use.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil] :direction One of credit or debit. When you are receiving money, use credit. When you are
-      #     being charged, use debit.
-      #
-      #   @option params [String, nil] :internal_account_id The ID of the Internal Account for the expected payment.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [Object, nil] :reconciliation_filters The reconciliation filters you have for this payment.
-      #
-      #   @option params [Object, nil] :reconciliation_groups The reconciliation groups you have for this payment.
-      #
-      #   @option params [Array<ModernTreasury::Models::ReconciliationRule>, nil] :reconciliation_rule_variables An array of reconciliation rule variables for this payment.
-      #
-      #   @option params [String, nil] :remittance_information For `ach`, this field will be passed through on an addenda record. For `wire`
-      #     payments the field will be passed through as the "Originator to Beneficiary
-      #     Information", also known as OBI or Fedwire tag 6000.
-      #
-      #   @option params [String, nil] :statement_descriptor The statement description you expect to see on the transaction. For ACH
-      #     payments, this will be the full line item passed from the bank. For wire
-      #     payments, this will be the OBI field on the wire. For check payments, this will
-      #     be the memo field.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil] :status The Expected Payment's status can be updated from partially_reconciled to
-      #     reconciled.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp, sen,
-      #     sepa, signet, wire.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param amount_lower_bound [Integer, nil]
+      # @param amount_upper_bound [Integer, nil]
+      # @param counterparty_id [String, nil]
+      # @param currency [Symbol, ModernTreasury::Models::Currency, nil]
+      # @param date_lower_bound [Date, nil]
+      # @param date_upper_bound [Date, nil]
+      # @param description [String, nil]
+      # @param direction [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Direction, nil]
+      # @param internal_account_id [String, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param reconciliation_filters [Object, nil]
+      # @param reconciliation_groups [Object, nil]
+      # @param reconciliation_rule_variables [Array<ModernTreasury::Models::ReconciliationRule>, nil]
+      # @param remittance_information [String, nil]
+      # @param statement_descriptor [String, nil]
+      # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentUpdateParams::Status, nil]
+      # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentType, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
@@ -166,32 +101,19 @@ module ModernTreasury
 
       # list expected_payments
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, counterparty_id: nil, created_at_lower_bound: nil, created_at_upper_bound: nil, direction: nil, internal_account_id: nil, metadata: nil, per_page: nil, status: nil, type: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [String] :counterparty_id Specify counterparty_id to see expected_payments for a specific account.
-      #
-      #   @option params [Time] :created_at_lower_bound Used to return expected payments created after some datetime
-      #
-      #   @option params [Time] :created_at_upper_bound Used to return expected payments created before some datetime
-      #
-      #   @option params [Symbol, ModernTreasury::Models::TransactionDirection] :direction One of credit, debit
-      #
-      #   @option params [String] :internal_account_id Specify internal_account_id to see expected_payments for a specific account.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status] :status One of unreconciled, reconciled, or archived.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type] :type One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
-      #     sepa, signet, wire
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param counterparty_id [String]
+      # @param created_at_lower_bound [Time]
+      # @param created_at_upper_bound [Time]
+      # @param direction [Symbol, ModernTreasury::Models::TransactionDirection]
+      # @param internal_account_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param per_page [Integer]
+      # @param status [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status]
+      # @param type [Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::ExpectedPayment>]
       #
@@ -210,11 +132,10 @@ module ModernTreasury
 
       # delete expected payment
       #
-      # @param id [String] id
+      # @overload delete(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::ExpectedPaymentDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::ExpectedPayment]
       #
