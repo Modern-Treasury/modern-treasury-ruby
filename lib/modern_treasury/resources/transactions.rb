@@ -8,37 +8,19 @@ module ModernTreasury
 
       # create transaction
       #
-      # @param params [ModernTreasury::Models::TransactionCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(amount:, as_of_date:, direction:, internal_account_id:, vendor_code:, vendor_code_type:, metadata: nil, posted: nil, type: nil, vendor_description: nil, request_options: {})
       #
-      #   @option params [Integer] :amount Value in specified currency's smallest unit. e.g. $10 would be represented
-      #     as 1000.
-      #
-      #   @option params [Date, nil] :as_of_date The date on which the transaction occurred.
-      #
-      #   @option params [String] :direction Either `credit` or `debit`.
-      #
-      #   @option params [String] :internal_account_id The ID of the relevant Internal Account.
-      #
-      #   @option params [String, nil] :vendor_code When applicable, the bank-given code that determines the transaction's category.
-      #     For most banks this is the BAI2/BTRS transaction code.
-      #
-      #   @option params [String, nil] :vendor_code_type The type of `vendor_code` being reported. Can be one of `bai2`, `bankprov`,
-      #     `bnk_dev`, `cleartouch`, `currencycloud`, `cross_river`, `dc_bank`, `dwolla`,
-      #     `evolve`, `goldman_sachs`, `iso20022`, `jpmc`, `mx`, `signet`, `silvergate`,
-      #     `swift`, `us_bank`, or others.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data represented as key-value pairs. Both the key and value must be
-      #     strings.
-      #
-      #   @option params [Boolean] :posted This field will be `true` if the transaction has posted to the account.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil] :type The type of the transaction. Examples could be
-      #     `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
-      #
-      #   @option params [String, nil] :vendor_description The transaction detail text that often appears in on your bank statement and in
-      #     your banking portal.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param amount [Integer]
+      # @param as_of_date [Date, nil]
+      # @param direction [String]
+      # @param internal_account_id [String]
+      # @param vendor_code [String, nil]
+      # @param vendor_code_type [String, nil]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param posted [Boolean]
+      # @param type [Symbol, ModernTreasury::Models::TransactionCreateParams::Type, nil]
+      # @param vendor_description [String, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Transaction]
       #
@@ -56,11 +38,10 @@ module ModernTreasury
 
       # Get details on a single transaction.
       #
-      # @param id [String] Transaction ID
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::TransactionRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Transaction]
       #
@@ -76,14 +57,11 @@ module ModernTreasury
 
       # Update a single transaction.
       #
-      # @param id [String] Transaction ID
+      # @overload update(id, metadata: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::TransactionUpdateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata Additional data in the form of key-value pairs. Pairs can be removed by passing
-      #     an empty string or `null` as the value.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::Transaction]
       #
@@ -101,43 +79,23 @@ module ModernTreasury
 
       # Get a list of all transactions.
       #
-      # @param params [ModernTreasury::Models::TransactionListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, as_of_date_end: nil, as_of_date_start: nil, counterparty_id: nil, description: nil, direction: nil, internal_account_id: nil, metadata: nil, payment_type: nil, per_page: nil, posted: nil, transactable_type: nil, vendor_id: nil, virtual_account_id: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [Date] :as_of_date_end Filters transactions with an `as_of_date` starting on or before the specified
-      #     date (YYYY-MM-DD).
-      #
-      #   @option params [Date] :as_of_date_start Filters transactions with an `as_of_date` starting on or after the specified
-      #     date (YYYY-MM-DD).
-      #
-      #   @option params [String] :counterparty_id
-      #
-      #   @option params [String] :description Filters for transactions including the queried string in the description.
-      #
-      #   @option params [String] :direction
-      #
-      #   @option params [String] :internal_account_id Specify `internal_account_id` if you wish to see transactions to/from a specific
-      #     account.
-      #
-      #   @option params [Hash{Symbol=>String}] :metadata For example, if you want to query for records with metadata key `Type` and value
-      #     `Loan`, the query would be `metadata%5BType%5D=Loan`. This encodes the query
-      #     parameters.
-      #
-      #   @option params [String] :payment_type
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [Boolean] :posted Either `true` or `false`.
-      #
-      #   @option params [String] :transactable_type
-      #
-      #   @option params [String] :vendor_id Filters for transactions including the queried vendor id (an identifier given to
-      #     transactions by the bank).
-      #
-      #   @option params [String] :virtual_account_id
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param as_of_date_end [Date]
+      # @param as_of_date_start [Date]
+      # @param counterparty_id [String]
+      # @param description [String]
+      # @param direction [String]
+      # @param internal_account_id [String]
+      # @param metadata [Hash{Symbol=>String}]
+      # @param payment_type [String]
+      # @param per_page [Integer]
+      # @param posted [Boolean]
+      # @param transactable_type [String]
+      # @param vendor_id [String]
+      # @param virtual_account_id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::Transaction>]
       #
@@ -156,11 +114,10 @@ module ModernTreasury
 
       # delete transaction
       #
-      # @param id [String] Transaction ID
+      # @overload delete(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::TransactionDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]
       #

@@ -5,18 +5,13 @@ module ModernTreasury
     class AccountDetails
       # Create an account detail for an external account.
       #
-      # @param account_id [String] Path param: The ID of the account.
+      # @overload create(account_id, accounts_type:, account_number:, account_number_type: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::AccountDetailCreateParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType] :accounts_type Path param:
-      #
-      #   @option params [String] :account_number Body param: The account number for the bank account.
-      #
-      #   @option params [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType] :account_number_type Body param: One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if
-      #     the bank account number is in a generic format.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param account_id [String]
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType]
+      # @param account_number [String]
+      # @param account_number_type [Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountDetail]
       #
@@ -38,15 +33,12 @@ module ModernTreasury
 
       # Get a single account detail for a single internal or external account.
       #
-      # @param id [String] The ID of the account detail.
+      # @overload retrieve(id, accounts_type:, account_id:, request_options: {})
       #
-      # @param params [ModernTreasury::Models::AccountDetailRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::AccountsType] :accounts_type
-      #
-      #   @option params [String] :account_id The ID of the account.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
+      # @param account_id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::AccountDetail]
       #
@@ -71,17 +63,13 @@ module ModernTreasury
 
       # Get a list of account details for a single internal or external account.
       #
-      # @param account_id [String] Path param: The ID of the account.
+      # @overload list(account_id, accounts_type:, after_cursor: nil, per_page: nil, request_options: {})
       #
-      # @param params [ModernTreasury::Models::AccountDetailListParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::AccountsType] :accounts_type Path param:
-      #
-      #   @option params [String, nil] :after_cursor Query param:
-      #
-      #   @option params [Integer] :per_page Query param:
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param account_id [String]
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountsType]
+      # @param after_cursor [String, nil]
+      # @param per_page [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::AccountDetail>]
       #
@@ -104,15 +92,12 @@ module ModernTreasury
 
       # Delete a single account detail for an external account.
       #
-      # @param id [String] The ID of the account detail.
+      # @overload delete(id, accounts_type:, account_id:, request_options: {})
       #
-      # @param params [ModernTreasury::Models::AccountDetailDeleteParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType] :accounts_type
-      #
-      #   @option params [String] :account_id The ID of the account.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param accounts_type [Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType]
+      # @param account_id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [nil]
       #

@@ -5,22 +5,15 @@ module ModernTreasury
     class LegalEntityAssociations
       # create legal_entity_association
       #
-      # @param params [ModernTreasury::Models::LegalEntityAssociationCreateParams, Hash{Symbol=>Object}] .
+      # @overload create(parent_legal_entity_id:, relationship_types:, child_legal_entity: nil, child_legal_entity_id: nil, ownership_percentage: nil, title: nil, request_options: {})
       #
-      #   @option params [String] :parent_legal_entity_id The ID of the parent legal entity. This must be a business or joint legal
-      #     entity.
-      #
-      #   @option params [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>] :relationship_types
-      #
-      #   @option params [ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity] :child_legal_entity The child legal entity.
-      #
-      #   @option params [String] :child_legal_entity_id The ID of the child legal entity.
-      #
-      #   @option params [Integer, nil] :ownership_percentage The child entity's ownership percentage iff they are a beneficial owner.
-      #
-      #   @option params [String, nil] :title The job title of the child entity at the parent entity.
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param parent_legal_entity_id [String]
+      # @param relationship_types [Array<Symbol, ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType>]
+      # @param child_legal_entity [ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity]
+      # @param child_legal_entity_id [String]
+      # @param ownership_percentage [Integer, nil]
+      # @param title [String, nil]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::LegalEntityAssociation]
       #

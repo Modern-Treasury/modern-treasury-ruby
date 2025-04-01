@@ -6,16 +6,12 @@ module ModernTreasury
       class LineItems
         # create transaction line items
         #
-        # @param params [ModernTreasury::Models::Transactions::LineItemCreateParams, Hash{Symbol=>Object}] .
+        # @overload create(amount:, expected_payment_id:, transaction_id:, request_options: {})
         #
-        #   @option params [Integer] :amount If a matching object exists in Modern Treasury, `amount` will be populated.
-        #     Value in specified currency's smallest unit (taken from parent Transaction).
-        #
-        #   @option params [String] :expected_payment_id The ID of the reconciled Expected Payment, otherwise `null`.
-        #
-        #   @option params [String] :transaction_id The ID of the parent transaction.
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param amount [Integer]
+        # @param expected_payment_id [String]
+        # @param transaction_id [String]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
@@ -33,11 +29,10 @@ module ModernTreasury
 
         # get transaction line item
         #
-        # @param id [String] id
+        # @overload retrieve(id, request_options: {})
         #
-        # @param params [ModernTreasury::Models::Transactions::LineItemRetrieveParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param id [String]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Models::Transactions::TransactionLineItem]
         #
@@ -53,19 +48,14 @@ module ModernTreasury
 
         # list transaction_line_items
         #
-        # @param params [ModernTreasury::Models::Transactions::LineItemListParams, Hash{Symbol=>Object}] .
+        # @overload list(id: nil, after_cursor: nil, per_page: nil, transaction_id: nil, type: nil, request_options: {})
         #
-        #   @option params [Hash{Symbol=>String}] :id
-        #
-        #   @option params [String, nil] :after_cursor
-        #
-        #   @option params [Integer] :per_page
-        #
-        #   @option params [String] :transaction_id
-        #
-        #   @option params [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil] :type
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param id [Hash{Symbol=>String}]
+        # @param after_cursor [String, nil]
+        # @param per_page [Integer]
+        # @param transaction_id [String]
+        # @param type [Symbol, ModernTreasury::Models::Transactions::LineItemListParams::Type, nil]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [ModernTreasury::Page<ModernTreasury::Models::Transactions::TransactionLineItem>]
         #
@@ -84,11 +74,10 @@ module ModernTreasury
 
         # delete transaction line item
         #
-        # @param id [String] id
+        # @overload delete(id, request_options: {})
         #
-        # @param params [ModernTreasury::Models::Transactions::LineItemDeleteParams, Hash{Symbol=>Object}] .
-        #
-        #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+        # @param id [String]
+        # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [nil]
         #

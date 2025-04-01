@@ -5,11 +5,10 @@ module ModernTreasury
     class PaperItems
       # Get details on a single paper item.
       #
-      # @param id [String] id
+      # @overload retrieve(id, request_options: {})
       #
-      # @param params [ModernTreasury::Models::PaperItemRetrieveParams, Hash{Symbol=>Object}] .
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param id [String]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Models::PaperItem]
       #
@@ -25,20 +24,14 @@ module ModernTreasury
 
       # Get a list of all paper items.
       #
-      # @param params [ModernTreasury::Models::PaperItemListParams, Hash{Symbol=>Object}] .
+      # @overload list(after_cursor: nil, deposit_date_end: nil, deposit_date_start: nil, lockbox_number: nil, per_page: nil, request_options: {})
       #
-      #   @option params [String, nil] :after_cursor
-      #
-      #   @option params [Date] :deposit_date_end Specify an inclusive end date (YYYY-MM-DD) when filtering by deposit_date
-      #
-      #   @option params [Date] :deposit_date_start Specify an inclusive start date (YYYY-MM-DD) when filtering by deposit_date
-      #
-      #   @option params [String] :lockbox_number Specify `lockbox_number` if you wish to see paper items that are associated with
-      #     a specific lockbox number.
-      #
-      #   @option params [Integer] :per_page
-      #
-      #   @option params [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil] :request_options
+      # @param after_cursor [String, nil]
+      # @param deposit_date_end [Date]
+      # @param deposit_date_start [Date]
+      # @param lockbox_number [String]
+      # @param per_page [Integer]
+      # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [ModernTreasury::Page<ModernTreasury::Models::PaperItem>]
       #
