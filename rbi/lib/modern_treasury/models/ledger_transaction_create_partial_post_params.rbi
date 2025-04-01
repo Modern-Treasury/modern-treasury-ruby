@@ -51,7 +51,13 @@ module ModernTreasury
         )
           .returns(T.attached_class)
       end
-      def self.new(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {})
+      def self.new(
+        posted_ledger_entries:,
+        description: nil,
+        effective_at: nil,
+        metadata: nil,
+        request_options: {}
+      )
       end
 
       sig do
