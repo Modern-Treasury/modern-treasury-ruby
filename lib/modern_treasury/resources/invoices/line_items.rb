@@ -38,7 +38,7 @@ module ModernTreasury
           parsed, options = ModernTreasury::Models::Invoices::LineItemCreateParams.dump_request(params)
           @client.request(
             method: :post,
-            path: ["api/invoices/%0s/invoice_line_items", invoice_id],
+            path: ["api/invoices/%1$s/invoice_line_items", invoice_id],
             body: parsed,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
@@ -64,7 +64,7 @@ module ModernTreasury
             end
           @client.request(
             method: :get,
-            path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
+            path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
           )
@@ -110,7 +110,7 @@ module ModernTreasury
             end
           @client.request(
             method: :patch,
-            path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
+            path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
             body: parsed,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
@@ -134,7 +134,7 @@ module ModernTreasury
           parsed, options = ModernTreasury::Models::Invoices::LineItemListParams.dump_request(params)
           @client.request(
             method: :get,
-            path: ["api/invoices/%0s/invoice_line_items", invoice_id],
+            path: ["api/invoices/%1$s/invoice_line_items", invoice_id],
             query: parsed,
             page: ModernTreasury::Page,
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
@@ -161,7 +161,7 @@ module ModernTreasury
             end
           @client.request(
             method: :delete,
-            path: ["api/invoices/%0s/invoice_line_items/%1s", invoice_id, id],
+            path: ["api/invoices/%1$s/invoice_line_items/%2$s", invoice_id, id],
             model: ModernTreasury::Models::Invoices::InvoiceLineItem,
             options: options
           )

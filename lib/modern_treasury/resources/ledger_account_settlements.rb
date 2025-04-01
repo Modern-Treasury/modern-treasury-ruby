@@ -61,7 +61,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/ledger_account_settlements/%0s", id],
+          path: ["api/ledger_account_settlements/%1$s", id],
           model: ModernTreasury::Models::LedgerAccountSettlement,
           options: params[:request_options]
         )
@@ -88,7 +88,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::LedgerAccountSettlementUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/ledger_account_settlements/%0s", id],
+          path: ["api/ledger_account_settlements/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountSettlement,
           options: options

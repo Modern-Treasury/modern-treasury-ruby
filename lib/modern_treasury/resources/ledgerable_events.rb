@@ -42,7 +42,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/ledgerable_events/%0s", id],
+          path: ["api/ledgerable_events/%1$s", id],
           model: ModernTreasury::Models::LedgerableEvent,
           options: params[:request_options]
         )

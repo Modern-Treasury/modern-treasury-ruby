@@ -56,7 +56,7 @@ module ModernTreasury
       def retrieve(id, params = {})
         @client.request(
           method: :get,
-          path: ["api/internal_accounts/%0s", id],
+          path: ["api/internal_accounts/%1$s", id],
           model: ModernTreasury::Models::InternalAccount,
           options: params[:request_options]
         )
@@ -86,7 +86,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::InternalAccountUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/internal_accounts/%0s", id],
+          path: ["api/internal_accounts/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::InternalAccount,
           options: options

@@ -21,7 +21,7 @@ module ModernTreasury
             ModernTreasury::Models::LedgerAccountSettlements::AccountEntryUpdateParams.dump_request(params)
           @client.request(
             method: :patch,
-            path: ["api/ledger_account_settlements/%0s/ledger_entries", id],
+            path: ["api/ledger_account_settlements/%1$s/ledger_entries", id],
             body: parsed,
             model: NilClass,
             options: options
@@ -45,7 +45,7 @@ module ModernTreasury
             ModernTreasury::Models::LedgerAccountSettlements::AccountEntryDeleteParams.dump_request(params)
           @client.request(
             method: :delete,
-            path: ["api/ledger_account_settlements/%0s/ledger_entries", id],
+            path: ["api/ledger_account_settlements/%1$s/ledger_entries", id],
             body: parsed,
             model: NilClass,
             options: options

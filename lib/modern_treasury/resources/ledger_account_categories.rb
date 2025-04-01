@@ -56,7 +56,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryRetrieveParams.dump_request(params)
         @client.request(
           method: :get,
-          path: ["api/ledger_account_categories/%0s", id],
+          path: ["api/ledger_account_categories/%1$s", id],
           query: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory,
           options: options
@@ -83,7 +83,7 @@ module ModernTreasury
         parsed, options = ModernTreasury::Models::LedgerAccountCategoryUpdateParams.dump_request(params)
         @client.request(
           method: :patch,
-          path: ["api/ledger_account_categories/%0s", id],
+          path: ["api/ledger_account_categories/%1$s", id],
           body: parsed,
           model: ModernTreasury::Models::LedgerAccountCategory,
           options: options
@@ -147,7 +147,7 @@ module ModernTreasury
       def delete(id, params = {})
         @client.request(
           method: :delete,
-          path: ["api/ledger_account_categories/%0s", id],
+          path: ["api/ledger_account_categories/%1$s", id],
           model: ModernTreasury::Models::LedgerAccountCategory,
           options: params[:request_options]
         )
@@ -173,7 +173,7 @@ module ModernTreasury
           end
         @client.request(
           method: :put,
-          path: ["api/ledger_account_categories/%0s/ledger_accounts/%1s", id, ledger_account_id],
+          path: ["api/ledger_account_categories/%1$s/ledger_accounts/%2$s", id, ledger_account_id],
           model: NilClass,
           options: options
         )
@@ -199,7 +199,7 @@ module ModernTreasury
           end
         @client.request(
           method: :put,
-          path: ["api/ledger_account_categories/%0s/ledger_account_categories/%1s", id, sub_category_id],
+          path: ["api/ledger_account_categories/%1$s/ledger_account_categories/%2$s", id, sub_category_id],
           model: NilClass,
           options: options
         )
@@ -225,7 +225,7 @@ module ModernTreasury
           end
         @client.request(
           method: :delete,
-          path: ["api/ledger_account_categories/%0s/ledger_accounts/%1s", id, ledger_account_id],
+          path: ["api/ledger_account_categories/%1$s/ledger_accounts/%2$s", id, ledger_account_id],
           model: NilClass,
           options: options
         )
@@ -251,7 +251,7 @@ module ModernTreasury
           end
         @client.request(
           method: :delete,
-          path: ["api/ledger_account_categories/%0s/ledger_account_categories/%1s", id, sub_category_id],
+          path: ["api/ledger_account_categories/%1$s/ledger_account_categories/%2$s", id, sub_category_id],
           model: NilClass,
           options: options
         )
