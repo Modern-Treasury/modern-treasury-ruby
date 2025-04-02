@@ -153,7 +153,7 @@ module ModernTreasury
             end
           end
         rescue Timeout::Error
-          raise ModernTreasury::APITimeoutError
+          raise ModernTreasury::Errors::APITimeoutError
         end
 
         conn, _, response = enum.next
