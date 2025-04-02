@@ -82,7 +82,7 @@ module ModernTreasury
         # @api private
         sig do
           params(
-            status: T.any(Integer, ModernTreasury::APIConnectionError),
+            status: T.any(Integer, ModernTreasury::Errors::APIConnectionError),
             stream: T.nilable(T::Enumerable[String])
           )
             .void

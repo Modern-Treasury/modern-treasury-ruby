@@ -29,7 +29,7 @@ module ModernTreasury
       # @return [Boolean]
       def next_page? = (raise NotImplementedError)
 
-      # @raise [ModernTreasury::APIError]
+      # @raise [ModernTreasury::Errors::APIError]
       # @return [ModernTreasury::Type::BasePage]
       def next_page = (raise NotImplementedError)
 
