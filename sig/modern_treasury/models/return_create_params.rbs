@@ -111,18 +111,18 @@ module ModernTreasury
       module Code
         extend ModernTreasury::Enum
 
-        NUMBER_901: :"901"
-        NUMBER_902: :"902"
-        NUMBER_903: :"903"
-        NUMBER_904: :"904"
-        NUMBER_905: :"905"
-        NUMBER_907: :"907"
-        NUMBER_908: :"908"
-        NUMBER_909: :"909"
-        NUMBER_910: :"910"
-        NUMBER_911: :"911"
-        NUMBER_912: :"912"
-        NUMBER_914: :"914"
+        CODE_901: :"901"
+        CODE_902: :"902"
+        CODE_903: :"903"
+        CODE_904: :"904"
+        CODE_905: :"905"
+        CODE_907: :"907"
+        CODE_908: :"908"
+        CODE_909: :"909"
+        CODE_910: :"910"
+        CODE_911: :"911"
+        CODE_912: :"912"
+        CODE_914: :"914"
         C01: :C01
         C02: :C02
         C03: :C03
