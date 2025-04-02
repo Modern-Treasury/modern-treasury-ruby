@@ -249,7 +249,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "/redirected"}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::APIConnectionError) do
+    assert_raises(ModernTreasury::Errors::APIConnectionError) do
       modern_treasury.counterparties.create(name: "name", request_options: {extra_headers: {}})
     end
 
@@ -272,7 +272,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(303, {"location" => "/redirected"}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::APIConnectionError) do
+    assert_raises(ModernTreasury::Errors::APIConnectionError) do
       modern_treasury.counterparties.create(name: "name", request_options: {extra_headers: {}})
     end
 
@@ -292,7 +292,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "/redirected"}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::APIConnectionError) do
+    assert_raises(ModernTreasury::Errors::APIConnectionError) do
       modern_treasury.counterparties.create(
         name: "name",
         request_options: {extra_headers: {"Authorization" => "Bearer xyz"}}
@@ -315,7 +315,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(307, {"location" => "https://example.com/redirected"}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::APIConnectionError) do
+    assert_raises(ModernTreasury::Errors::APIConnectionError) do
       modern_treasury.counterparties.create(
         name: "name",
         request_options: {extra_headers: {"Authorization" => "Bearer xyz"}}
