@@ -47,7 +47,7 @@ module ModernTreasury
       ) -> ModernTreasury::Transport::BaseClient::request_input
 
       def self.reap_connection!: (
-        Integer | ModernTreasury::APIConnectionError status,
+        Integer | ModernTreasury::Errors::APIConnectionError status,
         stream: Enumerable[String]?
       ) -> void
 
