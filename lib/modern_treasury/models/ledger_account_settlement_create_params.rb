@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountSettlements#create
-    class LedgerAccountSettlementCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountSettlementCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -28,7 +28,7 @@ module ModernTreasury
       #     negative.
       #
       #   @return [Boolean, nil]
-      optional :allow_either_direction, ModernTreasury::BooleanModel, nil?: true
+      optional :allow_either_direction, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute description
       #   The description of the ledger account settlement.
@@ -49,7 +49,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -60,7 +60,7 @@ module ModernTreasury
       #     existing settlements.
       #
       #   @return [Boolean, nil]
-      optional :skip_settlement_ledger_transaction, ModernTreasury::BooleanModel, nil?: true
+      optional :skip_settlement_ledger_transaction, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute status
       #   The status of the ledger account settlement. It is set to `pending` by default.
@@ -97,12 +97,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The status of the ledger account settlement. It is set to `pending` by default.
       #   To post a ledger account settlement at creation, use `posted`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING = :pending
         POSTED = :posted

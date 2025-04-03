@@ -3,7 +3,7 @@ module ModernTreasury
     type external_account_delete_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class ExternalAccountDeleteParams < ModernTreasury::BaseModel
+    class ExternalAccountDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

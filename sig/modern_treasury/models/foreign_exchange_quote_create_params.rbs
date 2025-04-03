@@ -11,7 +11,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class ForeignExchangeQuoteCreateParams < ModernTreasury::BaseModel
+    class ForeignExchangeQuoteCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

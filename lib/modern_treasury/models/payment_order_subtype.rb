@@ -7,7 +7,7 @@ module ModernTreasury
     #   payment orders, the `subtype` represents the SEC code. We currently support
     #   `CCD`, `PPD`, `IAT`, `CTX`, `WEB`, `CIE`, and `TEL`.
     module PaymentOrderSubtype
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       BACS_NEW_INSTRUCTION = :"0C"
       BACS_CANCELLATION_INSTRUCTION = :"0N"

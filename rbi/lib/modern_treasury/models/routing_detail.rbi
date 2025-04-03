@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class RoutingDetail < ModernTreasury::BaseModel
+    class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -11,9 +11,7 @@ module ModernTreasury
 
       sig do
         params(
-          bank_address: T.nilable(
-            T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Internal::Util::AnyHash)
-          )
+          bank_address: T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -58,9 +56,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          bank_address: T.nilable(
-            T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Internal::Util::AnyHash)
-          ),
+          bank_address: T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Internal::AnyHash)),
           bank_name: String,
           created_at: Time,
           discarded_at: T.nilable(Time),
@@ -109,7 +105,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class BankAddress < ModernTreasury::BaseModel
+      class BankAddress < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -205,7 +201,7 @@ module ModernTreasury
       # If the routing detail is to be used for a specific payment type this field will
       #   be populated, otherwise null.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetail::PaymentType) }
         OrSymbol =
@@ -251,7 +247,7 @@ module ModernTreasury
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details.
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingDetail::RoutingNumberType) }
         OrSymbol =

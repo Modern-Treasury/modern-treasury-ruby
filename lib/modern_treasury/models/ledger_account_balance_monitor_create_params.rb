@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountBalanceMonitors#create
-    class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -36,7 +36,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -51,9 +51,9 @@ module ModernTreasury
       #   #
       #   def initialize(alert_condition:, ledger_account_id:, description: nil, metadata: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class AlertCondition < ModernTreasury::BaseModel
+      class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   One of `available_balance_amount`, `pending_balance_amount`,
         #     `posted_balance_amount`, `ledger_account_lock_version`.
@@ -86,7 +86,7 @@ module ModernTreasury
         #   #
         #   def initialize(field:, operator:, value:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ExpectedPayments#update
-    class ExpectedPaymentUpdateParams < ModernTreasury::BaseModel
+    class ExpectedPaymentUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -72,7 +72,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -82,20 +82,20 @@ module ModernTreasury
       #   The reconciliation filters you have for this payment.
       #
       #   @return [Object, nil]
-      optional :reconciliation_filters, ModernTreasury::Unknown, nil?: true
+      optional :reconciliation_filters, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute reconciliation_groups
       #   The reconciliation groups you have for this payment.
       #
       #   @return [Object, nil]
-      optional :reconciliation_groups, ModernTreasury::Unknown, nil?: true
+      optional :reconciliation_groups, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute reconciliation_rule_variables
       #   An array of reconciliation rule variables for this payment.
       #
       #   @return [Array<ModernTreasury::Models::ReconciliationRule>, nil]
       optional :reconciliation_rule_variables,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ReconciliationRule] },
                nil?: true
 
       # @!attribute remittance_information
@@ -173,12 +173,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
@@ -193,7 +193,7 @@ module ModernTreasury
       # The Expected Payment's status can be updated from partially_reconciled to
       #   reconciled.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         RECONCILED = :reconciled
 

@@ -10,7 +10,7 @@ module ModernTreasury
           relationship_types: T::Array[ModernTreasury::Models::LegalEntityAssociationCreateParams::RelationshipType::OrSymbol],
           child_legal_entity: T.any(
             ModernTreasury::Models::LegalEntityAssociationCreateParams::ChildLegalEntity,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           child_legal_entity_id: String,
           ownership_percentage: T.nilable(Integer),
@@ -18,7 +18,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )

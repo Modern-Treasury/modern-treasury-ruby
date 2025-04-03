@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class BulkResultListParams < ModernTreasury::BaseModel
+    class BulkResultListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -62,7 +62,7 @@ module ModernTreasury
           request_id: String,
           request_type: ModernTreasury::Models::BulkResultListParams::RequestType::OrSymbol,
           status: ModernTreasury::Models::BulkResultListParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -99,7 +99,7 @@ module ModernTreasury
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       module EntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::EntityType) }
         OrSymbol =
@@ -125,7 +125,7 @@ module ModernTreasury
       # The type of the request that created this result. bulk_request is the only
       #   supported `request_type`
       module RequestType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::RequestType) }
         OrSymbol =
@@ -141,7 +141,7 @@ module ModernTreasury
 
       # One of successful or failed.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::BulkResultListParams::Status) }
         OrSymbol =

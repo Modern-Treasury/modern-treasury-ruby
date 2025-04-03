@@ -3,7 +3,7 @@ module ModernTreasury
     type transaction_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class TransactionRetrieveParams < ModernTreasury::BaseModel
+    class TransactionRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

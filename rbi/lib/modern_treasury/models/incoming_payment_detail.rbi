@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class IncomingPaymentDetail < ModernTreasury::BaseModel
+    class IncomingPaymentDetail < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -110,7 +110,7 @@ module ModernTreasury
 
       sig do
         params(
-          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Internal::Util::AnyHash))
+          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -149,7 +149,7 @@ module ModernTreasury
           type: ModernTreasury::Models::IncomingPaymentDetail::Type::OrSymbol,
           updated_at: Time,
           vendor_id: T.nilable(String),
-          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Internal::Util::AnyHash)),
+          virtual_account: T.nilable(T.any(ModernTreasury::Models::VirtualAccount, ModernTreasury::Internal::AnyHash)),
           virtual_account_id: T.nilable(String),
           originating_account_number: T.nilable(String)
         )
@@ -221,7 +221,7 @@ module ModernTreasury
 
       # The type of the originating account number for the incoming payment detail.
       module OriginatingAccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingAccountNumberType) }
@@ -285,7 +285,7 @@ module ModernTreasury
 
       # The type of the originating routing number for the incoming payment detail.
       module OriginatingRoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetail::OriginatingRoutingNumberType) }
@@ -396,7 +396,7 @@ module ModernTreasury
       # The current status of the incoming payment order. One of `pending`, `completed`,
       #   or `returned`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetail::Status) }
         OrSymbol =
@@ -414,7 +414,7 @@ module ModernTreasury
       # One of: `ach`, `book`, `check`, `eft`, `interac`, `rtp`, `sepa`, `signet`, or
       #   `wire`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetail::Type) }
         OrSymbol =

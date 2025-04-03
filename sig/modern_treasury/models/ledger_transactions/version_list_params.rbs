@@ -12,7 +12,7 @@ module ModernTreasury
         }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class VersionListParams < ModernTreasury::BaseModel
+      class VersionListParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 

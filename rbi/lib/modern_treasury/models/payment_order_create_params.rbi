@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentOrderCreateParams < ModernTreasury::BaseModel
+    class PaymentOrderCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -33,10 +33,7 @@ module ModernTreasury
 
       sig do
         params(
-          accounting: T.any(
-            ModernTreasury::Models::PaymentOrderCreateParams::Accounting,
-            ModernTreasury::Internal::Util::AnyHash
-          )
+          accounting: T.any(ModernTreasury::Models::PaymentOrderCreateParams::Accounting, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -76,7 +73,7 @@ module ModernTreasury
 
       sig do
         params(
-          documents: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateParams::Document, ModernTreasury::Internal::Util::AnyHash)]
+          documents: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateParams::Document, ModernTreasury::Internal::AnyHash)]
         )
           .void
       end
@@ -126,7 +123,7 @@ module ModernTreasury
         params(
           ledger_transaction: T.any(
             ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -149,7 +146,7 @@ module ModernTreasury
 
       sig do
         params(
-          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateParams::LineItem, ModernTreasury::Internal::Util::AnyHash)]
+          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateParams::LineItem, ModernTreasury::Internal::AnyHash)]
         )
           .void
       end
@@ -211,7 +208,7 @@ module ModernTreasury
         params(
           receiving_account: T.any(
             ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -284,16 +281,13 @@ module ModernTreasury
           direction: ModernTreasury::Models::PaymentOrderCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           type: ModernTreasury::Models::PaymentOrderType::OrSymbol,
-          accounting: T.any(
-            ModernTreasury::Models::PaymentOrderCreateParams::Accounting,
-            ModernTreasury::Internal::Util::AnyHash
-          ),
+          accounting: T.any(ModernTreasury::Models::PaymentOrderCreateParams::Accounting, ModernTreasury::Internal::AnyHash),
           accounting_category_id: T.nilable(String),
           accounting_ledger_class_id: T.nilable(String),
           charge_bearer: T.nilable(ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer::OrSymbol),
           currency: ModernTreasury::Models::Currency::OrSymbol,
           description: T.nilable(String),
-          documents: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateParams::Document, ModernTreasury::Internal::Util::AnyHash)],
+          documents: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateParams::Document, ModernTreasury::Internal::AnyHash)],
           effective_date: Date,
           expires_at: T.nilable(Time),
           fallback_type: ModernTreasury::Models::PaymentOrderCreateParams::FallbackType::OrSymbol,
@@ -301,10 +295,10 @@ module ModernTreasury
           foreign_exchange_indicator: T.nilable(ModernTreasury::Models::PaymentOrderCreateParams::ForeignExchangeIndicator::OrSymbol),
           ledger_transaction: T.any(
             ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           ledger_transaction_id: String,
-          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateParams::LineItem, ModernTreasury::Internal::Util::AnyHash)],
+          line_items: T::Array[T.any(ModernTreasury::Models::PaymentOrderCreateParams::LineItem, ModernTreasury::Internal::AnyHash)],
           metadata: T::Hash[Symbol, String],
           nsf_protected: T::Boolean,
           originating_party_name: T.nilable(String),
@@ -313,7 +307,7 @@ module ModernTreasury
           purpose: T.nilable(String),
           receiving_account: T.any(
             ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           receiving_account_id: String,
           remittance_information: T.nilable(String),
@@ -325,7 +319,7 @@ module ModernTreasury
           ultimate_originating_party_name: T.nilable(String),
           ultimate_receiving_party_identifier: T.nilable(String),
           ultimate_receiving_party_name: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -422,7 +416,7 @@ module ModernTreasury
       #   `debit` pulls money from someone else's account to your own. Note that wire,
       #   rtp, and check payments will always be `credit`.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::Direction) }
@@ -437,7 +431,7 @@ module ModernTreasury
         end
       end
 
-      class Accounting < ModernTreasury::BaseModel
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
         # The ID of one of your accounting categories. Note that these will only be
         #   accessible if your accounting system has been connected.
         sig { returns(T.nilable(String)) }
@@ -462,7 +456,7 @@ module ModernTreasury
       #   payment orders. Can be one of shared, sender, or receiver, which correspond
       #   respectively with the SWIFT 71A values `SHA`, `OUR`, `BEN`.
       module ChargeBearer
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ChargeBearer) }
@@ -478,7 +472,7 @@ module ModernTreasury
         end
       end
 
-      class Document < ModernTreasury::BaseModel
+      class Document < ModernTreasury::Internal::Type::BaseModel
         # The unique identifier for the associated object.
         sig { returns(String) }
         attr_accessor :documentable_id
@@ -523,7 +517,7 @@ module ModernTreasury
         end
 
         module DocumentableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::Document::DocumentableType) }
@@ -609,7 +603,7 @@ module ModernTreasury
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (type=rtp and fallback_type=ach)
       module FallbackType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::FallbackType) }
@@ -627,7 +621,7 @@ module ModernTreasury
       #   `variable_to_fixed`, `fixed_to_variable`, or `null` if the payment order
       #   currency matches the originating account currency.
       module ForeignExchangeIndicator
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ForeignExchangeIndicator) }
@@ -661,7 +655,7 @@ module ModernTreasury
         end
       end
 
-      class LedgerTransaction < ModernTreasury::BaseModel
+      class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
         # An array of ledger entry objects.
         sig { returns(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry]) }
         attr_accessor :ledger_entries
@@ -745,7 +739,7 @@ module ModernTreasury
             ledger_entries: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerEntry,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
             description: T.nilable(String),
@@ -791,7 +785,7 @@ module ModernTreasury
         def to_hash
         end
 
-        class LedgerEntry < ModernTreasury::BaseModel
+        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # Value in specified currency's smallest unit. e.g. $10 would be represented
           #   as 1000. Can be any integer up to 36 digits.
           sig { returns(Integer) }
@@ -898,7 +892,7 @@ module ModernTreasury
         #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
         #   reversal.
         module LedgerableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::LedgerableType) }
@@ -954,7 +948,7 @@ module ModernTreasury
 
         # To post a ledger transaction at creation, use `posted`.
         module Status
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::LedgerTransaction::Status) }
@@ -988,7 +982,7 @@ module ModernTreasury
         end
       end
 
-      class LineItem < ModernTreasury::BaseModel
+      class LineItem < ModernTreasury::Internal::Type::BaseModel
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         #   as 1000.
         sig { returns(Integer) }
@@ -1042,7 +1036,7 @@ module ModernTreasury
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::Priority) }
         OrSymbol =
@@ -1056,7 +1050,7 @@ module ModernTreasury
         end
       end
 
-      class ReceivingAccount < ModernTreasury::BaseModel
+      class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
         sig do
           returns(
             T.nilable(T::Array[ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail])
@@ -1069,7 +1063,7 @@ module ModernTreasury
             account_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -1096,7 +1090,7 @@ module ModernTreasury
             contact_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -1116,7 +1110,7 @@ module ModernTreasury
           params(
             ledger_account: T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -1144,7 +1138,7 @@ module ModernTreasury
           params(
             party_address: T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyAddress,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -1192,7 +1186,7 @@ module ModernTreasury
             routing_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -1208,25 +1202,25 @@ module ModernTreasury
             account_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::AccountDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
             account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
             contact_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::ContactDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
             ledger_account: T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::LedgerAccount,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
             party_address: T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyAddress,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             party_identifier: String,
             party_name: String,
@@ -1235,7 +1229,7 @@ module ModernTreasury
             routing_details: T::Array[
             T.any(
               ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::RoutingDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -1279,7 +1273,7 @@ module ModernTreasury
         def to_hash
         end
 
-        class AccountDetail < ModernTreasury::BaseModel
+        class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :account_number
 
@@ -1323,7 +1317,7 @@ module ModernTreasury
           end
 
           module AccountNumberType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
@@ -1402,7 +1396,7 @@ module ModernTreasury
           end
         end
 
-        class ContactDetail < ModernTreasury::BaseModel
+        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(T.nilable(String)) }
           attr_reader :contact_identifier
 
@@ -1449,7 +1443,7 @@ module ModernTreasury
           end
 
           module ContactIdentifierType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
@@ -1493,7 +1487,7 @@ module ModernTreasury
           end
         end
 
-        class LedgerAccount < ModernTreasury::BaseModel
+        class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
           # The currency of the ledger account.
           sig { returns(String) }
           attr_accessor :currency
@@ -1620,7 +1614,7 @@ module ModernTreasury
           #   be populated here, otherwise null. The value is one of internal_account or
           #   external_account.
           module LedgerableType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
@@ -1669,7 +1663,7 @@ module ModernTreasury
           end
         end
 
-        class PartyAddress < ModernTreasury::BaseModel
+        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           # Country code conforms to [ISO 3166-1 alpha-2]
           sig { returns(T.nilable(String)) }
           attr_accessor :country
@@ -1726,7 +1720,7 @@ module ModernTreasury
 
         # Either `individual` or `business`.
         module PartyType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderCreateParams::ReceivingAccount::PartyType) }
@@ -1760,7 +1754,7 @@ module ModernTreasury
           end
         end
 
-        class RoutingDetail < ModernTreasury::BaseModel
+        class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :routing_number
 
@@ -1813,7 +1807,7 @@ module ModernTreasury
           end
 
           module RoutingNumberType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
@@ -1947,7 +1941,7 @@ module ModernTreasury
           end
 
           module PaymentType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do

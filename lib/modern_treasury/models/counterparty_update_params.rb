@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Counterparties#update
-    class CounterpartyUpdateParams < ModernTreasury::BaseModel
+    class CounterpartyUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -29,7 +29,7 @@ module ModernTreasury
       #     an empty string or `null` as the value.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -50,7 +50,7 @@ module ModernTreasury
       #     whenever an associated payment order is sent to the bank.
       #
       #   @return [Boolean, nil]
-      optional :send_remittance_advice, ModernTreasury::BooleanModel
+      optional :send_remittance_advice, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -88,7 +88,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class DocumentCreateParams < ModernTreasury::BaseModel
+    class DocumentCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -29,7 +29,7 @@ module ModernTreasury
           documentable_type: ModernTreasury::Models::DocumentCreateParams::DocumentableType::OrSymbol,
           file: T.any(IO, StringIO),
           document_type: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -52,7 +52,7 @@ module ModernTreasury
       end
 
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::DocumentCreateParams::DocumentableType) }

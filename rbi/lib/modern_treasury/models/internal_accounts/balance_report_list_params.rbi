@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module InternalAccounts
-      class BalanceReportListParams < ModernTreasury::BaseModel
+      class BalanceReportListParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
@@ -46,7 +46,7 @@ module ModernTreasury
             as_of_date: Date,
             balance_report_type: ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType::OrSymbol,
             per_page: Integer,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -77,7 +77,7 @@ module ModernTreasury
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::InternalAccounts::BalanceReportListParams::BalanceReportType) }

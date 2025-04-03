@@ -13,7 +13,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountCategoryCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

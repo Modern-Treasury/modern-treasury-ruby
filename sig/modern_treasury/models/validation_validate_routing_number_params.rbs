@@ -7,7 +7,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class ValidationValidateRoutingNumberParams < ModernTreasury::BaseModel
+    class ValidationValidateRoutingNumberParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -47,7 +47,7 @@ module ModernTreasury
         | :za_national_clearing_code
 
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA: :aba
         AU_BSB: :au_bsb

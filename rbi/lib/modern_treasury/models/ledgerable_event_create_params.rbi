@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerableEventCreateParams < ModernTreasury::BaseModel
+    class LedgerableEventCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -32,7 +32,7 @@ module ModernTreasury
           custom_data: T.nilable(T.anything),
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

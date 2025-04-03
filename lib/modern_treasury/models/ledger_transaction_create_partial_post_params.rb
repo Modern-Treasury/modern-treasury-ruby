@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerTransactions#create_partial_post
-    class LedgerTransactionCreatePartialPostParams < ModernTreasury::BaseModel
+    class LedgerTransactionCreatePartialPostParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -15,7 +15,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry>]
       required :posted_ledger_entries,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry] }
 
       # @!attribute [r] description
       #   An optional free-form description for the posted ledger transaction. Maximum of
@@ -44,7 +44,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -59,9 +59,9 @@ module ModernTreasury
       #   #
       #   def initialize(posted_ledger_entries:, description: nil, effective_at: nil, metadata: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class PostedLedgerEntry < ModernTreasury::BaseModel
+      class PostedLedgerEntry < ModernTreasury::Internal::Type::BaseModel
         # @!attribute amount
         #   Value in specified currency's smallest unit. e.g. $10 would be represented
         #     as 1000. Can be any integer up to 36 digits.
@@ -90,7 +90,7 @@ module ModernTreasury
         #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::HashOf[String]
+        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -104,7 +104,7 @@ module ModernTreasury
         #   #
         #   def initialize(amount:, direction:, ledger_account_id:, metadata: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # One of `credit`, `debit`. Describes the direction money is flowing in the
         #   transaction. A `credit` moves money from your account to someone else's. A
@@ -113,7 +113,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry#direction
         module Direction
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           CREDIT = :credit
           DEBIT = :debit

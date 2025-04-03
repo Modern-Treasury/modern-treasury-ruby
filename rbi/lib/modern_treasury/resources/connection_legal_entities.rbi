@@ -9,13 +9,13 @@ module ModernTreasury
           connection_id: String,
           legal_entity: T.any(
             ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           legal_entity_id: String,
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -39,7 +39,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -60,7 +60,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -86,7 +86,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )

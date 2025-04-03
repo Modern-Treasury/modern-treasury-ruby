@@ -15,7 +15,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountCategoryListParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -77,7 +77,7 @@ module ModernTreasury
 
       type balances = { effective_at: Time }
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         attr_reader effective_at: Time?
 
         def effective_at=: (Time) -> Time

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ReconciliationRule < ModernTreasury::BaseModel
+    class ReconciliationRule < ModernTreasury::Internal::Type::BaseModel
       # @!attribute amount_lower_bound
       #   The lowest amount this expected payment may be equal to. Value in specified
       #     currency's smallest unit. e.g. $10 would be represented as 1000.
@@ -50,7 +50,7 @@ module ModernTreasury
       #   A hash of custom identifiers for this payment
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :custom_identifiers, ModernTreasury::HashOf[String], nil?: true
+      optional :custom_identifiers, ModernTreasury::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute date_lower_bound
       #   The earliest date the payment may come in. Format is yyyy-mm-dd
@@ -99,14 +99,14 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of credit or debit. When you are receiving money, use credit. When you are
       #   being charged, use debit.
       #
       # @see ModernTreasury::Models::ReconciliationRule#direction
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
@@ -123,7 +123,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::ReconciliationRule#type
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs

@@ -10,7 +10,7 @@ module ModernTreasury
         supported_payment_types: ::Array[ModernTreasury::Models::RoutingNumberLookupRequest::supported_payment_type]
       }
 
-    class RoutingNumberLookupRequest < ModernTreasury::BaseModel
+    class RoutingNumberLookupRequest < ModernTreasury::Internal::Type::BaseModel
       attr_reader bank_address: ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress?
 
       def bank_address=: (
@@ -62,7 +62,7 @@ module ModernTreasury
           region: String?
         }
 
-      class BankAddress < ModernTreasury::BaseModel
+      class BankAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String?
 
         attr_accessor line1: String?
@@ -99,7 +99,7 @@ module ModernTreasury
         | :za_national_clearing_code
 
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA: :aba
         AU_BSB: :au_bsb
@@ -147,7 +147,7 @@ module ModernTreasury
         | :zengin
 
       module SupportedPaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         AU_BECS: :au_becs

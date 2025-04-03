@@ -25,15 +25,10 @@ module ModernTreasury
               ),
               body: T.nilable(T.anything),
               unwrap: T.nilable(Symbol),
-              page: T.nilable(T::Class[ModernTreasury::Internal::Type::BasePage[ModernTreasury::BaseModel]]),
+              page: T.nilable(T::Class[ModernTreasury::Internal::Type::BasePage[ModernTreasury::Internal::Type::BaseModel]]),
               stream: T.nilable(T::Class[T.anything]),
               model: T.nilable(ModernTreasury::Internal::Type::Converter::Input),
-              options: T.nilable(
-                T.any(
-                  ModernTreasury::RequestOptions,
-                  ModernTreasury::Internal::Util::AnyHash
-                )
-              )
+              options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
             }
           end
 
@@ -141,7 +136,7 @@ module ModernTreasury
           overridable
             .params(
               req: ModernTreasury::Internal::Transport::BaseClient::RequestComponentsShape,
-              opts: ModernTreasury::Internal::Util::AnyHash
+              opts: ModernTreasury::Internal::AnyHash
             )
             .returns(ModernTreasury::Internal::Transport::BaseClient::RequestInputShape)
         end
@@ -185,15 +180,10 @@ module ModernTreasury
             ),
             body: T.nilable(T.anything),
             unwrap: T.nilable(Symbol),
-            page: T.nilable(T::Class[ModernTreasury::Internal::Type::BasePage[ModernTreasury::BaseModel]]),
+            page: T.nilable(T::Class[ModernTreasury::Internal::Type::BasePage[ModernTreasury::Internal::Type::BaseModel]]),
             stream: T.nilable(T::Class[T.anything]),
             model: T.nilable(ModernTreasury::Internal::Type::Converter::Input),
-            options: T.nilable(
-              T.any(
-                ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
-              )
-            )
+            options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash))
           )
             .returns(T.anything)
         end
@@ -206,7 +196,7 @@ module ModernTreasury
           unwrap: nil,
           page: nil,
           stream: nil,
-          model: ModernTreasury::Unknown,
+          model: ModernTreasury::Internal::Type::Unknown,
           options: {}
         )
         end

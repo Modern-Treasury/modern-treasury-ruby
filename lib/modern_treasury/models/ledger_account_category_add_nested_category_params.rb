@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountCategories#add_nested_category
-    class LedgerAccountCategoryAddNestedCategoryParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryAddNestedCategoryParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -19,7 +19,7 @@ module ModernTreasury
       #   #
       #   def initialize(id:, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

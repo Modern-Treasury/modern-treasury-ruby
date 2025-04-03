@@ -13,16 +13,16 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     assert_pattern do
       response => {
         id: String,
-        accounts: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
         created_at: Time,
         discarded_at: Time | nil,
         email: String | nil,
         legal_entity_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String | nil,
         object: String,
-        send_remittance_advice: ModernTreasury::BooleanModel,
+        send_remittance_advice: ModernTreasury::Internal::Type::BooleanModel,
         updated_at: Time,
         verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
       }
@@ -39,16 +39,16 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     assert_pattern do
       response => {
         id: String,
-        accounts: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
         created_at: Time,
         discarded_at: Time | nil,
         email: String | nil,
         legal_entity_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String | nil,
         object: String,
-        send_remittance_advice: ModernTreasury::BooleanModel,
+        send_remittance_advice: ModernTreasury::Internal::Type::BooleanModel,
         updated_at: Time,
         verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
       }
@@ -65,16 +65,16 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     assert_pattern do
       response => {
         id: String,
-        accounts: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
         created_at: Time,
         discarded_at: Time | nil,
         email: String | nil,
         legal_entity_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String | nil,
         object: String,
-        send_remittance_advice: ModernTreasury::BooleanModel,
+        send_remittance_advice: ModernTreasury::Internal::Type::BooleanModel,
         updated_at: Time,
         verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
       }
@@ -98,16 +98,16 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
     assert_pattern do
       row => {
         id: String,
-        accounts: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
+        accounts: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Counterparty::Account]),
         created_at: Time,
         discarded_at: Time | nil,
         email: String | nil,
         legal_entity_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String | nil,
         object: String,
-        send_remittance_advice: ModernTreasury::BooleanModel,
+        send_remittance_advice: ModernTreasury::Internal::Type::BooleanModel,
         updated_at: Time,
         verification_status: ModernTreasury::Models::Counterparty::VerificationStatus
       }
@@ -133,7 +133,7 @@ class ModernTreasury::Test::Resources::CounterpartiesTest < ModernTreasury::Test
       response => {
         id: String,
         form_link: String,
-        is_resend: ModernTreasury::BooleanModel
+        is_resend: ModernTreasury::Internal::Type::BooleanModel
       }
     end
   end

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerEventHandler < ModernTreasury::BaseModel
+    class LedgerEventHandler < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -12,7 +12,7 @@ module ModernTreasury
       sig do
         params(
           conditions: T.nilable(
-            T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Internal::Util::AnyHash)
+            T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Internal::AnyHash)
           )
         )
           .void
@@ -40,7 +40,7 @@ module ModernTreasury
         params(
           ledger_transaction_template: T.any(
             ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -74,7 +74,7 @@ module ModernTreasury
         params(
           id: String,
           conditions: T.nilable(
-            T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Internal::Util::AnyHash)
+            T.any(ModernTreasury::Models::LedgerEventHandler::Conditions, ModernTreasury::Internal::AnyHash)
           ),
           created_at: Time,
           description: T.nilable(String),
@@ -82,7 +82,7 @@ module ModernTreasury
           ledger_id: T.nilable(String),
           ledger_transaction_template: T.any(
             ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           live_mode: T::Boolean,
           metadata: T.nilable(T::Hash[Symbol, String]),
@@ -90,7 +90,7 @@ module ModernTreasury
           object: String,
           updated_at: Time,
           variables: T.nilable(
-            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Internal::Util::AnyHash)]
+            T::Hash[Symbol, T.any(ModernTreasury::Models::LedgerEventHandlerVariable, ModernTreasury::Internal::AnyHash)]
           )
         )
           .returns(T.attached_class)
@@ -135,7 +135,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Conditions < ModernTreasury::BaseModel
+      class Conditions < ModernTreasury::Internal::Type::BaseModel
         # The LHS of the conditional.
         sig { returns(String) }
         attr_accessor :field
@@ -157,7 +157,7 @@ module ModernTreasury
         end
       end
 
-      class LedgerTransactionTemplate < ModernTreasury::BaseModel
+      class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
         # An optional description for internal use.
         sig { returns(T.nilable(String)) }
         attr_accessor :description
@@ -182,7 +182,7 @@ module ModernTreasury
             ledger_entries: T::Array[
             T.any(
               ModernTreasury::Models::LedgerEventHandler::LedgerTransactionTemplate::LedgerEntry,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
             status: T.nilable(String)
@@ -206,7 +206,7 @@ module ModernTreasury
         def to_hash
         end
 
-        class LedgerEntry < ModernTreasury::BaseModel
+        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # The LHS of the conditional.
           sig { returns(String) }
           attr_accessor :amount

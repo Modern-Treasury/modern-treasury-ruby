@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module LedgerTransactions
       # @see ModernTreasury::Resources::LedgerTransactions::Versions#list
-      class LedgerTransactionVersion < ModernTreasury::BaseModel
+      class LedgerTransactionVersion < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -47,7 +47,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry>]
         required :ledger_entries,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry] }
 
         # @!attribute ledger_id
         #   The ID of the ledger this ledger transaction belongs to.
@@ -83,14 +83,14 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute metadata
         #   Additional data represented as key-value pairs. Both the key and value must be
         #     strings.
         #
         #   @return [Hash{Symbol=>String}]
-        required :metadata, ModernTreasury::HashOf[String]
+        required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!attribute object
         #
@@ -184,9 +184,9 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-        class LedgerEntry < ModernTreasury::BaseModel
+        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           # @!attribute id
           #
           #   @return [String]
@@ -251,14 +251,14 @@ module ModernTreasury
           #     if it exists in the test environment.
           #
           #   @return [Boolean]
-          required :live_mode, ModernTreasury::BooleanModel
+          required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
           # @!attribute metadata
           #   Additional data represented as key-value pairs. Both the key and value must be
           #     strings.
           #
           #   @return [Hash{Symbol=>String}]
-          required :metadata, ModernTreasury::HashOf[String]
+          required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
           # @!attribute object
           #
@@ -323,10 +323,10 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry#resulting_ledger_account_balances
-          class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
+          class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
             # @!attribute available_balance
             #   The available_balance is the sum of all posted inbound entries and pending
             #     outbound entries. For credit normal, available_amount = posted_credits -
@@ -366,10 +366,10 @@ module ModernTreasury
             #   #
             #   def initialize(available_balance:, pending_balance:, posted_balance:, **) = super
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
             # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances#available_balance
-            class AvailableBalance < ModernTreasury::BaseModel
+            class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
               # @!attribute amount
               #
               #   @return [Integer]
@@ -411,11 +411,11 @@ module ModernTreasury
               #   #
               #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
             end
 
             # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances#pending_balance
-            class PendingBalance < ModernTreasury::BaseModel
+            class PendingBalance < ModernTreasury::Internal::Type::BaseModel
               # @!attribute amount
               #
               #   @return [Integer]
@@ -454,11 +454,11 @@ module ModernTreasury
               #   #
               #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
             end
 
             # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry::ResultingLedgerAccountBalances#posted_balance
-            class PostedBalance < ModernTreasury::BaseModel
+            class PostedBalance < ModernTreasury::Internal::Type::BaseModel
               # @!attribute amount
               #
               #   @return [Integer]
@@ -497,7 +497,7 @@ module ModernTreasury
               #   #
               #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
             end
           end
 
@@ -506,7 +506,7 @@ module ModernTreasury
           #
           # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion::LedgerEntry#status
           module Status
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ARCHIVED = :archived
             PENDING = :pending
@@ -526,7 +526,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion#ledgerable_type
         module LedgerableType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           EXPECTED_PAYMENT = :expected_payment
           INCOMING_PAYMENT_DETAIL = :incoming_payment_detail
@@ -546,7 +546,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion#status
         module Status
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ARCHIVED = :archived
           PENDING = :pending

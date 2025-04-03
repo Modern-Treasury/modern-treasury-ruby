@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::AccountDetails#list
-    class AccountDetailListParams < ModernTreasury::BaseModel
+    class AccountDetailListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -35,7 +35,7 @@ module ModernTreasury
       #   #
       #   def initialize(accounts_type:, after_cursor: nil, per_page: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

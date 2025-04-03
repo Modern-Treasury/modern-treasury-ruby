@@ -13,7 +13,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class Ledger < ModernTreasury::BaseModel
+    class Ledger < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor created_at: Time

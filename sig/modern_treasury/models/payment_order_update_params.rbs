@@ -39,7 +39,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class PaymentOrderUpdateParams < ModernTreasury::BaseModel
+    class PaymentOrderUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -201,7 +201,7 @@ module ModernTreasury
 
       type accounting = { account_id: String?, class_id: String? }
 
-      class Accounting < ModernTreasury::BaseModel
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
         attr_accessor account_id: String?
 
         attr_accessor class_id: String?
@@ -214,7 +214,7 @@ module ModernTreasury
       type charge_bearer = :shared | :sender | :receiver
 
       module ChargeBearer
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         SHARED: :shared
         SENDER: :sender
@@ -226,7 +226,7 @@ module ModernTreasury
       type direction = :credit | :debit
 
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT: :credit
         DEBIT: :debit
@@ -237,7 +237,7 @@ module ModernTreasury
       type fallback_type = :ach
 
       module FallbackType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
 
@@ -247,7 +247,7 @@ module ModernTreasury
       type foreign_exchange_indicator = :fixed_to_variable | :variable_to_fixed
 
       module ForeignExchangeIndicator
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         FIXED_TO_VARIABLE: :fixed_to_variable
         VARIABLE_TO_FIXED: :variable_to_fixed
@@ -263,7 +263,7 @@ module ModernTreasury
           metadata: ::Hash[Symbol, String]
         }
 
-      class LineItem < ModernTreasury::BaseModel
+      class LineItem < ModernTreasury::Internal::Type::BaseModel
         attr_accessor amount: Integer
 
         attr_accessor accounting_category_id: String?
@@ -287,7 +287,7 @@ module ModernTreasury
       type priority = :high | :normal
 
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         HIGH: :high
         NORMAL: :normal
@@ -311,7 +311,7 @@ module ModernTreasury
           routing_details: ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail]
         }
 
-      class ReceivingAccount < ModernTreasury::BaseModel
+      class ReceivingAccount < ModernTreasury::Internal::Type::BaseModel
         attr_reader account_details: ::Array[ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail]?
 
         def account_details=: (
@@ -391,7 +391,7 @@ module ModernTreasury
             account_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type
           }
 
-        class AccountDetail < ModernTreasury::BaseModel
+        class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           attr_accessor account_number: String
 
           attr_reader account_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::AccountDetail::account_number_type?
@@ -420,7 +420,7 @@ module ModernTreasury
             | :wallet_address
 
           module AccountNumberType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             AU_NUMBER: :au_number
             CLABE: :clabe
@@ -443,7 +443,7 @@ module ModernTreasury
             contact_identifier_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::ContactDetail::contact_identifier_type
           }
 
-        class ContactDetail < ModernTreasury::BaseModel
+        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           attr_reader contact_identifier: String?
 
           def contact_identifier=: (String) -> String
@@ -464,7 +464,7 @@ module ModernTreasury
           type contact_identifier_type = :email | :phone_number | :website
 
           module ContactIdentifierType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             EMAIL: :email
             PHONE_NUMBER: :phone_number
@@ -488,7 +488,7 @@ module ModernTreasury
             metadata: ::Hash[Symbol, String]
           }
 
-        class LedgerAccount < ModernTreasury::BaseModel
+        class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
           attr_accessor currency: String
 
           attr_accessor ledger_id: String
@@ -541,7 +541,7 @@ module ModernTreasury
             | :virtual_account
 
           module LedgerableType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             COUNTERPARTY: :counterparty
             EXTERNAL_ACCOUNT: :external_account
@@ -562,7 +562,7 @@ module ModernTreasury
             region: String?
           }
 
-        class PartyAddress < ModernTreasury::BaseModel
+        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           attr_accessor country: String?
 
           attr_accessor line1: String?
@@ -590,7 +590,7 @@ module ModernTreasury
         type party_type = :business | :individual
 
         module PartyType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS: :business
           INDIVIDUAL: :individual
@@ -605,7 +605,7 @@ module ModernTreasury
             payment_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::payment_type
           }
 
-        class RoutingDetail < ModernTreasury::BaseModel
+        class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
           attr_accessor routing_number: String
 
           attr_accessor routing_number_type: ModernTreasury::Models::PaymentOrderUpdateParams::ReceivingAccount::RoutingDetail::routing_number_type
@@ -648,7 +648,7 @@ module ModernTreasury
             | :za_national_clearing_code
 
           module RoutingNumberType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ABA: :aba
             AU_BSB: :au_bsb
@@ -708,7 +708,7 @@ module ModernTreasury
             | :zengin
 
           module PaymentType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             ACH: :ach
             AU_BECS: :au_becs
@@ -760,7 +760,7 @@ module ModernTreasury
         | :sent
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         APPROVED: :approved
         CANCELLED: :cancelled

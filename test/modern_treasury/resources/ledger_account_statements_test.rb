@@ -29,8 +29,8 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
         ledger_account_lock_version: Integer,
         ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection,
         ledger_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         starting_balance: ModernTreasury::Models::LedgerAccountStatementCreateResponse::StartingBalance,
         updated_at: Time
@@ -57,8 +57,8 @@ class ModernTreasury::Test::Resources::LedgerAccountStatementsTest < ModernTreas
         ledger_account_lock_version: Integer,
         ledger_account_normal_balance: ModernTreasury::Models::TransactionDirection,
         ledger_id: String,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         starting_balance: ModernTreasury::Models::LedgerAccountStatementRetrieveResponse::StartingBalance,
         updated_at: Time

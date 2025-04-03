@@ -25,7 +25,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerEntryListParams < ModernTreasury::BaseModel
+    class LedgerEntryListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -147,7 +147,7 @@ module ModernTreasury
           effective_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::effective_at
         }
 
-      class OrderBy < ModernTreasury::BaseModel
+      class OrderBy < ModernTreasury::Internal::Type::BaseModel
         attr_reader created_at: ModernTreasury::Models::LedgerEntryListParams::OrderBy::created_at?
 
         def created_at=: (
@@ -170,7 +170,7 @@ module ModernTreasury
         type created_at = :asc | :desc
 
         module CreatedAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ASC: :asc
           DESC: :desc
@@ -181,7 +181,7 @@ module ModernTreasury
         type effective_at = :asc | :desc
 
         module EffectiveAt
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ASC: :asc
           DESC: :desc
@@ -193,7 +193,7 @@ module ModernTreasury
       type status = :pending | :posted | :archived
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         POSTED: :posted

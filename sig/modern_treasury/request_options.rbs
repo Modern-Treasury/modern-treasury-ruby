@@ -14,7 +14,7 @@ module ModernTreasury
       timeout: Float?
     }
 
-  class RequestOptions < ModernTreasury::BaseModel
+  class RequestOptions < ModernTreasury::Internal::Type::BaseModel
     def self.validate!: (self | ::Hash[Symbol, top] opts) -> void
 
     attr_accessor idempotency_key: String?

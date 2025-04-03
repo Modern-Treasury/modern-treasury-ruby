@@ -19,7 +19,7 @@ module ModernTreasury
         # @param other [Object]
         #
         # @return [Boolean]
-        def self.==(other) = other.is_a?(Class) && other <= ModernTreasury::BooleanModel
+        def self.==(other) = other.is_a?(Class) && other <= ModernTreasury::Internal::Type::BooleanModel
 
         class << self
           # @api private

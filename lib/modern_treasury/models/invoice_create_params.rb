@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Invoices#create
-    class InvoiceCreateParams < ModernTreasury::BaseModel
+    class InvoiceCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -32,14 +32,14 @@ module ModernTreasury
       #     the errors will be returned and the invoice will not be created.
       #
       #   @return [Boolean, nil]
-      optional :auto_advance, ModernTreasury::BooleanModel, nil?: true
+      optional :auto_advance, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute [r] contact_details
       #   The invoicer's contact details displayed at the top of the invoice.
       #
       #   @return [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>, nil]
       optional :contact_details,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceCreateParams::ContactDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InvoiceCreateParams::ContactDetail] }
 
       # @!parse
       #   # @return [Array<ModernTreasury::Models::InvoiceCreateParams::ContactDetail>]
@@ -94,7 +94,7 @@ module ModernTreasury
       #     empty. Ignored if ledger_account_settlement_id is empty.
       #
       #   @return [Boolean, nil]
-      optional :ingest_ledger_entries, ModernTreasury::BooleanModel, nil?: true
+      optional :ingest_ledger_entries, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute invoice_line_items
       #   An array of invoice line items. The API supports a maximum of 50 invoice line
@@ -103,7 +103,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem>, nil]
       optional :invoice_line_items,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem] },
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::InvoiceCreateParams::InvoiceLineItem] },
                nil?: true
 
       # @!attribute invoicer_address
@@ -125,7 +125,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String], nil?: true
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String], nil?: true
 
       # @!attribute notification_email_addresses
       #   Emails in addition to the counterparty email to send invoice status
@@ -133,14 +133,14 @@ module ModernTreasury
       #     and the counterparty doesn't have an email.
       #
       #   @return [Array<String>, nil]
-      optional :notification_email_addresses, ModernTreasury::ArrayOf[String], nil?: true
+      optional :notification_email_addresses, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
       # @!attribute [r] notifications_enabled
       #   If true, the invoice will send email notifications to the invoice recipients
       #     about invoice status changes.
       #
       #   @return [Boolean, nil]
-      optional :notifications_enabled, ModernTreasury::BooleanModel
+      optional :notifications_enabled, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -214,7 +214,7 @@ module ModernTreasury
       #     invoice recipients.
       #
       #   @return [Array<Integer>, nil]
-      optional :remind_after_overdue_days, ModernTreasury::ArrayOf[Integer], nil?: true
+      optional :remind_after_overdue_days, ModernTreasury::Internal::Type::ArrayOf[Integer], nil?: true
 
       # @!attribute virtual_account_id
       #   The ID of the virtual account the invoice should be paid to.
@@ -282,9 +282,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -316,7 +316,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute object
         #
@@ -352,11 +352,11 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # @see ModernTreasury::Models::InvoiceCreateParams::ContactDetail#contact_identifier_type
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -370,7 +370,7 @@ module ModernTreasury
         end
       end
 
-      class CounterpartyBillingAddress < ModernTreasury::BaseModel
+      class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -421,10 +421,10 @@ module ModernTreasury
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
-      class CounterpartyShippingAddress < ModernTreasury::BaseModel
+      class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -475,10 +475,10 @@ module ModernTreasury
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
-      class InvoiceLineItem < ModernTreasury::BaseModel
+      class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
         # @!attribute name
         #   The name of the line item, typically a product or SKU name.
         #
@@ -519,7 +519,7 @@ module ModernTreasury
         #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::HashOf[String]
+        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -570,10 +570,10 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
-      class InvoicerAddress < ModernTreasury::BaseModel
+      class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -624,7 +624,7 @@ module ModernTreasury
         #   #
         #   def initialize(country:, line1:, locality:, postal_code:, region:, line2: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # The method by which the invoice can be paid. `ui` will show the embedded payment
@@ -634,7 +634,7 @@ module ModernTreasury
       #   invoice amount is negative, the automatically initiated payment order's
       #   direction will be credit. One of `manual`, `ui`, or `automatic`.
       module PaymentMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         UI = :ui
         MANUAL = :manual

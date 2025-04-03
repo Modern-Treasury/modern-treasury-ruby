@@ -189,32 +189,4 @@ module ModernTreasury
       HTTP_STATUS = (500..)
     end
   end
-
-  Error = ModernTreasury::Errors::Error
-
-  ConversionError = ModernTreasury::Errors::ConversionError
-
-  APIError = ModernTreasury::Errors::APIError
-
-  APIStatusError = ModernTreasury::Errors::APIStatusError
-
-  APIConnectionError = ModernTreasury::Errors::APIConnectionError
-
-  APITimeoutError = ModernTreasury::Errors::APITimeoutError
-
-  BadRequestError = ModernTreasury::Errors::BadRequestError
-
-  AuthenticationError = ModernTreasury::Errors::AuthenticationError
-
-  PermissionDeniedError = ModernTreasury::Errors::PermissionDeniedError
-
-  NotFoundError = ModernTreasury::Errors::NotFoundError
-
-  ConflictError = ModernTreasury::Errors::ConflictError
-
-  UnprocessableEntityError = ModernTreasury::Errors::UnprocessableEntityError
-
-  RateLimitError = ModernTreasury::Errors::RateLimitError
-
-  InternalServerError = ModernTreasury::Errors::InternalServerError
 end

@@ -3,7 +3,7 @@ module ModernTreasury
     type expected_payment_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class ExpectedPaymentRetrieveParams < ModernTreasury::BaseModel
+    class ExpectedPaymentRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

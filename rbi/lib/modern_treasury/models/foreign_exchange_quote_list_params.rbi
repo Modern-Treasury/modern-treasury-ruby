@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ForeignExchangeQuoteListParams < ModernTreasury::BaseModel
+    class ForeignExchangeQuoteListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -77,7 +77,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           per_page: Integer,
           target_currency: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

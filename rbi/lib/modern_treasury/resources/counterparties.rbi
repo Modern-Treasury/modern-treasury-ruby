@@ -7,17 +7,11 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          accounting: T.any(
-            ModernTreasury::Models::CounterpartyCreateParams::Accounting,
-            ModernTreasury::Internal::Util::AnyHash
-          ),
-          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Internal::Util::AnyHash)],
+          accounting: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Internal::AnyHash),
+          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Internal::AnyHash)],
           email: T.nilable(String),
           ledger_type: ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol,
-          legal_entity: T.any(
-            ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
-            ModernTreasury::Internal::Util::AnyHash
-          ),
+          legal_entity: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Internal::AnyHash),
           legal_entity_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,
@@ -26,7 +20,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -67,7 +61,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -93,7 +87,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -134,7 +128,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -170,7 +164,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -194,7 +188,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )

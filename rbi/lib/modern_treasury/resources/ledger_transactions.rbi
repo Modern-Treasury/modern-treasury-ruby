@@ -12,7 +12,7 @@ module ModernTreasury
           ledger_entries: T::Array[
           T.any(
             ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
           ],
           description: T.nilable(String),
@@ -26,7 +26,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -70,7 +70,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -92,7 +92,7 @@ module ModernTreasury
           ledger_entries: T::Array[
           T.any(
             ModernTreasury::Models::LedgerTransactionUpdateParams::LedgerEntry,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
           ],
           ledgerable_id: String,
@@ -102,7 +102,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -150,10 +150,7 @@ module ModernTreasury
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerTransactionListParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          order_by: T.any(
-            ModernTreasury::Models::LedgerTransactionListParams::OrderBy,
-            ModernTreasury::Internal::Util::AnyHash
-          ),
+          order_by: T.any(ModernTreasury::Models::LedgerTransactionListParams::OrderBy, ModernTreasury::Internal::AnyHash),
           partially_posts_ledger_transaction_id: String,
           per_page: Integer,
           posted_at: T::Hash[Symbol, Time],
@@ -163,7 +160,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -220,7 +217,7 @@ module ModernTreasury
           posted_ledger_entries: T::Array[
           T.any(
             ModernTreasury::Models::LedgerTransactionCreatePartialPostParams::PostedLedgerEntry,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
           ],
           description: String,
@@ -229,7 +226,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -269,7 +266,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )

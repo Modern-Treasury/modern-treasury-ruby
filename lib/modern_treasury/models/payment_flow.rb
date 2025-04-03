@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentFlows#create
-    class PaymentFlow < ModernTreasury::BaseModel
+    class PaymentFlow < ModernTreasury::Internal::Type::BaseModel
       # @!attribute [r] id
       #
       #   @return [String, nil]
@@ -84,7 +84,7 @@ module ModernTreasury
       #     completing the pre-built UI.
       #
       #   @return [Boolean, nil]
-      optional :effective_date_selection_enabled, ModernTreasury::BooleanModel
+      optional :effective_date_selection_enabled, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -118,7 +118,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean, nil]
-      optional :live_mode, ModernTreasury::BooleanModel
+      optional :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -225,14 +225,14 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Describes the direction money is flowing in the transaction. Can only be
       #   `debit`. A `debit` pulls money from someone else's account to your own.
       #
       # @see ModernTreasury::Models::PaymentFlow#direction
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
@@ -250,7 +250,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentFlow#existing_external_accounts_filter
       module ExistingExternalAccountsFilter
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         VERIFIED = :verified
 
@@ -267,7 +267,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentFlow#external_account_collection
       module ExternalAccountCollection
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         DISABLED = :disabled
         ENABLED = :enabled
@@ -284,7 +284,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentFlow#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED = :cancelled
         COMPLETED = :completed

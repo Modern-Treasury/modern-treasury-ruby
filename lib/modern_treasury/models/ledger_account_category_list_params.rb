@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountCategories#list
-    class LedgerAccountCategoryListParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryListParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -13,7 +13,7 @@ module ModernTreasury
       #     parameters delimited with `id[]=`, for example `?id[]=123&id[]=abc`.
       #
       #   @return [Array<String>, nil]
-      optional :id, ModernTreasury::ArrayOf[String]
+      optional :id, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!parse
       #   # @return [Array<String>]
@@ -71,7 +71,7 @@ module ModernTreasury
       #     parameters.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -135,9 +135,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] effective_at
         #
         #   @return [Time, nil]
@@ -156,7 +156,7 @@ module ModernTreasury
         #   #
         #   def initialize(effective_at: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

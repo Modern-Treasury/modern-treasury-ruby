@@ -16,7 +16,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class Document < ModernTreasury::BaseModel
+    class Document < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor created_at: Time
@@ -70,7 +70,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class DocumentDetail < ModernTreasury::BaseModel
+      class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor created_at: Time
@@ -116,7 +116,7 @@ module ModernTreasury
         | :connection
 
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CASE: :case
         COUNTERPARTY: :counterparty
@@ -136,7 +136,7 @@ module ModernTreasury
 
       type file = { content_type: String, filename: String, size: Integer }
 
-      class File < ModernTreasury::BaseModel
+      class File < ModernTreasury::Internal::Type::BaseModel
         attr_reader content_type: String?
 
         def content_type=: (String) -> String

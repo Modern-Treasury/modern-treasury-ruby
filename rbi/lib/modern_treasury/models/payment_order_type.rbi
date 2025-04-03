@@ -6,7 +6,7 @@ module ModernTreasury
     #   `sepa`, `bacs`, `au_becs`, `interac`, `neft`, `nics`,
     #   `nz_national_clearing_code`, `sic`, `signet`, `provexchange`, `zengin`.
     module PaymentOrderType
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderType) }
       OrSymbol = T.type_alias { T.any(Symbol, String, ModernTreasury::Models::PaymentOrderType::TaggedSymbol) }

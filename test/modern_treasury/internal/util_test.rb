@@ -42,7 +42,7 @@ class ModernTreasury::Test::UtilDataHandlingTest < Minitest::Test
   def test_omission
     merged = ModernTreasury::Internal::Util.deep_merge(
       {b: {b2: 1, b3: {c: 4, d: 5}}},
-      {b: {b2: 1, b3: {c: ModernTreasury::Internal::Util::OMIT, d: 5}}}
+      {b: {b2: 1, b3: {c: ModernTreasury::Internal::OMIT, d: 5}}}
     )
 
     assert_pattern do

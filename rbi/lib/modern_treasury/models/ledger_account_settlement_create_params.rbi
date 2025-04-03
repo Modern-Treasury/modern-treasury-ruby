@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountSettlementCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountSettlementCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -60,7 +60,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           skip_settlement_ledger_transaction: T.nilable(T::Boolean),
           status: T.nilable(ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status::OrSymbol),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -99,7 +99,7 @@ module ModernTreasury
       # The status of the ledger account settlement. It is set to `pending` by default.
       #   To post a ledger account settlement at creation, use `posted`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountSettlementCreateParams::Status) }

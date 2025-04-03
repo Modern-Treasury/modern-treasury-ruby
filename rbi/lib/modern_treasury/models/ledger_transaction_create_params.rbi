@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerTransactionCreateParams < ModernTreasury::BaseModel
+    class LedgerTransactionCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -79,7 +79,7 @@ module ModernTreasury
           ledger_entries: T::Array[
           T.any(
             ModernTreasury::Models::LedgerTransactionCreateParams::LedgerEntry,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
           ],
           description: T.nilable(String),
@@ -90,7 +90,7 @@ module ModernTreasury
           ledgerable_type: ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
           status: ModernTreasury::Models::LedgerTransactionCreateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -128,7 +128,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class LedgerEntry < ModernTreasury::BaseModel
+      class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
         # Value in specified currency's smallest unit. e.g. $10 would be represented
         #   as 1000. Can be any integer up to 36 digits.
         sig { returns(Integer) }
@@ -235,7 +235,7 @@ module ModernTreasury
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::LedgerableType) }
@@ -271,7 +271,7 @@ module ModernTreasury
 
       # To post a ledger transaction at creation, use `posted`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransactionCreateParams::Status) }

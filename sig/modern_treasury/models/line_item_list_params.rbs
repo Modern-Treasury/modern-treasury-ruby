@@ -8,7 +8,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LineItemListParams < ModernTreasury::BaseModel
+    class LineItemListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -32,7 +32,7 @@ module ModernTreasury
       type itemizable_type = :expected_payments | :payment_orders
 
       module ItemizableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXPECTED_PAYMENTS: :expected_payments
         PAYMENT_ORDERS: :payment_orders

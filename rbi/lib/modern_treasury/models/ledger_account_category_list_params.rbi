@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCategoryListParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -27,7 +27,7 @@ module ModernTreasury
         params(
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -88,7 +88,7 @@ module ModernTreasury
           after_cursor: T.nilable(String),
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryListParams::Balances,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           currency: String,
           ledger_account_id: String,
@@ -97,7 +97,7 @@ module ModernTreasury
           name: String,
           parent_ledger_account_category_id: String,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -137,7 +137,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Time)) }
         attr_reader :effective_at
 

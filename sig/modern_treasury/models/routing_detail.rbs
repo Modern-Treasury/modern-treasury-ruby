@@ -15,7 +15,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class RoutingDetail < ModernTreasury::BaseModel
+    class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor bank_address: ModernTreasury::Models::RoutingDetail::BankAddress?
@@ -69,7 +69,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class BankAddress < ModernTreasury::BaseModel
+      class BankAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor country: String?
@@ -142,7 +142,7 @@ module ModernTreasury
         | :zengin
 
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         AU_BECS: :au_becs
@@ -202,7 +202,7 @@ module ModernTreasury
         | :za_national_clearing_code
 
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA: :aba
         AU_BSB: :au_bsb

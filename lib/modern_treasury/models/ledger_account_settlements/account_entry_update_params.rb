@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module LedgerAccountSettlements
       # @see ModernTreasury::Resources::LedgerAccountSettlements::AccountEntries#update
-      class AccountEntryUpdateParams < ModernTreasury::BaseModel
+      class AccountEntryUpdateParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
         #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
@@ -14,7 +14,7 @@ module ModernTreasury
         #     account settlement.
         #
         #   @return [Array<String>, nil]
-        required :ledger_entry_ids, ModernTreasury::ArrayOf[String], nil?: true
+        required :ledger_entry_ids, ModernTreasury::Internal::Type::ArrayOf[String], nil?: true
 
         # @!parse
         #   # @param ledger_entry_ids [Array<String>, nil]
@@ -22,7 +22,7 @@ module ModernTreasury
         #   #
         #   def initialize(ledger_entry_ids:, request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Transactions#create
-    class TransactionCreateParams < ModernTreasury::BaseModel
+    class TransactionCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -54,7 +54,7 @@ module ModernTreasury
       #     strings.
       #
       #   @return [Hash{Symbol=>String}, nil]
-      optional :metadata, ModernTreasury::HashOf[String]
+      optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!parse
       #   # @return [Hash{Symbol=>String}]
@@ -64,7 +64,7 @@ module ModernTreasury
       #   This field will be `true` if the transaction has posted to the account.
       #
       #   @return [Boolean, nil]
-      optional :posted, ModernTreasury::BooleanModel
+      optional :posted, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @return [Boolean]
@@ -114,12 +114,12 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs

@@ -2,7 +2,7 @@ module ModernTreasury
   module Models
     type async_response = { id: String, object: String }
 
-    class AsyncResponse < ModernTreasury::BaseModel
+    class AsyncResponse < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor object: String

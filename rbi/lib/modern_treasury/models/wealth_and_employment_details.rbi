@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class WealthAndEmploymentDetails < ModernTreasury::BaseModel
+    class WealthAndEmploymentDetails < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -146,7 +146,7 @@ module ModernTreasury
 
       # The employment status of the individual.
       module EmploymentStatus
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::EmploymentStatus) }
@@ -174,7 +174,7 @@ module ModernTreasury
 
       # The source of the individual's income.
       module IncomeSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::IncomeSource) }
@@ -207,7 +207,7 @@ module ModernTreasury
 
       # The industry of the individual.
       module Industry
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Industry) }
@@ -282,7 +282,7 @@ module ModernTreasury
 
       # The occupation of the individual.
       module Occupation
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::Occupation) }
@@ -319,7 +319,7 @@ module ModernTreasury
 
       # The source of the individual's funds.
       module SourceOfFunds
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::SourceOfFunds) }
@@ -372,7 +372,7 @@ module ModernTreasury
 
       # The source of the individual's wealth.
       module WealthSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::WealthAndEmploymentDetails::WealthSource) }

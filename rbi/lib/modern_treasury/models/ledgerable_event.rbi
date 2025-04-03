@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerableEvent < ModernTreasury::BaseModel
+    class LedgerableEvent < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 

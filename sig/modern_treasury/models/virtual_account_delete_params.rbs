@@ -3,7 +3,7 @@ module ModernTreasury
     type virtual_account_delete_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class VirtualAccountDeleteParams < ModernTreasury::BaseModel
+    class VirtualAccountDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

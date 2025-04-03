@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentFlowListParams < ModernTreasury::BaseModel
+    class PaymentFlowListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -61,7 +61,7 @@ module ModernTreasury
           per_page: Integer,
           receiving_account_id: String,
           status: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

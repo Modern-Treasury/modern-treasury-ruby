@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentFlows#update
-    class PaymentFlowUpdateParams < ModernTreasury::BaseModel
+    class PaymentFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -21,12 +21,12 @@ module ModernTreasury
       #   #
       #   def initialize(status:, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Required. The updated status of the payment flow. Can only be used to mark a
       #   flow as `cancelled`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED = :cancelled
 

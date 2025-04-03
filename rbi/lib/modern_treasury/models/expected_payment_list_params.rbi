@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ExpectedPaymentListParams < ModernTreasury::BaseModel
+    class ExpectedPaymentListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -86,7 +86,7 @@ module ModernTreasury
           per_page: Integer,
           status: ModernTreasury::Models::ExpectedPaymentListParams::Status::OrSymbol,
           type: ModernTreasury::Models::ExpectedPaymentListParams::Type::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -128,7 +128,7 @@ module ModernTreasury
 
       # One of unreconciled, reconciled, or archived.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Status) }
         OrSymbol =
@@ -149,7 +149,7 @@ module ModernTreasury
       # One of: ach, au_becs, bacs, book, check, eft, interac, provxchange, rtp,sen,
       #   sepa, signet, wire
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExpectedPaymentListParams::Type) }
         OrSymbol =

@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     # Can be `checking`, `savings` or `other`.
     module ExternalAccountType
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccountType) }
       OrSymbol =

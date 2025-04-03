@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::IncomingPaymentDetails#create_async
-    class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
+    class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -36,7 +36,7 @@ module ModernTreasury
       #     would pass.
       #
       #   @return [Object, nil]
-      optional :data, ModernTreasury::Unknown, nil?: true
+      optional :data, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute description
       #   Defaults to a random description.
@@ -110,11 +110,11 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of `credit`, `debit`.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
@@ -128,7 +128,7 @@ module ModernTreasury
 
       # One of `ach`, `wire`, `check`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs

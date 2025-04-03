@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ConnectionLegalEntities#create
-    class ConnectionLegalEntityCreateParams < ModernTreasury::BaseModel
+    class ConnectionLegalEntityCreateParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -42,15 +42,15 @@ module ModernTreasury
       #   #
       #   def initialize(connection_id:, legal_entity: nil, legal_entity_id: nil, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class LegalEntity < ModernTreasury::BaseModel
+      class LegalEntity < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] addresses
         #   A list of addresses for the entity.
         #
         #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address>, nil]
         optional :addresses,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address>]
@@ -93,7 +93,7 @@ module ModernTreasury
         # @!attribute [r] doing_business_as_names
         #
         #   @return [Array<String>, nil]
-        optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
+        optional :doing_business_as_names, ModernTreasury::Internal::Type::ArrayOf[String]
 
         # @!parse
         #   # @return [Array<String>]
@@ -116,7 +116,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification>, nil]
         optional :identifications,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification>]
@@ -127,7 +127,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
         optional :industry_classifications,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
@@ -144,7 +144,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation>, nil]
         optional :legal_entity_associations,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation] },
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation] },
                  nil?: true
 
         # @!attribute [r] legal_entity_type
@@ -171,7 +171,7 @@ module ModernTreasury
         #     strings.
         #
         #   @return [Hash{Symbol=>String}, nil]
-        optional :metadata, ModernTreasury::HashOf[String]
+        optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
         # @!parse
         #   # @return [Hash{Symbol=>String}]
@@ -187,7 +187,7 @@ module ModernTreasury
         #
         #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber>, nil]
         optional :phone_numbers,
-                 -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber] }
+                 -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber] }
 
         # @!parse
         #   # @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::PhoneNumber>]
@@ -197,7 +197,7 @@ module ModernTreasury
         #   Whether the individual is a politically exposed person.
         #
         #   @return [Boolean, nil]
-        optional :politically_exposed_person, ModernTreasury::BooleanModel, nil?: true
+        optional :politically_exposed_person, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
         # @!attribute preferred_name
         #   An individual's preferred name.
@@ -300,9 +300,9 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-        class Address < ModernTreasury::BaseModel
+        class Address < ModernTreasury::Internal::Type::BaseModel
           # @!attribute country
           #   Country code conforms to [ISO 3166-1 alpha-2]
           #
@@ -337,7 +337,7 @@ module ModernTreasury
           #
           #   @return [Array<Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType>, nil]
           optional :address_types,
-                   -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType] }
+                   -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType] }
 
           # @!parse
           #   # @return [Array<Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Address::AddressType>]
@@ -359,10 +359,10 @@ module ModernTreasury
           #   #
           #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           module AddressType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             BUSINESS = :business
             MAILING = :mailing
@@ -378,7 +378,7 @@ module ModernTreasury
           end
         end
 
-        class Identification < ModernTreasury::BaseModel
+        class Identification < ModernTreasury::Internal::Type::BaseModel
           # @!attribute id_number
           #   The ID number of identification document.
           #
@@ -406,13 +406,13 @@ module ModernTreasury
           #   #
           #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # The type of ID number.
           #
           # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::Identification#id_type
           module IDType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             AR_CUIL = :ar_cuil
             AR_CUIT = :ar_cuit
@@ -444,13 +444,13 @@ module ModernTreasury
           end
         end
 
-        class LegalEntityAssociation < ModernTreasury::BaseModel
+        class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
           # @!attribute relationship_types
           #
           #   @return [Array<Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType>]
           required :relationship_types,
                    -> do
-                     ModernTreasury::ArrayOf[
+                     ModernTreasury::Internal::Type::ArrayOf[
                      enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::RelationshipType
                      ]
                    end
@@ -506,11 +506,11 @@ module ModernTreasury
           #     super
           #   end
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
           # A list of relationship types for how the child entity relates to parent entity.
           module RelationshipType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             BENEFICIAL_OWNER = :beneficial_owner
             CONTROL_PERSON = :control_person
@@ -523,14 +523,14 @@ module ModernTreasury
           end
 
           # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation#child_legal_entity
-          class ChildLegalEntity < ModernTreasury::BaseModel
+          class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
             # @!attribute [r] addresses
             #   A list of addresses for the entity.
             #
             #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address>, nil]
             optional :addresses,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address
                        ]
                      end
@@ -576,7 +576,7 @@ module ModernTreasury
             # @!attribute [r] doing_business_as_names
             #
             #   @return [Array<String>, nil]
-            optional :doing_business_as_names, ModernTreasury::ArrayOf[String]
+            optional :doing_business_as_names, ModernTreasury::Internal::Type::ArrayOf[String]
 
             # @!parse
             #   # @return [Array<String>]
@@ -600,7 +600,7 @@ module ModernTreasury
             #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification>, nil]
             optional :identifications,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification
                        ]
                      end
@@ -614,7 +614,7 @@ module ModernTreasury
             #
             #   @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>, nil]
             optional :industry_classifications,
-                     -> { ModernTreasury::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
+                     -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::LegalEntityIndustryClassification] }
 
             # @!parse
             #   # @return [Array<ModernTreasury::Models::LegalEntityIndustryClassification>]
@@ -650,7 +650,7 @@ module ModernTreasury
             #     strings.
             #
             #   @return [Hash{Symbol=>String}, nil]
-            optional :metadata, ModernTreasury::HashOf[String]
+            optional :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
             # @!parse
             #   # @return [Hash{Symbol=>String}]
@@ -667,7 +667,7 @@ module ModernTreasury
             #   @return [Array<ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber>, nil]
             optional :phone_numbers,
                      -> do
-                       ModernTreasury::ArrayOf[
+                       ModernTreasury::Internal::Type::ArrayOf[
                        ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber
                        ]
                      end
@@ -680,7 +680,7 @@ module ModernTreasury
             #   Whether the individual is a politically exposed person.
             #
             #   @return [Boolean, nil]
-            optional :politically_exposed_person, ModernTreasury::BooleanModel, nil?: true
+            optional :politically_exposed_person, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
             # @!attribute preferred_name
             #   An individual's preferred name.
@@ -781,9 +781,9 @@ module ModernTreasury
             #     super
             #   end
 
-            # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+            # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-            class Address < ModernTreasury::BaseModel
+            class Address < ModernTreasury::Internal::Type::BaseModel
               # @!attribute country
               #   Country code conforms to [ISO 3166-1 alpha-2]
               #
@@ -819,7 +819,7 @@ module ModernTreasury
               #   @return [Array<Symbol, ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType>, nil]
               optional :address_types,
                        -> do
-                         ModernTreasury::ArrayOf[
+                         ModernTreasury::Internal::Type::ArrayOf[
                          enum: ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address::AddressType
                          ]
                        end
@@ -844,10 +844,10 @@ module ModernTreasury
               #   #
               #   def initialize(country:, line1:, locality:, postal_code:, region:, address_types: nil, line2: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
               module AddressType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 BUSINESS = :business
                 MAILING = :mailing
@@ -863,7 +863,7 @@ module ModernTreasury
               end
             end
 
-            class Identification < ModernTreasury::BaseModel
+            class Identification < ModernTreasury::Internal::Type::BaseModel
               # @!attribute id_number
               #   The ID number of identification document.
               #
@@ -891,13 +891,13 @@ module ModernTreasury
               #   #
               #   def initialize(id_number:, id_type:, issuing_country: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
               # The type of ID number.
               #
               # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification#id_type
               module IDType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 AR_CUIL = :ar_cuil
                 AR_CUIT = :ar_cuit
@@ -933,7 +933,7 @@ module ModernTreasury
             #
             # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity#legal_entity_type
             module LegalEntityType
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               BUSINESS = :business
               INDIVIDUAL = :individual
@@ -949,7 +949,7 @@ module ModernTreasury
             #
             # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity#legal_structure
             module LegalStructure
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               CORPORATION = :corporation
               LLC = :llc
@@ -965,7 +965,7 @@ module ModernTreasury
               #   def self.values; end
             end
 
-            class PhoneNumber < ModernTreasury::BaseModel
+            class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
               # @!attribute [r] phone_number
               #
               #   @return [String, nil]
@@ -982,14 +982,14 @@ module ModernTreasury
               #   #
               #   def initialize(phone_number: nil, **) = super
 
-              # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+              # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
             end
 
             # The risk rating of the legal entity. One of low, medium, high.
             #
             # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity#risk_rating
             module RiskRating
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               LOW = :low
               MEDIUM = :medium
@@ -1008,7 +1008,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity#legal_entity_type
         module LegalEntityType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           BUSINESS = :business
           INDIVIDUAL = :individual
@@ -1024,7 +1024,7 @@ module ModernTreasury
         #
         # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity#legal_structure
         module LegalStructure
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           CORPORATION = :corporation
           LLC = :llc
@@ -1040,7 +1040,7 @@ module ModernTreasury
           #   def self.values; end
         end
 
-        class PhoneNumber < ModernTreasury::BaseModel
+        class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
           # @!attribute [r] phone_number
           #
           #   @return [String, nil]
@@ -1057,14 +1057,14 @@ module ModernTreasury
           #   #
           #   def initialize(phone_number: nil, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
 
         # The risk rating of the legal entity. One of low, medium, high.
         #
         # @see ModernTreasury::Models::ConnectionLegalEntityCreateParams::LegalEntity#risk_rating
         module RiskRating
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           LOW = :low
           MEDIUM = :medium

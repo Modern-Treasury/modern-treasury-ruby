@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class CounterpartyCreateParams < ModernTreasury::BaseModel
+    class CounterpartyCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -15,10 +15,7 @@ module ModernTreasury
 
       sig do
         params(
-          accounting: T.any(
-            ModernTreasury::Models::CounterpartyCreateParams::Accounting,
-            ModernTreasury::Internal::Util::AnyHash
-          )
+          accounting: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -30,7 +27,7 @@ module ModernTreasury
 
       sig do
         params(
-          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Internal::Util::AnyHash)]
+          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Internal::AnyHash)]
         )
           .void
       end
@@ -53,10 +50,7 @@ module ModernTreasury
 
       sig do
         params(
-          legal_entity: T.any(
-            ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
-            ModernTreasury::Internal::Util::AnyHash
-          )
+          legal_entity: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -104,23 +98,17 @@ module ModernTreasury
       sig do
         params(
           name: T.nilable(String),
-          accounting: T.any(
-            ModernTreasury::Models::CounterpartyCreateParams::Accounting,
-            ModernTreasury::Internal::Util::AnyHash
-          ),
-          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Internal::Util::AnyHash)],
+          accounting: T.any(ModernTreasury::Models::CounterpartyCreateParams::Accounting, ModernTreasury::Internal::AnyHash),
+          accounts: T::Array[T.any(ModernTreasury::Models::CounterpartyCreateParams::Account, ModernTreasury::Internal::AnyHash)],
           email: T.nilable(String),
           ledger_type: ModernTreasury::Models::CounterpartyCreateParams::LedgerType::OrSymbol,
-          legal_entity: T.any(
-            ModernTreasury::Models::CounterpartyCreateParams::LegalEntity,
-            ModernTreasury::Internal::Util::AnyHash
-          ),
+          legal_entity: T.any(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity, ModernTreasury::Internal::AnyHash),
           legal_entity_id: T.nilable(String),
           metadata: T::Hash[Symbol, String],
           send_remittance_advice: T::Boolean,
           taxpayer_identifier: String,
           verification_status: ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -162,7 +150,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Accounting < ModernTreasury::BaseModel
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
         #   or `vendor`.
         sig { returns(T.nilable(ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type::OrSymbol)) }
@@ -185,7 +173,7 @@ module ModernTreasury
         # An optional type to auto-sync the counterparty to your ledger. Either `customer`
         #   or `vendor`.
         module Type
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Accounting::Type) }
@@ -205,7 +193,7 @@ module ModernTreasury
         end
       end
 
-      class Account < ModernTreasury::BaseModel
+      class Account < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(T::Array[ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail])) }
         attr_reader :account_details
 
@@ -214,7 +202,7 @@ module ModernTreasury
             account_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -237,7 +225,7 @@ module ModernTreasury
             contact_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -257,7 +245,7 @@ module ModernTreasury
           params(
             ledger_account: T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -285,7 +273,7 @@ module ModernTreasury
           params(
             party_address: T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -325,7 +313,7 @@ module ModernTreasury
             routing_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -338,25 +326,25 @@ module ModernTreasury
             account_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
             account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
             contact_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::ContactDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
             ledger_account: T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             metadata: T::Hash[Symbol, String],
             name: T.nilable(String),
             party_address: T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::PartyAddress,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             party_identifier: String,
             party_name: String,
@@ -365,7 +353,7 @@ module ModernTreasury
             routing_details: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -409,7 +397,7 @@ module ModernTreasury
         def to_hash
         end
 
-        class AccountDetail < ModernTreasury::BaseModel
+        class AccountDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :account_number
 
@@ -453,7 +441,7 @@ module ModernTreasury
           end
 
           module AccountNumberType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::AccountDetail::AccountNumberType) }
@@ -528,7 +516,7 @@ module ModernTreasury
           end
         end
 
-        class ContactDetail < ModernTreasury::BaseModel
+        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(T.nilable(String)) }
           attr_reader :contact_identifier
 
@@ -575,7 +563,7 @@ module ModernTreasury
           end
 
           module ContactIdentifierType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
@@ -619,7 +607,7 @@ module ModernTreasury
           end
         end
 
-        class LedgerAccount < ModernTreasury::BaseModel
+        class LedgerAccount < ModernTreasury::Internal::Type::BaseModel
           # The currency of the ledger account.
           sig { returns(String) }
           attr_accessor :currency
@@ -746,7 +734,7 @@ module ModernTreasury
           #   be populated here, otherwise null. The value is one of internal_account or
           #   external_account.
           module LedgerableType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::LedgerAccount::LedgerableType) }
@@ -791,7 +779,7 @@ module ModernTreasury
           end
         end
 
-        class PartyAddress < ModernTreasury::BaseModel
+        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           # Country code conforms to [ISO 3166-1 alpha-2]
           sig { returns(T.nilable(String)) }
           attr_accessor :country
@@ -848,7 +836,7 @@ module ModernTreasury
 
         # Either `individual` or `business`.
         module PartyType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::PartyType) }
@@ -868,7 +856,7 @@ module ModernTreasury
           end
         end
 
-        class RoutingDetail < ModernTreasury::BaseModel
+        class RoutingDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :routing_number
 
@@ -919,7 +907,7 @@ module ModernTreasury
           end
 
           module RoutingNumberType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::RoutingNumberType) }
@@ -1049,7 +1037,7 @@ module ModernTreasury
           end
 
           module PaymentType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::Account::RoutingDetail::PaymentType) }
@@ -1228,7 +1216,7 @@ module ModernTreasury
       # An optional type to auto-sync the counterparty to your ledger. Either `customer`
       #   or `vendor`.
       module LedgerType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LedgerType) }
@@ -1243,7 +1231,7 @@ module ModernTreasury
         end
       end
 
-      class LegalEntity < ModernTreasury::BaseModel
+      class LegalEntity < ModernTreasury::Internal::Type::BaseModel
         # The type of legal entity.
         sig { returns(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType::OrSymbol) }
         attr_accessor :legal_entity_type
@@ -1257,7 +1245,7 @@ module ModernTreasury
             addresses: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -1270,7 +1258,7 @@ module ModernTreasury
 
         sig do
           params(
-            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::Util::AnyHash))
+            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash))
           )
             .void
         end
@@ -1289,9 +1277,7 @@ module ModernTreasury
 
         sig do
           params(
-            compliance_details: T.nilable(
-              T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::Util::AnyHash)
-            )
+            compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::AnyHash))
           )
             .void
         end
@@ -1332,7 +1318,7 @@ module ModernTreasury
             identifications: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -1346,7 +1332,7 @@ module ModernTreasury
 
         sig do
           params(
-            industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::Util::AnyHash)]
+            industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)]
           )
             .void
         end
@@ -1392,7 +1378,7 @@ module ModernTreasury
             phone_numbers: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ]
           )
@@ -1425,9 +1411,7 @@ module ModernTreasury
 
         sig do
           params(
-            wealth_and_employment_details: T.nilable(
-              T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::Util::AnyHash)
-            )
+            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash))
           )
             .void
         end
@@ -1443,15 +1427,13 @@ module ModernTreasury
             addresses: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
-            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::Util::AnyHash)),
+            bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash)),
             business_name: T.nilable(String),
             citizenship_country: T.nilable(String),
-            compliance_details: T.nilable(
-              T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::Util::AnyHash)
-            ),
+            compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::AnyHash)),
             date_formed: T.nilable(Date),
             date_of_birth: T.nilable(Date),
             doing_business_as_names: T::Array[String],
@@ -1460,16 +1442,16 @@ module ModernTreasury
             identifications: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
-            industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::Util::AnyHash)],
+            industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)],
             last_name: T.nilable(String),
             legal_entity_associations: T.nilable(
               T::Array[
               T.any(
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
               ]
             ),
@@ -1479,7 +1461,7 @@ module ModernTreasury
             phone_numbers: T::Array[
             T.any(
               ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::PhoneNumber,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
             ],
             politically_exposed_person: T.nilable(T::Boolean),
@@ -1487,9 +1469,7 @@ module ModernTreasury
             prefix: T.nilable(String),
             risk_rating: T.nilable(ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating::OrSymbol),
             suffix: T.nilable(String),
-            wealth_and_employment_details: T.nilable(
-              T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::Util::AnyHash)
-            ),
+            wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash)),
             website: T.nilable(String)
           )
             .returns(T.attached_class)
@@ -1562,7 +1542,7 @@ module ModernTreasury
 
         # The type of legal entity.
         module LegalEntityType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityType) }
@@ -1596,7 +1576,7 @@ module ModernTreasury
           end
         end
 
-        class Address < ModernTreasury::BaseModel
+        class Address < ModernTreasury::Internal::Type::BaseModel
           # Country code conforms to [ISO 3166-1 alpha-2]
           sig { returns(T.nilable(String)) }
           attr_accessor :country
@@ -1670,7 +1650,7 @@ module ModernTreasury
           end
 
           module AddressType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Address::AddressType) }
@@ -1720,7 +1700,7 @@ module ModernTreasury
           end
         end
 
-        class Identification < ModernTreasury::BaseModel
+        class Identification < ModernTreasury::Internal::Type::BaseModel
           # The ID number of identification document.
           sig { returns(String) }
           attr_accessor :id_number
@@ -1760,7 +1740,7 @@ module ModernTreasury
 
           # The type of ID number.
           module IDType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::Identification::IDType) }
@@ -1890,7 +1870,7 @@ module ModernTreasury
           end
         end
 
-        class LegalEntityAssociation < ModernTreasury::BaseModel
+        class LegalEntityAssociation < ModernTreasury::Internal::Type::BaseModel
           sig do
             returns(
               T::Array[
@@ -1914,7 +1894,7 @@ module ModernTreasury
             params(
               child_legal_entity: T.any(
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
               .void
@@ -1943,7 +1923,7 @@ module ModernTreasury
               ],
               child_legal_entity: T.any(
                 ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               ),
               child_legal_entity_id: String,
               ownership_percentage: T.nilable(Integer),
@@ -1979,7 +1959,7 @@ module ModernTreasury
 
           # A list of relationship types for how the child entity relates to parent entity.
           module RelationshipType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias do
@@ -2017,7 +1997,7 @@ module ModernTreasury
             end
           end
 
-          class ChildLegalEntity < ModernTreasury::BaseModel
+          class ChildLegalEntity < ModernTreasury::Internal::Type::BaseModel
             # A list of addresses for the entity.
             sig do
               returns(
@@ -2035,7 +2015,7 @@ module ModernTreasury
                 addresses: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
-                  ModernTreasury::Internal::Util::AnyHash
+                  ModernTreasury::Internal::AnyHash
                 )
                 ]
               )
@@ -2048,7 +2028,7 @@ module ModernTreasury
 
             sig do
               params(
-                bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::Util::AnyHash))
+                bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash))
               )
                 .void
             end
@@ -2067,9 +2047,7 @@ module ModernTreasury
 
             sig do
               params(
-                compliance_details: T.nilable(
-                  T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::Util::AnyHash)
-                )
+                compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::AnyHash))
               )
                 .void
             end
@@ -2114,7 +2092,7 @@ module ModernTreasury
                 identifications: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
-                  ModernTreasury::Internal::Util::AnyHash
+                  ModernTreasury::Internal::AnyHash
                 )
                 ]
               )
@@ -2128,7 +2106,7 @@ module ModernTreasury
 
             sig do
               params(
-                industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::Util::AnyHash)]
+                industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)]
               )
                 .void
             end
@@ -2194,7 +2172,7 @@ module ModernTreasury
                 phone_numbers: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
-                  ModernTreasury::Internal::Util::AnyHash
+                  ModernTreasury::Internal::AnyHash
                 )
                 ]
               )
@@ -2233,9 +2211,7 @@ module ModernTreasury
 
             sig do
               params(
-                wealth_and_employment_details: T.nilable(
-                  T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::Util::AnyHash)
-                )
+                wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash))
               )
                 .void
             end
@@ -2251,15 +2227,13 @@ module ModernTreasury
                 addresses: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Address,
-                  ModernTreasury::Internal::Util::AnyHash
+                  ModernTreasury::Internal::AnyHash
                 )
                 ],
-                bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::Util::AnyHash)),
+                bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::AnyHash)),
                 business_name: T.nilable(String),
                 citizenship_country: T.nilable(String),
-                compliance_details: T.nilable(
-                  T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::Util::AnyHash)
-                ),
+                compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::AnyHash)),
                 date_formed: T.nilable(Date),
                 date_of_birth: T.nilable(Date),
                 doing_business_as_names: T::Array[String],
@@ -2268,10 +2242,10 @@ module ModernTreasury
                 identifications: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::Identification,
-                  ModernTreasury::Internal::Util::AnyHash
+                  ModernTreasury::Internal::AnyHash
                 )
                 ],
-                industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::Util::AnyHash)],
+                industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::AnyHash)],
                 last_name: T.nilable(String),
                 legal_entity_type: ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::LegalEntityType::OrSymbol,
                 legal_structure: T.nilable(
@@ -2282,7 +2256,7 @@ module ModernTreasury
                 phone_numbers: T::Array[
                 T.any(
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::PhoneNumber,
-                  ModernTreasury::Internal::Util::AnyHash
+                  ModernTreasury::Internal::AnyHash
                 )
                 ],
                 politically_exposed_person: T.nilable(T::Boolean),
@@ -2292,9 +2266,7 @@ module ModernTreasury
                   ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalEntityAssociation::ChildLegalEntity::RiskRating::OrSymbol
                 ),
                 suffix: T.nilable(String),
-                wealth_and_employment_details: T.nilable(
-                  T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::Util::AnyHash)
-                ),
+                wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::AnyHash)),
                 website: T.nilable(String)
               )
                 .returns(T.attached_class)
@@ -2373,7 +2345,7 @@ module ModernTreasury
             def to_hash
             end
 
-            class Address < ModernTreasury::BaseModel
+            class Address < ModernTreasury::Internal::Type::BaseModel
               # Country code conforms to [ISO 3166-1 alpha-2]
               sig { returns(T.nilable(String)) }
               attr_accessor :country
@@ -2455,7 +2427,7 @@ module ModernTreasury
               end
 
               module AddressType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 TaggedSymbol =
                   T.type_alias do
@@ -2509,7 +2481,7 @@ module ModernTreasury
               end
             end
 
-            class Identification < ModernTreasury::BaseModel
+            class Identification < ModernTreasury::Internal::Type::BaseModel
               # The ID number of identification document.
               sig { returns(String) }
               attr_accessor :id_number
@@ -2553,7 +2525,7 @@ module ModernTreasury
 
               # The type of ID number.
               module IDType
-                extend ModernTreasury::Enum
+                extend ModernTreasury::Internal::Type::Enum
 
                 TaggedSymbol =
                   T.type_alias do
@@ -2689,7 +2661,7 @@ module ModernTreasury
 
             # The type of legal entity.
             module LegalEntityType
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               TaggedSymbol =
                 T.type_alias do
@@ -2729,7 +2701,7 @@ module ModernTreasury
 
             # The business's legal structure.
             module LegalStructure
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               TaggedSymbol =
                 T.type_alias do
@@ -2787,7 +2759,7 @@ module ModernTreasury
               end
             end
 
-            class PhoneNumber < ModernTreasury::BaseModel
+            class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
               sig { returns(T.nilable(String)) }
               attr_reader :phone_number
 
@@ -2806,7 +2778,7 @@ module ModernTreasury
 
             # The risk rating of the legal entity. One of low, medium, high.
             module RiskRating
-              extend ModernTreasury::Enum
+              extend ModernTreasury::Internal::Type::Enum
 
               TaggedSymbol =
                 T.type_alias do
@@ -2853,7 +2825,7 @@ module ModernTreasury
 
         # The business's legal structure.
         module LegalStructure
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::LegalStructure) }
@@ -2901,7 +2873,7 @@ module ModernTreasury
           end
         end
 
-        class PhoneNumber < ModernTreasury::BaseModel
+        class PhoneNumber < ModernTreasury::Internal::Type::BaseModel
           sig { returns(T.nilable(String)) }
           attr_reader :phone_number
 
@@ -2920,7 +2892,7 @@ module ModernTreasury
 
         # The risk rating of the legal entity. One of low, medium, high.
         module RiskRating
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::LegalEntity::RiskRating) }
@@ -2951,7 +2923,7 @@ module ModernTreasury
 
       # The verification status of the counterparty.
       module VerificationStatus
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCreateParams::VerificationStatus) }

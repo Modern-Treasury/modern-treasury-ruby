@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentReferences#retrieve
-    class PaymentReference < ModernTreasury::BaseModel
+    class PaymentReference < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -19,7 +19,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute object
       #
@@ -84,13 +84,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of reference number.
       #
       # @see ModernTreasury::Models::PaymentReference#reference_number_type
       module ReferenceNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
         ACH_TRACE_NUMBER = :ach_trace_number
@@ -180,7 +180,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentReference#referenceable_type
       module ReferenceableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER = :payment_order
         REVERSAL = :reversal

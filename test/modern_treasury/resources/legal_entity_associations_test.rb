@@ -20,11 +20,11 @@ class ModernTreasury::Test::Resources::LegalEntityAssociationsTest < ModernTreas
         child_legal_entity: ModernTreasury::Models::LegalEntityAssociation::ChildLegalEntity,
         created_at: Time,
         discarded_at: Time | nil,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         ownership_percentage: Integer | nil,
         parent_legal_entity_id: String,
-        relationship_types: ^(ModernTreasury::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociation::RelationshipType]),
+        relationship_types: ^(ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::LegalEntityAssociation::RelationshipType]),
         title: String | nil,
         updated_at: Time
       }

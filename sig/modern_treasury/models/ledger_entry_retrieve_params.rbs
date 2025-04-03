@@ -4,7 +4,7 @@ module ModernTreasury
       { show_balances: bool }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerEntryRetrieveParams < ModernTreasury::BaseModel
+    class LedgerEntryRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

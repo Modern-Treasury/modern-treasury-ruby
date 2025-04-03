@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::PaymentOrders#create
-    class PaymentOrder < ModernTreasury::BaseModel
+    class PaymentOrder < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -48,7 +48,9 @@ module ModernTreasury
       #     before making changes to this field.
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      required :compliance_rule_metadata, ModernTreasury::HashOf[ModernTreasury::Unknown], nil?: true
+      required :compliance_rule_metadata,
+               ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown],
+               nil?: true
 
       # @!attribute counterparty_id
       #   If the payment order is tied to a specific Counterparty, their id will appear,
@@ -147,21 +149,21 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute nsf_protected
       #   A boolean to determine if NSF Protection is enabled for this payment order. Note
       #     that this setting must also be turned on in your organization settings page.
       #
       #   @return [Boolean]
-      required :nsf_protected, ModernTreasury::BooleanModel
+      required :nsf_protected, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute object
       #
@@ -224,7 +226,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::PaymentOrder::ReferenceNumber>]
       required :reference_numbers,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::PaymentOrder::ReferenceNumber] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::PaymentOrder::ReferenceNumber] }
 
       # @!attribute remittance_information
       #   For `ach`, this field will be passed through on an addenda record. For `wire`
@@ -239,7 +241,7 @@ module ModernTreasury
       #     `null`, `send_remittance_advice` on the Counterparty is used.
       #
       #   @return [Boolean, nil]
-      required :send_remittance_advice, ModernTreasury::BooleanModel, nil?: true
+      required :send_remittance_advice, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute statement_descriptor
       #   An optional descriptor which will appear in the receiver's statement. For
@@ -274,14 +276,14 @@ module ModernTreasury
       #     can have many transactions.
       #
       #   @return [Array<String>]
-      required :transaction_ids, ModernTreasury::ArrayOf[String]
+      required :transaction_ids, ModernTreasury::Internal::Type::ArrayOf[String]
 
       # @!attribute transaction_monitoring_enabled
       #   A flag that determines whether a payment order should go through transaction
       #     monitoring.
       #
       #   @return [Boolean]
-      required :transaction_monitoring_enabled, ModernTreasury::BooleanModel
+      required :transaction_monitoring_enabled, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute type
       #   One of `ach`, `se_bankgirot`, `eft`, `wire`, `check`, `sen`, `book`, `rtp`,
@@ -346,7 +348,7 @@ module ModernTreasury
       #     key-value pairs.
       #
       #   @return [Object, nil]
-      required :vendor_attributes, ModernTreasury::Unknown, nil?: true
+      required :vendor_attributes, ModernTreasury::Internal::Type::Unknown, nil?: true
 
       # @!attribute vendor_failure_reason
       #   This field will be populated if a vendor failure occurs. Logic shouldn't be
@@ -463,10 +465,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # @see ModernTreasury::Models::PaymentOrder#accounting
-      class Accounting < ModernTreasury::BaseModel
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
         # @!attribute account_id
         #   The ID of one of your accounting categories. Note that these will only be
         #     accessible if your accounting system has been connected.
@@ -488,7 +490,7 @@ module ModernTreasury
         #   #
         #   def initialize(account_id: nil, class_id: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # The party that will pay the fees for the payment order. Only applies to wire
@@ -497,7 +499,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentOrder#charge_bearer
       module ChargeBearer
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         SHARED = :shared
         SENDER = :sender
@@ -517,7 +519,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentOrder#direction
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT = :credit
         DEBIT = :debit
@@ -535,7 +537,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentOrder#foreign_exchange_indicator
       module ForeignExchangeIndicator
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         FIXED_TO_VARIABLE = :fixed_to_variable
         VARIABLE_TO_FIXED = :variable_to_fixed
@@ -548,7 +550,7 @@ module ModernTreasury
       end
 
       # @see ModernTreasury::Models::PaymentOrder#foreign_exchange_rate
-      class ForeignExchangeRate < ModernTreasury::BaseModel
+      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         # @!attribute base_amount
         #   Amount in the lowest denomination of the `base_currency` to convert, often
         #     called the "sell" amount.
@@ -608,7 +610,7 @@ module ModernTreasury
         #   #
         #   def initialize(base_amount:, base_currency:, exponent:, rate_string:, target_amount:, target_currency:, value:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # Either `normal` or `high`. For ACH and EFT payments, `high` represents a
@@ -617,7 +619,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentOrder#priority
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         HIGH = :high
         NORMAL = :normal
@@ -631,7 +633,7 @@ module ModernTreasury
 
       # @see ModernTreasury::Models::PaymentOrder#receiving_account_type
       module ReceivingAccountType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INTERNAL_ACCOUNT = :internal_account
         EXTERNAL_ACCOUNT = :external_account
@@ -643,7 +645,7 @@ module ModernTreasury
         #   def self.values; end
       end
 
-      class ReferenceNumber < ModernTreasury::BaseModel
+      class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -659,7 +661,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute object
         #
@@ -695,13 +697,13 @@ module ModernTreasury
         #   #
         #   def initialize(id:, created_at:, live_mode:, object:, reference_number:, reference_number_type:, updated_at:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The type of the reference number. Referring to the vendor payment id.
         #
         # @see ModernTreasury::Models::PaymentOrder::ReferenceNumber#reference_number_type
         module ReferenceNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ACH_ORIGINAL_TRACE_NUMBER = :ach_original_trace_number
           ACH_TRACE_NUMBER = :ach_trace_number
@@ -791,7 +793,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentOrder#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         APPROVED = :approved
         CANCELLED = :cancelled
@@ -817,7 +819,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::PaymentOrder#ultimate_originating_account
       module UltimateOriginatingAccount
-        extend ModernTreasury::Union
+        extend ModernTreasury::Internal::Type::Union
 
         variant -> { ModernTreasury::Models::VirtualAccount }
 
@@ -830,7 +832,7 @@ module ModernTreasury
 
       # @see ModernTreasury::Models::PaymentOrder#ultimate_originating_account_type
       module UltimateOriginatingAccountType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INTERNAL_ACCOUNT = :internal_account
         VIRTUAL_ACCOUNT = :virtual_account

@@ -11,13 +11,13 @@ module ModernTreasury
             reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
             ledger_transaction: T.any(
               ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             metadata: T::Hash[Symbol, String],
             request_options: T.nilable(
               T.any(
                 ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
           )
@@ -49,7 +49,7 @@ module ModernTreasury
             request_options: T.nilable(
               T.any(
                 ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
           )
@@ -73,7 +73,7 @@ module ModernTreasury
             request_options: T.nilable(
               T.any(
                 ModernTreasury::RequestOptions,
-                ModernTreasury::Internal::Util::AnyHash
+                ModernTreasury::Internal::AnyHash
               )
             )
           )

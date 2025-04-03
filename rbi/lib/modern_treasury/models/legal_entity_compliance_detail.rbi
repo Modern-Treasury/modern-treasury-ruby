@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LegalEntityComplianceDetail < ModernTreasury::BaseModel
+    class LegalEntityComplianceDetail < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
