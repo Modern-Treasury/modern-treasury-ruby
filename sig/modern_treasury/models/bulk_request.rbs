@@ -16,7 +16,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class BulkRequest < ModernTreasury::BaseModel
+    class BulkRequest < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor action_type: ModernTreasury::Models::BulkRequest::action_type
@@ -61,7 +61,7 @@ module ModernTreasury
       type action_type = :create | :update | :delete
 
       module ActionType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREATE: :create
         UPDATE: :update
@@ -79,7 +79,7 @@ module ModernTreasury
         | :entity_link
 
       module ResourceType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER: :payment_order
         LEDGER_ACCOUNT: :ledger_account
@@ -94,7 +94,7 @@ module ModernTreasury
       type status = :pending | :processing | :completed
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         PROCESSING: :processing

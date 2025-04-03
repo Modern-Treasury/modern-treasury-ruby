@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class BankSettings < ModernTreasury::BaseModel
+    class BankSettings < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -29,14 +29,14 @@ module ModernTreasury
       #     https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding.
       #
       #   @return [Boolean, nil]
-      required :enable_backup_withholding, ModernTreasury::BooleanModel, nil?: true
+      required :enable_backup_withholding, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute live_mode
       #   This field will be true if this object exists in the live environment or false
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute object
       #
@@ -47,7 +47,7 @@ module ModernTreasury
       #   Cross River Bank specific setting to opt out of privacy policy.
       #
       #   @return [Boolean, nil]
-      required :privacy_opt_out, ModernTreasury::BooleanModel, nil?: true
+      required :privacy_opt_out, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute regulation_o
       #   It covers, among other types of insider loans, extensions of credit by a member
@@ -56,7 +56,7 @@ module ModernTreasury
       #     other subsidiary of that bank holding company.
       #
       #   @return [Boolean, nil]
-      required :regulation_o, ModernTreasury::BooleanModel, nil?: true
+      required :regulation_o, ModernTreasury::Internal::Type::BooleanModel, nil?: true
 
       # @!attribute updated_at
       #
@@ -91,7 +91,7 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

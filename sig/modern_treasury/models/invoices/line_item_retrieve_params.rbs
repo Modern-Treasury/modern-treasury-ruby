@@ -5,7 +5,7 @@ module ModernTreasury
         { invoice_id: String }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class LineItemRetrieveParams < ModernTreasury::BaseModel
+      class LineItemRetrieveParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 

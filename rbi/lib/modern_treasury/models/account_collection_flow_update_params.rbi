@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountCollectionFlowUpdateParams < ModernTreasury::BaseModel
+    class AccountCollectionFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -14,7 +14,7 @@ module ModernTreasury
       sig do
         params(
           status: ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -36,7 +36,7 @@ module ModernTreasury
       # Required. The updated status of the account collection flow. Can only be used to
       #   mark a flow as `cancelled`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountCollectionFlowUpdateParams::Status) }

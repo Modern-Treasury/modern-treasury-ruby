@@ -14,11 +14,11 @@ class ModernTreasury::Test::Resources::EventsTest < ModernTreasury::Test::Resour
       response => {
         id: String,
         created_at: Time,
-        data: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]),
+        data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         entity_id: String,
         event_name: String,
         event_time: Time,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         resource: String,
         updated_at: Time
@@ -44,11 +44,11 @@ class ModernTreasury::Test::Resources::EventsTest < ModernTreasury::Test::Resour
       row => {
         id: String,
         created_at: Time,
-        data: ^(ModernTreasury::HashOf[ModernTreasury::Unknown]),
+        data: ^(ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]),
         entity_id: String,
         event_name: String,
         event_time: Time,
-        live_mode: ModernTreasury::BooleanModel,
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
         object: String,
         resource: String,
         updated_at: Time

@@ -3,7 +3,7 @@ module ModernTreasury
     type payment_reference_retireve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class PaymentReferenceRetireveParams < ModernTreasury::BaseModel
+    class PaymentReferenceRetireveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

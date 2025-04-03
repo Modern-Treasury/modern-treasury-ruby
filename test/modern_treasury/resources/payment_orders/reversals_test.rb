@@ -15,13 +15,14 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         id: String,
         created_at: Time,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         payment_order_id: String | nil,
         reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
         status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
-        transaction_ids: ^(ModernTreasury::ArrayOf[ModernTreasury::Unknown, nil?: true]),
+        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
+                                                                   nil?: true]),
         updated_at: Time
       }
     end
@@ -40,13 +41,14 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         id: String,
         created_at: Time,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         payment_order_id: String | nil,
         reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
         status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
-        transaction_ids: ^(ModernTreasury::ArrayOf[ModernTreasury::Unknown, nil?: true]),
+        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
+                                                                   nil?: true]),
         updated_at: Time
       }
     end
@@ -71,13 +73,14 @@ class ModernTreasury::Test::Resources::PaymentOrders::ReversalsTest < ModernTrea
         id: String,
         created_at: Time,
         ledger_transaction_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         payment_order_id: String | nil,
         reason: ModernTreasury::Models::PaymentOrders::Reversal::Reason,
         status: ModernTreasury::Models::PaymentOrders::Reversal::Status,
-        transaction_ids: ^(ModernTreasury::ArrayOf[ModernTreasury::Unknown, nil?: true]),
+        transaction_ids: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Internal::Type::Unknown,
+                                                                   nil?: true]),
         updated_at: Time
       }
     end

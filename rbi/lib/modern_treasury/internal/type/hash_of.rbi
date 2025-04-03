@@ -17,11 +17,11 @@ module ModernTreasury
         sig(:final) do
           params(
             type_info: T.any(
-              ModernTreasury::Internal::Util::AnyHash,
+              ModernTreasury::Internal::AnyHash,
               T.proc.returns(ModernTreasury::Internal::Type::Converter::Input),
               ModernTreasury::Internal::Type::Converter::Input
             ),
-            spec: ModernTreasury::Internal::Util::AnyHash
+            spec: ModernTreasury::Internal::AnyHash
           )
             .returns(T.attached_class)
         end
@@ -43,7 +43,7 @@ module ModernTreasury
               value: T.any(T::Hash[T.anything, T.anything], T.anything),
               state: ModernTreasury::Internal::Type::Converter::State
             )
-            .returns(T.any(ModernTreasury::Internal::Util::AnyHash, T.anything))
+            .returns(T.any(ModernTreasury::Internal::AnyHash, T.anything))
         end
         def coerce(value, state:)
         end
@@ -52,7 +52,7 @@ module ModernTreasury
         sig(:final) do
           override
             .params(value: T.any(T::Hash[T.anything, T.anything], T.anything))
-            .returns(T.any(ModernTreasury::Internal::Util::AnyHash, T.anything))
+            .returns(T.any(ModernTreasury::Internal::AnyHash, T.anything))
         end
         def dump(value)
         end
@@ -71,11 +71,11 @@ module ModernTreasury
         sig(:final) do
           params(
             type_info: T.any(
-              ModernTreasury::Internal::Util::AnyHash,
+              ModernTreasury::Internal::AnyHash,
               T.proc.returns(ModernTreasury::Internal::Type::Converter::Input),
               ModernTreasury::Internal::Type::Converter::Input
             ),
-            spec: ModernTreasury::Internal::Util::AnyHash
+            spec: ModernTreasury::Internal::AnyHash
           )
             .void
         end

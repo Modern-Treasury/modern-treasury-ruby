@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountDetailCreateParams < ModernTreasury::BaseModel
+    class AccountDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -31,7 +31,7 @@ module ModernTreasury
           accounts_type: ModernTreasury::Models::AccountDetailCreateParams::AccountsType::OrSymbol,
           account_number: String,
           account_number_type: ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -53,7 +53,7 @@ module ModernTreasury
       end
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountsType) }
@@ -71,7 +71,7 @@ module ModernTreasury
       # One of `iban`, `clabe`, `wallet_address`, or `other`. Use `other` if the bank
       #   account number is in a generic format.
       module AccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetailCreateParams::AccountNumberType) }

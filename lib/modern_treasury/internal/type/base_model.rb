@@ -22,7 +22,7 @@ module ModernTreasury
           #
           # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
           def known_fields
-            @known_fields ||= (self < ModernTreasury::BaseModel ? superclass.known_fields.dup : {})
+            @known_fields ||= (self < ModernTreasury::Internal::Type::BaseModel ? superclass.known_fields.dup : {})
           end
 
           # @api private
@@ -66,10 +66,10 @@ module ModernTreasury
             const = if required && !nilable
               info.fetch(
                 :const,
-                ModernTreasury::Internal::Util::OMIT
+                ModernTreasury::Internal::OMIT
               )
             else
-              ModernTreasury::Internal::Util::OMIT
+              ModernTreasury::Internal::OMIT
             end
 
             [name_sym, setter].each { undef_method(_1) } if known_fields.key?(name_sym)
@@ -88,7 +88,7 @@ module ModernTreasury
 
             define_method(name_sym) do
               target = type_fn.call
-              value = @data.fetch(name_sym) { const == ModernTreasury::Internal::Util::OMIT ? nil : const }
+              value = @data.fetch(name_sym) { const == ModernTreasury::Internal::OMIT ? nil : const }
               state = {strictness: :strong, exactness: {yes: 0, no: 0, maybe: 0}, branched: 0}
               if (nilable || !required) && value.nil?
                 nil
@@ -102,7 +102,7 @@ module ModernTreasury
               # rubocop:disable Layout/LineLength
               message = "Failed to parse #{cls}.#{__method__} from #{value.class} to #{target.inspect}. To get the unparsed API response, use #{cls}[:#{__method__}]."
               # rubocop:enable Layout/LineLength
-              raise ModernTreasury::ConversionError.new(message)
+              raise ModernTreasury::Errors::ConversionError.new(message)
             end
           end
 
@@ -172,7 +172,7 @@ module ModernTreasury
           # @param other [Object]
           #
           # @return [Boolean]
-          def ==(other) = other.is_a?(Class) && other <= ModernTreasury::BaseModel && other.fields == fields
+          def ==(other) = other.is_a?(Class) && other <= ModernTreasury::Internal::Type::BaseModel && other.fields == fields
         end
 
         # @param other [Object]
@@ -183,7 +183,7 @@ module ModernTreasury
         class << self
           # @api private
           #
-          # @param value [ModernTreasury::BaseModel, Hash{Object=>Object}, Object]
+          # @param value [ModernTreasury::Internal::Type::BaseModel, Hash{Object=>Object}, Object]
           #
           # @param state [Hash{Symbol=>Object}] .
           #
@@ -193,7 +193,7 @@ module ModernTreasury
           #
           #   @option state [Integer] :branched
           #
-          # @return [ModernTreasury::BaseModel, Object]
+          # @return [ModernTreasury::Internal::Type::BaseModel, Object]
           def coerce(value, state:)
             exactness = state.fetch(:exactness)
 
@@ -218,7 +218,7 @@ module ModernTreasury
               api_name, nilable, const = field.fetch_values(:api_name, :nilable, :const)
 
               unless val.key?(api_name)
-                if required && mode != :dump && const == ModernTreasury::Internal::Util::OMIT
+                if required && mode != :dump && const == ModernTreasury::Internal::OMIT
                   exactness[nilable ? :maybe : :no] += 1
                 else
                   exactness[:yes] += 1
@@ -252,7 +252,7 @@ module ModernTreasury
 
           # @api private
           #
-          # @param value [ModernTreasury::BaseModel, Object]
+          # @param value [ModernTreasury::Internal::Type::BaseModel, Object]
           #
           # @return [Hash{Object=>Object}, Object]
           def dump(value)
@@ -281,7 +281,7 @@ module ModernTreasury
 
             known_fields.each_value do |field|
               mode, api_name, const = field.fetch_values(:mode, :api_name, :const)
-              next if mode == :coerce || acc.key?(api_name) || const == ModernTreasury::Internal::Util::OMIT
+              next if mode == :coerce || acc.key?(api_name) || const == ModernTreasury::Internal::OMIT
               acc.store(api_name, const)
             end
 
@@ -348,13 +348,13 @@ module ModernTreasury
 
         # Create a new instance of a model.
         #
-        # @param data [Hash{Symbol=>Object}, ModernTreasury::BaseModel]
+        # @param data [Hash{Symbol=>Object}, ModernTreasury::Internal::Type::BaseModel]
         def initialize(data = {})
           case ModernTreasury::Internal::Util.coerce_hash(data)
           in Hash => coerced
             @data = coerced
           else
-            raise ArgumentError.new("Expected a #{Hash} or #{ModernTreasury::BaseModel}, got #{data.inspect}")
+            raise ArgumentError.new("Expected a #{Hash} or #{ModernTreasury::Internal::Type::BaseModel}, got #{data.inspect}")
           end
         end
 

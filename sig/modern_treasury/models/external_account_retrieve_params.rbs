@@ -3,7 +3,7 @@ module ModernTreasury
     type external_account_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class ExternalAccountRetrieveParams < ModernTreasury::BaseModel
+    class ExternalAccountRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

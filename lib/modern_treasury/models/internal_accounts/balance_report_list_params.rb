@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module InternalAccounts
       # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#list
-      class BalanceReportListParams < ModernTreasury::BaseModel
+      class BalanceReportListParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
         #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
@@ -54,12 +54,12 @@ module ModernTreasury
         #   #
         #   def initialize(after_cursor: nil, as_of_date: nil, balance_report_type: nil, per_page: nil, request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # The specific type of balance report. One of `intraday`, `previous_day`,
         #   `real_time`, or `other`.
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           INTRADAY = :intraday
           OTHER = :other

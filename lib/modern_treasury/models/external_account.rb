@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ExternalAccounts#create
-    class ExternalAccount < ModernTreasury::BaseModel
+    class ExternalAccount < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -12,7 +12,8 @@ module ModernTreasury
       # @!attribute account_details
       #
       #   @return [Array<ModernTreasury::Models::AccountDetail>]
-      required :account_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail] }
+      required :account_details,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail] }
 
       # @!attribute account_type
       #   Can be `checking`, `savings` or `other`.
@@ -24,7 +25,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::ExternalAccount::ContactDetail>]
       required :contact_details,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::ExternalAccount::ContactDetail] }
 
       # @!attribute counterparty_id
       #
@@ -53,14 +54,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute name
       #   A nickname for the external account. This is only for internal usage and won't
@@ -95,7 +96,8 @@ module ModernTreasury
       # @!attribute routing_details
       #
       #   @return [Array<ModernTreasury::Models::RoutingDetail>]
-      required :routing_details, -> { ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail] }
+      required :routing_details,
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail] }
 
       # @!attribute updated_at
       #
@@ -160,9 +162,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -194,7 +196,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute object
         #
@@ -230,11 +232,11 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # @see ModernTreasury::Models::ExternalAccount::ContactDetail#contact_identifier_type
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           EMAIL = :email
           PHONE_NUMBER = :phone_number
@@ -249,7 +251,7 @@ module ModernTreasury
       end
 
       # @see ModernTreasury::Models::ExternalAccount#party_address
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -281,7 +283,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute locality
         #   Locality or City.
@@ -343,14 +345,14 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # Either `individual` or `business`.
       #
       # @see ModernTreasury::Models::ExternalAccount#party_type
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BUSINESS = :business
         INDIVIDUAL = :individual
@@ -364,7 +366,7 @@ module ModernTreasury
 
       # @see ModernTreasury::Models::ExternalAccount#verification_source
       module VerificationSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH_PRENOTE = :ach_prenote
         MICRODEPOSITS = :microdeposits
@@ -379,7 +381,7 @@ module ModernTreasury
 
       # @see ModernTreasury::Models::ExternalAccount#verification_status
       module VerificationStatus
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING_VERIFICATION = :pending_verification
         UNVERIFIED = :unverified

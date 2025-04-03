@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Validations#validate_routing_number
-    class RoutingNumberLookupRequest < ModernTreasury::BaseModel
+    class RoutingNumberLookupRequest < ModernTreasury::Internal::Type::BaseModel
       # @!attribute [r] bank_address
       #   The address of the bank.
       #
@@ -54,7 +54,7 @@ module ModernTreasury
       #     list. Currently, this includes eu_con, uk_hmt, us_ofac, and un sanctions lists.
       #
       #   @return [Hash{Symbol=>Object}, nil]
-      optional :sanctions, ModernTreasury::HashOf[ModernTreasury::Unknown]
+      optional :sanctions, ModernTreasury::Internal::Type::HashOf[ModernTreasury::Internal::Type::Unknown]
 
       # @!parse
       #   # @return [Hash{Symbol=>Object}]
@@ -66,7 +66,7 @@ module ModernTreasury
       #
       #   @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>, nil]
       optional :supported_payment_types,
-               -> { ModernTreasury::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[enum: ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType] }
 
       # @!parse
       #   # @return [Array<Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType>]
@@ -92,10 +92,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # @see ModernTreasury::Models::RoutingNumberLookupRequest#bank_address
-      class BankAddress < ModernTreasury::BaseModel
+      class BankAddress < ModernTreasury::Internal::Type::BaseModel
         # @!attribute country
         #   Country code conforms to [ISO 3166-1 alpha-2]
         #
@@ -142,7 +142,7 @@ module ModernTreasury
         #   #
         #   def initialize(country: nil, line1: nil, line2: nil, locality: nil, postal_code: nil, region: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # The type of routing number. See
@@ -152,7 +152,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::RoutingNumberLookupRequest#routing_number_type
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA = :aba
         AU_BSB = :au_bsb
@@ -172,7 +172,7 @@ module ModernTreasury
       end
 
       module SupportedPaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs

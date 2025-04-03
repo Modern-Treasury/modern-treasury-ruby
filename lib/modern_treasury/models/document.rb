@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Documents#create
-    class Document < ModernTreasury::BaseModel
+    class Document < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -23,7 +23,7 @@ module ModernTreasury
       #
       #   @return [Array<ModernTreasury::Models::Document::DocumentDetail>]
       required :document_details,
-               -> { ModernTreasury::ArrayOf[ModernTreasury::Models::Document::DocumentDetail] }
+               -> { ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::Document::DocumentDetail] }
 
       # @!attribute document_type
       #   A category given to the document, can be `null`.
@@ -55,7 +55,7 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute object
       #
@@ -105,9 +105,9 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
-      class DocumentDetail < ModernTreasury::BaseModel
+      class DocumentDetail < ModernTreasury::Internal::Type::BaseModel
         # @!attribute id
         #
         #   @return [String]
@@ -138,7 +138,7 @@ module ModernTreasury
         #     if it exists in the test environment.
         #
         #   @return [Boolean]
-        required :live_mode, ModernTreasury::BooleanModel
+        required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
         # @!attribute object
         #
@@ -174,7 +174,7 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
 
       # The type of the associated object. Currently can be one of `payment_order`,
@@ -183,7 +183,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::Document#documentable_type
       module DocumentableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CASE = :case
         COUNTERPARTY = :counterparty
@@ -206,7 +206,7 @@ module ModernTreasury
       end
 
       # @see ModernTreasury::Models::Document#file
-      class File < ModernTreasury::BaseModel
+      class File < ModernTreasury::Internal::Type::BaseModel
         # @!attribute [r] content_type
         #   The MIME content type of the document.
         #
@@ -244,7 +244,7 @@ module ModernTreasury
         #   #
         #   def initialize(content_type: nil, filename: nil, size: nil, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

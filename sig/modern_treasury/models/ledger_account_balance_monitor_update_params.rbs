@@ -4,7 +4,7 @@ module ModernTreasury
       { description: String, metadata: ::Hash[Symbol, String] }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountBalanceMonitorUpdateParams < ModernTreasury::BaseModel
+    class LedgerAccountBalanceMonitorUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

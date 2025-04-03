@@ -9,7 +9,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class RoutingDetailCreateParams < ModernTreasury::BaseModel
+    class RoutingDetailCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -34,7 +34,7 @@ module ModernTreasury
       type accounts_type = :external_accounts
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS: :external_accounts
 
@@ -65,7 +65,7 @@ module ModernTreasury
         | :za_national_clearing_code
 
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA: :aba
         AU_BSB: :au_bsb
@@ -125,7 +125,7 @@ module ModernTreasury
         | :zengin
 
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         AU_BECS: :au_becs

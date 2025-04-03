@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ExternalAccount < ModernTreasury::BaseModel
+    class ExternalAccount < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -54,9 +54,7 @@ module ModernTreasury
 
       sig do
         params(
-          party_address: T.nilable(
-            T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Internal::Util::AnyHash)
-          )
+          party_address: T.nilable(T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Internal::AnyHash))
         )
           .void
       end
@@ -85,9 +83,9 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::Util::AnyHash)],
+          account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::AnyHash)],
           account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccount::ContactDetail, ModernTreasury::Internal::Util::AnyHash)],
+          contact_details: T::Array[T.any(ModernTreasury::Models::ExternalAccount::ContactDetail, ModernTreasury::Internal::AnyHash)],
           counterparty_id: T.nilable(String),
           created_at: Time,
           discarded_at: T.nilable(Time),
@@ -96,12 +94,10 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           name: T.nilable(String),
           object: String,
-          party_address: T.nilable(
-            T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Internal::Util::AnyHash)
-          ),
+          party_address: T.nilable(T.any(ModernTreasury::Models::ExternalAccount::PartyAddress, ModernTreasury::Internal::AnyHash)),
           party_name: String,
           party_type: T.nilable(ModernTreasury::Models::ExternalAccount::PartyType::OrSymbol),
-          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::Util::AnyHash)],
+          routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::AnyHash)],
           updated_at: Time,
           verification_source: T.nilable(ModernTreasury::Models::ExternalAccount::VerificationSource::OrSymbol),
           verification_status: ModernTreasury::Models::ExternalAccount::VerificationStatus::OrSymbol
@@ -160,7 +156,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -231,7 +227,7 @@ module ModernTreasury
         end
 
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccount::ContactDetail::ContactIdentifierType) }
@@ -268,7 +264,7 @@ module ModernTreasury
         end
       end
 
-      class PartyAddress < ModernTreasury::BaseModel
+      class PartyAddress < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -364,7 +360,7 @@ module ModernTreasury
 
       # Either `individual` or `business`.
       module PartyType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccount::PartyType) }
         OrSymbol =
@@ -379,7 +375,7 @@ module ModernTreasury
       end
 
       module VerificationSource
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccount::VerificationSource) }
@@ -398,7 +394,7 @@ module ModernTreasury
       end
 
       module VerificationStatus
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::ExternalAccount::VerificationStatus) }

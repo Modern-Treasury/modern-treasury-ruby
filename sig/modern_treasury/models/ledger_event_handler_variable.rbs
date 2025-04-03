@@ -6,7 +6,7 @@ module ModernTreasury
         type: String
       }
 
-    class LedgerEventHandlerVariable < ModernTreasury::BaseModel
+    class LedgerEventHandlerVariable < ModernTreasury::Internal::Type::BaseModel
       attr_accessor query: ModernTreasury::Models::LedgerEventHandlerVariable::Query
 
       attr_accessor type: String
@@ -20,7 +20,7 @@ module ModernTreasury
 
       type query = { field: String, operator: String, value: String }
 
-      class Query < ModernTreasury::BaseModel
+      class Query < ModernTreasury::Internal::Type::BaseModel
         attr_accessor field: String
 
         attr_accessor operator: String

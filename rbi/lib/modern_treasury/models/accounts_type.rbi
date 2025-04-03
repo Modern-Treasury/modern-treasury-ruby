@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module AccountsType
-      extend ModernTreasury::Enum
+      extend ModernTreasury::Internal::Type::Enum
 
       TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountsType) }
       OrSymbol = T.type_alias { T.any(Symbol, String, ModernTreasury::Models::AccountsType::TaggedSymbol) }

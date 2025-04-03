@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCategoryRetrieveParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -16,7 +16,7 @@ module ModernTreasury
         params(
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -27,9 +27,9 @@ module ModernTreasury
         params(
           balances: T.any(
             ModernTreasury::Models::LedgerAccountCategoryRetrieveParams::Balances,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -48,7 +48,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date
 

@@ -13,7 +13,7 @@ module ModernTreasury
         account_number: String
       }
 
-    class AccountDetail < ModernTreasury::BaseModel
+    class AccountDetail < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor account_number_safe: String
@@ -61,7 +61,7 @@ module ModernTreasury
         | :wallet_address
 
       module AccountNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         AU_NUMBER: :au_number
         CLABE: :clabe

@@ -3,7 +3,7 @@ module ModernTreasury
     type expected_payment_delete_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class ExpectedPaymentDeleteParams < ModernTreasury::BaseModel
+    class ExpectedPaymentDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

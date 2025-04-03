@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Counterparty < ModernTreasury::BaseModel
+    class Counterparty < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -56,7 +56,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          accounts: T::Array[T.any(ModernTreasury::Models::Counterparty::Account, ModernTreasury::Internal::Util::AnyHash)],
+          accounts: T::Array[T.any(ModernTreasury::Models::Counterparty::Account, ModernTreasury::Internal::AnyHash)],
           created_at: Time,
           discarded_at: T.nilable(Time),
           email: T.nilable(String),
@@ -111,7 +111,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Account < ModernTreasury::BaseModel
+      class Account < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(String)) }
         attr_reader :id
 
@@ -123,7 +123,7 @@ module ModernTreasury
 
         sig do
           params(
-            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::Util::AnyHash)]
+            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::AnyHash)]
           )
             .void
         end
@@ -141,12 +141,7 @@ module ModernTreasury
 
         sig do
           params(
-            contact_details: T::Array[
-            T.any(
-              ModernTreasury::Models::Counterparty::Account::ContactDetail,
-              ModernTreasury::Internal::Util::AnyHash
-            )
-            ]
+            contact_details: T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Internal::AnyHash)]
           )
             .void
         end
@@ -200,10 +195,7 @@ module ModernTreasury
         sig do
           params(
             party_address: T.nilable(
-              T.any(
-                ModernTreasury::Models::Counterparty::Account::PartyAddress,
-                ModernTreasury::Internal::Util::AnyHash
-              )
+              T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Internal::AnyHash)
             )
           )
             .void
@@ -226,7 +218,7 @@ module ModernTreasury
 
         sig do
           params(
-            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::Util::AnyHash)]
+            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::AnyHash)]
           )
             .void
         end
@@ -253,14 +245,9 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::Util::AnyHash)],
+            account_details: T::Array[T.any(ModernTreasury::Models::AccountDetail, ModernTreasury::Internal::AnyHash)],
             account_type: ModernTreasury::Models::ExternalAccountType::OrSymbol,
-            contact_details: T::Array[
-            T.any(
-              ModernTreasury::Models::Counterparty::Account::ContactDetail,
-              ModernTreasury::Internal::Util::AnyHash
-            )
-            ],
+            contact_details: T::Array[T.any(ModernTreasury::Models::Counterparty::Account::ContactDetail, ModernTreasury::Internal::AnyHash)],
             created_at: Time,
             discarded_at: T.nilable(Time),
             ledger_account_id: T.nilable(String),
@@ -269,14 +256,11 @@ module ModernTreasury
             name: T.nilable(String),
             object: String,
             party_address: T.nilable(
-              T.any(
-                ModernTreasury::Models::Counterparty::Account::PartyAddress,
-                ModernTreasury::Internal::Util::AnyHash
-              )
+              T.any(ModernTreasury::Models::Counterparty::Account::PartyAddress, ModernTreasury::Internal::AnyHash)
             ),
             party_name: String,
             party_type: T.nilable(ModernTreasury::Models::Counterparty::Account::PartyType::OrSymbol),
-            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::Util::AnyHash)],
+            routing_details: T::Array[T.any(ModernTreasury::Models::RoutingDetail, ModernTreasury::Internal::AnyHash)],
             updated_at: Time,
             verification_source: T.nilable(ModernTreasury::Models::Counterparty::Account::VerificationSource::OrSymbol),
             verification_status: ModernTreasury::Models::Counterparty::Account::VerificationStatus::OrSymbol
@@ -333,7 +317,7 @@ module ModernTreasury
         def to_hash
         end
 
-        class ContactDetail < ModernTreasury::BaseModel
+        class ContactDetail < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :id
 
@@ -404,7 +388,7 @@ module ModernTreasury
           end
 
           module ContactIdentifierType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             TaggedSymbol =
               T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::Account::ContactDetail::ContactIdentifierType) }
@@ -444,7 +428,7 @@ module ModernTreasury
           end
         end
 
-        class PartyAddress < ModernTreasury::BaseModel
+        class PartyAddress < ModernTreasury::Internal::Type::BaseModel
           sig { returns(String) }
           attr_accessor :id
 
@@ -540,7 +524,7 @@ module ModernTreasury
 
         # Either `individual` or `business`.
         module PartyType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::Account::PartyType) }
           OrSymbol =
@@ -555,7 +539,7 @@ module ModernTreasury
         end
 
         module VerificationSource
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::Account::VerificationSource) }
@@ -576,7 +560,7 @@ module ModernTreasury
         end
 
         module VerificationStatus
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::Account::VerificationStatus) }
@@ -603,7 +587,7 @@ module ModernTreasury
 
       # The verification status of the counterparty.
       module VerificationStatus
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::Counterparty::VerificationStatus) }
         OrSymbol =

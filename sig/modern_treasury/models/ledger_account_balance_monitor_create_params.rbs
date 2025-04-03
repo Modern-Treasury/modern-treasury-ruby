@@ -9,7 +9,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountBalanceMonitorCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -37,7 +37,7 @@ module ModernTreasury
 
       type alert_condition = { field: String, operator: String, value: Integer }
 
-      class AlertCondition < ModernTreasury::BaseModel
+      class AlertCondition < ModernTreasury::Internal::Type::BaseModel
         attr_accessor field: String
 
         attr_accessor operator: String

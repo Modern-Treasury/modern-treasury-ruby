@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module Invoices
-      class LineItemCreateParams < ModernTreasury::BaseModel
+      class LineItemCreateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
@@ -66,7 +66,7 @@ module ModernTreasury
             metadata: T::Hash[Symbol, String],
             quantity: Integer,
             unit_amount_decimal: String,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end

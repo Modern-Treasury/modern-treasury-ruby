@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentReference < ModernTreasury::BaseModel
+    class PaymentReference < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -86,7 +86,7 @@ module ModernTreasury
 
       # The type of reference number.
       module ReferenceNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReference::ReferenceNumberType) }
@@ -362,7 +362,7 @@ module ModernTreasury
       # One of the referenceable types. This must be accompanied by the id of the
       #   referenceable or will return an error.
       module ReferenceableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentReference::ReferenceableType) }

@@ -31,10 +31,10 @@ module ModernTreasury
         def dump(value)
           case value
           in Array
-            value.map { ModernTreasury::Unknown.dump(_1) }
+            value.map { ModernTreasury::Internal::Type::Unknown.dump(_1) }
           in Hash
-            value.transform_values { ModernTreasury::Unknown.dump(_1) }
-          in ModernTreasury::BaseModel
+            value.transform_values { ModernTreasury::Internal::Type::Unknown.dump(_1) }
+          in ModernTreasury::Internal::Type::BaseModel
             value.class.dump(value)
           else
             value
@@ -64,7 +64,7 @@ module ModernTreasury
             in Hash
               type_info(spec.slice(:const, :enum, :union).first&.last)
             in true | false
-              -> { ModernTreasury::BooleanModel }
+              -> { ModernTreasury::Internal::Type::BooleanModel }
             in ModernTreasury::Internal::Type::Converter | Class | Symbol
               -> { spec }
             in NilClass | Integer | Float
@@ -209,7 +209,7 @@ module ModernTreasury
           #
           # @return [Object]
           def dump(target, value)
-            target.is_a?(ModernTreasury::Internal::Type::Converter) ? target.dump(value) : ModernTreasury::Unknown.dump(value)
+            target.is_a?(ModernTreasury::Internal::Type::Converter) ? target.dump(value) : ModernTreasury::Internal::Type::Unknown.dump(value)
           end
         end
       end

@@ -7,7 +7,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class AccountDetailDeleteParams < ModernTreasury::BaseModel
+    class AccountDetailDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -26,7 +26,7 @@ module ModernTreasury
       type accounts_type = :external_accounts
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         EXTERNAL_ACCOUNTS: :external_accounts
 

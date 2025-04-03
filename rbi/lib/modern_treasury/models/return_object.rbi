@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ReturnObject < ModernTreasury::BaseModel
+    class ReturnObject < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -121,7 +121,7 @@ module ModernTreasury
           live_mode: T::Boolean,
           object: String,
           reason: T.nilable(String),
-          reference_numbers: T::Array[T.any(ModernTreasury::Models::ReturnObject::ReferenceNumber, ModernTreasury::Internal::Util::AnyHash)],
+          reference_numbers: T::Array[T.any(ModernTreasury::Models::ReturnObject::ReferenceNumber, ModernTreasury::Internal::AnyHash)],
           returnable_id: T.nilable(String),
           returnable_type: T.nilable(ModernTreasury::Models::ReturnObject::ReturnableType::OrSymbol),
           role: ModernTreasury::Models::ReturnObject::Role::OrSymbol,
@@ -199,7 +199,7 @@ module ModernTreasury
 
       # The return code. For ACH returns, this is the required ACH return code.
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Code) }
         OrSymbol =
@@ -264,7 +264,7 @@ module ModernTreasury
         end
       end
 
-      class ReferenceNumber < ModernTreasury::BaseModel
+      class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -332,7 +332,7 @@ module ModernTreasury
 
         # The type of the reference number. Referring to the vendor payment id.
         module ReferenceNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol =
             T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::ReferenceNumber::ReferenceNumberType) }
@@ -723,7 +723,7 @@ module ModernTreasury
 
       # The type of object being returned or `null`.
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::ReturnableType) }
         OrSymbol =
@@ -743,7 +743,7 @@ module ModernTreasury
 
       # The role of the return, can be `originating` or `receiving`.
       module Role
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Role) }
         OrSymbol =
@@ -759,7 +759,7 @@ module ModernTreasury
 
       # The current status of the return.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Status) }
         OrSymbol =
@@ -780,7 +780,7 @@ module ModernTreasury
       # The type of return. Can be one of: `ach`, `ach_noc`, `au_becs`, `bacs`, `eft`,
       #   `interac`, `manual`, `paper_item`, `wire`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ReturnObject::Type) }
         OrSymbol =

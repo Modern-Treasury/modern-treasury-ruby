@@ -54,7 +54,7 @@ module ModernTreasury
         vendor_failure_reason: String?
       }
 
-    class PaymentOrder < ModernTreasury::BaseModel
+    class PaymentOrder < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor accounting: ModernTreasury::Models::PaymentOrder::Accounting
@@ -212,7 +212,7 @@ module ModernTreasury
 
       type accounting = { account_id: String?, class_id: String? }
 
-      class Accounting < ModernTreasury::BaseModel
+      class Accounting < ModernTreasury::Internal::Type::BaseModel
         attr_accessor account_id: String?
 
         attr_accessor class_id: String?
@@ -225,7 +225,7 @@ module ModernTreasury
       type charge_bearer = :shared | :sender | :receiver
 
       module ChargeBearer
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         SHARED: :shared
         SENDER: :sender
@@ -237,7 +237,7 @@ module ModernTreasury
       type direction = :credit | :debit
 
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREDIT: :credit
         DEBIT: :debit
@@ -248,7 +248,7 @@ module ModernTreasury
       type foreign_exchange_indicator = :fixed_to_variable | :variable_to_fixed
 
       module ForeignExchangeIndicator
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         FIXED_TO_VARIABLE: :fixed_to_variable
         VARIABLE_TO_FIXED: :variable_to_fixed
@@ -267,7 +267,7 @@ module ModernTreasury
           value: Integer
         }
 
-      class ForeignExchangeRate < ModernTreasury::BaseModel
+      class ForeignExchangeRate < ModernTreasury::Internal::Type::BaseModel
         attr_accessor base_amount: Integer
 
         attr_accessor base_currency: ModernTreasury::Models::currency
@@ -298,7 +298,7 @@ module ModernTreasury
       type priority = :high | :normal
 
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         HIGH: :high
         NORMAL: :normal
@@ -309,7 +309,7 @@ module ModernTreasury
       type receiving_account_type = :internal_account | :external_account
 
       module ReceivingAccountType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INTERNAL_ACCOUNT: :internal_account
         EXTERNAL_ACCOUNT: :external_account
@@ -328,7 +328,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class ReferenceNumber < ModernTreasury::BaseModel
+      class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor created_at: Time
@@ -432,7 +432,7 @@ module ModernTreasury
           | :wells_fargo_uetr
 
         module ReferenceNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ACH_ORIGINAL_TRACE_NUMBER: :ach_original_trace_number
           ACH_TRACE_NUMBER: :ach_trace_number
@@ -527,7 +527,7 @@ module ModernTreasury
         | :sent
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         APPROVED: :approved
         CANCELLED: :cancelled
@@ -549,7 +549,7 @@ module ModernTreasury
         | ModernTreasury::Models::InternalAccount
 
       module UltimateOriginatingAccount
-        extend ModernTreasury::Union
+        extend ModernTreasury::Internal::Type::Union
 
         def self?.variants: -> [ModernTreasury::Models::VirtualAccount, ModernTreasury::Models::InternalAccount]
       end
@@ -558,7 +558,7 @@ module ModernTreasury
         :internal_account | :virtual_account
 
       module UltimateOriginatingAccountType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INTERNAL_ACCOUNT: :internal_account
         VIRTUAL_ACCOUNT: :virtual_account

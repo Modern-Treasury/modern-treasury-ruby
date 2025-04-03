@@ -12,7 +12,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerEventHandlerCreateParams < ModernTreasury::BaseModel
+    class LedgerEventHandlerCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -53,7 +53,7 @@ module ModernTreasury
           status: String?
         }
 
-      class LedgerTransactionTemplate < ModernTreasury::BaseModel
+      class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
         attr_accessor description: String?
 
         attr_accessor effective_at: String?
@@ -74,7 +74,7 @@ module ModernTreasury
         type ledger_entry =
           { amount: String, direction: String, ledger_account_id: String }
 
-        class LedgerEntry < ModernTreasury::BaseModel
+        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: String
 
           attr_accessor direction: String
@@ -93,7 +93,7 @@ module ModernTreasury
 
       type conditions = { field: String, operator: String, value: String }
 
-      class Conditions < ModernTreasury::BaseModel
+      class Conditions < ModernTreasury::Internal::Type::BaseModel
         attr_accessor field: String
 
         attr_accessor operator: String

@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCreateParams < ModernTreasury::BaseModel
+    class LedgerAccountCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -75,7 +75,7 @@ module ModernTreasury
           ledgerable_id: String,
           ledgerable_type: ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType::OrSymbol,
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -119,7 +119,7 @@ module ModernTreasury
       #   be populated here, otherwise null. The value is one of internal_account or
       #   external_account.
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerAccountCreateParams::LedgerableType) }

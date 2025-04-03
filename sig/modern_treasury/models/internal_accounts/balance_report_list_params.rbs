@@ -10,7 +10,7 @@ module ModernTreasury
         }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class BalanceReportListParams < ModernTreasury::BaseModel
+      class BalanceReportListParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
@@ -44,7 +44,7 @@ module ModernTreasury
           :intraday | :other | :previous_day | :real_time
 
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           INTRADAY: :intraday
           OTHER: :other

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::ExternalAccounts#verify
-    class ExternalAccountVerifyParams < ModernTreasury::BaseModel
+    class ExternalAccountVerifyParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -74,11 +74,11 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # Can be `ach`, `eft`, or `rtp`.
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
         AU_BECS = :au_becs
@@ -122,7 +122,7 @@ module ModernTreasury
       #   receiving account. Currently, this only supports falling back from RTP to ACH
       #   (payment_type=rtp and fallback_type=ach)
       module FallbackType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH = :ach
 
@@ -136,7 +136,7 @@ module ModernTreasury
       # Either `normal` or `high`. For ACH payments, `high` represents a same-day ACH
       #   transfer. This will apply to both `payment_type` and `fallback_type`.
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         HIGH = :high
         NORMAL = :normal

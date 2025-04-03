@@ -3,7 +3,7 @@ module ModernTreasury
     type ledger_account_delete_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountDeleteParams < ModernTreasury::BaseModel
+    class LedgerAccountDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

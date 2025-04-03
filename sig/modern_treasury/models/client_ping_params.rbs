@@ -3,7 +3,7 @@ module ModernTreasury
     type client_ping_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class ClientPingParams < ModernTreasury::BaseModel
+    class ClientPingParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

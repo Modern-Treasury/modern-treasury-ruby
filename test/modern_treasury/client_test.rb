@@ -60,7 +60,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(name: "name")
     end
 
@@ -78,7 +78,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(name: "name")
     end
 
@@ -95,7 +95,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(name: "name", request_options: {max_retries: 3})
     end
 
@@ -113,7 +113,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(name: "name", request_options: {max_retries: 4})
     end
 
@@ -131,7 +131,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {"retry-after" => "1.3"}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(name: "name")
     end
 
@@ -150,7 +150,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {"retry-after" => (Time.now + 10).httpdate}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       Thread.current.thread_variable_set(:time_now, Time.now)
       modern_treasury.counterparties.create(name: "name")
       Thread.current.thread_variable_set(:time_now, nil)
@@ -171,7 +171,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {"retry-after-ms" => "1300"}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(name: "name")
     end
 
@@ -189,7 +189,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(name: "name")
     end
 
@@ -207,7 +207,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(
         name: "name",
         request_options: {extra_headers: {"x-stainless-retry-count" => nil}}
@@ -228,7 +228,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(
         name: "name",
         request_options: {extra_headers: {"x-stainless-retry-count" => "42"}}
@@ -335,7 +335,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(name: "name", request_options: {max_retries: 1})
     end
 
@@ -356,7 +356,7 @@ class ModernTreasuryTest < Minitest::Test
     requester = MockRequester.new(500, {}, {})
     modern_treasury.requester = requester
 
-    assert_raises(ModernTreasury::InternalServerError) do
+    assert_raises(ModernTreasury::Errors::InternalServerError) do
       modern_treasury.counterparties.create(
         name: "name",
         request_options: {max_retries: 1, idempotency_key: "user-supplied-key"}

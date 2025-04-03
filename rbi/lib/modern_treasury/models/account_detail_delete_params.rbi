@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AccountDetailDeleteParams < ModernTreasury::BaseModel
+    class AccountDetailDeleteParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -16,7 +16,7 @@ module ModernTreasury
         params(
           accounts_type: ModernTreasury::Models::AccountDetailDeleteParams::AccountsType::OrSymbol,
           account_id: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -37,7 +37,7 @@ module ModernTreasury
       end
 
       module AccountsType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::AccountDetailDeleteParams::AccountsType) }

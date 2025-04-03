@@ -17,28 +17,21 @@ module ModernTreasury
           internal_account_id: T.nilable(String),
           ledger_transaction: T.any(
             ModernTreasury::Models::ExpectedPaymentCreateParams::LedgerTransaction,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           ledger_transaction_id: String,
-          line_items: T::Array[
-          T.any(
-            ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem,
-            ModernTreasury::Internal::Util::AnyHash
-          )
-          ],
+          line_items: T::Array[T.any(ModernTreasury::Models::ExpectedPaymentCreateParams::LineItem, ModernTreasury::Internal::AnyHash)],
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
-          reconciliation_rule_variables: T.nilable(
-            T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::Util::AnyHash)]
-          ),
+          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::AnyHash)]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           type: T.nilable(ModernTreasury::Models::ExpectedPaymentType::OrSymbol),
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -109,7 +102,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -138,9 +131,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           reconciliation_filters: T.nilable(T.anything),
           reconciliation_groups: T.nilable(T.anything),
-          reconciliation_rule_variables: T.nilable(
-            T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::Util::AnyHash)]
-          ),
+          reconciliation_rule_variables: T.nilable(T::Array[T.any(ModernTreasury::Models::ReconciliationRule, ModernTreasury::Internal::AnyHash)]),
           remittance_information: T.nilable(String),
           statement_descriptor: T.nilable(String),
           status: T.nilable(ModernTreasury::Models::ExpectedPaymentUpdateParams::Status::OrSymbol),
@@ -148,7 +139,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -222,7 +213,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -261,7 +252,7 @@ module ModernTreasury
           request_options: T.nilable(
             T.any(
               ModernTreasury::RequestOptions,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )

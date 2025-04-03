@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class TransactionCreateParams < ModernTreasury::BaseModel
+    class TransactionCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -72,7 +72,7 @@ module ModernTreasury
           posted: T::Boolean,
           type: T.nilable(ModernTreasury::Models::TransactionCreateParams::Type::OrSymbol),
           vendor_description: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -115,7 +115,7 @@ module ModernTreasury
       # The type of the transaction. Examples could be
       #   `card, `ach`, `wire`, `check`, `rtp`, `book`, or `sen`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::TransactionCreateParams::Type) }
         OrSymbol =

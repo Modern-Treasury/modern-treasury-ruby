@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LegalEntityIndustryClassification < ModernTreasury::BaseModel
+    class LegalEntityIndustryClassification < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -76,7 +76,7 @@ module ModernTreasury
 
       # The classification system of the classification codes.
       module ClassificationType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::LegalEntityIndustryClassification::ClassificationType) }

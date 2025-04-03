@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class AsyncResponse < ModernTreasury::BaseModel
+    class AsyncResponse < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 

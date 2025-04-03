@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerEntry < ModernTreasury::BaseModel
+    class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -75,7 +75,7 @@ module ModernTreasury
           resulting_ledger_account_balances: T.nilable(
             T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
         )
@@ -109,7 +109,7 @@ module ModernTreasury
           resulting_ledger_account_balances: T.nilable(
             T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           ),
           status: ModernTreasury::Models::LedgerEntry::Status::OrSymbol,
@@ -163,7 +163,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class ResultingLedgerAccountBalances < ModernTreasury::BaseModel
+      class ResultingLedgerAccountBalances < ModernTreasury::Internal::Type::BaseModel
         # The available_balance is the sum of all posted inbound entries and pending
         #   outbound entries. For credit normal, available_amount = posted_credits -
         #   pending_debits; for debit normal, available_amount = posted_debits -
@@ -175,7 +175,7 @@ module ModernTreasury
           params(
             available_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -190,7 +190,7 @@ module ModernTreasury
           params(
             pending_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -205,7 +205,7 @@ module ModernTreasury
           params(
             posted_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -223,15 +223,15 @@ module ModernTreasury
           params(
             available_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::AvailableBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             pending_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PendingBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             posted_balance: T.any(
               ModernTreasury::Models::LedgerEntry::ResultingLedgerAccountBalances::PostedBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .returns(T.attached_class)
@@ -252,7 +252,7 @@ module ModernTreasury
         def to_hash
         end
 
-        class AvailableBalance < ModernTreasury::BaseModel
+        class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -303,7 +303,7 @@ module ModernTreasury
           end
         end
 
-        class PendingBalance < ModernTreasury::BaseModel
+        class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -351,7 +351,7 @@ module ModernTreasury
           end
         end
 
-        class PostedBalance < ModernTreasury::BaseModel
+        class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -403,7 +403,7 @@ module ModernTreasury
       # Equal to the state of the ledger transaction when the ledger entry was created.
       #   One of `pending`, `posted`, or `archived`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerEntry::Status) }
         OrSymbol =

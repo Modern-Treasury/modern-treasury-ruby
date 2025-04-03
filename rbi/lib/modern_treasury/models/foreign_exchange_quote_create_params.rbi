@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ForeignExchangeQuoteCreateParams < ModernTreasury::BaseModel
+    class ForeignExchangeQuoteCreateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -52,7 +52,7 @@ module ModernTreasury
           base_currency: ModernTreasury::Models::Currency::OrSymbol,
           effective_at: Time,
           target_amount: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

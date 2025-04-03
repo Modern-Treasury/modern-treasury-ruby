@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ConnectionLegalEntity < ModernTreasury::BaseModel
+    class ConnectionLegalEntity < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -90,7 +90,7 @@ module ModernTreasury
 
       # The status of the connection legal entity.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::ConnectionLegalEntity::Status) }
         OrSymbol =

@@ -6,7 +6,7 @@ module ModernTreasury
   #
   #   When making a request, you can pass an actual {RequestOptions} instance, or
   #   simply pass a Hash with symbol keys matching the attributes on this class.
-  class RequestOptions < ModernTreasury::BaseModel
+  class RequestOptions < ModernTreasury::Internal::Type::BaseModel
     # @api private
     sig { params(opts: T.any(T.self_type, T::Hash[Symbol, T.anything])).void }
     def self.validate!(opts)
@@ -41,7 +41,7 @@ module ModernTreasury
     attr_accessor :timeout
 
     # Returns a new instance of RequestOptions.
-    sig { params(values: ModernTreasury::Internal::Util::AnyHash).returns(T.attached_class) }
+    sig { params(values: ModernTreasury::Internal::AnyHash).returns(T.attached_class) }
     def self.new(values = {})
     end
   end

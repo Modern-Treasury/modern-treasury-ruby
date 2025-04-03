@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module InternalAccounts
       # @see ModernTreasury::Resources::InternalAccounts::BalanceReports#retrieve
-      class BalanceReportRetrieveParams < ModernTreasury::BaseModel
+      class BalanceReportRetrieveParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
         #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
@@ -20,7 +20,7 @@ module ModernTreasury
         #   #
         #   def initialize(internal_account_id:, request_options: {}, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

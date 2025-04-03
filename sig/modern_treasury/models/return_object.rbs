@@ -28,7 +28,7 @@ module ModernTreasury
         data: top?
       }
 
-    class ReturnObject < ModernTreasury::BaseModel
+    class ReturnObject < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor amount: Integer
@@ -162,7 +162,7 @@ module ModernTreasury
         | :currencycloud
 
       module Code
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CODE_901: :"901"
         CODE_902: :"902"
@@ -232,7 +232,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class ReferenceNumber < ModernTreasury::BaseModel
+      class ReferenceNumber < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor created_at: Time
@@ -336,7 +336,7 @@ module ModernTreasury
           | :wells_fargo_uetr
 
         module ReferenceNumberType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           ACH_ORIGINAL_TRACE_NUMBER: :ach_original_trace_number
           ACH_TRACE_NUMBER: :ach_trace_number
@@ -425,7 +425,7 @@ module ModernTreasury
         | :reversal
 
       module ReturnableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         INCOMING_PAYMENT_DETAIL: :incoming_payment_detail
         PAPER_ITEM: :paper_item
@@ -439,7 +439,7 @@ module ModernTreasury
       type role = :originating | :receiving
 
       module Role
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ORIGINATING: :originating
         RECEIVING: :receiving
@@ -451,7 +451,7 @@ module ModernTreasury
         :completed | :failed | :pending | :processing | :returned | :sent
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         COMPLETED: :completed
         FAILED: :failed
@@ -479,7 +479,7 @@ module ModernTreasury
         | :wire
 
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         ACH_NOC: :ach_noc

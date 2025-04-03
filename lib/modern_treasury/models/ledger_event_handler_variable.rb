@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @deprecated
-    class LedgerEventHandlerVariable < ModernTreasury::BaseModel
+    class LedgerEventHandlerVariable < ModernTreasury::Internal::Type::BaseModel
       # @!attribute query
       #
       #   @return [ModernTreasury::Models::LedgerEventHandlerVariable::Query]
@@ -22,12 +22,12 @@ module ModernTreasury
       #   #
       #   def initialize(query:, type:, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # @deprecated
       #
       # @see ModernTreasury::Models::LedgerEventHandlerVariable#query
-      class Query < ModernTreasury::BaseModel
+      class Query < ModernTreasury::Internal::Type::BaseModel
         # @!attribute field
         #   The LHS of the conditional.
         #
@@ -53,7 +53,7 @@ module ModernTreasury
         #   #
         #   def initialize(field:, operator:, value:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

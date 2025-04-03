@@ -10,7 +10,7 @@ module ModernTreasury
         }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class BalanceReportCreateParams < ModernTreasury::BaseModel
+      class BalanceReportCreateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
@@ -36,7 +36,7 @@ module ModernTreasury
           :intraday | :other | :previous_day | :real_time
 
         module BalanceReportType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           INTRADAY: :intraday
           OTHER: :other
@@ -54,7 +54,7 @@ module ModernTreasury
             vendor_code_type: String?
           }
 
-        class Balance < ModernTreasury::BaseModel
+        class Balance < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: Integer
 
           attr_accessor balance_type: ModernTreasury::Models::InternalAccounts::BalanceReportCreateParams::Balance::balance_type
@@ -84,7 +84,7 @@ module ModernTreasury
             | :previously_closed_book
 
           module BalanceType
-            extend ModernTreasury::Enum
+            extend ModernTreasury::Internal::Type::Enum
 
             CLOSING_AVAILABLE: :closing_available
             CLOSING_LEDGER: :closing_ledger

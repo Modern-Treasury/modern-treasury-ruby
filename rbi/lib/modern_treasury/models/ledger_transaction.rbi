@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerTransaction < ModernTreasury::BaseModel
+    class LedgerTransaction < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -93,7 +93,7 @@ module ModernTreasury
           effective_at: Time,
           effective_date: Date,
           external_id: T.nilable(String),
-          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerEntry, ModernTreasury::Internal::Util::AnyHash)],
+          ledger_entries: T::Array[T.any(ModernTreasury::Models::LedgerEntry, ModernTreasury::Internal::AnyHash)],
           ledger_id: String,
           ledgerable_id: T.nilable(String),
           ledgerable_type: T.nilable(ModernTreasury::Models::LedgerTransaction::LedgerableType::OrSymbol),
@@ -166,7 +166,7 @@ module ModernTreasury
       #   payment_order, incoming_payment_detail, expected_payment, return, paper_item, or
       #   reversal.
       module LedgerableType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransaction::LedgerableType) }
         OrSymbol =
@@ -189,7 +189,7 @@ module ModernTreasury
 
       # To post a ledger transaction at creation, use `posted`.
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::LedgerTransaction::Status) }
         OrSymbol =

@@ -4,7 +4,7 @@ module ModernTreasury
       type line_item_retrieve_params =
         {  } & ModernTreasury::Internal::Type::request_parameters
 
-      class LineItemRetrieveParams < ModernTreasury::BaseModel
+      class LineItemRetrieveParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 

@@ -15,7 +15,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class ExpectedPaymentListParams < ModernTreasury::BaseModel
+    class ExpectedPaymentListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -83,7 +83,7 @@ module ModernTreasury
         :archived | :partially_reconciled | :reconciled | :unreconciled
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED: :archived
         PARTIALLY_RECONCILED: :partially_reconciled
@@ -126,7 +126,7 @@ module ModernTreasury
         | :zengin
 
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         AU_BECS: :au_becs

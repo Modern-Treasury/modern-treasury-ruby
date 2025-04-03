@@ -13,7 +13,7 @@ module ModernTreasury
         vendor_name: String
       }
 
-    class Connection < ModernTreasury::BaseModel
+    class Connection < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor created_at: Time

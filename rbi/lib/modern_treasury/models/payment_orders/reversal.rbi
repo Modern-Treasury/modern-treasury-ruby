@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module PaymentOrders
-      class Reversal < ModernTreasury::BaseModel
+      class Reversal < ModernTreasury::Internal::Type::BaseModel
         sig { returns(String) }
         attr_accessor :id
 
@@ -99,7 +99,7 @@ module ModernTreasury
 
         # The reason for the reversal.
         module Reason
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Reason) }
           OrSymbol =
@@ -122,7 +122,7 @@ module ModernTreasury
 
         # The current status of the reversal.
         module Status
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrders::Reversal::Status) }
           OrSymbol =

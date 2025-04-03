@@ -5,7 +5,7 @@ module ModernTreasury
         { amount: Integer, expected_payment_id: String, transaction_id: String }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class LineItemCreateParams < ModernTreasury::BaseModel
+      class LineItemCreateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 

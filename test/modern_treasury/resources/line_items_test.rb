@@ -26,8 +26,8 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
         description: String | nil,
         itemizable_id: String,
         itemizable_type: ModernTreasury::Models::LineItem::ItemizableType,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }
@@ -57,8 +57,8 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
         description: String | nil,
         itemizable_id: String,
         itemizable_type: ModernTreasury::Models::LineItem::ItemizableType,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }
@@ -92,8 +92,8 @@ class ModernTreasury::Test::Resources::LineItemsTest < ModernTreasury::Test::Res
         description: String | nil,
         itemizable_id: String,
         itemizable_type: ModernTreasury::Models::LineItem::ItemizableType,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         object: String,
         updated_at: Time
       }

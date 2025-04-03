@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
+    class CounterpartyCollectAccountParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -48,7 +48,7 @@ module ModernTreasury
           custom_redirect: String,
           fields: T::Array[ModernTreasury::Models::CounterpartyCollectAccountParams::Field::OrSymbol],
           send_email: T::Boolean,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -71,7 +71,7 @@ module ModernTreasury
       end
 
       module Field
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::CounterpartyCollectAccountParams::Field) }

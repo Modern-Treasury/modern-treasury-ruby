@@ -98,32 +98,4 @@ module ModernTreasury
       HTTP_STATUS: Range[Integer]
     end
   end
-
-  class Error = ModernTreasury::Errors::Error
-
-  class ConversionError = ModernTreasury::Errors::ConversionError
-
-  class APIError = ModernTreasury::Errors::APIError
-
-  class APIStatusError = ModernTreasury::Errors::APIStatusError
-
-  class APIConnectionError = ModernTreasury::Errors::APIConnectionError
-
-  class APITimeoutError = ModernTreasury::Errors::APITimeoutError
-
-  class BadRequestError = ModernTreasury::Errors::BadRequestError
-
-  class AuthenticationError = ModernTreasury::Errors::AuthenticationError
-
-  class PermissionDeniedError = ModernTreasury::Errors::PermissionDeniedError
-
-  class NotFoundError = ModernTreasury::Errors::NotFoundError
-
-  class ConflictError = ModernTreasury::Errors::ConflictError
-
-  class UnprocessableEntityError = ModernTreasury::Errors::UnprocessableEntityError
-
-  class RateLimitError = ModernTreasury::Errors::RateLimitError
-
-  class InternalServerError = ModernTreasury::Errors::InternalServerError
 end

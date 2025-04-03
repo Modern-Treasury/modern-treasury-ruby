@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class PaymentOrderListParams < ModernTreasury::BaseModel
+    class PaymentOrderListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -138,7 +138,7 @@ module ModernTreasury
           status: ModernTreasury::Models::PaymentOrderListParams::Status::OrSymbol,
           transaction_id: String,
           type: ModernTreasury::Models::PaymentOrderListParams::Type::OrSymbol,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -196,7 +196,7 @@ module ModernTreasury
       #   same-day ACH or EFT transfer, respectively. For check payments, `high` can mean
       #   an overnight check rather than standard mail.
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderListParams::Priority) }
         OrSymbol =
@@ -211,7 +211,7 @@ module ModernTreasury
       end
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderListParams::Status) }
         OrSymbol =
@@ -236,7 +236,7 @@ module ModernTreasury
       end
 
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol = T.type_alias { T.all(Symbol, ModernTreasury::Models::PaymentOrderListParams::Type) }
         OrSymbol =

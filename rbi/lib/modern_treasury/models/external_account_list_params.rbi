@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class ExternalAccountListParams < ModernTreasury::BaseModel
+    class ExternalAccountListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -44,7 +44,7 @@ module ModernTreasury
           metadata: T::Hash[Symbol, String],
           party_name: String,
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

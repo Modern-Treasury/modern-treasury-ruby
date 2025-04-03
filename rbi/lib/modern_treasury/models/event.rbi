@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class Event < ModernTreasury::BaseModel
+    class Event < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 

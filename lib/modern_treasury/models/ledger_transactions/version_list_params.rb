@@ -4,7 +4,7 @@ module ModernTreasury
   module Models
     module LedgerTransactions
       # @see ModernTreasury::Resources::LedgerTransactions::Versions#list
-      class VersionListParams < ModernTreasury::BaseModel
+      class VersionListParams < ModernTreasury::Internal::Type::BaseModel
         # @!parse
         #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
@@ -20,7 +20,7 @@ module ModernTreasury
         #     created_at%5Bgt%5D=2000-01-01T12:00:00Z.
         #
         #   @return [Hash{Symbol=>Time}, nil]
-        optional :created_at, ModernTreasury::HashOf[Time]
+        optional :created_at, ModernTreasury::Internal::Type::HashOf[Time]
 
         # @!parse
         #   # @return [Hash{Symbol=>Time}]
@@ -62,7 +62,7 @@ module ModernTreasury
         #     version. For example, for all versions after 2, use version%5Bgt%5D=2.
         #
         #   @return [Hash{Symbol=>Integer}, nil]
-        optional :version, ModernTreasury::HashOf[Integer]
+        optional :version, ModernTreasury::Internal::Type::HashOf[Integer]
 
         # @!parse
         #   # @return [Hash{Symbol=>Integer}]
@@ -90,7 +90,7 @@ module ModernTreasury
         #     super
         #   end
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
       end
     end
   end

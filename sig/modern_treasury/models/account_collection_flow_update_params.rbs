@@ -6,7 +6,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class AccountCollectionFlowUpdateParams < ModernTreasury::BaseModel
+    class AccountCollectionFlowUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -22,7 +22,7 @@ module ModernTreasury
       type status = :cancelled
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CANCELLED: :cancelled
 

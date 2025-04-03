@@ -10,7 +10,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class ExternalAccountVerifyParams < ModernTreasury::BaseModel
+    class ExternalAccountVerifyParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -80,7 +80,7 @@ module ModernTreasury
         | :zengin
 
       module PaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
         AU_BECS: :au_becs
@@ -119,7 +119,7 @@ module ModernTreasury
       type fallback_type = :ach
 
       module FallbackType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ACH: :ach
 
@@ -129,7 +129,7 @@ module ModernTreasury
       type priority = :high | :normal
 
       module Priority
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         HIGH: :high
         NORMAL: :normal

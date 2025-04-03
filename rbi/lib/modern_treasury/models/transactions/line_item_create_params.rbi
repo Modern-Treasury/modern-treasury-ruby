@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module Transactions
-      class LineItemCreateParams < ModernTreasury::BaseModel
+      class LineItemCreateParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
@@ -25,7 +25,7 @@ module ModernTreasury
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end

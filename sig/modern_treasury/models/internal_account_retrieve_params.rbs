@@ -3,7 +3,7 @@ module ModernTreasury
     type internal_account_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class InternalAccountRetrieveParams < ModernTreasury::BaseModel
+    class InternalAccountRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

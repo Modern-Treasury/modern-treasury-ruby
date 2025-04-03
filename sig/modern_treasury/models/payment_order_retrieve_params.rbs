@@ -3,7 +3,7 @@ module ModernTreasury
     type payment_order_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class PaymentOrderRetrieveParams < ModernTreasury::BaseModel
+    class PaymentOrderRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

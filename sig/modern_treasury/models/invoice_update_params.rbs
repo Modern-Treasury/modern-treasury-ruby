@@ -30,7 +30,7 @@ module ModernTreasury
       }
       & ModernTreasury::Internal::Type::request_parameters
 
-    class InvoiceUpdateParams < ModernTreasury::BaseModel
+    class InvoiceUpdateParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -159,7 +159,7 @@ module ModernTreasury
           updated_at: Time
         }
 
-      class ContactDetail < ModernTreasury::BaseModel
+      class ContactDetail < ModernTreasury::Internal::Type::BaseModel
         attr_accessor id: String
 
         attr_accessor contact_identifier: String
@@ -192,7 +192,7 @@ module ModernTreasury
         type contact_identifier_type = :email | :phone_number | :website
 
         module ContactIdentifierType
-          extend ModernTreasury::Enum
+          extend ModernTreasury::Internal::Type::Enum
 
           EMAIL: :email
           PHONE_NUMBER: :phone_number
@@ -212,7 +212,7 @@ module ModernTreasury
           :line2 => String
         }
 
-      class CounterpartyBillingAddress < ModernTreasury::BaseModel
+      class CounterpartyBillingAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String
 
         attr_accessor line1: String
@@ -249,7 +249,7 @@ module ModernTreasury
           :line2 => String
         }
 
-      class CounterpartyShippingAddress < ModernTreasury::BaseModel
+      class CounterpartyShippingAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String
 
         attr_accessor line1: String
@@ -287,7 +287,7 @@ module ModernTreasury
           unit_amount_decimal: String
         }
 
-      class InvoiceLineItem < ModernTreasury::BaseModel
+      class InvoiceLineItem < ModernTreasury::Internal::Type::BaseModel
         attr_accessor name: String
 
         attr_accessor unit_amount: Integer
@@ -335,7 +335,7 @@ module ModernTreasury
           :line2 => String
         }
 
-      class InvoicerAddress < ModernTreasury::BaseModel
+      class InvoicerAddress < ModernTreasury::Internal::Type::BaseModel
         attr_accessor country: String
 
         attr_accessor line1: String
@@ -365,7 +365,7 @@ module ModernTreasury
       type payment_method = :ui | :manual | :automatic
 
       module PaymentMethod
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         UI: :ui
         MANUAL: :manual

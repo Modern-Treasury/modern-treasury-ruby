@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     module LedgerTransactions
-      class VersionListParams < ModernTreasury::BaseModel
+      class VersionListParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 
@@ -57,7 +57,7 @@ module ModernTreasury
             ledger_transaction_id: String,
             per_page: Integer,
             version: T::Hash[Symbol, Integer],
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
           )
             .returns(T.attached_class)
         end

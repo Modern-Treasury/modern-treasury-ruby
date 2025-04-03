@@ -17,7 +17,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -26,11 +26,11 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         discarded_at: Time | nil,
         internal_account_id: String,
         ledger_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -46,7 +46,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -55,11 +55,11 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         discarded_at: Time | nil,
         internal_account_id: String,
         ledger_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -75,7 +75,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -84,11 +84,11 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         discarded_at: Time | nil,
         internal_account_id: String,
         ledger_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -111,7 +111,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     assert_pattern do
       row => {
         id: String,
-        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -120,11 +120,11 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         discarded_at: Time | nil,
         internal_account_id: String,
         ledger_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
         updated_at: Time
       }
     end
@@ -140,7 +140,7 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
     assert_pattern do
       response => {
         id: String,
-        account_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::AccountDetail]),
+        account_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::AccountDetail]),
         counterparty_id: String | nil,
         created_at: Time,
         credit_ledger_account_id: String | nil,
@@ -149,11 +149,11 @@ class ModernTreasury::Test::Resources::VirtualAccountsTest < ModernTreasury::Tes
         discarded_at: Time | nil,
         internal_account_id: String,
         ledger_account_id: String | nil,
-        live_mode: ModernTreasury::BooleanModel,
-        metadata: ^(ModernTreasury::HashOf[String]),
+        live_mode: ModernTreasury::Internal::Type::BooleanModel,
+        metadata: ^(ModernTreasury::Internal::Type::HashOf[String]),
         name: String,
         object: String,
-        routing_details: ^(ModernTreasury::ArrayOf[ModernTreasury::Models::RoutingDetail]),
+        routing_details: ^(ModernTreasury::Internal::Type::ArrayOf[ModernTreasury::Models::RoutingDetail]),
         updated_at: Time
       }
     end

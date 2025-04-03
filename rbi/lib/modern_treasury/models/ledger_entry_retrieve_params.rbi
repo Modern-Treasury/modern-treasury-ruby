@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerEntryRetrieveParams < ModernTreasury::BaseModel
+    class LedgerEntryRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -17,7 +17,7 @@ module ModernTreasury
       sig do
         params(
           show_balances: T::Boolean,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end

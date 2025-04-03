@@ -3,7 +3,7 @@ module ModernTreasury
     type ledger_account_category_add_ledger_account_params =
       { id: String } & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountCategoryAddLedgerAccountParams < ModernTreasury::BaseModel
+    class LedgerAccountCategoryAddLedgerAccountParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Counterparties#collect_account
-    class CounterpartyCollectAccountResponse < ModernTreasury::BaseModel
+    class CounterpartyCollectAccountResponse < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #   The id of the existing counterparty.
       #
@@ -24,7 +24,7 @@ module ModernTreasury
       #     been sent to this counterparty.
       #
       #   @return [Boolean]
-      required :is_resend, ModernTreasury::BooleanModel
+      required :is_resend, ModernTreasury::Internal::Type::BooleanModel
 
       # @!parse
       #   # @param id [String]
@@ -33,7 +33,7 @@ module ModernTreasury
       #   #
       #   def initialize(id:, form_link:, is_resend:, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
     end
   end
 end

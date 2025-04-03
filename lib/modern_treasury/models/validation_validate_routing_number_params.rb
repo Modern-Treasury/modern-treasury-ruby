@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::Validations#validate_routing_number
-    class ValidationValidateRoutingNumberParams < ModernTreasury::BaseModel
+    class ValidationValidateRoutingNumberParams < ModernTreasury::Internal::Type::BaseModel
       # @!parse
       #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
@@ -31,14 +31,14 @@ module ModernTreasury
       #   #
       #   def initialize(routing_number:, routing_number_type:, request_options: {}, **) = super
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The type of routing number. See
       #   https://docs.moderntreasury.com/platform/reference/routing-detail-object for
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ABA = :aba
         AU_BSB = :au_bsb

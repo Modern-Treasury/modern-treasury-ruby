@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
+    class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -68,7 +68,7 @@ module ModernTreasury
           internal_account_id: String,
           type: ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type::OrSymbol,
           virtual_account_id: T.nilable(String),
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -108,7 +108,7 @@ module ModernTreasury
 
       # One of `credit`, `debit`.
       module Direction
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Direction) }
@@ -136,7 +136,7 @@ module ModernTreasury
 
       # One of `ach`, `wire`, `check`.
       module Type
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::IncomingPaymentDetailCreateAsyncParams::Type) }

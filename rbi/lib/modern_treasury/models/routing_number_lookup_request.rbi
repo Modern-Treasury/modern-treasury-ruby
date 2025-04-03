@@ -2,17 +2,14 @@
 
 module ModernTreasury
   module Models
-    class RoutingNumberLookupRequest < ModernTreasury::BaseModel
+    class RoutingNumberLookupRequest < ModernTreasury::Internal::Type::BaseModel
       # The address of the bank.
       sig { returns(T.nilable(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress)) }
       attr_reader :bank_address
 
       sig do
         params(
-          bank_address: T.any(
-            ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
-            ModernTreasury::Internal::Util::AnyHash
-          )
+          bank_address: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -77,10 +74,7 @@ module ModernTreasury
 
       sig do
         params(
-          bank_address: T.any(
-            ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress,
-            ModernTreasury::Internal::Util::AnyHash
-          ),
+          bank_address: T.any(ModernTreasury::Models::RoutingNumberLookupRequest::BankAddress, ModernTreasury::Internal::AnyHash),
           bank_name: String,
           routing_number: String,
           routing_number_type: ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType::OrSymbol,
@@ -115,7 +109,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class BankAddress < ModernTreasury::BaseModel
+      class BankAddress < ModernTreasury::Internal::Type::BaseModel
         # Country code conforms to [ISO 3166-1 alpha-2]
         sig { returns(T.nilable(String)) }
         attr_accessor :country
@@ -175,7 +169,7 @@ module ModernTreasury
       #   more details. In sandbox mode we currently only support `aba` and `swift` with
       #   routing numbers '123456789' and 'GRINUST0XXX' respectively.
       module RoutingNumberType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::RoutingNumberType) }
@@ -218,7 +212,7 @@ module ModernTreasury
       end
 
       module SupportedPaymentType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         TaggedSymbol =
           T.type_alias { T.all(Symbol, ModernTreasury::Models::RoutingNumberLookupRequest::SupportedPaymentType) }

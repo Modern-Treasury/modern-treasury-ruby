@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountListParams < ModernTreasury::BaseModel
+    class LedgerAccountListParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 
@@ -26,7 +26,7 @@ module ModernTreasury
         params(
           available_balance_amount: T.any(
             ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -43,7 +43,7 @@ module ModernTreasury
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Internal::Util::AnyHash)
+          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -102,7 +102,7 @@ module ModernTreasury
         params(
           pending_balance_amount: T.any(
             ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -124,7 +124,7 @@ module ModernTreasury
         params(
           posted_balance_amount: T.any(
             ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           )
         )
           .void
@@ -146,9 +146,9 @@ module ModernTreasury
           after_cursor: T.nilable(String),
           available_balance_amount: T.any(
             ModernTreasury::Models::LedgerAccountListParams::AvailableBalanceAmount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
-          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Internal::Util::AnyHash),
+          balances: T.any(ModernTreasury::Models::LedgerAccountListParams::Balances, ModernTreasury::Internal::AnyHash),
           created_at: T::Hash[Symbol, Time],
           currency: String,
           ledger_account_category_id: String,
@@ -157,15 +157,15 @@ module ModernTreasury
           name: T::Array[String],
           pending_balance_amount: T.any(
             ModernTreasury::Models::LedgerAccountListParams::PendingBalanceAmount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           per_page: Integer,
           posted_balance_amount: T.any(
             ModernTreasury::Models::LedgerAccountListParams::PostedBalanceAmount,
-            ModernTreasury::Internal::Util::AnyHash
+            ModernTreasury::Internal::AnyHash
           ),
           updated_at: T::Hash[Symbol, Time],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::AnyHash)
         )
           .returns(T.attached_class)
       end
@@ -213,7 +213,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class AvailableBalanceAmount < ModernTreasury::BaseModel
+      class AvailableBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 
@@ -275,7 +275,7 @@ module ModernTreasury
         end
       end
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Date)) }
         attr_reader :as_of_date
 
@@ -337,7 +337,7 @@ module ModernTreasury
         end
       end
 
-      class PendingBalanceAmount < ModernTreasury::BaseModel
+      class PendingBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 
@@ -399,7 +399,7 @@ module ModernTreasury
         end
       end
 
-      class PostedBalanceAmount < ModernTreasury::BaseModel
+      class PostedBalanceAmount < ModernTreasury::Internal::Type::BaseModel
         sig { returns(T.nilable(Integer)) }
         attr_reader :eq
 

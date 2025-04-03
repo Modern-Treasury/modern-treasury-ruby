@@ -3,7 +3,7 @@ module ModernTreasury
     type bulk_result_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class BulkResultRetrieveParams < ModernTreasury::BaseModel
+    class BulkResultRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

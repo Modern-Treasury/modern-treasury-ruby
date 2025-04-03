@@ -3,7 +3,7 @@ module ModernTreasury
     type ledger_account_settlement_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class LedgerAccountSettlementRetrieveParams < ModernTreasury::BaseModel
+    class LedgerAccountSettlementRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

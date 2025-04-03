@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::BulkRequests#create
-    class BulkRequest < ModernTreasury::BaseModel
+    class BulkRequest < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -31,14 +31,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute object
       #
@@ -108,13 +108,13 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # One of create, or update.
       #
       # @see ModernTreasury::Models::BulkRequest#action_type
       module ActionType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         CREATE = :create
         UPDATE = :update
@@ -131,7 +131,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::BulkRequest#resource_type
       module ResourceType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER = :payment_order
         LEDGER_ACCOUNT = :ledger_account
@@ -151,7 +151,7 @@ module ModernTreasury
       #
       # @see ModernTreasury::Models::BulkRequest#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING = :pending
         PROCESSING = :processing

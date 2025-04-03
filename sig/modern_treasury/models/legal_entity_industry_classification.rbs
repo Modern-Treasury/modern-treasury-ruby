@@ -12,7 +12,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class LegalEntityIndustryClassification < ModernTreasury::BaseModel
+    class LegalEntityIndustryClassification < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor classification_codes: ::Array[String]
@@ -60,7 +60,7 @@ module ModernTreasury
         | :unspsc
 
       module ClassificationType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ANZSIC: :anzsic
         BICS: :bics

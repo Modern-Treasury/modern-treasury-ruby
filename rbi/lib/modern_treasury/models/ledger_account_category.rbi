@@ -2,7 +2,7 @@
 
 module ModernTreasury
   module Models
-    class LedgerAccountCategory < ModernTreasury::BaseModel
+    class LedgerAccountCategory < ModernTreasury::Internal::Type::BaseModel
       sig { returns(String) }
       attr_accessor :id
 
@@ -16,7 +16,7 @@ module ModernTreasury
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountCategory::Balances, ModernTreasury::Internal::Util::AnyHash)
+          balances: T.any(ModernTreasury::Models::LedgerAccountCategory::Balances, ModernTreasury::Internal::AnyHash)
         )
           .void
       end
@@ -63,7 +63,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          balances: T.any(ModernTreasury::Models::LedgerAccountCategory::Balances, ModernTreasury::Internal::Util::AnyHash),
+          balances: T.any(ModernTreasury::Models::LedgerAccountCategory::Balances, ModernTreasury::Internal::AnyHash),
           created_at: Time,
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
@@ -115,7 +115,7 @@ module ModernTreasury
       def to_hash
       end
 
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         # The available_balance is the sum of all posted inbound entries and pending
         #   outbound entries. For credit normal, available_amount = posted_credits -
         #   pending_debits; for debit normal, available_amount = posted_debits -
@@ -127,7 +127,7 @@ module ModernTreasury
           params(
             available_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -142,7 +142,7 @@ module ModernTreasury
           params(
             pending_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -157,7 +157,7 @@ module ModernTreasury
           params(
             posted_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .void
@@ -173,15 +173,15 @@ module ModernTreasury
           params(
             available_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             pending_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             ),
             posted_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance,
-              ModernTreasury::Internal::Util::AnyHash
+              ModernTreasury::Internal::AnyHash
             )
           )
             .returns(T.attached_class)
@@ -202,7 +202,7 @@ module ModernTreasury
         def to_hash
         end
 
-        class AvailableBalance < ModernTreasury::BaseModel
+        class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -253,7 +253,7 @@ module ModernTreasury
           end
         end
 
-        class PendingBalance < ModernTreasury::BaseModel
+        class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           sig { returns(Integer) }
           attr_accessor :amount
 
@@ -301,7 +301,7 @@ module ModernTreasury
           end
         end
 
-        class PostedBalance < ModernTreasury::BaseModel
+        class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           sig { returns(Integer) }
           attr_accessor :amount
 

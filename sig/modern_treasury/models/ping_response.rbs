@@ -2,7 +2,7 @@ module ModernTreasury
   module Models
     type ping_response = { ping: String }
 
-    class PingResponse < ModernTreasury::BaseModel
+    class PingResponse < ModernTreasury::Internal::Type::BaseModel
       attr_accessor ping: String
 
       def initialize: (ping: String) -> void

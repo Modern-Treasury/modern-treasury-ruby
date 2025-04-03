@@ -3,7 +3,7 @@ module ModernTreasury
     type incoming_payment_detail_retrieve_params =
       {  } & ModernTreasury::Internal::Type::request_parameters
 
-    class IncomingPaymentDetailRetrieveParams < ModernTreasury::BaseModel
+    class IncomingPaymentDetailRetrieveParams < ModernTreasury::Internal::Type::BaseModel
       extend ModernTreasury::Internal::Type::RequestParameters::Converter
       include ModernTreasury::Internal::Type::RequestParameters
 

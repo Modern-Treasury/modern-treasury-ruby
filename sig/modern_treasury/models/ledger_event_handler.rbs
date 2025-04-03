@@ -17,7 +17,7 @@ module ModernTreasury
         variables: ::Hash[Symbol, ModernTreasury::Models::LedgerEventHandlerVariable]?
       }
 
-    class LedgerEventHandler < ModernTreasury::BaseModel
+    class LedgerEventHandler < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor conditions: ModernTreasury::Models::LedgerEventHandler::Conditions?
@@ -64,7 +64,7 @@ module ModernTreasury
 
       type conditions = { field: String, operator: String, value: String }
 
-      class Conditions < ModernTreasury::BaseModel
+      class Conditions < ModernTreasury::Internal::Type::BaseModel
         attr_accessor field: String
 
         attr_accessor operator: String
@@ -84,7 +84,7 @@ module ModernTreasury
           status: String?
         }
 
-      class LedgerTransactionTemplate < ModernTreasury::BaseModel
+      class LedgerTransactionTemplate < ModernTreasury::Internal::Type::BaseModel
         attr_accessor description: String?
 
         attr_accessor effective_at: String?
@@ -105,7 +105,7 @@ module ModernTreasury
         type ledger_entry =
           { amount: String, direction: String, ledger_account_id: String }
 
-        class LedgerEntry < ModernTreasury::BaseModel
+        class LedgerEntry < ModernTreasury::Internal::Type::BaseModel
           attr_accessor amount: String
 
           attr_accessor direction: String

@@ -5,7 +5,7 @@ module ModernTreasury
         { payment_order_id: String }
         & ModernTreasury::Internal::Type::request_parameters
 
-      class ReversalRetrieveParams < ModernTreasury::BaseModel
+      class ReversalRetrieveParams < ModernTreasury::Internal::Type::BaseModel
         extend ModernTreasury::Internal::Type::RequestParameters::Converter
         include ModernTreasury::Internal::Type::RequestParameters
 

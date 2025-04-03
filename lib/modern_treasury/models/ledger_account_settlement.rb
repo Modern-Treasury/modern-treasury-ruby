@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountSettlements#create
-    class LedgerAccountSettlement < ModernTreasury::BaseModel
+    class LedgerAccountSettlement < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -70,14 +70,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute object
       #
@@ -151,14 +151,14 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # The status of the ledger account settlement. One of `processing`, `pending`,
       #   `posted`, `archiving` or `archived`.
       #
       # @see ModernTreasury::Models::LedgerAccountSettlement#status
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         ARCHIVED = :archived
         ARCHIVING = :archiving

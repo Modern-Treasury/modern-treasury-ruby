@@ -3,7 +3,7 @@
 module ModernTreasury
   module Models
     # @see ModernTreasury::Resources::LedgerAccountCategories#create
-    class LedgerAccountCategory < ModernTreasury::BaseModel
+    class LedgerAccountCategory < ModernTreasury::Internal::Type::BaseModel
       # @!attribute id
       #
       #   @return [String]
@@ -46,14 +46,14 @@ module ModernTreasury
       #     if it exists in the test environment.
       #
       #   @return [Boolean]
-      required :live_mode, ModernTreasury::BooleanModel
+      required :live_mode, ModernTreasury::Internal::Type::BooleanModel
 
       # @!attribute metadata
       #   Additional data represented as key-value pairs. Both the key and value must be
       #     strings.
       #
       #   @return [Hash{Symbol=>String}]
-      required :metadata, ModernTreasury::HashOf[String]
+      required :metadata, ModernTreasury::Internal::Type::HashOf[String]
 
       # @!attribute name
       #   The name of the ledger account category.
@@ -109,10 +109,10 @@ module ModernTreasury
       #     super
       #   end
 
-      # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+      # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
       # @see ModernTreasury::Models::LedgerAccountCategory#balances
-      class Balances < ModernTreasury::BaseModel
+      class Balances < ModernTreasury::Internal::Type::BaseModel
         # @!attribute available_balance
         #   The available_balance is the sum of all posted inbound entries and pending
         #     outbound entries. For credit normal, available_amount = posted_credits -
@@ -148,10 +148,10 @@ module ModernTreasury
         #   #
         #   def initialize(available_balance:, pending_balance:, posted_balance:, **) = super
 
-        # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+        # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
 
         # @see ModernTreasury::Models::LedgerAccountCategory::Balances#available_balance
-        class AvailableBalance < ModernTreasury::BaseModel
+        class AvailableBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
           #   @return [Integer]
@@ -193,11 +193,11 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
 
         # @see ModernTreasury::Models::LedgerAccountCategory::Balances#pending_balance
-        class PendingBalance < ModernTreasury::BaseModel
+        class PendingBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
           #   @return [Integer]
@@ -236,11 +236,11 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
 
         # @see ModernTreasury::Models::LedgerAccountCategory::Balances#posted_balance
-        class PostedBalance < ModernTreasury::BaseModel
+        class PostedBalance < ModernTreasury::Internal::Type::BaseModel
           # @!attribute amount
           #
           #   @return [Integer]
@@ -279,7 +279,7 @@ module ModernTreasury
           #   #
           #   def initialize(amount:, credits:, currency:, currency_exponent:, debits:, **) = super
 
-          # def initialize: (Hash | ModernTreasury::BaseModel) -> void
+          # def initialize: (Hash | ModernTreasury::Internal::Type::BaseModel) -> void
         end
       end
     end

@@ -16,7 +16,7 @@ module ModernTreasury
         updated_at: Time
       }
 
-    class BulkResult < ModernTreasury::BaseModel
+    class BulkResult < ModernTreasury::Internal::Type::BaseModel
       attr_accessor id: String
 
       attr_accessor created_at: Time
@@ -66,7 +66,7 @@ module ModernTreasury
         | ModernTreasury::Models::BulkResult::Entity::BulkError
 
       module Entity
-        extend ModernTreasury::Union
+        extend ModernTreasury::Internal::Type::Union
 
         type bulk_error =
           {
@@ -78,7 +78,7 @@ module ModernTreasury
             updated_at: Time
           }
 
-        class BulkError < ModernTreasury::BaseModel
+        class BulkError < ModernTreasury::Internal::Type::BaseModel
           attr_accessor id: String
 
           attr_accessor created_at: Time
@@ -105,7 +105,7 @@ module ModernTreasury
           type request_error =
             { code: String, message: String, parameter: String }
 
-          class RequestError < ModernTreasury::BaseModel
+          class RequestError < ModernTreasury::Internal::Type::BaseModel
             attr_reader code: String?
 
             def code=: (String) -> String
@@ -141,7 +141,7 @@ module ModernTreasury
         | :bulk_error
 
       module EntityType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PAYMENT_ORDER: :payment_order
         LEDGER_ACCOUNT: :ledger_account
@@ -157,7 +157,7 @@ module ModernTreasury
       type request_type = :bulk_request
 
       module RequestType
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         BULK_REQUEST: :bulk_request
 
@@ -167,7 +167,7 @@ module ModernTreasury
       type status = :pending | :successful | :failed
 
       module Status
-        extend ModernTreasury::Enum
+        extend ModernTreasury::Internal::Type::Enum
 
         PENDING: :pending
         SUCCESSFUL: :successful
