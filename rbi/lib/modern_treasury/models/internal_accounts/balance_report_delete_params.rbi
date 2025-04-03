@@ -4,8 +4,8 @@ module ModernTreasury
   module Models
     module InternalAccounts
       class BalanceReportDeleteParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         sig { returns(String) }
         attr_accessor :internal_account_id
@@ -13,7 +13,7 @@ module ModernTreasury
         sig do
           params(
             internal_account_id: String,
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end

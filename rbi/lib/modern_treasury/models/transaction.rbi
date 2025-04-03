@@ -50,7 +50,9 @@ module ModernTreasury
 
       sig do
         params(
-          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash))
+          foreign_exchange_rate: T.nilable(
+            T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Internal::Util::AnyHash)
+          )
         )
           .void
       end
@@ -141,7 +143,9 @@ module ModernTreasury
           custom_identifiers: T::Hash[Symbol, String],
           direction: String,
           discarded_at: T.nilable(Time),
-          foreign_exchange_rate: T.nilable(T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Util::AnyHash)),
+          foreign_exchange_rate: T.nilable(
+            T.any(ModernTreasury::Models::Transaction::ForeignExchangeRate, ModernTreasury::Internal::Util::AnyHash)
+          ),
           internal_account_id: String,
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],

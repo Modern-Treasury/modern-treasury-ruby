@@ -21,7 +21,7 @@ module ModernTreasury
           ?transaction_id: String,
           ?type: ModernTreasury::Models::Transactions::LineItemListParams::type_?,
           ?request_options: ModernTreasury::request_opts
-        ) -> ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem]
+        ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Transactions::TransactionLineItem]
 
         def delete: (
           String id,

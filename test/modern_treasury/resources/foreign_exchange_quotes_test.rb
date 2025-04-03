@@ -61,7 +61,7 @@ class ModernTreasury::Test::Resources::ForeignExchangeQuotesTest < ModernTreasur
     response = @modern_treasury.foreign_exchange_quotes.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

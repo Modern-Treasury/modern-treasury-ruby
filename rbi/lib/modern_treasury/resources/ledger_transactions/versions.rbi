@@ -13,9 +13,16 @@ module ModernTreasury
             ledger_transaction_id: String,
             per_page: Integer,
             version: T::Hash[Symbol, Integer],
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
-            .returns(ModernTreasury::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion])
+            .returns(
+              ModernTreasury::Internal::Page[ModernTreasury::Models::LedgerTransactions::LedgerTransactionVersion]
+            )
         end
         def list(
           after_cursor: nil,

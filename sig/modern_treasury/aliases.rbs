@@ -1,0 +1,19 @@
+module ModernTreasury
+  class Unknown = ModernTreasury::Internal::Type::Unknown
+
+  class BooleanModel = ModernTreasury::Internal::Type::BooleanModel
+
+  module Enum = ModernTreasury::Internal::Type::Enum
+
+  module Union = ModernTreasury::Internal::Type::Union
+
+  class ArrayOf = ModernTreasury::Internal::Type::ArrayOf
+
+  class HashOf = ModernTreasury::Internal::Type::HashOf
+
+  class BaseModel = ModernTreasury::Internal::Type::BaseModel
+
+  type request_parameters = ModernTreasury::Internal::Type::request_parameters
+
+  module RequestParameters = ModernTreasury::Internal::Type::RequestParameters
+end

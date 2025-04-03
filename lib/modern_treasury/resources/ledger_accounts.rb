@@ -99,7 +99,7 @@ module ModernTreasury
       # @param updated_at [Hash{Symbol=>Time}]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::LedgerAccount>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::LedgerAccount>]
       #
       # @see ModernTreasury::Models::LedgerAccountListParams
       def list(params = {})
@@ -108,7 +108,7 @@ module ModernTreasury
           method: :get,
           path: "api/ledger_accounts",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::LedgerAccount,
           options: options
         )

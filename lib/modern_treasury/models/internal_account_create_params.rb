@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::InternalAccounts#create
     class InternalAccountCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute connection_id
       #   The identifier of the financial institution the account belongs to.

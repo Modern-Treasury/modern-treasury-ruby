@@ -94,7 +94,7 @@ module ModernTreasury
       # @param per_page [Integer]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::Counterparty>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Counterparty>]
       #
       # @see ModernTreasury::Models::CounterpartyListParams
       def list(params = {})
@@ -103,7 +103,7 @@ module ModernTreasury
           method: :get,
           path: "api/counterparties",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::Counterparty,
           options: options
         )

@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::Counterparties#collect_account
     class CounterpartyCollectAccountParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute direction
       #   One of `credit` or `debit`. Use `credit` when you want to pay a counterparty.

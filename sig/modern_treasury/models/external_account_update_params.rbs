@@ -10,11 +10,11 @@ module ModernTreasury
         party_name: String,
         party_type: ModernTreasury::Models::ExternalAccountUpdateParams::party_type?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class ExternalAccountUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader account_type: ModernTreasury::Models::external_account_type?
 

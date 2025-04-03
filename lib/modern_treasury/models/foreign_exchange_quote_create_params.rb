@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::ForeignExchangeQuotes#create
     class ForeignExchangeQuoteCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute internal_account_id
       #   The ID for the `InternalAccount` this quote is associated with.

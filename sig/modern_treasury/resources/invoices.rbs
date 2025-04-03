@@ -80,7 +80,7 @@ module ModernTreasury
         ?per_page: Integer,
         ?status: ModernTreasury::Models::InvoiceListParams::status,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::Invoice]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::Invoice]
 
       def add_payment_order: (
         String payment_order_id,

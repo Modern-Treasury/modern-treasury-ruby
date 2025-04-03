@@ -1,11 +1,11 @@
 module ModernTreasury
   module Models
     type ledger_account_category_remove_nested_category_params =
-      { id: String } & ModernTreasury::request_parameters
+      { id: String } & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerAccountCategoryRemoveNestedCategoryParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor id: String
 

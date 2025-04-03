@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class LedgerableEventCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Name of the ledgerable event.
       sig { returns(String) }
@@ -32,7 +32,7 @@ module ModernTreasury
           custom_data: T.nilable(T.anything),
           description: T.nilable(String),
           metadata: T::Hash[Symbol, String],
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

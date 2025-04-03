@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::VirtualAccounts#create
     class VirtualAccountCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute internal_account_id
       #   The ID of the internal account that this virtual account is associated with.

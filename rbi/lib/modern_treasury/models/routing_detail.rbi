@@ -11,7 +11,9 @@ module ModernTreasury
 
       sig do
         params(
-          bank_address: T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Util::AnyHash))
+          bank_address: T.nilable(
+            T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Internal::Util::AnyHash)
+          )
         )
           .void
       end
@@ -56,7 +58,9 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          bank_address: T.nilable(T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Util::AnyHash)),
+          bank_address: T.nilable(
+            T.any(ModernTreasury::Models::RoutingDetail::BankAddress, ModernTreasury::Internal::Util::AnyHash)
+          ),
           bank_name: String,
           created_at: Time,
           discarded_at: T.nilable(Time),

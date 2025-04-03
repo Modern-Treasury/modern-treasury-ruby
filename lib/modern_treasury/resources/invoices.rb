@@ -133,7 +133,7 @@ module ModernTreasury
       # @param status [Symbol, ModernTreasury::Models::InvoiceListParams::Status]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::Invoice>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::Invoice>]
       #
       # @see ModernTreasury::Models::InvoiceListParams
       def list(params = {})
@@ -142,7 +142,7 @@ module ModernTreasury
           method: :get,
           path: "api/invoices",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::Invoice,
           options: options
         )

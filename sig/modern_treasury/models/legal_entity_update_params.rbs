@@ -27,11 +27,11 @@ module ModernTreasury
         wealth_and_employment_details: ModernTreasury::Models::WealthAndEmploymentDetails?,
         website: String?
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LegalEntityUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader addresses: ::Array[ModernTreasury::Models::LegalEntityUpdateParams::Address]?
 

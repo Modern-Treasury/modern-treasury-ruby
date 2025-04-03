@@ -63,7 +63,7 @@ module ModernTreasury
       # @param target_currency [String]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::ForeignExchangeQuote>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ForeignExchangeQuote>]
       #
       # @see ModernTreasury::Models::ForeignExchangeQuoteListParams
       def list(params = {})
@@ -72,7 +72,7 @@ module ModernTreasury
           method: :get,
           path: "api/foreign_exchange_quotes",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::ForeignExchangeQuote,
           options: options
         )

@@ -78,7 +78,7 @@ module ModernTreasury
       # @param status [Symbol, ModernTreasury::Models::ConnectionLegalEntityListParams::Status]
       # @param request_options [ModernTreasury::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [ModernTreasury::Page<ModernTreasury::Models::ConnectionLegalEntity>]
+      # @return [ModernTreasury::Internal::Page<ModernTreasury::Models::ConnectionLegalEntity>]
       #
       # @see ModernTreasury::Models::ConnectionLegalEntityListParams
       def list(params = {})
@@ -87,7 +87,7 @@ module ModernTreasury
           method: :get,
           path: "api/connection_legal_entities",
           query: parsed,
-          page: ModernTreasury::Page,
+          page: ModernTreasury::Internal::Page,
           model: ModernTreasury::Models::ConnectionLegalEntity,
           options: options
         )

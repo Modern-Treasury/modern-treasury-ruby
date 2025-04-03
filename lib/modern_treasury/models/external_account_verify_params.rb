@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::ExternalAccounts#verify
     class ExternalAccountVerifyParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute originating_account_id
       #   The ID of the internal account where the micro-deposits originate from. Both

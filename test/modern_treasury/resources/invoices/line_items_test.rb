@@ -85,7 +85,7 @@ class ModernTreasury::Test::Resources::Invoices::LineItemsTest < ModernTreasury:
     response = @modern_treasury.invoices.line_items.list("invoice_id")
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

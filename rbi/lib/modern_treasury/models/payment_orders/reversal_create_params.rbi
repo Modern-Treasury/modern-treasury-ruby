@@ -4,8 +4,8 @@ module ModernTreasury
   module Models
     module PaymentOrders
       class ReversalCreateParams < ModernTreasury::BaseModel
-        extend ModernTreasury::Type::RequestParameters::Converter
-        include ModernTreasury::RequestParameters
+        extend ModernTreasury::Internal::Type::RequestParameters::Converter
+        include ModernTreasury::Internal::Type::RequestParameters
 
         # The reason for the reversal. Must be one of `duplicate`, `incorrect_amount`,
         #   `incorrect_receiving_account`, `date_earlier_than_intended`,
@@ -23,7 +23,7 @@ module ModernTreasury
           params(
             ledger_transaction: T.any(
               ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
             .void
@@ -43,10 +43,10 @@ module ModernTreasury
             reason: ModernTreasury::Models::PaymentOrders::ReversalCreateParams::Reason::OrSymbol,
             ledger_transaction: T.any(
               ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             ),
             metadata: T::Hash[Symbol, String],
-            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+            request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
           )
             .returns(T.attached_class)
         end
@@ -209,7 +209,7 @@ module ModernTreasury
               ledger_entries: T::Array[
               T.any(
                 ModernTreasury::Models::PaymentOrders::ReversalCreateParams::LedgerTransaction::LedgerEntry,
-                ModernTreasury::Util::AnyHash
+                ModernTreasury::Internal::Util::AnyHash
               )
               ],
               description: T.nilable(String),

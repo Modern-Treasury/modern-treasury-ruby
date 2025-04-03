@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::IncomingPaymentDetails#create_async
     class IncomingPaymentDetailCreateAsyncParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] amount
       #   Value in specified currency's smallest unit. e.g. $10 would be represented

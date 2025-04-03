@@ -5,11 +5,11 @@ module ModernTreasury
         itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::itemizable_type,
         itemizable_id: String
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LineItemRetrieveParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor itemizable_type: ModernTreasury::Models::LineItemRetrieveParams::itemizable_type
 

@@ -16,7 +16,7 @@ module ModernTreasury
 
       sig do
         params(
-          balances: T.any(ModernTreasury::Models::LedgerAccountCategory::Balances, ModernTreasury::Util::AnyHash)
+          balances: T.any(ModernTreasury::Models::LedgerAccountCategory::Balances, ModernTreasury::Internal::Util::AnyHash)
         )
           .void
       end
@@ -63,7 +63,7 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          balances: T.any(ModernTreasury::Models::LedgerAccountCategory::Balances, ModernTreasury::Util::AnyHash),
+          balances: T.any(ModernTreasury::Models::LedgerAccountCategory::Balances, ModernTreasury::Internal::Util::AnyHash),
           created_at: Time,
           description: T.nilable(String),
           discarded_at: T.nilable(Time),
@@ -127,7 +127,7 @@ module ModernTreasury
           params(
             available_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
             .void
@@ -142,7 +142,7 @@ module ModernTreasury
           params(
             pending_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
             .void
@@ -157,7 +157,7 @@ module ModernTreasury
           params(
             posted_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
             .void
@@ -173,15 +173,15 @@ module ModernTreasury
           params(
             available_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::AvailableBalance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             ),
             pending_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::PendingBalance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             ),
             posted_balance: T.any(
               ModernTreasury::Models::LedgerAccountCategory::Balances::PostedBalance,
-              ModernTreasury::Util::AnyHash
+              ModernTreasury::Internal::Util::AnyHash
             )
           )
             .returns(T.attached_class)

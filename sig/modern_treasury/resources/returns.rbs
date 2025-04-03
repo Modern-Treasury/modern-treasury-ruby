@@ -25,7 +25,7 @@ module ModernTreasury
         ?returnable_id: String,
         ?returnable_type: ModernTreasury::Models::ReturnListParams::returnable_type,
         ?request_options: ModernTreasury::request_opts
-      ) -> ModernTreasury::Page[ModernTreasury::Models::ReturnObject]
+      ) -> ModernTreasury::Internal::Page[ModernTreasury::Models::ReturnObject]
 
       def initialize: (client: ModernTreasury::Client) -> void
     end

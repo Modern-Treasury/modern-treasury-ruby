@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class AccountDetailListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(ModernTreasury::Models::AccountsType::OrSymbol) }
       attr_accessor :accounts_type
@@ -23,7 +23,7 @@ module ModernTreasury
           accounts_type: ModernTreasury::Models::AccountsType::OrSymbol,
           after_cursor: T.nilable(String),
           per_page: Integer,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

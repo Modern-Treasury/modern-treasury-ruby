@@ -10,7 +10,12 @@ module ModernTreasury
             amount: Integer,
             expected_payment_id: String,
             transaction_id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
             .returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
@@ -30,7 +35,12 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
             .returns(ModernTreasury::Models::Transactions::TransactionLineItem)
         end
@@ -49,9 +59,14 @@ module ModernTreasury
             per_page: Integer,
             transaction_id: String,
             type: T.nilable(ModernTreasury::Models::Transactions::LineItemListParams::Type::OrSymbol),
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
-            .returns(ModernTreasury::Page[ModernTreasury::Models::Transactions::TransactionLineItem])
+            .returns(ModernTreasury::Internal::Page[ModernTreasury::Models::Transactions::TransactionLineItem])
         end
         def list(
           id: nil,
@@ -67,7 +82,12 @@ module ModernTreasury
         sig do
           params(
             id: String,
-            request_options: T.nilable(T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash))
+            request_options: T.nilable(
+              T.any(
+                ModernTreasury::RequestOptions,
+                ModernTreasury::Internal::Util::AnyHash
+              )
+            )
           )
             .void
         end

@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::Documents#create
     class DocumentCreateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute documentable_id
       #   The unique identifier for the associated object.

@@ -65,7 +65,7 @@ class ModernTreasury::Test::Resources::LedgerEntriesTest < ModernTreasury::Test:
     response = @modern_treasury.ledger_entries.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

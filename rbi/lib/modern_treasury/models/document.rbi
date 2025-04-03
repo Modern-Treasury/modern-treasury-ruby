@@ -32,7 +32,7 @@ module ModernTreasury
       sig { returns(ModernTreasury::Models::Document::File) }
       attr_reader :file
 
-      sig { params(file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Util::AnyHash)).void }
+      sig { params(file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Internal::Util::AnyHash)).void }
       attr_writer :file
 
       # This field will be true if this object exists in the live environment or false
@@ -55,11 +55,11 @@ module ModernTreasury
           id: String,
           created_at: Time,
           discarded_at: T.nilable(Time),
-          document_details: T::Array[T.any(ModernTreasury::Models::Document::DocumentDetail, ModernTreasury::Util::AnyHash)],
+          document_details: T::Array[T.any(ModernTreasury::Models::Document::DocumentDetail, ModernTreasury::Internal::Util::AnyHash)],
           document_type: T.nilable(String),
           documentable_id: String,
           documentable_type: ModernTreasury::Models::Document::DocumentableType::OrSymbol,
-          file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Util::AnyHash),
+          file: T.any(ModernTreasury::Models::Document::File, ModernTreasury::Internal::Util::AnyHash),
           live_mode: T::Boolean,
           object: String,
           source: String,

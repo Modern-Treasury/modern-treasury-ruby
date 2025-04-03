@@ -15,7 +15,7 @@ module ModernTreasury
 
       sig do
         params(
-          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash))
+          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::Util::AnyHash))
         )
           .void
       end
@@ -34,7 +34,9 @@ module ModernTreasury
 
       sig do
         params(
-          compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Util::AnyHash))
+          compliance_details: T.nilable(
+            T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::Util::AnyHash)
+          )
         )
           .void
       end
@@ -137,7 +139,9 @@ module ModernTreasury
 
       sig do
         params(
-          wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash))
+          wealth_and_employment_details: T.nilable(
+            T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::Util::AnyHash)
+          )
         )
           .void
       end
@@ -150,11 +154,13 @@ module ModernTreasury
       sig do
         params(
           id: String,
-          addresses: T::Array[T.any(ModernTreasury::Models::LegalEntity::Address, ModernTreasury::Util::AnyHash)],
-          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Util::AnyHash)),
+          addresses: T::Array[T.any(ModernTreasury::Models::LegalEntity::Address, ModernTreasury::Internal::Util::AnyHash)],
+          bank_settings: T.nilable(T.any(ModernTreasury::Models::BankSettings, ModernTreasury::Internal::Util::AnyHash)),
           business_name: T.nilable(String),
           citizenship_country: T.nilable(String),
-          compliance_details: T.nilable(T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Util::AnyHash)),
+          compliance_details: T.nilable(
+            T.any(ModernTreasury::Models::LegalEntityComplianceDetail, ModernTreasury::Internal::Util::AnyHash)
+          ),
           created_at: Time,
           date_formed: T.nilable(Date),
           date_of_birth: T.nilable(Date),
@@ -162,24 +168,28 @@ module ModernTreasury
           doing_business_as_names: T::Array[String],
           email: T.nilable(String),
           first_name: T.nilable(String),
-          identifications: T::Array[T.any(ModernTreasury::Models::LegalEntity::Identification, ModernTreasury::Util::AnyHash)],
-          industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Util::AnyHash)],
+          identifications: T::Array[T.any(ModernTreasury::Models::LegalEntity::Identification, ModernTreasury::Internal::Util::AnyHash)],
+          industry_classifications: T::Array[T.any(ModernTreasury::Models::LegalEntityIndustryClassification, ModernTreasury::Internal::Util::AnyHash)],
           last_name: T.nilable(String),
-          legal_entity_associations: T.nilable(T::Array[T.any(ModernTreasury::Models::LegalEntityAssociation, ModernTreasury::Util::AnyHash)]),
+          legal_entity_associations: T.nilable(
+            T::Array[T.any(ModernTreasury::Models::LegalEntityAssociation, ModernTreasury::Internal::Util::AnyHash)]
+          ),
           legal_entity_type: ModernTreasury::Models::LegalEntity::LegalEntityType::OrSymbol,
           legal_structure: T.nilable(ModernTreasury::Models::LegalEntity::LegalStructure::OrSymbol),
           live_mode: T::Boolean,
           metadata: T::Hash[Symbol, String],
           middle_name: T.nilable(String),
           object: String,
-          phone_numbers: T::Array[T.any(ModernTreasury::Models::LegalEntity::PhoneNumber, ModernTreasury::Util::AnyHash)],
+          phone_numbers: T::Array[T.any(ModernTreasury::Models::LegalEntity::PhoneNumber, ModernTreasury::Internal::Util::AnyHash)],
           politically_exposed_person: T.nilable(T::Boolean),
           preferred_name: T.nilable(String),
           prefix: T.nilable(String),
           risk_rating: T.nilable(ModernTreasury::Models::LegalEntity::RiskRating::OrSymbol),
           suffix: T.nilable(String),
           updated_at: Time,
-          wealth_and_employment_details: T.nilable(T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Util::AnyHash)),
+          wealth_and_employment_details: T.nilable(
+            T.any(ModernTreasury::Models::WealthAndEmploymentDetails, ModernTreasury::Internal::Util::AnyHash)
+          ),
           website: T.nilable(String)
         )
           .returns(T.attached_class)

@@ -83,7 +83,7 @@ class ModernTreasury::Test::Resources::IncomingPaymentDetailsTest < ModernTreasu
     response = @modern_treasury.incoming_payment_details.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

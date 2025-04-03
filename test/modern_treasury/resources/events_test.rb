@@ -30,7 +30,7 @@ class ModernTreasury::Test::Resources::EventsTest < ModernTreasury::Test::Resour
     response = @modern_treasury.events.list
 
     assert_pattern do
-      response => ModernTreasury::Page
+      response => ModernTreasury::Internal::Page
     end
 
     row = response.to_enum.first

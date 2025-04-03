@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class PaymentFlowCreateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # Required. Value in specified currency's smallest unit. e.g. $10 would be
       #   represented as 1000. Can be any integer up to 36 digits.
@@ -46,7 +46,7 @@ module ModernTreasury
           direction: ModernTreasury::Models::PaymentFlowCreateParams::Direction::OrSymbol,
           originating_account_id: String,
           due_date: Date,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

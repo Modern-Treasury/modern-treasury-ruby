@@ -23,11 +23,11 @@ module ModernTreasury
         status: ModernTreasury::Models::LedgerEntryListParams::status,
         updated_at: ::Hash[Symbol, Time]
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerEntryListParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_reader id: ::Array[String]?
 

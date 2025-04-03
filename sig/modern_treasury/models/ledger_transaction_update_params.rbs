@@ -10,11 +10,11 @@ module ModernTreasury
         metadata: ::Hash[Symbol, String],
         status: ModernTreasury::Models::LedgerTransactionUpdateParams::status
       }
-      & ModernTreasury::request_parameters
+      & ModernTreasury::Internal::Type::request_parameters
 
     class LedgerTransactionUpdateParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       attr_accessor description: String?
 

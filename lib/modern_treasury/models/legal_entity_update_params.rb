@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::LegalEntities#update
     class LegalEntityUpdateParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute [r] addresses
       #   A list of addresses for the entity.

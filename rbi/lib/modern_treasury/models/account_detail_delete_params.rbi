@@ -3,8 +3,8 @@
 module ModernTreasury
   module Models
     class AccountDetailDeleteParams < ModernTreasury::BaseModel
-      extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       sig { returns(ModernTreasury::Models::AccountDetailDeleteParams::AccountsType::OrSymbol) }
       attr_accessor :accounts_type
@@ -16,7 +16,7 @@ module ModernTreasury
         params(
           accounts_type: ModernTreasury::Models::AccountDetailDeleteParams::AccountsType::OrSymbol,
           account_id: String,
-          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Util::AnyHash)
+          request_options: T.any(ModernTreasury::RequestOptions, ModernTreasury::Internal::Util::AnyHash)
         )
           .returns(T.attached_class)
       end

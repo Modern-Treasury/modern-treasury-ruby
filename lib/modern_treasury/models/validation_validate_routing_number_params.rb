@@ -5,8 +5,8 @@ module ModernTreasury
     # @see ModernTreasury::Resources::Validations#validate_routing_number
     class ValidationValidateRoutingNumberParams < ModernTreasury::BaseModel
       # @!parse
-      #   extend ModernTreasury::Type::RequestParameters::Converter
-      include ModernTreasury::RequestParameters
+      #   extend ModernTreasury::Internal::Type::RequestParameters::Converter
+      include ModernTreasury::Internal::Type::RequestParameters
 
       # @!attribute routing_number
       #   The routing number that is being validated.
