@@ -11,18 +11,6 @@ module ModernTreasury
     #   page.auto_paging_each do |connection|
     #     puts(connection)
     #   end
-    #
-    # @example
-    #   connections =
-    #     page
-    #     .to_enum
-    #     .lazy
-    #     .select { _1.object_id.even? }
-    #     .map(&:itself)
-    #     .take(2)
-    #     .to_a
-    #
-    #   connections => Array
     class Page < ::Array
       include ModernTreasury::Internal::Type::BasePage
 
